@@ -1,0 +1,196 @@
+// full price stack (exact behavior)
+const CURRENCY = /[$€£¥₹]|\b(AED|AUD|BRL|CAD|CHF|CNY|DKK|EUR|GBP|HKD|IDR|ILS|INR|JPY|KRW|MXN|MYR|NOK|NZD|PHP|PLN|RON|RUB|SAR|SEK|SGD|THB|TRY|TWD|USD|VND|ZAR)\b/i;
+const NUM = /\d+[\d.,\s]*\d|\d/;
+
+const normalizeMoney = (raw) => {
+  if (!raw) return null;
+  let s = T(raw).replace(/\u00A0/g," ");
+  if (/(was|list|regular|original|compare|mrp)/i.test(s)) return null;
+  const m = s.match(/(\$|€|£|¥|₹|\b[A-Z]{3}\b)\s*([0-9][0-9.,\s]*)/i);
+  if (!m) return null;
+  let cur = m[1];
+  let num = m[2];
+  num = num.replace(/\s/g,"");
+  const lastComma = num.lastIndexOf(",");
+  const lastDot = num.lastIndexOf(".");
+  if (lastComma > lastDot) {
+    num = num.replace(/\./g,"").replace(/,/g,".");
+  } else {
+    num = num.replace(/,/g,"");
+  }
+  return `${cur}${num}`;
+};
+// helpers
+function parsePrice(txt) {
+  if (!txt) return null;
+  const s = String(txt).replace(/[, ]+/g,'').trim();
+  const m = s.match(/([€£$]|USD|GBP|EUR)?\s*([0-9]+(?:\.[0-9]{1,2})?)/i);
+  return m ? parseFloat(m[2]) : null;
+}
+
+// 3) BonBonBon
+function PRICE_BONBONBON() {
+  if (!/bonbonbon\.com$/i.test(location.hostname)) return null;
+  // current price is in the main price container
+  const el = document.querySelector(
+    '.product_price_main .product_price, .product_price_main [data-product-price], .product__price .money, .product_price'
+  );
+  return parsePrice(el?.textContent || el?.getAttribute('data-product-price'));
+}
+
+// 6) Commense / TheCommense
+function PRICE_COMMENSE() {
+  if (!/commense\.com|thecommense\.com$/i.test(location.hostname)) return null;
+  // prefer current price; ignore "origin/regular" if present
+  const el =
+    document.querySelector('.product__main .product_price .money') ||
+    document.querySelector('.product__main .product_price, span[id^="ProductPrice-"]');
+  return parsePrice(el?.textContent);
+}
+
+// 10) Kirrin Finch
+function PRICE_KIRRIN() {
+  if (!/kirrinfinch\.com$/i.test(location.hostname)) return null;
+  // page shows `$ 415` in [data-price]; also expose .money in some templates
+  const el =
+    document.querySelector('[data-price]') ||
+    document.querySelector('.product-price .money, .product__price .money');
+  return parsePrice(el?.textContent || el?.getAttribute('data-price'));
+}
+
+// 11) Mahabis
+function PRICE_MAHABIS() {
+  if (!/mahabis\.com$/i.test(location.hostname)) return null;
+  // sale block shows final price in .pricea .money (or #bundlePrice .money)
+  const el =
+    document.querySelector('#bundlePrice .money') ||
+    document.querySelector('.pricea .money, .product-details-wrap .money');
+  return parsePrice(el?.textContent);
+}
+
+function priceFromJSON() {
+  for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const data = JSON.parse(b.textContent.trim());
+      const arr = Array.isArray(data) ? data : [data];
+      for (const node of arr) {
+        const types = [].concat(node?.["@type"]||[]).map(String);
+        if (!types.some(t=>/product/i.test(t))) continue;
+        const cur = node.priceCurrency || node.offers?.priceCurrency || "";
+        const offers = []
+          .concat(node.offers || [])
+          .map(o => o?.priceSpecification?.price || o?.price || o?.lowPrice || o?.highPrice)
+          .filter(Boolean);
+        if (offers.length) {
+          const val = offers.find(v => /\d/.test(String(v)));
+          if (val != null) return normalizeMoney(`${cur ? cur + " " : ""}${val}`);
+        }
+      }
+    } catch {}
+  }
+
+  const shopify = document.querySelector('script[type="application/json"][id*="ProductJson" i], script[type="application/json"][data-product-json]');
+  if (shopify) {
+    try {
+      const p = JSON.parse(shopify.textContent.trim());
+      const cents =
+        p?.price ??
+        p?.selected_variant?.price ??
+        p?.variants?.find(v=>v?.available)?.price ??
+        p?.price_min ?? null;
+      if (cents != null) {
+        const n = Number(cents);
+        if (!Number.isNaN(n)) return "$" + (n >= 1000 ? (n/100).toFixed(2) : n.toFixed(2));
+      }
+    } catch {}
+  }
+
+  const next = document.querySelector('#__NEXT_DATA__');
+  if (next) {
+    try {
+      const j = JSON.parse(next.textContent.trim());
+      const guess = JSON.stringify(j).match(/"price"\s*:\s*"?([0-9][0-9.,]*)"?/i);
+      if (guess) {
+        const val = normalizeMoney(guess[1]);
+        if (val) return val;
+      }
+    } catch {}
+  }
+  return null;
+}
+
+function getPriceGeneric() {
+  const j = priceFromJSON();
+  if (j) return j;
+
+  const meta = document.querySelector("meta[itemprop='price']")?.getAttribute("content");
+  if (meta) {
+    const m = normalizeMoney(meta);
+    if (m) return m;
+  }
+  const micro = [...document.querySelectorAll("[itemprop='price'], [property='product:price:amount']")]
+    .map(el => el.getAttribute("content") || el.textContent)
+    .map(normalizeMoney)
+    .find(Boolean);
+  if (micro) return micro;
+
+  const BAD_WORDS = /(was|list|regular|original|compare|mrp|strik(e|ed)|previous)/i;
+  const GOOD_WORDS = /(now|current|final|sale|deal|price|buy)/i;
+
+  const selHints = [
+    '.price ins .amount',
+    '.price__current, .price__final, .product-sales-price',
+    '.price-item--sale, .price--sale',
+    '[data-price-type="finalPrice"] [data-price-amount]',
+    '.pdp-price, .product-price, .current-price, .sale-price, .final-price',
+    '[data-testid*="price"]',
+    '.price .amount, .Price, [class*="price"] .amount',
+    '[id*="price"] .amount, [id*="price"] .a-offscreen',
+    '.a-price .a-offscreen',
+    '.price, [class*="price"], [id*="price"]'
+  ];
+  const bucket = new Set();
+
+  const addIfMoney = (el, baseScore) => {
+    if (!el) return;
+    const text = T(el.textContent);
+    if (!text || !CURRENCY.test(text) || !NUM.test(text)) return;
+    const deco = getComputedStyle(el).textDecorationLine || "";
+    const isStruck = /line-through/i.test(deco) || /^(del|s|strike)$/i.test(el.tagName);
+    if (isStruck) return;
+    const near = T((el.closest('[class],[id]') || el.parentElement || {}).textContent || "");
+    if (BAD_WORDS.test(near)) return;
+
+    let score = baseScore;
+    if (GOOD_WORDS.test(near)) score += 2;
+    if (text.length <= 14) score += 1;
+    const val = normalizeMoney(text);
+    if (!val) return;
+    bucket.add(JSON.stringify({score, val}));
+  };
+
+  selHints.forEach((s, i) => {
+    document.querySelectorAll(s).forEach(el => addIfMoney(el, 10 - i));
+  });
+
+  const ctas = [...document.querySelectorAll('button, a')]
+    .filter(b => /add to cart|buy now|checkout|add to bag|add to basket/i.test(T(b.textContent)));
+  ctas.forEach(btn => {
+    const scope = btn.closest('form, section, div, article') || document.body;
+    scope.querySelectorAll('*').forEach(el => addIfMoney(el, 5));
+  });
+
+  [...document.querySelectorAll('body *:not(script):not(style):not(noscript)')]
+    .slice(0, 1500)
+    .forEach(el => addIfMoney(el, 1));
+
+  if (bucket.size) {
+    const best = [...bucket]
+      .map(s => JSON.parse(s))
+      .sort((a,b)=> b.score - a.score)[0];
+    return best?.val || null;
+  }
+  return null;
+}
+
+Object.assign(globalThis, { getPriceGeneric, normalizeMoney, CURRENCY, NUM });

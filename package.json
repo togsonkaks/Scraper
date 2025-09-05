@@ -1,0 +1,12 @@
+{
+  "name": "tagglo-electron",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^31.2.0"
+  }
+}

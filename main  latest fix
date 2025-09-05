@@ -1,0 +1,623 @@
+// main.js
+const path = require("path");
+const { app, BrowserWindow, ipcMain, session } = require("electron");
+
+let controlWin = null;
+let productWin = null;
+
+function createControlWindow() {
+  controlWin = new BrowserWindow({
+    width: 900,
+    height: 660,
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: false,
+      preload: path.join(__dirname, "preload.js"),
+    },
+    title: "Tagglo - Control",
+  });
+
+  controlWin.loadFile(path.join(__dirname, "control.html"));
+  controlWin.on("closed", () => (controlWin = null));
+}
+
+app.whenReady().then(createControlWindow);
+app.on("window-all-closed", () => app.quit());
+
+// ---------- product window helpers ----------
+function ensureProductWindow() {
+  if (productWin && !productWin.isDestroyed()) return productWin;
+
+  productWin = new BrowserWindow({
+    width: 1200,
+    height: 900,
+    show: true, // visible so user can pass captcha etc.
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: false,
+      partition: "persist:tagglo",
+    },
+    title: "Tagglo - Product",
+  });
+
+  // Pretend to be desktop Chrome
+  const ua =
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit(537.36) (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36";
+  productWin.webContents.setUserAgent(ua);
+
+  // Gentle referer: helps some PDP CDNs deliver full-res assets
+  const ses = productWin.webContents.session;
+  if (!ses._taggloHooked) {
+    ses._taggloHooked = true;
+    ses.setPermissionRequestHandler((_wc, _perm, cb) => cb(false));
+    ses.webRequest.onBeforeSendHeaders((details, cb) => {
+      try {
+        const u = new URL(details.url);
+        if (!details.requestHeaders.Referer) {
+          details.requestHeaders.Referer = `${u.protocol}//${u.host}/`;
+        }
+      } catch {}
+      cb({ requestHeaders: details.requestHeaders });
+    });
+  }
+
+  productWin.on("closed", () => (productWin = null));
+  return productWin;
+}
+
+// ---------- IPC handlers from renderer ----------
+ipcMain.handle("open-product", async (_evt, url) => {
+  const win = ensureProductWindow();
+  await win.loadURL(url);
+  return true;
+});
+
+ipcMain.handle("scrape-current", async () => {
+  if (!productWin || productWin.isDestroyed()) {
+    throw new Error("Product window is not open.");
+  }
+
+  const data = await productWin.webContents.executeJavaScript(`(async () => {
+    // ---------- tiny utils ----------
+    const sleep = (ms)=>new Promise(r=>setTimeout(r,ms));
+    const T = s => (s||"").toString().replace(/\\s+/g," ").trim();
+    const uniq = a => [...new Set(a)];
+    const looksHttp = u => /^https?:\\/\\//i.test(u||"");
+
+    // ---------- AMAZON HELPERS (domain-specific priority) ----------
+    const isAmazon = /(^|\\.)amazon\\./i.test(location.hostname);
+    const AMZ = {
+      getTitle() {
+        const t = T(document.querySelector('#productTitle')?.textContent)
+              || T(document.querySelector('h1#title')?.textContent);
+        return t || null;
+      },
+      getBrand() {
+        const byline = T(document.querySelector('#bylineInfo, a#bylineInfo')?.textContent);
+        if (byline) {
+          const m = byline.match(/visit the\\s+(.+?)\\s+store/i);
+          if (m) return m[1].trim();
+          return byline.replace(/store$/i,"").trim();
+        }
+        return null;
+      },
+      getPrice() {
+        const sel = [
+          '#corePrice_feature_div .a-price .a-offscreen',
+          '#apex_desktop .a-price .a-offscreen',
+          '#corePriceDisplay_desktop_feature_div .a-price .a-offscreen',
+          '#priceblock_ourprice',
+          '#priceblock_dealprice',
+          '#sns-base-price .a-offscreen',
+          '.a-price .a-offscreen'
+        ];
+        for (const s of sel) {
+          const v = T(document.querySelector(s)?.textContent);
+          if (v && /\\d/.test(v)) return v;
+        }
+        const btn = document.querySelector('input[data-asin-price]')?.getAttribute('data-asin-price');
+        if (btn) return btn;
+        return null;
+      },
+      getSpecs() {
+        const out = [];
+        const techTbl = document.querySelector('#productDetails_techSpec_section_1, #productDetails_detailBullets_sections1');
+        if (techTbl) {
+          techTbl.querySelectorAll('tr').forEach(tr=>{
+            const k=T(tr.querySelector('th,td:nth-child(1)')?.textContent);
+            const v=T(tr.querySelector('td:nth-child(2)')?.textContent);
+            if (k && v) out.push(\`\${k}: \${v}\`);
+          });
+        }
+        document.querySelectorAll('#detailBullets_feature_div li').forEach(li=>{
+          const s=T(li.textContent); if (s) out.push(s);
+        });
+        return uniq(out).slice(0,20);
+      }
+    };
+
+    // ---------- GENERIC helpers ----------
+    const STOP = new Set([
+      "the","a","an","and","or","for","with","of","to","in","by","on",
+      "this","that","from","at","is","are","be","it","you","your","our",
+      "men","womens","women","woman","man","mens","girls","boys","unisex",
+      "size","sizes","new","sale","now","off","deal","shop","buy","add",
+      "color","colours","colour","colors","black","white","red","blue","green","grey","gray","beige","brown",
+      "us","uk","eu"
+    ]);
+
+    const tokenize = (s) => T(s)
+      .toLowerCase()
+      .replace(/[|\\-–—_:/,(){}$+@™®©%^*<>]/g," ")
+      .replace(/\\s+/g," ")
+      .split(" ")
+      .filter(w => w && !STOP.has(w) && !/^\\d+$/.test(w));
+
+    const getTitleGeneric = () =>
+      T(document.querySelector("h1")?.innerText) ||
+      T(document.querySelector('meta[property="og:title"]')?.content) ||
+      null;
+
+    function getBrandGeneric() {
+      for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
+        try {
+          const data = JSON.parse(b.textContent.trim());
+          const arr = Array.isArray(data) ? data : [data];
+          for (const node of arr) {
+            const types = [].concat(node?.["@type"]||[]).map(String);
+            if (types.some(t=>/product/i.test(t))) {
+              const brand = node.brand?.name || node.brand || node.manufacturer?.name || "";
+              if (brand && T(brand)) return T(brand);
+            }
+          }
+        } catch {}
+      }
+      const metaBrand =
+        document.querySelector('meta[property="product:brand"]')?.content ||
+        document.querySelector('meta[name="brand"]')?.content ||
+        document.querySelector('[itemprop="brand"] [itemprop="name"]')?.textContent ||
+        document.querySelector('[itemprop="brand"]')?.getAttribute("content") ||
+        document.querySelector('[itemprop="brand"]')?.textContent || "";
+      return T(metaBrand) || null;
+    }
+
+    // ---------- PRICE (UPGRADED) ----------
+    const CURRENCY = /[$€£¥₹]|\\b(AED|AUD|BRL|CAD|CHF|CNY|DKK|EUR|GBP|HKD|IDR|ILS|INR|JPY|KRW|MXN|MYR|NOK|NZD|PHP|PLN|RON|RUB|SAR|SEK|SGD|THB|TRY|TWD|USD|VND|ZAR)\\b/i;
+    const NUM = /\\d+[\\d.,\\s]*\\d|\\d/;
+
+    const normalizeMoney = (raw) => {
+      // pull first money-like token, keep currency
+      if (!raw) return null;
+      let s = T(raw).replace(/\\u00A0/g," "); // nbsp
+      // ignore obvious "old" tokens inline
+      if (/(was|list|regular|original|compare|mrp)/i.test(s)) return null;
+      const m = s.match(new RegExp(\`(\\\\$|€|£|¥|₹|\\\\b[A-Z]{3}\\\\b)\\\\s*([0-9][0-9.,\\s]*)\`,"i"));
+      if (!m) return null;
+      let cur = m[1];
+      let num = m[2];
+      // pick last dot/comma as decimal separator
+      num = num.replace(/\\s/g,"");
+      const lastComma = num.lastIndexOf(",");
+      const lastDot = num.lastIndexOf(".");
+      if (lastComma > lastDot) {
+        // comma decimals -> convert to dot
+        num = num.replace(/\\./g,"").replace(/,/g,".");
+      } else {
+        // dot decimals -> strip grouping commas
+        num = num.replace(/,/g,"");
+      }
+      return \`\${cur}\${num}\`;
+    };
+
+    function priceFromJSON() {
+      // 1) JSON-LD offers
+      for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
+        try {
+          const data = JSON.parse(b.textContent.trim());
+          const arr = Array.isArray(data) ? data : [data];
+          for (const node of arr) {
+            const types = [].concat(node?.["@type"]||[]).map(String);
+            if (!types.some(t=>/product/i.test(t))) continue;
+            const cur = node.priceCurrency || node.offers?.priceCurrency || "";
+            const offers = []
+              .concat(node.offers || [])
+              .map(o => o?.priceSpecification?.price || o?.price || o?.lowPrice || o?.highPrice)
+              .filter(Boolean);
+            if (offers.length) {
+              const val = offers.find(v => /\\d/.test(String(v)));
+              if (val != null) return normalizeMoney(\`\${cur ? cur + " " : ""}\${val}\`);
+            }
+          }
+        } catch {}
+      }
+
+      // 2) Shopify product JSON (cents)
+      const shopify = document.querySelector('script[type="application/json"][id*="ProductJson" i], script[type="application/json"][data-product-json]');
+      if (shopify) {
+        try {
+          const p = JSON.parse(shopify.textContent.trim());
+          const cents =
+            p?.price ??
+            p?.selected_variant?.price ??
+            p?.variants?.find(v=>v?.available)?.price ??
+            p?.price_min ?? null;
+          if (cents != null) {
+            const n = Number(cents);
+            if (!Number.isNaN(n)) return "$" + (n >= 1000 ? (n/100).toFixed(2) : n.toFixed(2)); // handle raw dollars vs cents
+          }
+        } catch {}
+      }
+
+      // 3) Next.js page props blobs
+      const next = document.querySelector('#__NEXT_DATA__');
+      if (next) {
+        try {
+          const j = JSON.parse(next.textContent.trim());
+          const guess = JSON.stringify(j).match(/"price"\\s*:\\s*"?([0-9][0-9.,]*)"?/i);
+          if (guess) {
+            const val = normalizeMoney(guess[1]);
+            if (val) return val;
+          }
+        } catch {}
+      }
+
+      return null;
+    }
+
+    function getPriceGeneric() {
+      // Prefer structured data
+      const j = priceFromJSON();
+      if (j) return j;
+
+      // microdata/metas
+      const meta = document.querySelector("meta[itemprop='price']")?.getAttribute("content");
+      if (meta) {
+        const m = normalizeMoney(meta);
+        if (m) return m;
+      }
+      const micro = [...document.querySelectorAll("[itemprop='price'], [property='product:price:amount']")]
+        .map(el => el.getAttribute("content") || el.textContent)
+        .map(normalizeMoney)
+        .find(Boolean);
+      if (micro) return micro;
+
+      // DOM scan with scoring
+      const BAD_WORDS = /(was|list|regular|original|compare|mrp|strik(e|ed)|previous)/i;
+      const GOOD_WORDS = /(now|current|final|sale|deal|price|buy)/i;
+
+      const selHints = [
+        '.price ins .amount',                          // WooCommerce sale
+        '.price__current, .price__final, .product-sales-price',
+        '.price-item--sale, .price--sale',
+        '[data-price-type="finalPrice"] [data-price-amount]',
+        '.pdp-price, .product-price, .current-price, .sale-price, .final-price',
+        '[data-testid*="price"]',
+        '.price .amount, .Price, [class*="price"] .amount',
+        '[id*="price"] .amount, [id*="price"] .a-offscreen',
+        '.a-price .a-offscreen',                      // generic Amazon-esque
+        '.price, [class*="price"], [id*="price"]'
+      ];
+      const bucket = new Set();
+
+      const addIfMoney = (el, baseScore) => {
+        if (!el) return;
+        const text = T(el.textContent);
+        if (!text || !CURRENCY.test(text) || !NUM.test(text)) return;
+        // reject crossed-out
+        const deco = getComputedStyle(el).textDecorationLine || "";
+        const isStruck = /line-through/i.test(deco) || /^(del|s|strike)$/i.test(el.tagName);
+        if (isStruck) return;
+        // reject if ancestor obviously "old/list"
+        const near = T((el.closest('[class],[id]') || el.parentElement || {}).textContent || "");
+        if (BAD_WORDS.test(near)) return;
+
+        let score = baseScore;
+        if (GOOD_WORDS.test(near)) score += 2;
+        if (text.length <= 14) score += 1; // typical compact price text
+        const val = normalizeMoney(text);
+        if (!val) return;
+        bucket.add(JSON.stringify({score, val}));
+      };
+
+      // pass 1: targeted selectors
+      selHints.forEach((s, i) => {
+        document.querySelectorAll(s).forEach(el => addIfMoney(el, 10 - i)); // earlier selectors score higher
+      });
+
+      // pass 2: around add-to-cart / buy buttons
+      const ctas = [...document.querySelectorAll('button, a')]
+        .filter(b => /add to cart|buy now|checkout|add to bag|add to basket/i.test(T(b.textContent)));
+      ctas.forEach(btn => {
+        const scope = btn.closest('form, section, div, article') || document.body;
+        scope.querySelectorAll('*').forEach(el => addIfMoney(el, 5));
+      });
+
+      // pass 3: generic scan fallback (light)
+      [...document.querySelectorAll('body *:not(script):not(style):not(noscript)')]
+        .slice(0, 1500)
+        .forEach(el => addIfMoney(el, 1));
+
+      if (bucket.size) {
+        const best = [...bucket]
+          .map(s => JSON.parse(s))
+          .sort((a,b)=> b.score - a.score)[0];
+        return best?.val || null;
+      }
+      return null;
+    }
+
+    // ---------- IMAGE COLLECTOR (unchanged from your winning approach) ----------
+    async function collectImagesFromPDP() {
+      const keepBiggestFromSrcset = (srcset) =>
+        (srcset||"").split(",").map(s=>s.trim()).map(s=>{
+          const [u, d] = s.split(/\\s+/); const m=(d||"").match(/(\\d+)w/);
+          return {u, w: m ? +m[1] : 0};
+        }).filter(x=>x.u).sort((a,b)=>b.w-a.w).map(x=>x.u);
+
+      const title = T(document.querySelector("h1")?.textContent) || "";
+      const titleTokens = uniq(
+        title.toLowerCase()
+          .replace(/[|–—\\-_/,:(){}$+@™®©%^*<>]/g," ")
+          .split(" ")
+          .filter(w => w && !/^\\d+$/.test(w) && !new Set(["the","a","an","and","or","for","with","of","to","in","on","by","this","that","is","are","be","your","our","new","sale","now","women","woman","womens","men","mens","girls","boys","unisex","size","sizes","color","colours","colour"]).has(w))
+      );
+
+      function nearestProductRoot() {
+        const h1 = document.querySelector("h1");
+        let node = h1;
+        while (node) {
+          const cls = (node.className||"")+" "+(node.id||"");
+          if (/(pdp|product|__product|detail|details|gallery|media|image)/i.test(cls)) return node;
+          node = node.parentElement;
+        }
+        return (
+          document.querySelector('[role="region"][aria-label*="gallery" i]') ||
+          document.querySelector('[aria-roledescription="carousel" i]') ||
+          document.querySelector('[data-testid*="gallery" i]') ||
+          document.querySelector('.gallery, .pdp, .product, [class*="Product"], [class*="Gallery"]') ||
+          document.body
+        );
+      }
+      const root = nearestProductRoot();
+
+      async function wakeLazy(scope) {
+        const h = Math.max(2000, document.body.scrollHeight);
+        window.scrollTo(0, 0); await new Promise(r=>setTimeout(r,60));
+        window.scrollTo(0, h); await new Promise(r=>setTimeout(r,120));
+        window.scrollTo(0, 0); await new Promise(r=>setTimeout(r,60));
+        scope.querySelectorAll("img").forEach(img=>{
+          try{
+            img.loading="eager"; img.decoding="sync";
+            const ds = img.getAttribute("data-src") || img.getAttribute("data-original") || img.getAttribute("data-lazy");
+            if (ds && !img.src) img.src = ds;
+            const dss = img.getAttribute("data-srcset") || img.getAttribute("data-lazy-srcset");
+            if (dss && !img.getAttribute("srcset")) img.setAttribute("srcset", dss);
+          }catch{}
+        });
+      }
+
+      const BAD_PATH = /(\\/|^)(plp|listing|category|promo|cms|ad|recommend|recs|similar|also|upsell)\\b/i;
+      const TINY = /(^|_|-)(16|24|32|40|48|64|80|96|120|150|180|200)(x|_|-)?(16|24|32|40|48|64|80|96|120|150|180|200)?(\\.|$)/i;
+
+      const candidates = new Map();
+      const ensure = (u, w=0, h=0, from="") => {
+        try{
+          if (!u) return;
+          if (u.startsWith("//")) u = location.protocol + u;
+          if (!looksHttp(u)) return;
+          if (BAD_PATH.test(u)) return;
+          if (!candidates.has(u)) candidates.set(u, { url:u, w, h, hits:0, from:new Set() });
+          const rec = candidates.get(u);
+          rec.hits++; rec.from.add(from);
+          if ((w*h) > (rec.w*rec.h)) { rec.w=w; rec.h=h; }
+        }catch{}
+      };
+
+      function addFromImg(img){
+        const w=img.naturalWidth||0, h=img.naturalHeight||0;
+        ['data-zoom-image','data-zoom','data-large','data-large-image','data-src-large','data-hires','data-original']
+          .forEach(a=>{const v=img.getAttribute(a); if(v) ensure(v, w,h,'hires');});
+        const src = img.currentSrc || img.src; if (src) ensure(src,w,h,'img');
+        keepBiggestFromSrcset(img.getAttribute('srcset')).forEach(u=>ensure(u,w,h,'srcset'));
+        const a = img.closest('a[href]');
+        if (a && /\\.(jpe?g|png|webp|avif)(\\?|$)/i.test(a.getAttribute('href'))) ensure(a.href,w,h,'anchor');
+      }
+
+      function addFromPicture(pic){
+        pic.querySelectorAll('source[srcset]').forEach(s=>{
+          keepBiggestFromSrcset(s.getAttribute('srcset')).forEach(u=>ensure(u,0,0,'picture'));
+        });
+        const img = pic.querySelector('img'); if (img) addFromImg(img);
+      }
+
+      function addFromNoscript(scope){
+        scope.querySelectorAll('noscript').forEach(ns=>{
+          try{
+            const tmp=document.createElement('div');
+            tmp.innerHTML = ns.textContent || ns.innerHTML || "";
+            tmp.querySelectorAll('img').forEach(addFromImg);
+            tmp.querySelectorAll('source[srcset]').forEach(s=>{
+              keepBiggestFromSrcset(s.getAttribute('srcset')).forEach(u=>ensure(u,0,0,'noscript'));
+            });
+          }catch{}
+        });
+      }
+
+      function addMeta(){
+        [
+          'meta[property="og:image:secure_url"]',
+          'meta[property="og:image:url"]',
+          'meta[property="og:image"]',
+          'meta[name="twitter:image"]',
+          'link[rel="image_src"]'
+        ].forEach(sel=>{
+          const el=document.querySelector(sel);
+          const u=el?.content || el?.href;
+          if (u) ensure(u,0,0,'meta');
+        });
+      }
+
+      await wakeLazy(root);
+      root.querySelectorAll('picture').forEach(addFromPicture);
+      root.querySelectorAll('img').forEach(addFromImg);
+      addFromNoscript(root);
+      addMeta();
+
+      if (candidates.size < 3) {
+        await wakeLazy(document);
+        document.querySelectorAll('picture').forEach(addFromPicture);
+        document.querySelectorAll('img').forEach(addFromImg);
+        addFromNoscript(document);
+        addMeta();
+      }
+
+      const overlap = (s) => {
+        const low = s.toLowerCase();
+        let hits = 0;
+        for (const t of titleTokens) if (t.length >= 3 && low.includes(t)) hits++;
+        return hits;
+      };
+
+      const scored = [...candidates.values()]
+        .filter(r => !TINY.test(r.url))
+        .map(r=>{
+          const nameBits=(r.url.split('?')[0].split('/').pop()||"");
+          const rel = overlap(nameBits);
+          let s=0;
+          const area = r.w*r.h;
+          s += (area>=1400*1400)?10:(area>=1000*1000)?8:(area>=700*700)?6:(area>=400*400)?4:0;
+          s += 2*rel;
+          if (r.from.has('picture') || r.from.has('hires')) s+=4;
+          if (/hero|main|default|primary|front|product|zoom|large|full/i.test(r.url)) s+=2;
+          return {...r, score:s};
+        })
+        .filter(r=>r.score>0)
+        .sort((a,b)=>b.score-a.score);
+
+      return scored.slice(0,10).map(r=>r.url);
+    }
+
+    // ----- SPECS / DETAILS (compact) -----
+    function collectSpecs(limit=10) {
+      if (isAmazon) return AMZ.getSpecs();
+
+      const items = [];
+      const pushFrom = (root) => {
+        if (!root) return;
+        root.querySelectorAll("li").forEach(li => { const s=T(li.textContent); if (s) items.push(s); });
+        root.querySelectorAll("tr").forEach(tr => {
+          const k=T(tr.querySelector("th,td:first-child")?.textContent);
+          const v=T(tr.querySelector("td:last-child")?.textContent);
+          if (k && v) items.push(\`\${k}: \${v}\`);
+        });
+        root.querySelectorAll("dt").forEach(dt=>{
+          const dd=dt.nextElementSibling;
+          const k=T(dt.textContent), v=T(dd?.textContent);
+          if (k && v) items.push(\`\${k}: \${v}\`);
+        });
+      };
+      const LABEL=/(specs?|specifications?|details?|product details?|tech specs?|materials?|dimensions?|features?|warranty|composition)/i;
+      document.querySelectorAll("section,div,article,details").forEach(sec=>{
+        const head=sec.querySelector("h1,h2,h3,h4,h5,h6,summary,[role='heading']");
+        if (!head || !LABEL.test(head.textContent||"")) return;
+        pushFrom(sec);
+      });
+      return uniq(items).slice(0, limit);
+    }
+
+    // ----- TAGS (your stronger tagging pass) -----
+    function collectTags(limit = 12) {
+      const tags = [];
+      document.querySelectorAll('[class*="chip"],[class*="pill"],[class*="tag"],[class*="badge"]').forEach(el => {
+        const t = T(el.textContent); if (t) tags.push(t);
+      });
+      const ATTR=/(material|fabric|composition|care|wash|fit|rise|inseam|length|dimensions?|weight|capacity|volume|sku|style|model|color|colour|size range|waist|bust|hip|heel|shaft|calf|origin)/i;
+      document.querySelectorAll("tr,li,dt").forEach(el=>{
+        const s=T(el.textContent);
+        if (ATTR.test(s)) {
+          const m = s.match(/^(.*?)[\\s:–-]+(.*)$/);
+          const val = m ? T(m[2]) : s;
+          const key = m ? T(m[1]).toLowerCase() : "";
+          if (val) tags.push(key ? \`\${key}: \${val}\` : val);
+        }
+      });
+      const selected = document.querySelector('[aria-checked="true"][role="radio"], .selected, [data-selected="true"]');
+      const swatchText = T(selected?.textContent);
+      if (swatchText && /color|colour|tone|shade/i.test(selected?.parentElement?.textContent||"")) {
+        tags.push(\`color: \${swatchText}\`);
+      }
+      const metaKw = document.querySelector('meta[name="keywords"]')?.content || "";
+      if (metaKw) metaKw.split(",").slice(0,6).map(T).forEach(k => { if (k && k.length <= 30) tags.push(k); });
+      const crumb = document.querySelector('.breadcrumb, nav[aria-label*=crumb], [class*="crumb"]');
+      if (crumb) {
+        const parts = T(crumb.textContent).split(/>|\\//).map(T).filter(Boolean);
+        if (parts.length) tags.push(parts[parts.length-1]);
+      }
+      return uniq(tags).map(t=>t.replace(/\\s{2,}/g," ")).filter(t=>t && t.length<=40).slice(0,limit);
+    }
+
+    // ----- Gender (safe heuristic) -----
+    function guessGender() {
+      const text = (document.body.innerText || "").toLowerCase();
+      const url  = location.href.toLowerCase();
+      const crumbs = (document.querySelector('.breadcrumb, nav[aria-label*=crumb], [class*="crumb"]')?.innerText || "").toLowerCase();
+      const hay = url + " " + crumbs + " " + text;
+      if (/(^|\\b)(women|womens|woman|ladies|female|womenswear)(\\b|$)/i.test(hay)) return "women";
+      if (/(^|\\b)(men|mens|man|menswear)(\\b|$)/i.test(hay)) return "men";
+      if (/(^|\\b)(girls|girl)(\\b|$)/i.test(hay)) return "girls";
+      if (/(^|\\b)(boys|boy)(\\b|$)/i.test(hay)) return "boys";
+      if (/\\bunisex\\b/i.test(hay)) return "unisex";
+      return null;
+    }
+
+    // ----- SKU (JSON-LD or metas) -----
+    function getSKU() {
+      for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
+        try {
+          const data = JSON.parse(b.textContent.trim());
+          const arr = Array.isArray(data) ? data : [data];
+          for (const node of arr) {
+            const types = [].concat(node?.["@type"]||[]).map(String);
+            if (types.some(t=>/product/i.test(t))) {
+              const sku = node.sku || node.productID || node.mpn || node.gtin13 || node.gtin || "";
+              if (sku) return T(sku);
+            }
+          }
+        } catch {}
+      }
+      const metaSku = document.querySelector('meta[property="product:retailer_item_id"]')?.content ||
+                      document.querySelector('meta[itemprop="sku"]')?.content ||
+                      document.querySelector('[itemprop="sku"]')?.textContent || "";
+      return T(metaSku) || null;
+    }
+
+    // ----- RUN -----
+    await sleep(200);
+
+    const title   = isAmazon ? (AMZ.getTitle() || getTitleGeneric()) : (getTitleGeneric());
+    const brand   = isAmazon ? (AMZ.getBrand() || getBrandGeneric()) : (getBrandGeneric());
+    const price   = isAmazon ? (AMZ.getPrice() || getPriceGeneric() || "Price not found")
+                             : (getPriceGeneric() || "Price not found");
+    const specs   = isAmazon ? AMZ.getSpecs() : collectSpecs(10);
+    const tags    = collectTags(12);
+    const images  = await collectImagesFromPDP();
+    const gender  = guessGender();
+    const sku     = getSKU();
+
+    return {
+      title: title || "Title not found",
+      brand: brand || null,
+      price,
+      specs,
+      tags,
+      images,
+      gender,
+      sku,
+      url: location.href,
+      timestamp: new Date().toISOString()
+    };
+  })();`);
+
+  controlWin?.webContents.send("scrape-result", data);
+  return data;
+});

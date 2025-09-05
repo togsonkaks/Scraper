@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tagglo Control</title>
+  <style>
+    body { font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 18px; color:#111; }
+    .row { display:flex; gap:8px; align-items:center; margin-bottom:10px; }
+    input[type="text"] { width: 560px; padding:8px 10px; border:1px solid #ccc; border-radius:6px; }
+    button { padding:8px 12px; border:0; border-radius:6px; background:#111; color:#fff; cursor:pointer; }
+    button[disabled] { opacity:.5; cursor:not-allowed; }
+    #out { white-space: pre; background:#fafafa; border:1px solid #eee; padding:10px; border-radius:8px; margin-top:12px; max-height: 44vh; overflow:auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; }
+    .pill { display:inline-block; background:#eee; border-radius:999px; padding:2px 8px; margin-right:6px; font-size:12px; }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+    .box { border:1px solid #eee; border-radius:8px; padding:10px; background:#fff; }
+    .label { font-weight:700; margin-bottom:4px; }
+    .imgs { display:flex; gap:6px; flex-wrap:wrap; }
+    .imgs img { height:64px; border-radius:6px; border:1px solid #eee; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <input id="urlInput" type="text" placeholder="Paste product URL" />
+    <button id="visitBtn">Load</button>
+    <button id="nudgeBtn">Nudge</button>
+    <button id="saveBtn" disabled>Save (scrape)</button>
+  </div>
+
+  <div id="status"></div>
+
+  <div id="panel" class="grid" style="display:none; margin-top:12px;">
+    <div class="box">
+      <div class="label">Scrape Result</div>
+      <div id="summary"></div>
+      <div id="images" class="imgs" style="margin-top:6px;"></div>
+    </div>
+    <div class="box">
+      <div class="label">Selector Memory (approve to save)</div>
+      <div>
+        <label><input type="checkbox" id="okTitle"> Title OK</label>
+        <label style="margin-left:12px;"><input type="checkbox" id="okPrice"> Price OK</label>
+        <label style="margin-left:12px;"><input type="checkbox" id="okImages"> Images OK</label>
+        <br>
+        <label><input type="checkbox" id="okBrand"> Brand OK</label>
+        <label style="margin-left:12px;"><input type="checkbox" id="okTags"> Tags OK</label>
+        <label style="margin-left:12px;"><input type="checkbox" id="okDesc"> Description OK</label>
+      </div>
+      <div id="memDebug" style="margin-top:8px; font-size:12px; opacity:.8;"></div>
+      <div style="margin-top:8px;">
+        <button id="saveMemBtn">Save selectors for this host</button>
+        <button id="clearMemBtn" style="background:#b22;">Clear memory (host)</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top:10px;">Image URLs (top 10)</div>
+  <div id="out" title="Only image URLs appear here"></div>
+
+  <script>
+    const urlInput = document.getElementById('urlInput');
+    const visitBtn = document.getElementById('visitBtn');
+    const nudgeBtn = document.getElementById('nudgeBtn');
+    const saveBtn  = document.getElementById('saveBtn');
+    const statusEl = document.getElementById('status');
+
+    const panel = document.getElementById('panel');
+    const summary = document.getElementById('summary');
+    const images = document.getElementById('images');
+    const out = document.getElementById('out');
+
+    const okTitle = document.getElementById('okTitle');
+    const okPrice = document.getElementById('okPrice');
+    const okImages = document.getElementById('okImages');
+    const okBrand = document.getElementById('okBrand');
+    const okTags  = document.getElementById('okTags');
+    const okDesc  = document.getElementById('okDesc');
+    const saveMemBtn = document.getElementById('saveMemBtn');
+    const clearMemBtn = document.getElementById('clearMemBtn');
+    const memDebug = document.getElementById('memDebug');
+
+    let currentHost = null;
+    let lastSelectorsUsed = null;
+    let lastPayload = null;
+
+    function setSaveState(disabled, label) {
+      saveBtn.disabled = disabled;
+      saveBtn.textContent = label || (disabled ? 'Waiting for page…' : 'Save (scrape)');
+    }
+
+    function hostFrom(url) {
+      try { return new URL(url).host.replace(/^www\./,''); } catch { return null; }
+    }
+
+    // Load (navigate only)
+    visitBtn.onclick = async () => {
+      const url = urlInput.value.trim();
+      if (!url) return;
+      currentHost = hostFrom(url);
+      panel.style.display = 'none';
+      out.textContent = '';
+      images.innerHTML = '';
+      summary.innerHTML = '';
+      statusEl.innerHTML = `<span class="pill">Loading ${currentHost}</span>`;
+      await window.api.openProduct(url);
+
+      // poll readiness and enable Save once likely hydrated
+      setSaveState(true, 'Waiting for page…');
+      const iv = setInterval(async () => {
+        const ok = await window.api.evalInProduct(`
+          (async () => {
+            const h1 = document.querySelector("h1,[itemprop='name']");
+            const price = document.querySelector("[itemprop='price'],[data-price],[class*='price'] .money");
+            const imgs = document.querySelector("img[src], picture source[srcset], [data-zoom-image], [data-large-image]");
+            return !!(h1 && (price || imgs));
+          })();
+        `);
+        if (ok) {
+          clearInterval(iv);
+          statusEl.innerHTML = `<span class="pill">Ready</span>`;
+          setSaveState(false);
+        }
+      }, 700);
+    };
+
+    // “Nudge” to hydrate galleries/lazy content
+    nudgeBtn.onclick = async () => {
+      await window.api.evalInProduct(`
+        (async () => {
+          function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+          window.scrollTo(0,0); await sleep(90);
+          window.scrollTo(0, document.body.scrollHeight); await sleep(180);
+          document.querySelectorAll('.swiper-slide, .slick-slide, .glide__slide, .splide__slide')
+            .forEach((s,i)=>{ if (i<8) s.dispatchEvent(new Event('mouseover',{bubbles:true})); });
+        })();
+      `);
+    };
+
+    // Save (scrape)
+    saveBtn.onclick = async () => {
+      setSaveState(true, 'Scraping…');
+      statusEl.innerHTML = `<span class="pill">Scraping</span>`;
+      panel.style.display = 'none';
+      out.textContent = '';
+      images.innerHTML = '';
+      summary.innerHTML = '';
+      okTitle.checked = okPrice.checked = okImages.checked = okBrand.checked = okTags.checked = okDesc.checked = false;
+      memDebug.textContent = '';
+
+      try {
+        const { result, selectorsUsed } = await window.api.scrapeCurrent();
+        lastPayload = result || {};
+        lastSelectorsUsed = selectorsUsed || null;
+
+        // summary (top panel)
+        const imgs = Array.isArray(result?.images) ? result.images : [];
+        summary.innerHTML = `
+          <div><b>Title:</b> ${result?.title || ''}</div>
+          <div><b>Price:</b> ${result?.price || ''}</div>
+          <div><b>Brand:</b> ${result?.brand || ''}</div>
+          <div><b>URL:</b> ${result?.url || ''}</div>
+          <div style="margin-top:4px;"><b>Specs:</b> ${(result?.specs||[]).slice(0,10).join(' · ')}</div>
+          <div><b>Tags:</b> ${(result?.tags||[]).slice(0,12).join(' · ')}</div>
+          <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>
+        `;
+        images.innerHTML = imgs.map(u => `<img src="${u}" title="${u}">`).join('');
+
+        // bottom box = ONLY image URLs (one per line)
+        out.textContent = imgs.join('\n');
+
+        // show panel + current memory
+        const mem = currentHost ? await window.api.getSelectorMemory(currentHost) : null;
+        memDebug.textContent = 'Current memory: ' + JSON.stringify(mem || {}, null, 2);
+
+        panel.style.display = 'grid';
+        statusEl.innerHTML = `<span class="pill">Done</span>`;
+      } catch (e) {
+        out.textContent = 'Error: ' + (e?.message || String(e));
+        statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
+      } finally {
+        setSaveState(false);
+      }
+    };
+
+    // Save selectors to memory (only for checked fields)
+    saveMemBtn.onclick = async () => {
+      if (!currentHost) return;
+      const fields = {};
+      if (okTitle.checked && lastSelectorsUsed?.title) fields.title = lastSelectorsUsed.title;
+      if (okPrice.checked && lastSelectorsUsed?.price) fields.price = lastSelectorsUsed.price;
+      if (okImages.checked && lastSelectorsUsed?.images) fields.images = lastSelectorsUsed.images;
+      if (okBrand.checked && lastSelectorsUsed?.brand) fields.brand = lastSelectorsUsed.brand;
+      if (okTags.checked  && lastSelectorsUsed?.tags)  fields.tags  = lastSelectorsUsed.tags;
+      if (okDesc.checked  && lastSelectorsUsed?.description) fields.description = lastSelectorsUsed.description;
+
+      if (!Object.keys(fields).length) {
+        alert('No fields checked — nothing to save.');
+        return;
+      }
+      await window.api.setSelectorMemory(currentHost, fields);
+      const mem = await window.api.getSelectorMemory(currentHost);
+      memDebug.textContent = 'Current memory: ' + JSON.stringify(mem || {}, null, 2);
+    };
+
+    clearMemBtn.onclick = async () => {
+      if (!currentHost) return;
+      await window.api.clearSelectorMemory(currentHost);
+      const mem = await window.api.getSelectorMemory(currentHost);
+      memDebug.textContent = 'Current memory: ' + JSON.stringify(mem || {}, null, 2);
+    };
+
+    // conveniences
+    urlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') visitBtn.click(); });
+  </script>
+</body>
+</html>
