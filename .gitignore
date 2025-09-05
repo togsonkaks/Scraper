@@ -1,0 +1,19 @@
+# Node / Electron
+node_modules/
+dist/
+out/
+build/
+*.log
+*.asar
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# OS/Editor
+.DS_Store
+Thumbs.db
