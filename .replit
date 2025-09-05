@@ -22,12 +22,12 @@ args = "Tagglo Electron App"
 name = "Tagglo Electron App"
 author = "agent"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm start"
-
 [workflows.workflow.metadata]
 outputType = "vnc"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run start:replit"
 
 [deployment]
 deploymentTarget = "vm"
