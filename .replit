@@ -1,0 +1,34 @@
+modules = ["nodejs-20", "web"]
+[agent]
+expertMode = true
+
+[nix]
+channel = "stable-25_05"
+packages = ["xorg.xvfb", "gtk3", "glib", "nss", "alsa-lib", "at-spi2-atk", "at-spi2-core", "cups", "dbus", "libdrm", "libxkbcommon", "mesa", "xdg-utils", "vulkan-loader", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXrandr", "xorg.libXScrnSaver", "xorg.xorgserver"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Tagglo Electron App"
+
+[[workflows.workflow]]
+name = "Tagglo Electron App"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm start"
+
+[workflows.workflow.metadata]
+outputType = "vnc"
+
+[deployment]
+deploymentTarget = "vm"
+run = ["./start-electron.sh"]

@@ -125,6 +125,9 @@ function createWindows() {
 }
 
 app.whenReady().then(() => {
+  // Disable security warnings for development
+  process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+  
   createWindows();
 
   app.on('activate', () => {

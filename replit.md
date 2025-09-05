@@ -1,0 +1,51 @@
+# Tagglo Electron App
+
+## Project Overview
+This is a desktop Electron application called "Tagglo" that provides web scraping capabilities for e-commerce product data. The app creates two Electron windows:
+
+1. **Control Window** - Main interface for managing scraping operations
+2. **Product Window** - Browser window for viewing target websites
+
+## Project Architecture
+- **Main Process**: `main.js` - Handles window management, IPC, and selector memory persistence  
+- **Control Interface**: `control.html` - User interface for scraping controls and results
+- **Preload Script**: `preload.js` - Secure IPC bridge between renderer and main process
+- **Scrapers Directory**: Contains specialized scrapers for different data types:
+  - `orchestrator.js` - Main scraping coordinator
+  - `title.js`, `price.js`, `images.js` - Field-specific scrapers
+  - `specs_tags.js` - Product specifications and tags
+  - `custom.js` - Site-specific custom handlers
+  - `utils.js` - Utility functions
+
+## Key Features
+- **Selector Memory**: Persistent storage of CSS selectors per domain
+- **Multi-field Scraping**: Extracts title, price, images, specs, tags, brand, description
+- **History Tracking**: Maintains change history for selector configurations
+- **Pinterest-style Flow**: Optimized for product detail page scraping
+- **Custom Handlers**: Site-specific scraping logic
+
+## Development Setup
+- Node.js with Electron framework
+- Configured for Replit environment with virtual display (Xvfb)
+- Uses VNC output for desktop app display
+- Graphics acceleration disabled for compatibility
+
+## Startup Configuration
+- Custom startup script: `start-electron.sh`
+- Runs with virtual display on :99
+- Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
+
+## Recent Changes
+- Installed system dependencies for Electron GUI support
+- Configured virtual display setup for Replit environment
+- Added deployment configuration as VM target
+- Created custom startup script to handle display initialization
+
+## User Preferences
+- Prefers existing project structure and conventions
+- Focus on functionality over documentation
+
+## Deployment
+- Target: VM (always running)
+- Command: `./start-electron.sh`
+- Suitable for desktop applications requiring persistent state
