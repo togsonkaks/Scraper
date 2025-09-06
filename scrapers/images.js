@@ -5,6 +5,7 @@
 async function collectImagesFromPDP() {
     if (window.__TAGGLO_IMAGES_ALREADY_RAN__) return [];
 window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
+    console.log("[DEBUG] collectImagesFromPDP starting...");
   const keepBiggestFromSrcset = (srcset) =>
     (srcset || "")
       .split(",")
@@ -349,7 +350,9 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     .filter((r) => r.score > 0)
     .sort((a, b) => b.score - a.score);
 
-  return scored.slice(0, 20).map((r) => r.url);
+  const finalUrls = scored.slice(0, 20).map((r) => r.url);
+  console.log("[DEBUG] collectImagesFromPDP found", finalUrls.length, "images:", finalUrls.slice(0, 3));
+  return finalUrls;
 }
 
 Object.assign(globalThis, { collectImagesFromPDP });
