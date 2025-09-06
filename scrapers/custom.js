@@ -375,7 +375,7 @@ const ACE_HARDWARE = {
 
     // filter to product-file types only
     const good = [...urls].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u));
-    return [...new Set(good)].slice(0, 10);
+    return [...new Set(good)].slice(0, 20);
   }
 };
 // ---------- Aesop (hi-res DW/SFCC) ----------
@@ -397,7 +397,7 @@ const AESOP = {
     const uniq = [...new Set(out)]
       .map(u => u.replace(/[?&](sw|sh|width|height)=\d+[^&]*/gi,''))
       .filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u));
-    return uniq.slice(0,10);
+    return uniq.slice(0,20);
   }
 };
 
@@ -409,7 +409,7 @@ const BARNES_NOBLE = {
     doc.querySelectorAll('img[src*="prodimage.images.bn.com"]').forEach(i=>out.add(i.src));
     doc.querySelector('[data-modal-url*="liquid-pixel-viewer"]')?.click();
     doc.querySelectorAll('.modal img[src*="prodimage.images.bn.com"]').forEach(i=>out.add(i.src));
-    return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -430,7 +430,7 @@ const BONBONBON = {
       (main.getAttribute('srcset')||'').split(',').forEach(s=>{ const u=s.trim().split(/\s+/)[0]; if(u) out.push(u); });
       const src = main.currentSrc || main.src; if (src) out.push(src);
     }
-    return [...new Set(out)].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...new Set(out)].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -458,7 +458,7 @@ const CHEWY = {
     doc.querySelectorAll('[data-testid="product-carousel"] img').forEach(i=>{
       const u = i.currentSrc || i.src; if (u) out.add(u);
     });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -484,7 +484,7 @@ const COACH = {
     const uniq = [...new Set(out)]
       .filter(u => /scene7\.com\/is\/image/i.test(u))
       .map(u => /[?&]wid=\d+/.test(u) ? u : (u + (/\?/.test(u) ? '&' : '?') + 'wid=2000&qlt=90&op_usm=1.0,1.0,0.0,0'));
-    return uniq.slice(0, 10);
+    return uniq.slice(0, 20);
   }
 };
 
@@ -503,7 +503,7 @@ const COMMENSE = {
       const u = el.getAttribute?.('data-photoswipe-src') || el.currentSrc || el.src;
       if (u) out.add(u);
     });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -516,7 +516,7 @@ const CUYANA = {
       const u = el.getAttribute?.('data-original-src') || el.currentSrc || el.src;
       if (u) out.add(u);
     });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -528,7 +528,7 @@ const ILIA = {
     const active = doc.querySelector('.product-media-gallery__variant-slide.swiper-slide-active img');
     if (active?.src) out.add(active.currentSrc || active.src);
     doc.querySelectorAll('.product-media-gallery__variant-slide img').forEach(i=>out.add(i.currentSrc || i.src));
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -543,7 +543,7 @@ const JOHNSCRAZYSOCKS = {
       if (/size[_-]?chart|_200x/i.test(u)) return;
       out.add(u);
     });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -563,7 +563,7 @@ const KIRRINFINCH = {
       const u = el.getAttribute?.('data-zoom-src') || el.getAttribute?.('data-photoswipe-src') || el.currentSrc || el.src;
       if (u) out.add(u);
     });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -585,7 +585,7 @@ const MAHABIS = {
       const u = el.getAttribute?.('data-high-res-url') || el.currentSrc || el.src;
       if (u) out.add(u);
     });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,10);
+    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
   }
 };
 
@@ -602,7 +602,7 @@ const MESHKI = {
       const prev = seen.get(base);
       if (!prev || width > prev.width) seen.set(base, {u: raw, width});
     });
-    return Array.from(seen.values()).map(x=>x.u).slice(0,10);
+    return Array.from(seen.values()).map(x=>x.u).slice(0,20);
   }
 };
 
