@@ -219,7 +219,7 @@
       images = await collectImagesFromPDP();
     }
     if (!Array.isArray(images)) images = [];
-    images = images.slice(0, 10);
+    images = images.slice(0, 20);
 
     // ------------- SPECS / TAGS / GENDER / SKU -------------
     let specs = [];
@@ -257,7 +257,7 @@
     };
 
     // Trim any accidental huge arrays
-    if (payload.images && payload.images.length > 10) payload.images = payload.images.slice(0,10);
+    if (payload.images && payload.images.length > 20) payload.images = payload.images.slice(0,20);
     if (payload.specs && payload.specs.length > 10) payload.specs = payload.specs.slice(0,10);
     if (payload.tags  && payload.tags.length  > 12) payload.tags  = payload.tags.slice(0,12);
 
