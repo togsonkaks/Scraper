@@ -606,6 +606,40 @@ const MESHKI = {
   }
 };
 
+// ---------- Allies (minimal custom title only) ----------
+const ALLIES = {
+  title() {
+    // Look for product title - skip "ADVANCED DAILY TREATMENT" and find the real product name
+    const selectors = [
+      '.product-title, .product__title, [class*="product-title"]',
+      'h2, h3', // Try h2, h3 instead of h1 since h1 is wrong
+      '[data-product-title], [itemprop="name"]',
+      '.product-info h2, .product-details h2, .product-name'
+    ];
+    
+    for (const sel of selectors) {
+      const el = document.querySelector(sel);
+      if (el) {
+        const text = T(el.textContent);
+        if (text && text.length > 10 && !text.includes("ADVANCED DAILY TREATMENT") && !/(allies|shop|navigation)/i.test(text)) {
+          return text;
+        }
+      }
+    }
+    
+    // Last resort: find any heading that looks like a product name
+    const headings = document.querySelectorAll('h1, h2, h3');
+    for (const h of headings) {
+      const text = T(h.textContent);
+      if (text && text.includes('Glucan') && text.includes('Serum')) {
+        return text;
+      }
+    }
+    
+    return null;
+  }
+};
+
 
 
 //////////////////// registry -> unified handler ////////////////////
@@ -633,6 +667,7 @@ const REGISTRY = [
   JOHNSCRAZYSOCKS,
   KIRRINFINCH,
   MAHABIS,
+  { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
 
 
 
