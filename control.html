@@ -192,7 +192,21 @@
 
         // show panel + current memory
         const mem = currentHost ? await window.api.getSelectorMemory(currentHost) : null;
-        memDebug.textContent = 'Current memory: ' + JSON.stringify(mem || {}, null, 2);
+        
+        // Clean memory display - show user-friendly summary
+        if (mem && Object.keys(mem).filter(k => k !== '__history').length > 0) {
+          const savedFields = Object.keys(mem).filter(k => k !== '__history');
+          const lastUpdate = mem.__history && mem.__history.length > 0 
+            ? new Date(mem.__history[mem.__history.length - 1].savedAt).toLocaleDateString()
+            : 'Unknown';
+          memDebug.innerHTML = `
+            <div style="color: #2d5a27; font-weight: bold;">✓ Saved selectors for ${savedFields.length} field(s)</div>
+            <div style="font-size: 11px; opacity: 0.8;">Fields: ${savedFields.join(', ')}</div>
+            <div style="font-size: 11px; opacity: 0.8;">Last updated: ${lastUpdate}</div>
+          `;
+        } else {
+          memDebug.innerHTML = '<div style="color: #666;">No saved selectors for this domain</div>';
+        }
 
         // Load existing memory state into checkboxes
         if (mem) {
@@ -229,7 +243,40 @@
             const content = ${JSON.stringify(content)};
             const results = [];
             
-            // Search all text elements for exact or partial matches
+            // Smart text matching based on field type
+            const fieldType = ${JSON.stringify(fieldType)};
+            const matchingElements = [];
+            
+            // For different field types, use different matching strategies
+            if (fieldType === 'brand') {
+              // Brand: look in specific brand containers first
+              const brandSelectors = [
+                '[itemprop="brand"]', '.brand', '.product-brand', 
+                '[data-brand]', '.manufacturer', '.vendor'
+              ];
+              for (const sel of brandSelectors) {
+                const el = document.querySelector(sel);
+                if (el && el.textContent.trim().includes(content)) {
+                  matchingElements.push(el);
+                }
+              }
+            }
+            
+            if (fieldType === 'description') {
+              // Description: look in description containers
+              const descSelectors = [
+                '[itemprop="description"]', '.description', '.product-description',
+                '.product-details', '.product-info', '.product-summary'
+              ];
+              for (const sel of descSelectors) {
+                const el = document.querySelector(sel);
+                if (el && el.textContent.trim().includes(content.substring(0, 50))) {
+                  matchingElements.push(el);
+                }
+              }
+            }
+            
+            // General text walker for all fields (fallback + title/price)
             const walker = document.createTreeWalker(
               document.body, 
               NodeFilter.SHOW_TEXT, 
@@ -237,12 +284,29 @@
               false
             );
             
-            const matchingElements = [];
             let node;
             while (node = walker.nextNode()) {
               const text = node.textContent.trim();
-              if (text && (text === content || (text.length > 10 && text.includes(content)))) {
-                matchingElements.push(node.parentElement);
+              const parent = node.parentElement;
+              
+              // Skip if already found via specific selectors
+              if (matchingElements.includes(parent)) continue;
+              
+              // Exact match
+              if (text === content) {
+                matchingElements.push(parent);
+              }
+              // Partial match for longer content (descriptions, etc)
+              else if (content.length > 15 && text.length > 15 && text.includes(content)) {
+                matchingElements.push(parent);
+              }
+              // For shorter content, check if text contains our content as a word
+              else if (content.length <= 15 && text.length > 5) {
+                const words = text.toLowerCase().split(/\\s+/);
+                const contentWords = content.toLowerCase().split(/\\s+/);
+                if (contentWords.every(w => words.includes(w))) {
+                  matchingElements.push(parent);
+                }
               }
             }
             
@@ -295,7 +359,7 @@
         }
       }
       
-      // Helper function to find image selectors
+      // Helper function to find image selectors (improved)
       async function findSelectorsForImages(imageUrls) {
         if (!Array.isArray(imageUrls) || !imageUrls.length) return null;
         
@@ -304,26 +368,41 @@
             const imageUrls = ${JSON.stringify(imageUrls.slice(0, 5))}; // Check first 5 images
             const selectors = new Set();
             
-            for (const url of imageUrls) {
-              // Find images with matching src
-              const imgs = document.querySelectorAll('img');
-              for (const img of imgs) {
-                if (img.src === url || img.currentSrc === url) {
-                  // Generate selector for this image's container or the image itself
-                  let target = img;
-                  
-                  // Check if image is in a gallery/product container
-                  const container = img.closest('.product-images, .product-gallery, .gallery, [data-gallery]');
-                  if (container) target = container;
-                  
-                  // Generate selector
-                  if (target.id) selectors.add('#' + target.id + ' img');
-                  else if (target.className) {
-                    const classes = target.className.split(' ').filter(c => c);
-                    if (classes.length) selectors.add('.' + classes.join('.') + (target === img ? '' : ' img'));
-                  }
-                  else selectors.add('img[src*="' + url.split('/').pop().split('?')[0] + '"]');
+            // First try to find product image containers
+            const containers = [
+              '.product-images, .product-gallery, .gallery',
+              '[data-gallery], [data-images], .image-gallery',
+              '.product-media, .product-photos, .photos',
+              '.carousel, .slider, .swiper-wrapper',
+              '.product-image-container, .main-image'
+            ];
+            
+            for (const containerSel of containers) {
+              const container = document.querySelector(containerSel);
+              if (container) {
+                const imgs = container.querySelectorAll('img');
+                if (imgs.length >= 2) { // Must have multiple images
+                  selectors.add(containerSel + ' img');
                   break;
+                }
+              }
+            }
+            
+            // If no container found, match individual images
+            if (selectors.size === 0) {
+              for (const url of imageUrls) {
+                const imgs = document.querySelectorAll('img');
+                for (const img of imgs) {
+                  if (img.src === url || img.currentSrc === url) {
+                    // Generate selector for this image
+                    if (img.id) selectors.add('#' + img.id);
+                    else if (img.className) {
+                      const classes = img.className.split(' ').filter(c => c);
+                      if (classes.length) selectors.add('img.' + classes.join('.'));
+                    }
+                    else selectors.add('img[src*="' + url.split('/').pop().split('?')[0] + '"]');
+                    break;
+                  }
                 }
               }
             }
@@ -340,60 +419,99 @@
         }
       }
       
-      // Reverse-engineer selectors for checked fields
-      if (okTitle.checked && lastPayload.title) {
-        const result = await findSelectorsForText(lastPayload.title, 'title');
-        if (result) fields.title = result;
+      // Get current memory to determine what to add/remove
+      const currentMem = await window.api.getSelectorMemory(currentHost) || {};
+      const fieldsToRemove = [];
+      
+      // Check each field: add if checked and has data, remove if unchecked but exists in memory
+      const fieldChecks = [
+        { field: 'title', checked: okTitle.checked, data: lastPayload.title },
+        { field: 'price', checked: okPrice.checked, data: lastPayload.price },
+        { field: 'brand', checked: okBrand.checked, data: lastPayload.brand },
+        { field: 'description', checked: okDesc.checked, data: lastPayload.description },
+        { field: 'images', checked: okImages.checked, data: lastPayload.images },
+        { field: 'tags', checked: okTags.checked, data: lastPayload.tags }
+      ];
+      
+      // Process each field
+      for (const { field, checked, data } of fieldChecks) {
+        if (checked && data) {
+          // Add/update field
+          let result = null;
+          
+          if (field === 'images') {
+            result = await findSelectorsForImages(data);
+          } else if (field === 'tags' && Array.isArray(data) && data.length) {
+            const tagsText = data.slice(0, 3).join(' '); // Use first few tags
+            result = await findSelectorsForText(tagsText, field);
+          } else if (typeof data === 'string' && data.trim()) {
+            result = await findSelectorsForText(data, field);
+          }
+          
+          if (result) {
+            fields[field] = result;
+          }
+        } else if (!checked && currentMem[field]) {
+          // Remove field if unchecked but exists in memory
+          fieldsToRemove.push(field);
+        }
       }
       
-      if (okPrice.checked && lastPayload.price) {
-        const result = await findSelectorsForText(lastPayload.price, 'price');
-        if (result) fields.price = result;
+      // Handle removals first
+      if (fieldsToRemove.length > 0) {
+        await window.api.clearSelectorMemory(currentHost, fieldsToRemove);
       }
       
-      if (okBrand.checked && lastPayload.brand) {
-        const result = await findSelectorsForText(lastPayload.brand, 'brand');
-        if (result) fields.brand = result;
+      // Handle additions/updates
+      if (Object.keys(fields).length > 0) {
+        const note = `Updated from user validation on ${new Date().toLocaleDateString()}`;
+        await window.api.setSelectorMemory(currentHost, fields, note);
       }
       
-      if (okDesc.checked && lastPayload.description) {
-        const result = await findSelectorsForText(lastPayload.description, 'description');
-        if (result) fields.description = result;
-      }
+      // Show result message
+      const addedFields = Object.keys(fields);
+      const messages = [];
+      if (addedFields.length > 0) messages.push(`Saved: ${addedFields.join(', ')}`);
+      if (fieldsToRemove.length > 0) messages.push(`Removed: ${fieldsToRemove.join(', ')}`);
       
-      if (okImages.checked && lastPayload.images) {
-        const result = await findSelectorsForImages(lastPayload.images);
-        if (result) fields.images = result;
-      }
-      
-      // For tags/specs, combine into searchable text
-      if (okTags.checked && lastPayload.tags && lastPayload.tags.length) {
-        const tagsText = lastPayload.tags.slice(0, 3).join(' '); // Use first few tags
-        const result = await findSelectorsForText(tagsText, 'tags');
-        if (result) fields.tags = result;
-      }
-      
-      if (!Object.keys(fields).length) {
-        alert('No fields checked or no selectors found. Make sure the page content matches the scraped data.');
+      if (messages.length === 0) {
+        alert('No changes made. Check fields with valid data to save selectors.');
         return;
       }
       
-      // Save to memory with note
-      const note = `Saved from user validation on ${new Date().toLocaleDateString()}`;
-      await window.api.setSelectorMemory(currentHost, fields, note);
-      
-      // Update display
+      // Update display with new clean format
       const mem = await window.api.getSelectorMemory(currentHost);
-      memDebug.textContent = 'Current memory: ' + JSON.stringify(mem || {}, null, 2);
+      if (mem && Object.keys(mem).filter(k => k !== '__history').length > 0) {
+        const savedFields = Object.keys(mem).filter(k => k !== '__history');
+        const lastUpdate = mem.__history && mem.__history.length > 0 
+          ? new Date(mem.__history[mem.__history.length - 1].savedAt).toLocaleDateString()
+          : 'Unknown';
+        memDebug.innerHTML = `
+          <div style="color: #2d5a27; font-weight: bold;">✓ Saved selectors for ${savedFields.length} field(s)</div>
+          <div style="font-size: 11px; opacity: 0.8;">Fields: ${savedFields.join(', ')}</div>
+          <div style="font-size: 11px; opacity: 0.8;">Last updated: ${lastUpdate}</div>
+        `;
+      } else {
+        memDebug.innerHTML = '<div style="color: #666;">No saved selectors for this domain</div>';
+      }
       
-      alert(`Saved selectors for ${Object.keys(fields).length} field(s): ${Object.keys(fields).join(', ')}`);
+      alert(messages.join('\n'));
     };
 
     clearMemBtn.onclick = async () => {
       if (!currentHost) return;
+      const confirmed = confirm('Are you sure you want to clear all saved selectors for this domain?');
+      if (!confirmed) return;
+      
       await window.api.clearSelectorMemory(currentHost);
-      const mem = await window.api.getSelectorMemory(currentHost);
-      memDebug.textContent = 'Current memory: ' + JSON.stringify(mem || {}, null, 2);
+      
+      // Update display with clean format
+      memDebug.innerHTML = '<div style="color: #666;">No saved selectors for this domain</div>';
+      
+      // Reset all checkboxes
+      okTitle.checked = okPrice.checked = okImages.checked = okBrand.checked = okTags.checked = okDesc.checked = false;
+      
+      alert('All selectors cleared for this domain.');
     };
 
     // Image overlay functions
