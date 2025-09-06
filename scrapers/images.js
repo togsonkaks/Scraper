@@ -349,7 +349,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     .filter((r) => r.score > 0)
     .sort((a, b) => b.score - a.score);
 
-  return scored.slice(0, 10).map((r) => r.url);
+  return scored.slice(0, 20).map((r) => r.url);
 }
 
 Object.assign(globalThis, { collectImagesFromPDP });
