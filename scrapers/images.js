@@ -170,6 +170,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
   }
 
   const candidates = new Map();
+  console.log("[DEBUG] Image collection starting with", candidates.size, "candidates");
 
   function urlKey(u) {
     try {
@@ -287,7 +288,9 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
   document.querySelectorAll('.pswp img, .modal-body img, [class*="zoom"] img').forEach(addFromImg);
 
   // Wide fallback sweep if few found
+  console.log("[DEBUG] After initial collection:", candidates.size, "candidates");
   if (candidates.size < 3) {
+    console.log("[DEBUG] Too few candidates, doing wide sweep...");
     await wakeLazy(document);
     await __wakeSwiperGalleries(document);
 
@@ -307,6 +310,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     });
 
     document.querySelectorAll('.pswp img, .modal-body img, [class*="zoom"] img').forEach(addFromImg);
+    console.log("[DEBUG] After wide sweep:", candidates.size, "candidates");
   }
 
   // ---------- scoring / filters ----------
