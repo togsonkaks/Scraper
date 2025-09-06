@@ -96,6 +96,53 @@ const selectorMemory = {
   }
 };
 
+// ------------------------ Developer Tools Setup ------------------------
+function addContextMenu(window) {
+  window.webContents.on('context-menu', (e, params) => {
+    const { Menu, MenuItem } = require('electron');
+    const menu = new Menu();
+    
+    // Add "Inspect Element" option
+    menu.append(new MenuItem({
+      label: 'Inspect Element',
+      click: () => {
+        window.webContents.inspectElement(params.x, params.y);
+      }
+    }));
+    
+    // Add "Open DevTools" option
+    menu.append(new MenuItem({
+      label: 'Open Developer Tools',
+      accelerator: 'F12',
+      click: () => {
+        window.webContents.openDevTools();
+      }
+    }));
+    
+    menu.popup();
+  });
+}
+
+function setupDevToolsShortcuts() {
+  const { globalShortcut } = require('electron');
+  
+  // F12 - Toggle DevTools for focused window
+  globalShortcut.register('F12', () => {
+    const focusedWindow = BrowserWindow.getFocusedWindow();
+    if (focusedWindow) {
+      focusedWindow.webContents.toggleDevTools();
+    }
+  });
+  
+  // Ctrl+Shift+I - Toggle DevTools for focused window  
+  globalShortcut.register('CommandOrControl+Shift+I', () => {
+    const focusedWindow = BrowserWindow.getFocusedWindow();
+    if (focusedWindow) {
+      focusedWindow.webContents.toggleDevTools();
+    }
+  });
+}
+
 // ------------------------ Create Windows ------------------------
 function createWindows() {
   controlWindow = new BrowserWindow({
@@ -104,7 +151,9 @@ function createWindows() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      nodeIntegration: false
+      nodeIntegration: false,
+      webSecurity: false, // Allow local resource access for debugging
+      devTools: true      // Enable developer tools
     }
   });
 
@@ -115,13 +164,19 @@ function createWindows() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
-      nodeIntegration: false
+      nodeIntegration: false,
+      webSecurity: false, // Allow local resource access for debugging  
+      devTools: true      // Enable developer tools
     }
   });
 
   controlWindow.loadFile(path.join(__dirname, 'control.html'));
   controlWindow.on('closed', () => (controlWindow = null));
   productWindow.on('closed', () => (productWindow = null));
+  
+  // Add context menu for both windows
+  addContextMenu(controlWindow);
+  addContextMenu(productWindow);
 }
 
 app.whenReady().then(() => {
@@ -129,6 +184,7 @@ app.whenReady().then(() => {
   process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
   
   createWindows();
+  setupDevToolsShortcuts(); // Enable keyboard shortcuts
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindows();
@@ -137,6 +193,12 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
+});
+
+app.on('will-quit', () => {
+  // Clean up global shortcuts
+  const { globalShortcut } = require('electron');
+  globalShortcut.unregisterAll();
 });
 
 // ------------------------ IPC: Product window control ------------------------
