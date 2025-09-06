@@ -338,44 +338,82 @@ const EDGE_BY_XS = {
 const ACE_HARDWARE = {
   match: (h) => /\bacehardware\.com$/i.test(h),
   async images(doc = document) {
-    const scope =
-      doc.querySelector('.product-images, [data-gallery], .swiper-container, .swiper') ||
-      doc.body;
+    console.log("[DEBUG] ACE_HARDWARE custom image logic running...");
     const urls = new Set();
 
-    // inline/computed background-image on slides/thumbs
-    const bgPull = (v) => {
-      const m = String(v || "").match(/url\((['"]?)(.*?)\1\)/gi) || [];
-      m.forEach(tok => {
-        const mm = tok.match(/url\((['"]?)(.*?)\1\)/i);
-        if (mm && mm[2]) urls.add(mm[2]);
+    // Modern ACE Hardware selectors - try multiple container patterns
+    const containerSelectors = [
+      '.product-detail-images, .product-images, .product-gallery',
+      '[data-testid*="image"], [data-testid*="gallery"], [data-testid*="carousel"]',
+      '.carousel, .slider, .swiper, .swiper-container',
+      '[class*="image"], [class*="gallery"], [class*="carousel"], [class*="slider"]',
+      '.pdp-images, .pdp-gallery, .pdp-media'
+    ];
+
+    let mainContainer = null;
+    for (const selector of containerSelectors) {
+      mainContainer = doc.querySelector(selector);
+      if (mainContainer) {
+        console.log("[DEBUG] Found container:", selector);
+        break;
+      }
+    }
+
+    const scope = mainContainer || doc.body;
+    console.log("[DEBUG] Using scope:", scope.className || scope.tagName);
+
+    // Comprehensive image collection
+    const imageSelectors = [
+      'img', // All images
+      '[data-src]', '[data-image]', '[data-zoom]', '[data-large]',
+      '[data-zoom-image]', '[data-large-image]', '[data-full-image]',
+      '[style*="background-image"]',
+      'picture source', 'picture img',
+      '[srcset]'
+    ];
+
+    for (const selector of imageSelectors) {
+      scope.querySelectorAll(selector).forEach(el => {
+        try {
+          // Standard src attributes
+          const src = el.currentSrc || el.src || el.getAttribute('data-src') || 
+                     el.getAttribute('data-image') || el.getAttribute('data-zoom-image') ||
+                     el.getAttribute('data-large-image') || el.getAttribute('data-full-image');
+          if (src) urls.add(src);
+
+          // Srcset handling
+          const srcset = el.getAttribute('srcset') || el.getAttribute('data-srcset');
+          if (srcset) {
+            srcset.split(',').forEach(s => {
+              const url = s.trim().split(/\s+/)[0];
+              if (url) urls.add(url);
+            });
+          }
+
+          // Background images
+          if (el.style?.backgroundImage) {
+            const bgMatch = el.style.backgroundImage.match(/url\((['"]?)(.*?)\1\)/);
+            if (bgMatch && bgMatch[2]) urls.add(bgMatch[2]);
+          }
+        } catch (e) {
+          console.log("[DEBUG] Error processing element:", e);
+        }
       });
-    };
+    }
 
-    scope.querySelectorAll('.swiper-slide, [style*="background-image"], [data-image], [data-bg], [data-background]').forEach(el => {
-      try {
-        bgPull(el.style?.backgroundImage);
-        bgPull(getComputedStyle(el).backgroundImage);
-        ['data-image','data-bg','data-background','data-zoom-image','data-large-image'].forEach(a=>{
-          const u = el.getAttribute(a); if (u) urls.add(u);
-        });
-      } catch {}
-    });
-
-    // fallback: any <img> inside gallery
-    scope.querySelectorAll('img').forEach(img => {
-      const u = img.currentSrc || img.src;
-      if (u) urls.add(u);
-      ['data-zoom-image','data-large-image','data-image'].forEach(a=>{
-        const v = img.getAttribute(a); if (v) urls.add(v);
+    // Wide sweep if not enough found
+    if (urls.size < 3) {
+      console.log("[DEBUG] Not enough images found, doing wide document sweep...");
+      doc.querySelectorAll('img').forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && /\.(jpe?g|png|webp|avif)/i.test(u)) urls.add(u);
       });
-      const ss = img.getAttribute('srcset') || '';
-      ss.split(',').forEach(x => { const u2 = x.trim().split(/\s+/)[0]; if (u2) urls.add(u2); });
-    });
+    }
 
-    // filter to product-file types only
-    const good = [...urls].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u));
-    return [...new Set(good)].slice(0, 20);
+    // Filter and return
+    const good = [...urls].filter(u => u && /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u));
+    console.log("[DEBUG] ACE_HARDWARE found", good.length, "images:", good.slice(0, 3));
+    return good.slice(0, 20);
   }
 };
 // ---------- Aesop (hi-res DW/SFCC) ----------
