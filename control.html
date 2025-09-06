@@ -458,17 +458,55 @@
           let result = null;
           
           if (field === 'images') {
-            console.log(`[DEBUG] Finding selectors for ${data.length} images`);
-            result = await findSelectorsForImages(data);
-          } else if (field === 'tags' && Array.isArray(data) && data.length) {
-            const tagsText = data.slice(0, 3).join(' '); // Use first few tags
-            console.log(`[DEBUG] Finding selectors for tags: "${tagsText}"`);
-            result = await findSelectorsForText(tagsText, field);
-          } else if (typeof data === 'string' && data.trim()) {
-            console.log(`[DEBUG] Finding selectors for ${field}: "${data.substring(0, 50)}..."`);
-            result = await findSelectorsForText(data, field);
+            if (Array.isArray(data) && data.length > 0) {
+              console.log(`[DEBUG] Finding selectors for ${data.length} images`);
+              result = await findSelectorsForImages(data);
+            } else {
+              console.log(`[DEBUG] Images field: not an array or empty`, typeof data, data);
+            }
+          } else if (field === 'tags') {
+            let searchText = null;
+            if (Array.isArray(data) && data.length > 0) {
+              searchText = data.slice(0, 3).join(' '); // Use first few tags
+            } else if (typeof data === 'string' && data.trim()) {
+              searchText = data.trim();
+            } else if (data && typeof data === 'object') {
+              // Try to extract text from object
+              searchText = Object.values(data).join(' ').trim();
+            }
+            
+            if (searchText) {
+              console.log(`[DEBUG] Finding selectors for tags: "${searchText}"`);
+              result = await findSelectorsForText(searchText, field);
+            } else {
+              console.log(`[DEBUG] Tags field: no valid text found`, typeof data, data);
+            }
           } else {
-            console.log(`[DEBUG] Skipping ${field}: invalid data type or empty`, typeof data, data);
+            // Handle all other fields (title, price, brand, description) more flexibly
+            let searchText = null;
+            
+            if (typeof data === 'string' && data.trim()) {
+              searchText = data.trim();
+            } else if (Array.isArray(data) && data.length > 0) {
+              // Join array elements
+              searchText = data.join(' ').trim();
+            } else if (data && typeof data === 'object') {
+              // Extract text from object (handle structured data)
+              if (data.text) searchText = data.text;
+              else if (data.value) searchText = data.value;
+              else if (data.name) searchText = data.name;
+              else searchText = Object.values(data).filter(v => typeof v === 'string').join(' ').trim();
+            } else if (data !== null && data !== undefined) {
+              // Try to convert to string
+              searchText = String(data).trim();
+            }
+            
+            if (searchText && searchText.length > 0) {
+              console.log(`[DEBUG] Finding selectors for ${field}: "${searchText.substring(0, 50)}..."`);
+              result = await findSelectorsForText(searchText, field);
+            } else {
+              console.log(`[DEBUG] ${field} field: no valid text found`, typeof data, data);
+            }
           }
           
           if (result) {

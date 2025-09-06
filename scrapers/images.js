@@ -19,6 +19,52 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       .sort((a, b) => b.w - a.w)
       .map((x) => x.u);
 
+  // Image relevance scoring function
+  function scoreImageRelevance(imgUrl, imgElement) {
+    let score = 0;
+    
+    // Higher score for larger images (main product images are usually larger)
+    const imgRect = imgElement.getBoundingClientRect();
+    if (imgRect.width > 400) score += 20;
+    else if (imgRect.width > 250) score += 10;
+    else if (imgRect.width > 150) score += 5;
+    
+    // Higher score for images in main product containers
+    const containerClasses = (imgElement.closest('[class*="product"], [class*="gallery"], [class*="main"], [class*="hero"]')?.className || '').toLowerCase();
+    if (containerClasses.includes('main') || containerClasses.includes('hero')) score += 15;
+    if (containerClasses.includes('product') && !containerClasses.includes('related')) score += 10;
+    if (containerClasses.includes('gallery')) score += 8;
+    
+    // Lower score for images in sidebars, related products, recommendations
+    const parentClasses = (imgElement.closest('[class*="sidebar"], [class*="related"], [class*="recommend"], [class*="similar"], [class*="you-may"], [class*="also-"]')?.className || '').toLowerCase();
+    if (parentClasses.includes('sidebar')) score -= 15;
+    if (parentClasses.includes('related') || parentClasses.includes('recommend')) score -= 10;
+    if (parentClasses.includes('similar') || parentClasses.includes('you-may')) score -= 8;
+    
+    // Higher score for images near the product title
+    const h1 = document.querySelector('h1');
+    if (h1) {
+      const h1Rect = h1.getBoundingClientRect();
+      const distance = Math.abs(imgRect.top - h1Rect.top) + Math.abs(imgRect.left - h1Rect.left);
+      if (distance < 500) score += 12;
+      else if (distance < 1000) score += 6;
+    }
+    
+    // Higher score for images in the main content area (not header/footer)
+    const inMain = imgElement.closest('main, [role="main"], .main-content, .content');
+    if (inMain) score += 8;
+    
+    // Lower score for very small images (likely icons/thumbnails)
+    if (imgRect.width < 100 || imgRect.height < 100) score -= 10;
+    
+    // Higher score for square or portrait aspect ratios (typical for product photos)
+    const aspectRatio = imgRect.width / imgRect.height;
+    if (aspectRatio >= 0.7 && aspectRatio <= 1.3) score += 5; // Square-ish
+    else if (aspectRatio >= 0.5 && aspectRatio <= 0.8) score += 3; // Portrait
+    
+    return Math.max(0, score);
+  }
+
   // --- tiny helpers ---
   const q = (sel, scope=document) => scope.querySelector(sel);
   const qa = (sel, scope=document) => Array.from(scope.querySelectorAll(sel));
@@ -180,7 +226,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     } catch { return u; }
   }
 
-  const ensure = (u, w = 0, h = 0, from = "") => {
+  const ensure = (u, w = 0, h = 0, from = "", element = null) => {
     try {
       if (!u) return;
       u = upgradeUrl(u);
@@ -192,11 +238,12 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
 
       const key = urlKey(u);
       if (!candidates.has(key))
-        candidates.set(key, { url: u, w, h, hits: 0, from: new Set() });
+        candidates.set(key, { url: u, w, h, hits: 0, from: new Set(), element });
       const rec = candidates.get(key);
       rec.hits++;
       rec.from.add(from);
       if (w * h > rec.w * rec.h) { rec.w = w; rec.h = h; rec.url = u; }
+      if (element && !rec.element) rec.element = element; // Store first element reference
     } catch {}
   };
 
@@ -336,6 +383,13 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       let s = 0;
       const area = r.w * r.h;
       s += area >= 1600 * 1600 ? 12 : area >= 1200 * 1200 ? 9 : area >= 800 * 800 ? 6 : area >= 500 * 500 ? 4 : 0;
+      
+      // Add relevance scoring based on image positioning and context
+      if (r.element) {
+        const relevanceScore = scoreImageRelevance(r.url, r.element);
+        s += relevanceScore;
+        console.log(`[DEBUG] Image ${r.url.substring(r.url.lastIndexOf('/') + 1)} - Area score: ${s - relevanceScore}, Relevance score: ${relevanceScore}, Total: ${s}`);
+      }
       if (r.w && r.h) {
         const ar = r.w / Math.max(1, r.h);
         if (ar > 3.2 || ar < 0.3) s -= 6; // banner-ish or too tall
