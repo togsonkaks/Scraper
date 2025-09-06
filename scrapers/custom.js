@@ -632,7 +632,7 @@ const REGISTRY = [
   JOHNSCRAZYSOCKS,
   KIRRINFINCH,
   MAHABIS,
-  
+  { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
 
 
 
@@ -660,4 +660,63 @@ function getCustomHandlers() {
 }
 
 // expose the factory expected by orchestrator
+// ---------- Allies (custom price & title logic) ----------
+const ALLIES = {
+  title() {
+    // Product title is in the main product section
+    const productTitle = document.querySelector('.product__title, [class*="product-title"], h1.product-title, .product-detail h1, .product-info h1');
+    if (productTitle) return T(productTitle.textContent);
+    
+    // Fallback: Look for the main heading that's not site navigation
+    const headings = document.querySelectorAll('h1, h2');
+    for (const h of headings) {
+      const text = T(h.textContent);
+      // Skip if it looks like site navigation or brand name
+      if (text && !/(allies|north america|\[.*\]|shop|home|navigation)/i.test(text) && text.length > 10) {
+        return text;
+      }
+    }
+    return null;
+  },
+
+  price() {
+    // Priority 1: Subscribe & Save price (the better deal)
+    const subscribePrice = document.querySelector('[class*="subscribe"] [class*="price"], .subscription-price, [data-subscription-price]');
+    if (subscribePrice) {
+      const priceText = T(subscribePrice.textContent);
+      if (priceText && /\$[\d.,]+/.test(priceText)) {
+        return normalizeMoney(priceText);
+      }
+    }
+    
+    // Priority 2: Sale/current price (not original price)
+    const salePrice = document.querySelector('.price-current, [class*="sale-price"], .price--sale, [class*="current-price"]');
+    if (salePrice) {
+      const priceText = T(salePrice.textContent);
+      if (priceText && /\$[\d.,]+/.test(priceText)) {
+        return normalizeMoney(priceText);
+      }
+    }
+    
+    // Priority 3: Find any price that's not crossed out or marked as "was"
+    const allPrices = document.querySelectorAll('[class*="price"], [data-price]');
+    for (const priceEl of allPrices) {
+      const priceText = T(priceEl.textContent);
+      if (!priceText || !/\$[\d.,]+/.test(priceText)) continue;
+      
+      // Skip if it's a crossed-out or "was" price
+      const style = getComputedStyle(priceEl);
+      const isStruck = /line-through/i.test(style.textDecorationLine || "");
+      const parentText = T((priceEl.parentElement || {}).textContent || "");
+      const isOldPrice = /(was|list|regular|original|compare)/i.test(parentText);
+      
+      if (!isStruck && !isOldPrice) {
+        return normalizeMoney(priceText);
+      }
+    }
+    
+    return null;
+  }
+};
+
 Object.assign(globalThis, { getCustomHandlers });
