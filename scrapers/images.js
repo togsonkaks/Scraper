@@ -184,7 +184,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     /(doubleclick|googletag|google-analytics|bat\.bing|cookielaw|consent|quantserve|hotjar|optimizely|branch\.io|facebook|gstatic|segment|tealium|moatads|criteo|adnxs|taboola)/i;
   
   // Filter out chart/graph/analytical images by filename and content patterns
-  const BAD_CONTENT = /(chart|graph|analytics|data|metric|statistic|diagram|plot|visualization|infographic|table|spreadsheet|csv|excel|\bchart\b|\bgraph\b|\bdata\b)/i;
+  const BAD_CONTENT = /(chart|graph|analytics|data|metric|statistic|diagram|plot|visualization|infographic|table|spreadsheet|csv|excel|\bchart\b|\bgraph\b|\bdata\b|dashboard|report|stats|trend|performance|analysis|insights|roi|conversion|revenue|sales-chart|bar-chart|line-chart|pie-chart)/i;
   const TINY_HINT = /(^|_|-)(16|24|32|40|48|64|80|96|120|150|180|200)(x|_|-)?(16|24|32|40|48|64|80|96|120|150|180|200)?(\.|$)/i;
 
   // normalize obvious CDN “small → big” patterns (Shopify, DW/SFCC, Scene7)
@@ -387,9 +387,16 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         const title = (r.element.title || '').toLowerCase();
         const parentText = (r.element.closest('[class*="chart"], [class*="graph"], [class*="data"], [class*="analytics"]')?.textContent || '').toLowerCase();
         
-        // Skip images with chart/graph context
-        if (/(chart|graph|data|analytics|metric|statistic|diagram|visualization)/i.test(altText + ' ' + title + ' ' + parentText)) {
-          console.log(`[DEBUG] Filtering out chart/graph image: ${r.url.split('/').pop()}`);
+        // Skip images with chart/graph context (more comprehensive)
+        if (/(chart|graph|data|analytics|metric|statistic|diagram|visualization|dashboard|report|stats|trend|performance|analysis|insights|roi|conversion|revenue|growth|bar|line|pie|donut|scatter)/i.test(altText + ' ' + title + ' ' + parentText)) {
+          console.log(`[DEBUG] Filtering out analytical image: ${r.url.split('/').pop()}`);
+          return false;
+        }
+        
+        // Additional filename checks for common chart image patterns
+        const filename = r.url.split('/').pop().toLowerCase();
+        if (/(chart|graph|stats|data|metric|analytics|dashboard|report|performance|trend|roi|conversion)[-_\.]/.test(filename)) {
+          console.log(`[DEBUG] Filtering out analytical filename: ${filename}`);
           return false;
         }
         

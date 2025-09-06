@@ -23,6 +23,68 @@
 // - T(), uniq(), sleep(ms)    (from utils.js)
 // Also assumes preload exposed window.api.* IPC for selector memory (contextBridge).
 
+// Generic description extractor
+function getDescriptionGeneric(doc = document) {
+  // Common description selectors, ordered by priority
+  const selectors = [
+    // Meta description first (most reliable)
+    'meta[name="description"]',
+    'meta[property="og:description"]',
+    'meta[name="twitter:description"]',
+    
+    // Product description containers
+    '.product-description',
+    '.product-details',
+    '.description',
+    '.product-info .description',
+    '.product-summary',
+    '.product-overview',
+    
+    // eCommerce platform specific
+    '.pdp-product-description',
+    '.product-description-content',
+    '.product-long-description',
+    '.rte', // Rich text editor content
+    
+    // Generic content containers
+    '[data-testid*="description"]',
+    '[data-test*="description"]',
+    '[class*="description"]',
+    '#description',
+    
+    // Less specific fallbacks
+    '.content p',
+    '.product-info p',
+    'main p'
+  ];
+  
+  for (const sel of selectors) {
+    try {
+      const el = doc.querySelector(sel);
+      if (!el) continue;
+      
+      let text = '';
+      if (sel.includes('meta')) {
+        text = el.getAttribute('content') || '';
+      } else {
+        text = el.textContent || '';
+      }
+      
+      text = T(text); // Use utility function to clean text
+      
+      // Valid description should be substantive
+      if (text && text.length > 20 && text.length < 2000) {
+        // Skip if it looks like navigation/menu text
+        if (!/(home|shop|cart|checkout|login|menu|navigation|cookie|accept|decline)/i.test(text.substring(0, 50))) {
+          return text;
+        }
+      }
+    } catch {}
+  }
+  
+  return null;
+}
+
 (function () {
   const HOST = (location.host || '').replace(/^www\./, '');
 
@@ -40,6 +102,7 @@
   const __used = {
     title: null,
     price: null,
+    description: null,
     images: null,
     __fromMemory: [] // fields resolved from memory
   };
@@ -221,6 +284,25 @@
     if (!Array.isArray(images)) images = [];
     images = images.slice(0, 20);
 
+    // ------------- DESCRIPTION -------------
+    let description = null;
+    if (mem?.description) {
+      const got = tryMemoryText(mem.description);
+      if (got) {
+        description = got.value;
+        __used.description = got.selUsed;
+      }
+    }
+    if (!description) {
+      // Try custom description handler first
+      const cDescription = customOrNoop(custom.description);
+      description = cDescription(document);
+    }
+    if (!description) {
+      // Generic description extraction
+      description = getDescriptionGeneric(document);
+    }
+
     // ------------- SPECS / TAGS / GENDER / SKU -------------
     let specs = [];
     let tags  = [];
@@ -247,6 +329,7 @@
       title,
       brand: brand || null,
       price,
+      description: description || null,
       specs,
       tags,
       images,
