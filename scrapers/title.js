@@ -1,8 +1,56 @@
-// generic title + brand (unchanged logic)
+// generic title + brand (improved with product container scoping)
 function getTitleGeneric() {
-  return T(document.querySelector("h1")?.innerText) ||
-         T(document.querySelector('meta[property="og:title"]')?.content) ||
-         null;
+  // First, try to find the main product container
+  const productContainers = [
+    '.product-detail, .product-details, .product-main, .product-container',
+    '#product, #product-detail, #product-main',
+    '[data-product], [data-product-detail]',
+    '.pdp, .product-page, .item-detail',
+    'main .product, article .product',
+    '.product-info, .product-content'
+  ];
+  
+  let productContainer = null;
+  for (const selector of productContainers) {
+    productContainer = document.querySelector(selector);
+    if (productContainer) break;
+  }
+  
+  // If we found a product container, search within it first
+  if (productContainer) {
+    const scopedSelectors = [
+      'h1', 'h2',
+      '.product-title, .product__title, .product-name',
+      '[data-product-title], [itemprop="name"]'
+    ];
+    
+    for (const sel of scopedSelectors) {
+      const el = productContainer.querySelector(sel);
+      if (el) {
+        const text = T(el.innerText || el.textContent);
+        if (text && text.length > 5) return text;
+      }
+    }
+  }
+  
+  // Fallback: try document-wide search but prioritize product-related selectors
+  const globalSelectors = [
+    '.product-title, .product__title, .product-name',
+    '[data-product-title], [itemprop="name"]',
+    'h1:not(nav h1):not(header h1):not(.site-title)',
+    'h1'
+  ];
+  
+  for (const sel of globalSelectors) {
+    const el = document.querySelector(sel);
+    if (el) {
+      const text = T(el.innerText || el.textContent);
+      if (text && text.length > 5) return text;
+    }
+  }
+  
+  // Final fallback: og:title meta tag
+  return T(document.querySelector('meta[property="og:title"]')?.content) || null;
 }
 
 function getBrandGeneric() {
