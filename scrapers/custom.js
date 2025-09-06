@@ -606,55 +606,6 @@ const MESHKI = {
   }
 };
 
-// ---------- Allies (custom price & title logic) ----------
-const ALLIES = {
-  title() {
-    // Look for the main product title - it should be the largest heading that's not site branding
-    const headings = document.querySelectorAll('h1, h2, .product-title, [class*="title"]');
-    for (const h of headings) {
-      const text = T(h.textContent);
-      if (text && text.length > 15 && !/(allies|north america|\[.*\]|shop|home|navigation)/i.test(text)) {
-        return text;
-      }
-    }
-    return null;
-  },
-
-  price() {
-    // Priority 1: Look for single purchase price ($89) - NOT subscription price
-    const singlePurchaseElements = document.querySelectorAll('*');
-    for (const el of singlePurchaseElements) {
-      const text = T(el.textContent || '');
-      // Look for $89.00 specifically or nearby prices that aren't subscriptions
-      if (text && text.includes('$89') && !text.toLowerCase().includes('subscribe')) {
-        const match = text.match(/\$89\.?\d*/);
-        if (match) return match[0];
-      }
-    }
-    
-    // Priority 2: Look for any price that's around $89 and not subscription
-    const priceElements = document.querySelectorAll('[class*="price"], [data-price], *');
-    for (const el of priceElements) {
-      const text = T(el.textContent || '');
-      const parent = el.parentElement ? T(el.parentElement.textContent || '') : '';
-      
-      if (text && /\$\d+/.test(text) && !parent.toLowerCase().includes('subscribe') && !parent.toLowerCase().includes('save')) {
-        const prices = text.match(/\$(\d+(?:\.\d{2})?)/g);
-        if (prices) {
-          // Look for prices around $89
-          for (const price of prices) {
-            const num = parseFloat(price.replace('$', ''));
-            if (num >= 85 && num <= 95) {
-              return price;
-            }
-          }
-        }
-      }
-    }
-    
-    return null;
-  }
-};
 
 
 //////////////////// registry -> unified handler ////////////////////
@@ -682,7 +633,6 @@ const REGISTRY = [
   JOHNSCRAZYSOCKS,
   KIRRINFINCH,
   MAHABIS,
-  { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
 
 
 
