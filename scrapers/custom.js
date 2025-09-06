@@ -609,24 +609,45 @@ const MESHKI = {
 // ---------- Allies (custom title and price logic) ----------
 const ALLIES = {
   title() {
-    // Strategy: Search for the specific product title we expect
-    // Look for elements containing "Beta Glucan" or "Resveratrol" to identify the main product
-    const allElements = document.querySelectorAll('*');
-    for (const el of allElements) {
-      const text = T(el.textContent || '');
-      if (text && text.includes('Beta Glucan') && text.includes('Resveratrol') && text.includes('Serum')) {
-        // Found the element with the correct product name
-        return text;
+    // Strategy: Search for the specific product title in VISIBLE elements only
+    // Exclude script, style, and other non-visible elements
+    const visibleSelectors = [
+      'h1, h2, h3, h4, h5, h6',
+      '.product-title, .product__title, .product-name',
+      '[class*="title"], [class*="name"]', 
+      '[data-product-title], [itemprop="name"]',
+      'div, span, p, a'
+    ];
+    
+    for (const selector of visibleSelectors) {
+      const elements = document.querySelectorAll(selector + ':not(script):not(style):not(noscript)');
+      for (const el of elements) {
+        // Get only the direct text content, not nested scripts
+        const text = T(el.textContent || '');
+        
+        // Skip if it looks like JavaScript code
+        if (text.includes('function') || text.includes('var ') || text.includes('const ') || 
+            text.includes('document.') || text.includes('{') || text.includes('Object.defineProperty')) {
+          continue;
+        }
+        
+        // Look for the actual product name
+        if (text && text.includes('Beta Glucan') && text.includes('Resveratrol') && text.includes('Serum') && text.length < 200) {
+          return text;
+        }
       }
     }
     
     // Fallback: Look for product titles that aren't the wrong ones we've seen
     const badTitles = ['ADVANCED DAILY TREATMENT', 'Molecular Barrier Recovery Cream Balm'];
-    const headings = document.querySelectorAll('h1, h2, h3, .product-title, [class*="title"]');
+    const headings = document.querySelectorAll('h1, h2, h3, .product-title, [class*="title"]:not(script):not(style)');
     for (const h of headings) {
       const text = T(h.textContent || '');
-      if (text && text.length > 15 && !badTitles.some(bad => text.includes(bad))) {
-        return text;
+      if (text && text.length > 15 && text.length < 200 && !badTitles.some(bad => text.includes(bad))) {
+        // Skip JavaScript-looking content
+        if (!text.includes('var ') && !text.includes('function') && !text.includes('document.')) {
+          return text;
+        }
       }
     }
     
