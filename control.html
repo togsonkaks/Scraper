@@ -451,7 +451,7 @@
 
       // Process each field with detailed logging
       for (const { field, checked, data } of fieldChecks) {
-        console.log(`[DEBUG] Processing field "${field}": checked=${checked}, hasData=${!!data}`);
+        console.log(`[DEBUG] Processing field "${field}": checked=${checked}, hasData=${!!data}, dataType=${typeof data}, dataValue=`, data);
         
         if (checked && data) {
           // Add/update field
@@ -539,7 +539,13 @@
       // Show detailed result message
       const addedFields = Object.keys(fields);
       const failedFields = fieldChecks
-        .filter(({ field, checked, data }) => checked && data && !fields[field])
+        .filter(({ field, checked, data }) => {
+          const failed = checked && data && !fields[field];
+          if (failed) {
+            console.log(`[DEBUG] Field "${field}" failed: checked=${checked}, hasData=${!!data}, foundSelectors=${!!fields[field]}`);
+          }
+          return failed;
+        })
         .map(({ field }) => field);
       
       const messages = [];

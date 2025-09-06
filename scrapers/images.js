@@ -182,6 +182,9 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     /(logo|loading|spinner|placeholder|cookie|consent|banner|hero-banner|header-?banner|badge|ribbon|reward|tracking|pixel|close|arrow|prev|next|play|pause|thumbnail|thumbs?|_56x|_112x|_200x)(\.|-|_|\/)/i;
   const BAD_HOST =
     /(doubleclick|googletag|google-analytics|bat\.bing|cookielaw|consent|quantserve|hotjar|optimizely|branch\.io|facebook|gstatic|segment|tealium|moatads|criteo|adnxs|taboola)/i;
+  
+  // Filter out chart/graph/analytical images by filename and content patterns
+  const BAD_CONTENT = /(chart|graph|analytics|data|metric|statistic|diagram|plot|visualization|infographic|table|spreadsheet|csv|excel|\bchart\b|\bgraph\b|\bdata\b)/i;
   const TINY_HINT = /(^|_|-)(16|24|32|40|48|64|80|96|120|150|180|200)(x|_|-)?(16|24|32|40|48|64|80|96|120|150|180|200)?(\.|$)/i;
 
   // normalize obvious CDN “small → big” patterns (Shopify, DW/SFCC, Scene7)
@@ -235,6 +238,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       if (BAD_HOST.test(u)) return;
       if (!EXT_ALLOW.test(u)) return;               // block svg, gif, etc.
       if (BAD_PATH.test(u)) return;
+      if (BAD_CONTENT.test(u)) return;              // block charts, graphs, analytics images
 
       const key = urlKey(u);
       if (!candidates.has(key))
@@ -373,8 +377,29 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       const clean = (r.url.split("?")[0] || "");
       if (BAD_NAME.test(clean)) return false;
       if (TINY_HINT.test(clean)) return false;
+      if (BAD_CONTENT.test(clean)) return false; // Additional check for charts/graphs
       // kill obvious promos/carusel nav thumbs by dimension hints in path
       if (/(promo|topnav|carousel|thumb|tile|banner|pod|badge|awards?)\b/i.test(clean)) return false;
+      
+      // Enhanced content filtering - check element context if available
+      if (r.element) {
+        const altText = (r.element.alt || '').toLowerCase();
+        const title = (r.element.title || '').toLowerCase();
+        const parentText = (r.element.closest('[class*="chart"], [class*="graph"], [class*="data"], [class*="analytics"]')?.textContent || '').toLowerCase();
+        
+        // Skip images with chart/graph context
+        if (/(chart|graph|data|analytics|metric|statistic|diagram|visualization)/i.test(altText + ' ' + title + ' ' + parentText)) {
+          console.log(`[DEBUG] Filtering out chart/graph image: ${r.url.split('/').pop()}`);
+          return false;
+        }
+        
+        // Skip images in obvious non-product containers
+        if (r.element.closest('.sidebar, .footer, .header, [class*="related"], [class*="recommend"], [class*="similar"], [class*="also-"], [class*="you-may"]')) {
+          console.log(`[DEBUG] Filtering out non-product container image: ${r.url.split('/').pop()}`);
+          return false;
+        }
+      }
+      
       return true;
     })
     .map((r) => {
