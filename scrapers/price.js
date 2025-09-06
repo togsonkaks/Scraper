@@ -169,6 +169,38 @@ function getPriceGeneric() {
     bucket.add(JSON.stringify({score, val}));
   };
 
+  // First, try to find main product container and search within it
+  const productContainers = [
+    '.product-detail, .product-details, .product-main, .product-container',
+    '#product, #product-detail, #product-main',
+    '[data-product], [data-product-detail]',
+    '.pdp, .product-page, .item-detail',
+    'main .product, article .product',
+    '.product-info, .product-content'
+  ];
+  
+  let productContainer = null;
+  for (const selector of productContainers) {
+    productContainer = document.querySelector(selector);
+    if (productContainer) break;
+  }
+  
+  // If we found a product container, search within it first with higher scores
+  if (productContainer) {
+    selHints.forEach((s, i) => {
+      productContainer.querySelectorAll(s).forEach(el => addIfMoney(el, 20 - i)); // Higher scores for scoped elements
+    });
+    
+    // Look for CTA buttons within the product container
+    const scopedCtas = [...productContainer.querySelectorAll('button, a')]
+      .filter(b => /add to cart|buy now|checkout|add to bag|add to basket/i.test(T(b.textContent)));
+    scopedCtas.forEach(btn => {
+      const scope = btn.closest('form, section, div, article') || productContainer;
+      scope.querySelectorAll('*').forEach(el => addIfMoney(el, 15));
+    });
+  }
+  
+  // Then search document-wide with lower scores as fallback
   selHints.forEach((s, i) => {
     document.querySelectorAll(s).forEach(el => addIfMoney(el, 10 - i));
   });
