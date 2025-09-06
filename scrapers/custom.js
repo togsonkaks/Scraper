@@ -706,7 +706,7 @@ const REGISTRY = [
   FASHIONNOVA,
   BANANA_FACTORY,
   EDGE_BY_XS,
-  ACE_HARDWARE,
+  // ACE_HARDWARE, // Temporarily disabled to test general logic
   AESOP,
   BARNES_NOBLE,
   BONBONBON,
