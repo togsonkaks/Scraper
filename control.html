@@ -181,7 +181,7 @@
           <div><b>Price:</b> ${result?.price || ''}</div>
           <div><b>Brand:</b> ${result?.brand || ''}</div>
           <div><b>URL:</b> ${result?.url || ''}</div>
-          <div style="margin-top:4px;"><b>Specs:</b> ${(result?.specs||[]).slice(0,10).join(' · ')}</div>
+          <div style="margin-top:4px;"><b>Specs:</b> ${(result?.specs||[]).slice(0,20).join(' · ')}</div>
           <div><b>Tags:</b> ${(result?.tags||[]).slice(0,12).join(' · ')}</div>
           <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>
         `;

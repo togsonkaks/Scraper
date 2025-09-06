@@ -232,7 +232,7 @@
     if (!tags.length && typeof collectTagsGeneric === 'function') {
       try { tags = collectTagsGeneric(document) || []; } catch {}
     }
-    specs = (specs || []).slice(0, 10);
+    specs = (specs || []).slice(0, 20);
     tags  = (tags  || []).slice(0, 12);
 
     let gender = null;
@@ -258,7 +258,7 @@
 
     // Trim any accidental huge arrays
     if (payload.images && payload.images.length > 20) payload.images = payload.images.slice(0,20);
-    if (payload.specs && payload.specs.length > 10) payload.specs = payload.specs.slice(0,10);
+    if (payload.specs && payload.specs.length > 20) payload.specs = payload.specs.slice(0,20);
     if (payload.tags  && payload.tags.length  > 12) payload.tags  = payload.tags.slice(0,12);
 
     // De-dup images by base (path without query) to cut obvious CDN variants
