@@ -297,6 +297,7 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!price) {
       const customPrice = cPrice(document);
+      console.log('DEBUG: cPrice returned:', customPrice, typeof customPrice);
       if (typeof customPrice === 'string' && customPrice) {
         price = customPrice;
         __used.price = {
@@ -304,6 +305,7 @@ function getDescriptionGeneric(doc = document) {
           attr: 'text',
           method: 'custom'
         };
+        console.log('DEBUG: Set __used.price from custom:', __used.price);
       }
     }
     if (!price && typeof getPriceGeneric === 'function') {
@@ -334,6 +336,7 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!images) {
       const customImages = await cImages(document);
+      console.log('DEBUG: cImages returned:', customImages, 'Array?', Array.isArray(customImages));
       if (Array.isArray(customImages) && customImages.length) {
         images = customImages;
         __used.images = {
@@ -341,10 +344,21 @@ function getDescriptionGeneric(doc = document) {
           attr: 'src',
           method: 'custom'
         };
+        console.log('DEBUG: Set __used.images from custom:', __used.images);
       }
     }
     if (!images && typeof collectImagesFromPDP === 'function') {
-      images = await collectImagesFromPDP();
+      const genericImages = await collectImagesFromPDP();
+      console.log('DEBUG: collectImagesFromPDP returned:', genericImages, 'Array?', Array.isArray(genericImages));
+      if (Array.isArray(genericImages) && genericImages.length) {
+        images = genericImages;
+        __used.images = {
+          selector: 'generic-images',
+          attr: 'src',
+          method: 'generic'
+        };
+        console.log('DEBUG: Set __used.images from generic:', __used.images);
+      }
     }
     if (!Array.isArray(images)) images = [];
     images = images.slice(0, 20);
@@ -465,6 +479,7 @@ function getDescriptionGeneric(doc = document) {
     } catch {}
 
     // Store selectors for main.js to pick up
+    console.log('DEBUG: Final __used before storing:', JSON.stringify(__used, null, 2));
     globalThis.__tg_lastSelectorsUsed = __used;
     
     return payload;
