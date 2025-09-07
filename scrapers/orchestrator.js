@@ -111,7 +111,6 @@ function getDescriptionGeneric(doc = document) {
     price: null,
     brand: null,
     description: null,
-    tags: null,
     images: null,
     __fromMemory: [] // fields resolved from memory
   };
@@ -213,31 +212,6 @@ function getDescriptionGeneric(doc = document) {
     return null;
   }
 
-  // Fallback: try to find which selector contains the exact price value
-  function findWorkingPriceSelector(targetPrice) {
-    // Common price selectors to check
-    const priceSelectors = [
-      '.price, [class*="price"], [id*="price"]',
-      '.product-price, .current-price, .sale-price, .final-price',
-      '[data-price], [data-testid*="price"]',
-      '.a-price .a-offscreen',
-      '.money, .amount'
-    ];
-    
-    for (const selector of priceSelectors) {
-      try {
-        const elements = document.querySelectorAll(selector);
-        for (const el of elements) {
-          const text = T(el.textContent);
-          if (text && (text === targetPrice || text.includes(targetPrice.replace(/[^\d.]/g, '')))) {
-            return selector;
-          }
-        }
-      } catch {}
-    }
-    return null;
-  }
-
   // ---- main orchestrator ----
   async function scrapeProduct() {
     const start = Date.now();
@@ -318,23 +292,7 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!price) {
       const p = cPrice(document);
-      if (typeof p === 'string' && p) {
-        price = p;
-        // If custom price logic found something but didn't track selectors,
-        // try to reverse-engineer the working selector as a fallback
-        if (!__used.price) {
-          try {
-            const fallbackSelector = findWorkingPriceSelector(p);
-            if (fallbackSelector) {
-              __used.price = {
-                selector: fallbackSelector,
-                attr: 'text',
-                method: 'custom-fallback'
-              };
-            }
-          } catch {}
-        }
-      }
+      if (typeof p === 'string' && p) price = p;
     }
     if (!price && typeof getPriceGeneric === 'function') {
       const priceResult = getPriceGeneric();
@@ -414,22 +372,7 @@ function getDescriptionGeneric(doc = document) {
       try { specs = collectSpecsGeneric(document) || []; } catch {}
     }
     if (!tags.length && typeof collectTagsGeneric === 'function') {
-      try { 
-        const tagsResult = collectTagsGeneric(document) || [];
-        if (Array.isArray(tagsResult)) {
-          // Old format: just array of tags
-          tags = tagsResult;
-        } else if (tagsResult && tagsResult.tags) {
-          // New format: object with selector tracking
-          tags = tagsResult.tags;
-          // Track the working selector for potential saving
-          __used.tags = {
-            selector: tagsResult.selector,
-            attr: tagsResult.attr,
-            method: tagsResult.method
-          };
-        }
-      } catch {}
+      try { tags = collectTagsGeneric(document) || []; } catch {}
     }
     specs = (specs || []).slice(0, 20);
     tags  = (tags  || []).slice(0, 12);
