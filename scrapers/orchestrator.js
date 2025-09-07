@@ -244,20 +244,7 @@ function getDescriptionGeneric(doc = document) {
       title = cTitle(document);
     }
     if (!title && typeof getTitleGeneric === 'function') {
-      const titleResult = getTitleGeneric(document);
-      if (titleResult) {
-        if (typeof titleResult === 'string') {
-          title = titleResult;
-        } else {
-          title = titleResult.text;
-          // Track the working selector for potential saving
-          __used.title = {
-            selector: titleResult.selector,
-            attr: titleResult.attr,
-            method: titleResult.method
-          };
-        }
-      }
+      title = getTitleGeneric(document);
     }
     if (!title) title = 'Title not found';
 
@@ -265,20 +252,7 @@ function getDescriptionGeneric(doc = document) {
     let brand = null;
     brand = cBrand(document);
     if (!brand && typeof getBrandGeneric === 'function') {
-      const brandResult = getBrandGeneric(document);
-      if (brandResult) {
-        if (typeof brandResult === 'string') {
-          brand = brandResult;
-        } else {
-          brand = brandResult.text;
-          // Track the working selector for potential saving
-          __used.brand = {
-            selector: brandResult.selector,
-            attr: brandResult.attr,
-            method: brandResult.method
-          };
-        }
-      }
+      brand = getBrandGeneric(document);
     }
 
     // ------------- PRICE -------------
@@ -295,20 +269,7 @@ function getDescriptionGeneric(doc = document) {
       if (typeof p === 'string' && p) price = p;
     }
     if (!price && typeof getPriceGeneric === 'function') {
-      const priceResult = getPriceGeneric();
-      if (priceResult) {
-        if (typeof priceResult === 'string') {
-          price = priceResult;
-        } else {
-          price = priceResult.text;
-          // Track the working selector for potential saving
-          __used.price = {
-            selector: priceResult.selector,
-            attr: priceResult.attr,
-            method: priceResult.method
-          };
-        }
-      }
+      price = getPriceGeneric();
     }
     if (!price) price = 'Price not found';
 

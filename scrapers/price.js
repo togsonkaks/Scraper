@@ -121,41 +121,18 @@ function priceFromJSON() {
 
 function getPriceGeneric() {
   const j = priceFromJSON();
-  if (j) return {
-    text: j,
-    selector: 'script[type="application/ld+json"]',
-    attr: 'json',
-    method: 'json-ld'
-  };
+  if (j) return j;
 
   const meta = document.querySelector("meta[itemprop='price']")?.getAttribute("content");
   if (meta) {
     const m = normalizeMoney(meta);
-    if (m) return {
-      text: m,
-      selector: "meta[itemprop='price']",
-      attr: 'content',
-      method: 'microdata'
-    };
+    if (m) return m;
   }
-  
-  const microElement = [...document.querySelectorAll("[itemprop='price'], [property='product:price:amount']")]
-    .find(el => {
-      const val = el.getAttribute("content") || el.textContent;
-      return normalizeMoney(val);
-    });
-  if (microElement) {
-    const val = microElement.getAttribute("content") || microElement.textContent;
-    const normalizedPrice = normalizeMoney(val);
-    if (normalizedPrice) {
-      return {
-        text: normalizedPrice,
-        selector: microElement.matches("[itemprop='price']") ? "[itemprop='price']" : "[property='product:price:amount']",
-        attr: microElement.getAttribute("content") ? 'content' : 'text',
-        method: 'microdata'
-      };
-    }
-  }
+  const micro = [...document.querySelectorAll("[itemprop='price'], [property='product:price:amount']")]
+    .map(el => el.getAttribute("content") || el.textContent)
+    .map(normalizeMoney)
+    .find(Boolean);
+  if (micro) return micro;
 
   const BAD_WORDS = /(was|list|regular|original|compare|mrp|strik(e|ed)|previous)/i;
   const GOOD_WORDS = /(now|current|final|sale|deal|price|buy)/i;
@@ -261,14 +238,7 @@ function getPriceGeneric() {
     const best = [...bucket]
       .map(s => JSON.parse(s))
       .sort((a,b)=> b.score - a.score)[0];
-    if (best?.val) {
-      return {
-        text: best.val,
-        selector: best.selector,
-        attr: 'text',
-        method: 'selector-scoring'
-      };
-    }
+    return best?.val || null;
   }
   return null;
 }

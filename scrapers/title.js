@@ -28,14 +28,7 @@ function getTitleGeneric() {
       const el = productContainer.querySelector(sel);
       if (el) {
         const text = T(el.innerText || el.textContent);
-        if (text && text.length > 5) {
-          return {
-            text: text,
-            selector: sel,
-            attr: 'text',
-            method: 'scoped-generic'
-          };
-        }
+        if (text && text.length > 5) return text;
       }
     }
   }
@@ -52,33 +45,15 @@ function getTitleGeneric() {
     const el = document.querySelector(sel);
     if (el) {
       const text = T(el.innerText || el.textContent);
-      if (text && text.length > 5) {
-        return {
-          text: text,
-          selector: sel,
-          attr: 'text',
-          method: 'global-generic'
-        };
-      }
+      if (text && text.length > 5) return text;
     }
   }
   
   // Final fallback: og:title meta tag
-  const ogTitle = T(document.querySelector('meta[property="og:title"]')?.content);
-  if (ogTitle) {
-    return {
-      text: ogTitle,
-      selector: 'meta[property="og:title"]',
-      attr: 'content',
-      method: 'meta-fallback'
-    };
-  }
-  
-  return null;
+  return T(document.querySelector('meta[property="og:title"]')?.content) || null;
 }
 
 function getBrandGeneric() {
-  // Try JSON-LD first
   for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
     try {
       const data = JSON.parse(b.textContent.trim());
@@ -87,43 +62,18 @@ function getBrandGeneric() {
         const types = [].concat(node?.["@type"]||[]).map(String);
         if (types.some(t=>/product/i.test(t))) {
           const brand = node.brand?.name || node.brand || node.manufacturer?.name || "";
-          if (brand && T(brand)) {
-            return {
-              text: T(brand),
-              selector: 'script[type="application/ld+json"]',
-              attr: 'json',
-              method: 'json-ld'
-            };
-          }
+          if (brand && T(brand)) return T(brand);
         }
       }
     } catch {}
   }
-  
-  // Try meta tags and microdata
-  const brandSelectors = [
-    'meta[property="product:brand"]',
-    'meta[name="brand"]',
-    '[itemprop="brand"] [itemprop="name"]',
-    '[itemprop="brand"]'
-  ];
-  
-  for (const sel of brandSelectors) {
-    const el = document.querySelector(sel);
-    if (el) {
-      const brandText = el.content || el.getAttribute("content") || el.textContent || "";
-      if (brandText && T(brandText)) {
-        return {
-          text: T(brandText),
-          selector: sel,
-          attr: el.content || el.getAttribute("content") ? 'content' : 'text',
-          method: 'microdata'
-        };
-      }
-    }
-  }
-  
-  return null;
+  const metaBrand =
+    document.querySelector('meta[property="product:brand"]')?.content ||
+    document.querySelector('meta[name="brand"]')?.content ||
+    document.querySelector('[itemprop="brand"] [itemprop="name"]')?.textContent ||
+    document.querySelector('[itemprop="brand"]')?.getAttribute("content") ||
+    document.querySelector('[itemprop="brand"]')?.textContent || "";
+  return T(metaBrand) || null;
 }
 
 Object.assign(globalThis, { getTitleGeneric, getBrandGeneric });
