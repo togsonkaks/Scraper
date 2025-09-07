@@ -23,7 +23,7 @@
 // - T(), uniq(), sleep(ms)    (from utils.js)
 // Also assumes preload exposed window.api.* IPC for selector memory (contextBridge).
 
-// Generic description extractor
+// Generic description extractor with selector tracking
 function getDescriptionGeneric(doc = document) {
   // Common description selectors, ordered by priority
   const selectors = [
@@ -64,7 +64,9 @@ function getDescriptionGeneric(doc = document) {
       if (!el) continue;
       
       let text = '';
-      if (sel.includes('meta')) {
+      const attr = sel.includes('meta') ? 'content' : 'text';
+      
+      if (attr === 'content') {
         text = el.getAttribute('content') || '';
       } else {
         text = el.textContent || '';
@@ -76,7 +78,12 @@ function getDescriptionGeneric(doc = document) {
       if (text && text.length > 20 && text.length < 2000) {
         // Skip if it looks like navigation/menu text
         if (!/(home|shop|cart|checkout|login|menu|navigation|cookie|accept|decline)/i.test(text.substring(0, 50))) {
-          return text;
+          // Return both text and selector info for tracking
+          return {
+            text: text,
+            selector: sel,
+            attr: attr
+          };
         }
       }
     } catch {}
@@ -300,7 +307,20 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!description) {
       // Generic description extraction
-      description = getDescriptionGeneric(document);
+      const descResult = getDescriptionGeneric(document);
+      if (descResult) {
+        if (typeof descResult === 'string') {
+          description = descResult;
+        } else {
+          description = descResult.text;
+          // Track the working selector for potential saving
+          __used.description = {
+            selector: descResult.selector,
+            attr: descResult.attr,
+            method: 'generic'
+          };
+        }
+      }
     }
 
     // ------------- SPECS / TAGS / GENDER / SKU -------------

@@ -449,6 +449,10 @@
         tags: lastPayload.tags ? `${lastPayload.tags.length} tags: ${lastPayload.tags.slice(0, 3).join(', ')}` : null
       });
 
+      // Get last used selectors if available
+      const lastUsed = window.__tg_lastSelectorsUsed || {};
+      console.log('[DEBUG] Last used selectors:', lastUsed);
+
       // Process each field with detailed logging
       for (const { field, checked, data } of fieldChecks) {
         console.log(`[DEBUG] Processing field "${field}": checked=${checked}, hasData=${!!data}, dataType=${typeof data}, dataValue=`, data);
@@ -456,6 +460,16 @@
         if (checked && data) {
           // Add/update field
           let result = null;
+          
+          // Check if we have a working selector from the last scrape
+          if (lastUsed[field] && lastUsed[field].selector) {
+            console.log(`[DEBUG] Using tracked working selector for ${field}:`, lastUsed[field]);
+            result = {
+              selectors: [lastUsed[field].selector],
+              attr: lastUsed[field].attr || 'text',
+              method: lastUsed[field].method || 'tracked'
+            };
+          }
           
           if (field === 'images') {
             if (Array.isArray(data) && data.length > 0) {
@@ -482,6 +496,8 @@
               console.log(`[DEBUG] Tags field: no valid text found`, typeof data, data);
             }
           } else {
+            // Fall back to reverse-engineering if no tracked selector
+            
             // Handle all other fields (title, price, brand, description) more flexibly
             let searchText = null;
             
@@ -511,10 +527,10 @@
           
           if (result) {
             // Add logic type tracking
-            result.logicType = 'reverse-engineered'; // Mark as reverse-engineered from user validation
+            result.logicType = result.method === 'tracked' ? 'tracked-working' : 'reverse-engineered';
             result.savedAt = new Date().toISOString();
             fields[field] = result;
-            console.log(`[DEBUG] Found selectors for ${field}:`, result.selectors);
+            console.log(`[DEBUG] Found selectors for ${field}:`, result.selectors, `(${result.logicType})`);
           } else {
             console.log(`[DEBUG] No selectors found for ${field}`);
           }

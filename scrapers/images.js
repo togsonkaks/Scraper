@@ -88,23 +88,86 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       )
   );
 
-  function nearestProductRoot() {
-    const h1 = q("h1");
-    let node = h1;
-    while (node) {
-      const cls = (node.className || "") + " " + (node.id || "");
-      if (/(pdp|product|__product|detail|details|gallery|media|image)/i.test(cls)) return node;
-      node = node.parentElement;
+  // Enhanced product gallery detection
+  function findProductGalleries() {
+    const galleries = [];
+    
+    // Priority 1: Explicit product image containers
+    const highPrioritySelectors = [
+      '.product-gallery',
+      '.product-images', 
+      '.product-media',
+      '.product-photos',
+      '[data-testid*="gallery"]',
+      '[data-testid*="images"]',
+      '[class*="ProductGallery"]',
+      '[class*="ProductImages"]',
+      '.pdp-gallery',
+      '.pdp-images'
+    ];
+    
+    for (const sel of highPrioritySelectors) {
+      const container = document.querySelector(sel);
+      if (container) {
+        const imgs = container.querySelectorAll('img');
+        if (imgs.length >= 2) { // Must have multiple images
+          console.log(`[DEBUG] Found high-priority product gallery: ${sel} (${imgs.length} images)`);
+          galleries.push({ container, selector: sel, priority: 1, images: Array.from(imgs) });
+        }
+      }
     }
-    return (
-      q('[role="region"][aria-label*="gallery" i]') ||
-      q('[aria-roledescription="carousel" i]') ||
-      q('[data-testid*="gallery" i]') ||
-      q(".gallery, .pdp, .product, [class*='Product'], [class*='Gallery']") ||
-      document.body
-    );
+    
+    // Priority 2: Image carousels/sliders in product context
+    const carouselSelectors = [
+      '.carousel .carousel-inner',
+      '.swiper-wrapper',
+      '.slick-track',
+      '.slider-container',
+      '[class*="carousel"]',
+      '[class*="slider"]'
+    ];
+    
+    for (const sel of carouselSelectors) {
+      const containers = document.querySelectorAll(sel);
+      containers.forEach(container => {
+        // Check if this carousel is in a product context
+        const productContext = container.closest('.product, .pdp, main, [class*="Product"]');
+        if (productContext) {
+          const imgs = container.querySelectorAll('img');
+          if (imgs.length >= 2) {
+            console.log(`[DEBUG] Found product carousel: ${sel} (${imgs.length} images)`);
+            galleries.push({ container, selector: sel, priority: 2, images: Array.from(imgs) });
+          }
+        }
+      });
+    }
+    
+    // Priority 3: Fallback to product root if no galleries found
+    if (galleries.length === 0) {
+      const h1 = q("h1");
+      let node = h1;
+      while (node) {
+        const cls = (node.className || "") + " " + (node.id || "");
+        if (/(pdp|product|__product|detail|details)/i.test(cls)) {
+          const imgs = node.querySelectorAll('img');
+          if (imgs.length >= 1) {
+            console.log(`[DEBUG] Using product root fallback: ${node.className} (${imgs.length} images)`);
+            galleries.push({ container: node, selector: 'product-root', priority: 3, images: Array.from(imgs) });
+          }
+          break;
+        }
+        node = node.parentElement;
+      }
+    }
+    
+    return galleries.sort((a, b) => a.priority - b.priority); // Highest priority first
   }
-  const root = nearestProductRoot();
+  
+  const productGalleries = findProductGalleries();
+  console.log(`[DEBUG] Found ${productGalleries.length} product galleries`);
+  
+  // Use the first/best gallery as root, or document.body as ultimate fallback
+  const root = productGalleries.length > 0 ? productGalleries[0].container : document.body;
 
   // ---------- helpers for bg images + swiper/slider wake ----------
   function __bgUrlsFrom(el) {
@@ -364,6 +427,27 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     console.log("[DEBUG] After wide sweep:", candidates.size, "candidates");
   }
 
+  // ---------- gallery-based collection first ----------
+  // If we found product galleries, prioritize images from those containers
+  if (productGalleries.length > 0) {
+    console.log('[DEBUG] Using gallery-based collection');
+    for (const gallery of productGalleries) {
+      for (const img of gallery.images) {
+        if (img.src || img.currentSrc) {
+          const w = img.naturalWidth || parseInt(img.width) || 0;
+          const h = img.naturalHeight || parseInt(img.height) || 0;
+          ensure(img.currentSrc || img.src, w, h, `gallery-${gallery.priority}`, img);
+          
+          // Also check for data attributes on gallery images
+          ["data-src", "data-original", "data-large", "data-zoom-image", "data-large-image"].forEach(attr => {
+            const val = img.getAttribute(attr);
+            if (val) ensure(val, w, h, `gallery-${gallery.priority}-${attr}`, img);
+          });
+        }
+      }
+    }
+  }
+
   // ---------- scoring / filters ----------
   const overlap = (s) => {
     const low = s.toLowerCase();
@@ -420,7 +504,14 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       if (r.element) {
         const relevanceScore = scoreImageRelevance(r.url, r.element);
         s += relevanceScore;
-        console.log(`[DEBUG] Image ${r.url.substring(r.url.lastIndexOf('/') + 1)} - Area score: ${s - relevanceScore}, Relevance score: ${relevanceScore}, Total: ${s}`);
+        
+        // Extra bonus for gallery images
+        if (r.from && Array.from(r.from).some(src => src.startsWith('gallery-'))) {
+          s += 25; // Strong bonus for gallery images
+          console.log(`[DEBUG] Gallery image bonus: ${r.url.substring(r.url.lastIndexOf('/') + 1)}`);
+        }
+        
+        console.log(`[DEBUG] Image ${r.url.substring(r.url.lastIndexOf('/') + 1)} - Area: ${s - relevanceScore - (r.from && Array.from(r.from).some(src => src.startsWith('gallery-')) ? 25 : 0)}, Relevance: ${relevanceScore}, Total: ${s}`);
       }
       if (r.w && r.h) {
         const ar = r.w / Math.max(1, r.h);
