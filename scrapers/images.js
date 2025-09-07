@@ -298,7 +298,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     } catch { return u; }
   }
 
-  const ensure = (u, w = 0, h = 0, from = "", element = null) => {
+  const ensure = (u, w = 0, h = 0, from = "") => {
     try {
       if (!u) return;
       u = upgradeUrl(u);
@@ -311,12 +311,11 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
 
       const key = urlKey(u);
       if (!candidates.has(key))
-        candidates.set(key, { url: u, w, h, hits: 0, from: new Set(), element });
+        candidates.set(key, { url: u, w, h, hits: 0, from: new Set() });
       const rec = candidates.get(key);
       rec.hits++;
       rec.from.add(from);
       if (w * h > rec.w * rec.h) { rec.w = w; rec.h = h; rec.url = u; }
-      if (element && !rec.element) rec.element = element; // Store first element reference
     } catch {}
   };
 

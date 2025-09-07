@@ -207,7 +207,7 @@ function getPriceGeneric() {
       }
     }
     
-    bucket.add(JSON.stringify({score, val, selector: elementSelector, element: el}));
+    bucket.add(JSON.stringify({score, val, selector: elementSelector}));
   };
 
   // First, try to find main product container and search within it
