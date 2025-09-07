@@ -44,18 +44,7 @@ function getDescriptionGeneric(doc = document) {
     '.pdp-product-description',
     '.product-description-content',
     '.product-long-description',
-    '.rte', // Rich text editor content
-    
-    // Generic content containers
-    '[data-testid*="description"]',
-    '[data-test*="description"]',
-    '[class*="description"]',
-    '#description',
-    
-    // Less specific fallbacks
-    '.content p',
-    '.product-info p',
-    'main p'
+    '.rte' // Rich text editor content
   ];
   
   for (const sel of selectors) {
@@ -64,9 +53,8 @@ function getDescriptionGeneric(doc = document) {
       if (!el) continue;
       
       let text = '';
-      const attr = sel.includes('meta') ? 'content' : 'text';
       
-      if (attr === 'content') {
+      if (sel.includes('meta')) {
         text = el.getAttribute('content') || '';
       } else {
         text = el.textContent || '';
@@ -76,14 +64,12 @@ function getDescriptionGeneric(doc = document) {
       
       // Valid description should be substantive
       if (text && text.length > 20 && text.length < 2000) {
-        // Skip if it looks like navigation/menu text
-        if (!/(home|shop|cart|checkout|login|menu|navigation|cookie|accept|decline)/i.test(text.substring(0, 50))) {
-          // Return both text and selector info for tracking
-          return {
-            text: text,
-            selector: sel,
-            attr: attr
-          };
+        // Skip if it looks like JSON/technical data
+        if (!/(props|pageProps|appConfig|apiHost|":|{|}|\[|\])/i.test(text.substring(0, 100))) {
+          // Skip if it looks like navigation/menu text
+          if (!/(home|shop|cart|checkout|login|menu|navigation|cookie|accept|decline)/i.test(text.substring(0, 50))) {
+            return text;
+          }
         }
       }
     } catch {}
@@ -308,20 +294,7 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!description) {
       // Generic description extraction
-      const descResult = getDescriptionGeneric(document);
-      if (descResult) {
-        if (typeof descResult === 'string') {
-          description = descResult;
-        } else {
-          description = descResult.text;
-          // Track the working selector for potential saving
-          __used.description = {
-            selector: descResult.selector,
-            attr: descResult.attr,
-            method: 'generic'
-          };
-        }
-      }
+      description = getDescriptionGeneric(document);
     }
 
     // ------------- SPECS / TAGS / GENDER / SKU -------------
