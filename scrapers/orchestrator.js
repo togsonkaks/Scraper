@@ -391,8 +391,28 @@ function getDescriptionGeneric(doc = document) {
     // ------------- SPECS / TAGS / GENDER / SKU -------------
     let specs = [];
     let tags  = [];
-    try { const s = cSpecs(document); if (Array.isArray(s)) specs = s; } catch {}
-    try { const t = cTags(document);  if (Array.isArray(t))  tags = t;  } catch {}
+    try { 
+      const customSpecs = cSpecs(document); 
+      if (Array.isArray(customSpecs)) {
+        specs = customSpecs;
+        __used.specs = {
+          selector: 'custom-handler',
+          attr: 'text',
+          method: 'custom'
+        };
+      }
+    } catch {}
+    try { 
+      const customTags = cTags(document);  
+      if (Array.isArray(customTags)) {
+        tags = customTags;
+        __used.tags = {
+          selector: 'custom-handler',
+          attr: 'text',
+          method: 'custom'
+        };
+      }
+    } catch {}
     if (!specs.length && typeof collectSpecsGeneric === 'function') {
       try { specs = collectSpecsGeneric(document) || []; } catch {}
     }
