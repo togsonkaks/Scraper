@@ -111,6 +111,7 @@ function getDescriptionGeneric(doc = document) {
     price: null,
     brand: null,
     description: null,
+    tags: null,
     images: null,
     __fromMemory: [] // fields resolved from memory
   };
@@ -372,7 +373,22 @@ function getDescriptionGeneric(doc = document) {
       try { specs = collectSpecsGeneric(document) || []; } catch {}
     }
     if (!tags.length && typeof collectTagsGeneric === 'function') {
-      try { tags = collectTagsGeneric(document) || []; } catch {}
+      try { 
+        const tagsResult = collectTagsGeneric(document) || [];
+        if (Array.isArray(tagsResult)) {
+          // Old format: just array of tags
+          tags = tagsResult;
+        } else if (tagsResult && tagsResult.tags) {
+          // New format: object with selector tracking
+          tags = tagsResult.tags;
+          // Track the working selector for potential saving
+          __used.tags = {
+            selector: tagsResult.selector,
+            attr: tagsResult.attr,
+            method: tagsResult.method
+          };
+        }
+      } catch {}
     }
     specs = (specs || []).slice(0, 20);
     tags  = (tags  || []).slice(0, 12);
