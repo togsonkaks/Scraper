@@ -273,12 +273,6 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         url = url.replace(/[?&](wid|hei|fmt|qlt|op_sharpen)=\d*[^&]*/gi, "");
       }
 
-      // Adidas CDN: /h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/ → normalize size params
-      if (/assets\.adidas\.com\/images\//i.test(url)) {
-        url = url.replace(/\/h_\d+,([^/]+)\//gi, '/h_2000,$1/'); // normalize to h_2000
-        url = url.replace(/\/w_\d+,([^/]+)\//gi, '/w_2000,$1/'); // normalize to w_2000 if width-based
-      }
-
       // strip generic width/height query hints
       url = url.replace(/[?&](w|h|width|height|size)=\d+[^&]*/gi, "");
       // collapse trailing ? or & if empty
