@@ -288,22 +288,14 @@ function getDescriptionGeneric(doc = document) {
 
     // ------------- PRICE -------------
     let price = null;
-    console.log('🔍 Price extraction starting...');
-    
     if (mem?.price) {
-      console.log('📝 Trying memory price:', mem.price);
       const got = tryMemoryPrice(mem.price);
       if (got) {
         price = got.value;
         __used.price = got.selUsed;
-        console.log('✅ Memory price found:', price, 'Selector tracked:', __used.price);
-      } else {
-        console.log('❌ Memory price failed');
       }
     }
-    
     if (!price) {
-      console.log('🎯 Trying custom price handler...');
       const customPrice = cPrice(document);
       if (typeof customPrice === 'string' && customPrice) {
         price = customPrice;
@@ -312,19 +304,13 @@ function getDescriptionGeneric(doc = document) {
           attr: 'text',
           method: 'custom'
         };
-        console.log('✅ Custom price found:', price, 'Selector tracked:', __used.price);
-      } else {
-        console.log('❌ Custom price failed, got:', customPrice);
       }
     }
-    
     if (!price && typeof getPriceGeneric === 'function') {
-      console.log('🔧 Trying generic price extraction...');
       const priceResult = getPriceGeneric();
       if (priceResult) {
         if (typeof priceResult === 'string') {
           price = priceResult;
-          console.log('⚠️ Generic price found as string:', price, 'NO TRACKING!');
         } else {
           price = priceResult.text;
           __used.price = {
@@ -332,17 +318,10 @@ function getDescriptionGeneric(doc = document) {
             attr: priceResult.attr,
             method: 'generic'
           };
-          console.log('✅ Generic price found as object:', price, 'Selector tracked:', __used.price);
         }
-      } else {
-        console.log('❌ Generic price failed');
       }
     }
-    
     if (!price) price = 'Price not found';
-    
-    console.log('💰 Final price result:', price);
-    console.log('🎯 Final __used.price:', __used.price);
 
     // ------------- IMAGES -------------
     let images = null;
@@ -485,8 +464,6 @@ function getDescriptionGeneric(doc = document) {
       });
     } catch {}
 
-    console.log('🎯 FINAL __used object being returned:', JSON.stringify(__used, null, 2));
-    
     // Store selectors for main.js to pick up
     globalThis.__tg_lastSelectorsUsed = __used;
     
