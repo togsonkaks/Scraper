@@ -121,18 +121,41 @@ function priceFromJSON() {
 
 function getPriceGeneric() {
   const j = priceFromJSON();
-  if (j) return j;
+  if (j) return {
+    text: j,
+    selector: 'script[type="application/ld+json"]',
+    attr: 'json',
+    method: 'json-ld'
+  };
 
   const meta = document.querySelector("meta[itemprop='price']")?.getAttribute("content");
   if (meta) {
     const m = normalizeMoney(meta);
-    if (m) return m;
+    if (m) return {
+      text: m,
+      selector: "meta[itemprop='price']",
+      attr: 'content',
+      method: 'microdata'
+    };
   }
-  const micro = [...document.querySelectorAll("[itemprop='price'], [property='product:price:amount']")]
-    .map(el => el.getAttribute("content") || el.textContent)
-    .map(normalizeMoney)
-    .find(Boolean);
-  if (micro) return micro;
+  
+  const microElement = [...document.querySelectorAll("[itemprop='price'], [property='product:price:amount']")]
+    .find(el => {
+      const val = el.getAttribute("content") || el.textContent;
+      return normalizeMoney(val);
+    });
+  if (microElement) {
+    const val = microElement.getAttribute("content") || microElement.textContent;
+    const normalizedPrice = normalizeMoney(val);
+    if (normalizedPrice) {
+      return {
+        text: normalizedPrice,
+        selector: microElement.matches("[itemprop='price']") ? "[itemprop='price']" : "[property='product:price:amount']",
+        attr: microElement.getAttribute("content") ? 'content' : 'text',
+        method: 'microdata'
+      };
+    }
+  }
 
   const BAD_WORDS = /(was|list|regular|original|compare|mrp|strik(e|ed)|previous)/i;
   const GOOD_WORDS = /(now|current|final|sale|deal|price|buy)/i;
@@ -151,7 +174,7 @@ function getPriceGeneric() {
   ];
   const bucket = new Set();
 
-  const addIfMoney = (el, baseScore) => {
+  const addIfMoney = (el, baseScore, selectorHint = null) => {
     if (!el) return;
     const text = T(el.textContent);
     if (!text || !CURRENCY.test(text) || !NUM.test(text)) return;
@@ -166,7 +189,25 @@ function getPriceGeneric() {
     if (text.length <= 14) score += 1;
     const val = normalizeMoney(text);
     if (!val) return;
-    bucket.add(JSON.stringify({score, val}));
+    
+    // Generate a specific selector for this element
+    let elementSelector = selectorHint;
+    if (!elementSelector) {
+      if (el.id) {
+        elementSelector = `#${el.id}`;
+      } else if (el.className) {
+        const classes = el.className.split(' ').filter(c => c.trim());
+        if (classes.length > 0) {
+          elementSelector = `${el.tagName.toLowerCase()}.${classes.join('.')}`;
+        } else {
+          elementSelector = el.tagName.toLowerCase();
+        }
+      } else {
+        elementSelector = el.tagName.toLowerCase();
+      }
+    }
+    
+    bucket.add(JSON.stringify({score, val, selector: elementSelector, element: el}));
   };
 
   // First, try to find main product container and search within it
@@ -188,7 +229,7 @@ function getPriceGeneric() {
   // If we found a product container, search within it first with higher scores
   if (productContainer) {
     selHints.forEach((s, i) => {
-      productContainer.querySelectorAll(s).forEach(el => addIfMoney(el, 20 - i)); // Higher scores for scoped elements
+      productContainer.querySelectorAll(s).forEach(el => addIfMoney(el, 20 - i, s)); // Higher scores for scoped elements
     });
     
     // Look for CTA buttons within the product container
@@ -202,7 +243,7 @@ function getPriceGeneric() {
   
   // Then search document-wide with lower scores as fallback
   selHints.forEach((s, i) => {
-    document.querySelectorAll(s).forEach(el => addIfMoney(el, 10 - i));
+    document.querySelectorAll(s).forEach(el => addIfMoney(el, 10 - i, s));
   });
 
   const ctas = [...document.querySelectorAll('button, a')]
@@ -220,7 +261,14 @@ function getPriceGeneric() {
     const best = [...bucket]
       .map(s => JSON.parse(s))
       .sort((a,b)=> b.score - a.score)[0];
-    return best?.val || null;
+    if (best?.val) {
+      return {
+        text: best.val,
+        selector: best.selector,
+        attr: 'text',
+        method: 'selector-scoring'
+      };
+    }
   }
   return null;
 }

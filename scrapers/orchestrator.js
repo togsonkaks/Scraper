@@ -109,6 +109,7 @@ function getDescriptionGeneric(doc = document) {
   const __used = {
     title: null,
     price: null,
+    brand: null,
     description: null,
     images: null,
     __fromMemory: [] // fields resolved from memory
@@ -243,7 +244,20 @@ function getDescriptionGeneric(doc = document) {
       title = cTitle(document);
     }
     if (!title && typeof getTitleGeneric === 'function') {
-      title = getTitleGeneric(document);
+      const titleResult = getTitleGeneric(document);
+      if (titleResult) {
+        if (typeof titleResult === 'string') {
+          title = titleResult;
+        } else {
+          title = titleResult.text;
+          // Track the working selector for potential saving
+          __used.title = {
+            selector: titleResult.selector,
+            attr: titleResult.attr,
+            method: titleResult.method
+          };
+        }
+      }
     }
     if (!title) title = 'Title not found';
 
@@ -251,7 +265,20 @@ function getDescriptionGeneric(doc = document) {
     let brand = null;
     brand = cBrand(document);
     if (!brand && typeof getBrandGeneric === 'function') {
-      brand = getBrandGeneric(document);
+      const brandResult = getBrandGeneric(document);
+      if (brandResult) {
+        if (typeof brandResult === 'string') {
+          brand = brandResult;
+        } else {
+          brand = brandResult.text;
+          // Track the working selector for potential saving
+          __used.brand = {
+            selector: brandResult.selector,
+            attr: brandResult.attr,
+            method: brandResult.method
+          };
+        }
+      }
     }
 
     // ------------- PRICE -------------
@@ -268,7 +295,20 @@ function getDescriptionGeneric(doc = document) {
       if (typeof p === 'string' && p) price = p;
     }
     if (!price && typeof getPriceGeneric === 'function') {
-      price = getPriceGeneric();
+      const priceResult = getPriceGeneric();
+      if (priceResult) {
+        if (typeof priceResult === 'string') {
+          price = priceResult;
+        } else {
+          price = priceResult.text;
+          // Track the working selector for potential saving
+          __used.price = {
+            selector: priceResult.selector,
+            attr: priceResult.attr,
+            method: priceResult.method
+          };
+        }
+      }
     }
     if (!price) price = 'Price not found';
 
