@@ -208,14 +208,43 @@
           memDebug.innerHTML = '<div style="color: #666;">No saved selectors for this domain</div>';
         }
 
-        // Load existing memory state into checkboxes
-        if (mem) {
-          okTitle.checked = !!mem.title;
-          okPrice.checked = !!mem.price;
-          okImages.checked = !!mem.images;
-          okBrand.checked = !!mem.brand;
-          okTags.checked = !!mem.tags;
-          okDesc.checked = !!mem.description;
+        // Show validation checkboxes ONLY for successfully tracked fields
+        console.log('🎯 Selectors used in current scrape:', lastSelectorsUsed);
+        
+        // Hide all checkboxes initially
+        okTitle.parentElement.style.display = 'none';
+        okPrice.parentElement.style.display = 'none';
+        okImages.parentElement.style.display = 'none';
+        okBrand.parentElement.style.display = 'none';
+        okTags.parentElement.style.display = 'none';
+        okDesc.parentElement.style.display = 'none';
+        
+        // Show checkboxes only for fields where selectors were successfully tracked
+        if (lastSelectorsUsed) {
+          if (lastSelectorsUsed.title) {
+            okTitle.parentElement.style.display = 'inline';
+            okTitle.checked = !!mem?.title; // Check if already saved
+          }
+          if (lastSelectorsUsed.price) {
+            okPrice.parentElement.style.display = 'inline';
+            okPrice.checked = !!mem?.price;
+          }
+          if (lastSelectorsUsed.images) {
+            okImages.parentElement.style.display = 'inline';
+            okImages.checked = !!mem?.images;
+          }
+          if (lastSelectorsUsed.brand) {
+            okBrand.parentElement.style.display = 'inline';
+            okBrand.checked = !!mem?.brand;
+          }
+          if (lastSelectorsUsed.tags) {
+            okTags.parentElement.style.display = 'inline';
+            okTags.checked = !!mem?.tags;
+          }
+          if (lastSelectorsUsed.description) {
+            okDesc.parentElement.style.display = 'inline';
+            okDesc.checked = !!mem?.description;
+          }
         }
 
         panel.style.display = 'grid';

@@ -485,7 +485,12 @@ function getDescriptionGeneric(doc = document) {
       });
     } catch {}
 
-    return payload;
+    console.log('🎯 FINAL __used object being returned:', JSON.stringify(__used, null, 2));
+    
+    return {
+      result: payload,
+      selectorsUsed: __used
+    };
   }
 
   // expose
