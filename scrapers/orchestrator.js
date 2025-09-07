@@ -53,8 +53,9 @@ function getDescriptionGeneric(doc = document) {
       if (!el) continue;
       
       let text = '';
+      const attr = sel.includes('meta') ? 'content' : 'text';
       
-      if (sel.includes('meta')) {
+      if (attr === 'content') {
         text = el.getAttribute('content') || '';
       } else {
         text = el.textContent || '';
@@ -68,7 +69,11 @@ function getDescriptionGeneric(doc = document) {
         if (!/(props|pageProps|appConfig|apiHost|":|{|}|\[|\])/i.test(text.substring(0, 100))) {
           // Skip if it looks like navigation/menu text
           if (!/(home|shop|cart|checkout|login|menu|navigation|cookie|accept|decline)/i.test(text.substring(0, 50))) {
-            return text;
+            return {
+              text: text,
+              selector: sel,
+              attr: attr
+            };
           }
         }
       }
@@ -230,7 +235,19 @@ function getDescriptionGeneric(doc = document) {
       title = cTitle(document);
     }
     if (!title && typeof getTitleGeneric === 'function') {
-      title = getTitleGeneric(document);
+      const titleResult = getTitleGeneric(document);
+      if (titleResult) {
+        if (typeof titleResult === 'string') {
+          title = titleResult;
+        } else {
+          title = titleResult.text;
+          __used.title = {
+            selector: titleResult.selector,
+            attr: titleResult.attr,
+            method: 'generic'
+          };
+        }
+      }
     }
     if (!title) title = 'Title not found';
 
@@ -238,7 +255,19 @@ function getDescriptionGeneric(doc = document) {
     let brand = null;
     brand = cBrand(document);
     if (!brand && typeof getBrandGeneric === 'function') {
-      brand = getBrandGeneric(document);
+      const brandResult = getBrandGeneric(document);
+      if (brandResult) {
+        if (typeof brandResult === 'string') {
+          brand = brandResult;
+        } else {
+          brand = brandResult.text;
+          __used.brand = {
+            selector: brandResult.selector,
+            attr: brandResult.attr,
+            method: 'generic'
+          };
+        }
+      }
     }
 
     // ------------- PRICE -------------
@@ -255,7 +284,19 @@ function getDescriptionGeneric(doc = document) {
       if (typeof p === 'string' && p) price = p;
     }
     if (!price && typeof getPriceGeneric === 'function') {
-      price = getPriceGeneric();
+      const priceResult = getPriceGeneric();
+      if (priceResult) {
+        if (typeof priceResult === 'string') {
+          price = priceResult;
+        } else {
+          price = priceResult.text;
+          __used.price = {
+            selector: priceResult.selector,
+            attr: priceResult.attr,
+            method: 'generic'
+          };
+        }
+      }
     }
     if (!price) price = 'Price not found';
 
@@ -294,7 +335,19 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!description) {
       // Generic description extraction
-      description = getDescriptionGeneric(document);
+      const descResult = getDescriptionGeneric(document);
+      if (descResult) {
+        if (typeof descResult === 'string') {
+          description = descResult;
+        } else {
+          description = descResult.text;
+          __used.description = {
+            selector: descResult.selector,
+            attr: descResult.attr,
+            method: 'generic'
+          };
+        }
+      }
     }
 
     // ------------- SPECS / TAGS / GENDER / SKU -------------
