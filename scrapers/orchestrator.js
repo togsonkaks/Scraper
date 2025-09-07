@@ -487,10 +487,10 @@ function getDescriptionGeneric(doc = document) {
 
     console.log('🎯 FINAL __used object being returned:', JSON.stringify(__used, null, 2));
     
-    return {
-      result: payload,
-      selectorsUsed: __used
-    };
+    // Store selectors for main.js to pick up
+    globalThis.__tg_lastSelectorsUsed = __used;
+    
+    return payload;
   }
 
   // expose
