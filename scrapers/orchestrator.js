@@ -232,7 +232,15 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!title) {
       // custom
-      title = cTitle(document);
+      const customTitle = cTitle(document);
+      if (customTitle) {
+        title = customTitle;
+        __used.title = {
+          selector: 'custom-handler',
+          attr: 'text', 
+          method: 'custom'
+        };
+      }
     }
     if (!title && typeof getTitleGeneric === 'function') {
       const titleResult = getTitleGeneric(document);
@@ -253,7 +261,15 @@ function getDescriptionGeneric(doc = document) {
 
     // ------------- BRAND -------------
     let brand = null;
-    brand = cBrand(document);
+    const customBrand = cBrand(document);
+    if (customBrand) {
+      brand = customBrand;
+      __used.brand = {
+        selector: 'custom-handler',
+        attr: 'text',
+        method: 'custom'
+      };
+    }
     if (!brand && typeof getBrandGeneric === 'function') {
       const brandResult = getBrandGeneric(document);
       if (brandResult) {
@@ -280,8 +296,15 @@ function getDescriptionGeneric(doc = document) {
       }
     }
     if (!price) {
-      const p = cPrice(document);
-      if (typeof p === 'string' && p) price = p;
+      const customPrice = cPrice(document);
+      if (typeof customPrice === 'string' && customPrice) {
+        price = customPrice;
+        __used.price = {
+          selector: 'custom-handler',
+          attr: 'text',
+          method: 'custom'
+        };
+      }
     }
     if (!price && typeof getPriceGeneric === 'function') {
       const priceResult = getPriceGeneric();
@@ -310,8 +333,15 @@ function getDescriptionGeneric(doc = document) {
       }
     }
     if (!images) {
-      const r = await cImages(document);
-      if (Array.isArray(r) && r.length) images = r;
+      const customImages = await cImages(document);
+      if (Array.isArray(customImages) && customImages.length) {
+        images = customImages;
+        __used.images = {
+          selector: 'custom-handler',
+          attr: 'src',
+          method: 'custom'
+        };
+      }
     }
     if (!images && typeof collectImagesFromPDP === 'function') {
       images = await collectImagesFromPDP();
@@ -331,7 +361,15 @@ function getDescriptionGeneric(doc = document) {
     if (!description) {
       // Try custom description handler first
       const cDescription = customOrNoop(custom.description);
-      description = cDescription(document);
+      const customDesc = cDescription(document);
+      if (customDesc) {
+        description = customDesc;
+        __used.description = {
+          selector: 'custom-handler',
+          attr: 'text',
+          method: 'custom'
+        };
+      }
     }
     if (!description) {
       // Generic description extraction
