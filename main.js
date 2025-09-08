@@ -508,22 +508,26 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
       
       // Test TITLE with same logic as orchestrator
       let titleResult = null;
-      if (savedSelectors?.title) {
-        const got = tryMemoryText(savedSelectors.title, [v => v.length > 1]);
-        if (got) {
-          titleResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+      try {
+        if (savedSelectors?.title) {
+          const got = tryMemoryText(savedSelectors.title, [v => v.length > 1]);
+          if (got) {
+            titleResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+          }
         }
-      }
-      if (!titleResult && typeof getTitleGeneric === 'function') {
-        const genericTitle = getTitleGeneric(document);
-        if (genericTitle) {
-          titleResult = { 
-            success: true, 
-            value: typeof genericTitle === 'string' ? genericTitle : genericTitle.text,
-            source: 'generic-fallback',
-            selector: typeof genericTitle === 'object' ? genericTitle : { method: 'generic' }
-          };
+        if (!titleResult && typeof getTitleGeneric === 'function') {
+          const genericTitle = getTitleGeneric(document);
+          if (genericTitle) {
+            titleResult = { 
+              success: true, 
+              value: typeof genericTitle === 'string' ? genericTitle : genericTitle.text,
+              source: 'generic-fallback',
+              selector: typeof genericTitle === 'object' ? genericTitle : { method: 'generic' }
+            };
+          }
         }
+      } catch (e) {
+        console.error('Title validation error:', e);
       }
       if (!titleResult) {
         titleResult = { success: false, value: 'Title not found', source: 'none' };
@@ -532,22 +536,26 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
       
       // Test PRICE with same logic as orchestrator
       let priceResult = null;
-      if (savedSelectors?.price) {
-        const got = tryMemoryPrice(savedSelectors.price);
-        if (got) {
-          priceResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+      try {
+        if (savedSelectors?.price) {
+          const got = tryMemoryPrice(savedSelectors.price);
+          if (got) {
+            priceResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+          }
         }
-      }
-      if (!priceResult && typeof getPriceGeneric === 'function') {
-        const genericPrice = getPriceGeneric();
-        if (genericPrice) {
-          priceResult = { 
-            success: true, 
-            value: typeof genericPrice === 'string' ? genericPrice : genericPrice.text,
-            source: 'generic-fallback',
-            selector: typeof genericPrice === 'object' ? genericPrice : { method: 'generic' }
-          };
+        if (!priceResult && typeof getPriceGeneric === 'function') {
+          const genericPrice = getPriceGeneric();
+          if (genericPrice) {
+            priceResult = { 
+              success: true, 
+              value: typeof genericPrice === 'string' ? genericPrice : genericPrice.text,
+              source: 'generic-fallback',
+              selector: typeof genericPrice === 'object' ? genericPrice : { method: 'generic' }
+            };
+          }
         }
+      } catch (e) {
+        console.error('Price validation error:', e);
       }
       if (!priceResult) {
         priceResult = { success: false, value: 'Price not found', source: 'none' };
@@ -556,22 +564,26 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
       
       // Test IMAGES with same logic as orchestrator
       let imagesResult = null;
-      if (savedSelectors?.images) {
-        const got = tryMemoryImages(savedSelectors.images, 10);
-        if (got && Array.isArray(got.value) && got.value.length) {
-          imagesResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+      try {
+        if (savedSelectors?.images) {
+          const got = tryMemoryImages(savedSelectors.images, 10);
+          if (got && Array.isArray(got.value) && got.value.length) {
+            imagesResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+          }
         }
-      }
-      if (!imagesResult && typeof collectImagesFromPDP === 'function') {
-        const genericImages = await collectImagesFromPDP();
-        if (Array.isArray(genericImages) && genericImages.length > 0) {
-          imagesResult = { 
-            success: true, 
-            value: genericImages.slice(0, 20),
-            source: 'generic-fallback',
-            selector: { selector: 'generic-images', attr: 'src', method: 'generic' }
-          };
+        if (!imagesResult && typeof collectImagesFromPDP === 'function') {
+          const genericImages = await collectImagesFromPDP();
+          if (Array.isArray(genericImages) && genericImages.length > 0) {
+            imagesResult = { 
+              success: true, 
+              value: genericImages.slice(0, 20),
+              source: 'generic-fallback',
+              selector: { selector: 'generic-images', attr: 'src', method: 'generic' }
+            };
+          }
         }
+      } catch (e) {
+        console.error('Images validation error:', e);
       }
       if (!imagesResult) {
         imagesResult = { success: false, value: [], source: 'none' };
@@ -580,22 +592,26 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
       
       // Test BRAND with same logic as orchestrator
       let brandResult = null;
-      if (savedSelectors?.brand) {
-        const got = tryMemoryText(savedSelectors.brand);
-        if (got) {
-          brandResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+      try {
+        if (savedSelectors?.brand) {
+          const got = tryMemoryText(savedSelectors.brand);
+          if (got) {
+            brandResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+          }
         }
-      }
-      if (!brandResult && typeof getBrandGeneric === 'function') {
-        const genericBrand = getBrandGeneric();
-        if (genericBrand) {
-          brandResult = { 
-            success: true, 
-            value: typeof genericBrand === 'string' ? genericBrand : genericBrand.text,
-            source: 'generic-fallback',
-            selector: typeof genericBrand === 'object' ? genericBrand : { method: 'generic' }
-          };
+        if (!brandResult && typeof getBrandGeneric === 'function') {
+          const genericBrand = getBrandGeneric();
+          if (genericBrand) {
+            brandResult = { 
+              success: true, 
+              value: typeof genericBrand === 'string' ? genericBrand : genericBrand.text,
+              source: 'generic-fallback',
+              selector: typeof genericBrand === 'object' ? genericBrand : { method: 'generic' }
+            };
+          }
         }
+      } catch (e) {
+        console.error('Brand validation error:', e);
       }
       if (!brandResult) {
         brandResult = { success: false, value: 'Brand not found', source: 'none' };
@@ -604,22 +620,26 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
       
       // Test DESCRIPTION with same logic as orchestrator
       let descResult = null;
-      if (savedSelectors?.description) {
-        const got = tryMemoryText(savedSelectors.description);
-        if (got) {
-          descResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+      try {
+        if (savedSelectors?.description) {
+          const got = tryMemoryText(savedSelectors.description);
+          if (got) {
+            descResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+          }
         }
-      }
-      if (!descResult && typeof getDescriptionGeneric === 'function') {
-        const genericDesc = getDescriptionGeneric(document);
-        if (genericDesc) {
-          descResult = { 
-            success: true, 
-            value: typeof genericDesc === 'string' ? genericDesc : genericDesc.text,
-            source: 'generic-fallback',
-            selector: typeof genericDesc === 'object' ? genericDesc : { method: 'generic' }
-          };
+        if (!descResult && typeof getDescriptionGeneric === 'function') {
+          const genericDesc = getDescriptionGeneric(document);
+          if (genericDesc) {
+            descResult = { 
+              success: true, 
+              value: typeof genericDesc === 'string' ? genericDesc : genericDesc.text,
+              source: 'generic-fallback',
+              selector: typeof genericDesc === 'object' ? genericDesc : { method: 'generic' }
+            };
+          }
         }
+      } catch (e) {
+        console.error('Description validation error:', e);
       }
       if (!descResult) {
         descResult = { success: false, value: 'Description not found', source: 'none' };
