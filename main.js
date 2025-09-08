@@ -340,134 +340,307 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
   const host = urlOrHost.includes('://') ? hostKeyFromUrl(urlOrHost) : urlOrHost.replace(/^www\./,'');
   const savedSelectors = selectorMemory.get(host);
   
-  if (!savedSelectors || Object.keys(savedSelectors).length === 0) {
-    return {
-      savedSelectors: {},
-      testResults: {}
-    };
-  }
-  
-  const testResults = {};
   const wc = productWindow.webContents;
   
-  // Test each saved selector independently (no fallbacks)
-  for (const [field, selectorConfig] of Object.entries(savedSelectors)) {
-    try {
-      const selectors = Array.isArray(selectorConfig.selectors) ? selectorConfig.selectors : [selectorConfig.selectors];
-      const attr = selectorConfig.attr || 'text';
+  // Inject all scraper files first (like actual scraping does)
+  await injectScraperFilesInOrder(wc);
+  await wc.executeJavaScript(WAIT_READY_SNIPPET);
+  await wc.executeJavaScript(`__taggloWaitReady ? __taggloWaitReady({ timeoutMs: 8000, quietMs: 500, minImgNodes: 1 }) : true`);
+  
+  // Now run the SAME logic as actual scraping but return detailed results per field
+  const validationScript = `
+    (async () => {
+      const savedSelectors = ${JSON.stringify(savedSelectors || {})};
+      const host = ${JSON.stringify(host)};
+      const results = {};
       
-      // Create test script for this field
-      const testScript = `
-        (function() {
-          const selectors = ${JSON.stringify(selectors)};
-          const attr = ${JSON.stringify(attr)};
-          const field = ${JSON.stringify(field)};
-          
-          for (const selector of selectors) {
-            try {
-              // Special handling for JSON-LD brand extraction
-              if (selector === 'script[type="application/ld+json"]' && field === 'brand') {
-                const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-                for (const script of scripts) {
-                  try {
-                    const data = JSON.parse(script.textContent.trim());
-                    const arr = Array.isArray(data) ? data : [data];
-                    for (const node of arr) {
-                      const types = [].concat(node?.["@type"] || []).map(String);
-                      if (types.some(t => /product/i.test(t))) {
-                        const brand = node.brand?.name || node.brand || node.manufacturer?.name || "";
-                        if (brand && typeof brand === 'string' && brand.trim()) {
-                          return {
-                            success: true,
-                            value: brand.trim(),
-                            selector: selector,
-                            count: 1
-                          };
+      // Use the SAME memory functions that orchestrator uses
+      const tryMemoryText = (memField, validators = []) => {
+        if (!memField?.selectors) return null;
+        const selectors = Array.isArray(memField.selectors) ? memField.selectors : [memField.selectors];
+        const attr = memField.attr || 'text';
+        
+        for (const sel of selectors) {
+          try {
+            // Special handling for JSON-LD
+            if (sel === 'script[type="application/ld+json"]' && attr === 'json') {
+              const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+              for (const script of scripts) {
+                try {
+                  const data = JSON.parse(script.textContent.trim());
+                  const arr = Array.isArray(data) ? data : [data];
+                  for (const node of arr) {
+                    const types = [].concat(node?.["@type"] || []).map(String);
+                    if (types.some(t => /product/i.test(t))) {
+                      const brand = node.brand?.name || node.brand || node.manufacturer?.name || "";
+                      if (brand && typeof brand === 'string' && brand.trim()) {
+                        const value = brand.trim();
+                        if (validators.every(v => v(value))) {
+                          return { value, selUsed: { selector: sel, attr, method: 'memory' } };
                         }
                       }
                     }
-                  } catch (e) {
-                    // Continue to next script
                   }
-                }
-                continue; // Try next selector if JSON-LD didn't work
+                } catch (e) {}
+              }
+              continue;
+            }
+            
+            const elements = document.querySelectorAll(sel);
+            if (elements.length === 0) continue;
+            
+            for (const el of elements) {
+              let value = null;
+              if (attr === 'text') {
+                value = (el.textContent || '').trim();
+              } else if (attr === 'src') {
+                value = el.currentSrc || el.src || el.getAttribute('src');
+              } else if (attr === 'content') {
+                value = el.getAttribute('content');
+              } else {
+                value = el.getAttribute(attr) || (el.textContent || '').trim();
               }
               
-              // Special handling for generic images collection
-              if (selector === 'generic-images' && field === 'images') {
-                try {
-                  // Call the global image collection function
-                  const imageUrls = typeof collectImagesFromPDP === 'function' ? collectImagesFromPDP() : [];
-                  if (imageUrls && imageUrls.length > 0) {
-                    return {
-                      success: true,
-                      value: imageUrls,
-                      selector: selector,
-                      count: imageUrls.length
-                    };
-                  }
-                } catch (e) {
-                  console.error('Error calling collectImagesFromPDP:', e);
-                }
-                continue; // Try next selector if generic images didn't work
+              if (value && validators.every(v => v(value))) {
+                return { value, selUsed: { selector: sel, attr, method: 'memory' } };
               }
-              
-              const elements = document.querySelectorAll(selector);
-              if (elements.length === 0) continue;
-              
-              let values = [];
-              for (const el of elements) {
-                let value = null;
-                if (attr === 'text') {
-                  value = (el.textContent || '').trim();
-                } else if (attr === 'src') {
-                  value = el.currentSrc || el.src || el.getAttribute('src');
-                } else if (attr === 'content') {
-                  value = el.getAttribute('content');
-                } else if (attr === 'json') {
-                  // This should be handled above for brand, skip for others
-                  continue;
-                } else {
-                  value = el.getAttribute(attr) || (el.textContent || '').trim();
-                }
-                
-                if (value) values.push(value);
-              }
-              
-              if (values.length > 0) {
-                return {
-                  success: true,
-                  value: field === 'images' ? values : values[0],
-                  selector: selector,
-                  count: values.length
+            }
+          } catch (e) {}
+        }
+        return null;
+      };
+      
+      const tryMemoryImages = (memField, limit = 10) => {
+        if (!memField?.selectors) return null;
+        const selectors = Array.isArray(memField.selectors) ? memField.selectors : [memField.selectors];
+        
+        for (const sel of selectors) {
+          try {
+            if (sel === 'generic-images' && typeof collectImagesFromPDP === 'function') {
+              const images = await collectImagesFromPDP();
+              if (Array.isArray(images) && images.length > 0) {
+                return { 
+                  value: images.slice(0, limit), 
+                  selUsed: { selector: sel, attr: 'src', method: 'memory-generic' } 
                 };
               }
-            } catch (e) {
-              // Continue to next selector
+              continue;
             }
-          }
-          
-          return {
-            success: false,
-            error: 'No elements found or no valid values extracted',
-            selector: selectors[0]
-          };
-        })();
-      `;
-      
-      const result = await wc.executeJavaScript(testScript);
-      testResults[field] = result;
-      
-    } catch (e) {
-      testResults[field] = {
-        success: false,
-        error: e.message
+            
+            const elements = document.querySelectorAll(sel);
+            if (elements.length === 0) continue;
+            
+            const images = [];
+            for (const el of elements) {
+              let src = null;
+              if (memField.attr === 'src') {
+                src = el.currentSrc || el.src || el.getAttribute('src');
+              } else if (memField.attr === 'content') {
+                src = el.getAttribute('content');
+              } else {
+                src = el.getAttribute(memField.attr || 'src');
+              }
+              if (src) images.push(src);
+            }
+            
+            if (images.length > 0) {
+              return { 
+                value: images.slice(0, limit), 
+                selUsed: { selector: sel, attr: memField.attr || 'src', method: 'memory' } 
+              };
+            }
+          } catch (e) {}
+        }
+        return null;
       };
-    }
-  }
+      
+      const tryMemoryPrice = (memField) => {
+        if (!memField?.selectors) return null;
+        const selectors = Array.isArray(memField.selectors) ? memField.selectors : [memField.selectors];
+        const attr = memField.attr || 'text';
+        
+        for (const sel of selectors) {
+          try {
+            if (sel === 'script[type="application/ld+json"]' && attr === 'json') {
+              const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+              for (const script of scripts) {
+                try {
+                  const data = JSON.parse(script.textContent.trim());
+                  const arr = Array.isArray(data) ? data : [data];
+                  for (const node of arr) {
+                    const types = [].concat(node?.["@type"] || []).map(String);
+                    if (types.some(t => /product/i.test(t))) {
+                      const offers = [].concat(node.offers || []);
+                      for (const offer of offers) {
+                        const price = offer.price || offer.lowPrice || offer.highPrice || "";
+                        if (price) {
+                          return { value: String(price), selUsed: { selector: sel, attr, method: 'memory' } };
+                        }
+                      }
+                    }
+                  }
+                } catch (e) {}
+              }
+              continue;
+            }
+            
+            const elements = document.querySelectorAll(sel);
+            if (elements.length === 0) continue;
+            
+            for (const el of elements) {
+              let value = null;
+              if (attr === 'text') {
+                value = (el.textContent || '').trim();
+              } else if (attr === 'content') {
+                value = el.getAttribute('content');
+              } else {
+                value = el.getAttribute(attr) || (el.textContent || '').trim();
+              }
+              
+              if (value) {
+                return { value, selUsed: { selector: sel, attr, method: 'memory' } };
+              }
+            }
+          } catch (e) {}
+        }
+        return null;
+      };
+      
+      // Test TITLE with same logic as orchestrator
+      let titleResult = null;
+      if (savedSelectors?.title) {
+        const got = tryMemoryText(savedSelectors.title, [v => v.length > 1]);
+        if (got) {
+          titleResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+        }
+      }
+      if (!titleResult && typeof getTitleGeneric === 'function') {
+        const genericTitle = getTitleGeneric(document);
+        if (genericTitle) {
+          titleResult = { 
+            success: true, 
+            value: typeof genericTitle === 'string' ? genericTitle : genericTitle.text,
+            source: 'generic-fallback',
+            selector: typeof genericTitle === 'object' ? genericTitle : { method: 'generic' }
+          };
+        }
+      }
+      if (!titleResult) {
+        titleResult = { success: false, value: 'Title not found', source: 'none' };
+      }
+      results.title = titleResult;
+      
+      // Test PRICE with same logic as orchestrator
+      let priceResult = null;
+      if (savedSelectors?.price) {
+        const got = tryMemoryPrice(savedSelectors.price);
+        if (got) {
+          priceResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+        }
+      }
+      if (!priceResult && typeof getPriceGeneric === 'function') {
+        const genericPrice = getPriceGeneric();
+        if (genericPrice) {
+          priceResult = { 
+            success: true, 
+            value: typeof genericPrice === 'string' ? genericPrice : genericPrice.text,
+            source: 'generic-fallback',
+            selector: typeof genericPrice === 'object' ? genericPrice : { method: 'generic' }
+          };
+        }
+      }
+      if (!priceResult) {
+        priceResult = { success: false, value: 'Price not found', source: 'none' };
+      }
+      results.price = priceResult;
+      
+      // Test IMAGES with same logic as orchestrator
+      let imagesResult = null;
+      if (savedSelectors?.images) {
+        const got = tryMemoryImages(savedSelectors.images, 10);
+        if (got && Array.isArray(got.value) && got.value.length) {
+          imagesResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+        }
+      }
+      if (!imagesResult && typeof collectImagesFromPDP === 'function') {
+        const genericImages = await collectImagesFromPDP();
+        if (Array.isArray(genericImages) && genericImages.length > 0) {
+          imagesResult = { 
+            success: true, 
+            value: genericImages.slice(0, 20),
+            source: 'generic-fallback',
+            selector: { selector: 'generic-images', attr: 'src', method: 'generic' }
+          };
+        }
+      }
+      if (!imagesResult) {
+        imagesResult = { success: false, value: [], source: 'none' };
+      }
+      results.images = imagesResult;
+      
+      // Test BRAND with same logic as orchestrator
+      let brandResult = null;
+      if (savedSelectors?.brand) {
+        const got = tryMemoryText(savedSelectors.brand);
+        if (got) {
+          brandResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+        }
+      }
+      if (!brandResult && typeof getBrandGeneric === 'function') {
+        const genericBrand = getBrandGeneric();
+        if (genericBrand) {
+          brandResult = { 
+            success: true, 
+            value: typeof genericBrand === 'string' ? genericBrand : genericBrand.text,
+            source: 'generic-fallback',
+            selector: typeof genericBrand === 'object' ? genericBrand : { method: 'generic' }
+          };
+        }
+      }
+      if (!brandResult) {
+        brandResult = { success: false, value: 'Brand not found', source: 'none' };
+      }
+      results.brand = brandResult;
+      
+      // Test DESCRIPTION with same logic as orchestrator
+      let descResult = null;
+      if (savedSelectors?.description) {
+        const got = tryMemoryText(savedSelectors.description);
+        if (got) {
+          descResult = { success: true, value: got.value, source: 'memory', selector: got.selUsed };
+        }
+      }
+      if (!descResult && typeof getDescriptionGeneric === 'function') {
+        const genericDesc = getDescriptionGeneric(document);
+        if (genericDesc) {
+          descResult = { 
+            success: true, 
+            value: typeof genericDesc === 'string' ? genericDesc : genericDesc.text,
+            source: 'generic-fallback',
+            selector: typeof genericDesc === 'object' ? genericDesc : { method: 'generic' }
+          };
+        }
+      }
+      if (!descResult) {
+        descResult = { success: false, value: 'Description not found', source: 'none' };
+      }
+      results.description = descResult;
+      
+      return {
+        savedSelectors,
+        testResults: results
+      };
+    })();
+  `;
   
-  return {
-    savedSelectors,
-    testResults
-  };
+  try {
+    const result = await wc.executeJavaScript(validationScript);
+    return result;
+  } catch (error) {
+    return {
+      savedSelectors: savedSelectors || {},
+      testResults: {},
+      error: error.message
+    };
+  }
 });
