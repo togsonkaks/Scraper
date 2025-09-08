@@ -74,6 +74,7 @@ function getTitleGeneric() {
 }
 
 function getBrandGeneric() {
+  // First try JSON-LD structured data
   for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
     try {
       const data = JSON.parse(b.textContent.trim());
@@ -93,22 +94,85 @@ function getBrandGeneric() {
       }
     } catch {}
   }
+  
+  // Extended brand selectors with more variations
   const brandSelectors = [
     'meta[property="product:brand"]',
     'meta[name="brand"]', 
+    'meta[property="og:brand"]',
     '[itemprop="brand"] [itemprop="name"]',
-    '[itemprop="brand"]'
+    '[itemprop="brand"]',
+    '[data-brand]',
+    '.brand, .product-brand, .product__brand',
+    '.manufacturer, .product-manufacturer',
+    '[class*="brand"]:not([class*="branding"])',
+    '.vendor, .product-vendor'
   ];
   
   for (const sel of brandSelectors) {
     const el = document.querySelector(sel);
     if (el) {
-      const brandText = el.content || el.getAttribute("content") || el.textContent || "";
+      let brandText = "";
+      if (sel.includes('data-brand')) {
+        brandText = el.getAttribute('data-brand') || "";
+      } else {
+        brandText = el.content || el.getAttribute("content") || el.textContent || "";
+      }
       if (brandText && T(brandText)) {
         return {
           text: T(brandText),
           selector: sel,
           attr: el.content || el.getAttribute("content") ? 'content' : 'text'
+        };
+      }
+    }
+  }
+  
+  // Try to extract brand from breadcrumbs
+  const breadcrumb = document.querySelector('.breadcrumb, nav[aria-label*="breadcrumb"], [class*="breadcrumb"]');
+  if (breadcrumb) {
+    const links = breadcrumb.querySelectorAll('a');
+    // Look for brand in second or third breadcrumb item (often: Home > Brand > Category > Product)
+    for (let i = 1; i < Math.min(links.length - 1, 4); i++) {
+      const text = T(links[i].textContent);
+      if (text && text.length >= 3 && text.length <= 20 && !/^(home|shop|all|products?|category|categories)$/i.test(text)) {
+        return {
+          text: text,
+          selector: '.breadcrumb a',
+          attr: 'text'
+        };
+      }
+    }
+  }
+  
+  // Try to extract brand from URL path
+  const path = location.pathname;
+  const pathMatch = path.match(/\/(?:brand|brands|manufacturer)\/([^\/]+)/i);
+  if (pathMatch) {
+    const brandFromPath = pathMatch[1].replace(/[-_]/g, ' ').trim();
+    if (brandFromPath && brandFromPath.length >= 3) {
+      return {
+        text: brandFromPath,
+        selector: 'url-path',
+        attr: 'text'
+      };
+    }
+  }
+  
+  // Try common brand patterns in product titles
+  const title = T(document.querySelector('h1')?.textContent);
+  if (title) {
+    // Look for patterns like "Nike Air Max" where first word could be brand
+    const titleWords = title.split(/\s+/);
+    if (titleWords.length >= 2) {
+      const firstWord = titleWords[0];
+      // Check if first word looks like a brand (capitalized, reasonable length)
+      if (firstWord && /^[A-Z][a-zA-Z]{2,15}$/.test(firstWord) && 
+          !/(the|new|sale|buy|shop|get|free|best|top|hot|limited|special|exclusive)$/i.test(firstWord)) {
+        return {
+          text: firstWord,
+          selector: 'h1-first-word',
+          attr: 'text'
         };
       }
     }

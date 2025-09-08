@@ -146,17 +146,29 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     if (galleries.length === 0) {
       const h1 = q("h1");
       let node = h1;
-      while (node) {
+      while (node && node !== document.body) {
         const cls = (node.className || "") + " " + (node.id || "");
-        if (/(pdp|product|__product|detail|details)/i.test(cls)) {
+        if (/(pdp|product|__product|detail|details|main|container)/i.test(cls)) {
           const imgs = node.querySelectorAll('img');
           if (imgs.length >= 1) {
-            console.log(`[DEBUG] Using product root fallback: ${node.className} (${imgs.length} images)`);
+            console.log(`[DEBUG] Using product root fallback: ${node.className || node.tagName} (${imgs.length} images)`);
             galleries.push({ container: node, selector: 'product-root', priority: 3, images: Array.from(imgs) });
           }
           break;
         }
         node = node.parentElement;
+      }
+      
+      // If still no galleries, try main content area
+      if (galleries.length === 0) {
+        const main = document.querySelector('main, [role="main"], .main-content, .content');
+        if (main) {
+          const imgs = main.querySelectorAll('img');
+          if (imgs.length >= 1) {
+            console.log(`[DEBUG] Using main content fallback (${imgs.length} images)`);
+            galleries.push({ container: main, selector: 'main-content', priority: 4, images: Array.from(imgs) });
+          }
+        }
       }
     }
     
@@ -464,28 +476,29 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       // kill obvious promos/carusel nav thumbs by dimension hints in path
       if (/(promo|topnav|carousel|thumb|tile|banner|pod|badge|awards?)\b/i.test(clean)) return false;
       
-      // Enhanced content filtering - check element context if available
+      // Enhanced but less restrictive content filtering
       if (r.element) {
         const altText = (r.element.alt || '').toLowerCase();
         const title = (r.element.title || '').toLowerCase();
-        const parentText = (r.element.closest('[class*="chart"], [class*="graph"], [class*="data"], [class*="analytics"]')?.textContent || '').toLowerCase();
+        const parentText = (r.element.closest('[class*="chart"], [class*="graph"], [class*="analytics"]')?.textContent || '').toLowerCase();
         
-        // Skip images with chart/graph context (more comprehensive)
-        if (/(chart|graph|data|analytics|metric|statistic|diagram|visualization|dashboard|report|stats|trend|performance|analysis|insights|roi|conversion|revenue|growth|bar|line|pie|donut|scatter)/i.test(altText + ' ' + title + ' ' + parentText)) {
+        // Only skip obvious analytical content (be more permissive)
+        if (/(chart|graph|analytics|dashboard|report|statistics|diagram|visualization)/i.test(altText + ' ' + title) ||
+            /(chart|graph|analytics|dashboard|report)[-_\.]/.test(r.url.split('/').pop().toLowerCase())) {
           console.log(`[DEBUG] Filtering out analytical image: ${r.url.split('/').pop()}`);
           return false;
         }
         
-        // Additional filename checks for common chart image patterns
-        const filename = r.url.split('/').pop().toLowerCase();
-        if (/(chart|graph|stats|data|metric|analytics|dashboard|report|performance|trend|roi|conversion)[-_\.]/.test(filename)) {
-          console.log(`[DEBUG] Filtering out analytical filename: ${filename}`);
+        // Skip images in obvious non-product containers (but be less strict)
+        if (r.element.closest('.sidebar, .footer, .header-nav, [class*="navigation"], .menu')) {
+          console.log(`[DEBUG] Filtering out navigation/sidebar image: ${r.url.split('/').pop()}`);
           return false;
         }
         
-        // Skip images in obvious non-product containers
-        if (r.element.closest('.sidebar, .footer, .header, [class*="related"], [class*="recommend"], [class*="similar"], [class*="also-"], [class*="you-may"]')) {
-          console.log(`[DEBUG] Filtering out non-product container image: ${r.url.split('/').pop()}`);
+        // Skip very obvious non-product images by filename
+        const filename = r.url.split('/').pop().toLowerCase();
+        if (/(logo|icon|avatar|profile|banner|ad|advertisement|promo|thumb|thumbnail)[-_\.]/.test(filename) && !/product|item|shoe|sneaker|apparel|clothing/.test(filename)) {
+          console.log(`[DEBUG] Filtering out non-product filename: ${filename}`);
           return false;
         }
       }
