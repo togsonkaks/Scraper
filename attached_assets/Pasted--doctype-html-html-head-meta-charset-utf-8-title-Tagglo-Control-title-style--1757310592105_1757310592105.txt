@@ -208,14 +208,42 @@
           memDebug.innerHTML = '<div style="color: #666;">No saved selectors for this domain</div>';
         }
 
-        // Load existing memory state into checkboxes (for manual selection)
-        if (mem) {
-          okTitle.checked = !!mem.title;
-          okPrice.checked = !!mem.price;
-          okImages.checked = !!mem.images;
-          okBrand.checked = !!mem.brand;
-          okTags.checked = !!mem.tags;
-          okDesc.checked = !!mem.description;
+        // Show validation checkboxes ONLY for successfully tracked fields
+        
+        // Hide all checkboxes initially
+        okTitle.parentElement.style.display = 'none';
+        okPrice.parentElement.style.display = 'none';
+        okImages.parentElement.style.display = 'none';
+        okBrand.parentElement.style.display = 'none';
+        okTags.parentElement.style.display = 'none';
+        okDesc.parentElement.style.display = 'none';
+        
+        // Show checkboxes only for fields where selectors were successfully tracked
+        if (lastSelectorsUsed) {
+          if (lastSelectorsUsed.title) {
+            okTitle.parentElement.style.display = 'inline';
+            okTitle.checked = !!mem?.title; // Check if already saved
+          }
+          if (lastSelectorsUsed.price) {
+            okPrice.parentElement.style.display = 'inline';
+            okPrice.checked = !!mem?.price;
+          }
+          if (lastSelectorsUsed.images) {
+            okImages.parentElement.style.display = 'inline';
+            okImages.checked = !!mem?.images;
+          }
+          if (lastSelectorsUsed.brand) {
+            okBrand.parentElement.style.display = 'inline';
+            okBrand.checked = !!mem?.brand;
+          }
+          if (lastSelectorsUsed.tags) {
+            okTags.parentElement.style.display = 'inline';
+            okTags.checked = !!mem?.tags;
+          }
+          if (lastSelectorsUsed.description) {
+            okDesc.parentElement.style.display = 'inline';
+            okDesc.checked = !!mem?.description;
+          }
         }
 
         panel.style.display = 'grid';
@@ -439,27 +467,36 @@
         { field: 'tags', checked: okTags.checked, data: lastPayload.tags }
       ];
       
+      // Debug: Log available data
+      console.log('[DEBUG] Available data in lastPayload:', {
+        title: lastPayload.title,
+        price: lastPayload.price,
+        brand: lastPayload.brand,
+        description: lastPayload.description ? lastPayload.description.substring(0, 100) + '...' : null,
+        images: lastPayload.images ? `${lastPayload.images.length} images` : null,
+        tags: lastPayload.tags ? `${lastPayload.tags.length} tags: ${lastPayload.tags.slice(0, 3).join(', ')}` : null
+      });
 
       // Get last used selectors if available
       const lastUsed = lastSelectorsUsed || {};
+      console.log('[DEBUG] Last used selectors:', lastUsed);
 
-      // Process each field
+      // Process each field with detailed logging
       for (const { field, checked, data } of fieldChecks) {
+        console.log(`[DEBUG] Processing field "${field}": checked=${checked}, hasData=${!!data}, dataType=${typeof data}, dataValue=`, data);
         
         if (checked && data) {
           // Add/update field
           let result = null;
           
           // Check if we have a working selector from the last scrape
-          if (lastUsed[field]) {
+                    if (lastUsed[field]) {
             const selArr = Array.isArray(lastUsed[field].selectors)
               ? lastUsed[field].selectors
               : (lastUsed[field].selector ? [lastUsed[field].selector] : []);
-
-            // Drop placeholders from generic string-only paths
             const filtered = selArr.filter(s => s && s !== 'generic-text-selector');
-
             if (filtered.length) {
+              console.log(`[DEBUG] Using tracked working selector(s) for ${field}:`, filtered);
               result = {
                 selectors: filtered,
                 attr: lastUsed[field].attr || 'text',
@@ -467,11 +504,20 @@
               };
             }
           }
+    :`, lastUsed[field]);
+            result = {
+              selectors: [lastUsed[field].selector],
+              attr: lastUsed[field].attr || 'text',
+              method: lastUsed[field].method || 'tracked'
+            };
+          }
           
           if (field === 'images') {
             if (Array.isArray(data) && data.length > 0) {
+              console.log(`[DEBUG] Finding selectors for ${data.length} images`);
               result = await findSelectorsForImages(data);
             } else {
+              console.log(`[DEBUG] Images field: not an array or empty`, typeof data, data);
             }
           } else if (field === 'tags') {
             let searchText = null;
@@ -485,8 +531,10 @@
             }
             
             if (searchText) {
+              console.log(`[DEBUG] Finding selectors for tags: "${searchText}"`);
               result = await findSelectorsForText(searchText, field);
             } else {
+              console.log(`[DEBUG] Tags field: no valid text found`, typeof data, data);
             }
           } else {
             // Fall back to reverse-engineering if no tracked selector
