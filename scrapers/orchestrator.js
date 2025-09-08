@@ -330,21 +330,26 @@ function getDescriptionGeneric(doc = document) {
 
     // ------------- IMAGES -------------
     let images = null;
+    let imageSource = null; // Track WHERE we got images from
+    
     if (mem?.images) {
       const got = tryMemoryImages(mem.images, 10);
       if (got && Array.isArray(got.value) && got.value.length) {
         images = got.value;
-        __used.images = got.selUsed;
+        imageSource = { type: 'memory', data: got.selUsed };
       }
     }
     if (!images) {
       const customImages = await cImages(document);
       if (Array.isArray(customImages) && customImages.length) {
         images = customImages;
-        __used.images = {
-          selector: 'custom-handler',
-          attr: 'src',
-          method: 'custom'
+        imageSource = { 
+          type: 'custom',
+          data: {
+            selector: 'custom-handler',
+            attr: 'src',
+            method: 'custom'
+          }
         };
       }
     }
@@ -352,19 +357,26 @@ function getDescriptionGeneric(doc = document) {
       const genericImages = await collectImagesFromPDP();
       if (Array.isArray(genericImages) && genericImages.length > 0) {
         images = genericImages;
-        __used.images = {
-          selector: 'generic-images',
-          attr: 'src',
-          method: 'generic'
+        imageSource = {
+          type: 'generic',
+          data: {
+            selector: 'generic-images',
+            attr: 'src',
+            method: 'generic'
+          }
         };
       }
     }
+    
+    // Finalize images array
     if (!Array.isArray(images)) images = [];
     images = images.slice(0, 20);
     
-    // Only track images if we actually found some
-    if (images.length === 0) {
-      __used.images = null;
+    // ONLY set tracking if we have final images
+    if (images.length > 0 && imageSource) {
+      __used.images = imageSource.data;
+    } else {
+      __used.images = null; // No images found
     }
 
     // ------------- DESCRIPTION -------------
