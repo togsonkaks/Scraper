@@ -393,6 +393,25 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
                 continue; // Try next selector if JSON-LD didn't work
               }
               
+              // Special handling for generic images collection
+              if (selector === 'generic-images' && field === 'images') {
+                try {
+                  // Call the global image collection function
+                  const imageUrls = typeof collectImagesFromPDP === 'function' ? collectImagesFromPDP() : [];
+                  if (imageUrls && imageUrls.length > 0) {
+                    return {
+                      success: true,
+                      value: imageUrls,
+                      selector: selector,
+                      count: imageUrls.length
+                    };
+                  }
+                } catch (e) {
+                  console.error('Error calling collectImagesFromPDP:', e);
+                }
+                continue; // Try next selector if generic images didn't work
+              }
+              
               const elements = document.querySelectorAll(selector);
               if (elements.length === 0) continue;
               
