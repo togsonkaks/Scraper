@@ -392,15 +392,32 @@
       
       Object.entries(results.savedSelectors).forEach(([field, selectorConfig]) => {
         const testResult = results.testResults[field];
-        const status = testResult.success;
-        const value = testResult.value;
-        const error = testResult.error;
+        
+        // Handle case where testResult might be undefined or malformed
+        if (!testResult) {
+          fieldResults.push(`
+            <div style="margin-bottom: 4px; padding: 3px 0;">
+              <span style="color: #d32f2f;">❌</span>
+              <strong>${field}:</strong> 
+              <div style="font-size: 10px; color: #666; margin-left: 20px;">No test result available</div>
+            </div>
+          `);
+          return;
+        }
+        
+        const status = testResult.success || false;
+        const value = testResult.value || '';
+        const error = testResult.error || '';
+        const source = testResult.source || 'unknown';
         
         let icon, color, statusText;
         if (status) {
           icon = '✅';
           color = '#2d5a27';
-          statusText = `Found: "${String(value).slice(0, 60)}${String(value).length > 60 ? '...' : ''}"`;
+          const valueStr = Array.isArray(value) ? `${value.length} items` : String(value);
+          const truncatedValue = valueStr.slice(0, 60) + (valueStr.length > 60 ? '...' : '');
+          const sourceInfo = source === 'memory' ? '(saved selector)' : source === 'generic-fallback' ? '(fallback)' : '';
+          statusText = `Found: "${truncatedValue}" ${sourceInfo}`;
         } else {
           icon = '❌';
           color = '#d32f2f';
@@ -419,7 +436,7 @@
         `);
       });
       
-      const successCount = Object.values(results.testResults).filter(r => r.success).length;
+      const successCount = Object.values(results.testResults).filter(r => r && r.success).length;
       const totalCount = Object.keys(results.savedSelectors).length;
       
       validationResults.innerHTML = `
