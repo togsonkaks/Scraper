@@ -332,3 +332,91 @@ ipcMain.handle('selector-memory:clear', async (_evt, urlOrHost, keys) => {
   selectorMemory.clear(host, keys);
   return true;
 });
+
+// ------------------------ IPC: Selector Validation -------------------------
+ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
+  if (!productWindow) throw new Error('No product window');
+  
+  const host = urlOrHost.includes('://') ? hostKeyFromUrl(urlOrHost) : urlOrHost.replace(/^www\./,'');
+  const savedSelectors = selectorMemory.get(host);
+  
+  if (!savedSelectors || Object.keys(savedSelectors).length === 0) {
+    return {
+      savedSelectors: {},
+      testResults: {}
+    };
+  }
+  
+  const testResults = {};
+  const wc = productWindow.webContents;
+  
+  // Test each saved selector independently (no fallbacks)
+  for (const [field, selectorConfig] of Object.entries(savedSelectors)) {
+    try {
+      const selectors = Array.isArray(selectorConfig.selectors) ? selectorConfig.selectors : [selectorConfig.selectors];
+      const attr = selectorConfig.attr || 'text';
+      
+      // Create test script for this field
+      const testScript = `
+        (function() {
+          const selectors = ${JSON.stringify(selectors)};
+          const attr = ${JSON.stringify(attr)};
+          
+          for (const selector of selectors) {
+            try {
+              const elements = document.querySelectorAll(selector);
+              if (elements.length === 0) continue;
+              
+              let values = [];
+              for (const el of elements) {
+                let value = null;
+                if (attr === 'text') {
+                  value = (el.textContent || '').trim();
+                } else if (attr === 'src') {
+                  value = el.currentSrc || el.src || el.getAttribute('src');
+                } else if (attr === 'content') {
+                  value = el.getAttribute('content');
+                } else {
+                  value = el.getAttribute(attr) || (el.textContent || '').trim();
+                }
+                
+                if (value) values.push(value);
+              }
+              
+              if (values.length > 0) {
+                return {
+                  success: true,
+                  value: ${JSON.stringify(field)} === 'images' ? values : values[0],
+                  selector: selector,
+                  count: values.length
+                };
+              }
+            } catch (e) {
+              // Continue to next selector
+            }
+          }
+          
+          return {
+            success: false,
+            error: 'No elements found or no valid values extracted',
+            selector: selectors[0]
+          };
+        })();
+      `;
+      
+      const result = await wc.executeJavaScript(testScript);
+      testResults[field] = result;
+      
+    } catch (e) {
+      testResults[field] = {
+        success: false,
+        error: e.message
+      };
+    }
+  }
+  
+  return {
+    savedSelectors,
+    testResults
+  };
+});
