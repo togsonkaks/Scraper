@@ -228,200 +228,13 @@
       }
     };
 
-    // Save selectors to memory (only for checked fields) - reverse engineer from validated content
+    // Simple container discovery and save (2-step process)
+    let foundContainers = {}; // Store found containers for saving
+    
     saveMemBtn.onclick = async () => {
       if (!currentHost || !lastPayload) return;
       
-      const fields = {};
-      
-      // Helper function to reverse-engineer selectors for text content
-      async function findSelectorsForText(content, fieldType) {
-        if (!content || typeof content !== 'string') return null;
-        
-        const searchScript = `
-          (function() {
-            const content = ${JSON.stringify(content)};
-            const results = [];
-            
-            // Smart text matching based on field type
-            const fieldType = ${JSON.stringify(fieldType)};
-            const matchingElements = [];
-            
-            // For different field types, use different matching strategies
-            if (fieldType === 'brand') {
-              // Brand: look in specific brand containers first
-              const brandSelectors = [
-                '[itemprop="brand"]', '.brand', '.product-brand', 
-                '[data-brand]', '.manufacturer', '.vendor'
-              ];
-              for (const sel of brandSelectors) {
-                const el = document.querySelector(sel);
-                if (el && el.textContent.trim().includes(content)) {
-                  matchingElements.push(el);
-                }
-              }
-            }
-            
-            if (fieldType === 'description') {
-              // Description: look in description containers
-              const descSelectors = [
-                '[itemprop="description"]', '.description', '.product-description',
-                '.product-details', '.product-info', '.product-summary'
-              ];
-              for (const sel of descSelectors) {
-                const el = document.querySelector(sel);
-                if (el && el.textContent.trim().includes(content.substring(0, 50))) {
-                  matchingElements.push(el);
-                }
-              }
-            }
-            
-            // General text walker for all fields (fallback + title/price)
-            const walker = document.createTreeWalker(
-              document.body, 
-              NodeFilter.SHOW_TEXT, 
-              null, 
-              false
-            );
-            
-            let node;
-            while (node = walker.nextNode()) {
-              const text = node.textContent.trim();
-              const parent = node.parentElement;
-              
-              // Skip if already found via specific selectors
-              if (matchingElements.includes(parent)) continue;
-              
-              // Exact match
-              if (text === content) {
-                matchingElements.push(parent);
-              }
-              // Partial match for longer content (descriptions, etc)
-              else if (content.length > 15 && text.length > 15 && text.includes(content)) {
-                matchingElements.push(parent);
-              }
-              // For shorter content, check if text contains our content as a word
-              else if (content.length <= 15 && text.length > 5) {
-                const words = text.toLowerCase().split(/\\s+/);
-                const contentWords = content.toLowerCase().split(/\\s+/);
-                if (contentWords.every(w => words.includes(w))) {
-                  matchingElements.push(parent);
-                }
-              }
-            }
-            
-            // Generate CSS selectors for matching elements
-            function generateSelector(el) {
-              if (!el || el === document.body) return null;
-              
-              // Prefer ID
-              if (el.id) return '#' + el.id;
-              
-              // Try specific classes
-              if (el.className) {
-                const classes = el.className.split(' ').filter(c => c && 
-                  /^(product|title|price|name|brand|desc)/i.test(c));
-                if (classes.length) return '.' + classes.join('.');
-              }
-              
-              // Try attribute-based selectors
-              for (const attr of ['itemprop', 'data-product', 'data-price', 'data-title']) {
-                if (el.hasAttribute(attr)) return '[' + attr + '="' + el.getAttribute(attr) + '"]';
-              }
-              
-              // Fallback to tag + classes
-              const tag = el.tagName.toLowerCase();
-              if (el.className) {
-                const mainClass = el.className.split(' ')[0];
-                if (mainClass) return tag + '.' + mainClass;
-              }
-              
-              return tag;
-            }
-            
-            const selectors = [];
-            for (const el of matchingElements.slice(0, 3)) { // Limit to 3 best matches
-              const sel = generateSelector(el);
-              if (sel && !selectors.includes(sel)) {
-                selectors.push(sel);
-              }
-            }
-            
-            return selectors.length ? { selectors, attr: 'text' } : null;
-          })();
-        `;
-        
-        try {
-          return await window.api.evalInProduct(searchScript);
-        } catch (e) {
-          return null;
-        }
-      }
-      
-      // Helper function to find image selectors (improved)
-      async function findSelectorsForImages(imageUrls) {
-        if (!Array.isArray(imageUrls) || !imageUrls.length) return null;
-        
-        const searchScript = `
-          (function() {
-            const imageUrls = ${JSON.stringify(imageUrls.slice(0, 5))}; // Check first 5 images
-            const selectors = new Set();
-            
-            // First try to find product image containers
-            const containers = [
-              '.product-images, .product-gallery, .gallery',
-              '[data-gallery], [data-images], .image-gallery',
-              '.product-media, .product-photos, .photos',
-              '.carousel, .slider, .swiper-wrapper',
-              '.product-image-container, .main-image'
-            ];
-            
-            for (const containerSel of containers) {
-              const container = document.querySelector(containerSel);
-              if (container) {
-                const imgs = container.querySelectorAll('img');
-                if (imgs.length >= 2) { // Must have multiple images
-                  selectors.add(containerSel + ' img');
-                  break;
-                }
-              }
-            }
-            
-            // If no container found, match individual images
-            if (selectors.size === 0) {
-              for (const url of imageUrls) {
-                const imgs = document.querySelectorAll('img');
-                for (const img of imgs) {
-                  if (img.src === url || img.currentSrc === url) {
-                    // Generate selector for this image
-                    if (img.id) selectors.add('#' + img.id);
-                    else if (img.className) {
-                      const classes = img.className.split(' ').filter(c => c);
-                      if (classes.length) selectors.add('img.' + classes.join('.'));
-                    }
-                    else selectors.add('img[src*="' + url.split('/').pop().split('?')[0] + '"]');
-                    break;
-                  }
-                }
-              }
-            }
-            
-            return selectors.size ? { selectors: Array.from(selectors), attr: 'src' } : null;
-          })();
-        `;
-        
-        try {
-          return await window.api.evalInProduct(searchScript);
-        } catch (e) {
-          return null;
-        }
-      }
-      
-      // Get current memory to determine what to add/remove
-      const currentMem = await window.api.getSelectorMemory(currentHost) || {};
-      const fieldsToRemove = [];
-      
-      // Check each field: add if checked and has data, remove if unchecked but exists in memory
+      // Step 1: Find containers for checked fields
       const fieldChecks = [
         { field: 'title', checked: okTitle.checked, data: lastPayload.title },
         { field: 'price', checked: okPrice.checked, data: lastPayload.price },
@@ -430,139 +243,127 @@
         { field: 'images', checked: okImages.checked, data: lastPayload.images },
         { field: 'tags', checked: okTags.checked, data: lastPayload.tags }
       ];
-
-      // Get last used selectors if available
-      const lastUsed = lastSelectorsUsed || {};
-
-      // Process each field
-      for (const { field, checked, data } of fieldChecks) {
+      
+      foundContainers = {};
+      let displayResults = [];
+      
+      // Simple container finder
+      async function findContainer(content, fieldType) {
+        if (!content) return null;
         
-        if (checked && data) {
-          // Add/update field
-          let result = null;
-          
-          // Check if we have a working selector from the last scrape
-          if (lastUsed[field]) {
-            const selArr = Array.isArray(lastUsed[field].selectors)
-              ? lastUsed[field].selectors
-              : (lastUsed[field].selector ? [lastUsed[field].selector] : []);
-
-            // Drop placeholders from generic string-only paths
-            const filtered = selArr.filter(s => s && s !== 'generic-text-selector');
-
-            if (filtered.length) {
-              result = {
-                selectors: filtered,
-                attr: lastUsed[field].attr || 'text',
-                method: lastUsed[field].method || 'tracked'
-              };
-            }
-          }
-          
-          if (field === 'images') {
-            if (Array.isArray(data) && data.length > 0) {
-              result = await findSelectorsForImages(data);
-            }
-          } else if (field === 'tags') {
-            let searchText = null;
-            if (Array.isArray(data) && data.length > 0) {
-              searchText = data.slice(0, 3).join(' '); // Use first few tags
-            } else if (typeof data === 'string' && data.trim()) {
-              searchText = data.trim();
-            } else if (data && typeof data === 'object') {
-              // Try to extract text from object
-              searchText = Object.values(data).join(' ').trim();
+        const searchScript = `
+          (function() {
+            const content = ${JSON.stringify(String(content).slice(0, 100))};
+            const fieldType = ${JSON.stringify(fieldType)};
+            
+            // For images, look for src attributes
+            if (fieldType === 'images' && Array.isArray(${JSON.stringify(content)})) {
+              const imageUrls = ${JSON.stringify(content)};
+              const selectors = [];
+              
+              for (const url of imageUrls.slice(0, 3)) {
+                const img = document.querySelector('img[src="' + url + '"]');
+                if (img) {
+                  if (img.id) selectors.push('#' + img.id);
+                  else if (img.className) selectors.push('img.' + img.className.split(' ')[0]);
+                  else selectors.push('img[src*="' + url.split('/').pop().split('?')[0] + '"]');
+                  break;
+                }
+              }
+              return selectors.length ? selectors : null;
             }
             
-            if (searchText) {
-              result = await findSelectorsForText(searchText, field);
-            }
-          } else {
-            // Fall back to reverse-engineering if no tracked selector
+            // For text content, find elements containing the text
+            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+            const selectors = [];
+            let node;
             
-            // Handle all other fields (title, price, brand, description) more flexibly
-            let searchText = null;
-            
-            if (typeof data === 'string' && data.trim()) {
-              searchText = data.trim();
-            } else if (Array.isArray(data) && data.length > 0) {
-              // Join array elements
-              searchText = data.join(' ').trim();
-            } else if (data && typeof data === 'object') {
-              // Extract text from object (handle structured data)
-              if (data.text) searchText = data.text;
-              else if (data.value) searchText = data.value;
-              else if (data.name) searchText = data.name;
-              else searchText = Object.values(data).filter(v => typeof v === 'string').join(' ').trim();
-            } else if (data !== null && data !== undefined) {
-              // Try to convert to string
-              searchText = String(data).trim();
+            while (node = walker.nextNode()) {
+              const text = node.textContent.trim();
+              if (text.includes(content) || content.includes(text)) {
+                const el = node.parentElement;
+                if (el && el !== document.body) {
+                  let selector = null;
+                  if (el.id) selector = '#' + el.id;
+                  else if (el.className) {
+                    const classes = el.className.split(' ').filter(c => c);
+                    if (classes.length) selector = '.' + classes[0];
+                  }
+                  if (!selector) selector = el.tagName.toLowerCase();
+                  
+                  if (!selectors.includes(selector)) {
+                    selectors.push(selector);
+                    if (selectors.length >= 2) break; // Limit to 2 selectors
+                  }
+                }
+              }
             }
             
-            if (searchText && searchText.length > 0) {
-              result = await findSelectorsForText(searchText, field);
-            }
-          }
-          
-          if (result) {
-            // Add logic type tracking
-            result.logicType = result.method === 'tracked' ? 'tracked-working' : 'reverse-engineered';
-            result.savedAt = new Date().toISOString();
-            fields[field] = result;
-          }
-        } else if (!checked && currentMem[field]) {
-          // Remove field if unchecked but exists in memory
-          fieldsToRemove.push(field);
+            return selectors.length ? selectors : null;
+          })();
+        `;
+        
+        try {
+          return await window.api.evalInProduct(searchScript);
+        } catch (e) {
+          return null;
         }
       }
       
-      // Handle removals first
-      if (fieldsToRemove.length > 0) {
-        await window.api.clearSelectorMemory(currentHost, fieldsToRemove);
+      // Find containers for each checked field
+      for (const { field, checked, data } of fieldChecks) {
+        if (checked && data) {
+          const selectors = await findContainer(data, field);
+          if (selectors) {
+            foundContainers[field] = {
+              selectors: selectors,
+              attr: field === 'images' ? 'src' : 'text',
+              data: field === 'images' ? `${data.length} images` : String(data).slice(0, 50)
+            };
+            displayResults.push(`✓ ${field}: ${selectors.join(', ')}`);
+          } else {
+            displayResults.push(`❌ ${field}: No containers found`);
+          }
+        }
       }
       
-      // Handle additions/updates
-      if (Object.keys(fields).length > 0) {
-        const note = `Updated from user validation on ${new Date().toLocaleDateString()}`;
-        await window.api.setSelectorMemory(currentHost, fields, note);
-      }
-      
-      // Show detailed result message
-      const addedFields = Object.keys(fields);
-      const failedFields = fieldChecks
-        .filter(({ field, checked, data }) => {
-          const failed = checked && data && !fields[field];
-          return failed;
-        })
-        .map(({ field }) => field);
-      
-      const messages = [];
-      if (addedFields.length > 0) messages.push(`✅ Saved: ${addedFields.join(', ')}`);
-      if (fieldsToRemove.length > 0) messages.push(`🗑️ Removed: ${fieldsToRemove.join(', ')}`);
-      if (failedFields.length > 0) messages.push(`❌ Failed to find selectors: ${failedFields.join(', ')}`);
-      
-      if (messages.length === 0) {
-        alert('No changes made. Check fields with valid data to save selectors.');
+      // Display results
+      if (displayResults.length === 0) {
+        memDebug.innerHTML = '<div style="color: #666;">No fields selected or no data available</div>';
         return;
       }
       
-      // Update display with new clean format
-      const mem = await window.api.getSelectorMemory(currentHost);
-      if (mem && Object.keys(mem).filter(k => k !== '__history').length > 0) {
-        const savedFields = Object.keys(mem).filter(k => k !== '__history');
-        const lastUpdate = mem.__history && mem.__history.length > 0 
-          ? new Date(mem.__history[mem.__history.length - 1].savedAt).toLocaleDateString()
-          : 'Unknown';
-        memDebug.innerHTML = `
-          <div style="color: #2d5a27; font-weight: bold;">✓ Saved selectors for ${savedFields.length} field(s)</div>
-          <div style="font-size: 11px; opacity: 0.8;">Fields: ${savedFields.join(', ')}</div>
-          <div style="font-size: 11px; opacity: 0.8;">Last updated: ${lastUpdate}</div>
-        `;
-      } else {
-        memDebug.innerHTML = '<div style="color: #666;">No saved selectors for this domain</div>';
-      }
+      const foundCount = Object.keys(foundContainers).length;
+      const totalChecked = fieldChecks.filter(f => f.checked && f.data).length;
       
-      alert(messages.join('\n'));
+      memDebug.innerHTML = `
+        <div style="color: #333; font-weight: bold; margin-bottom: 8px;">Found Containers (${foundCount}/${totalChecked}):</div>
+        ${displayResults.map(r => `<div style="font-size: 11px; margin-bottom: 2px;">${r}</div>`).join('')}
+        ${foundCount > 0 ? '<button id="confirmSaveBtn" style="margin-top: 8px; padding: 4px 8px; background: #2d5a27; color: white; border: none; border-radius: 4px; cursor: pointer;">Save These Selectors</button>' : ''}
+      `;
+      
+      // Add click handler for confirm save button
+      if (foundCount > 0) {
+        document.getElementById('confirmSaveBtn').onclick = async () => {
+          // Step 2: Actually save the found containers
+          try {
+            const note = `Saved ${foundCount} selectors on ${new Date().toLocaleDateString()}`;
+            await window.api.setSelectorMemory(currentHost, foundContainers, note);
+            
+            const savedFields = Object.keys(foundContainers);
+            memDebug.innerHTML = `
+              <div style="color: #2d5a27; font-weight: bold;">✅ Successfully saved ${foundCount} selector(s)</div>
+              <div style="font-size: 11px; opacity: 0.8; margin-top: 4px;">Saved: ${savedFields.join(', ')}</div>
+              <div style="font-size: 11px; opacity: 0.8;">Saved at: ${new Date().toLocaleString()}</div>
+            `;
+            
+            alert(`✅ Successfully saved ${foundCount} out of ${totalChecked} selectors!\n\nSaved: ${savedFields.join(', ')}`);
+          } catch (e) {
+            memDebug.innerHTML = `<div style="color: #d32f2f;">❌ Error saving selectors: ${e.message}</div>`;
+            alert(`❌ Error saving selectors: ${e.message}`);
+          }
+        };
+      }
     };
 
     clearMemBtn.onclick = async () => {
