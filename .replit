@@ -4,7 +4,7 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
-packages = ["xorg.xvfb", "gtk3", "glib", "nss", "alsa-lib", "at-spi2-atk", "at-spi2-core", "cups", "dbus", "libdrm", "libxkbcommon", "mesa", "xdg-utils", "vulkan-loader", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXrandr", "xorg.libXScrnSaver", "xorg.xorgserver", "libGL"]
+packages = ["xorg.xvfb", "gtk3", "glib", "nss", "alsa-lib", "at-spi2-atk", "at-spi2-core", "cups", "dbus", "libdrm", "libxkbcommon", "mesa", "xdg-utils", "vulkan-loader", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXrandr", "xorg.libXScrnSaver", "xorg.xorgserver", "libGL", "libgbm", "xorg.xf86videonouveau", "xorg.xf86videointel"]
 
 [workflows]
 runButton = "Project"
