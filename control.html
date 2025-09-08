@@ -228,142 +228,106 @@
       }
     };
 
-    // Simple container discovery and save (2-step process)
-    let foundContainers = {}; // Store found containers for saving
-    
+    // Debug: Check what selector data we actually have
     saveMemBtn.onclick = async () => {
       if (!currentHost || !lastPayload) return;
       
-      // Step 1: Find containers for checked fields
-      const fieldChecks = [
-        { field: 'title', checked: okTitle.checked, data: lastPayload.title },
-        { field: 'price', checked: okPrice.checked, data: lastPayload.price },
-        { field: 'brand', checked: okBrand.checked, data: lastPayload.brand },
-        { field: 'description', checked: okDesc.checked, data: lastPayload.description },
-        { field: 'images', checked: okImages.checked, data: lastPayload.images },
-        { field: 'tags', checked: okTags.checked, data: lastPayload.tags }
-      ];
+      // DEBUG: Show what selector data we received from scraping
+      console.log('[DEBUG] Checking selector data:');
+      console.log('[DEBUG] lastSelectorsUsed:', lastSelectorsUsed);
+      console.log('[DEBUG] lastPayload keys:', Object.keys(lastPayload));
       
-      foundContainers = {};
-      let displayResults = [];
-      
-      // Simple container finder
-      async function findContainer(content, fieldType) {
-        if (!content) return null;
+      // If we have tracked selectors, use them instead of reverse-engineering
+      if (lastSelectorsUsed && Object.keys(lastSelectorsUsed).length > 0) {
+        // Display tracked selectors
+        let displayResults = [];
+        const fieldChecks = [
+          { field: 'title', checked: okTitle.checked, data: lastPayload.title },
+          { field: 'price', checked: okPrice.checked, data: lastPayload.price },
+          { field: 'brand', checked: okBrand.checked, data: lastPayload.brand },
+          { field: 'description', checked: okDesc.checked, data: lastPayload.description },
+          { field: 'images', checked: okImages.checked, data: lastPayload.images },
+          { field: 'tags', checked: okTags.checked, data: lastPayload.tags }
+        ];
         
-        const searchScript = `
-          (function() {
-            const content = ${JSON.stringify(String(content).slice(0, 100))};
-            const fieldType = ${JSON.stringify(fieldType)};
+        const foundSelectors = {};
+        
+        for (const { field, checked, data } of fieldChecks) {
+          if (checked && data && lastSelectorsUsed[field]) {
+            const selectorInfo = lastSelectorsUsed[field];
             
-            // For images, look for src attributes
-            if (fieldType === 'images' && Array.isArray(${JSON.stringify(content)})) {
-              const imageUrls = ${JSON.stringify(content)};
-              const selectors = [];
-              
-              for (const url of imageUrls.slice(0, 3)) {
-                const img = document.querySelector('img[src="' + url + '"]');
-                if (img) {
-                  if (img.id) selectors.push('#' + img.id);
-                  else if (img.className) selectors.push('img.' + img.className.split(' ')[0]);
-                  else selectors.push('img[src*="' + url.split('/').pop().split('?')[0] + '"]');
-                  break;
-                }
-              }
-              return selectors.length ? selectors : null;
+            // Clean up selector array - handle both single selector and array
+            let selectors = [];
+            if (selectorInfo.selectors) {
+              selectors = Array.isArray(selectorInfo.selectors) ? selectorInfo.selectors : [selectorInfo.selectors];
+            } else if (selectorInfo.selector) {
+              selectors = [selectorInfo.selector];
             }
             
-            // For text content, find elements containing the text
-            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-            const selectors = [];
-            let node;
+            // Filter out placeholder selectors
+            selectors = selectors.filter(s => s && s !== 'generic-text-selector' && s !== 'custom-handler');
             
-            while (node = walker.nextNode()) {
-              const text = node.textContent.trim();
-              if (text.includes(content) || content.includes(text)) {
-                const el = node.parentElement;
-                if (el && el !== document.body) {
-                  let selector = null;
-                  if (el.id) selector = '#' + el.id;
-                  else if (el.className) {
-                    const classes = el.className.split(' ').filter(c => c);
-                    if (classes.length) selector = '.' + classes[0];
-                  }
-                  if (!selector) selector = el.tagName.toLowerCase();
-                  
-                  if (!selectors.includes(selector)) {
-                    selectors.push(selector);
-                    if (selectors.length >= 2) break; // Limit to 2 selectors
-                  }
-                }
-              }
+            if (selectors.length > 0) {
+              foundSelectors[field] = {
+                selectors: selectors,
+                attr: selectorInfo.attr || 'text',
+                method: selectorInfo.method || 'tracked'
+              };
+              displayResults.push(`✓ ${field}: ${selectors.join(', ')} (${selectorInfo.method || 'tracked'})`);
+            } else {
+              displayResults.push(`❌ ${field}: No valid selectors tracked`);
             }
-            
-            return selectors.length ? selectors : null;
-          })();
+          } else if (checked && data) {
+            displayResults.push(`❌ ${field}: No selector data available`);
+          }
+        }
+        
+        // Display the tracked selectors
+        const foundCount = Object.keys(foundSelectors).length;
+        const totalChecked = fieldChecks.filter(f => f.checked && f.data).length;
+        
+        memDebug.innerHTML = `
+          <div style="color: #333; font-weight: bold; margin-bottom: 8px;">Tracked Selectors (${foundCount}/${totalChecked}):</div>
+          ${displayResults.map(r => `<div style="font-size: 11px; margin-bottom: 2px;">${r}</div>`).join('')}
+          ${foundCount > 0 ? '<button id="confirmSaveBtn" style="margin-top: 8px; padding: 4px 8px; background: #2d5a27; color: white; border: none; border-radius: 4px; cursor: pointer;">Save These Selectors</button>' : ''}
         `;
         
-        try {
-          return await window.api.evalInProduct(searchScript);
-        } catch (e) {
-          return null;
+        // Add save handler
+        if (foundCount > 0) {
+          document.getElementById('confirmSaveBtn').onclick = async () => {
+            try {
+              const note = `Saved ${foundCount} tracked selectors on ${new Date().toLocaleDateString()}`;
+              await window.api.setSelectorMemory(currentHost, foundSelectors, note);
+              
+              const savedFields = Object.keys(foundSelectors);
+              memDebug.innerHTML = `
+                <div style="color: #2d5a27; font-weight: bold;">✅ Successfully saved ${foundCount} tracked selector(s)</div>
+                <div style="font-size: 11px; opacity: 0.8; margin-top: 4px;">Saved: ${savedFields.join(', ')}</div>
+                <div style="font-size: 11px; opacity: 0.8;">Saved at: ${new Date().toLocaleString()}</div>
+              `;
+              
+              alert(`✅ Successfully saved ${foundCount} out of ${totalChecked} tracked selectors!\n\nSaved: ${savedFields.join(', ')}`);
+            } catch (e) {
+              memDebug.innerHTML = `<div style="color: #d32f2f;">❌ Error saving selectors: ${e.message}</div>`;
+              alert(`❌ Error saving selectors: ${e.message}`);
+            }
+          };
         }
+        
+        return; // Exit early - we used tracked selectors
       }
       
-      // Find containers for each checked field
-      for (const { field, checked, data } of fieldChecks) {
-        if (checked && data) {
-          const selectors = await findContainer(data, field);
-          if (selectors) {
-            foundContainers[field] = {
-              selectors: selectors,
-              attr: field === 'images' ? 'src' : 'text',
-              data: field === 'images' ? `${data.length} images` : String(data).slice(0, 50)
-            };
-            displayResults.push(`✓ ${field}: ${selectors.join(', ')}`);
-          } else {
-            displayResults.push(`❌ ${field}: No containers found`);
-          }
-        }
-      }
-      
-      // Display results
-      if (displayResults.length === 0) {
-        memDebug.innerHTML = '<div style="color: #666;">No fields selected or no data available</div>';
-        return;
-      }
-      
-      const foundCount = Object.keys(foundContainers).length;
-      const totalChecked = fieldChecks.filter(f => f.checked && f.data).length;
-      
+      // Fallback: No tracked selectors available
       memDebug.innerHTML = `
-        <div style="color: #333; font-weight: bold; margin-bottom: 8px;">Found Containers (${foundCount}/${totalChecked}):</div>
-        ${displayResults.map(r => `<div style="font-size: 11px; margin-bottom: 2px;">${r}</div>`).join('')}
-        ${foundCount > 0 ? '<button id="confirmSaveBtn" style="margin-top: 8px; padding: 4px 8px; background: #2d5a27; color: white; border: none; border-radius: 4px; cursor: pointer;">Save These Selectors</button>' : ''}
+        <div style="color: #d32f2f; font-weight: bold;">❌ No Tracked Selectors Available</div>
+        <div style="font-size: 11px; margin-top: 4px;">The scraping process didn't track which selectors were used.</div>
+        <div style="font-size: 11px; margin-top: 2px;">Check the browser console for debug information.</div>
       `;
       
-      // Add click handler for confirm save button
-      if (foundCount > 0) {
-        document.getElementById('confirmSaveBtn').onclick = async () => {
-          // Step 2: Actually save the found containers
-          try {
-            const note = `Saved ${foundCount} selectors on ${new Date().toLocaleDateString()}`;
-            await window.api.setSelectorMemory(currentHost, foundContainers, note);
-            
-            const savedFields = Object.keys(foundContainers);
-            memDebug.innerHTML = `
-              <div style="color: #2d5a27; font-weight: bold;">✅ Successfully saved ${foundCount} selector(s)</div>
-              <div style="font-size: 11px; opacity: 0.8; margin-top: 4px;">Saved: ${savedFields.join(', ')}</div>
-              <div style="font-size: 11px; opacity: 0.8;">Saved at: ${new Date().toLocaleString()}</div>
-            `;
-            
-            alert(`✅ Successfully saved ${foundCount} out of ${totalChecked} selectors!\n\nSaved: ${savedFields.join(', ')}`);
-          } catch (e) {
-            memDebug.innerHTML = `<div style="color: #d32f2f;">❌ Error saving selectors: ${e.message}</div>`;
-            alert(`❌ Error saving selectors: ${e.message}`);
-          }
-        };
-      }
+      console.log('[DEBUG] No lastSelectorsUsed data available. This usually means:');
+      console.log('1. The scraping process failed to populate __tg_lastSelectorsUsed');
+      console.log('2. The selectors were all placeholders (generic-text-selector, custom-handler)');
+      console.log('3. There was an error in the IPC communication');
     };
 
     clearMemBtn.onclick = async () => {
