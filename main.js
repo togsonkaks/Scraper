@@ -9,7 +9,6 @@ let productWindow = null;
 
 // ------------------------ Selector Memory (persisted) ------------------------
 const MEM_FILE = path.join(app.getPath('userData'), 'selectorMemory.json');
-console.log('📁 Selector memory file location:', MEM_FILE);
 function loadMem() {
   try { return JSON.parse(fs.readFileSync(MEM_FILE, 'utf8')); } catch { return {}; }
 }
