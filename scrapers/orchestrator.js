@@ -25,14 +25,9 @@
 
 // Generic description extractor with selector tracking
 function getDescriptionGeneric(doc = document) {
-  // Common description selectors, ordered by priority
+  // Common description selectors, ordered by priority - avoid meta that might contain stock info
   const selectors = [
-    // Meta description first (most reliable)
-    'meta[name="description"]',
-    'meta[property="og:description"]',
-    'meta[name="twitter:description"]',
-    
-    // Product description containers
+    // Product description containers first (more specific than meta)
     '.product-description',
     '.product-details',
     '.description',
@@ -44,7 +39,12 @@ function getDescriptionGeneric(doc = document) {
     '.pdp-product-description',
     '.product-description-content',
     '.product-long-description',
-    '.rte' // Rich text editor content
+    '.rte', // Rich text editor content
+    
+    // Meta description last (can contain wrong content)
+    'meta[property="og:description"]',
+    'meta[name="twitter:description"]',
+    'meta[name="description"]'
   ];
   
   for (const sel of selectors) {
@@ -407,6 +407,11 @@ function getDescriptionGeneric(doc = document) {
       if (descResult) {
         if (typeof descResult === 'string') {
           description = descResult;
+          __used.description = {
+            selector: 'generic-text-selector',
+            attr: 'text',
+            method: 'generic'
+          };
         } else {
           description = descResult.text;
           __used.description = {

@@ -361,9 +361,38 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
         (function() {
           const selectors = ${JSON.stringify(selectors)};
           const attr = ${JSON.stringify(attr)};
+          const field = ${JSON.stringify(field)};
           
           for (const selector of selectors) {
             try {
+              // Special handling for JSON-LD brand extraction
+              if (selector === 'script[type="application/ld+json"]' && field === 'brand') {
+                const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+                for (const script of scripts) {
+                  try {
+                    const data = JSON.parse(script.textContent.trim());
+                    const arr = Array.isArray(data) ? data : [data];
+                    for (const node of arr) {
+                      const types = [].concat(node?.["@type"] || []).map(String);
+                      if (types.some(t => /product/i.test(t))) {
+                        const brand = node.brand?.name || node.brand || node.manufacturer?.name || "";
+                        if (brand && typeof brand === 'string' && brand.trim()) {
+                          return {
+                            success: true,
+                            value: brand.trim(),
+                            selector: selector,
+                            count: 1
+                          };
+                        }
+                      }
+                    }
+                  } catch (e) {
+                    // Continue to next script
+                  }
+                }
+                continue; // Try next selector if JSON-LD didn't work
+              }
+              
               const elements = document.querySelectorAll(selector);
               if (elements.length === 0) continue;
               
@@ -376,6 +405,9 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
                   value = el.currentSrc || el.src || el.getAttribute('src');
                 } else if (attr === 'content') {
                   value = el.getAttribute('content');
+                } else if (attr === 'json') {
+                  // This should be handled above for brand, skip for others
+                  continue;
                 } else {
                   value = el.getAttribute(attr) || (el.textContent || '').trim();
                 }
@@ -386,7 +418,7 @@ ipcMain.handle('validate-selectors', async (_evt, urlOrHost) => {
               if (values.length > 0) {
                 return {
                   success: true,
-                  value: ${JSON.stringify(field)} === 'images' ? values : values[0],
+                  value: field === 'images' ? values : values[0],
                   selector: selector,
                   count: values.length
                 };
