@@ -354,7 +354,6 @@
         try {
           return await window.api.evalInProduct(searchScript);
         } catch (e) {
-          console.error('Error finding selectors for', fieldType, ':', e);
           return null;
         }
       }
@@ -414,7 +413,6 @@
         try {
           return await window.api.evalInProduct(searchScript);
         } catch (e) {
-          console.error('Error finding image selectors:', e);
           return null;
         }
       }
