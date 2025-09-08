@@ -478,7 +478,7 @@
       });
 
       // Get last used selectors if available
-      const lastUsed = window.__tg_lastSelectorsUsed || {};
+      const lastUsed = lastSelectorsUsed || {};
       console.log('[DEBUG] Last used selectors:', lastUsed);
 
       // Process each field with detailed logging
@@ -490,13 +490,22 @@
           let result = null;
           
           // Check if we have a working selector from the last scrape
-          if (lastUsed[field] && lastUsed[field].selector) {
-            console.log(`[DEBUG] Using tracked working selector for ${field}:`, lastUsed[field]);
-            result = {
-              selectors: [lastUsed[field].selector],
-              attr: lastUsed[field].attr || 'text',
-              method: lastUsed[field].method || 'tracked'
-            };
+          if (lastUsed[field]) {
+            const selArr = Array.isArray(lastUsed[field].selectors)
+              ? lastUsed[field].selectors
+              : (lastUsed[field].selector ? [lastUsed[field].selector] : []);
+
+            // Drop placeholders from generic string-only paths
+            const filtered = selArr.filter(s => s && s !== 'generic-text-selector');
+
+            if (filtered.length) {
+              console.log(`[DEBUG] Using tracked working selector(s) for ${field}:`, filtered);
+              result = {
+                selectors: filtered,
+                attr: lastUsed[field].attr || 'text',
+                method: lastUsed[field].method || 'tracked'
+              };
+            }
           }
           
           if (field === 'images') {
