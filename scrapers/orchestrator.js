@@ -350,7 +350,7 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!images && typeof collectImagesFromPDP === 'function') {
       const genericImages = await collectImagesFromPDP();
-      if (genericImages) {
+      if (Array.isArray(genericImages) && genericImages.length > 0) {
         images = genericImages;
         __used.images = {
           selector: 'generic-images',
@@ -361,6 +361,11 @@ function getDescriptionGeneric(doc = document) {
     }
     if (!Array.isArray(images)) images = [];
     images = images.slice(0, 20);
+    
+    // Only track images if we actually found some
+    if (images.length === 0) {
+      __used.images = null;
+    }
 
     // ------------- DESCRIPTION -------------
     let description = null;

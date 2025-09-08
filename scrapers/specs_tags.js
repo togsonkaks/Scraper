@@ -26,32 +26,72 @@ function collectSpecs(limit=10) {
 
 function collectTags(limit = 12) {
   const tags = [];
-  document.querySelectorAll('[class*="chip"],[class*="pill"],[class*="tag"],[class*="badge"]').forEach(el => {
-    const t = T(el.textContent); if (t) tags.push(t);
+  
+  // Only collect from product-specific containers, not random UI elements
+  const productContainers = document.querySelectorAll(
+    '[class*="product"]:not([class*="related"]):not([class*="recommend"]), ' +
+    '[class*="detail"], [class*="spec"], [class*="attribute"], ' +
+    'main, [role="main"], .main-content'
+  );
+  
+  productContainers.forEach(container => {
+    // Look for actual product attribute chips/pills/tags within product containers
+    container.querySelectorAll('[class*="chip"],[class*="pill"],[class*="tag"],[class*="badge"]').forEach(el => {
+      const t = T(el.textContent);
+      // Filter out common UI elements and navigation
+      if (t && t.length <= 30 && !/^(save|add|buy|cart|checkout|login|menu|search|filter|sort|view|more|less|show|hide|close|accept|decline|ok|cancel|yes|no|prev|next|back|home|shop)$/i.test(t)) {
+        tags.push(t);
+      }
+    });
   });
-  const ATTR=/(material|fabric|composition|care|wash|fit|rise|inseam|length|dimensions?|weight|capacity|volume|sku|style|model|color|colour|size range|waist|bust|hip|heel|shaft|calf|origin)/i;
+  
+  // Look for structured product attributes (more selective)
+  const ATTR=/(material|fabric|composition|care|wash|fit|rise|inseam|length|dimensions?|weight|capacity|volume|sku|style|model|color|colour|size|waist|bust|hip|heel|shaft|calf|origin|brand|type|category)/i;
   document.querySelectorAll("tr,li,dt").forEach(el=>{
-    const s=T(el.textContent);
-    if (ATTR.test(s)) {
+    // Only check if the element is within a product details section
+    const inProductSection = el.closest('[class*="product"], [class*="detail"], [class*="spec"], [class*="attribute"], [class*="info"], main, [role="main"]');
+    if (!inProductSection) return;
+    
+    const s = T(el.textContent);
+    if (ATTR.test(s) && s.length <= 60) {
       const m = s.match(/^(.*?)[\s:–-]+(.*)$/);
       const val = m ? T(m[2]) : s;
       const key = m ? T(m[1]).toLowerCase() : "";
-      if (val) tags.push(key ? `${key}: ${val}` : val);
+      if (val && val.length <= 30) tags.push(key ? `${key}: ${val}` : val);
     }
   });
+  
+  // Selected color/variant (high quality signal)
   const selected = document.querySelector('[aria-checked="true"][role="radio"], .selected, [data-selected="true"]');
   const swatchText = T(selected?.textContent);
-  if (swatchText && /color|colour|tone|shade/i.test(selected?.parentElement?.textContent||"")) {
+  if (swatchText && swatchText.length <= 20 && /color|colour|tone|shade/i.test(selected?.parentElement?.textContent||"")) {
     tags.push(`color: ${swatchText}`);
   }
+  
+  // Only use meta keywords if they look product-related (not just SEO spam)
   const metaKw = document.querySelector('meta[name="keywords"]')?.content || "";
-  if (metaKw) metaKw.split(",").slice(0,6).map(T).forEach(k => { if (k && k.length <= 30) tags.push(k); });
+  if (metaKw) {
+    metaKw.split(",").slice(0,4).map(T).forEach(k => { 
+      if (k && k.length <= 25 && !/^(shop|buy|sale|deals?|free|best|top|new|popular|trending|fashion|style)$/i.test(k)) {
+        tags.push(k); 
+      }
+    });
+  }
+  
+  // Category from breadcrumb (last meaningful item, not "home")
   const crumb = document.querySelector('.breadcrumb, nav[aria-label*=crumb], [class*="crumb"]');
   if (crumb) {
     const parts = T(crumb.textContent).split(/>|\//).map(T).filter(Boolean);
-    if (parts.length) tags.push(parts[parts.length-1]);
+    const lastPart = parts[parts.length-1];
+    if (lastPart && lastPart.length <= 25 && !/^(home|shop|all|products?)$/i.test(lastPart)) {
+      tags.push(lastPart);
+    }
   }
-  return uniq(tags).map(t=>t.replace(/\s{2,}/g," ")).filter(t=>t && t.length<=40).slice(0,limit);
+  
+  return uniq(tags)
+    .map(t => t.replace(/\s{2,}/g," ").trim())
+    .filter(t => t && t.length >= 2 && t.length <= 40)
+    .slice(0, limit);
 }
 
 function guessGender() {
