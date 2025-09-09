@@ -147,3 +147,23 @@ ipcMain.handle('memory-validate', async (_e, host) => {
   }
   return { savedSelectors, testResults };
 });
+
+ipcMain.handle('memory-clear-fields', async (_e, args) => {
+  const { host, fields } = args;
+  const current = await getMemoryFor(host);
+  if (!current) return true;
+  
+  // Remove specified fields
+  for (const field of fields) {
+    delete current[field];
+  }
+  
+  // If no fields left (except __history), clear everything
+  const remainingFields = Object.keys(current).filter(k => k !== '__history');
+  if (remainingFields.length === 0) {
+    return await clearMemoryFor(host);
+  }
+  
+  // Save the updated memory
+  return await setMemoryFor(host, current, `Removed fields: ${fields.join(', ')}`);
+});

@@ -199,23 +199,48 @@
         memDebug.innerHTML = `<div style="color:#d32f2f;">❌ Nothing to save yet. Run a scrape first.</div>`;
         return;
       }
-      const foundSelectors = {};
+      
+      // Build selector set - only include checked fields from last scrape
+      const newSelectors = {};
+      const savedFields = [];
+      const uncheckedFields = [];
+      
       for (const { field, checked } of fieldChecks) {
-        if (!checked) continue;
-        if (lastSelectorsUsed[field]) {
-          const info = lastSelectorsUsed[field];
-          const sels = info.selectors || (info.selector ? [info.selector] : []);
-          if (sels && sels.length) {
-            foundSelectors[field] = { selectors: sels.slice(0,8), attr: info.attr || 'text' };
+        if (checked) {
+          // Add/update selector for checked field
+          if (lastSelectorsUsed[field]) {
+            const info = lastSelectorsUsed[field];
+            const sels = info.selectors || (info.selector ? [info.selector] : []);
+            if (sels && sels.length) {
+              newSelectors[field] = { selectors: sels.slice(0,8), attr: info.attr || 'text' };
+              savedFields.push(field);
+            }
           }
+        } else {
+          // Track unchecked fields to remove
+          uncheckedFields.push(field);
         }
       }
-      if (Object.keys(foundSelectors).length === 0) {
-        memDebug.innerHTML = `<div style="color:#d32f2f;">❌ No valid selectors to save from last scrape.</div>`;
+      
+      if (Object.keys(newSelectors).length === 0) {
+        await window.api.clearSelectorMemory(host);
+        memDebug.innerHTML = `<div style="color:#d32f2f;">❌ Cleared all selectors - no valid fields were checked.</div>`;
         return;
       }
-      await window.api.setSelectorMemory(host, foundSelectors, `Saved ${new Date().toISOString()}`);
-      memDebug.innerHTML = `<div style="color:#2d5a27;">✅ Saved selectors.</div>`;
+      
+      // Clear specific fields that were unticked
+      if (uncheckedFields.length > 0) {
+        await window.api.clearSpecificSelectors(host, uncheckedFields);
+      }
+      
+      // Save the new selectors
+      await window.api.setSelectorMemory(host, newSelectors, `Saved ${new Date().toISOString()}`);
+      
+      let message = `<div style="color:#2d5a27;">✅ Saved selectors for: ${savedFields.join(', ')}</div>`;
+      if (uncheckedFields.length > 0) {
+        message += `<div style="color:#666;">Removed: ${uncheckedFields.join(', ')}</div>`;
+      }
+      memDebug.innerHTML = message;
     };
 
     clearMemBtn.onclick = async () => {

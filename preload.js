@@ -8,6 +8,7 @@ contextBridge.exposeInMainWorld('api', {
   getSelectorMemory: (host) => ipcRenderer.invoke('memory-get', host),
   setSelectorMemory: (host, data, note) => ipcRenderer.invoke('memory-set', { host, data, note }),
   clearSelectorMemory: (host) => ipcRenderer.invoke('memory-clear', host),
+  clearSpecificSelectors: (host, fields) => ipcRenderer.invoke('memory-clear-fields', { host, fields }),
   validateSelectors: (host) => ipcRenderer.invoke('memory-validate', host),
   hasSelectorMemory: (host) => ipcRenderer.invoke('memory-has', host),
 });
