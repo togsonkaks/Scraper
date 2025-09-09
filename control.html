@@ -17,35 +17,13 @@
     .imgs { display:flex; gap:6px; flex-wrap:wrap; }
     .imgs img { height:64px; border-radius:6px; border:1px solid #eee; cursor:pointer; transition:transform 0.2s; }
     .imgs img:hover { transform:scale(1.05); }
-    
-    /* Image Overlay Modal */
-    .image-overlay { 
-      position:fixed; top:0; left:0; width:100%; height:100%; 
-      background:rgba(0,0,0,0.9); display:none; z-index:1000; 
-      justify-content:center; align-items:center; 
-    }
-    .image-overlay.show { display:flex; }
-    .overlay-content { 
-      position:relative; max-width:90%; max-height:90%; 
-      display:flex; justify-content:center; align-items:center; 
-    }
-    .overlay-image { 
-      max-width:100%; max-height:100%; object-fit:contain; 
-      border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.5); 
-    }
-    .close-overlay { 
-      position:absolute; top:-40px; right:0; background:none; 
-      border:none; color:white; font-size:24px; cursor:pointer; 
-      padding:8px; border-radius:4px; 
-    }
-    .close-overlay:hover { background:rgba(255,255,255,0.2); }
   </style>
 </head>
 <body>
   <div class="row">
     <input id="urlInput" type="text" placeholder="Paste product URL" />
     <button id="visitBtn">Load</button>
-    <button id="nudgeBtn">Nudge</button>
+    <button id="memoryBtn" title="Scrape using saved selector memory only">Selector memory</button>
     <button id="saveBtn" disabled>Save (scrape)</button>
   </div>
 
@@ -58,15 +36,6 @@
       <div id="images" class="imgs" style="margin-top:6px;"></div>
     </div>
     <div class="box">
-      <div class="label">Saved Selector Validation</div>
-      <div id="validationPanel" style="margin-bottom: 12px; padding: 8px; background: #f5f5f5; border-radius: 4px; border-left: 4px solid #2196F3;">
-        <div style="font-weight: bold; margin-bottom: 6px; color: #333; font-size: 12px;">Current Domain Selectors:</div>
-        <div id="validationResults" style="font-size: 11px; line-height: 1.4;">
-          <div style="color: #666; font-style: italic;">Click "Test Saved Selectors" to validate</div>
-        </div>
-        <button id="validateBtn" style="margin-top: 6px; padding: 4px 8px; background: #2196F3; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">Test Saved Selectors</button>
-      </div>
-      
       <div class="label">Selector Memory (approve to save)</div>
       <div>
         <label><input type="checkbox" id="okTitle"> Title OK</label>
@@ -91,7 +60,7 @@
   <script>
     const urlInput = document.getElementById('urlInput');
     const visitBtn = document.getElementById('visitBtn');
-    const nudgeBtn = document.getElementById('nudgeBtn');
+    const memoryBtn = document.getElementById('memoryBtn');
     const saveBtn  = document.getElementById('saveBtn');
     const statusEl = document.getElementById('status');
 
@@ -109,21 +78,18 @@
     const saveMemBtn = document.getElementById('saveMemBtn');
     const clearMemBtn = document.getElementById('clearMemBtn');
     const memDebug = document.getElementById('memDebug');
-    const validateBtn = document.getElementById('validateBtn');
-    const validationResults = document.getElementById('validationResults');
-
-    let currentHost = null;
-    let lastSelectorsUsed = null;
-    let lastPayload = null;
 
     function setSaveState(disabled, label) {
       saveBtn.disabled = disabled;
       saveBtn.textContent = label || (disabled ? 'Waiting for page…' : 'Save (scrape)');
     }
-
     function hostFrom(url) {
       try { return new URL(url).host.replace(/^www\./,''); } catch { return null; }
     }
+
+    let currentHost = null;
+    let lastSelectorsUsed = null;
+    let lastPayload = null;
 
     // Load (navigate only)
     visitBtn.onclick = async () => {
@@ -152,355 +118,116 @@
           clearInterval(iv);
           statusEl.innerHTML = `<span class="pill">Ready</span>`;
           setSaveState(false);
-          
-          // Auto-validate saved selectors for this domain
-          setTimeout(autoValidateIfNeeded, 500);
         }
       }, 700);
     };
 
-    // "Nudge" to hydrate galleries/lazy content
-    nudgeBtn.onclick = async () => {
-      await window.api.evalInProduct(`
-        (async () => {
-          function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
-          window.scrollTo(0,0); await sleep(90);
-          window.scrollTo(0, document.body.scrollHeight); await sleep(180);
-          document.querySelectorAll('.swiper-slide, .slick-slide, .glide__slide, .splide__slide')
-            .forEach((s,i)=>{ if (i<8) s.dispatchEvent(new Event('mouseover',{bubbles:true})); });
-        })();
-      `);
-    };
-
-    // Save (scrape)
-    saveBtn.onclick = async () => {
-      setSaveState(true, 'Scraping…');
-      statusEl.innerHTML = `<span class="pill">Scraping</span>`;
-      panel.style.display = 'none';
-      out.textContent = '';
-      images.innerHTML = '';
-      summary.innerHTML = '';
-      okTitle.checked = okPrice.checked = okImages.checked = okBrand.checked = okTags.checked = okDesc.checked = false;
-      memDebug.textContent = '';
-
+    // Selector memory button: scrape using memory only
+    memoryBtn.onclick = async () => {
+      const url = urlInput.value.trim();
+      if (!url) return alert('Paste a URL first.');
+      const host = hostFrom(url);
+      const hasMem = await window.api.hasSelectorMemory(host);
+      if (!hasMem) { 
+        alert('❌ No selector memory for this host yet.');
+        return;
+      }
+      statusEl.innerHTML = `<span class="pill">Memory-only</span>`;
+      panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
       try {
-        const { result, selectorsUsed } = await window.api.scrapeCurrent();
-        lastPayload = result || {};
-        lastSelectorsUsed = selectorsUsed || null;
-
-        // summary (top panel)
+        const { result, selectorsUsed } = await window.api.scrapeCurrent({ mode: 'memoryOnly' });
+        lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
         const imgs = Array.isArray(result?.images) ? result.images : [];
         summary.innerHTML = `
           <div><b>Title:</b> ${result?.title || ''}</div>
           <div><b>Price:</b> ${result?.price || ''}</div>
           <div><b>Brand:</b> ${result?.brand || ''}</div>
           <div><b>URL:</b> ${result?.url || ''}</div>
-          <div style="margin-top:4px;"><b>Specs:</b> ${(result?.specs||[]).slice(0,20).join(' · ')}</div>
-          <div><b>Tags:</b> ${(result?.tags||[]).slice(0,12).join(' · ')}</div>
-          <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>
-        `;
-        images.innerHTML = imgs.map(u => `<img src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
-
-        // bottom box = ONLY image URLs (one per line)
-        out.textContent = imgs.join('\n');
-
-        // show panel + current memory
-        const mem = currentHost ? await window.api.getSelectorMemory(currentHost) : null;
-        
-        // Clean memory display - show user-friendly summary
-        if (mem && Object.keys(mem).filter(k => k !== '__history').length > 0) {
-          const savedFields = Object.keys(mem).filter(k => k !== '__history');
-          const lastUpdate = mem.__history && mem.__history.length > 0 
-            ? new Date(mem.__history[mem.__history.length - 1].savedAt).toLocaleDateString()
-            : 'Unknown';
-          memDebug.innerHTML = `
-            <div style="color: #2d5a27; font-weight: bold;">✓ Saved selectors for ${savedFields.length} field(s)</div>
-            <div style="font-size: 11px; opacity: 0.8;">Fields: ${savedFields.join(', ')}</div>
-            <div style="font-size: 11px; opacity: 0.8;">Last updated: ${lastUpdate}</div>
-          `;
-        } else {
-          memDebug.innerHTML = '<div style="color: #666;">No saved selectors for this domain</div>';
-        }
-
-        // Load existing memory state into checkboxes (for manual selection)
-        if (mem) {
-          okTitle.checked = !!mem.title;
-          okPrice.checked = !!mem.price;
-          okImages.checked = !!mem.images;
-          okBrand.checked = !!mem.brand;
-          okTags.checked = !!mem.tags;
-          okDesc.checked = !!mem.description;
-        }
-
+          <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
+        images.innerHTML = imgs.map(u => `<img src="${u}" title="${u}">`).join('');
+        out.textContent = imgs.slice(0,20).join('\\n');
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
         out.textContent = 'Error: ' + (e?.message || String(e));
         statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
-      } finally {
-        setSaveState(false);
       }
     };
 
-    // Debug: Check what selector data we actually have
+    // Save (scrape) normal (with fallbacks)
+    saveBtn.onclick = async () => {
+      statusEl.innerHTML = `<span class="pill">Scraping</span>`;
+      panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
+      try {
+        const { result, selectorsUsed } = await window.api.scrapeCurrent({ mode: 'normal' });
+        lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
+        const imgs = Array.isArray(result?.images) ? result.images : [];
+        summary.innerHTML = `
+          <div><b>Title:</b> ${result?.title || ''}</div>
+          <div><b>Price:</b> ${result?.price || ''}</div>
+          <div><b>Brand:</b> ${result?.brand || ''}</div>
+          <div><b>URL:</b> ${result?.url || ''}</div>
+          <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
+        images.innerHTML = imgs.map(u => `<img src="${u}" title="${u}">`).join('');
+        out.textContent = imgs.slice(0,20).join('\\n');
+        panel.style.display = 'grid';
+        statusEl.innerHTML = `<span class="pill">Done</span>`;
+      } catch (e) {
+        out.textContent = 'Error: ' + (e?.message || String(e));
+        statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
+      }
+    };
+
+    // Save selector memory from tracked selectors
     saveMemBtn.onclick = async () => {
-      if (!currentHost || !lastPayload) return;
-      
-      // DEBUG: Show what selector data we received from scraping
-      console.log('[DEBUG] Checking selector data:');
-      console.log('[DEBUG] lastSelectorsUsed:', lastSelectorsUsed);
-      console.log('[DEBUG] lastPayload keys:', Object.keys(lastPayload));
-      
-      // If we have tracked selectors, use them instead of reverse-engineering
-      if (lastSelectorsUsed && Object.keys(lastSelectorsUsed).length > 0) {
-        // Display tracked selectors
-        let displayResults = [];
-        const fieldChecks = [
-          { field: 'title', checked: okTitle.checked, data: lastPayload.title },
-          { field: 'price', checked: okPrice.checked, data: lastPayload.price },
-          { field: 'brand', checked: okBrand.checked, data: lastPayload.brand },
-          { field: 'description', checked: okDesc.checked, data: lastPayload.description },
-          { field: 'images', checked: okImages.checked, data: lastPayload.images },
-          { field: 'tags', checked: okTags.checked, data: lastPayload.tags }
-        ];
-        
-        const foundSelectors = {};
-        
-        for (const { field, checked, data } of fieldChecks) {
-          if (checked && data && lastSelectorsUsed[field]) {
-            const selectorInfo = lastSelectorsUsed[field];
-            
-            // Clean up selector array - handle both single selector and array
-            let selectors = [];
-            if (selectorInfo.selectors) {
-              selectors = Array.isArray(selectorInfo.selectors) ? selectorInfo.selectors : [selectorInfo.selectors];
-            } else if (selectorInfo.selector) {
-              selectors = [selectorInfo.selector];
-            }
-            
-            // Filter out placeholder selectors
-            selectors = selectors.filter(s => s && s !== 'generic-text-selector' && s !== 'custom-handler');
-            
-            if (selectors.length > 0) {
-              foundSelectors[field] = {
-                selectors: selectors,
-                attr: selectorInfo.attr || 'text',
-                method: selectorInfo.method || 'tracked'
-              };
-              displayResults.push(`✓ ${field}: ${selectors.join(', ')} (${selectorInfo.method || 'tracked'})`);
-            } else {
-              displayResults.push(`❌ ${field}: No valid selectors tracked`);
-            }
-          } else if (checked && data) {
-            displayResults.push(`❌ ${field}: No selector data available`);
+      const host = currentHost;
+      if (!host) return;
+      const fieldChecks = [
+        { field: 'title', checked: okTitle.checked },
+        { field: 'price', checked: okPrice.checked },
+        { field: 'brand', checked: okBrand.checked },
+        { field: 'description', checked: okDesc.checked },
+        { field: 'images', checked: okImages.checked }
+      ];
+      const anyChecked = fieldChecks.some(f => f.checked);
+      if (!anyChecked) {
+        await window.api.clearSelectorMemory(host);
+        memDebug.innerHTML = `<div style="color:#2d5a27;">✅ Cleared all saved selectors for ${host}.</div>`;
+        return;
+      }
+      if (!lastSelectorsUsed || !lastPayload) {
+        memDebug.innerHTML = `<div style="color:#d32f2f;">❌ Nothing to save yet. Run a scrape first.</div>`;
+        return;
+      }
+      const foundSelectors = {};
+      for (const { field, checked } of fieldChecks) {
+        if (!checked) continue;
+        if (lastSelectorsUsed[field]) {
+          const info = lastSelectorsUsed[field];
+          const sels = info.selectors || (info.selector ? [info.selector] : []);
+          if (sels && sels.length) {
+            foundSelectors[field] = { selectors: sels.slice(0,8), attr: info.attr || 'text' };
           }
         }
-        
-        // Display the tracked selectors
-        const foundCount = Object.keys(foundSelectors).length;
-        const totalChecked = fieldChecks.filter(f => f.checked && f.data).length;
-        
-        memDebug.innerHTML = `
-          <div style="color: #333; font-weight: bold; margin-bottom: 8px;">Tracked Selectors (${foundCount}/${totalChecked}):</div>
-          ${displayResults.map(r => `<div style="font-size: 11px; margin-bottom: 2px;">${r}</div>`).join('')}
-          ${foundCount > 0 ? '<button id="confirmSaveBtn" style="margin-top: 8px; padding: 4px 8px; background: #2d5a27; color: white; border: none; border-radius: 4px; cursor: pointer;">Save These Selectors</button>' : ''}
-        `;
-        
-        // Add save handler
-        if (foundCount > 0) {
-          document.getElementById('confirmSaveBtn').onclick = async () => {
-            try {
-              const note = `Saved ${foundCount} tracked selectors on ${new Date().toLocaleDateString()}`;
-              await window.api.setSelectorMemory(currentHost, foundSelectors, note);
-              
-              const savedFields = Object.keys(foundSelectors);
-              memDebug.innerHTML = `
-                <div style="color: #2d5a27; font-weight: bold;">✅ Successfully saved ${foundCount} tracked selector(s)</div>
-                <div style="font-size: 11px; opacity: 0.8; margin-top: 4px;">Saved: ${savedFields.join(', ')}</div>
-                <div style="font-size: 11px; opacity: 0.8;">Saved at: ${new Date().toLocaleString()}</div>
-              `;
-              
-              alert(`✅ Successfully saved ${foundCount} out of ${totalChecked} tracked selectors!\n\nSaved: ${savedFields.join(', ')}`);
-            } catch (e) {
-              memDebug.innerHTML = `<div style="color: #d32f2f;">❌ Error saving selectors: ${e.message}</div>`;
-              alert(`❌ Error saving selectors: ${e.message}`);
-            }
-          };
-        }
-        
-        return; // Exit early - we used tracked selectors
       }
-      
-      // Fallback: No tracked selectors available
-      memDebug.innerHTML = `
-        <div style="color: #d32f2f; font-weight: bold;">❌ No Tracked Selectors Available</div>
-        <div style="font-size: 11px; margin-top: 4px;">The scraping process didn't track which selectors were used.</div>
-        <div style="font-size: 11px; margin-top: 2px;">Check the browser console for debug information.</div>
-      `;
-      
-      console.log('[DEBUG] No lastSelectorsUsed data available. This usually means:');
-      console.log('1. The scraping process failed to populate __tg_lastSelectorsUsed');
-      console.log('2. The selectors were all placeholders (generic-text-selector, custom-handler)');
-      console.log('3. There was an error in the IPC communication');
+      if (Object.keys(foundSelectors).length === 0) {
+        memDebug.innerHTML = `<div style="color:#d32f2f;">❌ No valid selectors to save from last scrape.</div>`;
+        return;
+      }
+      await window.api.setSelectorMemory(host, foundSelectors, `Saved ${new Date().toISOString()}`);
+      memDebug.innerHTML = `<div style="color:#2d5a27;">✅ Saved selectors.</div>`;
     };
 
     clearMemBtn.onclick = async () => {
       if (!currentHost) return;
-      const confirmed = confirm('Are you sure you want to clear all saved selectors for this domain?');
+      const confirmed = confirm('Clear all saved selectors for this domain?');
       if (!confirmed) return;
-      
       await window.api.clearSelectorMemory(currentHost);
-      
-      // Update display with clean format
-      memDebug.innerHTML = '<div style="color: #666;">No saved selectors for this domain</div>';
-      validationResults.innerHTML = '<div style="color: #666; font-style: italic;">No saved selectors found</div>';
-      
-      // Reset all checkboxes
-      okTitle.checked = okPrice.checked = okImages.checked = okBrand.checked = okTags.checked = okDesc.checked = false;
-      
-      alert('All selectors cleared for this domain.');
+      memDebug.innerHTML = '<div style="color:#666;">No saved selectors for this domain</div>';
+      alert('Cleared.');
     };
 
-    // Validation functionality
-    validateBtn.onclick = async () => {
-      if (!currentHost) {
-        validationResults.innerHTML = '<div style="color: #d32f2f;">❌ No current host detected</div>';
-        return;
-      }
-      
-      validateBtn.textContent = 'Testing...';
-      validateBtn.disabled = true;
-      
-      try {
-        const results = await window.api.validateSelectors(currentHost);
-        displayValidationResults(results);
-      } catch (e) {
-        validationResults.innerHTML = `<div style="color: #d32f2f;">❌ Validation error: ${e.message}</div>`;
-      } finally {
-        validateBtn.textContent = 'Test Saved Selectors';
-        validateBtn.disabled = false;
-      }
-    };
-    
-    function displayValidationResults(results) {
-      if (!results.savedSelectors || Object.keys(results.savedSelectors).length === 0) {
-        validationResults.innerHTML = '<div style="color: #666; font-style: italic;">No saved selectors found for this domain</div>';
-        return;
-      }
-      
-      const fieldResults = [];
-      
-      Object.entries(results.savedSelectors).forEach(([field, selectorConfig]) => {
-        const testResult = results.testResults[field];
-        
-        // Handle case where testResult might be undefined or malformed
-        if (!testResult) {
-          fieldResults.push(`
-            <div style="margin-bottom: 4px; padding: 3px 0;">
-              <span style="color: #d32f2f;">❌</span>
-              <strong>${field}:</strong> 
-              <div style="font-size: 10px; color: #666; margin-left: 20px;">No test result available</div>
-            </div>
-          `);
-          return;
-        }
-        
-        const status = testResult.success || false;
-        const value = testResult.value || '';
-        const error = testResult.error || '';
-        const source = testResult.source || 'unknown';
-        
-        let icon, color, statusText;
-        if (status) {
-          icon = '✅';
-          color = '#2d5a27';
-          const valueStr = Array.isArray(value) ? `${value.length} items` : String(value);
-          const truncatedValue = valueStr.slice(0, 60) + (valueStr.length > 60 ? '...' : '');
-          const sourceInfo = source === 'memory' ? '(saved selector)' : source === 'generic-fallback' ? '(fallback)' : '';
-          statusText = `Found: "${truncatedValue}" ${sourceInfo}`;
-        } else {
-          icon = '❌';
-          color = '#d32f2f';
-          statusText = error || 'Not found';
-        }
-        
-        const selectors = Array.isArray(selectorConfig.selectors) ? selectorConfig.selectors : [selectorConfig.selectors];
-        
-        fieldResults.push(`
-          <div style="margin-bottom: 4px; padding: 3px 0;">
-            <span style="color: ${color};">${icon}</span>
-            <strong>${field}:</strong> 
-            <code style="background: #eee; padding: 1px 4px; border-radius: 2px; font-size: 10px;">${selectors.join(', ')}</code>
-            <div style="font-size: 10px; color: #666; margin-left: 20px;">${statusText}</div>
-          </div>
-        `);
-      });
-      
-      const successCount = Object.values(results.testResults).filter(r => r && r.success).length;
-      const totalCount = Object.keys(results.savedSelectors).length;
-      
-      validationResults.innerHTML = `
-        <div style="margin-bottom: 6px; font-weight: bold; color: #333;">
-          Results (${successCount}/${totalCount} working):
-        </div>
-        ${fieldResults.join('')}
-      `;
-    }
-    
-    // Auto-validate when page loads if we have saved selectors
-    async function autoValidateIfNeeded() {
-      if (!currentHost) return;
-      
-      try {
-        const memory = await window.api.getSelectorMemory(currentHost);
-        if (memory && Object.keys(memory).length > 0) {
-          // Auto-run validation to show immediate feedback
-          const results = await window.api.validateSelectors(currentHost);
-          displayValidationResults(results);
-        }
-      } catch (e) {
-        // Silently fail auto-validation
-      }
-    }
-
-    // Image overlay functions
-    function openImageOverlay(imageUrl) {
-      const overlay = document.getElementById('imageOverlay');
-      const overlayImage = document.getElementById('overlayImage');
-      overlayImage.src = imageUrl;
-      overlay.classList.add('show');
-    }
-
-    function closeImageOverlay() {
-      const overlay = document.getElementById('imageOverlay');
-      overlay.classList.remove('show');
-    }
-
-    // Click outside image to close overlay
-    document.getElementById('imageOverlay').addEventListener('click', (e) => {
-      if (e.target.id === 'imageOverlay') {
-        closeImageOverlay();
-      }
-    });
-
-    // Escape key to close overlay
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeImageOverlay();
-      }
-    });
-
-    // conveniences
     urlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') visitBtn.click(); });
   </script>
-
-  <!-- Image Overlay Modal -->
-  <div id="imageOverlay" class="image-overlay">
-    <div class="overlay-content">
-      <button class="close-overlay" onclick="closeImageOverlay()">&times;</button>
-      <img id="overlayImage" class="overlay-image" src="" alt="Full size image">
-    </div>
-  </div>
-
 </body>
 </html>

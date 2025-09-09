@@ -1,512 +1,342 @@
-// scrapers/orchestrator.js
-// Orchestrates per-field extraction with this precedence:
-// 1) Selector Memory (if present for this host, per-field)
-// 2) Custom handler for the site (custom.js)
-// 3) Generic collectors (title.js, price.js, images.js, specs_tags.js)
-//
-// Contract (do not change shape):
-// window.scrapeProduct() => {
-//   title, brand, price, specs[], tags[], images[], gender, sku, url, timestamp
-// }
-//
-// Requirements kept:
-// - globalThis.__TAGGLO__ = { scrapeProduct }
-// - Also expose legacy alias: window.scrapeProduct
-// - Short await sleep(200) before returning
-//
-// Assumes globals from other modules are present:
-// - getCustomHandlers()       (from custom.js)
-// - getTitleGeneric(), getBrandGeneric()  (from title.js)
-// - getPriceGeneric()         (from price.js)
-// - collectImagesFromPDP()    (from images.js)
-// - collectSpecsGeneric(), collectTagsGeneric(), guessGender(), pickSKU() (from specs_tags.js)
-// - T(), uniq(), sleep(ms)    (from utils.js)
-// Also assumes preload exposed window.api.* IPC for selector memory (contextBridge).
 
-// Generic description extractor with selector tracking
-function getDescriptionGeneric(doc = document) {
-  // Common description selectors, ordered by priority - avoid meta that might contain stock info
-  const selectors = [
-    // Product description containers first (more specific than meta)
-    '.product-description',
-    '.product-details',
-    '.description',
-    '.product-info .description',
-    '.product-summary',
-    '.product-overview',
-    
-    // eCommerce platform specific
-    '.pdp-product-description',
-    '.product-description-content',
-    '.product-long-description',
-    '.rte', // Rich text editor content
-    
-    // Meta description last (can contain wrong content)
-    'meta[property="og:description"]',
-    'meta[name="twitter:description"]',
-    'meta[name="description"]'
-  ];
-  
-  for (const sel of selectors) {
-    try {
-      const el = doc.querySelector(sel);
-      if (!el) continue;
-      
-      let text = '';
-      const attr = sel.includes('meta') ? 'content' : 'text';
-      
-      if (attr === 'content') {
-        text = el.getAttribute('content') || '';
-      } else {
-        text = el.textContent || '';
-      }
-      
-      text = T(text); // Use utility function to clean text
-      
-      // Valid description should be substantive
-      if (text && text.length > 20 && text.length < 2000) {
-        // Skip if it looks like JSON/technical data
-        if (!/(props|pageProps|appConfig|apiHost|":|{|}|\[|\])/i.test(text.substring(0, 100))) {
-          // Skip if it looks like navigation/menu text
-          if (!/(home|shop|cart|checkout|login|menu|navigation|cookie|accept|decline)/i.test(text.substring(0, 50))) {
-            return {
-              text: text,
-              selector: sel,
-              attr: attr
-            };
-          }
-        }
-      }
-    } catch {}
-  }
-  
-  return null;
-}
-
+/**
+ * orchestrator.js — FINAL w/ memoryOnly mode
+ * - mode: 'memoryOnly' => use ONLY saved selectors (no fallbacks)
+ * - currency-aware price + ancestor scan
+ * - images strict filtering + urls tracking
+ * - __tg_lastSelectorsUsed populated for all fields
+ */
 (function () {
-  const HOST = (location.host || '').replace(/^www\./, '');
+  const DEBUG = true;
+  const TAG = '[TG]';
+  const log = (...a) => { if (DEBUG) try { console.log(TAG, ...a); } catch(_){} };
+  const warn = (...a) => { if (DEBUG) try { console.warn(TAG, ...a); } catch(_){} };
 
-  // ---- Selector Memory bridge (optional if preload is present) ----
-  const memAPI = (typeof window !== 'undefined' && window.api) ? window.api : null;
+  const __used = {};
+  const mark = (field, info) => { __used[field] = info; };
 
-  async function loadSelectorMemory(host = HOST) {
+  const q  = (s) => document.querySelector(s);
+  const qa = (s) => Array.from(document.querySelectorAll(s));
+  const txt  = (el) => (el && (el.textContent || '').trim()) || null;
+  const attr = (el,a) => (el ? el.getAttribute(a) : null);
+
+  /* ---------- PRICE (currency-aware) ---------- */
+  function parseMoneyTokens(s) {
+    if (!s) return [];
+    s = String(s);
+    const re = /(?:\b(?:USD|EUR|GBP|AUD|CAD|NZD|CHF|JPY|CNY|RMB|INR|SAR|AED)\b|[\p{Sc}$€£¥])\s*\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?|\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?\s*(?:[\p{Sc}$€£¥])/giu;
+    const tokens = [];
+    let m;
+    while ((m = re.exec(s)) !== null) tokens.push(m[0]);
+    const nums = tokens.map(t => {
+      t = t.replace(/[^\d.,]/g,'');
+      if (t.includes('.') && t.includes(',')) t = t.replace(/,/g,'');
+      else if (!t.includes('.') && t.includes(',')) t = t.replace(',', '.');
+      else t = t.replace(/,/g,'');
+      const n = parseFloat(t);
+      return Number.isFinite(n) ? n : null;
+    }).filter(n => n != null && n > 0);
+    return nums;
+  }
+  function bestPriceFromString(s) {
+    const monetary = parseMoneyTokens(s);
+    if (monetary.length) return Math.min(...monetary);
+    const fallback = [];
+    String(s).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => { const n = parseFloat(g1); if (isFinite(n)) fallback.push(n); return m; });
+    return fallback.length ? Math.min(...fallback) : null;
+  }
+  function normalizeMoneyPreferSale(raw) {
+    if (raw == null) return null;
+    const val = bestPriceFromString(String(raw));
+    return val == null ? null : String(val);
+  }
+  function refinePriceWithContext(el, baseVal) {
     try {
-      if (!memAPI || !memAPI.getSelectorMemory) return null;
-      return await memAPI.getSelectorMemory(host);
-    } catch { return null; }
-  }
-
-  // Tracks what was actually used this run (for Control UI to save/inspect)
-  const __used = {
-    title: null,
-    price: null,
-    brand: null,
-    description: null,
-    images: null,
-    __fromMemory: [] // fields resolved from memory
-  };
-  // Expose for the control window to read after scrape
-  Object.defineProperty(globalThis, '__tg_lastSelectorsUsed', {
-    get() { return __used; },
-    configurable: true
-  });
-
-  // ---- helpers for applying selector memory ----
-  function q(sel, scope = document) { try { return scope.querySelector(sel); } catch { return null; } }
-  function qa(sel, scope = document) { try { return Array.from(scope.querySelectorAll(sel)); } catch { return []; } }
-
-  function extractByAttr(el, attr) {
-    if (!el) return null;
-    const a = (attr || 'text').toLowerCase();
-    if (a === 'text') return T(el.textContent);
-    if (a === 'content') return T(el.getAttribute('content'));
-    if (a === 'src') {
-      // prefer currentSrc for <img>, fall back to src/href/content
-      if (el.currentSrc) return el.currentSrc;
-      const s = el.getAttribute('src') || el.getAttribute('href') || el.getAttribute('content');
-      return s ? String(s) : null;
-    }
-    // generic
-    const v = el.getAttribute(attr);
-    return v == null ? null : String(v);
-  }
-
-  function tryMemoryText(memField, validators = []) {
-    if (!memField || !Array.isArray(memField.selectors) || !memField.selectors.length) return null;
-    for (const sel of memField.selectors) {
-      const el = q(sel);
-      const raw = extractByAttr(el, memField.attr || 'text');
-      if (!raw) continue;
-      const val = T(raw);
-      if (!val) continue;
-      if (validators.every(fn => fn(val))) {
-        __used.__fromMemory.push('title'); // caller will correct field name if needed
-        return { value: val, selUsed: { selectors: memField.selectors, attr: memField.attr || 'text' } };
+      if (!el) return baseVal;
+      const attrFirst = attr(el, 'content') || attr(el, 'data-price') || attr(el, 'aria-label');
+      const attrVal = normalizeMoneyPreferSale(attrFirst);
+      if (attrVal) return attrVal;
+      let node = el;
+      let best = baseVal != null ? parseFloat(baseVal) : Infinity;
+      for (let i=0; i<3 && node; i++, node = node.parentElement) {
+        const t = (node.textContent || '').trim();
+        const cand = bestPriceFromString(t);
+        if (cand != null && cand < best) best = cand;
       }
-    }
-    return null;
+      return isFinite(best) && best !== Infinity ? String(best) : baseVal;
+    } catch { return baseVal; }
   }
 
-  function tryMemoryPrice(memField) {
-    if (!memField || !Array.isArray(memField.selectors) || !memField.selectors.length) return null;
-    for (const sel of memField.selectors) {
-      for (const el of qa(sel)) {
-        const raw = extractByAttr(el, memField.attr || 'text');
-        const val = normalizeMoney(raw || '');
-        if (val) {
-          __used.__fromMemory.push('price');
-          return { value: val, selUsed: { selectors: memField.selectors, attr: memField.attr || 'text' } };
+  /* ---------- MEMORY ---------- */
+  function loadMemory(host) {
+    try {
+      const raw = localStorage.getItem('selector_memory_v2');
+      const all = raw ? JSON.parse(raw) : {};
+      const v = all[host] || {};
+      const out = {};
+      for (const k of Object.keys(v)) {
+        const val = v[k];
+        if (typeof val === 'string') out[k] = { selectors: [val], attr: 'text' };
+        else if (val && typeof val === 'object') {
+          const sels = Array.isArray(val.selectors) ? val.selectors.filter(Boolean)
+                       : (val.selector ? [val.selector] : []);
+          out[k] = { selectors: sels, attr: val.attr || 'text' };
         }
       }
-    }
-    return null;
+      return out;
+    } catch { return {}; }
   }
 
-  function biggestFromSrcset(srcset) {
-    return (srcset || '')
-      .split(',')
-      .map(s => s.trim())
-      .map(s => {
-        const [u, d] = s.split(/\s+/);
-        const m = (d || '').match(/(\d+)w/);
-        return { u, w: m ? +m[1] : 0 };
-      })
-      .filter(x => x.u)
-      .sort((a, b) => b.w - a.w)[0]?.u || null;
-  }
-
-  function tryMemoryImages(memField, limit = 10) {
-    if (!memField || !Array.isArray(memField.selectors) || !memField.selectors.length) return null;
-    const EXT_ALLOW = /\.(jpe?g|png|webp|avif)(\?|#|$)/i;
+  /* ---------- JSON-LD ---------- */
+  function scanJSONLDProducts() {
     const out = [];
-    const push = (u) => { if (u && EXT_ALLOW.test(u)) out.push(u); };
-    for (const sel of memField.selectors) {
-      for (const el of qa(sel)) {
-        if (el.tagName === 'IMG') {
-          push(el.currentSrc || el.src || null);
-          const u = biggestFromSrcset(el.getAttribute('srcset'));
-          if (u) push(u);
-        } else if (el.tagName === 'SOURCE') {
-          const u = biggestFromSrcset(el.getAttribute('srcset'));
-          if (u) push(u);
-        } else {
-          const got = extractByAttr(el, memField.attr || 'src');
-          if (got) push(got);
+    for (const node of qa('script[type="application/ld+json"]')) {
+      try {
+        const data = JSON.parse(node.textContent);
+        const arr = Array.isArray(data) ? data : [data];
+        for (const d of arr) {
+          if (d && typeof d === 'object') {
+            if (d['@type'] === 'Product') out.push(d);
+            if (Array.isArray(d.itemListElement)) {
+              for (const it of d.itemListElement) {
+                const item = it && (it.item || it);
+                if (item && item['@type'] === 'Product') out.push(item);
+              }
+            }
+          }
+        }
+      } catch {}
+    }
+    return out;
+  }
+  const ldPickPrice = (prod) => {
+    const o = prod.offers || prod.aggregateOffer || prod.aggregateOffers;
+    const pick = (x) => {
+      if (!x) return null;
+      if (typeof x === 'number' || typeof x === 'string') return x;
+      if (x.price != null) return x.price;
+      if (x.priceSpecification && x.priceSpecification.price != null) return x.priceSpecification.price;
+      if (x.lowPrice != null) return x.lowPrice;
+      if (x.highPrice != null) return x.highPrice;
+      return null;
+    };
+    if (Array.isArray(o)) { for (const e of o){ const p = pick(e); if (p!=null) return p; } return null; }
+    return pick(o);
+  };
+  const ldPickImages = (prod) => {
+    const im = prod.image || prod.images;
+    if (!im) return [];
+    if (Array.isArray(im)) return im.filter(Boolean);
+    if (typeof im === 'string') return [im];
+    return [];
+  };
+
+  /* ---------- IMAGES ---------- */
+  const JUNK_IMG = /(\.svg($|\?))|sprite|logo|icon|badge|placeholder|thumb|spinner|loading|prime|favicon|video\.jpg/i;
+  const BASE64ISH_SEG = /\/[A-Za-z0-9+/_-]{80,}($|\?)/;
+  const IMG_EXT = /\.(?:jpg|jpeg|png|webp|gif|avif)(?:$|\?)/i;
+  function looksLikeImageURL(u) {
+    if (!u) return false;
+    if (/^data:/i.test(u)) return false;
+    if (IMG_EXT.test(u)) return true;
+    if (/\b(format|fm)=(jpg|jpeg|png|webp|gif|avif)\b/i.test(u)) return true;
+    return false;
+  }
+  const pickFromSrcset = (srcset) => {
+    if (!srcset) return null;
+    const parts = srcset.split(',').map(s => s.trim());
+    const last = parts[parts.length-1] || '';
+    const url = last.split(' ')[0];
+    return url || null;
+  };
+  const toAbs = (u) => { try { return new URL(u, location.href).toString(); } catch { return u; } };
+  const canonicalKey = (u) => {
+    try {
+      const url = new URL(u, location.href);
+      url.hash = ''; url.search='';
+      let p = url.pathname;
+      p = p.replace(/\/((w|h|c|q|dpr|ar|f)_[^/]+)/g,'/');
+      return url.origin + p;
+    } catch { return u.replace(/[?#].*$/,''); }
+  };
+  function uniqueImages(urls) {
+    const seen = new Set(); const out = [];
+    for (const u of urls) {
+      if (!u) continue;
+      const abs = toAbs(u);
+      if (!looksLikeImageURL(abs)) continue;
+      if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) continue;
+      const key = canonicalKey(abs);
+      if (!seen.has(key)) { seen.add(key); out.push(abs); }
+    }
+    return out;
+  }
+  function gatherImagesBySelector(sel) {
+    const urls = [];
+    for (const el of qa(sel)) {
+      const s1 = el.getAttribute('src') || el.currentSrc ||
+                 el.getAttribute('data-src') || el.getAttribute('data-image') ||
+                 el.getAttribute('data-zoom-image') || el.getAttribute('data-large');
+      if (s1) urls.push(s1);
+      const ss = el.getAttribute('srcset'); const best = pickFromSrcset(ss); if (best) urls.push(best);
+      if (el.parentElement && el.parentElement.tagName.toLowerCase()==='picture') {
+        for (const src of el.parentElement.querySelectorAll('source')) {
+          const b = pickFromSrcset(src.getAttribute('srcset')); if (b) urls.push(b);
         }
       }
     }
-    const uniq = [...new Set(out)].slice(0, limit);
-    if (uniq.length) {
-      __used.__fromMemory.push('images');
-      return { value: uniq, selUsed: { selectors: memField.selectors, attr: memField.attr || 'src' } };
+    return uniqueImages(urls);
+  }
+
+  /* ---------- MEMORY RESOLUTION ---------- */
+  function fromMemory(field, memEntry) {
+    if (!memEntry || !Array.isArray(memEntry.selectors)) return null;
+
+    if (memEntry.selectors.some(s => /^script\[type="application\/ld\+json"\]$/i.test(s))) {
+      const prod = scanJSONLDProducts()[0];
+      if (!prod) return null;
+      if (field === 'price') {
+        const v = normalizeMoneyPreferSale(ldPickPrice(prod));
+        if (v) mark('price', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
+        return v;
+      }
+      if (field === 'brand') {
+        const v = (prod.brand && (prod.brand.name || prod.brand)) || null;
+        if (v) mark('brand', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
+        return v;
+      }
+      if (field === 'description') {
+        const v = prod.description || null;
+        if (v) mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
+        return v;
+      }
+      if (field === 'images') {
+        const arr = ldPickImages(prod);
+        if (arr.length) {
+          mark('images', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
+          return uniqueImages(arr).slice(0,30);
+        }
+        const og = q('meta[property="og:image"]')?.content;
+        return og ? [og] : null;
+      }
+    }
+
+    for (const sel of memEntry.selectors) {
+      try {
+        if (!sel) continue;
+        if (field === 'images') {
+          const urls = gatherImagesBySelector(sel);
+          if (urls.length) { mark('images', { selectors:[sel], attr:'src', method:'css', urls: urls.slice(0,30) }); return urls.slice(0,30); }
+        } else {
+          const el = q(sel); if (!el) continue;
+          const a = memEntry.attr || 'text';
+          const raw = a === 'text' ? txt(el) : attr(el, a);
+          let val = field === 'price' ? normalizeMoneyPreferSale(raw) : raw;
+          if (field === 'price') val = refinePriceWithContext(el, val);
+          if (val) { mark(field, { selectors:[sel], attr:a, method:'css' }); return val; }
+        }
+      } catch (e) {}
     }
     return null;
   }
 
-  // ---- main orchestrator ----
-  async function scrapeProduct() {
-    const start = Date.now();
-
-    // Load selector memory (if available) once per run
-    const mem = await loadSelectorMemory(HOST);
-
-    // Resolve site-specific handlers
-    const custom = (typeof getCustomHandlers === 'function') ? getCustomHandlers() : {};
-    const customOrNoop = (fn) => (typeof fn === 'function' ? fn : (() => null));
-    const cTitle = customOrNoop(custom.title);
-    const cBrand = customOrNoop(custom.brand);
-    const cPrice = customOrNoop(custom.price);
-    const cSpecs = customOrNoop(custom.specs);
-    const cTags  = customOrNoop(custom.tags);
-    const cImages = (typeof custom.images === 'function') ? custom.images : (async () => null);
-
-    // ------------- TITLE -------------
-    let title = null;
-    // memory-first
-    if (mem?.title) {
-      const got = tryMemoryText(mem.title, [v => v.length > 1]);
-      if (got) {
-        title = got.value;
-        __used.title = got.selUsed;
-      }
+  /* ---------- GENERIC EXTRACTORS ---------- */
+  function getTitle() {
+    const sels = ['h1', '.product-title', '[itemprop="name"]'];
+    for (const sel of sels) { const v = txt(q(sel)); if (v) { mark('title', { selectors:[sel], attr:'text', method:'generic' }); return v; } }
+    const v = (document.title || '').trim(); if (v) mark('title', { selectors:['document.title'], attr:'text', method:'fallback' });
+    return v || null;
+  }
+  function getBrand() {
+    const pairs = [['meta[name="brand"]','content'], ['meta[property="og:brand"]','content']];
+    for (const [sel,at] of pairs) { const v = attr(q(sel),at); if (v) { mark('brand', { selectors:[sel], attr:at, method:'generic' }); return v; } }
+    const prod = scanJSONLDProducts()[0];
+    if (prod) { const v = (prod.brand && (prod.brand.name || prod.brand)) || null; if (v) { mark('brand', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return v; } }
+    return null;
+  }
+  function getDescription() {
+    const pairs = [
+      ['meta[name="description"]','content'],
+      ['meta[property="og:description"]','content'],
+      ['.product-description, [itemprop="description"], #description','text']
+    ];
+    for (const [sel,at] of pairs) { const v = at==='text' ? txt(q(sel)) : attr(q(sel),at); if (v) { mark('description', { selectors:[sel], attr:at, method:'generic' }); return v; } }
+    const prod = scanJSONLDProducts()[0];
+    if (prod && prod.description) { mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return prod.description; }
+    return null;
+  }
+  function getPriceGeneric() {
+    const pairs = [
+      ['[itemprop="price"]','content'],
+      ['[data-test*=price]','text'],
+      ['[data-testid*=price]','text'],
+      ['.price','text'],
+      ['.product-price','text']
+    ];
+    for (const [sel,at] of pairs) {
+      const el = q(sel);
+      const raw = at==='text' ? txt(el) : attr(el,at);
+      let val = normalizeMoneyPreferSale(raw);
+      if (val && el) val = refinePriceWithContext(el, val);
+      if (val) { mark('price', { selectors:[sel], attr:at, method:'generic' }); return val; }
     }
-    if (!title) {
-      // custom
-      const customTitle = cTitle(document);
-      if (customTitle) {
-        title = customTitle;
-        __used.title = {
-          selector: 'custom-handler',
-          attr: 'text', 
-          method: 'custom'
-        };
-      }
+    const prod = scanJSONLDProducts()[0];
+    if (prod) {
+      const val = normalizeMoneyPreferSale(ldPickPrice(prod));
+      if (val) { mark('price', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return val; }
     }
-    if (!title && typeof getTitleGeneric === 'function') {
-      const titleResult = getTitleGeneric(document);
-      if (titleResult) {
-        if (typeof titleResult === 'string') {
-          title = titleResult;
-        } else {
-          title = titleResult.text;
-          __used.title = {
-            selector: titleResult.selector,
-            attr: titleResult.attr,
-            method: 'generic'
-          };
-        }
-      }
+    return null;
+  }
+  function getImagesGeneric() {
+    const gallerySels = [
+      '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
+      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+    ];
+    for (const sel of gallerySels) {
+      const urls = gatherImagesBySelector(sel);
+      if (urls.length >= 3) { mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); return urls.slice(0,30); }
     }
-    if (!title) title = 'Title not found';
-
-    // ------------- BRAND -------------
-    let brand = null;
-    const customBrand = cBrand(document);
-    if (customBrand) {
-      brand = customBrand;
-      __used.brand = {
-        selector: 'custom-handler',
-        attr: 'text',
-        method: 'custom'
-      };
-    }
-    if (!brand && typeof getBrandGeneric === 'function') {
-      const brandResult = getBrandGeneric(document);
-      if (brandResult) {
-        if (typeof brandResult === 'string') {
-          brand = brandResult;
-        } else {
-          brand = brandResult.text;
-          __used.brand = {
-            selector: brandResult.selector,
-            attr: brandResult.attr,
-            method: 'generic'
-          };
-        }
-      }
-    }
-
-    // ------------- PRICE -------------
-    let price = null;
-    if (mem?.price) {
-      const got = tryMemoryPrice(mem.price);
-      if (got) {
-        price = got.value;
-        __used.price = got.selUsed;
-      }
-    }
-    if (!price) {
-      const customPrice = cPrice(document);
-      if (typeof customPrice === 'string' && customPrice) {
-        price = customPrice;
-        __used.price = {
-          selector: 'custom-handler',
-          attr: 'text',
-          method: 'custom'
-        };
-      }
-    }
-    if (!price && typeof getPriceGeneric === 'function') {
-      const priceResult = getPriceGeneric();
-      if (priceResult) {
-        if (typeof priceResult === 'string') {
-          price = priceResult;
-          __used.price = {
-            selector: 'generic-text-selector',
-            attr: 'text',
-            method: 'generic'
-          };
-        } else {
-          price = priceResult.text;
-          __used.price = {
-            selector: priceResult.selector,
-            attr: priceResult.attr,
-            method: 'generic'
-          };
-        }
-      }
-    }
-    if (!price) price = 'Price not found';
-
-    // ------------- IMAGES -------------
-    let images = null;
-    let imageSource = null; // Track WHERE we got images from
-    
-    if (mem?.images) {
-      const got = tryMemoryImages(mem.images, 10);
-      if (got && Array.isArray(got.value) && got.value.length) {
-        images = got.value;
-        imageSource = { type: 'memory', data: got.selUsed };
-      }
-    }
-    if (!images) {
-      const customImages = await cImages(document);
-      if (Array.isArray(customImages) && customImages.length) {
-        images = customImages;
-        imageSource = { 
-          type: 'custom',
-          data: {
-            selector: 'custom-handler',
-            attr: 'src',
-            method: 'custom'
-          }
-        };
-      }
-    }
-    if (!images && typeof collectImagesFromPDP === 'function') {
-      const genericImages = await collectImagesFromPDP();
-      if (Array.isArray(genericImages) && genericImages.length > 0) {
-        images = genericImages;
-        imageSource = {
-          type: 'generic',
-          data: {
-            selector: 'generic-images',
-            attr: 'src',
-            method: 'generic'
-          }
-        };
-      }
-    }
-    
-    // Finalize images array
-    if (!Array.isArray(images)) images = [];
-    images = images.slice(0, 20);
-    
-    // ONLY set tracking if we have final images
-    if (images.length > 0 && imageSource) {
-      __used.images = imageSource.data;
-    } else {
-      __used.images = null; // No images found
-    }
-
-    // ------------- DESCRIPTION -------------
-    let description = null;
-    if (mem?.description) {
-      const got = tryMemoryText(mem.description);
-      if (got) {
-        description = got.value;
-        __used.description = got.selUsed;
-      }
-    }
-    if (!description) {
-      // Try custom description handler first
-      const cDescription = customOrNoop(custom.description);
-      const customDesc = cDescription(document);
-      if (customDesc) {
-        description = customDesc;
-        __used.description = {
-          selector: 'custom-handler',
-          attr: 'text',
-          method: 'custom'
-        };
-      }
-    }
-    if (!description) {
-      // Generic description extraction
-      const descResult = getDescriptionGeneric(document);
-      if (descResult) {
-        if (typeof descResult === 'string') {
-          description = descResult;
-          __used.description = {
-            selector: 'generic-text-selector',
-            attr: 'text',
-            method: 'generic'
-          };
-        } else {
-          description = descResult.text;
-          __used.description = {
-            selector: descResult.selector,
-            attr: descResult.attr,
-            method: 'generic'
-          };
-        }
-      }
-    }
-
-    // ------------- SPECS / TAGS / GENDER / SKU -------------
-    let specs = [];
-    let tags  = [];
-    try { 
-      const customSpecs = cSpecs(document); 
-      if (Array.isArray(customSpecs)) {
-        specs = customSpecs;
-        __used.specs = {
-          selector: 'custom-handler',
-          attr: 'text',
-          method: 'custom'
-        };
-      }
-    } catch {}
-    try { 
-      const customTags = cTags(document);  
-      if (Array.isArray(customTags)) {
-        tags = customTags;
-        __used.tags = {
-          selector: 'custom-handler',
-          attr: 'text',
-          method: 'custom'
-        };
-      }
-    } catch {}
-    if (!specs.length && typeof collectSpecsGeneric === 'function') {
-      try { specs = collectSpecsGeneric(document) || []; } catch {}
-    }
-    if (!tags.length && typeof collectTagsGeneric === 'function') {
-      try { tags = collectTagsGeneric(document) || []; } catch {}
-    }
-    specs = (specs || []).slice(0, 20);
-    tags  = (tags  || []).slice(0, 12);
-
-    let gender = null;
-    if (typeof guessGender === 'function') { try { gender = guessGender(document) || null; } catch {} }
-    let sku = null;
-    if (typeof pickSKU === 'function') { try { sku = pickSKU(document) || null; } catch {} }
-
-    // throttle as promised
-    await sleep(200);
-
-    const payload = {
-      title,
-      brand: brand || null,
-      price,
-      description: description || null,
-      specs,
-      tags,
-      images,
-      gender,
-      sku,
-      url: location.href,
-      timestamp: new Date().toISOString()
-    };
-
-    // Trim any accidental huge arrays
-    if (payload.images && payload.images.length > 20) payload.images = payload.images.slice(0,20);
-    if (payload.specs && payload.specs.length > 20) payload.specs = payload.specs.slice(0,20);
-    if (payload.tags  && payload.tags.length  > 12) payload.tags  = payload.tags.slice(0,12);
-
-    // De-dup images by base (path without query) to cut obvious CDN variants
-    try {
-      const key = (u) => {
-        const a = document.createElement('a'); a.href = u;
-        return a.protocol + '//' + a.host + a.pathname;
-      };
-      const seen = new Set();
-      payload.images = payload.images.filter(u => {
-        const k = key(u);
-        if (seen.has(k)) return false;
-        seen.add(k);
-        return true;
-      });
-    } catch {}
-
-    // Store selectors for main.js to pick up
-    globalThis.__tg_lastSelectorsUsed = __used;
-    
-    return payload;
+    const og = q('meta[property="og:image"]')?.content;
+    const all = gatherImagesBySelector('img');
+    const combined = (og ? [og] : []).concat(all);
+    const uniq = uniqueImages(combined);
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
+    return uniq.slice(0,30);
   }
 
-  // expose
-  const api = { scrapeProduct };
-  Object.assign(globalThis, { __TAGGLO__: api });
-  Object.assign(globalThis, { scrapeProduct }); // legacy alias
+  /* ---------- ENTRY ---------- */
+  async function scrapeProduct(opts) {
+    try {
+      const host = location.hostname.replace(/^www\./,'');
+      const mode = (opts && opts.mode) || 'normal';
+      log('scrape start', { host, href: location.href, mode });
+
+      const mem = loadMemory(host);
+
+      let title=null, brand=null, description=null, price=null, images=null;
+
+      if (mode === 'memoryOnly') {
+        title = fromMemory('title', mem.title);
+        brand = fromMemory('brand', mem.brand);
+        description = fromMemory('description', mem.description);
+        price = fromMemory('price', mem.price);
+        images = fromMemory('images', mem.images);
+      } else {
+        title = fromMemory('title', mem.title) || getTitle();
+        brand = fromMemory('brand', mem.brand) || getBrand();
+        description = fromMemory('description', mem.description) || getDescription();
+        price = fromMemory('price', mem.price) || getPriceGeneric();
+        images = fromMemory('images', mem.images);
+        if (!images || images.length < 3) images = getImagesGeneric();
+      }
+
+      const payload = { title, brand, description, price, url: location.href, images, timestamp: new Date().toISOString(), mode };
+      globalThis.__tg_lastSelectorsUsed = __used;
+      return payload;
+    } catch (e) {
+      return { __error: (e && e.stack) || String(e), __stage: 'scrapeProduct' };
+    }
+  }
+
+  Object.assign(globalThis, { scrapeProduct });
 })();
