@@ -542,10 +542,18 @@
     }
     
     // CDN-specific estimates (known to serve larger images)
-    if (/(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary)\.com/i.test(url)) {
-      if (/\.(jpg|jpeg)($|\?)/i.test(url)) return 150000; // ~150KB for CDN JPG (covers 140KB+ cases)
-      if (/\.(png)($|\?)/i.test(url)) return 180000;      // ~180KB for CDN PNG  
-      if (/\.(webp)($|\?)/i.test(url)) return 100000;     // ~100KB for CDN WebP
+    if (/(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7)\.com/i.test(url)) {
+      // Check for file extensions OR format parameters
+      const isJPEG = /\.(jpg|jpeg)($|\?)/i.test(url) || /[?&](fmt|format|fm)=(jpg|jpeg)/i.test(url);
+      const isPNG = /\.(png)($|\?)/i.test(url) || /[?&](fmt|format|fm)=png/i.test(url);
+      const isWebP = /\.(webp)($|\?)/i.test(url) || /[?&](fmt|format|fm)=webp/i.test(url);
+      
+      if (isJPEG) return 150000; // ~150KB for CDN JPG (covers Scene7 fmt=jpeg)
+      if (isPNG) return 180000;  // ~180KB for CDN PNG  
+      if (isWebP) return 100000; // ~100KB for CDN WebP
+      
+      // Default to higher estimate for CDN images with any image indicators
+      if (/\$pdp|image|product/i.test(url)) return 150000; // Product image indicators
     }
     
     // Default estimates based on file type
