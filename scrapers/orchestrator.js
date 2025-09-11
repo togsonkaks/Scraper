@@ -398,7 +398,8 @@
       /(?:max|w|width|imwidth|imageWidth)=([0-9]+)/i,
       /_(\d+)x\d*(?:_|\.|$)/i, // _750x, _1024x1024
       /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
-      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i // 750w, 1200px
+      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
+      /[?&]\$n_(\d+)w?\b/i  // ASOS patterns: ?$n_640w, ?$n_1920
     ];
     
     let detectedSize = 0;
@@ -526,7 +527,8 @@
       /(?:max|w|width|imwidth|imageWidth)=([0-9]+)/i,
       /_(\d+)x\d*(?:_|\.|$)/i,
       /(\d+)x\d+(?:_|\.|$)/i,
-      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i
+      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i,
+      /[?&]\$n_(\d+)w?\b/i  // ASOS patterns: ?$n_640w, ?$n_1920
     ];
     
     let maxSize = 0;
@@ -538,15 +540,18 @@
     }
     
     if (maxSize > 0) {
+      // CDN images get higher estimates even for medium sizes
+      const isCDN = /(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media)\.com/i.test(url);
+      
       if (maxSize >= 1200) return 150000; // ~150KB for large images
       if (maxSize >= 800) return 100000;  // ~100KB for medium-large
-      if (maxSize >= 400) return 50000;   // ~50KB for medium
-      if (maxSize >= 200) return 25000;   // ~25KB for small
+      if (maxSize >= 400) return isCDN ? 100000 : 50000;   // CDN: ~100KB, others: ~50KB for medium
+      if (maxSize >= 200) return isCDN ? 80000 : 25000;    // CDN: ~80KB, others: ~25KB for small
       return 8000; // ~8KB for tiny
     }
     
     // CDN-specific estimates (known to serve larger images)
-    if (/(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7)\.com/i.test(url)) {
+    if (/(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media)\.com/i.test(url)) {
       // Check for file extensions OR format parameters
       const isJPEG = /\.(jpg|jpeg)($|\?)/i.test(url) || /[?&](fmt|format|fm)=(jpg|jpeg)/i.test(url);
       const isPNG = /\.(png)($|\?)/i.test(url) || /[?&](fmt|format|fm)=png/i.test(url);
