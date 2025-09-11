@@ -1,14 +1,37 @@
-
+// preload.js — FULL BRIDGE for Control + Compare + Product
 const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld('api', {
-  openProduct: (url) => ipcRenderer.invoke('open-product', url),
-  evalInProduct: (code) => ipcRenderer.invoke('eval-in-product', code),
-  scrapeCurrent: (opts) => ipcRenderer.invoke('scrape-current', opts || {}),
-  getSelectorMemory: (host) => ipcRenderer.invoke('memory-get', host),
-  setSelectorMemory: (host, data, note) => ipcRenderer.invoke('memory-set', { host, data, note }),
-  clearSelectorMemory: (host) => ipcRenderer.invoke('memory-clear', host),
-  clearSpecificSelectors: (host, fields) => ipcRenderer.invoke('memory-clear-fields', { host, fields }),
-  validateSelectors: (host) => ipcRenderer.invoke('memory-validate', host),
-  hasSelectorMemory: (host) => ipcRenderer.invoke('memory-has', host),
+/** SAFETY: tiny helper to wrap IPC calls */
+const call = (ch, ...args) => ipcRenderer.invoke(ch, ...args);
+
+// Incoming events (compare window target URL)
+ipcRenderer.on('compare-target-url', (_evt, url) => {
+  try { window.__compareTargetURL = url; } catch {}
 });
+
+contextBridge.exposeInMainWorld('api', {
+  // ---- Core product flow
+  openProduct: (url) => call('open-product', url),
+  evalInProduct: (js) => call('eval-in-product', js),
+  scrapeCurrent: (opts) => call('scrape-current', opts),
+
+  // ---- LLM + compare
+  openCompare: (url) => call('open-compare', url),
+  compareRun: (url) => call('compare-run', url),
+  llmPropose: (payload) => call('llm-propose', payload),
+
+  // ---- Selector memory (no-ops if you haven’t wired the store yet)
+  hasSelectorMemory: async (_host) => false,
+  getSelectorMemory: async (_host) => ({}),
+  setSelectorMemory: async (_host, _selectors) => true,
+  clearSelectorMemory: async (_host) => true,
+  validateSelectors: async (_host) => ({ savedSelectors:{}, testResults:{} }),
+
+  // ---- Right-click Inspect
+  inspectAt: (x, y) => call('inspect-at', { x, y })
+});
+
+// Right-click anywhere in a renderer to open Inspect at cursor
+window.addEventListener('contextmenu', (e) => {
+  try { window.api.inspectAt(e.x, e.y); } catch {}
+}, { capture: true });

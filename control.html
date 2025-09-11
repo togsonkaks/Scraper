@@ -17,6 +17,28 @@
     .imgs { display:flex; gap:6px; flex-wrap:wrap; }
     .imgs img { height:64px; border-radius:6px; border:1px solid #eee; cursor:pointer; transition:transform 0.2s; }
     .imgs img:hover { transform:scale(1.05); }
+
+    /* Image Overlay Modal */
+    .image-overlay { 
+      position:fixed; top:0; left:0; width:100%; height:100%; 
+      background:rgba(0,0,0,0.9); display:none; z-index:1000; 
+      justify-content:center; align-items:center; 
+    }
+    .image-overlay.show { display:flex; }
+    .overlay-content { 
+      position:relative; max-width:90%; max-height:90%; 
+      display:flex; justify-content:center; align-items:center; 
+    }
+    .overlay-image { 
+      max-width:100%; max-height:100%; object-fit:contain; 
+      border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.5); 
+    }
+    .close-overlay { 
+      position:absolute; top:-40px; right:0; background:none; 
+      border:none; color:white; font-size:24px; cursor:pointer; 
+      padding:8px; border-radius:4px; 
+    }
+    .close-overlay:hover { background:rgba(255,255,255,0.2); }
   </style>
 </head>
 <body>
@@ -25,6 +47,8 @@
     <button id="visitBtn">Load</button>
     <button id="memoryBtn" title="Scrape using saved selector memory only">Selector memory</button>
     <button id="saveBtn" disabled>Save (scrape)</button>
+    <!-- LLM (compare) button — added -->
+    <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
   </div>
 
   <div id="status"></div>
@@ -36,6 +60,15 @@
       <div id="images" class="imgs" style="margin-top:6px;"></div>
     </div>
     <div class="box">
+      <div class="label">Saved Selector Validation</div>
+      <div id="validationPanel" style="margin-bottom: 12px; padding: 8px; background: #f5f5f5; border-radius: 4px; border-left: 4px solid #2196F3;">
+        <div style="font-weight: bold; margin-bottom: 6px; color: #333; font-size: 12px;">Current Domain Selectors:</div>
+        <div id="validationResults" style="font-size: 11px; line-height: 1.4;">
+          <div style="color: #666; font-style: italic;">Click "Test Saved Selectors" to validate</div>
+        </div>
+        <button id="validateBtn" style="margin-top: 6px; padding: 4px 8px; background: #2196F3; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">Test Saved Selectors</button>
+      </div>
+
       <div class="label">Selector Memory (approve to save)</div>
       <div>
         <label><input type="checkbox" id="okTitle"> Title OK</label>
@@ -78,6 +111,8 @@
     const saveMemBtn = document.getElementById('saveMemBtn');
     const clearMemBtn = document.getElementById('clearMemBtn');
     const memDebug = document.getElementById('memDebug');
+    const validateBtn = document.getElementById('validateBtn');
+    const validationResults = document.getElementById('validationResults');
 
     function setSaveState(disabled, label) {
       saveBtn.disabled = disabled;
@@ -90,6 +125,26 @@
     let currentHost = null;
     let lastSelectorsUsed = null;
     let lastPayload = null;
+
+    function normalizeSelectorInfo(selectorInfo) {
+      if (!selectorInfo) return null;
+      if (selectorInfo && Array.isArray(selectorInfo.selectors)) {
+        const sels = selectorInfo.selectors.filter(Boolean).slice(0, 8);
+        return { selectors: sels, attr: selectorInfo.attr || 'text', method: selectorInfo.method || 'tracked' };
+      }
+      if (selectorInfo && typeof selectorInfo.selector === 'string') {
+        const s = selectorInfo.selector;
+        if (/^(generic-text-selector|custom-handler|generic-images)$/i.test(s)) return null;
+        return { selectors: [s], attr: selectorInfo.attr || 'text', method: selectorInfo.method || 'tracked' };
+      }
+      if (typeof selectorInfo === 'string') {
+        const s = selectorInfo.trim();
+        const looksCss = /[#.\[\s>:]/.test(s) || s.startsWith('meta') || s.startsWith('img');
+        if (!looksCss) return null;
+        return { selectors: [s], attr: 'text', method: 'tracked' };
+      }
+      return null;
+    }
 
     // Load (navigate only)
     visitBtn.onclick = async () => {
@@ -118,11 +173,12 @@
           clearInterval(iv);
           statusEl.innerHTML = `<span class="pill">Ready</span>`;
           setSaveState(false);
+          setTimeout(autoValidateIfNeeded, 500);
         }
       }, 700);
     };
 
-    // Selector memory button: scrape using memory only
+    // Selector memory only
     memoryBtn.onclick = async () => {
       const url = urlInput.value.trim();
       if (!url) return alert('Paste a URL first.');
@@ -144,8 +200,8 @@
           <div><b>Brand:</b> ${result?.brand || ''}</div>
           <div><b>URL:</b> ${result?.url || ''}</div>
           <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
-        images.innerHTML = imgs.map(u => `<img src="${u}" title="${u}">`).join('');
-        out.textContent = imgs.slice(0,20).join('\\n');
+        images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
+        out.textContent = imgs.join('\\n');
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
@@ -154,7 +210,7 @@
       }
     };
 
-    // Save (scrape) normal (with fallbacks)
+    // Save (scrape)
     saveBtn.onclick = async () => {
       statusEl.innerHTML = `<span class="pill">Scraping</span>`;
       panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
@@ -168,8 +224,8 @@
           <div><b>Brand:</b> ${result?.brand || ''}</div>
           <div><b>URL:</b> ${result?.url || ''}</div>
           <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
-        images.innerHTML = imgs.map(u => `<img src="${u}" title="${u}">`).join('');
-        out.textContent = imgs.slice(0,20).join('\\n');
+        images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
+        out.textContent = imgs.join('\\n');
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
@@ -178,69 +234,36 @@
       }
     };
 
-    // Save selector memory from tracked selectors
+    // Save selector memory (unchanged)
     saveMemBtn.onclick = async () => {
       const host = currentHost;
-      if (!host) return;
+      if (!host || !lastPayload) return;
+      let displayResults = [];
       const fieldChecks = [
-        { field: 'title', checked: okTitle.checked },
-        { field: 'price', checked: okPrice.checked },
-        { field: 'brand', checked: okBrand.checked },
-        { field: 'description', checked: okDesc.checked },
-        { field: 'images', checked: okImages.checked }
+        { field: 'title', checked: okTitle.checked, data: lastPayload.title },
+        { field: 'price', checked: okPrice.checked, data: lastPayload.price },
+        { field: 'brand', checked: okBrand.checked, data: lastPayload.brand },
+        { field: 'description', checked: okDesc.checked, data: lastPayload.description },
+        { field: 'images', checked: okImages.checked, data: lastPayload.images }
       ];
-      const anyChecked = fieldChecks.some(f => f.checked);
-      if (!anyChecked) {
-        await window.api.clearSelectorMemory(host);
-        memDebug.innerHTML = `<div style="color:#2d5a27;">✅ Cleared all saved selectors for ${host}.</div>`;
-        return;
-      }
-      if (!lastSelectorsUsed || !lastPayload) {
-        memDebug.innerHTML = `<div style="color:#d32f2f;">❌ Nothing to save yet. Run a scrape first.</div>`;
-        return;
-      }
-      
-      // Build selector set - only include checked fields from last scrape
-      const newSelectors = {};
-      const savedFields = [];
-      const uncheckedFields = [];
-      
-      for (const { field, checked } of fieldChecks) {
-        if (checked) {
-          // Add/update selector for checked field
-          if (lastSelectorsUsed[field]) {
-            const info = lastSelectorsUsed[field];
-            const sels = info.selectors || (info.selector ? [info.selector] : []);
-            if (sels && sels.length) {
-              newSelectors[field] = { selectors: sels.slice(0,8), attr: info.attr || 'text' };
-              savedFields.push(field);
-            }
+      const foundSelectors = {};
+      for (const { field, checked, data } of fieldChecks) {
+        if (checked && data && lastSelectorsUsed?.[field]) {
+          const norm = normalizeSelectorInfo(lastSelectorsUsed[field]);
+          if (norm?.selectors?.length) {
+            foundSelectors[field] = { selectors: norm.selectors, attr: norm.attr, method: norm.method };
+            displayResults.push(`✓ ${field}: ${norm.selectors.join(', ')}`);
+          } else {
+            displayResults.push(`❌ ${field}: no valid selector`);
           }
-        } else {
-          // Track unchecked fields to remove
-          uncheckedFields.push(field);
         }
       }
-      
-      if (Object.keys(newSelectors).length === 0) {
-        await window.api.clearSelectorMemory(host);
-        memDebug.innerHTML = `<div style="color:#d32f2f;">❌ Cleared all selectors - no valid fields were checked.</div>`;
+      if (!Object.keys(foundSelectors).length) {
+        memDebug.innerHTML = `<div style="color:#d32f2f;">❌ No tracked selectors available to save.</div>`;
         return;
       }
-      
-      // Clear specific fields that were unticked
-      if (uncheckedFields.length > 0) {
-        await window.api.clearSpecificSelectors(host, uncheckedFields);
-      }
-      
-      // Save the new selectors
-      await window.api.setSelectorMemory(host, newSelectors, `Saved ${new Date().toISOString()}`);
-      
-      let message = `<div style="color:#2d5a27;">✅ Saved selectors for: ${savedFields.join(', ')}</div>`;
-      if (uncheckedFields.length > 0) {
-        message += `<div style="color:#666;">Removed: ${uncheckedFields.join(', ')}</div>`;
-      }
-      memDebug.innerHTML = message;
+      await window.api.setSelectorMemory(host, foundSelectors, `Saved ${new Date().toISOString()}`);
+      memDebug.innerHTML = `<div style="color:#2d5a27;">✅ Saved selectors.</div>`;
     };
 
     clearMemBtn.onclick = async () => {
@@ -249,10 +272,108 @@
       if (!confirmed) return;
       await window.api.clearSelectorMemory(currentHost);
       memDebug.innerHTML = '<div style="color:#666;">No saved selectors for this domain</div>';
+      validationResults.innerHTML = '<div style="color:#666; font-style:italic;">No saved selectors found</div>';
       alert('Cleared.');
     };
 
+    validateBtn.onclick = async () => {
+      if (!currentHost) return;
+      validateBtn.textContent = 'Testing…'; validateBtn.disabled = true;
+      try {
+        const results = await window.api.validateSelectors(currentHost);
+        displayValidationResults(results);
+      } finally {
+        validateBtn.textContent = 'Test Saved Selectors'; validateBtn.disabled = false;
+      }
+    };
+
+    function displayValidationResults(results) {
+      if (!results.savedSelectors || Object.keys(results.savedSelectors).length === 0) {
+        validationResults.innerHTML = '<div style="color:#666; font-style:italic;">No saved selectors found for this domain</div>';
+        return;
+      }
+      const fieldResults = [];
+      Object.entries(results.savedSelectors).forEach(([field, selectorConfig]) => {
+        const testResult = results.testResults[field];
+        const status = testResult?.success || false;
+        const value = testResult?.value ?? '';
+        const error = testResult?.error || '';
+        const source = testResult?.source || 'unknown';
+        let icon, color, statusText;
+        if (status) {
+          icon = '✅'; color = '#2d5a27';
+          const valueStr = Array.isArray(value) ? `${value.length} items` : String(value);
+          const truncatedValue = valueStr.slice(0, 60) + (valueStr.length > 60 ? '...' : '');
+          const sourceInfo = source === 'memory' ? '(saved selector)' : source === 'generic-fallback' ? '(fallback)' : '';
+          statusText = `Found: "${truncatedValue}" ${sourceInfo}`;
+        } else {
+          icon = '❌'; color = '#d32f2f'; statusText = error || 'Not found';
+        }
+        const selectors = Array.isArray(selectorConfig.selectors) ? selectorConfig.selectors : [selectorConfig.selectors];
+        fieldResults.push(`
+          <div style="margin-bottom:4px; padding:3px 0;">
+            <span style="color:${color};">${icon}</span>
+            <strong>${field}:</strong> 
+            <code style="background:#eee; padding:1px 4px; border-radius:2px; font-size:10px;">${selectors.join(', ')}</code>
+            <div style="font-size:10px; color:#666; margin-left:20px;">${statusText}</div>
+          </div>`);
+      });
+      const successCount = Object.values(results.testResults).filter(r => r && r.success).length;
+      const totalCount = Object.keys(results.savedSelectors).length;
+      validationResults.innerHTML = `
+        <div style="margin-bottom:6px; font-weight:bold; color:#333;">Results (${successCount}/${totalCount} working):</div>
+        ${fieldResults.join('')}`;
+    }
+
+    async function autoValidateIfNeeded() {
+      if (!currentHost) return;
+      try {
+        const memory = await window.api.getSelectorMemory(currentHost);
+        if (memory && Object.keys(memory).length > 0) {
+          const results = await window.api.validateSelectors(currentHost);
+          displayValidationResults(results);
+        }
+      } catch {}
+    }
+
+    // Image overlay
+    function openImageOverlay(imageUrl) {
+      const overlay = document.getElementById('imageOverlay');
+      const overlayImage = document.getElementById('overlayImage');
+      overlayImage.src = imageUrl;
+      overlay.classList.add('show');
+    }
+    function closeImageOverlay() {
+      document.getElementById('imageOverlay').classList.remove('show');
+    }
+    document.getElementById('imageOverlay').addEventListener('click', (e) => {
+      if (e.target.id === 'imageOverlay') closeImageOverlay();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeImageOverlay(); });
     urlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') visitBtn.click(); });
+
+    /* === LLM (compare) minimal hook === */
+    (function(){
+      const btn = document.getElementById('llmCompareBtn');
+      if (!btn) return;
+      btn.addEventListener('click', async () => {
+        const url = (document.getElementById('urlInput')?.value || '').trim();
+        if (!url) { alert('Paste a URL first.'); return; }
+        try {
+          await window.api.openCompare?.(url);
+        } catch (e) {
+          alert('Compare window failed. Make sure main_bridge.js is required from main.js');
+        }
+      });
+    })();
   </script>
+
+  <!-- Image Overlay Modal -->
+  <div id="imageOverlay" class="image-overlay">
+    <div class="overlay-content">
+      <button class="close-overlay" onclick="closeImageOverlay()">&times;</button>
+      <img id="overlayImage" class="overlay-image" src="" alt="Full size image">
+    </div>
+  </div>
 </body>
 </html>

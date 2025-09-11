@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>LLM Compare</title>
+  <style>
+    body{font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:12px;color:#111}
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    input[type=text]{width:640px;padding:8px 10px;border:1px solid #ccc;border-radius:6px}
+    button{padding:8px 12px;border:0;border-radius:6px;background:#111;color:#fff;cursor:pointer}
+    .pill{display:inline-block;background:#eee;border-radius:999px;padding:2px 8px;font-size:12px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+    .box{border:1px solid #eee;border-radius:8px;padding:10px}
+    .imgs{display:flex;flex-wrap:wrap;gap:6px}
+    .imgs img{height:60px;border:1px solid #eee;border-radius:6px}
+    pre{white-space:pre-wrap;word-break:break-all;background:#fafafa;border:1px solid #eee;padding:8px;border-radius:6px;max-height:38vh;overflow:auto}
+  </style>
+</head>
+<body>
+  <div class="row">
+    <input id="u" type="text" placeholder="Product URL">
+    <button id="run">Run compare</button>
+    <span id="status" class="pill"></span>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <b>Baseline (your logic)</b>
+      <div id="baseSummary"></div>
+      <div class="imgs" id="baseImgs"></div>
+      <pre id="baseSrc"></pre>
+    </div>
+    <div class="box">
+      <b>LLM Rescue</b>
+      <div id="llmSummary"></div>
+      <div class="imgs" id="llmImgs"></div>
+      <pre id="llmSrc"></pre>
+    </div>
+  </div>
+
+<script>
+const u = document.getElementById('u');
+const runBtn = document.getElementById('run');
+const statusEl = document.getElementById('status');
+const baseSummary = document.getElementById('baseSummary');
+const baseImgs = document.getElementById('baseImgs');
+const baseSrc = document.getElementById('baseSrc');
+const llmSummary = document.getElementById('llmSummary');
+const llmImgs = document.getElementById('llmImgs');
+const llmSrc = document.getElementById('llmSrc');
+
+function renderBox(sumNode, imgNode, srcNode, res) {
+  const imgs = Array.isArray(res?.res?.images) ? res.res.images : [];
+  sumNode.innerHTML = `
+    <div><b>Title:</b> ${res?.res?.title || ''}</div>
+    <div><b>Price:</b> ${res?.res?.price || ''}</div>
+    <div><b>Brand:</b> ${res?.res?.brand || ''}</div>
+    <div><b>Description:</b> ${(res?.res?.description || '').slice(0,240)}</div>
+    <div><b>URL:</b> ${res?.res?.url || ''}</div>
+  `;
+  imgNode.innerHTML = imgs.map(u => `<img src="${u}" title="${u}">`).join('');
+  srcNode.textContent = JSON.stringify(res?.used || {}, null, 2);
+}
+
+runBtn.onclick = async () => {
+  const url = u.value.trim();
+  if(!url){ statusEl.textContent='No URL'; return; }
+  statusEl.textContent = 'Running…';
+  try {
+    const out = await window.api.compareRun(url);
+    if(!out?.ok){ statusEl.textContent = 'Error'; alert(out?.error||'Compare failed'); return; }
+    renderBox(baseSummary, baseImgs, baseSrc, out.base);
+    renderBox(llmSummary, llmImgs, llmSrc, out.llm);
+    statusEl.textContent = 'Done';
+  } catch(e){
+    statusEl.textContent = 'Error';
+    alert(e?.message || String(e));
+  }
+};
+
+setTimeout(() => { if(window.__compareTargetURL){ u.value = window.__compareTargetURL; } }, 100);
+</script>
+</body>
+</html>
