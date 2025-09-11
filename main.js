@@ -4,6 +4,63 @@ const path = require('path');
 const fs = require('fs');
 const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
 
+// File-based selector storage helpers
+const SELECTORS_DIR = path.join(app.getPath('userData'), 'selectors');
+
+function sanitizeHostname(host) {
+  return host.replace(/[^a-zA-Z0-9.-]/g, '_');
+}
+
+function getSelectorFilePath(host) {
+  return path.join(SELECTORS_DIR, `${sanitizeHostname(host)}.json`);
+}
+
+function readSelectorFile(host) {
+  try {
+    const filePath = getSelectorFilePath(host);
+    if (!fs.existsSync(filePath)) return null;
+    const data = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(data);
+  } catch (e) {
+    console.error('Error reading selector file:', e);
+    return null;
+  }
+}
+
+function writeSelectorFile(host, data) {
+  try {
+    // Ensure directory exists
+    if (!fs.existsSync(SELECTORS_DIR)) {
+      fs.mkdirSync(SELECTORS_DIR, { recursive: true });
+    }
+    
+    const filePath = getSelectorFilePath(host);
+    const fileData = {
+      host,
+      updated: new Date().toISOString(),
+      ...data
+    };
+    fs.writeFileSync(filePath, JSON.stringify(fileData, null, 2));
+    return true;
+  } catch (e) {
+    console.error('Error writing selector file:', e);
+    return false;
+  }
+}
+
+function deleteSelectorFile(host) {
+  try {
+    const filePath = getSelectorFilePath(host);
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
+    return true;
+  } catch (e) {
+    console.error('Error deleting selector file:', e);
+    return false;
+  }
+}
+
 function openDevtools(win){ try { win.webContents.openDevTools({ mode: 'detach' }); } catch {} }
 function warmupScrollJS(){
   return `
@@ -56,8 +113,82 @@ function ensureProduct(){
   return productWin;
 }
 
+// Migration from localStorage to file-based storage
+function migrateFromLocalStorage() {
+  try {
+    console.log('Starting localStorage migration check...');
+    
+    // Create a hidden window to access localStorage
+    const migrationWin = new BrowserWindow({
+      show: false,
+      webPreferences: {
+        contextIsolation: false,
+        nodeIntegration: true
+      }
+    });
+    
+    // Navigate to a data URL to have a valid origin for localStorage
+    migrationWin.loadURL('data:text/html,<html><body>Migration</body></html>');
+    
+    migrationWin.webContents.once('dom-ready', async () => {
+      try {
+        const localStorageData = await migrationWin.webContents.executeJavaScript(`
+          (() => {
+            try {
+              const raw = localStorage.getItem('selector_memory_v2');
+              return raw ? JSON.parse(raw) : null;
+            } catch (e) {
+              console.error('Migration localStorage read error:', e);
+              return null;
+            }
+          })()
+        `);
+        
+        if (localStorageData && Object.keys(localStorageData).length > 0) {
+          console.log('Found localStorage data, migrating:', Object.keys(localStorageData));
+          let migratedCount = 0;
+          
+          for (const [host, hostData] of Object.entries(localStorageData)) {
+            try {
+              // Check if file already exists to avoid overwriting
+              if (!readSelectorFile(host)) {
+                const success = writeSelectorFile(host, {
+                  ...hostData,
+                  __migrated: true,
+                  __migrationDate: new Date().toISOString()
+                });
+                if (success) {
+                  migratedCount++;
+                  console.log(`Migrated data for host: ${host}`);
+                }
+              }
+            } catch (e) {
+              console.error(`Failed to migrate data for host ${host}:`, e);
+            }
+          }
+          
+          if (migratedCount > 0) {
+            console.log(`Successfully migrated ${migratedCount} host configurations`);
+          }
+        } else {
+          console.log('No localStorage data found to migrate');
+        }
+      } catch (e) {
+        console.error('Migration error:', e);
+      } finally {
+        migrationWin.destroy();
+      }
+    });
+  } catch (e) {
+    console.error('Failed to start migration:', e);
+  }
+}
+
 /* ========= App lifecycle ========= */
 app.whenReady().then(() => {
+  // Run migration first
+  setTimeout(migrateFromLocalStorage, 1000);
+  
   createControl();
   try {
     globalShortcut.register('CommandOrControl+Shift+I', () => {
@@ -96,11 +227,36 @@ ipcMain.handle('eval-in-product', async (_e, js) => {
 
 ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   const win = ensureProduct();
+  
+  // Get current URL to determine host
+  const currentURL = await win.webContents.executeJavaScript('location.href');
+  const host = new URL(currentURL).hostname.replace(/^www\./, '');
+  
+  // Load memory data for injection
+  const allMemory = {};
+  try {
+    const files = fs.readdirSync(SELECTORS_DIR).filter(f => f.endsWith('.json'));
+    for (const file of files) {
+      const fileHost = file.replace('.json', '').replace(/_/g, '.');
+      const data = readSelectorFile(fileHost);
+      if (data) {
+        // Convert to orchestrator-compatible format
+        const { __history, host: hostField, updated, __migrated, __migrationDate, ...selectorData } = data;
+        allMemory[fileHost] = selectorData;
+      }
+    }
+  } catch (e) {
+    console.log('Error loading memory for injection:', e);
+  }
+  
   const orchPath = path.join(__dirname, 'scrapers', 'orchestrator.js');
   const orchSource = fs.readFileSync(orchPath, 'utf8');
   const injected = `
     (async () => {
       try {
+        // Inject memory data
+        globalThis.__tg_injectedMemory = ${JSON.stringify(allMemory)};
+        
         ${warmupScrollJS()}
         ${orchSource}
         const out = await scrapeProduct(Object.assign({}, ${JSON.stringify({ mode:'control' })}, ${JSON.stringify(opts)}));
@@ -156,10 +312,31 @@ async function runScrapeInEphemeral(url, opts){
     });
     try {
       await win.loadURL(url);
+      
+      // Load memory data for injection
+      const allMemory = {};
+      try {
+        const files = fs.readdirSync(SELECTORS_DIR).filter(f => f.endsWith('.json'));
+        for (const file of files) {
+          const fileHost = file.replace('.json', '').replace(/_/g, '.');
+          const data = readSelectorFile(fileHost);
+          if (data) {
+            // Convert to orchestrator-compatible format
+            const { __history, host: hostField, updated, __migrated, __migrationDate, ...selectorData } = data;
+            allMemory[fileHost] = selectorData;
+          }
+        }
+      } catch (e) {
+        console.log('Error loading memory for injection:', e);
+      }
+      
       const orchSource = fs.readFileSync(path.join(__dirname, 'scrapers', 'orchestrator.js'), 'utf8');
       const injected = `
         (async () => {
           try {
+            // Inject memory data
+            globalThis.__tg_injectedMemory = ${JSON.stringify(allMemory)};
+            
             ${warmupScrollJS()}
             ${orchSource}
             const out = await scrapeProduct(Object.assign({}, ( ${JSON.stringify(opts)} || {} ), { mode:'compare' }));
@@ -177,145 +354,75 @@ async function runScrapeInEphemeral(url, opts){
 
 // Selector Memory IPC handlers
 ipcMain.handle('has-selector-memory', async (_e, host) => {
-  const win = ensureProduct();
-  const checkScript = `
-    (function() {
-      try {
-        const raw = localStorage.getItem('selector_memory_v2');
-        if (!raw) return false;
-        const all = JSON.parse(raw);
-        const hostData = all[${JSON.stringify(host)}];
-        if (!hostData) return false;
-        const fields = Object.keys(hostData).filter(k => k !== '__history');
-        return fields.length > 0;
-      } catch {
-        return false;
-      }
-    })()
-  `;
-  return await win.webContents.executeJavaScript(checkScript, true);
+  try {
+    const hostData = readSelectorFile(host);
+    if (!hostData) return false;
+    const fields = Object.keys(hostData).filter(k => !['__history', 'host', 'updated'].includes(k));
+    return fields.length > 0;
+  } catch {
+    return false;
+  }
 });
 
 ipcMain.handle('memory-get', async (_e, host) => {
-  const win = ensureProduct();
-  const getScript = `
-    (function() {
-      try {
-        const raw = localStorage.getItem('selector_memory_v2');
-        if (!raw) return null;
-        const all = JSON.parse(raw);
-        return all[${JSON.stringify(host)}] || null;
-      } catch {
-        return null;
-      }
-    })()
-  `;
-  return await win.webContents.executeJavaScript(getScript, true);
+  return readSelectorFile(host);
 });
 
 ipcMain.handle('memory-set', async (_e, { host, data, note }) => {
-  const win = ensureProduct();
-  const setScript = `
-    (function() {
-      try {
-        const raw = localStorage.getItem('selector_memory_v2') || '{}';
-        const all = JSON.parse(raw);
-        const current = all[${JSON.stringify(host)}] || {};
-        
-        // Update with new data
-        Object.assign(current, ${JSON.stringify(data)});
-        
-        // Add history entry
-        if (!current.__history) current.__history = [];
-        current.__history.unshift({
-          timestamp: new Date().toISOString(),
-          note: ${JSON.stringify(note || 'Updated')},
-          fields: Object.keys(${JSON.stringify(data)})
-        });
-        current.__history = current.__history.slice(0, 10); // Keep last 10
-        
-        all[${JSON.stringify(host)}] = current;
-        localStorage.setItem('selector_memory_v2', JSON.stringify(all));
-        return true;
-      } catch {
-        return false;
-      }
-    })()
-  `;
-  return await win.webContents.executeJavaScript(setScript, true);
+  try {
+    const current = readSelectorFile(host) || {};
+    
+    // Update with new data
+    Object.assign(current, data);
+    
+    // Add history entry
+    if (!current.__history) current.__history = [];
+    current.__history.unshift({
+      timestamp: new Date().toISOString(),
+      note: note || 'Updated',
+      fields: Object.keys(data)
+    });
+    current.__history = current.__history.slice(0, 10); // Keep last 10
+    
+    return writeSelectorFile(host, current);
+  } catch {
+    return false;
+  }
 });
 
 ipcMain.handle('memory-clear', async (_e, host) => {
-  const win = ensureProduct();
-  const clearScript = `
-    (function() {
-      try {
-        const raw = localStorage.getItem('selector_memory_v2') || '{}';
-        const all = JSON.parse(raw);
-        delete all[${JSON.stringify(host)}];
-        localStorage.setItem('selector_memory_v2', JSON.stringify(all));
-        return true;
-      } catch {
-        return false;
-      }
-    })()
-  `;
-  return await win.webContents.executeJavaScript(clearScript, true);
+  return deleteSelectorFile(host);
 });
 
 ipcMain.handle('memory-clear-fields', async (_e, { host, fields }) => {
-  const win = ensureProduct();
-  const clearFieldsScript = `
-    (function() {
-      try {
-        const raw = localStorage.getItem('selector_memory_v2') || '{}';
-        const all = JSON.parse(raw);
-        const current = all[${JSON.stringify(host)}] || {};
-        
-        // Remove specified fields
-        ${JSON.stringify(fields)}.forEach(field => delete current[field]);
-        
-        // Check if any fields remain (except __history)
-        const remainingFields = Object.keys(current).filter(k => k !== '__history');
-        if (remainingFields.length === 0) {
-          delete all[${JSON.stringify(host)}];
-        } else {
-          all[${JSON.stringify(host)}] = current;
-        }
-        
-        localStorage.setItem('selector_memory_v2', JSON.stringify(all));
-        return true;
-      } catch {
-        return false;
-      }
-    })()
-  `;
-  return await win.webContents.executeJavaScript(clearFieldsScript, true);
+  try {
+    const current = readSelectorFile(host) || {};
+    
+    // Remove specified fields
+    fields.forEach(field => delete current[field]);
+    
+    // Check if any fields remain (except __history, host, updated)
+    const remainingFields = Object.keys(current).filter(k => !['__history', 'host', 'updated'].includes(k));
+    if (remainingFields.length === 0) {
+      return deleteSelectorFile(host);
+    } else {
+      return writeSelectorFile(host, current);
+    }
+  } catch {
+    return false;
+  }
 });
 
 ipcMain.handle('validate-selectors', async (_e, host) => {
   const win = ensureProduct();
   
-  // First get the saved selectors
-  const getScript = `
-    (function() {
-      try {
-        const raw = localStorage.getItem('selector_memory_v2');
-        if (!raw) return {};
-        const all = JSON.parse(raw);
-        return all[${JSON.stringify(host)}] || {};
-      } catch {
-        return {};
-      }
-    })()
-  `;
-  
-  const savedSelectors = await win.webContents.executeJavaScript(getScript, true);
+  // Get the saved selectors from file
+  const savedSelectors = readSelectorFile(host) || {};
   const testResults = {};
   
   // Test each saved field
   for (const [field, selectorConfig] of Object.entries(savedSelectors)) {
-    if (field === '__history') continue;
+    if (['__history', 'host', 'updated'].includes(field)) continue;
     
     const testScript = `
       (function() {
@@ -389,4 +496,37 @@ ipcMain.handle('compare-run', async (_e, url) => {
     const llm  = await runScrapeInEphemeral(url, { llm:true });
     return { ok: true, base, llm };
   } catch(e) { return { ok: false, error: String(e) }; }
+});
+
+// Migration IPC handler
+ipcMain.handle('trigger-migration', async () => {
+  try {
+    migrateFromLocalStorage();
+    return { success: true };
+  } catch (e) {
+    return { success: false, error: String(e) };
+  }
+});
+
+// Enhanced memory-get that provides compatibility format
+ipcMain.handle('memory-get-all', async () => {
+  try {
+    const files = fs.readdirSync(SELECTORS_DIR).filter(f => f.endsWith('.json'));
+    const allData = {};
+    
+    for (const file of files) {
+      const host = file.replace('.json', '').replace(/_/g, '.');
+      const data = readSelectorFile(host);
+      if (data) {
+        // Convert to localStorage-compatible format for backwards compatibility
+        const { __history, host: hostField, updated, __migrated, __migrationDate, ...selectorData } = data;
+        allData[host] = selectorData;
+      }
+    }
+    
+    return allData;
+  } catch (e) {
+    console.error('Error reading all memory data:', e);
+    return {};
+  }
 });

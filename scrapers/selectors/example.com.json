@@ -1,0 +1,23 @@
+{
+  "host": "example.com",
+  "updated": "2025-09-11T10:30:00.000Z",
+  "title": {
+    "selectors": ["h1", ".product-title"],
+    "attr": "text"
+  },
+  "price": {
+    "selectors": [".price", "[data-price]"],
+    "attr": "text"
+  },
+  "images": {
+    "selectors": [".product-images img", ".gallery img"],
+    "attr": "src"
+  },
+  "__history": [
+    {
+      "timestamp": "2025-09-11T10:30:00.000Z",
+      "note": "Initial save",
+      "fields": ["title", "price", "images"]
+    }
+  ]
+}
