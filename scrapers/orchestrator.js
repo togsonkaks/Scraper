@@ -38,24 +38,29 @@
     }).filter(n => n != null && n > 0);
     return nums;
   }
-  function bestPriceFromString(s) {
+  function bestPriceFromString(s, preferFirst = false) {
     const monetary = parseMoneyTokens(s);
-    if (monetary.length) return Math.min(...monetary);
+    if (monetary.length) return preferFirst ? monetary[0] : Math.min(...monetary);
     const fallback = [];
     String(s).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => { const n = parseFloat(g1); if (isFinite(n)) fallback.push(n); return m; });
-    return fallback.length ? Math.min(...fallback) : null;
+    return fallback.length ? (preferFirst ? fallback[0] : Math.min(...fallback)) : null;
   }
-  function normalizeMoneyPreferSale(raw) {
+  function normalizeMoneyPreferSale(raw, preferFirst = false) {
     if (raw == null) return null;
-    const val = bestPriceFromString(String(raw));
+    const val = bestPriceFromString(String(raw), preferFirst);
     return val == null ? null : String(val);
   }
-  function refinePriceWithContext(el, baseVal) {
+  function refinePriceWithContext(el, baseVal, fromMemory = false) {
     try {
       if (!el) return baseVal;
       const attrFirst = attr(el, 'content') || attr(el, 'data-price') || attr(el, 'aria-label');
-      const attrVal = normalizeMoneyPreferSale(attrFirst);
+      const attrVal = normalizeMoneyPreferSale(attrFirst, fromMemory);
       if (attrVal) return attrVal;
+      
+      // If this is from memory selector, don't override - trust the user's selector
+      if (fromMemory && baseVal) return baseVal;
+      
+      // Only hunt for "better" prices in generic mode
       let node = el;
       let best = baseVal != null ? parseFloat(baseVal) : Infinity;
       for (let i=0; i<3 && node; i++, node = node.parentElement) {
@@ -149,7 +154,7 @@
   };
 
   /* ---------- IMAGES ---------- */
-  const JUNK_IMG = /(\.svg($|\?))|sprite|logo|icon|badge|placeholder|thumb|spinner|loading|prime|favicon|video\.jpg/i;
+  const JUNK_IMG = /(\.svg($|\?))|sprite|logo|icon|badge|placeholder|thumb|spinner|loading|prime|favicon|video\.jpg|\b(visa|mastercard|paypal|amex|discover|apple-?pay|google-?pay|klarna|afterpay|jcb|unionpay|maestro|diners-?club)\b|(payment|credit-?card|pay-?method|checkout|billing)[-_]?(icon|logo|img|image)/i;
   const BASE64ISH_SEG = /\/[A-Za-z0-9+/_-]{80,}($|\?)/;
   const IMG_EXT = /\.(?:jpg|jpeg|png|webp|gif|avif)(?:$|\?)/i;
   function looksLikeImageURL(u) {
@@ -248,8 +253,8 @@
           const el = q(sel); if (!el) continue;
           const a = memEntry.attr || 'text';
           const raw = a === 'text' ? txt(el) : attr(el, a);
-          let val = field === 'price' ? normalizeMoneyPreferSale(raw) : raw;
-          if (field === 'price') val = refinePriceWithContext(el, val);
+          let val = field === 'price' ? normalizeMoneyPreferSale(raw, true) : raw;  // preferFirst=true for memory selectors
+          if (field === 'price') val = refinePriceWithContext(el, val, true);  // fromMemory=true
           if (val) { mark(field, { selectors:[sel], attr:a, method:'css' }); return val; }
         }
       } catch (e) {}
@@ -344,7 +349,12 @@
         description = fromMemory('description', mem.description) || getDescription();
         price = fromMemory('price', mem.price) || getPriceGeneric();
         images = fromMemory('images', mem.images);
-        if (!images || images.length < 3) images = getImagesGeneric();
+        if (!images || images.length < 3) {
+          const memoryImages = images || [];
+          const genericImages = getImagesGeneric();
+          // Append and deduplicate generic images to memory images instead of replacing
+          images = uniqueImages(memoryImages.concat(genericImages)).slice(0, 30);
+        }
       }
 
       const payload = { title, brand, description, price, url: location.href, images, timestamp: new Date().toISOString(), mode };
