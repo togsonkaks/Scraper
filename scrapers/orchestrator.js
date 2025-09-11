@@ -372,48 +372,93 @@
     return false;
   }
   
-  // Enhanced image quality scoring function with semantic analysis
+  // Enhanced image quality scoring function with aggressive filtering
   function scoreImageURL(url, element = null, elementIndex = 0) {
     if (!url) return 0;
     let score = 50; // Base score
     
-    // Size bonuses (prefer larger images)
-    const sizeMatch = url.match(/(?:max|w|width)=([0-9]+)/i);
-    if (sizeMatch) {
-      const size = parseInt(sizeMatch[1]);
-      if (size >= 1200) score += 40;
-      else if (size >= 800) score += 30;
-      else if (size >= 600) score += 20;
-      else if (size >= 400) score += 10;
-      else if (size < 200) score -= 30; // Penalty for tiny images
+    // Aggressive dimension penalties for thumbnails
+    const amazonThumbMatch = url.match(/_(?:AC_)?(?:US|SS|SY|SR|UL)(\d+)(?:_|\.)/i);
+    if (amazonThumbMatch) {
+      const size = parseInt(amazonThumbMatch[1]);
+      if (size <= 40) score -= 60; // 40px thumbnails
+      else if (size <= 64) score -= 50; // 64px thumbnails  
+      else if (size <= 100) score -= 40; // 100px thumbnails
+      else if (size <= 200) score -= 20; // Small images
+      else if (size >= 800) score += 25; // Good size
+      else if (size >= 400) score += 15; // Decent size
     }
     
-    // Quality bonuses
-    const qualityMatch = url.match(/quality=([0-9]+)/i);
-    if (qualityMatch) {
-      const quality = parseInt(qualityMatch[1]);
-      if (quality >= 90) score += 20;
-      else if (quality >= 80) score += 15;
-      else if (quality >= 70) score += 10;
-      else if (quality < 50) score -= 10;
+    // Enhanced size detection (multiple patterns)
+    const sizePatterns = [
+      /(?:max|w|width|imwidth|imageWidth)=([0-9]+)/i,
+      /_(\d+)x\d*(?:_|\.|$)/i, // _750x, _1024x1024
+      /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
+      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i // 750w, 1200px
+    ];
+    
+    let detectedSize = 0;
+    for (const pattern of sizePatterns) {
+      const match = url.match(pattern);
+      if (match) {
+        detectedSize = Math.max(detectedSize, parseInt(match[1]));
+      }
     }
     
-    // Format bonuses
+    if (detectedSize > 0) {
+      if (detectedSize >= 1200) score += 40;
+      else if (detectedSize >= 800) score += 30; 
+      else if (detectedSize >= 600) score += 20;
+      else if (detectedSize >= 400) score += 10;
+      else if (detectedSize < 200) score -= 40; // Strong penalty for tiny images
+    }
+    
+    // Quality bonuses (enhanced patterns)
+    const qualityPatterns = [
+      /quality=([0-9]+)/i,
+      /q_([0-9]+)/i, // Cloudinary
+      /q([0-9]+)/i   // Some CDNs
+    ];
+    
+    for (const pattern of qualityPatterns) {
+      const match = url.match(pattern);
+      if (match) {
+        const quality = parseInt(match[1]);
+        if (quality >= 90) score += 20;
+        else if (quality >= 80) score += 15;
+        else if (quality >= 70) score += 10;
+        else if (quality < 50) score -= 15;
+        break; // Only use first match
+      }
+    }
+    
+    // Format bonuses (enhanced)
     if (/\.(webp|avif)($|\?)/i.test(url)) score += 10;
-    if (/format=(webp|avif)/i.test(url)) score += 10;
+    if (/(format|fm)=(webp|avif)/i.test(url)) score += 10;
+    if (/f_auto/i.test(url)) score += 8; // Cloudinary auto format
     
     // Enhanced CDN bonuses
     if (/\b(assets?|static|cdn|media|img)\./i.test(url)) score += 25; // Asset subdomains
     if (/\b(mozu\.com|cloudinary\.com|imgix\.net|shopify\.com|fastly\.com)\b/i.test(url)) score += 15;
     
-    // Path context bonuses and penalties
-    if (/\/(product|main|hero|detail|primary)/i.test(url)) score += 15;
-    if (/\/(thumb|small|mini|icon)/i.test(url)) score -= 20;
+    // Product code detection bonuses
+    if (/\b[A-Z]\d{4}[A-Z]?\b/i.test(url)) score += 40; // Product codes like M6169R, A0480U
+    if (/\bproduct/i.test(url)) score += 20;
     
-    // Semantic penalties for wrong image types
-    if (/\b(banner|logo|bg|background|header|footer|nav|navigation)\b/i.test(url)) score -= 40;
-    if (/\b(ad|advertisement|promo|campaign|marketing|sidebar)\b/i.test(url)) score -= 50;
-    if (/\b(sprite|icon|badge|placeholder|loading|spinner)\b/i.test(url)) score -= 30;
+    // Path context bonuses and penalties  
+    if (/\/(product|main|hero|detail|primary)/i.test(url)) score += 15;
+    if (/\/(thumb|small|mini|icon)/i.test(url)) score -= 30;
+    
+    // Aggressive semantic penalties for navigation/UI elements
+    if (/\b(womens?-clothing|mens?-clothing|best-sellers?|new-arrivals?|accessories|shop-by|featured-edit|wellness|searchburger)\b/i.test(url)) score -= 70;
+    if (/\b(banner|logo|bg|background|header|footer|nav|navigation|menu)\b/i.test(url)) score -= 50;
+    if (/\b(ad|advertisement|promo|campaign|marketing|sidebar|bullet-point)\b/i.test(url)) score -= 60;
+    if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;
+    if (/\b(warranty|insurance|coverage|support|claim)\b/i.test(url)) score -= 55;
+    
+    // Community/review image penalties
+    if (/aicid=community/i.test(url)) score -= 45;
+    if (/community-reviews/i.test(url)) score -= 45;
     
     // Position-based bonuses (first images more likely to be main product)
     if (elementIndex < 3) score += 20; // First few images get bonus
@@ -426,17 +471,17 @@
       const combined = (className + ' ' + id).toLowerCase();
       
       if (/\b(main|hero|primary|featured|product-image|gallery-main)\b/i.test(combined)) score += 30;
-      if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 25;
-      if (/\b(banner|ad|sidebar|nav|header|footer)\b/i.test(combined)) score -= 35;
+      if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 30;
+      if (/\b(banner|ad|sidebar|nav|header|footer|menu)\b/i.test(combined)) score -= 45;
       
       // Aspect ratio penalties from element dimensions
       const width = element.naturalWidth || element.width || 0;
       const height = element.naturalHeight || element.height || 0;
       if (width > 0 && height > 0) {
         const aspectRatio = width / height;
-        if (aspectRatio > 3) score -= 30; // Too wide (likely banner)
-        if (aspectRatio < 0.3) score -= 30; // Too tall (likely sidebar)
-        if (aspectRatio >= 0.8 && aspectRatio <= 1.5) score += 10; // Good product image ratio
+        if (aspectRatio > 3) score -= 40; // Too wide (likely banner)
+        if (aspectRatio < 0.3) score -= 40; // Too tall (likely sidebar)
+        if (aspectRatio >= 0.8 && aspectRatio <= 1.5) score += 15; // Good product image ratio
       }
     }
     
@@ -460,12 +505,69 @@
       return url.origin + p;
     } catch { return u.replace(/[?#].*$/,''); }
   };
-  // Hybrid unique images: groups by canonical URL, picks best score within each group
-  function hybridUniqueImages(enrichedUrls) {
+  // Estimate file size from URL patterns (fast approximation)
+  function estimateFileSize(url) {
+    // Look for size indicators in URL
+    const amazonThumbMatch = url.match(/_(?:AC_)?(?:US|SS|SY|SR|UL)(\d+)(?:_|\.)/i);
+    if (amazonThumbMatch) {
+      const size = parseInt(amazonThumbMatch[1]);
+      if (size <= 40) return 2000;   // ~2KB for tiny thumbnails
+      if (size <= 100) return 8000;  // ~8KB for small thumbs
+      if (size <= 200) return 25000; // ~25KB for medium
+      return 80000; // ~80KB for larger Amazon images
+    }
+    
+    // Check for dimension patterns
+    const sizePatterns = [
+      /(?:max|w|width|imwidth|imageWidth)=([0-9]+)/i,
+      /_(\d+)x\d*(?:_|\.|$)/i,
+      /(\d+)x\d+(?:_|\.|$)/i,
+      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i
+    ];
+    
+    let maxSize = 0;
+    for (const pattern of sizePatterns) {
+      const match = url.match(pattern);
+      if (match) {
+        maxSize = Math.max(maxSize, parseInt(match[1]));
+      }
+    }
+    
+    if (maxSize > 0) {
+      if (maxSize >= 1200) return 150000; // ~150KB for large images
+      if (maxSize >= 800) return 100000;  // ~100KB for medium-large
+      if (maxSize >= 400) return 50000;   // ~50KB for medium
+      if (maxSize >= 200) return 25000;   // ~25KB for small
+      return 8000; // ~8KB for tiny
+    }
+    
+    // Default estimates based on file type and CDN
+    if (/\.(jpg|jpeg)($|\?)/i.test(url)) return 60000;  // ~60KB default JPG
+    if (/\.(png)($|\?)/i.test(url)) return 80000;       // ~80KB default PNG
+    if (/\.(webp)($|\?)/i.test(url)) return 40000;      // ~40KB default WebP
+    if (/\.(gif)($|\?)/i.test(url)) return 20000;       // ~20KB default GIF
+    
+    return 50000; // ~50KB default
+  }
+
+  // Check actual file size via HTTP HEAD request (expensive, use sparingly)
+  async function checkFileSize(url) {
+    try {
+      const response = await fetch(url, { method: 'HEAD' });
+      const contentLength = response.headers.get('content-length');
+      return contentLength ? parseInt(contentLength) : null;
+    } catch (error) {
+      debug('📏 FILE SIZE CHECK FAILED:', url, error.message);
+      return null;
+    }
+  }
+
+  // Hybrid unique images with score threshold and file size filtering
+  async function hybridUniqueImages(enrichedUrls) {
     debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
     const groups = new Map(); // canonical URL -> array of enriched URLs
     const seenDebugLogs = new Set();
-    const filtered = { empty: 0, invalid: 0, junk: 0, duplicateGroups: 0, kept: 0 };
+    const filtered = { empty: 0, invalid: 0, junk: 0, lowScore: 0, smallFile: 0, duplicateGroups: 0, kept: 0 };
     
     // Group enriched URLs by canonical form
     for (const enriched of enrichedUrls) {
@@ -489,6 +591,14 @@
         continue;
       }
       
+      // Apply score threshold (minimum 70 points)
+      const score = scoreImageURL(abs, enriched.element, enriched.index);
+      if (score < 70) {
+        addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
+        filtered.lowScore++;
+        continue;
+      }
+      
       // Normalize URL for grouping
       const canonical = canonicalKey(abs);
       
@@ -499,7 +609,8 @@
       groups.get(canonical).push({
         url: abs,
         element: enriched.element,
-        index: enriched.index
+        index: enriched.index,
+        score: score
       });
     }
     
@@ -509,45 +620,85 @@
       if (candidates.length === 1) {
         // Only one candidate, use it
         const candidate = candidates[0];
-        const score = scoreImageURL(candidate.url, candidate.element, candidate.index);
-        bestImages.push({ ...candidate, score, canonical });
-        addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${score}): ${candidate.url.slice(0, 100)}`, candidate.url, score, true);
+        bestImages.push({ ...candidate, canonical });
+        addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${candidate.score}): ${candidate.url.slice(0, 100)}`, candidate.url, candidate.score, true);
         filtered.kept++;
       } else {
         // Multiple candidates, pick highest score
-        let bestCandidate = null;
-        let bestScore = -1;
+        let bestCandidate = candidates.reduce((best, current) => 
+          current.score > best.score ? current : best
+        );
         
-        for (const candidate of candidates) {
-          const score = scoreImageURL(candidate.url, candidate.element, candidate.index);
-          if (score > bestScore) {
-            bestScore = score;
-            bestCandidate = candidate;
-          }
-        }
+        bestImages.push({ ...bestCandidate, canonical });
+        addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestCandidate.score}): ${bestCandidate.url.slice(0, 100)}`, bestCandidate.url, bestCandidate.score, true);
+        filtered.duplicateGroups++;
+        filtered.kept++;
         
-        if (bestCandidate) {
-          bestImages.push({ ...bestCandidate, score: bestScore, canonical });
-          addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestScore}): ${bestCandidate.url.slice(0, 100)}`, bestCandidate.url, bestScore, true);
-          filtered.duplicateGroups++;
-          filtered.kept++;
-          
-          // Log rejected duplicates
-          if (!seenDebugLogs.has(canonical)) {
-            const rejectedCount = candidates.length - 1;
-            addImageDebugLog('debug', `🔄 DUPLICATE GROUP: ${rejectedCount} lower-scored versions rejected`, bestCandidate.url, bestScore, false);
-            seenDebugLogs.add(canonical);
-          }
+        // Log rejected duplicates
+        if (!seenDebugLogs.has(canonical)) {
+          const rejectedCount = candidates.length - 1;
+          addImageDebugLog('debug', `🔄 DUPLICATE GROUP: ${rejectedCount} lower-scored versions rejected`, bestCandidate.url, bestCandidate.score, false);
+          seenDebugLogs.add(canonical);
         }
       }
     }
     
-    // Sort by DOM order (index), then extract URLs
+    // Sort by DOM order (index)
     bestImages.sort((a, b) => a.index - b.index);
-    const finalUrls = bestImages.slice(0, 50).map(img => img.url); // Limit to 50
     
-    if (bestImages.length > 50) {
-      addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping top-scored from first 50 DOM positions`, '', 0, false);
+    // Apply file size filtering (100KB minimum)
+    const sizeFilteredImages = [];
+    const fileSizeCheckPromises = [];
+    
+    for (const img of bestImages) {
+      const estimatedSize = estimateFileSize(img.url);
+      
+      if (estimatedSize >= 100000) {
+        // Estimated size is good, keep it
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `📏 SIZE OK (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+      } else if (estimatedSize >= 60000 && img.score >= 90) {
+        // Borderline case with high score, check actual size
+        fileSizeCheckPromises.push(
+          checkFileSize(img.url).then(actualSize => ({
+            img,
+            actualSize,
+            estimatedSize
+          }))
+        );
+      } else {
+        // Too small, reject
+        addImageDebugLog('debug', `📉 TOO SMALL (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
+        filtered.smallFile++;
+      }
+    }
+    
+    // Check actual file sizes for borderline cases
+    if (fileSizeCheckPromises.length > 0) {
+      debug(`📏 CHECKING ACTUAL FILE SIZES for ${fileSizeCheckPromises.length} borderline images...`);
+      const sizeResults = await Promise.all(fileSizeCheckPromises);
+      
+      for (const { img, actualSize, estimatedSize } of sizeResults) {
+        if (actualSize && actualSize >= 100000) {
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `📏 SIZE VERIFIED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        } else if (!actualSize && (img.score >= 95 || /\b(assets?|cdn|media)\./i.test(img.url))) {
+          // HEAD failed but high score or CDN - likely CORS issue, keep it
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `📏 SIZE CHECK FAILED (CORS?) - keeping high-score/CDN: ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        } else {
+          addImageDebugLog('debug', `📉 SIZE FAILED (${actualSize ? Math.round(actualSize/1000) : '?'}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
+          filtered.smallFile++;
+        }
+      }
+    }
+    
+    // Sort again by DOM order and limit to 50
+    sizeFilteredImages.sort((a, b) => a.index - b.index);
+    const finalUrls = sizeFilteredImages.slice(0, 50).map(img => img.url);
+    
+    if (sizeFilteredImages.length > 50) {
+      addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by DOM order`, '', 0, false);
     }
     
     debug('🖼️ HYBRID FILTERING RESULTS:', filtered);
@@ -557,13 +708,13 @@
   }
 
   // Legacy function for compatibility with existing code
-  function uniqueImages(urls) {
+  async function uniqueImages(urls) {
     debug('🖼️ LEGACY FILTERING IMAGES (converting to enriched):', { inputCount: urls.length });
     // Convert simple URLs to enriched format for hybrid processing
     const enriched = urls.map((url, index) => ({ url, element: null, index }));
-    return hybridUniqueImages(enriched);
+    return await hybridUniqueImages(enriched);
   }
-  function gatherImagesBySelector(sel) {
+  async function gatherImagesBySelector(sel) {
     debug('🔍 GATHERING IMAGES with selector:', sel);
     
     const elements = qa(sel);
@@ -614,14 +765,14 @@
     }
     
     debug(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
-    const filtered = hybridUniqueImages(enrichedUrls);
+    const filtered = await hybridUniqueImages(enrichedUrls);
     debug(`🖼️ After hybrid filtering: ${filtered.length} images`);
     
     return filtered;
   }
 
   /* ---------- MEMORY RESOLUTION ---------- */
-  function fromMemory(field, memEntry) {
+  async function fromMemory(field, memEntry) {
     debug('🧠 FROM MEMORY:', { 
       field, 
       hasMemEntry: !!memEntry,
@@ -667,7 +818,7 @@
         const arr = ldPickImages(prod);
         if (arr.length) {
           mark('images', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
-          return uniqueImages(arr).slice(0,30);
+          return await uniqueImages(arr).slice(0,30);
         }
         const og = q('meta[property="og:image"]')?.content;
         return og ? [og] : null;
@@ -686,7 +837,7 @@
         debug(`🎯 TRYING SELECTOR [${field}]:`, sel);
         
         if (field === 'images') {
-          const urls = gatherImagesBySelector(sel);
+          const urls = await gatherImagesBySelector(sel);
           if (urls.length) { 
             debug(`✅ MEMORY IMAGES SUCCESS: ${urls.length} images found`);
             mark('images', { selectors:[sel], attr:'src', method:'css', urls: urls.slice(0,30) }); 
@@ -783,19 +934,19 @@
     }
     return null;
   }
-  function getImagesGeneric() {
+  async function getImagesGeneric() {
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
       '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
     ];
     for (const sel of gallerySels) {
-      const urls = gatherImagesBySelector(sel);
+      const urls = await gatherImagesBySelector(sel);
       if (urls.length >= 3) { mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); return urls.slice(0,30); }
     }
     const og = q('meta[property="og:image"]')?.content;
-    const all = gatherImagesBySelector('img');
+    const all = await gatherImagesBySelector('img');
     const combined = (og ? [og] : []).concat(all);
-    const uniq = uniqueImages(combined);
+    const uniq = await uniqueImages(combined);
     mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
     return uniq.slice(0,30);
   }
@@ -819,15 +970,15 @@
 
       if (mode === 'memoryOnly') {
         debug('🔒 MEMORY-ONLY MODE - using saved selectors only');
-        title = fromMemory('title', mem.title);
-        brand = fromMemory('brand', mem.brand);
-        description = fromMemory('description', mem.description);
-        price = fromMemory('price', mem.price);
-        images = fromMemory('images', mem.images);
+        title = await fromMemory('title', mem.title);
+        brand = await fromMemory('brand', mem.brand);
+        description = await fromMemory('description', mem.description);
+        price = await fromMemory('price', mem.price);
+        images = await fromMemory('images', mem.images);
       } else {
         debug('🔄 NORMAL MODE - memory + fallbacks');
         
-        title = fromMemory('title', mem.title);
+        title = await fromMemory('title', mem.title);
         debug('📝 TITLE FROM MEMORY:', title);
         if (!title) {
           debug('📝 TITLE: Falling back to generic...');
@@ -835,7 +986,7 @@
           debug('📝 TITLE FROM GENERIC:', title);
         }
         
-        brand = fromMemory('brand', mem.brand);
+        brand = await fromMemory('brand', mem.brand);
         debug('🏷️ BRAND FROM MEMORY:', brand);
         if (!brand) {
           debug('🏷️ BRAND: Falling back to generic...');
@@ -843,7 +994,7 @@
           debug('🏷️ BRAND FROM GENERIC:', brand);
         }
         
-        description = fromMemory('description', mem.description);
+        description = await fromMemory('description', mem.description);
         debug('📄 DESCRIPTION FROM MEMORY:', description);
         if (!description) {
           debug('📄 DESCRIPTION: Falling back to generic...');
@@ -851,7 +1002,7 @@
           debug('📄 DESCRIPTION FROM GENERIC:', description);
         }
         
-        price = fromMemory('price', mem.price);
+        price = await fromMemory('price', mem.price);
         debug('💰 PRICE FROM MEMORY:', price);
         if (!price) {
           debug('💰 PRICE: Falling back to generic...');
@@ -859,19 +1010,20 @@
           debug('💰 PRICE FROM GENERIC:', price);
         }
         
-        images = fromMemory('images', mem.images);
+        images = await fromMemory('images', mem.images);
         debug('🖼️ IMAGES FROM MEMORY:', { count: images?.length || 0, images: images?.slice(0, 3) });
         
         if (!images || images.length < 3) {
           debug('🖼️ IMAGES: Need more images (have ' + (images?.length || 0) + ', need 3+)');
           const memoryImages = images || [];
           debug('🖼️ IMAGES: Getting generic images...');
-          const genericImages = getImagesGeneric();
+          const genericImages = await getImagesGeneric();
           debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
           
           // Append and deduplicate generic images to memory images instead of replacing
           debug('🖼️ IMAGES: Appending and deduplicating...');
-          images = uniqueImages(memoryImages.concat(genericImages)).slice(0, 30);
+          const combinedImages = await uniqueImages(memoryImages.concat(genericImages));
+          images = combinedImages.slice(0, 30);
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
         }
       }
