@@ -591,9 +591,9 @@
         continue;
       }
       
-      // Apply score threshold (minimum 70 points)
+      // Apply score threshold (minimum 50 points)
       const score = scoreImageURL(abs, enriched.element, enriched.index);
-      if (score < 70) {
+      if (score < 50) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
         continue;
@@ -651,14 +651,26 @@
     const fileSizeCheckPromises = [];
     
     for (const img of bestImages) {
+      // Trust high scores over file size limits (modern CDN optimization) - EARLY CHECK
+      if (img.score >= 100) {
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `🎯 HIGH SCORE OVERRIDE (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        continue;
+      } else if (img.score >= 85 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {
+        // Good score + modern CDN optimization = keep it
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        continue;
+      }
+      
       const estimatedSize = estimateFileSize(img.url);
       
       if (estimatedSize >= 100000) {
         // Estimated size is good, keep it
         sizeFilteredImages.push(img);
         addImageDebugLog('debug', `📏 SIZE OK (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-      } else if (estimatedSize >= 60000 && img.score >= 90) {
-        // Borderline case with high score, check actual size
+      } else if (estimatedSize >= 60000 && img.score >= 50) {
+        // Borderline case with decent score, check actual size
         fileSizeCheckPromises.push(
           checkFileSize(img.url).then(actualSize => ({
             img,
@@ -679,16 +691,29 @@
       const sizeResults = await Promise.all(fileSizeCheckPromises);
       
       for (const { img, actualSize, estimatedSize } of sizeResults) {
-        if (actualSize && actualSize >= 100000) {
+        // Trust high scores over file size limits (modern CDN optimization)
+        if (img.score >= 100) {
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `🎯 HIGH SCORE OVERRIDE (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        } else if (img.score >= 85 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {
+          // Good score + modern CDN optimization = keep it
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        } else if (actualSize && actualSize >= 100000) {
           sizeFilteredImages.push(img);
           addImageDebugLog('debug', `📏 SIZE VERIFIED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
         } else if (!actualSize && (img.score >= 95 || /\b(assets?|cdn|media)\./i.test(img.url))) {
           // HEAD failed but high score or CDN - likely CORS issue, keep it
           sizeFilteredImages.push(img);
           addImageDebugLog('debug', `📏 SIZE CHECK FAILED (CORS?) - keeping high-score/CDN: ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        } else {
-          addImageDebugLog('debug', `📉 SIZE FAILED (${actualSize ? Math.round(actualSize/1000) : '?'}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
+        } else if (actualSize && actualSize < 5000 && !/w[_=]\d{3,}|h[_=]\d{3,}/i.test(img.url)) {
+          // Only reject truly tiny images without dimension hints
+          addImageDebugLog('debug', `📉 TRULY TINY REJECTED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
           filtered.smallFile++;
+        } else {
+          // Keep borderline cases - better to include than exclude
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `📊 BORDERLINE KEPT (${actualSize ? Math.round(actualSize/1000) : '?'}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
         }
       }
     }

@@ -32,3 +32,7 @@ args = "npm run start:replit"
 [deployment]
 deploymentTarget = "vm"
 run = ["./start-electron.sh"]
+
+[[ports]]
+localPort = 36117
+externalPort = 80
