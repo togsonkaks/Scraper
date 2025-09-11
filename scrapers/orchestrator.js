@@ -9,10 +9,66 @@
 (function () {
   const DEBUG = true;
   const TAG = '[TG]';
-  const log = (...a) => { if (DEBUG) try { console.log(TAG, ...a); } catch(_){} };
-  const warn = (...a) => { if (DEBUG) try { console.warn(TAG, ...a); } catch(_){} };
-  const debug = (...a) => { if (DEBUG) try { console.debug(TAG + '[DEBUG]', ...a); } catch(_){} };
-  const error = (...a) => { if (DEBUG) try { console.error(TAG + '[ERROR]', ...a); } catch(_){} };
+  
+  // Collect debug logs to send back to UI
+  if (typeof window !== 'undefined') {
+    window.__tg_debugLog = window.__tg_debugLog || [];
+  }
+  
+  const safeStringify = (obj) => {
+    try {
+      if (typeof obj === 'string') return obj;
+      if (obj && obj.tagName) return `<${obj.tagName}${obj.id ? '#' + obj.id : ''}${obj.className ? '.' + obj.className.split(' ')[0] : ''}>`;
+      if (obj instanceof Error) return obj.message;
+      if (typeof obj === 'object') return JSON.stringify(obj).slice(0, 200);
+      return String(obj);
+    } catch {
+      return String(obj).slice(0, 100);
+    }
+  };
+  
+  const addToDebugLog = (level, ...args) => {
+    if (typeof window !== 'undefined' && window.__tg_debugLog) {
+      window.__tg_debugLog.push({
+        timestamp: new Date().toLocaleTimeString(),
+        level,
+        message: args.map(safeStringify).join(' ')
+      });
+    }
+  };
+  
+  const log = (...a) => { 
+    if (DEBUG) {
+      try { 
+        console.log(TAG, ...a);
+        addToDebugLog('info', ...a);
+      } catch(_){} 
+    }
+  };
+  const warn = (...a) => { 
+    if (DEBUG) {
+      try { 
+        console.warn(TAG, ...a);
+        addToDebugLog('warning', ...a);
+      } catch(_){} 
+    }
+  };
+  const debug = (...a) => { 
+    if (DEBUG) {
+      try { 
+        console.debug(TAG + '[DEBUG]', ...a);
+        addToDebugLog('debug', ...a);
+      } catch(_){} 
+    }
+  };
+  const error = (...a) => { 
+    if (DEBUG) {
+      try { 
+        console.error(TAG + '[ERROR]', ...a);
+        addToDebugLog('error', ...a);
+      } catch(_){} 
+    }
+  };
   
   // Enhanced debug helpers
   const debugElement = (el, context = '') => {
@@ -667,6 +723,13 @@
       });
       
       globalThis.__tg_lastSelectorsUsed = __used;
+      
+      // Include debug log in response
+      if (typeof window !== 'undefined' && window.__tg_debugLog) {
+        payload.__debugLog = window.__tg_debugLog;
+        window.__tg_debugLog = []; // Clear for next run
+      }
+      
       return payload;
     } catch (e) {
       return { __error: (e && e.stack) || String(e), __stage: 'scrapeProduct' };
