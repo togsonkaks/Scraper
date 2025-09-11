@@ -121,10 +121,18 @@
           <div class="suggestion-box">
             <div style="font-weight: bold; color: #666; margin-bottom: 4px;">Current:</div>
             <div id="currentSelector"></div>
+            <div style="margin-top: 4px; padding: 4px; background: #f9f9f9; border-radius: 2px; min-height: 20px;">
+              <div style="font-size: 10px; color: #666; margin-bottom: 2px;">Preview:</div>
+              <div id="currentPreview" style="font-size: 11px;">—</div>
+            </div>
           </div>
           <div class="suggestion-box">
             <div style="font-weight: bold; color: #4CAF50; margin-bottom: 4px;">AI Suggestion:</div>
             <div id="aiSuggestion"></div>
+            <div style="margin-top: 4px; padding: 4px; background: #f0f8f0; border-radius: 2px; min-height: 20px;">
+              <div style="font-size: 10px; color: #666; margin-bottom: 2px;">Preview:</div>
+              <div id="aiPreview" style="font-size: 11px;">—</div>
+            </div>
           </div>
         </div>
         <div style="margin-top: 8px;">
@@ -397,10 +405,89 @@
     const suggestionField = document.getElementById('suggestionField');
     const currentSelector = document.getElementById('currentSelector');
     const aiSuggestion = document.getElementById('aiSuggestion');
+    const currentPreview = document.getElementById('currentPreview');
+    const aiPreview = document.getElementById('aiPreview');
     const useSuggestionBtn = document.getElementById('useSuggestionBtn');
     const dismissSuggestionBtn = document.getElementById('dismissSuggestionBtn');
     
     let currentSuggestionData = null;
+
+    // Test selectors on current page to preview content
+    async function testExtractInProduct(field, selectors, attr) {
+      if (!selectors || !selectors.length) return null;
+      
+      const code = `(() => {
+        const qa = (s) => Array.from(document.querySelectorAll(s));
+        const txt = (el) => (el && (el.textContent||'').trim()) || null;
+        const pickFromSrcset = (ss) => { 
+          if(!ss) return null; 
+          const p = ss.split(',').map(s => s.trim()); 
+          const last = p[p.length-1] || ''; 
+          return (last.split(' ')[0]) || null; 
+        };
+        const uniq = (arr) => Array.from(new Set(arr.filter(Boolean)));
+        
+        const sels = ${JSON.stringify(selectors)};
+        const attrName = ${JSON.stringify(attr)};
+        const field = ${JSON.stringify(field)};
+        
+        for (const sel of sels) {
+          try {
+            if (field === 'images') {
+              const urls = [];
+              for (const el of qa(sel)) {
+                const s1 = el.getAttribute('src') || el.currentSrc || 
+                          el.getAttribute('data-src') || el.getAttribute('data-image') || 
+                          el.getAttribute('data-zoom-image') || el.getAttribute('data-large');
+                if (s1) urls.push(s1);
+                
+                const ss = el.getAttribute('srcset'); 
+                const best = pickFromSrcset(ss); 
+                if (best) urls.push(best);
+                
+                if (el.parentElement && el.parentElement.tagName.toLowerCase() === 'picture') {
+                  for (const src of el.parentElement.querySelectorAll('source')) {
+                    const b = pickFromSrcset(src.getAttribute('srcset')); 
+                    if (b) urls.push(b);
+                  }
+                }
+              }
+              const out = uniq(urls).slice(0, 6);
+              if (out.length) return out;
+            } else {
+              const el = document.querySelector(sel); 
+              if (!el) continue;
+              const v = attrName === 'text' ? txt(el) : el.getAttribute(attrName);
+              if (v && String(v).trim()) return String(v).trim();
+            }
+          } catch(_) {}
+        }
+        return null;
+      })()`;
+      
+      return await window.api.evalInProduct(code);
+    }
+
+    // Render preview content in UI
+    function renderPreview(element, field, value) {
+      if (!value || (Array.isArray(value) && !value.length)) {
+        element.innerHTML = '<span style="color:#999; font-style:italic;">No match</span>';
+        return;
+      }
+      
+      if (field === 'images') {
+        element.innerHTML = value.map(url => 
+          `<img referrerpolicy="no-referrer" src="${url}" 
+           style="height:30px; width:auto; margin:2px; border:1px solid #ddd; border-radius:2px; vertical-align:top;" 
+           title="${url}" onerror="this.style.display='none'">`
+        ).join('');
+      } else {
+        const displayValue = Array.isArray(value) ? String(value[0]) : String(value);
+        const truncated = displayValue.slice(0, 120) + (displayValue.length > 120 ? '...' : '');
+        element.textContent = truncated;
+        element.title = displayValue; // Full text on hover
+      }
+    }
 
     // Add event listeners to all AI suggestion buttons
     document.querySelectorAll('.ai-suggest-btn').forEach(btn => {
@@ -483,15 +570,43 @@
         <div style="font-size:10px; color:#666; margin-top:2px;">Attribute: ${getDefaultAttr(field)}</div>
       `;
       
-      // Store suggestion data
-      currentSuggestionData = {
-        field: field,
-        selectors: suggestions,
-        attr: getDefaultAttr(field)
-      };
-      
-      // Show panel
+      // Show panel and start testing
       suggestionPanel.style.display = 'block';
+      currentPreview.innerHTML = 'Testing...';
+      aiPreview.innerHTML = 'Testing...';
+      
+      // Test both current and AI selectors
+      const currentSelectors = (current && current.selectors) ? 
+        (Array.isArray(current.selectors) ? current.selectors : [current.selectors]) : null;
+      const currentAttr = (current && current.attr) || getDefaultAttr(field);
+      const aiAttr = getDefaultAttr(field);
+      
+      try {
+        const [currentValue, aiValue] = await Promise.all([
+          testExtractInProduct(field, currentSelectors, currentAttr),
+          testExtractInProduct(field, suggestions, aiAttr)
+        ]);
+        
+        renderPreview(currentPreview, field, currentValue);
+        renderPreview(aiPreview, field, aiValue);
+        
+        // Only enable "Use AI Suggestion" if it actually finds content
+        const hasContent = Array.isArray(aiValue) ? aiValue.length > 0 : (aiValue && String(aiValue).trim());
+        useSuggestionBtn.disabled = !hasContent;
+        
+        // Store suggestion data
+        currentSuggestionData = {
+          field: field,
+          selectors: suggestions,
+          attr: aiAttr
+        };
+        
+      } catch (error) {
+        currentPreview.innerHTML = '<span style="color:#999;">Test failed</span>';
+        aiPreview.innerHTML = '<span style="color:#999;">Test failed</span>';
+        useSuggestionBtn.disabled = true;
+        console.error('Preview test failed:', error);
+      }
     }
 
     function getDefaultAttr(field) {
