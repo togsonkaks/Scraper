@@ -37,7 +37,7 @@ function createControl(){
   });
   controlWin.on('closed', () => { controlWin = null; });
   controlWin.loadFile(path.join(__dirname, 'control.html'));
-  openDevtools(controlWin);
+  // Dev tools only open on right-click or Ctrl+Shift+I
   return controlWin;
 }
 
@@ -104,8 +104,8 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
         ${warmupScrollJS()}
         ${orchSource}
         const out = await scrapeProduct(Object.assign({}, ${JSON.stringify({ mode:'control' })}, ${JSON.stringify(opts)}));
-        return { ok:true, res: out, used: (globalThis.__tg_lastSelectorsUsed||null) };
-      } catch(e) { return { ok:false, error: String(e) }; }
+        return { result: out, selectorsUsed: (globalThis.__tg_lastSelectorsUsed||null) };
+      } catch(e) { return { result: { __error: String(e) }, selectorsUsed: null }; }
     })();
   `;
   return win.webContents.executeJavaScript(injected, true);
@@ -133,7 +133,7 @@ function createCompare(){
   });
   compareWin.on('closed', () => { compareWin = null; });
   compareWin.loadFile(path.join(__dirname, 'compare.html'));
-  openDevtools(compareWin);
+  // Dev tools only open on right-click or Ctrl+Shift+I
   return compareWin;
 }
 
@@ -163,8 +163,8 @@ async function runScrapeInEphemeral(url, opts){
             ${warmupScrollJS()}
             ${orchSource}
             const out = await scrapeProduct(Object.assign({}, ( ${JSON.stringify(opts)} || {} ), { mode:'compare' }));
-            return { ok:true, res: out, used: (globalThis.__tg_lastSelectorsUsed||null) };
-          } catch(e) { return { ok:false, error:String(e) }; }
+            return { result: out, selectorsUsed: (globalThis.__tg_lastSelectorsUsed||null) };
+          } catch(e) { return { result: { __error: String(e) }, selectorsUsed: null }; }
         })();
       `;
       const out = await win.webContents.executeJavaScript(injected, true);
@@ -174,6 +174,27 @@ async function runScrapeInEphemeral(url, opts){
     } finally { try { win.destroy(); } catch {} }
   });
 }
+
+// Add missing hasSelectorMemory IPC handler
+ipcMain.handle('has-selector-memory', async (_e, host) => {
+  const win = ensureProduct();
+  const checkScript = `
+    (function() {
+      try {
+        const raw = localStorage.getItem('selector_memory_v2');
+        if (!raw) return false;
+        const all = JSON.parse(raw);
+        const hostData = all[${JSON.stringify(host)}];
+        if (!hostData) return false;
+        const fields = Object.keys(hostData).filter(k => k !== '__history');
+        return fields.length > 0;
+      } catch {
+        return false;
+      }
+    })()
+  `;
+  return await win.webContents.executeJavaScript(checkScript, true);
+});
 
 ipcMain.handle('compare-run', async (_e, url) => {
   try {

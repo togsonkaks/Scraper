@@ -21,11 +21,12 @@ contextBridge.exposeInMainWorld('api', {
   llmPropose: (payload) => call('llm-propose', payload),
 
   // ---- Selector memory (no-ops if you haven’t wired the store yet)
-  hasSelectorMemory: async (_host) => false,
-  getSelectorMemory: async (_host) => ({}),
-  setSelectorMemory: async (_host, _selectors) => true,
-  clearSelectorMemory: async (_host) => true,
-  validateSelectors: async (_host) => ({ savedSelectors:{}, testResults:{} }),
+  hasSelectorMemory: (host) => call('has-selector-memory', host),
+  getSelectorMemory: (host) => call('memory-get', host),
+  setSelectorMemory: (host, data, note) => call('memory-set', { host, data, note }),
+  clearSelectorMemory: (host) => call('memory-clear', host),
+  validateSelectors: (host) => call('validate-selectors', host),
+  clearSpecificSelectors: (host, fields) => call('memory-clear-fields', { host, fields }),
 
   // ---- Right-click Inspect
   inspectAt: (x, y) => call('inspect-at', { x, y })
