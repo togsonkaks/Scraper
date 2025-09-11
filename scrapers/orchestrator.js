@@ -372,8 +372,8 @@
     return false;
   }
   
-  // Image quality scoring function
-  function scoreImageURL(url) {
+  // Enhanced image quality scoring function with semantic analysis
+  function scoreImageURL(url, element = null, elementIndex = 0) {
     if (!url) return 0;
     let score = 50; // Base score
     
@@ -402,12 +402,43 @@
     if (/\.(webp|avif)($|\?)/i.test(url)) score += 10;
     if (/format=(webp|avif)/i.test(url)) score += 10;
     
-    // CDN bonuses (usually better quality)
-    if (/\b(mozu\.com|cloudinary\.com|imgix\.net)/i.test(url)) score += 15;
+    // Enhanced CDN bonuses
+    if (/\b(assets?|static|cdn|media|img)\./i.test(url)) score += 25; // Asset subdomains
+    if (/\b(mozu\.com|cloudinary\.com|imgix\.net|shopify\.com|fastly\.com)\b/i.test(url)) score += 15;
     
-    // Path context bonuses
-    if (/\/(product|main|hero|detail)/i.test(url)) score += 15;
-    if (/\/(thumb|small|mini)/i.test(url)) score -= 20;
+    // Path context bonuses and penalties
+    if (/\/(product|main|hero|detail|primary)/i.test(url)) score += 15;
+    if (/\/(thumb|small|mini|icon)/i.test(url)) score -= 20;
+    
+    // Semantic penalties for wrong image types
+    if (/\b(banner|logo|bg|background|header|footer|nav|navigation)\b/i.test(url)) score -= 40;
+    if (/\b(ad|advertisement|promo|campaign|marketing|sidebar)\b/i.test(url)) score -= 50;
+    if (/\b(sprite|icon|badge|placeholder|loading|spinner)\b/i.test(url)) score -= 30;
+    
+    // Position-based bonuses (first images more likely to be main product)
+    if (elementIndex < 3) score += 20; // First few images get bonus
+    if (elementIndex < 1) score += 10; // Very first image gets extra bonus
+    
+    // Element-based bonuses if element provided
+    if (element) {
+      const className = element.className || '';
+      const id = element.id || '';
+      const combined = (className + ' ' + id).toLowerCase();
+      
+      if (/\b(main|hero|primary|featured|product-image|gallery-main)\b/i.test(combined)) score += 30;
+      if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 25;
+      if (/\b(banner|ad|sidebar|nav|header|footer)\b/i.test(combined)) score -= 35;
+      
+      // Aspect ratio penalties from element dimensions
+      const width = element.naturalWidth || element.width || 0;
+      const height = element.naturalHeight || element.height || 0;
+      if (width > 0 && height > 0) {
+        const aspectRatio = width / height;
+        if (aspectRatio > 3) score -= 30; // Too wide (likely banner)
+        if (aspectRatio < 0.3) score -= 30; // Too tall (likely sidebar)
+        if (aspectRatio >= 0.8 && aspectRatio <= 1.5) score += 10; // Good product image ratio
+      }
+    }
     
     return Math.max(0, score);
   }
@@ -429,52 +460,108 @@
       return url.origin + p;
     } catch { return u.replace(/[?#].*$/,''); }
   };
-  function uniqueImages(urls) {
-    debug('🖼️ FILTERING IMAGES:', { inputCount: urls.length });
+  // Hybrid unique images: groups by canonical URL, picks best score within each group
+  function hybridUniqueImages(enrichedUrls) {
+    debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
+    const groups = new Map(); // canonical URL -> array of enriched URLs
+    const seenDebugLogs = new Set();
+    const filtered = { empty: 0, invalid: 0, junk: 0, duplicateGroups: 0, kept: 0 };
     
-    const seen = new Set(); 
-    const out = [];
-    const filtered = { empty: 0, invalid: 0, junk: 0, duplicate: 0, kept: 0 };
-    
-    for (const u of urls) {
-      if (!u) {
+    // Group enriched URLs by canonical form
+    for (const enriched of enrichedUrls) {
+      if (!enriched.url) {
         filtered.empty++;
         continue;
       }
       
-      const abs = toAbs(u);
+      const abs = toAbs(enriched.url);
       
+      // Basic image validation
       if (!looksLikeImageURL(abs)) {
         addImageDebugLog('debug', `❌ NOT IMAGE URL: ${abs.slice(0, 100)}`, abs, 0, false);
         filtered.invalid++;
         continue;
       }
       
-      const score = scoreImageURL(abs);
-      addImageDebugLog('debug', `✅ VALID IMAGE (score: ${score}): ${abs.slice(0, 100)}`, abs, score, true);
-      
       if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) {
-        addImageDebugLog('debug', `🗑️ JUNK IMAGE FILTERED (score: ${score}): ${abs.slice(0, 100)}`, abs, score, false);
+        addImageDebugLog('debug', `🗑️ JUNK IMAGE: ${abs.slice(0, 80)}`, abs, 0, false);
         filtered.junk++;
         continue;
       }
       
-      const key = canonicalKey(abs);
-      if (!seen.has(key)) { 
-        seen.add(key); 
-        out.push(abs);
+      // Normalize URL for grouping
+      const canonical = canonicalKey(abs);
+      
+      if (!groups.has(canonical)) {
+        groups.set(canonical, []);
+      }
+      
+      groups.get(canonical).push({
+        url: abs,
+        element: enriched.element,
+        index: enriched.index
+      });
+    }
+    
+    // Select best scoring image from each group, maintain DOM order
+    const bestImages = [];
+    for (const [canonical, candidates] of groups) {
+      if (candidates.length === 1) {
+        // Only one candidate, use it
+        const candidate = candidates[0];
+        const score = scoreImageURL(candidate.url, candidate.element, candidate.index);
+        bestImages.push({ ...candidate, score, canonical });
+        addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${score}): ${candidate.url.slice(0, 100)}`, candidate.url, score, true);
         filtered.kept++;
-        debug('✅ KEPT IMAGE:', abs.slice(0, 100));
       } else {
-        filtered.duplicate++;
-        debug('🔄 DUPLICATE IMAGE:', abs.slice(0, 100));
+        // Multiple candidates, pick highest score
+        let bestCandidate = null;
+        let bestScore = -1;
+        
+        for (const candidate of candidates) {
+          const score = scoreImageURL(candidate.url, candidate.element, candidate.index);
+          if (score > bestScore) {
+            bestScore = score;
+            bestCandidate = candidate;
+          }
+        }
+        
+        if (bestCandidate) {
+          bestImages.push({ ...bestCandidate, score: bestScore, canonical });
+          addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestScore}): ${bestCandidate.url.slice(0, 100)}`, bestCandidate.url, bestScore, true);
+          filtered.duplicateGroups++;
+          filtered.kept++;
+          
+          // Log rejected duplicates
+          if (!seenDebugLogs.has(canonical)) {
+            const rejectedCount = candidates.length - 1;
+            addImageDebugLog('debug', `🔄 DUPLICATE GROUP: ${rejectedCount} lower-scored versions rejected`, bestCandidate.url, bestScore, false);
+            seenDebugLogs.add(canonical);
+          }
+        }
       }
     }
     
-    debug('🖼️ IMAGE FILTERING RESULTS:', filtered);
-    debug('🖼️ FINAL IMAGES:', out.slice(0, 5).map(url => url.slice(0, 80)));
+    // Sort by DOM order (index), then extract URLs
+    bestImages.sort((a, b) => a.index - b.index);
+    const finalUrls = bestImages.slice(0, 50).map(img => img.url); // Limit to 50
     
-    return out;
+    if (bestImages.length > 50) {
+      addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping top-scored from first 50 DOM positions`, '', 0, false);
+    }
+    
+    debug('🖼️ HYBRID FILTERING RESULTS:', filtered);
+    debug('🖼️ FINAL IMAGES:', finalUrls.slice(0, 5).map(url => url.slice(0, 80)));
+    
+    return finalUrls;
+  }
+
+  // Legacy function for compatibility with existing code
+  function uniqueImages(urls) {
+    debug('🖼️ LEGACY FILTERING IMAGES (converting to enriched):', { inputCount: urls.length });
+    // Convert simple URLs to enriched format for hybrid processing
+    const enriched = urls.map((url, index) => ({ url, element: null, index }));
+    return hybridUniqueImages(enriched);
   }
   function gatherImagesBySelector(sel) {
     debug('🔍 GATHERING IMAGES with selector:', sel);
@@ -482,9 +569,10 @@
     const elements = qa(sel);
     debug(`📊 Found ${elements.length} elements for selector:`, sel);
     
-    const urls = [];
+    const enrichedUrls = []; // Now includes element info
     
-    for (const el of elements) {
+    for (let i = 0; i < elements.length; i++) {
+      const el = elements[i];
       debugElement(el, `Image element`);
       
       const attrs = {
@@ -502,14 +590,14 @@
                  attrs['data-zoom-image'] || attrs['data-large'];
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
-        urls.push(s1);
+        enrichedUrls.push({ url: s1, element: el, index: i });
       }
       
       const ss = attrs.srcset;
       const best = pickFromSrcset(ss); 
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
-        urls.push(best);
+        enrichedUrls.push({ url: best, element: el, index: i });
       }
       
       // Check picture parent
@@ -519,15 +607,15 @@
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
-            urls.push(b);
+            enrichedUrls.push({ url: b, element: el, index: i });
           }
         }
       }
     }
     
-    debug(`🖼️ Raw URLs collected: ${urls.length}`);
-    const filtered = uniqueImages(urls);
-    debug(`🖼️ After filtering: ${filtered.length} images`);
+    debug(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
+    const filtered = hybridUniqueImages(enrichedUrls);
+    debug(`🖼️ After hybrid filtering: ${filtered.length} images`);
     
     return filtered;
   }
