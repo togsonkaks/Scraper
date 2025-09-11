@@ -518,16 +518,29 @@
           url: url
         });
 
-        // Handle different response formats
+        // Handle new intelligent validation response format
         let selectors = null;
+        let validatedContent = null;
+        let allCandidates = null;
+        
         if (response.ok && response.selectors) {
+          // New validated format with tested selectors
           selectors = Array.isArray(response.selectors) ? response.selectors : [response.selectors];
+          validatedContent = response.chosenValue;
+          allCandidates = response.allCandidates;
         } else if (response.result && response.result.selectors) {
+          // Fallback for nested format
           selectors = Array.isArray(response.result.selectors) ? response.result.selectors : [response.result.selectors];
+        } else if (Array.isArray(response)) {
+          // Legacy array format
+          selectors = response;
         }
         
         if (!selectors || selectors.length === 0) {
-          alert(`AI couldn't find good selectors for ${field}. Error: ${response.error || 'No suggestions'}`);
+          const errorMsg = response.error || allCandidates?.length > 0 ? 
+            'AI found selectors but none passed validation on this page' : 
+            'AI could not find any selectors for this field';
+          alert(`${errorMsg}. Field: ${field}`);
           return;
         }
 
@@ -535,8 +548,8 @@
         const memory = await window.api.getSelectorMemory(currentHost);
         const currentSelectorData = memory && memory[field] ? memory[field] : null;
 
-        // Show suggestion panel
-        await showSuggestionComparison(field, currentSelectorData, selectors);
+        // Show suggestion panel with validated content
+        await showSuggestionComparison(field, currentSelectorData, selectors, validatedContent, allCandidates);
         
       } catch (error) {
         alert(`Error getting AI suggestions: ${error.message}`);
@@ -546,7 +559,7 @@
       }
     }
 
-    async function showSuggestionComparison(field, current, suggestions) {
+    async function showSuggestionComparison(field, current, suggestions, validatedContent = null, allCandidates = null) {
       suggestionField.textContent = field;
       
       // Display current selector
@@ -570,35 +583,48 @@
         <div style="font-size:10px; color:#666; margin-top:2px;">Attribute: ${getDefaultAttr(field)}</div>
       `;
       
-      // Show panel and start testing
+      // Show panel and test current selectors
       suggestionPanel.style.display = 'block';
       currentPreview.innerHTML = 'Testing...';
-      aiPreview.innerHTML = 'Testing...';
       
-      // Test both current and AI selectors
+      // Test current selectors only (AI selectors are already validated)
       const currentSelectors = (current && current.selectors) ? 
         (Array.isArray(current.selectors) ? current.selectors : [current.selectors]) : null;
       const currentAttr = (current && current.attr) || getDefaultAttr(field);
-      const aiAttr = getDefaultAttr(field);
       
       try {
-        const [currentValue, aiValue] = await Promise.all([
-          testExtractInProduct(field, currentSelectors, currentAttr),
-          testExtractInProduct(field, suggestions, aiAttr)
-        ]);
+        // Test current selector
+        const currentValue = currentSelectors ? 
+          await testExtractInProduct(field, currentSelectors, currentAttr) : null;
         
         renderPreview(currentPreview, field, currentValue);
-        renderPreview(aiPreview, field, aiValue);
         
-        // Only enable "Use AI Suggestion" if it actually finds content
-        const hasContent = Array.isArray(aiValue) ? aiValue.length > 0 : (aiValue && String(aiValue).trim());
-        useSuggestionBtn.disabled = !hasContent;
+        // Show AI validated content (already tested and validated)
+        if (validatedContent) {
+          renderPreview(aiPreview, field, validatedContent);
+          useSuggestionBtn.disabled = false;
+          
+          // Show additional info about validation
+          if (allCandidates && allCandidates.length > 1) {
+            const validatedCount = allCandidates.filter(c => c.validated).length;
+            const testedCount = allCandidates.length;
+            aiPreview.innerHTML += `<div style="font-size:10px; color:#666; margin-top:4px;">✅ Validated (${validatedCount}/${testedCount} candidates tested)</div>`;
+          }
+        } else {
+          aiPreview.innerHTML = '<span style="color:#999;">Testing...</span>';
+          // Fallback to manual testing if no validated content provided
+          const aiValue = await testExtractInProduct(field, suggestions, getDefaultAttr(field));
+          renderPreview(aiPreview, field, aiValue);
+          const hasContent = Array.isArray(aiValue) ? aiValue.length > 0 : (aiValue && String(aiValue).trim());
+          useSuggestionBtn.disabled = !hasContent;
+        }
         
         // Store suggestion data
         currentSuggestionData = {
           field: field,
           selectors: suggestions,
-          attr: aiAttr
+          attr: getDefaultAttr(field),
+          validatedContent: validatedContent
         };
         
       } catch (error) {
