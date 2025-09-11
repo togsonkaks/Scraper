@@ -363,11 +363,15 @@
     // CDN patterns with image processing params
     if (/\b(quality|max|w|h|width|height|resize|scale|crop)=[0-9]/i.test(u)) return true;
     
-    // Known image CDNs
-    if (/\b(mozu\.com|shopify\.com|cloudinary\.com|imgix\.net|fastly\.com|amazonaws\.com\/.*\/(images?|media|assets)|cloudfront\.net)\b/i.test(u)) return true;
+    // ASOS and similar CDN optimization patterns
+    if (/\?\$[a-z0-9_-]+/i.test(u)) return true; // ASOS: ?$n_640w, ?$
+    if (/[?&]\$[a-z0-9_-]*/i.test(u)) return true; // ASOS variations
     
-    // Image-related paths
-    if (/\/(images?|media|assets|photos?|pics?|gallery)\//i.test(u)) return true;
+    // Known image CDNs (expanded)
+    if (/\b(mozu\.com|shopify\.com|cloudinary\.com|imgix\.net|fastly\.com|amazonaws\.com\/.*\/(images?|media|assets)|cloudfront\.net|asos-media\.com|scene7\.com)\b/i.test(u)) return true;
+    
+    // Image-related paths (expanded)
+    if (/\/(images?|media|assets|photos?|pics?|gallery|products)\//i.test(u)) return true;
     
     return false;
   }
