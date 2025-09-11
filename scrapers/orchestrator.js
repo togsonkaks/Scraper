@@ -37,6 +37,34 @@
     }
   };
   
+  const addImageDebugLog = (level, message, imageUrl, score, kept) => {
+    if (typeof window !== 'undefined' && window.__tg_debugLog) {
+      window.__tg_debugLog.push({
+        timestamp: new Date().toLocaleTimeString(),
+        level,
+        message,
+        imageUrl,
+        score,
+        kept,
+        isImage: true
+      });
+    }
+  };
+  
+  const addPriceDebugLog = (level, message, price, method, kept) => {
+    if (typeof window !== 'undefined' && window.__tg_debugLog) {
+      window.__tg_debugLog.push({
+        timestamp: new Date().toLocaleTimeString(),
+        level,
+        message,
+        price,
+        method,
+        kept,
+        isPrice: true
+      });
+    }
+  };
+  
   const log = (...a) => { 
     if (DEBUG) {
       try { 
@@ -325,10 +353,65 @@
   function looksLikeImageURL(u) {
     if (!u) return false;
     if (/^data:/i.test(u)) return false;
+    
+    // Traditional file extensions
     if (IMG_EXT.test(u)) return true;
+    
+    // Format parameters
     if (/\b(format|fm)=(jpg|jpeg|png|webp|gif|avif)\b/i.test(u)) return true;
+    
+    // CDN patterns with image processing params
+    if (/\b(quality|max|w|h|width|height|resize|scale|crop)=[0-9]/i.test(u)) return true;
+    
+    // Known image CDNs
+    if (/\b(mozu\.com|shopify\.com|cloudinary\.com|imgix\.net|fastly\.com|amazonaws\.com\/.*\/(images?|media|assets)|cloudfront\.net)\b/i.test(u)) return true;
+    
+    // Image-related paths
+    if (/\/(images?|media|assets|photos?|pics?|gallery)\//i.test(u)) return true;
+    
     return false;
   }
+  
+  // Image quality scoring function
+  function scoreImageURL(url) {
+    if (!url) return 0;
+    let score = 50; // Base score
+    
+    // Size bonuses (prefer larger images)
+    const sizeMatch = url.match(/(?:max|w|width)=([0-9]+)/i);
+    if (sizeMatch) {
+      const size = parseInt(sizeMatch[1]);
+      if (size >= 1200) score += 40;
+      else if (size >= 800) score += 30;
+      else if (size >= 600) score += 20;
+      else if (size >= 400) score += 10;
+      else if (size < 200) score -= 30; // Penalty for tiny images
+    }
+    
+    // Quality bonuses
+    const qualityMatch = url.match(/quality=([0-9]+)/i);
+    if (qualityMatch) {
+      const quality = parseInt(qualityMatch[1]);
+      if (quality >= 90) score += 20;
+      else if (quality >= 80) score += 15;
+      else if (quality >= 70) score += 10;
+      else if (quality < 50) score -= 10;
+    }
+    
+    // Format bonuses
+    if (/\.(webp|avif)($|\?)/i.test(url)) score += 10;
+    if (/format=(webp|avif)/i.test(url)) score += 10;
+    
+    // CDN bonuses (usually better quality)
+    if (/\b(mozu\.com|cloudinary\.com|imgix\.net)/i.test(url)) score += 15;
+    
+    // Path context bonuses
+    if (/\/(product|main|hero|detail)/i.test(url)) score += 15;
+    if (/\/(thumb|small|mini)/i.test(url)) score -= 20;
+    
+    return Math.max(0, score);
+  }
+  
   const pickFromSrcset = (srcset) => {
     if (!srcset) return null;
     const parts = srcset.split(',').map(s => s.trim());
@@ -362,13 +445,16 @@
       const abs = toAbs(u);
       
       if (!looksLikeImageURL(abs)) {
-        debug('❌ NOT IMAGE URL:', abs.slice(0, 100));
+        addImageDebugLog('debug', `❌ NOT IMAGE URL: ${abs.slice(0, 100)}`, abs, 0, false);
         filtered.invalid++;
         continue;
       }
       
+      const score = scoreImageURL(abs);
+      addImageDebugLog('debug', `✅ VALID IMAGE (score: ${score}): ${abs.slice(0, 100)}`, abs, score, true);
+      
       if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) {
-        debug('🗑️ JUNK IMAGE FILTERED:', abs.slice(0, 100));
+        addImageDebugLog('debug', `🗑️ JUNK IMAGE FILTERED (score: ${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.junk++;
         continue;
       }

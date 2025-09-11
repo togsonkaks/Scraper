@@ -135,6 +135,80 @@
     <button onclick="clearDebugOutput()" style="margin-top:5px;">Clear Debug</button>
   </div>
 
+  <!-- Image Preview Modal -->
+  <div id="imageModal" class="debug-image-modal" onclick="hideImageModal()">
+    <img id="modalImage" src="" alt="Full Size Preview">
+  </div>
+
+  <style>
+    .debug-image-preview {
+      display: inline-block;
+      margin: 2px 5px 2px 0;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+    }
+    
+    .debug-image-preview.kept {
+      border-color: #28a745;
+    }
+    
+    .debug-image-preview.rejected {
+      border-color: #dc3545;
+    }
+    
+    .debug-image-preview img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .debug-image-preview .score {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #007bff;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .debug-image-preview.rejected .score {
+      background: #dc3545;
+    }
+    
+    .debug-image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      cursor: pointer;
+    }
+    
+    .debug-image-modal img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      max-height: 90%;
+      border: 2px solid white;
+    }
+  </style>
+
   <div id="panel" class="grid" style="display:none; margin-top:12px;">
     <div class="box">
       <div class="label">Scrape Result</div>
@@ -356,7 +430,20 @@
         if (result && result.__debugLog && Array.isArray(result.__debugLog)) {
           result.__debugLog.forEach(entry => {
             const colors = { info: 'info', warning: 'warning', error: 'error', debug: 'debug' };
-            addDebugOutput(`[${entry.timestamp}] ${entry.message}`, colors[entry.level] || 'info');
+            
+            if (entry.isImage && entry.imageUrl) {
+              // Use visual image preview for image debug entries
+              addDebugOutputWithImage(
+                entry.message, 
+                colors[entry.level] || 'info', 
+                entry.imageUrl, 
+                entry.score, 
+                entry.kept
+              );
+            } else {
+              // Regular text debug output
+              addDebugOutput(entry.message, colors[entry.level] || 'info');
+            }
           });
           addDebugOutput('✅ Debug trace complete', 'success');
         }
@@ -707,9 +794,76 @@
       document.getElementById('debugOutput').innerHTML = '';
     }
     
+    // Enhanced debug output with image preview
+    function addDebugOutputWithImage(message, type = 'info', imageUrl = null, score = null, kept = true) {
+      const output = document.getElementById('debugOutput');
+      const timestamp = new Date().toLocaleTimeString();
+      const colors = {
+        info: '#333',
+        success: '#28a745', 
+        warning: '#ffc107',
+        error: '#dc3545',
+        debug: '#6c757d'
+      };
+      
+      const div = document.createElement('div');
+      div.style.color = colors[type] || colors.info;
+      div.style.marginBottom = '5px';
+      div.style.display = 'flex';
+      div.style.alignItems = 'center';
+      
+      const textSpan = document.createElement('span');
+      textSpan.textContent = `[${timestamp}] ${message}`;
+      div.appendChild(textSpan);
+      
+      if (imageUrl) {
+        const previewDiv = document.createElement('div');
+        previewDiv.className = `debug-image-preview ${kept ? 'kept' : 'rejected'}`;
+        previewDiv.onclick = () => showImageModal(imageUrl);
+        
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.onerror = () => {
+          img.style.display = 'none';
+          const errorSpan = document.createElement('span');
+          errorSpan.textContent = ' [IMG ERROR]';
+          errorSpan.style.color = '#dc3545';
+          previewDiv.appendChild(errorSpan);
+        };
+        previewDiv.appendChild(img);
+        
+        if (score !== null) {
+          const scoreDiv = document.createElement('div');
+          scoreDiv.className = 'score';
+          scoreDiv.textContent = score;
+          previewDiv.appendChild(scoreDiv);
+        }
+        
+        div.appendChild(previewDiv);
+      }
+      
+      output.appendChild(div);
+      output.scrollTop = output.scrollHeight;
+    }
+    
+    // Image modal functions
+    function showImageModal(imageUrl) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modalImg.src = imageUrl;
+      modal.style.display = 'block';
+    }
+    
+    function hideImageModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+    
     // Make debug functions globally accessible
     window.showDebugPanel = showDebugPanel;
     window.addDebugOutput = addDebugOutput;
+    window.addDebugOutputWithImage = addDebugOutputWithImage;
+    window.showImageModal = showImageModal;
+    window.hideImageModal = hideImageModal;
     window.clearDebugOutput = clearDebugOutput;
     
     // Initialize with disabled state
