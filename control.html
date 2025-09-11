@@ -667,10 +667,11 @@
         let resultMsg = '';
         let foundSuggestions = 0;
         let tokensSaved = 0;
+        let results = null;  // Declare results outside the if statement
         
         if (response.ok && response.results) {
           // Handle batch response format
-          const results = response.results;
+          results = response.results;
           const optimization = response.optimization || {};
           
           tokensSaved = optimization.tokensSaved || 0;
