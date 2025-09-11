@@ -271,9 +271,28 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
 ipcMain.handle('llm-propose', async (_e, payload) => {
   try {
     const { proposeSelectors } = require(path.join(__dirname, 'scrapers', 'llm_agent'));
-    const selectors = await proposeSelectors(payload || {});
-    return { ok: true, selectors };
-  } catch (e) { return { ok:false, error: String(e) }; }
+    
+    // Create eval function that can test selectors in the product window
+    const evalFunction = async (code) => {
+      const win = ensureProduct();
+      return await win.webContents.executeJavaScript(code, true);
+    };
+    
+    // Use the new intelligent validation system
+    const result = await proposeSelectors({
+      ...(payload || {}),
+      evalFunction
+    });
+    
+    // Handle new response format
+    if (result && typeof result === 'object' && result.hasOwnProperty('ok')) {
+      return result; // New format with validation results
+    } else {
+      return { ok: true, selectors: result }; // Backwards compatibility for array response
+    }
+  } catch (e) { 
+    return { ok: false, error: String(e) }; 
+  }
 });
 
 /* ========= Compare window ========= */
