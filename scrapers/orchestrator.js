@@ -541,11 +541,18 @@
       return 8000; // ~8KB for tiny
     }
     
-    // Default estimates based on file type and CDN
-    if (/\.(jpg|jpeg)($|\?)/i.test(url)) return 60000;  // ~60KB default JPG
-    if (/\.(png)($|\?)/i.test(url)) return 80000;       // ~80KB default PNG
-    if (/\.(webp)($|\?)/i.test(url)) return 40000;      // ~40KB default WebP
-    if (/\.(gif)($|\?)/i.test(url)) return 20000;       // ~20KB default GIF
+    // CDN-specific estimates (known to serve larger images)
+    if (/(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary)\.com/i.test(url)) {
+      if (/\.(jpg|jpeg)($|\?)/i.test(url)) return 150000; // ~150KB for CDN JPG (covers 140KB+ cases)
+      if (/\.(png)($|\?)/i.test(url)) return 180000;      // ~180KB for CDN PNG  
+      if (/\.(webp)($|\?)/i.test(url)) return 100000;     // ~100KB for CDN WebP
+    }
+    
+    // Default estimates based on file type
+    if (/\.(jpg|jpeg)($|\?)/i.test(url)) return 80000;   // ~80KB default JPG (increased)
+    if (/\.(png)($|\?)/i.test(url)) return 100000;       // ~100KB default PNG (increased)
+    if (/\.(webp)($|\?)/i.test(url)) return 50000;       // ~50KB default WebP (increased)
+    if (/\.(gif)($|\?)/i.test(url)) return 20000;        // ~20KB default GIF
     
     return 50000; // ~50KB default
   }

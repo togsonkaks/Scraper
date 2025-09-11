@@ -282,6 +282,25 @@
   <div id="out" title="Only image URLs appear here"></div>
 
   <script>
+    // Copy image URL to clipboard with visual feedback
+    function copyImageURL(url, element) {
+      navigator.clipboard.writeText(url).then(() => {
+        const originalText = element.textContent;
+        const originalBg = element.style.backgroundColor;
+        element.style.backgroundColor = '#4CAF50';
+        element.style.color = 'white';
+        element.textContent = '✅ Copied!';
+        
+        setTimeout(() => {
+          element.style.backgroundColor = originalBg;
+          element.style.color = '';
+          element.textContent = originalText;
+        }, 1500);
+      }).catch(err => {
+        alert('Failed to copy URL: ' + err.message);
+      });
+    }
+    
     const urlInput = document.getElementById('urlInput');
     const visitBtn = document.getElementById('visitBtn');
     const memoryBtn = document.getElementById('memoryBtn');
@@ -404,7 +423,16 @@
           <div><b>URL:</b> ${result?.url || ''}</div>
           <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
         images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
-        out.textContent = imgs.join('\\n');
+        // Enhanced URL display with click-to-copy functionality
+        out.innerHTML = imgs.map((url, index) => 
+          `<div class="image-url-item" style="display: flex; align-items: center; padding: 4px 0; border-bottom: 1px solid #eee; background: ${index % 2 === 0 ? '#f9f9f9' : 'white'};">
+            <span style="flex: 1; font-family: monospace; font-size: 11px; word-break: break-all; cursor: pointer; padding: 4px;" 
+                  onclick="copyImageURL('${url.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', this)" 
+                  title="Click to copy full URL\\n${url}">📋 ${url}</span>
+            <button style="margin-left: 8px; padding: 4px 8px; font-size: 10px; cursor: pointer; border: 1px solid #ddd; border-radius: 3px; background: #f5f5f5;" 
+                    onclick="copyImageURL('${url.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', this)">Copy</button>
+          </div>`
+        ).join('');
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
@@ -455,7 +483,16 @@
           <div><b>URL:</b> ${result?.url || ''}</div>
           <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
         images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
-        out.textContent = imgs.join('\\n');
+        // Enhanced URL display with click-to-copy functionality
+        out.innerHTML = imgs.map((url, index) => 
+          `<div class="image-url-item" style="display: flex; align-items: center; padding: 4px 0; border-bottom: 1px solid #eee; background: ${index % 2 === 0 ? '#f9f9f9' : 'white'};">
+            <span style="flex: 1; font-family: monospace; font-size: 11px; word-break: break-all; cursor: pointer; padding: 4px;" 
+                  onclick="copyImageURL('${url.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', this)" 
+                  title="Click to copy full URL\\n${url}">📋 ${url}</span>
+            <button style="margin-left: 8px; padding: 4px 8px; font-size: 10px; cursor: pointer; border: 1px solid #ddd; border-radius: 3px; background: #f5f5f5;" 
+                    onclick="copyImageURL('${url.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', this)">Copy</button>
+          </div>`
+        ).join('');
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
