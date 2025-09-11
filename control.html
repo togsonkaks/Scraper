@@ -39,6 +39,27 @@
       padding:8px; border-radius:4px; 
     }
     .close-overlay:hover { background:rgba(255,255,255,0.2); }
+    .ai-suggest-btn {
+      margin-left: 4px; padding: 2px 6px; font-size: 10px; 
+      background: #4CAF50; color: white; border: none; border-radius: 3px; 
+      cursor: pointer; vertical-align: middle;
+    }
+    .ai-suggest-btn:hover { background: #45a049; }
+    .ai-suggest-btn:disabled { background: #ccc; cursor: not-allowed; }
+    .suggestion-panel {
+      margin-top: 8px; padding: 8px; background: #e8f5e8; 
+      border-radius: 4px; border-left: 4px solid #4CAF50; display: none;
+    }
+    .suggestion-comparison {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;
+    }
+    .suggestion-box {
+      padding: 6px; background: white; border-radius: 3px; font-size: 11px;
+    }
+    .use-suggestion-btn {
+      margin-top: 6px; padding: 4px 8px; background: #4CAF50; 
+      color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;
+    }
   </style>
 </head>
 <body>
@@ -72,17 +93,44 @@
       <div class="label">Selector Memory (approve to save)</div>
       <div>
         <label><input type="checkbox" id="okTitle"> Title OK</label>
+        <button class="ai-suggest-btn" data-field="title">🤖 AI</button>
         <label style="margin-left:12px;"><input type="checkbox" id="okPrice"> Price OK</label>
+        <button class="ai-suggest-btn" data-field="price">🤖 AI</button>
         <label style="margin-left:12px;"><input type="checkbox" id="okImages"> Images OK</label>
+        <button class="ai-suggest-btn" data-field="images">🤖 AI</button>
         <br>
         <label><input type="checkbox" id="okBrand"> Brand OK</label>
+        <button class="ai-suggest-btn" data-field="brand">🤖 AI</button>
         <label style="margin-left:12px;"><input type="checkbox" id="okTags"> Tags OK</label>
+        <button class="ai-suggest-btn" data-field="tags">🤖 AI</button>
         <label style="margin-left:12px;"><input type="checkbox" id="okDesc"> Description OK</label>
+        <button class="ai-suggest-btn" data-field="description">🤖 AI</button>
       </div>
       <div id="memDebug" style="margin-top:8px; font-size:12px; opacity:.8;"></div>
       <div style="margin-top:8px;">
         <button id="saveMemBtn">Save selectors for this host</button>
         <button id="clearMemBtn" style="background:#b22;">Clear memory (host)</button>
+      </div>
+      
+      <!-- AI Suggestion Panel -->
+      <div id="suggestionPanel" class="suggestion-panel">
+        <div style="font-weight: bold; margin-bottom: 6px; color: #333; font-size: 12px;">
+          🤖 AI Selector Suggestion for <span id="suggestionField"></span>:
+        </div>
+        <div class="suggestion-comparison">
+          <div class="suggestion-box">
+            <div style="font-weight: bold; color: #666; margin-bottom: 4px;">Current:</div>
+            <div id="currentSelector"></div>
+          </div>
+          <div class="suggestion-box">
+            <div style="font-weight: bold; color: #4CAF50; margin-bottom: 4px;">AI Suggestion:</div>
+            <div id="aiSuggestion"></div>
+          </div>
+        </div>
+        <div style="margin-top: 8px;">
+          <button id="useSuggestionBtn" class="use-suggestion-btn">✅ Use AI Suggestion</button>
+          <button id="dismissSuggestionBtn" style="margin-left: 8px; padding: 4px 8px; background: #ccc; color: #333; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">❌ Keep Current</button>
+        </div>
       </div>
     </div>
   </div>
@@ -343,6 +391,162 @@
         }
       } catch {}
     }
+
+    // AI Suggestion workflow
+    const suggestionPanel = document.getElementById('suggestionPanel');
+    const suggestionField = document.getElementById('suggestionField');
+    const currentSelector = document.getElementById('currentSelector');
+    const aiSuggestion = document.getElementById('aiSuggestion');
+    const useSuggestionBtn = document.getElementById('useSuggestionBtn');
+    const dismissSuggestionBtn = document.getElementById('dismissSuggestionBtn');
+    
+    let currentSuggestionData = null;
+
+    // Add event listeners to all AI suggestion buttons
+    document.querySelectorAll('.ai-suggest-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const field = btn.getAttribute('data-field');
+        await handleAISuggestion(field, btn);
+      });
+    });
+
+    async function handleAISuggestion(field, button) {
+      if (!currentHost) {
+        alert('Please load a page first');
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = '🤖 ...';
+      
+      try {
+        // Get current page HTML for LLM analysis
+        const html = await window.api.evalInProduct('document.documentElement.outerHTML');
+        const url = urlInput.value.trim();
+        
+        // Get AI suggestions
+        const response = await window.api.llmPropose({
+          html: html,
+          label: field,
+          url: url
+        });
+
+        // Handle different response formats
+        let selectors = null;
+        if (response.ok && response.selectors) {
+          selectors = Array.isArray(response.selectors) ? response.selectors : [response.selectors];
+        } else if (response.result && response.result.selectors) {
+          selectors = Array.isArray(response.result.selectors) ? response.result.selectors : [response.result.selectors];
+        }
+        
+        if (!selectors || selectors.length === 0) {
+          alert(`AI couldn't find good selectors for ${field}. Error: ${response.error || 'No suggestions'}`);
+          return;
+        }
+
+        // Get current saved selector if any
+        const memory = await window.api.getSelectorMemory(currentHost);
+        const currentSelectorData = memory && memory[field] ? memory[field] : null;
+
+        // Show suggestion panel
+        await showSuggestionComparison(field, currentSelectorData, selectors);
+        
+      } catch (error) {
+        alert(`Error getting AI suggestions: ${error.message}`);
+      } finally {
+        button.disabled = false;
+        button.textContent = '🤖 AI';
+      }
+    }
+
+    async function showSuggestionComparison(field, current, suggestions) {
+      suggestionField.textContent = field;
+      
+      // Display current selector
+      if (current && current.selectors) {
+        const currentSelectors = Array.isArray(current.selectors) ? current.selectors : [current.selectors];
+        currentSelector.innerHTML = `
+          <code style="background:#f5f5f5; padding:2px 4px; border-radius:2px; font-size:10px;">
+            ${currentSelectors.join(', ')}
+          </code>
+          <div style="font-size:10px; color:#666; margin-top:2px;">Attribute: ${current.attr || 'text'}</div>
+        `;
+      } else {
+        currentSelector.innerHTML = '<div style="color:#999; font-style:italic;">None saved</div>';
+      }
+      
+      // Display AI suggestions
+      aiSuggestion.innerHTML = `
+        <code style="background:#e8f5e8; padding:2px 4px; border-radius:2px; font-size:10px;">
+          ${suggestions.join(', ')}
+        </code>
+        <div style="font-size:10px; color:#666; margin-top:2px;">Attribute: ${getDefaultAttr(field)}</div>
+      `;
+      
+      // Store suggestion data
+      currentSuggestionData = {
+        field: field,
+        selectors: suggestions,
+        attr: getDefaultAttr(field)
+      };
+      
+      // Show panel
+      suggestionPanel.style.display = 'block';
+    }
+
+    function getDefaultAttr(field) {
+      if (field === 'images') return 'src';
+      // Most elements use visible text, not meta content
+      return 'text';
+    }
+
+    // Handle "Use AI Suggestion" button
+    useSuggestionBtn.onclick = async () => {
+      if (!currentSuggestionData || !currentHost) return;
+      
+      try {
+        // Save the AI suggestion as the new selector
+        const dataToSave = {
+          [currentSuggestionData.field]: {
+            selectors: currentSuggestionData.selectors,
+            attr: currentSuggestionData.attr
+          }
+        };
+        
+        await window.api.setSelectorMemory(currentHost, dataToSave, `AI suggestion for ${currentSuggestionData.field}`);
+        
+        // Update UI
+        memDebug.innerHTML = `<div style="color:#4CAF50;">✅ Saved AI suggestion for ${currentSuggestionData.field}</div>`;
+        
+        // Check the corresponding checkbox
+        const checkboxMap = {
+          'title': 'okTitle',
+          'price': 'okPrice', 
+          'images': 'okImages',
+          'brand': 'okBrand',
+          'tags': 'okTags',
+          'description': 'okDesc'  // Special case - different from field name
+        };
+        const checkbox = document.getElementById(checkboxMap[currentSuggestionData.field]);
+        if (checkbox) checkbox.checked = true;
+        
+        // Hide suggestion panel
+        suggestionPanel.style.display = 'none';
+        currentSuggestionData = null;
+        
+        // Auto-validate to show the new selector working
+        await autoValidateIfNeeded();
+        
+      } catch (error) {
+        alert(`Error saving AI suggestion: ${error.message}`);
+      }
+    };
+
+    // Handle "Keep Current" button
+    dismissSuggestionBtn.onclick = () => {
+      suggestionPanel.style.display = 'none';
+      currentSuggestionData = null;
+    };
 
     // Image overlay
     function openImageOverlay(imageUrl) {
