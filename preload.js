@@ -28,6 +28,11 @@ contextBridge.exposeInMainWorld('api', {
   validateSelectors: (host) => call('validate-selectors', host),
   clearSpecificSelectors: (host, fields) => call('memory-clear-fields', { host, fields }),
 
+  // ---- LLM Cache management
+  checkLLMCache: (url) => call('llm-cache-check', url),
+  getLLMCache: (url) => call('llm-cache-get', url),
+  deleteLLMCache: (url) => call('llm-cache-delete', url),
+
   // ---- Right-click Inspect
   inspectAt: (x, y) => call('inspect-at', { x, y })
 });

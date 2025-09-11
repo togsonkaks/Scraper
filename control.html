@@ -260,6 +260,7 @@
     visitBtn.onclick = async () => {
       const url = urlInput.value.trim();
       if (!url) return;
+      currentUrl = url; // Track current URL for cache
       currentHost = hostFrom(url);
       panel.style.display = 'none';
       out.textContent = '';
@@ -267,6 +268,9 @@
       summary.innerHTML = '';
       statusEl.innerHTML = `<span class="pill">Loading ${currentHost}</span>`;
       await window.api.openProduct(url);
+      
+      // Check for LLM cache after URL loads
+      await checkLLMCache();
 
       // poll readiness and enable Save once likely hydrated
       setSaveState(true, 'Waiting for page…');
@@ -537,9 +541,7 @@
         element.innerHTML = value.map((url, index) => 
           `<img referrerpolicy="no-referrer" src="${url}" 
            style="height:30px; width:auto; margin:2px; border:1px solid #ddd; border-radius:2px; vertical-align:top; cursor:pointer;" 
-           class="validation-image-thumb"
-           data-gallery-id="${galleryId}"
-           data-image-index="${index}"
+           onclick="openImageGallery(imageGalleries['${galleryId}'], ${index})"
            title="Click to enlarge (${index + 1}/${value.length})" 
            onerror="this.style.display='none'">`
         ).join('');
@@ -553,6 +555,9 @@
 
     // AI cache state tracking
     let aiCacheReady = false;
+    let llmCacheExists = false;
+    let cachedLLMResults = null;
+    let currentUrl = '';
     
     function updateAICacheStatus(ready) {
       aiCacheReady = ready;
@@ -569,6 +574,84 @@
         aiButtons.forEach(btn => btn.disabled = true);
       }
     }
+    
+    // Check for persistent LLM cache when URL changes
+    async function checkLLMCache() {
+      if (!currentUrl) return;
+      
+      try {
+        llmCacheExists = await window.api.checkLLMCache(currentUrl);
+        cachedLLMResults = llmCacheExists ? await window.api.getLLMCache(currentUrl) : null;
+        
+        if (llmCacheExists && cachedLLMResults) {
+          console.log('LLM cache found for:', currentUrl);
+          updateAICacheStatus(true);
+          showLLMCacheWarning();
+        } else {
+          updateAICacheStatus(false);
+          hideLLMCacheWarning();
+        }
+      } catch (e) {
+        console.error('Error checking LLM cache:', e);
+        llmCacheExists = false;
+        cachedLLMResults = null;
+        updateAICacheStatus(false);
+      }
+    }
+    
+    function showLLMCacheWarning() {
+      let warning = document.getElementById('llm-cache-warning');
+      if (!warning) {
+        warning = document.createElement('div');
+        warning.id = 'llm-cache-warning';
+        warning.style.cssText = `
+          background: #fff3cd;
+          border: 1px solid #ffeaa7;
+          border-radius: 4px;
+          padding: 8px 12px;
+          margin: 8px 0;
+          font-size: 13px;
+          color: #856404;
+        `;
+        
+        const cacheTime = cachedLLMResults ? new Date(cachedLLMResults.timestamp).toLocaleString() : 'Unknown';
+        warning.innerHTML = `
+          ⚠️ <strong>LLM cache found</strong> - Using cached AI results from ${cacheTime}
+          <button onclick="clearLLMCache()" style="margin-left:10px; padding:2px 6px; font-size:11px;">Clear Cache</button>
+        `;
+        
+        // Insert after URL input row
+        const urlInput = document.getElementById('urlInput');
+        if (urlInput && urlInput.parentNode) {
+          const row = urlInput.parentNode;
+          row.parentNode.insertBefore(warning, row.nextSibling);
+        }
+      }
+      warning.style.display = 'block';
+    }
+    
+    function hideLLMCacheWarning() {
+      const warning = document.getElementById('llm-cache-warning');
+      if (warning) {
+        warning.style.display = 'none';
+      }
+    }
+    
+    async function clearLLMCache() {
+      if (!currentUrl) return;
+      
+      try {
+        await window.api.deleteLLMCache(currentUrl);
+        llmCacheExists = false;
+        cachedLLMResults = null;
+        updateAICacheStatus(false);
+        hideLLMCacheWarning();
+        console.log('LLM cache cleared for:', currentUrl);
+      } catch (e) {
+        console.error('Error clearing LLM cache:', e);
+      }
+    }
+    window.clearLLMCache = clearLLMCache; // Make globally accessible for onclick handlers
     
     // Initialize with disabled state
     updateAICacheStatus(false);
@@ -603,12 +686,24 @@
       
       try {
         const url = urlInput.value.trim();
+        let response;
         
-        // Use optimized single field request (HTML fetching handled internally)
-        const response = await window.api.llmPropose({
-          url: url,
-          label: field
-        });
+        // Check if we have cached results first
+        if (llmCacheExists && cachedLLMResults && cachedLLMResults.results) {
+          const fieldResult = cachedLLMResults.results[field];
+          if (fieldResult && fieldResult.ok) {
+            console.log(`Using cached result for ${field}`);
+            response = fieldResult; // Use cached result directly
+          }
+        }
+        
+        // If no cached result, make new API call
+        if (!response) {
+          response = await window.api.llmPropose({
+            url: url,
+            label: field
+          });
+        }
 
         // Handle new intelligent validation response format
         let selectors = null;
@@ -682,12 +777,19 @@
           results = response.results;
           const optimization = response.optimization || {};
           
-          tokensSaved = optimization.tokensSaved || 0;
-          const fieldsSkipped = optimization.fieldsSkipped || 0;
-          
-          resultMsg = `🎯 Optimization: ${Math.round(tokensSaved/1000)}K tokens saved`;
-          if (fieldsSkipped > 0) {
-            resultMsg += `, ${fieldsSkipped} fields found via heuristics`;
+          // Check if this is from cache
+          if (response.fromCache) {
+            const cacheTime = new Date(response.cacheTimestamp).toLocaleString();
+            resultMsg = `📄 Using cached AI results from ${cacheTime}`;
+            tokensSaved = 0; // No tokens used when using cache
+          } else {
+            tokensSaved = optimization.tokensSaved || 0;
+            const fieldsSkipped = optimization.fieldsSkipped || 0;
+            
+            resultMsg = `🎯 Optimization: ${Math.round(tokensSaved/1000)}K tokens saved`;
+            if (fieldsSkipped > 0) {
+              resultMsg += `, ${fieldsSkipped} fields found via heuristics`;
+            }
           }
           
           // Process each field result
@@ -919,6 +1021,7 @@
     let currentImageGallery = [];
     let currentImageIndex = 0;
     let imageGalleries = {}; // Store galleries by ID to avoid JSON in attributes
+    window.imageGalleries = imageGalleries; // Make globally accessible for onclick handlers
     
     function openImageOverlay(imageUrl) {
       const overlay = document.getElementById('imageOverlay');
@@ -933,6 +1036,7 @@
       showCurrentImage();
       document.getElementById('imageOverlay').classList.add('show');
     }
+    window.openImageGallery = openImageGallery; // Make globally accessible for onclick handlers
     
     function showCurrentImage() {
       if (currentImageGallery.length === 0) return;

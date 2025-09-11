@@ -6,6 +6,8 @@ const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
 
 // File-based selector storage helpers
 const SELECTORS_DIR = path.join(app.getPath('userData'), 'selectors');
+const LLM_CACHE_DIR = path.join(app.getPath('userData'), 'llm_cache');
+const crypto = require('crypto');
 
 function sanitizeHostname(host) {
   return host.replace(/[^a-zA-Z0-9.-]/g, '_');
@@ -57,6 +59,90 @@ function deleteSelectorFile(host) {
     return true;
   } catch (e) {
     console.error('Error deleting selector file:', e);
+    return false;
+  }
+}
+
+// LLM Cache storage helpers
+function createUrlHash(url) {
+  // Create a hash of the URL for consistent file naming
+  return crypto.createHash('md5').update(url).digest('hex');
+}
+
+function getLLMCacheFilePath(url) {
+  const urlHash = createUrlHash(url);
+  const host = new URL(url).hostname;
+  const sanitizedHost = sanitizeHostname(host);
+  return path.join(LLM_CACHE_DIR, `${sanitizedHost}_${urlHash}.json`);
+}
+
+function readLLMCache(url) {
+  try {
+    const filePath = getLLMCacheFilePath(url);
+    if (!fs.existsSync(filePath)) return null;
+    const data = fs.readFileSync(filePath, 'utf8');
+    const cached = JSON.parse(data);
+    
+    // Check if cache is not too old (e.g., 7 days)
+    const cacheAge = Date.now() - new Date(cached.timestamp).getTime();
+    const maxAge = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+    
+    if (cacheAge > maxAge) {
+      // Cache is too old, delete it
+      fs.unlinkSync(filePath);
+      return null;
+    }
+    
+    return cached;
+  } catch (e) {
+    console.error('Error reading LLM cache file:', e);
+    return null;
+  }
+}
+
+function writeLLMCache(url, results, optimization = {}) {
+  try {
+    // Ensure directory exists
+    if (!fs.existsSync(LLM_CACHE_DIR)) {
+      fs.mkdirSync(LLM_CACHE_DIR, { recursive: true });
+    }
+    
+    const filePath = getLLMCacheFilePath(url);
+    const cacheData = {
+      url,
+      timestamp: new Date().toISOString(),
+      results,
+      optimization,
+      host: new URL(url).hostname
+    };
+    
+    fs.writeFileSync(filePath, JSON.stringify(cacheData, null, 2));
+    console.log('LLM cache saved for:', url);
+    return true;
+  } catch (e) {
+    console.error('Error writing LLM cache file:', e);
+    return false;
+  }
+}
+
+function checkLLMCacheExists(url) {
+  try {
+    const cached = readLLMCache(url);
+    return cached !== null;
+  } catch (e) {
+    return false;
+  }
+}
+
+function deleteLLMCache(url) {
+  try {
+    const filePath = getLLMCacheFilePath(url);
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
+    return true;
+  } catch (e) {
+    console.error('Error deleting LLM cache file:', e);
     return false;
   }
 }
@@ -271,6 +357,22 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
 ipcMain.handle('llm-propose', async (_e, payload) => {
   try {
     const { proposeSelectors } = require(path.join(__dirname, 'scrapers', 'llm_agent'));
+    const url = payload.url;
+    
+    // Check for cached results first
+    if (url && !payload.forceFresh) {
+      const cached = readLLMCache(url);
+      if (cached) {
+        console.log('Using cached LLM results for:', url);
+        return {
+          ok: true,
+          results: cached.results,
+          optimization: cached.optimization,
+          fromCache: true,
+          cacheTimestamp: cached.timestamp
+        };
+      }
+    }
     
     // Create eval function that can test selectors in the product window
     const evalFunction = async (code) => {
@@ -284,6 +386,11 @@ ipcMain.handle('llm-propose', async (_e, payload) => {
       evalFunction
     });
     
+    // Save results to cache if successful and URL provided
+    if (result && result.ok && url) {
+      writeLLMCache(url, result.results || result, result.optimization || {});
+    }
+    
     // Handle new response format
     if (result && typeof result === 'object' && result.hasOwnProperty('ok')) {
       return result; // New format with validation results
@@ -292,6 +399,31 @@ ipcMain.handle('llm-propose', async (_e, payload) => {
     }
   } catch (e) { 
     return { ok: false, error: String(e) }; 
+  }
+});
+
+// LLM Cache management IPC handlers
+ipcMain.handle('llm-cache-check', async (_e, url) => {
+  try {
+    return checkLLMCacheExists(url);
+  } catch (e) {
+    return false;
+  }
+});
+
+ipcMain.handle('llm-cache-get', async (_e, url) => {
+  try {
+    return readLLMCache(url);
+  } catch (e) {
+    return null;
+  }
+});
+
+ipcMain.handle('llm-cache-delete', async (_e, url) => {
+  try {
+    return deleteLLMCache(url);
+  } catch (e) {
+    return false;
   }
 });
 
