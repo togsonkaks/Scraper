@@ -70,6 +70,7 @@
     <button id="saveBtn" disabled>Save (scrape)</button>
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
+    <button id="batchAIBtn" title="Get AI suggestions for all fields at once (saves tokens)">🤖 Batch AI All</button>
   </div>
 
   <div id="status"></div>
@@ -496,6 +497,11 @@
         await handleAISuggestion(field, btn);
       });
     });
+    
+    // Add batch AI button functionality
+    document.getElementById('batchAIBtn')?.addEventListener('click', async () => {
+      await handleBatchAISuggestion();
+    });
 
     async function handleAISuggestion(field, button) {
       if (!currentHost) {
@@ -507,15 +513,12 @@
       button.textContent = '🤖 ...';
       
       try {
-        // Get current page HTML for LLM analysis
-        const html = await window.api.evalInProduct('document.documentElement.outerHTML');
         const url = urlInput.value.trim();
         
-        // Get AI suggestions
+        // Use optimized single field request (HTML fetching handled internally)
         const response = await window.api.llmPropose({
-          html: html,
-          label: field,
-          url: url
+          url: url,
+          label: field
         });
 
         // Handle new intelligent validation response format
@@ -556,6 +559,134 @@
       } finally {
         button.disabled = false;
         button.textContent = '🤖 AI';
+      }
+    }
+
+    async function handleBatchAISuggestion() {
+      if (!currentHost) {
+        alert('Please load a page first');
+        return;
+      }
+      
+      const batchBtn = document.getElementById('batchAIBtn');
+      const originalText = batchBtn.textContent;
+      batchBtn.textContent = '⏳ Processing...';
+      batchBtn.disabled = true;
+      
+      try {
+        const url = urlInput.value || 'unknown';
+        const allFields = ['title', 'price', 'images', 'brand', 'tags', 'description'];
+        
+        // Use the new batch API
+        const response = await window.api.llmPropose({
+          url: url,
+          fields: allFields // Multi-field batch request
+        });
+        
+        let resultMsg = '';
+        let foundSuggestions = 0;
+        let tokensSaved = 0;
+        
+        if (response.ok && response.results) {
+          // Handle batch response format
+          const results = response.results;
+          const optimization = response.optimization || {};
+          
+          tokensSaved = optimization.tokensSaved || 0;
+          const fieldsSkipped = optimization.fieldsSkipped || 0;
+          
+          resultMsg = `🎯 Optimization: ${Math.round(tokensSaved/1000)}K tokens saved`;
+          if (fieldsSkipped > 0) {
+            resultMsg += `, ${fieldsSkipped} fields found via heuristics`;
+          }
+          
+          // Process each field result
+          for (const [field, result] of Object.entries(results)) {
+            if (result.ok && result.selectors && result.selectors.length > 0) {
+              foundSuggestions++;
+              
+              // Get current saved selector
+              const memory = await window.api.getSelectorMemory(currentHost);
+              const currentSelectorData = memory && memory[field] ? memory[field] : null;
+              
+              // Auto-apply good heuristic results
+              if (result.source === 'heuristic' && result.chosenValue) {
+                await applyAISuggestion(field, result, currentSelectorData);
+                resultMsg += `\n✅ ${field}: Auto-applied (${result.source})`;
+              } else if (result.source === 'llm' && result.chosenValue) {
+                // For LLM results, show comparison (for now just apply the first one)
+                await applyAISuggestion(field, result, currentSelectorData);
+                resultMsg += `\n✅ ${field}: Applied (${result.source})`;
+              } else {
+                resultMsg += `\n❌ ${field}: ${result.error || 'No good selectors found'}`;
+              }
+            } else {
+              resultMsg += `\n❌ ${field}: ${result.error || 'No suggestions'}`;
+            }
+          }
+          
+        } else {
+          resultMsg = `❌ Batch AI failed: ${response.error || 'Unknown error'}`;
+        }
+        
+        // Show results
+        alert(`🤖 Batch AI Results:\n\n${resultMsg}\n\n${foundSuggestions} fields got suggestions`);
+        
+        // Auto-validate to show results
+        await autoValidateIfNeeded();
+        
+      } catch (error) {
+        alert(`Error with batch AI: ${error.message}`);
+      } finally {
+        batchBtn.textContent = originalText;
+        batchBtn.disabled = false;
+      }
+    }
+    
+    // Helper function to apply an AI suggestion automatically
+    async function applyAISuggestion(field, aiResult, currentSelectorData) {
+      try {
+        const memory = await window.api.getSelectorMemory(currentHost) || {};
+        
+        const dataToSave = {
+          ...memory,
+          [field]: {
+            selectors: aiResult.selectors,
+            attr: getDefaultAttr(field)
+          }
+        };
+        
+        await window.api.setSelectorMemory(currentHost, dataToSave, `Batch AI suggestion for ${field}`);
+        
+        // Check the corresponding checkbox
+        const checkboxMap = {
+          'title': 'okTitle',
+          'price': 'okPrice', 
+          'images': 'okImages',
+          'brand': 'okBrand',
+          'tags': 'okTags',
+          'description': 'okDesc'
+        };
+        const checkbox = document.getElementById(checkboxMap[field]);
+        if (checkbox) checkbox.checked = true;
+        
+      } catch (error) {
+        console.error(`Error applying AI suggestion for ${field}:`, error);
+      }
+    }
+    
+    // Helper function to auto-validate selectors after changes
+    async function autoValidateIfNeeded() {
+      if (currentHost && validateBtn) {
+        try {
+          // Wait a bit for DOM to settle
+          await new Promise(resolve => setTimeout(resolve, 500));
+          
+          // Trigger validation if button exists
+          validateBtn.click();
+        } catch (error) {
+          console.log('Auto-validation skipped:', error);
+        }
       }
     }
 

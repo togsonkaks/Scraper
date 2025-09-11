@@ -291,10 +291,134 @@ function validateAndRank(testResults, field) {
     });
 }
 
-async function proposeSelectors({ html, label, url, provider = {}, evalFunction = null }) {
+async function proposeSelectors({ html, label, url, provider = {}, evalFunction = null, fields = null }) {
+  const { findProductRoot, trimToProductArea, getFieldsNeedingLLM } = require('./product_detector');
+  
+  // Support both single field (label) and multi-field (fields) requests
+  const requestedFields = fields || [label];
+  
+  // If we have eval function, optimize with product detection and heuristics
+  if (evalFunction) {
+    // Execute product detection in the browser context
+    const optimizeCode = `(() => {
+      ${require('fs').readFileSync(require('path').join(__dirname, 'product_detector.js'), 'utf8')}
+      
+      const fields = ${JSON.stringify(requestedFields)};
+      const { needLLM, heuristicResults } = getFieldsNeedingLLM(fields, document);
+      const productRoot = findProductRoot(document);
+      const trimmedHTML = trimToProductArea(document, productRoot);
+      
+      return {
+        needLLM,
+        heuristicResults,
+        trimmedHTML,
+        originalSize: document.documentElement.outerHTML.length,
+        trimmedSize: trimmedHTML.length
+      };
+    })()`;
+    
+    const optimization = await evalFunction(optimizeCode);
+    
+    // If no fields need LLM (all have good heuristics), return heuristic results
+    if (optimization.needLLM.length === 0) {
+      const results = {};
+      for (const [field, heuristic] of Object.entries(optimization.heuristicResults)) {
+        results[field] = {
+          ok: true,
+          selectors: [heuristic.selector],
+          chosenValue: heuristic.value,
+          source: 'heuristic'
+        };
+      }
+      
+      // For single field requests, return the field result directly for backward compatibility
+      if (requestedFields.length === 1) {
+        return results[requestedFields[0]] || { ok: false, error: 'No heuristic found' };
+      }
+      
+      return { ok: true, results, tokensSaved: optimization.originalSize - optimization.trimmedSize };
+    }
+    
+    // Use trimmed HTML for LLM call (massive token savings)
+    html = optimization.trimmedHTML;
+    
+    // Log the optimization results
+    console.log(`🎯 Product optimization: ${optimization.originalSize} → ${optimization.trimmedHTML.length} chars (${Math.round((1 - optimization.trimmedHTML.length/optimization.originalSize) * 100)}% reduction)`);
+    console.log(`📊 Fields needing LLM: ${optimization.needLLM.length}/${requestedFields.length} (${requestedFields.length - optimization.needLLM.length} skipped via heuristics)`);
+    
+    // Continue with only fields that need LLM
+    const fieldsToProcess = optimization.needLLM;
+    const heuristicResults = optimization.heuristicResults;
+    
+    // Get LLM suggestions for remaining fields
+    const llmResponse = await getLLMSuggestions(html, fieldsToProcess, url, provider);
+    
+    // Process results for each field
+    const allResults = {};
+    
+    // Add heuristic results
+    for (const [field, heuristic] of Object.entries(heuristicResults)) {
+      allResults[field] = {
+        ok: true,
+        selectors: [heuristic.selector],
+        chosenValue: heuristic.value,
+        source: 'heuristic'
+      };
+    }
+    
+    // Test and validate LLM suggestions
+    for (const field of fieldsToProcess) {
+      if (llmResponse[field] && llmResponse[field].candidates) {
+        const testResults = await testCandidatesInPage(llmResponse[field].candidates, field, evalFunction);
+        const ranked = validateAndRank(testResults, field);
+        
+        const bestResult = ranked.find(r => r.validated || r.success);
+        if (bestResult) {
+          allResults[field] = {
+            ok: true,
+            selectors: [bestResult.selector],
+            allCandidates: ranked,
+            chosenValue: bestResult.validatedValue || bestResult.value,
+            source: 'llm'
+          };
+        } else {
+          allResults[field] = {
+            ok: false,
+            selectors: [],
+            allCandidates: ranked,
+            error: 'No candidates passed validation',
+            source: 'llm'
+          };
+        }
+      } else {
+        allResults[field] = {
+          ok: false,
+          error: 'LLM provided no candidates',
+          source: 'llm'
+        };
+      }
+    }
+    
+    // For single field requests, return the field result directly for backward compatibility
+    if (requestedFields.length === 1) {
+      return allResults[requestedFields[0]] || { ok: false, error: 'Field not processed' };
+    }
+    
+    return { 
+      ok: true, 
+      results: allResults, 
+      optimization: {
+        originalSize: optimization.originalSize,
+        trimmedSize: optimization.trimmedHTML.length,
+        tokensSaved: optimization.originalSize - optimization.trimmedHTML.length,
+        fieldsSkipped: requestedFields.length - optimization.needLLM.length
+      }
+    };
+  }
+  
+  // Fallback to old behavior if no eval function (backward compatibility)
   const name = (provider.name || env('LLM_PROVIDER', 'openai')).toLowerCase();
   
-  // Get LLM suggestions
   let llmResponse;
   if (name === 'anthropic') {
     llmResponse = await anthropicPropose({ html, label, url, model: provider.model || env('ANTHROPIC_MODEL','claude-3-haiku-20240307'), apiKey: provider.apiKey || env('ANTHROPIC_API_KEY') });
@@ -302,32 +426,190 @@ async function proposeSelectors({ html, label, url, provider = {}, evalFunction 
     llmResponse = await openaiPropose({ html, label, url, model: provider.model || env('OPENAI_MODEL','gpt-4o-mini'), apiKey: provider.apiKey || env('OPENAI_API_KEY') });
   }
   
-  // Return raw candidates if no eval function provided (backwards compatibility)
-  if (!evalFunction || !llmResponse.candidates || !llmResponse.candidates.length) {
-    return llmResponse.candidates || [];
+  return llmResponse.candidates || [];
+}
+
+/**
+ * Get LLM suggestions for multiple fields in a single batched request
+ */
+async function getLLMSuggestions(html, fields, url, provider = {}) {
+  if (!fields || fields.length === 0) {
+    return {};
   }
   
-  // Test candidates in the actual page
-  const testResults = await testCandidatesInPage(llmResponse.candidates, label, evalFunction);
-  const ranked = validateAndRank(testResults, label);
+  const name = (provider.name || env('LLM_PROVIDER', 'openai')).toLowerCase();
   
-  // Return the best working selector or empty array if none work
-  const bestResult = ranked.find(r => r.validated || r.success);
-  if (bestResult) {
-    return {
-      ok: true,
-      selectors: [bestResult.selector],
-      allCandidates: ranked,
-      chosenValue: bestResult.validatedValue || bestResult.value
-    };
+  if (fields.length === 1) {
+    // Single field - use existing functions
+    const field = fields[0];
+    let response;
+    if (name === 'anthropic') {
+      response = await anthropicPropose({ html, label: field, url, model: provider.model || env('ANTHROPIC_MODEL','claude-3-haiku-20240307'), apiKey: provider.apiKey || env('ANTHROPIC_API_KEY') });
+    } else {
+      response = await openaiPropose({ html, label: field, url, model: provider.model || env('OPENAI_MODEL','gpt-4o-mini'), apiKey: provider.apiKey || env('OPENAI_API_KEY') });
+    }
+    return { [field]: response };
   }
   
-  return {
-    ok: false,
-    selectors: [],
-    allCandidates: ranked,
-    error: 'No candidates passed validation'
+  // Multiple fields - batch request
+  try {
+    if (name === 'anthropic') {
+      return await anthropicBatchPropose({ html, fields, url, model: provider.model || env('ANTHROPIC_MODEL','claude-3-haiku-20240307'), apiKey: provider.apiKey || env('ANTHROPIC_API_KEY') });
+    } else {
+      return await openAIBatchPropose({ html, fields, url, model: provider.model || env('OPENAI_MODEL','gpt-4o-mini'), apiKey: provider.apiKey || env('OPENAI_API_KEY') });
+    }
+  } catch (error) {
+    console.error('Batch LLM request failed:', error);
+    // Fallback: return empty results for all fields
+    const fallback = {};
+    fields.forEach(field => {
+      fallback[field] = { candidates: [] };
+    });
+    return fallback;
+  }
+}
+
+/**
+ * OpenAI batch multi-field proposal
+ */
+async function openAIBatchPropose({ html, fields, url, model = 'gpt-4o-mini', apiKey }) {
+  const apiUrl = 'https://api.openai.com/v1/chat/completions';
+  
+  const fieldExamples = {
+    title: 'h1, [itemprop="name"], .product-title, .title',
+    price: '[itemprop="price"], .price, .cost, [data-price]',
+    brand: '[itemprop="brand"], .brand, .manufacturer, [data-brand]',
+    description: '[itemprop="description"], .description, .product-description, .details',
+    images: '.product-image img, .gallery img, [itemprop="image"], .hero-image img'
   };
+  
+  const fieldDescriptions = fields.map(field => {
+    return `**${field}**: CSS selectors to extract ${field} (examples: ${fieldExamples[field] || 'selector examples'})`;
+  }).join('\n');
+  
+  const prompt = `You are a CSS selector expert. Analyze this product page HTML and provide the best CSS selectors for extracting these fields:
+
+${fieldDescriptions}
+
+IMPORTANT: Return valid JSON with this exact structure:
+{
+  "${fields[0]}": {"candidates": ["selector1", "selector2", "selector3", "selector4"]},
+  ${fields.slice(1).map(f => `"${f}": {"candidates": ["selector1", "selector2", "selector3", "selector4"]}`).join(',\n  ')}
+}
+
+For each field, provide 4 ranked selectors (best first). Prioritize:
+1. JSON-LD structured data: script[type="application/ld+json"] content
+2. Microdata: [itemtype], [itemprop] attributes  
+3. Open Graph/meta: [property], meta[name]
+4. Semantic classes: .product-*, .item-*, etc.
+
+HTML to analyze:
+${html}`;
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: model,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.1,
+        max_tokens: 1000
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`OpenAI API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const content = data.choices?.[0]?.message?.content || '{}';
+    
+    return safeParseResponse(content.trim());
+  } catch (error) {
+    console.error('OpenAI batch proposal failed:', error);
+    // Fallback: empty results for all fields
+    const fallback = {};
+    fields.forEach(field => {
+      fallback[field] = { candidates: [] };
+    });
+    return fallback;
+  }
+}
+
+/**
+ * Anthropic batch multi-field proposal
+ */
+async function anthropicBatchPropose({ html, fields, url, model = 'claude-3-haiku-20240307', apiKey }) {
+  const apiUrl = 'https://api.anthropic.com/v1/messages';
+  
+  const fieldExamples = {
+    title: 'h1, [itemprop="name"], .product-title, .title',
+    price: '[itemprop="price"], .price, .cost, [data-price]',
+    brand: '[itemprop="brand"], .brand, .manufacturer, [data-brand]',
+    description: '[itemprop="description"], .description, .product-description, .details',
+    images: '.product-image img, .gallery img, [itemprop="image"], .hero-image img'
+  };
+  
+  const fieldDescriptions = fields.map(field => {
+    return `**${field}**: CSS selectors to extract ${field} (examples: ${fieldExamples[field] || 'selector examples'})`;
+  }).join('\n');
+  
+  const prompt = `You are a CSS selector expert. Analyze this product page HTML and provide the best CSS selectors for extracting these fields:
+
+${fieldDescriptions}
+
+IMPORTANT: Return valid JSON with this exact structure:
+{
+  "${fields[0]}": {"candidates": ["selector1", "selector2", "selector3", "selector4"]},
+  ${fields.slice(1).map(f => `"${f}": {"candidates": ["selector1", "selector2", "selector3", "selector4"]}`).join(',\n  ')}
+}
+
+For each field, provide 4 ranked selectors (best first). Prioritize:
+1. JSON-LD structured data: script[type="application/ld+json"] content
+2. Microdata: [itemtype], [itemprop] attributes  
+3. Open Graph/meta: [property], meta[name]
+4. Semantic classes: .product-*, .item-*, etc.
+
+HTML to analyze:
+${html}`;
+
+  try {
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'x-api-key': apiKey,
+        'Content-Type': 'application/json',
+        'anthropic-version': '2023-06-01'
+      },
+      body: JSON.stringify({
+        model: model,
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.1
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Anthropic API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const content = data.content?.[0]?.text || '{}';
+    
+    return safeParseResponse(content.trim());
+  } catch (error) {
+    console.error('Anthropic batch proposal failed:', error);
+    // Fallback: empty results for all fields
+    const fallback = {};
+    fields.forEach(field => {
+      fallback[field] = { candidates: [] };
+    });
+    return fallback;
+  }
 }
 
 module.exports = { proposeSelectors };
