@@ -50,16 +50,16 @@ const llmImgs = document.getElementById('llmImgs');
 const llmSrc = document.getElementById('llmSrc');
 
 function renderBox(sumNode, imgNode, srcNode, res) {
-  const imgs = Array.isArray(res?.res?.images) ? res.res.images : [];
+  const imgs = Array.isArray(res?.result?.images) ? res.result.images : [];
   sumNode.innerHTML = `
-    <div><b>Title:</b> ${res?.res?.title || ''}</div>
-    <div><b>Price:</b> ${res?.res?.price || ''}</div>
-    <div><b>Brand:</b> ${res?.res?.brand || ''}</div>
-    <div><b>Description:</b> ${(res?.res?.description || '').slice(0,240)}</div>
-    <div><b>URL:</b> ${res?.res?.url || ''}</div>
+    <div><b>Title:</b> ${res?.result?.title || ''}</div>
+    <div><b>Price:</b> ${res?.result?.price || ''}</div>
+    <div><b>Brand:</b> ${res?.result?.brand || ''}</div>
+    <div><b>Description:</b> ${(res?.result?.description || '').slice(0,240)}</div>
+    <div><b>URL:</b> ${res?.result?.url || ''}</div>
   `;
   imgNode.innerHTML = imgs.map(u => `<img src="${u}" title="${u}">`).join('');
-  srcNode.textContent = JSON.stringify(res?.used || {}, null, 2);
+  srcNode.textContent = JSON.stringify(res?.selectorsUsed || {}, null, 2);
 }
 
 runBtn.onclick = async () => {

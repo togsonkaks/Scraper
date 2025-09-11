@@ -387,6 +387,6 @@ ipcMain.handle('compare-run', async (_e, url) => {
     if (!/^https?:/i.test(url)) throw new Error('Invalid URL');
     const base = await runScrapeInEphemeral(url, { llm:false });
     const llm  = await runScrapeInEphemeral(url, { llm:true });
-    return { result: { base, llm }, selectorsUsed: null };
-  } catch(e) { return { result: { __error: String(e) }, selectorsUsed: null }; }
+    return { ok: true, base, llm };
+  } catch(e) { return { ok: false, error: String(e) }; }
 });

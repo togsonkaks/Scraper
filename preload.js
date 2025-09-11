@@ -32,7 +32,66 @@ contextBridge.exposeInMainWorld('api', {
   inspectAt: (x, y) => call('inspect-at', { x, y })
 });
 
-// Right-click anywhere in a renderer to open Inspect at cursor
+// Right-click context menu with Inspect Element option
 window.addEventListener('contextmenu', (e) => {
-  try { window.api.inspectAt(e.x, e.y); } catch {}
+  e.preventDefault();
+  
+  // Create context menu
+  const menu = document.createElement('div');
+  menu.style.cssText = `
+    position: fixed;
+    top: ${e.clientY}px;
+    left: ${e.clientX}px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 4px 0;
+    font: 13px system-ui, -apple-system, sans-serif;
+    z-index: 99999;
+    min-width: 140px;
+  `;
+  
+  // Add Inspect Element option
+  const inspectItem = document.createElement('div');
+  inspectItem.textContent = 'Inspect Element';
+  inspectItem.style.cssText = `
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #333;
+  `;
+  inspectItem.addEventListener('mouseenter', () => {
+    inspectItem.style.background = '#0066cc';
+    inspectItem.style.color = 'white';
+  });
+  inspectItem.addEventListener('mouseleave', () => {
+    inspectItem.style.background = 'transparent';
+    inspectItem.style.color = '#333';
+  });
+  inspectItem.addEventListener('click', () => {
+    try { window.api.inspectAt(e.x, e.y); } catch {}
+    document.body.removeChild(menu);
+  });
+  
+  menu.appendChild(inspectItem);
+  document.body.appendChild(menu);
+  
+  // Remove menu when clicking elsewhere
+  const removeMenu = () => {
+    if (document.body.contains(menu)) {
+      document.body.removeChild(menu);
+    }
+    document.removeEventListener('click', removeMenu);
+    document.removeEventListener('keydown', escapeHandler);
+  };
+  
+  // Remove menu on Escape key
+  const escapeHandler = (e) => {
+    if (e.key === 'Escape') removeMenu();
+  };
+  
+  setTimeout(() => {
+    document.addEventListener('click', removeMenu);
+    document.addEventListener('keydown', escapeHandler);
+  }, 100);
 }, { capture: true });
