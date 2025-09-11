@@ -530,10 +530,14 @@
       }
       
       if (field === 'images') {
-        element.innerHTML = value.map(url => 
+        element.innerHTML = value.map((url, index) => 
           `<img referrerpolicy="no-referrer" src="${url}" 
-           style="height:30px; width:auto; margin:2px; border:1px solid #ddd; border-radius:2px; vertical-align:top;" 
-           title="${url}" onerror="this.style.display='none'">`
+           style="height:30px; width:auto; margin:2px; border:1px solid #ddd; border-radius:2px; vertical-align:top; cursor:pointer;" 
+           class="validation-image-thumb"
+           data-gallery-images='${JSON.stringify(value)}'
+           data-image-index="${index}"
+           title="Click to enlarge (${index + 1}/${value.length})" 
+           onerror="this.style.display='none'">`
         ).join('');
       } else {
         const displayValue = Array.isArray(value) ? String(value[0]) : String(value);
@@ -907,20 +911,103 @@
       currentSuggestionData = null;
     };
 
-    // Image overlay
+    // Image overlay and gallery
+    let currentImageGallery = [];
+    let currentImageIndex = 0;
+    
     function openImageOverlay(imageUrl) {
       const overlay = document.getElementById('imageOverlay');
       const overlayImage = document.getElementById('overlayImage');
       overlayImage.src = imageUrl;
       overlay.classList.add('show');
     }
+    
+    function openImageGallery(images, startIndex = 0) {
+      currentImageGallery = images;
+      currentImageIndex = startIndex;
+      showCurrentImage();
+      document.getElementById('imageOverlay').classList.add('show');
+    }
+    
+    function showCurrentImage() {
+      if (currentImageGallery.length === 0) return;
+      
+      const overlayImage = document.getElementById('overlayImage');
+      const imageUrl = currentImageGallery[currentImageIndex];
+      overlayImage.src = imageUrl;
+      
+      // Update image counter if we add one later
+      updateImageCounter();
+    }
+    
+    function nextImage() {
+      if (currentImageGallery.length === 0) return;
+      currentImageIndex = (currentImageIndex + 1) % currentImageGallery.length;
+      showCurrentImage();
+    }
+    
+    function prevImage() {
+      if (currentImageGallery.length === 0) return;
+      currentImageIndex = (currentImageIndex - 1 + currentImageGallery.length) % currentImageGallery.length;
+      showCurrentImage();
+    }
+    
+    function updateImageCounter() {
+      // Add image counter display
+      const overlay = document.getElementById('imageOverlay');
+      let counter = overlay.querySelector('.image-counter');
+      
+      if (!counter && currentImageGallery.length > 1) {
+        counter = document.createElement('div');
+        counter.className = 'image-counter';
+        counter.style.cssText = 'position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 4px; font-size: 14px; z-index: 1001;';
+        overlay.querySelector('.overlay-content').appendChild(counter);
+      }
+      
+      if (counter) {
+        if (currentImageGallery.length > 1) {
+          counter.textContent = `${currentImageIndex + 1} / ${currentImageGallery.length}`;
+          counter.style.display = 'block';
+        } else {
+          counter.style.display = 'none';
+        }
+      }
+    }
+    
     function closeImageOverlay() {
       document.getElementById('imageOverlay').classList.remove('show');
+      currentImageGallery = [];
+      currentImageIndex = 0;
     }
+    
     document.getElementById('imageOverlay').addEventListener('click', (e) => {
       if (e.target.id === 'imageOverlay') closeImageOverlay();
     });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeImageOverlay(); });
+    
+    document.addEventListener('keydown', (e) => { 
+      if (e.key === 'Escape') {
+        closeImageOverlay();
+      } else if (e.key === 'ArrowRight') {
+        if (currentImageGallery.length > 0) {
+          e.preventDefault();
+          nextImage();
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (currentImageGallery.length > 0) {
+          e.preventDefault();
+          prevImage();
+        }
+      }
+    });
+    
+    // Event listener for validation panel image thumbnails
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('validation-image-thumb')) {
+        const galleryImages = JSON.parse(e.target.getAttribute('data-gallery-images'));
+        const imageIndex = parseInt(e.target.getAttribute('data-image-index'));
+        openImageGallery(galleryImages, imageIndex);
+      }
+    });
     urlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') visitBtn.click(); });
 
     /* === LLM (compare) minimal hook === */
@@ -984,11 +1071,16 @@
           if (field === 'images' && Array.isArray(topResult.validatedValue)) {
             previewContent = `
               <div class="field-preview"><strong>Found ${topResult.validatedValue.length} images:</strong></div>
-              <div class="image-urls">
-                ${topResult.validatedValue.slice(0, 10).map(url => 
-                  `<div class="image-url">${url}</div>`
+              <div class="image-thumbnails" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-height: 120px; overflow-y: auto;">
+                ${topResult.validatedValue.slice(0, 10).map((url, index) => 
+                  `<img src="${url}" alt="Product image ${index + 1}" 
+                       style="width: 48px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; cursor: pointer;" 
+                       data-gallery-images='${JSON.stringify(topResult.validatedValue)}' 
+                       data-image-index="${index}"
+                       class="validation-image-thumb"
+                       onerror="this.style.display='none'" />`
                 ).join('')}
-                ${topResult.validatedValue.length > 10 ? `<div class="image-url">... and ${topResult.validatedValue.length - 10} more</div>` : ''}
+                ${topResult.validatedValue.length > 10 ? `<div style="font-size: 10px; color: #666; margin-top: 4px;">... and ${topResult.validatedValue.length - 10} more</div>` : ''}
               </div>
             `;
           } else if (topResult.validatedValue) {
