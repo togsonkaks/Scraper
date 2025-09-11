@@ -183,13 +183,21 @@
       const url = urlInput.value.trim();
       if (!url) return alert('Paste a URL first.');
       const host = hostFrom(url);
+      // First navigate to the target page to be in correct origin
+      statusEl.innerHTML = `<span class="pill">Loading ${host}</span>`;
+      panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
+      
+      await window.api.openProduct(url);
+      await new Promise(r => setTimeout(r, 1500)); // Wait for page load
+      
       const hasMem = await window.api.hasSelectorMemory(host);
       if (!hasMem) { 
-        alert('❌ No selector memory for this host yet.');
+        statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">No Memory</span>`;
+        alert('❌ No selector memory for this host yet. Use "Save (Scrape)" first.');
         return;
       }
+      
       statusEl.innerHTML = `<span class="pill">Memory-only</span>`;
-      panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
       try {
         const { result, selectorsUsed } = await window.api.scrapeCurrent({ mode: 'memoryOnly' });
         lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;

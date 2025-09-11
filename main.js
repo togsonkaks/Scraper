@@ -170,12 +170,12 @@ async function runScrapeInEphemeral(url, opts){
       const out = await win.webContents.executeJavaScript(injected, true);
       resolve(out);
     } catch(e) {
-      resolve({ ok:false, error: String(e) });
+      resolve({ result: { __error: String(e) }, selectorsUsed: null });
     } finally { try { win.destroy(); } catch {} }
   });
 }
 
-// Add missing hasSelectorMemory IPC handler
+// Selector Memory IPC handlers
 ipcMain.handle('has-selector-memory', async (_e, host) => {
   const win = ensureProduct();
   const checkScript = `
@@ -196,11 +196,197 @@ ipcMain.handle('has-selector-memory', async (_e, host) => {
   return await win.webContents.executeJavaScript(checkScript, true);
 });
 
+ipcMain.handle('memory-get', async (_e, host) => {
+  const win = ensureProduct();
+  const getScript = `
+    (function() {
+      try {
+        const raw = localStorage.getItem('selector_memory_v2');
+        if (!raw) return null;
+        const all = JSON.parse(raw);
+        return all[${JSON.stringify(host)}] || null;
+      } catch {
+        return null;
+      }
+    })()
+  `;
+  return await win.webContents.executeJavaScript(getScript, true);
+});
+
+ipcMain.handle('memory-set', async (_e, { host, data, note }) => {
+  const win = ensureProduct();
+  const setScript = `
+    (function() {
+      try {
+        const raw = localStorage.getItem('selector_memory_v2') || '{}';
+        const all = JSON.parse(raw);
+        const current = all[${JSON.stringify(host)}] || {};
+        
+        // Update with new data
+        Object.assign(current, ${JSON.stringify(data)});
+        
+        // Add history entry
+        if (!current.__history) current.__history = [];
+        current.__history.unshift({
+          timestamp: new Date().toISOString(),
+          note: ${JSON.stringify(note || 'Updated')},
+          fields: Object.keys(${JSON.stringify(data)})
+        });
+        current.__history = current.__history.slice(0, 10); // Keep last 10
+        
+        all[${JSON.stringify(host)}] = current;
+        localStorage.setItem('selector_memory_v2', JSON.stringify(all));
+        return true;
+      } catch {
+        return false;
+      }
+    })()
+  `;
+  return await win.webContents.executeJavaScript(setScript, true);
+});
+
+ipcMain.handle('memory-clear', async (_e, host) => {
+  const win = ensureProduct();
+  const clearScript = `
+    (function() {
+      try {
+        const raw = localStorage.getItem('selector_memory_v2') || '{}';
+        const all = JSON.parse(raw);
+        delete all[${JSON.stringify(host)}];
+        localStorage.setItem('selector_memory_v2', JSON.stringify(all));
+        return true;
+      } catch {
+        return false;
+      }
+    })()
+  `;
+  return await win.webContents.executeJavaScript(clearScript, true);
+});
+
+ipcMain.handle('memory-clear-fields', async (_e, { host, fields }) => {
+  const win = ensureProduct();
+  const clearFieldsScript = `
+    (function() {
+      try {
+        const raw = localStorage.getItem('selector_memory_v2') || '{}';
+        const all = JSON.parse(raw);
+        const current = all[${JSON.stringify(host)}] || {};
+        
+        // Remove specified fields
+        ${JSON.stringify(fields)}.forEach(field => delete current[field]);
+        
+        // Check if any fields remain (except __history)
+        const remainingFields = Object.keys(current).filter(k => k !== '__history');
+        if (remainingFields.length === 0) {
+          delete all[${JSON.stringify(host)}];
+        } else {
+          all[${JSON.stringify(host)}] = current;
+        }
+        
+        localStorage.setItem('selector_memory_v2', JSON.stringify(all));
+        return true;
+      } catch {
+        return false;
+      }
+    })()
+  `;
+  return await win.webContents.executeJavaScript(clearFieldsScript, true);
+});
+
+ipcMain.handle('validate-selectors', async (_e, host) => {
+  const win = ensureProduct();
+  
+  // First get the saved selectors
+  const getScript = `
+    (function() {
+      try {
+        const raw = localStorage.getItem('selector_memory_v2');
+        if (!raw) return {};
+        const all = JSON.parse(raw);
+        return all[${JSON.stringify(host)}] || {};
+      } catch {
+        return {};
+      }
+    })()
+  `;
+  
+  const savedSelectors = await win.webContents.executeJavaScript(getScript, true);
+  const testResults = {};
+  
+  // Test each saved field
+  for (const [field, selectorConfig] of Object.entries(savedSelectors)) {
+    if (field === '__history') continue;
+    
+    const testScript = `
+      (function() {
+        const selectors = ${JSON.stringify(Array.isArray(selectorConfig.selectors) ? selectorConfig.selectors : [selectorConfig.selectors])};
+        const attr = ${JSON.stringify(selectorConfig.attr || 'text')};
+        const field = ${JSON.stringify(field)};
+        
+        for (const selector of selectors) {
+          try {
+            const elements = document.querySelectorAll(selector);
+            if (elements.length === 0) continue;
+            
+            let values = [];
+            for (const el of elements) {
+              let value = null;
+              if (attr === 'text') {
+                value = (el.textContent || '').trim();
+              } else if (attr === 'src') {
+                value = el.currentSrc || el.src || el.getAttribute('src');
+              } else if (attr === 'content') {
+                value = el.getAttribute('content');
+              } else {
+                value = el.getAttribute(attr) || (el.textContent || '').trim();
+              }
+              
+              if (value) values.push(value);
+            }
+            
+            if (values.length > 0) {
+              return {
+                success: true,
+                value: field === 'images' ? values : values[0],
+                source: 'memory', 
+                selector: selector,
+                count: values.length
+              };
+            }
+          } catch (e) {
+            console.error('Selector test error for', selector, ':', e);
+          }
+        }
+        
+        return {
+          success: false,
+          value: null,
+          source: 'none',
+          error: 'No elements found or no valid values extracted'
+        };
+      })()
+    `;
+    
+    try {
+      testResults[field] = await win.webContents.executeJavaScript(testScript, true);
+    } catch (e) {
+      testResults[field] = {
+        success: false,
+        value: null,
+        source: 'none',
+        error: e.message
+      };
+    }
+  }
+  
+  return { savedSelectors, testResults };
+});
+
 ipcMain.handle('compare-run', async (_e, url) => {
   try {
     if (!/^https?:/i.test(url)) throw new Error('Invalid URL');
     const base = await runScrapeInEphemeral(url, { llm:false });
     const llm  = await runScrapeInEphemeral(url, { llm:true });
-    return { ok:true, base, llm };
-  } catch(e) { return { ok:false, error:String(e) }; }
+    return { result: { base, llm }, selectorsUsed: null };
+  } catch(e) { return { result: { __error: String(e) }, selectorsUsed: null }; }
 });
