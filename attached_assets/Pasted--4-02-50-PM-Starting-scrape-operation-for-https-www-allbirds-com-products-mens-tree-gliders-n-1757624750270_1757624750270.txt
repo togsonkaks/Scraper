@@ -1,0 +1,223 @@
+[4:02:50 PM] 🚀 Starting scrape operation for: https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki
+[4:02:50 PM] 🚀 SCRAPE START {"host":"allbirds.com","href":"https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki","mode":"normal"}
+[4:02:50 PM] 🧠 LOADED MEMORY: {"host":"allbirds.com","hasMemory":false,"fields":[],"memoryData":{}}
+[4:02:50 PM] 🔄 NORMAL MODE - memory + fallbacks
+[4:02:50 PM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":false}
+[4:02:50 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: title
+[4:02:50 PM] 📝 TITLE FROM MEMORY: null
+[4:02:50 PM] 📝 TITLE: Falling back to generic...
+[4:02:50 PM] 📝 TITLE FROM GENERIC: Men's Tree Glider
+[4:02:50 PM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[4:02:50 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[4:02:50 PM] 🏷️ BRAND FROM MEMORY: null
+[4:02:50 PM] 🏷️ BRAND: Falling back to generic...
+[4:02:50 PM] 🏷️ BRAND FROM GENERIC: null
+[4:02:50 PM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[4:02:50 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[4:02:50 PM] 📄 DESCRIPTION FROM MEMORY: null
+[4:02:50 PM] 📄 DESCRIPTION: Falling back to generic...
+[4:02:50 PM] 📄 DESCRIPTION FROM GENERIC: Whether it’s workouts or hangouts, the Tree Glider has every phase of your day covered. Inspired by effortless ease, this elevated active style brings flow everywhere you go.
+[4:02:50 PM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[4:02:50 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[4:02:50 PM] 💰 PRICE FROM MEMORY: null
+[4:02:50 PM] 💰 PRICE: Falling back to generic...
+[4:02:50 PM] 🔍 PRICE PARSING: {"input":"135","preferFirst":false,"inputType":"string","inputLength":3}
+[4:02:50 PM] 💰 MONETARY TOKENS: []
+[4:02:50 PM] 🔢 FALLBACK NUMBERS: [135]
+[4:02:50 PM] ✅ FINAL PRICE RESULT: {"result":135,"method":"MIN_FALLBACK","allNumbers":[135]}
+[4:02:50 PM] 💰 PRICE FROM GENERIC: 135
+[4:02:50 PM] 🧠 FROM MEMORY: {"field":"images","hasMemEntry":false}
+[4:02:50 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: images
+[4:02:50 PM] 🖼️ IMAGES FROM MEMORY: {"count":0}
+[4:02:50 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[4:02:50 PM] 🖼️ IMAGES: Getting generic images...
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[4:02:50 PM] 📊 Found 0 elements for selector: .product-media img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[4:02:50 PM] 📊 Found 0 elements for selector: .gallery img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[4:02:50 PM] 📊 Found 0 elements for selector: .image-gallery img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[4:02:50 PM] 📊 Found 0 elements for selector: .product-images img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[4:02:50 PM] 📊 Found 0 elements for selector: .product-gallery img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[4:02:50 PM] 📊 Found 0 elements for selector: [class*=gallery] img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: .slider img
+[4:02:50 PM] 📊 Found 0 elements for selector: .slider img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: .thumbnails img
+[4:02:50 PM] 📊 Found 0 elements for selector: .thumbnails img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+[4:02:50 PM] 📊 Found 0 elements for selector: .pdp-gallery img
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 0
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:02:50 PM] 🖼️ FINAL IMAGES: []
+[4:02:50 PM] 🖼️ After hybrid filtering: 0 images
+[4:02:50 PM] 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+[4:02:50 PM] 📊 Found 10 elements for selector: [data-testid*=image] img
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mobile_3x2_70c92fcc-25a5-4662-821c-a8e8710a7a0a.jpg?v=1757368854&width=1200","data-src":null,"data-im
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mobile_3x
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mobile_3x
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection-Tile_Desktop_3x2_317799b6-7fa1-4abd-afce-1b61567618d4.jpg?v=1752535262&width=1200","data-src":null,"data-image":null,
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection-Tile_Desktop_3x2_317799b6
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection-Tile_Desktop_3x2_317799b6
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenApparel-Tile_Desktop_2x3_a33afc6a-0d4a-4ff6-b463-18fbe517568a.png?v=1751420397&width=1200","data-src":null,"data-image":null,"data-zoom-image
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenApparel-Tile_Desktop_2x3_a33afc6a-0d4a-4ff6-b463-
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenApparel-Tile_Desktop_2x3_a33afc6a-0d4a-4ff6-b463-
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a329-6b4cf450e3a0.png?v=1751420396&width=1200","data-src":null,"data-image":null,"data-zoom-image":n
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a329-6b4
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a329-6b4
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-b71d-5c92263c7121.png?v=1751420397&width=1200","data-src":null,"data-image":null,"data-zoom-image"
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-b71d-5
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-b71d-5
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mobile_3x2_70c92fcc-25a5-4662-821c-a8e8710a7a0a.jpg?v=1757368854&width=1200","data-src":null,"data-im
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mobile_3x
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mobile_3x
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-WomenCollection-Tile_Desktop_3x2_cabbd614-ea88-4b26-acd7-4cdfac1ae754.jpg?v=1752535262&width=1200","data-src":null,"data-image":nul
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-WomenCollection-Tile_Desktop_3x2_cabbd6
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-WomenCollection-Tile_Desktop_3x2_cabbd6
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenApparel-Tile_Desktop_2x3_58f897e8-b46c-4c26-b880-a1af88022fec.png?v=1751420396&width=1200","data-src":null,"data-image":null,"data-zoom-ima
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenApparel-Tile_Desktop_2x3_58f897e8-b46c-4c26-b88
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenApparel-Tile_Desktop_2x3_58f897e8-b46c-4c26-b88
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a329-6b4cf450e3a0.png?v=1751420396&width=1200","data-src":null,"data-image":null,"data-zoom-image":n
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a329-6b4
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a329-6b4
+[4:02:50 PM] Image element <IMG.w-full>
+[4:02:50 PM] 📋 Image attributes: {"src":"//www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-b71d-5c92263c7121.png?v=1751420397&width=1200","data-src":null,"data-image":null,"data-zoom-image"
+[4:02:50 PM] ✅ Found image URL from attributes: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-b71d-5
+[4:02:50 PM] ✅ Found image URL from srcset: //www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-b71d-5
+[4:02:50 PM] 🖼️ Raw enriched URLs collected: 20
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":20}
+[4:02:50 PM] ✅ BEST OF 4 (score: 120): https://www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mob
+120
+[4:02:50 PM] 🔄 DUPLICATE GROUP: 3 lower-scored versions rejected
+120
+[4:02:50 PM] ✅ BEST OF 2 (score: 110): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection-Tile_Desktop_3x2_31
+110
+[4:02:50 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+110
+[4:02:50 PM] ✅ BEST OF 2 (score: 95): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenApparel-Tile_Desktop_2x3_a33afc6a-0d4a-4ff6
+95
+[4:02:50 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+95
+[4:02:50 PM] ✅ BEST OF 4 (score: 75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a3
+75
+[4:02:50 PM] 🔄 DUPLICATE GROUP: 3 lower-scored versions rejected
+75
+[4:02:50 PM] ✅ BEST OF 4 (score: 75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-
+75
+[4:02:50 PM] 🔄 DUPLICATE GROUP: 3 lower-scored versions rejected
+75
+[4:02:50 PM] ✅ BEST OF 2 (score: 90): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-WomenCollection-Tile_Desktop_3x2_
+90
+[4:02:50 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+90
+[4:02:50 PM] ✅ BEST OF 2 (score: 75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenApparel-Tile_Desktop_2x3_58f897e8-b46c-4c
+75
+[4:02:50 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+75
+[4:02:50 PM] 🎯 HIGH SCORE OVERRIDE (120): https://www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mob
+120
+[4:02:50 PM] 🎯 HIGH SCORE OVERRIDE (110): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection-Tile_Desktop_3x2_31
+110
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenApparel-Tile_Desktop_2x3_a33afc6a-0d4a-4ff6
+95
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a3
+75
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-
+75
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-WomenCollection-Tile_Desktop_3x2_
+90
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenApparel-Tile_Desktop_2x3_58f897e8-b46c-4c
+75
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":7,"kept":7}
+[4:02:50 PM] 🖼️ FINAL IMAGES: ["https://www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTi","https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection","https://www.allbirds.com/cdn/sho
+[4:02:50 PM] 🖼️ After hybrid filtering: 7 images
+[4:02:50 PM] 🖼️ GENERIC IMAGES: {"count":7,"images":["https://www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mobile_3x2_70c92fcc-25a5-4662-821c-a8e8710a7a0a.jpg?v=1757368854&width=1200","htt
+[4:02:50 PM] 🖼️ IMAGES: Appending and deduplicating...
+[4:02:50 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":7}
+[4:02:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":7}
+[4:02:50 PM] ✅ SINGLE IMAGE (score: 105): https://www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mob
+105
+[4:02:50 PM] ✅ SINGLE IMAGE (score: 95): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection-Tile_Desktop_3x2_31
+95
+[4:02:50 PM] ✅ SINGLE IMAGE (score: 95): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenApparel-Tile_Desktop_2x3_a33afc6a-0d4a-4ff6
+95
+[4:02:50 PM] ✅ SINGLE IMAGE (score: 75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a3
+75
+[4:02:50 PM] ✅ SINGLE IMAGE (score: 75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-
+75
+[4:02:50 PM] ✅ SINGLE IMAGE (score: 75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-WomenCollection-Tile_Desktop_3x2_
+75
+[4:02:50 PM] ✅ SINGLE IMAGE (score: 75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenApparel-Tile_Desktop_2x3_58f897e8-b46c-4c
+75
+[4:02:50 PM] 🎯 HIGH SCORE OVERRIDE (105): https://www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mob
+105
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection-Tile_Desktop_3x2_31
+95
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenApparel-Tile_Desktop_2x3_a33afc6a-0d4a-4ff6
+95
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_MenSale-Tile_Desktop_2x3_f60ab792-3feb-4f6b-a3
+75
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenSale-Tile_Desktop_2x3_f02cd8d3-81ec-43d6-
+75
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-WomenCollection-Tile_Desktop_3x2_
+75
+[4:02:50 PM] 📏 SIZE OK (est: 150KB): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_WomenApparel-Tile_Desktop_2x3_58f897e8-b46c-4c
+75
+[4:02:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":7}
+[4:02:50 PM] 🖼️ FINAL IMAGES: ["https://www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTi","https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeRunnerNZ-MenCollection","https://www.allbirds.com/cdn/sho
+[4:02:50 PM] 🖼️ FINAL IMAGES: {"count":7,"images":["https://www.allbirds.com/cdn/shop/files/25Q3_WorldOfColor_Site_Navigation_HalfTile_Group_Desktop-Mobile_3x2_70c92fcc-25a5-4662-821c-a8e8710a7a0a.jpg?v=1757368854&width=1200","htt
+[4:02:50 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Men's Tree Glider","brand":null,"description":"Whether it’s workouts or hangouts, the Tree Glider","price":"135","imageCount":7,"firstImages":["https://www.allbirds.com/cdn/shop/files/25Q3_W
+[4:02:50 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":false,"description":true,"price":true,"images":7}
+[4:02:50 PM] ✅ Debug trace complete

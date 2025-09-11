@@ -442,9 +442,10 @@
     if (/(format|fm)=(webp|avif)/i.test(url)) score += 10;
     if (/f_auto/i.test(url)) score += 8; // Cloudinary auto format
     
-    // Enhanced CDN bonuses
+    // 🔥 FIX 4: Enhanced CDN bonuses - paths AND domains
     if (/\b(assets?|static|cdn|media|img)\./i.test(url)) score += 25; // Asset subdomains
-    if (/\b(mozu\.com|cloudinary\.com|imgix\.net|shopify\.com|fastly\.com)\b/i.test(url)) score += 15;
+    if (/\/(cdn\/shop|cdn|assets?|static|media|img)\//.test(url)) score += 20; // CDN paths (AdoredVintage!)
+    if (/\b(mozu\.com|cloudinary\.com|imgix\.net|shopify\.com|fastly\.com|asos-media\.com)\b/i.test(url)) score += 15;
     
     // Product code detection bonuses
     if (/\b[A-Z]\d{4}[A-Z]?\b/i.test(url)) score += 40; // Product codes like M6169R, A0480U
@@ -454,12 +455,15 @@
     if (/\/(product|main|hero|detail|primary)/i.test(url)) score += 15;
     if (/\/(thumb|small|mini|icon)/i.test(url)) score -= 30;
     
-    // Aggressive semantic penalties for navigation/UI elements
+    // 🔥 ENHANCED: Aggressive semantic penalties for navigation/UI elements (Allbirds fix)
     if (/\b(womens?-clothing|mens?-clothing|best-sellers?|new-arrivals?|accessories|shop-by|featured-edit|wellness|searchburger)\b/i.test(url)) score -= 70;
     if (/\b(banner|logo|bg|background|header|footer|nav|navigation|menu)\b/i.test(url)) score -= 50;
     if (/\b(ad|advertisement|promo|campaign|marketing|sidebar|bullet-point)\b/i.test(url)) score -= 60;
     if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;
     if (/\b(warranty|insurance|coverage|support|claim)\b/i.test(url)) score -= 55;
+    // Allbirds-specific navigation patterns
+    if (/\b(worldofcolor|site_navigation|halftile|collection-tile|men-collection|women-collection|men-apparel|women-apparel|sale-tile)\b/i.test(url)) score -= 80;
+    if (/\b(desktop-mobile|bau_site|tree-runner|men-sale|women-sale|quarter-tile)\b/i.test(url)) score -= 75;
     
     // Community/review image penalties
     if (/aicid=community/i.test(url)) score -= 45;
@@ -478,6 +482,46 @@
       if (/\b(main|hero|primary|featured|product-image|gallery-main)\b/i.test(combined)) score += 30;
       if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 30;
       if (/\b(banner|ad|sidebar|nav|header|footer|menu)\b/i.test(combined)) score -= 45;
+      
+      // 🔥 ENHANCED: Deep context analysis for product images (3-5 levels)
+      let ancestor = element.parentElement;
+      let foundProductContext = false;
+      let foundNavContext = false;
+      let depth = 0;
+      
+      while (ancestor && depth < 5) {
+        const ancestorClass = (ancestor.className || '').toLowerCase();
+        const ancestorId = (ancestor.id || '').toLowerCase();
+        const ancestorTestId = (ancestor.getAttribute('data-testid') || '').toLowerCase();
+        const ancestorContext = ancestorClass + ' ' + ancestorId + ' ' + ancestorTestId;
+        
+        // Strong product context indicators
+        if (/\b(product-detail|product-page|pdp|product-gallery|media-gallery|product-carousel|product-hero)\b/i.test(ancestorContext)) {
+          foundProductContext = true;
+          score += 40; // Strong product context bonus
+          break;
+        }
+        
+        // Medium product context
+        if (/\b(product|gallery|carousel|hero|main)\b/i.test(ancestorContext)) {
+          foundProductContext = true;
+          score += 25;
+        }
+        
+        // Navigation context penalties
+        if (/\b(nav|header|footer|sidebar|menu|tile|collection|homepage|landing)\b/i.test(ancestorContext)) {
+          foundNavContext = true;
+          score -= 35;
+        }
+        
+        ancestor = ancestor.parentElement;
+        depth++;
+      }
+      
+      // 🔥 ALLBIRDS SPECIFIC: Extra penalty if no product context found
+      if (!foundProductContext && /allbirds\.com/i.test(window.location.href)) {
+        score -= 30; // Likely navigation/promotional image
+      }
       
       // Aspect ratio penalties from element dimensions
       const width = element.naturalWidth || element.width || 0;
@@ -540,8 +584,10 @@
     }
     
     if (maxSize > 0) {
-      // CDN images get higher estimates even for medium sizes
-      const isCDN = /(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media)\.com/i.test(url);
+      // 🔥 FIX 2: Enhanced CDN detection - domains AND paths
+      const isCDN = /(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media)\.com/i.test(url) ||
+                    /\/(cdn\/shop|cdn|assets?|static|media|img)\//.test(url) ||
+                    /\b(assets?|static|cdn|media|img)\./i.test(url);
       
       if (maxSize >= 1200) return 150000; // ~150KB for large images
       if (maxSize >= 800) return 100000;  // ~100KB for medium-large
@@ -550,8 +596,12 @@
       return 8000; // ~8KB for tiny
     }
     
-    // CDN-specific estimates (known to serve larger images)
-    if (/(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media)\.com/i.test(url)) {
+    // 🔥 FIX 4: Generic CDN detection (domains + paths + subdomains)
+    const isCDNDomain = /(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media)\.com/i.test(url);
+    const isCDNPath = /\/(cdn\/shop|cdn|assets?|static|media|img)\//.test(url);
+    const isCDNSubdomain = /\b(assets?|static|cdn|media|img)\./i.test(url);
+    
+    if (isCDNDomain || isCDNPath || isCDNSubdomain) {
       // Check for file extensions OR format parameters
       const isJPEG = /\.(jpg|jpeg)($|\?)/i.test(url) || /[?&](fmt|format|fm)=(jpg|jpeg)/i.test(url);
       const isPNG = /\.(png)($|\?)/i.test(url) || /[?&](fmt|format|fm)=png/i.test(url);
@@ -574,12 +624,51 @@
     return 50000; // ~50KB default
   }
 
+  // 🔥 FIX 6: Self-healing system - track accuracy and adapt
+  const accuracyTracker = {
+    estimates: new Map(), // url -> { estimated, actual, timestamp }
+    
+    recordEstimate: function(url, estimated, actual) {
+      if (actual && estimated) {
+        const accuracy = Math.abs(actual - estimated) / actual;
+        this.estimates.set(url, {
+          estimated,
+          actual,
+          accuracy,
+          timestamp: Date.now()
+        });
+        debug('🎯 ACCURACY RECORDED:', { url: url.slice(0, 80), estimated: Math.round(estimated/1000) + 'KB', actual: Math.round(actual/1000) + 'KB', accuracy: Math.round(accuracy * 100) + '%' });
+      }
+    },
+    
+    getAverageAccuracy: function(domain) {
+      const domainEstimates = Array.from(this.estimates.entries())
+        .filter(([url]) => url.includes(domain))
+        .map(([, data]) => data.accuracy);
+      return domainEstimates.length ? domainEstimates.reduce((a, b) => a + b) / domainEstimates.length : null;
+    },
+    
+    shouldAdjustEstimate: function(url) {
+      const domain = new URL(url).hostname;
+      const avgAccuracy = this.getAverageAccuracy(domain);
+      return avgAccuracy && avgAccuracy > 0.5; // >50% error rate
+    }
+  };
+  
   // Check actual file size via HTTP HEAD request (expensive, use sparingly)
   async function checkFileSize(url) {
     try {
       const response = await fetch(url, { method: 'HEAD' });
       const contentLength = response.headers.get('content-length');
-      return contentLength ? parseInt(contentLength) : null;
+      const actualSize = contentLength ? parseInt(contentLength) : null;
+      
+      // 🎯 Self-healing: Record accuracy for future estimates
+      if (actualSize) {
+        const estimatedSize = estimateFileSize(url);
+        accuracyTracker.recordEstimate(url, estimatedSize, actualSize);
+      }
+      
+      return actualSize;
     } catch (error) {
       debug('📏 FILE SIZE CHECK FAILED:', url, error.message);
       return null;
@@ -615,9 +704,9 @@
         continue;
       }
       
-      // Apply score threshold (minimum 50 points)
+      // 🔥 FIX 5: "Err on Inclusion" - Lower rejection threshold from 50 to 40
       const score = scoreImageURL(abs, enriched.element, enriched.index);
-      if (score < 50) {
+      if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
         continue;
@@ -693,7 +782,7 @@
         // Estimated size is good, keep it
         sizeFilteredImages.push(img);
         addImageDebugLog('debug', `📏 SIZE OK (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-      } else if (estimatedSize >= 60000 && img.score >= 50) {
+      } else if (estimatedSize >= 50000 && img.score >= 40) {
         // Borderline case with decent score, check actual size
         fileSizeCheckPromises.push(
           checkFileSize(img.url).then(actualSize => ({
@@ -763,10 +852,10 @@
     const enriched = urls.map((url, index) => ({ url, element: null, index }));
     return await hybridUniqueImages(enriched);
   }
-  async function gatherImagesBySelector(sel) {
+  async function gatherImagesBySelector(sel, searchContext = document) {
     debug('🔍 GATHERING IMAGES with selector:', sel);
     
-    const elements = qa(sel);
+    const elements = Array.from(searchContext.querySelectorAll(sel));
     debug(`📊 Found ${elements.length} elements for selector:`, sel);
     
     const enrichedUrls = []; // Now includes element info
@@ -984,13 +1073,138 @@
     return null;
   }
   async function getImagesGeneric() {
-    const gallerySels = [
-      '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
-      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+    debug('🔥 IMAGES: START generic scan', { url: location.href });
+    addToDebugLog('info', '🔥 IMAGES: Starting container-aware image detection');
+    
+    // 🔥 ENHANCED: Robust product container detection with fallbacks
+    const productContainers = [
+      'main[role=main]', // Semantic main content
+      '[data-testid*=pdp]','[data-testid*=product-page]','[data-testid*=product-detail]',
+      '[data-testid*=product][data-component*=pdp]',
+      '[class*=ProductGallery]','[class*=MediaGallery]','[class*=product-detail]',
+      '.product-page','.pdp','.product-container','[data-product-id]',
+      '[id*=product]','[class*=product]', // Broader fallbacks
+      'main', 'article' // Very broad fallbacks
     ];
-    for (const sel of gallerySels) {
-      const urls = await gatherImagesBySelector(sel);
-      if (urls.length >= 3) { mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); return urls.slice(0,30); }
+    
+    let productContainer = null;
+    for (const containerSel of productContainers) {
+      const elements = qa(containerSel);
+      debug(`🔍 CONTAINER SEARCH [${containerSel}]: ${elements.length} elements`);
+      if (elements.length > 0) {
+        productContainer = elements[0];
+        debug(`🎯 CONTAINER FOUND: ${containerSel}`);
+        addToDebugLog('success', `🎯 CONTAINER FOUND: ${containerSel}`);
+        break;
+      }
+    }
+    
+    if (!productContainer) {
+      debug('⚠️ NO PRODUCT CONTAINER FOUND - using document scope');
+      addToDebugLog('warning', '⚠️ NO PRODUCT CONTAINER - using document scope');
+    }
+    
+    // 🔥 PRIORITIZED: Modern PDP selectors FIRST, then traditional
+    const prioritySelectors = [
+      // High-priority modern React patterns (within container if found)
+      '[data-testid*=gallery] img','[data-testid*=carousel] img',
+      '[data-testid*=product-image] img','[data-test*=gallery] img',
+      'picture > img','[data-rmiz] img',
+      '[class*=ProductGallery] img','[class*=MediaGallery] img',
+      '[class*=ProductImage] img','[class*=product-image] img'
+    ];
+    
+    const traditionalSelectors = [
+      // Traditional e-commerce patterns
+      '.product-media img','.gallery img','.image-gallery img',
+      '.product-images img','.product-gallery img',
+      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img'
+    ];
+    
+    const fallbackSelectors = [
+      // Broader React patterns (higher navigation risk)
+      '[data-testid*=product] img','[data-testid*=image] img',
+      '[data-test*=product] img','[data-test*=image] img',
+      '[role="img"]','[class*=Image] img','[class*=Photo] img',
+      // Very broad fallbacks
+      'img'
+    ];
+    
+    const allSelectors = [...prioritySelectors, ...traditionalSelectors, ...fallbackSelectors];
+    // 🔥 MULTI-PHASE DETECTION: Container scope -> React hydration -> Fallback
+    let bestImages = [];
+    let successfulSelector = null;
+    
+    const phaseResults = { priority: 0, traditional: 0, fallback: 0 };
+    
+    // Phase 1: Try selectors with container scoping if available
+    debug('🛠️ PHASE 1: Starting selector search', { 
+      containerScope: !!productContainer,
+      totalSelectors: allSelectors.length
+    });
+    
+    for (const sel of allSelectors) {
+      let searchContext = productContainer || document;
+      let scopeInfo = productContainer ? 'container' : 'document';
+      
+      const urls = await gatherImagesBySelector(sel, searchContext);
+      const phase = prioritySelectors.includes(sel) ? 'priority' : 
+                   traditionalSelectors.includes(sel) ? 'traditional' : 'fallback';
+      
+      phaseResults[phase] += urls.length;
+      
+      debug(`🎯 SELECTOR [${phase}] ${sel} in ${scopeInfo}: ${urls.length} images, top scores: ${urls.slice(0,3).map(u => u.score || '?').join(', ')}`);
+      addToDebugLog('info', `🎯 ${phase.toUpperCase()} [${sel}]: ${urls.length} images in ${scopeInfo}`);
+      
+      if (urls.length >= 3) {
+        bestImages = urls;
+        successfulSelector = `${sel} (${phase})`;
+        mark('images', { selectors:[sel], attr:'src', method:'container-scoped', urls: urls.slice(0,30) });
+        debug(`✅ SUCCESS: Found ${urls.length} images with ${successfulSelector}`);
+        addToDebugLog('success', `✅ Found ${urls.length} images with ${sel}`);
+        break;
+      } else if (urls.length > bestImages.length) {
+        bestImages = urls;
+        successfulSelector = `${sel} (${phase})`;
+      }
+    }
+    
+    debug('📊 PHASE 1 SUMMARY:', phaseResults);
+    
+    // Phase 2: React hydration delay (for late-loaded images)
+    if (bestImages.length < 3 && productContainer) {
+      debug('🔄 PHASE 2: React hydration wait (1000ms)...');
+      addToDebugLog('info', '🔄 Waiting for React hydration...');
+      await new Promise(resolve => setTimeout(resolve, 1000)); // 1s delay
+      
+      let hydrationResults = 0;
+      for (const sel of prioritySelectors) {
+        const urls = await gatherImagesBySelector(sel, productContainer);
+        hydrationResults += urls.length;
+        debug(`🔄 POST-HYDRATION [${sel}]: ${urls.length} images`);
+        addToDebugLog('info', `🔄 POST-HYDRATION [${sel}]: ${urls.length} images`);
+        
+        if (urls.length > bestImages.length) {
+          bestImages = urls;
+          successfulSelector = sel + ' (post-hydration)';
+          mark('images', { selectors:[sel], attr:'src', method:'react-hydration', urls: urls.slice(0,30) });
+          debug(`✅ HYDRATION SUCCESS: Found ${urls.length} images`);
+          addToDebugLog('success', `✅ HYDRATION: Found ${urls.length} images`);
+          break;
+        }
+      }
+      debug(`📊 HYDRATION SUMMARY: ${hydrationResults} total images found`);
+    }
+    
+    // Return best result found
+    if (bestImages.length > 0) {
+      debug(`🎆 FINAL RESULT: ${bestImages.length} images from ${successfulSelector}`);
+      addToDebugLog('success', `🎆 FINAL: ${bestImages.length} images from ${successfulSelector}`);
+      return bestImages.slice(0,30);
+    } else {
+      debug('❌ NO IMAGES FOUND after all phases');
+      addToDebugLog('error', '❌ NO IMAGES FOUND after container scoping and hydration');
+      return [];
     }
     const og = q('meta[property="og:image"]')?.content;
     const all = await gatherImagesBySelector('img');
@@ -1065,8 +1279,9 @@
         if (!images || images.length < 3) {
           debug('🖼️ IMAGES: Need more images (have ' + (images?.length || 0) + ', need 3+)');
           const memoryImages = images || [];
-          debug('🖼️ IMAGES: Getting generic images...');
+          debug('🖼️ PIPELINE: calling getImagesGeneric()...');
           const genericImages = await getImagesGeneric();
+          debug('🖼️ PIPELINE: received ' + genericImages.length + ' images from getImagesGeneric()');
           debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
           
           // Append and deduplicate generic images to memory images instead of replacing
