@@ -530,11 +530,15 @@
       }
       
       if (field === 'images') {
+        // Create unique gallery ID and store images globally
+        const galleryId = 'gallery_' + Math.random().toString(36).substr(2, 9);
+        imageGalleries[galleryId] = value;
+        
         element.innerHTML = value.map((url, index) => 
           `<img referrerpolicy="no-referrer" src="${url}" 
            style="height:30px; width:auto; margin:2px; border:1px solid #ddd; border-radius:2px; vertical-align:top; cursor:pointer;" 
            class="validation-image-thumb"
-           data-gallery-images='${JSON.stringify(value)}'
+           data-gallery-id="${galleryId}"
            data-image-index="${index}"
            title="Click to enlarge (${index + 1}/${value.length})" 
            onerror="this.style.display='none'">`
@@ -914,6 +918,7 @@
     // Image overlay and gallery
     let currentImageGallery = [];
     let currentImageIndex = 0;
+    let imageGalleries = {}; // Store galleries by ID to avoid JSON in attributes
     
     function openImageOverlay(imageUrl) {
       const overlay = document.getElementById('imageOverlay');
@@ -1002,10 +1007,26 @@
     
     // Event listener for validation panel image thumbnails
     document.addEventListener('click', (e) => {
+      console.log('Click detected on:', e.target, 'Classes:', e.target.classList);
+      
       if (e.target.classList.contains('validation-image-thumb')) {
-        const galleryImages = JSON.parse(e.target.getAttribute('data-gallery-images'));
+        console.log('Validation image thumb clicked!');
+        
+        const galleryId = e.target.getAttribute('data-gallery-id');
         const imageIndex = parseInt(e.target.getAttribute('data-image-index'));
-        openImageGallery(galleryImages, imageIndex);
+        
+        console.log('Gallery ID:', galleryId);
+        console.log('Image index:', imageIndex);
+        
+        const galleryImages = imageGalleries[galleryId];
+        
+        if (galleryImages && galleryImages.length > 0) {
+          console.log('Opening gallery with', galleryImages.length, 'images');
+          openImageGallery(galleryImages, imageIndex);
+        } else {
+          console.error('Gallery not found:', galleryId);
+          alert('Image gallery not found');
+        }
       }
     });
     urlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') visitBtn.click(); });
