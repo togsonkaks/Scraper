@@ -213,23 +213,43 @@ async function testCandidatesInPage(candidates, field, evalFunction) {
         if (field === 'images') {
           const urls = [];
           for (const el of qa(selector)) {
+            // Handle img elements and their attributes
             const s1 = el.getAttribute('src') || el.currentSrc || 
                       el.getAttribute('data-src') || el.getAttribute('data-image') || 
                       el.getAttribute('data-zoom-image') || el.getAttribute('data-large');
             if (s1) urls.push(s1);
             
+            // Handle srcset attributes
             const ss = el.getAttribute('srcset'); 
             const best = pickFromSrcset(ss); 
             if (best) urls.push(best);
             
+            // Handle picture elements
             if (el.parentElement && el.parentElement.tagName.toLowerCase() === 'picture') {
               for (const src of el.parentElement.querySelectorAll('source')) {
                 const b = pickFromSrcset(src.getAttribute('srcset')); 
                 if (b) urls.push(b);
               }
             }
+            
+            // Handle meta tags with content attribute (e.g., og:image)
+            if (el.tagName.toLowerCase() === 'meta' && el.getAttribute('content')) {
+              const content = el.getAttribute('content');
+              if (content) urls.push(content);
+            }
           }
-          value = uniq(urls);
+          
+          // Absolutize URLs using document.baseURI
+          const absoluteUrls = urls.map(url => {
+            try {
+              return new URL(url, document.baseURI).href;
+            } catch (e) {
+              // If URL is invalid, return original
+              return url;
+            }
+          });
+          
+          value = uniq(absoluteUrls);
         } else {
           const el = document.querySelector(selector);
           if (el) {
@@ -557,24 +577,105 @@ async function proposeSelectors({ html, label, url, provider = {}, evalFunction 
       }
       
       function hasGoodBrand(document) {
-        const brandSelectors = [
-          '[itemprop="brand"]',
-          '[property="product:brand"]',
+        // 1. Try direct meta tags first
+        const metaSelectors = [
+          'meta[property="product:brand"]',
           'meta[property="og:brand"]',
-          '[data-brand]'
+          'meta[name="brand"]'
         ];
         
-        for (const selector of brandSelectors) {
+        for (const selector of metaSelectors) {
           const el = document.querySelector(selector);
-          if (el) {
-            const brand = el.content || el.getAttribute('data-brand') || el.textContent;
-            if (brand && brand.trim().length > 1 && brand.trim().length < 50) {
-              return { selector, value: brand.trim() };
+          if (el && el.content) {
+            const brand = el.content.trim();
+            if (brand.length > 1 && brand.length < 50) {
+              return { selector, value: brand };
             }
           }
         }
         
+        // 2. Try structured data with nested handling
+        const structuredSelectors = [
+          '[itemprop="brand"]',
+          '[data-brand]'
+        ];
+        
+        for (const selector of structuredSelectors) {
+          const el = document.querySelector(selector);
+          if (el) {
+            // First try direct content/attribute
+            let brand = el.content || el.getAttribute('data-brand') || el.textContent?.trim();
+            
+            // If no direct text, look for nested name/content
+            if (!brand || brand.length < 2) {
+              // Look for nested itemprop="name" or meta content
+              const nestedName = el.querySelector('[itemprop="name"]');
+              if (nestedName) {
+                brand = nestedName.content || nestedName.textContent?.trim();
+              }
+              
+              // Look for nested meta with content
+              if (!brand) {
+                const nestedMeta = el.querySelector('meta[content]');
+                if (nestedMeta) {
+                  brand = nestedMeta.content;
+                }
+              }
+            }
+            
+            if (brand && brand.length > 1 && brand.length < 50) {
+              return { selector, value: brand };
+            }
+          }
+        }
+        
+        // 3. Try JSON-LD structured data
+        const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+        for (const script of scripts) {
+          try {
+            const data = JSON.parse(script.textContent);
+            const brand = extractBrandFromStructuredData(data);
+            if (brand) {
+              return { selector: 'script[type="application/ld+json"]', value: brand };
+            }
+          } catch (e) {
+            // Invalid JSON, skip
+          }
+        }
+        
         return false;
+      }
+      
+      function extractBrandFromStructuredData(data) {
+        if (!data) return null;
+        
+        // Direct brand property
+        if (data.brand) {
+          if (typeof data.brand === 'string') {
+            return data.brand.trim();
+          }
+          if (data.brand.name) {
+            return data.brand.name.trim();
+          }
+        }
+        
+        // Check arrays and nested objects
+        if (Array.isArray(data)) {
+          for (const item of data) {
+            const brand = extractBrandFromStructuredData(item);
+            if (brand) return brand;
+          }
+        }
+        
+        // Check @graph (common in JSON-LD)
+        if (data['@graph']) {
+          for (const item of data['@graph']) {
+            const brand = extractBrandFromStructuredData(item);
+            if (brand) return brand;
+          }
+        }
+        
+        return null;
       }
       
       function hasGoodDescription(document) {
@@ -599,31 +700,91 @@ async function proposeSelectors({ html, label, url, provider = {}, evalFunction 
       }
       
       function hasGoodImages(document) {
-        const imageSelectors = [
-          '[itemprop="image"]',
-          '[property="og:image"]',
-          '[data-product-image]',
-          '.product-image img',
-          '.hero-image img'
-        ];
-        
-        const productRoot = findProductRoot(document);
         const images = [];
         
-        for (const selector of imageSelectors) {
-          const elements = productRoot.querySelectorAll(selector);
+        // 1. Handle meta tags (og:image, etc.) - check entire document
+        const metaSelectors = [
+          'meta[property="og:image"]',
+          'meta[property="og:image:secure_url"]', 
+          'meta[name="twitter:image"]',
+          'link[rel="image_src"]'
+        ];
+        
+        for (const selector of metaSelectors) {
+          const elements = document.querySelectorAll(selector);
           for (const el of elements) {
-            const src = el.src || el.content || el.getAttribute('data-src');
-            if (src && isProductImage(src)) {
-              images.push(src);
+            const src = el.content || el.href;
+            if (src) {
+              try {
+                const absoluteUrl = new URL(src, document.baseURI).href;
+                if (isProductImage(absoluteUrl)) {
+                  images.push(absoluteUrl);
+                }
+              } catch (e) {
+                // Invalid URL, skip
+              }
             }
           }
         }
         
-        if (images.length > 0) {
+        // 2. Handle structured data images
+        const productRoot = findProductRoot(document);
+        const structuredSelectors = [
+          '[itemprop="image"]',
+          '[data-product-image]'
+        ];
+        
+        for (const selector of structuredSelectors) {
+          const elements = productRoot.querySelectorAll(selector);
+          for (const el of elements) {
+            const src = el.src || el.content || el.getAttribute('data-src') || el.getAttribute('href');
+            if (src) {
+              try {
+                const absoluteUrl = new URL(src, document.baseURI).href;
+                if (isProductImage(absoluteUrl)) {
+                  images.push(absoluteUrl);
+                }
+              } catch (e) {
+                // Invalid URL, skip
+              }
+            }
+          }
+        }
+        
+        // 3. Handle product area images
+        const productImageSelectors = [
+          '.product-image img',
+          '.hero-image img',
+          '.product-gallery img',
+          '.product-photos img',
+          'img[data-zoom]',
+          '.zoom-image'
+        ];
+        
+        for (const selector of productImageSelectors) {
+          const elements = productRoot.querySelectorAll(selector);
+          for (const el of elements) {
+            const src = el.src || el.getAttribute('data-src') || el.getAttribute('data-original');
+            if (src) {
+              try {
+                const absoluteUrl = new URL(src, document.baseURI).href;
+                if (isProductImage(absoluteUrl)) {
+                  images.push(absoluteUrl);
+                }
+              } catch (e) {
+                // Invalid URL, skip
+              }
+            }
+          }
+        }
+        
+        // Remove duplicates and return top 10
+        const uniqueImages = [...new Set(images)];
+        
+        if (uniqueImages.length > 0) {
           return { 
-            selector: imageSelectors.find(s => productRoot.querySelector(s)),
-            value: images.slice(0, 6)
+            selector: 'meta[property="og:image"], [itemprop="image"], .product-image img',
+            value: uniqueImages.slice(0, 10)  // Top 10 images as requested
           };
         }
         

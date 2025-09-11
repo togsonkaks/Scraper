@@ -46,6 +46,13 @@
     }
     .ai-suggest-btn:hover { background: #45a049; }
     .ai-suggest-btn:disabled { background: #ccc; cursor: not-allowed; }
+    .ai-cache-status {
+      margin-left: 12px; padding: 4px 8px; font-size: 11px; border-radius: 4px;
+      background: #ffebee; color: #c62828; border: 1px solid #ef9a9a;
+    }
+    .ai-cache-status.ready {
+      background: #e8f5e8; color: #2e7d32; border-color: #81c784;
+    }
     .suggestion-panel {
       margin-top: 8px; padding: 8px; background: #e8f5e8; 
       border-radius: 4px; border-left: 4px solid #4CAF50; display: none;
@@ -60,6 +67,51 @@
       margin-top: 6px; padding: 4px 8px; background: #4CAF50; 
       color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;
     }
+    .validation-panel {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      max-width: 80%; max-height: 80%; overflow-y: auto; z-index: 1000; display: none;
+    }
+    .validation-header {
+      padding: 16px; border-bottom: 1px solid #eee; background: #f9f9f9;
+      font-weight: bold; display: flex; justify-content: space-between; align-items: center;
+    }
+    .validation-content {
+      padding: 16px; max-height: 60vh; overflow-y: auto;
+    }
+    .field-card {
+      border: 1px solid #eee; border-radius: 6px; margin-bottom: 12px; overflow: hidden;
+    }
+    .field-header {
+      background: #f5f5f5; padding: 8px 12px; font-weight: bold; font-size: 13px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .field-status {
+      padding: 2px 6px; border-radius: 3px; font-size: 11px; font-weight: normal;
+    }
+    .field-status.success { background: #e8f5e8; color: #2e7d32; }
+    .field-status.failed { background: #ffebee; color: #c62828; }
+    .field-body {
+      padding: 10px 12px; background: white;
+    }
+    .field-preview {
+      margin-bottom: 8px; font-size: 12px;
+    }
+    .field-selector {
+      font-family: monospace; background: #f8f8f8; padding: 4px 6px; border-radius: 3px;
+      font-size: 11px; color: #666; margin-top: 4px;
+    }
+    .image-urls {
+      max-height: 120px; overflow-y: auto; background: #f8f8f8; padding: 6px; border-radius: 3px;
+      margin-top: 4px;
+    }
+    .image-url {
+      font-size: 10px; font-family: monospace; color: #666; margin-bottom: 2px; word-break: break-all;
+    }
+    .validation-footer {
+      padding: 12px 16px; border-top: 1px solid #eee; background: #f9f9f9;
+      display: flex; gap: 8px; justify-content: flex-end;
+    }
   </style>
 </head>
 <body>
@@ -71,6 +123,7 @@
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
     <button id="batchAIBtn" title="Get AI suggestions for all fields at once (saves tokens)">🤖 Batch AI All</button>
+    <span id="aiCacheStatus" class="ai-cache-status">🤖 AI cache: Not Ready</span>
   </div>
 
   <div id="status"></div>
@@ -490,9 +543,37 @@
       }
     }
 
+    // AI cache state tracking
+    let aiCacheReady = false;
+    
+    function updateAICacheStatus(ready) {
+      aiCacheReady = ready;
+      const statusEl = document.getElementById('aiCacheStatus');
+      const aiButtons = document.querySelectorAll('.ai-suggest-btn');
+      
+      if (ready) {
+        statusEl.textContent = '🤖 AI cache: Ready';
+        statusEl.className = 'ai-cache-status ready';
+        aiButtons.forEach(btn => btn.disabled = false);
+      } else {
+        statusEl.textContent = '🤖 AI cache: Not Ready';
+        statusEl.className = 'ai-cache-status';
+        aiButtons.forEach(btn => btn.disabled = true);
+      }
+    }
+    
+    // Initialize with disabled state
+    updateAICacheStatus(false);
+    
     // Add event listeners to all AI suggestion buttons
     document.querySelectorAll('.ai-suggest-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
+      btn.addEventListener('click', async (e) => {
+        if (!aiCacheReady) {
+          e.preventDefault();
+          alert('⚠️ Run 🤖 Batch AI All first!\n\nIndividual AI buttons work by retrieving from the batch AI cache. Please run Batch AI All to warm the cache, then use individual buttons to review specific fields.');
+          return;
+        }
+        
         const field = btn.getAttribute('data-field');
         await handleAISuggestion(field, btn);
       });
@@ -629,8 +710,13 @@
           resultMsg = `❌ Batch AI failed: ${response.error || 'Unknown error'}`;
         }
         
-        // Show results
-        alert(`🤖 Batch AI Results:\n\n${resultMsg}\n\n${foundSuggestions} fields got suggestions`);
+        // Show validation panel instead of alert
+        showValidationPanel(results, resultMsg, foundSuggestions);
+        
+        // Enable AI cache for individual buttons
+        if (foundSuggestions > 0) {
+          updateAICacheStatus(true);
+        }
         
         // Auto-validate to show results
         await autoValidateIfNeeded();
@@ -850,6 +936,114 @@
         }
       });
     })();
+
+    // Validation Panel Functions
+    function showValidationPanel(results, summaryMsg, foundSuggestions) {
+      const panel = document.getElementById('validationPanel');
+      const content = document.getElementById('validationContent');
+      
+      // Clear previous content
+      content.innerHTML = '';
+      
+      // Add summary header
+      const summary = document.createElement('div');
+      summary.style.cssText = 'background: #f0f7ff; border: 1px solid #b3d7ff; border-radius: 4px; padding: 10px; margin-bottom: 16px; font-size: 13px;';
+      summary.innerHTML = `<strong>Summary:</strong> ${summaryMsg}<br><strong>Found:</strong> ${foundSuggestions} fields with suggestions`;
+      content.appendChild(summary);
+      
+      // Generate field cards
+      const fields = ['title', 'price', 'images', 'brand', 'tags', 'description'];
+      
+      for (const field of fields) {
+        const result = results ? results[field] : null;
+        const card = createFieldCard(field, result);
+        content.appendChild(card);
+      }
+      
+      // Show panel
+      panel.style.display = 'block';
+    }
+    
+    function createFieldCard(field, result) {
+      const card = document.createElement('div');
+      card.className = 'field-card';
+      
+      const isSuccess = result && result.ok && result.selectors && result.selectors.length > 0;
+      const statusClass = isSuccess ? 'success' : 'failed';
+      const statusText = isSuccess ? 'Found' : 'Not Found';
+      
+      let previewContent = '';
+      let selectorText = '';
+      
+      if (isSuccess) {
+        const topResult = result.testedSelectors && result.testedSelectors[0];
+        if (topResult) {
+          selectorText = topResult.selector;
+          
+          if (field === 'images' && Array.isArray(topResult.validatedValue)) {
+            previewContent = `
+              <div class="field-preview"><strong>Found ${topResult.validatedValue.length} images:</strong></div>
+              <div class="image-urls">
+                ${topResult.validatedValue.slice(0, 10).map(url => 
+                  `<div class="image-url">${url}</div>`
+                ).join('')}
+                ${topResult.validatedValue.length > 10 ? `<div class="image-url">... and ${topResult.validatedValue.length - 10} more</div>` : ''}
+              </div>
+            `;
+          } else if (topResult.validatedValue) {
+            const value = String(topResult.validatedValue);
+            const truncated = value.length > 80 ? value.substring(0, 80) + '...' : value;
+            previewContent = `<div class="field-preview"><strong>Value:</strong> ${truncated}</div>`;
+          }
+        }
+      } else {
+        const reason = result && result.error ? result.error : 'No valid selectors found';
+        previewContent = `<div class="field-preview" style="color: #666;">Reason: ${reason}</div>`;
+      }
+      
+      card.innerHTML = `
+        <div class="field-header">
+          <span>${field.charAt(0).toUpperCase() + field.slice(1)}</span>
+          <span class="field-status ${statusClass}">${statusText}</span>
+        </div>
+        <div class="field-body">
+          ${previewContent}
+          ${selectorText ? `<div class="field-selector">Selector: ${selectorText}</div>` : ''}
+          ${isSuccess ? `<label style="margin-top: 8px; display: block;"><input type="checkbox" class="field-apply-checkbox" data-field="${field}" checked> Apply this field</label>` : ''}
+        </div>
+      `;
+      
+      return card;
+    }
+    
+    function hideValidationPanel() {
+      document.getElementById('validationPanel').style.display = 'none';
+    }
+    
+    async function applyAllValidated() {
+      const checkboxes = document.querySelectorAll('.field-apply-checkbox:checked');
+      let appliedCount = 0;
+      
+      for (const checkbox of checkboxes) {
+        const field = checkbox.getAttribute('data-field');
+        // Apply the field (this would trigger the same logic as clicking "Use AI Suggestion")
+        // For now, just mark the checkbox as OK
+        const okCheckbox = document.getElementById(`ok${field.charAt(0).toUpperCase() + field.slice(1)}`);
+        if (okCheckbox) {
+          okCheckbox.checked = true;
+          appliedCount++;
+        }
+      }
+      
+      hideValidationPanel();
+      
+      if (appliedCount > 0) {
+        alert(`✅ Applied ${appliedCount} fields successfully!\n\nThe selectors have been marked as validated. Use "Save (scrape)" to save them to memory.`);
+        
+        // Auto-validate to refresh the UI
+        await autoValidateIfNeeded();
+      }
+    }
   </script>
 
   <!-- Image Overlay Modal -->
@@ -857,6 +1051,21 @@
     <div class="overlay-content">
       <button class="close-overlay" onclick="closeImageOverlay()">&times;</button>
       <img id="overlayImage" class="overlay-image" src="" alt="Full size image">
+    </div>
+  </div>
+
+  <!-- Validation Panel -->
+  <div class="validation-panel" id="validationPanel">
+    <div class="validation-header">
+      <span>🤖 Batch AI Results - Review & Apply</span>
+      <button onclick="hideValidationPanel()" style="background: none; border: none; font-size: 18px; cursor: pointer;">&times;</button>
+    </div>
+    <div class="validation-content" id="validationContent">
+      <!-- Field cards will be dynamically generated here -->
+    </div>
+    <div class="validation-footer">
+      <button onclick="applyAllValidated()" style="background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Apply All Selected</button>
+      <button onclick="hideValidationPanel()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Cancel</button>
     </div>
   </div>
 </body>
