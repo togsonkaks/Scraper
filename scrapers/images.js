@@ -96,6 +96,8 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     // Site-specific selectors for problematic sites
     const siteSpecificSelectors = {
       'allbirds.com': [
+        '.swiper-slide img',           // Swiper carousel - very common
+        '.swiper-container img',       // Alternative swiper structure
         '.product-image-wrapper',
         '.ProductImages',
         '.product-images-container',
@@ -105,13 +107,14 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         'main img[src*="cdn.shop"], main img[src*="shopify"]'
       ],
       'amazon.com': [
+        '.ivThumb img',               // Amazon thumbnail gallery - the good stuff!
+        '#ivLargeImage',              // Main product image
         '#imageBlockContainer',
         '#imageBlock img',
         '#altImages',
         '.a-dynamic-image',
         '#main-image-container',
         '[data-action="main-image-click"]',
-        // Amazon product image selectors
         '[data-dp-carousel] img'
       ],
       'adidas.com': [
@@ -151,10 +154,13 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     
     // Priority 2: Explicit product image containers
     const highPrioritySelectors = [
+      '.swiper-slide img',              // Swiper carousels - very common across e-commerce
+      '.swiper-container img',          // Alternative swiper structure  
       '.product-gallery',
       '.product-images', 
       '.product-media',
       '.product-photos',
+      '[class*="productgallery"] img',  // For sites like LARQ
       '[data-testid*="gallery"]',
       '[data-testid*="images"]',
       '[class*="ProductGallery"]',
@@ -164,14 +170,19 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     ];
     
     for (const sel of highPrioritySelectors) {
-      const container = document.querySelector(sel);
-      if (container) {
-        const imgs = container.querySelectorAll('img');
-        if (imgs.length >= 1) { // Reduced from 2 to 1 for single-product galleries
-          console.log(`[DEBUG] Found high-priority product gallery: ${sel} (${imgs.length} images)`);
-          galleries.push({ container, selector: sel, priority: 1, images: Array.from(imgs) });
+      const containers = document.querySelectorAll(sel);
+      containers.forEach(container => {
+        let imgs = [];
+        if (container.tagName === 'IMG') {
+          imgs = [container];  // Handle direct IMG selectors like '.swiper-slide img'
+        } else {
+          imgs = Array.from(container.querySelectorAll('img'));
         }
-      }
+        if (imgs.length >= 1) {
+          console.log(`[DEBUG] Found high-priority product gallery: ${sel} (${imgs.length} images)`);
+          galleries.push({ container, selector: sel, priority: 1, images: imgs });
+        }
+      });
     }
     
     // Priority 2: Image carousels/sliders in product context
