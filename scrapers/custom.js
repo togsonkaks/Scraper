@@ -464,6 +464,62 @@ const ACE_HARDWARE = {
     return good.slice(0, 20);
   }
 };
+
+// ---------- Allbirds (target product gallery, avoid navigation tiles) ----------
+const ALLBIRDS = {
+  match: (h) => /\ballbirds\.com$/i.test(h),
+  images(doc = document) {
+    console.log("[DEBUG] Allbirds custom image logic running...");
+    const out = new Set();
+    
+    // Target product-specific image containers first
+    const productContainers = [
+      '.product-gallery',
+      '.product-images', 
+      '.pdp-gallery',
+      '.pdp-images',
+      '[data-testid*="gallery"]',
+      '[data-testid*="product-images"]',
+      '.carousel[class*="product"]',
+      '.slider[class*="product"]'
+    ];
+    
+    productContainers.forEach(selector => {
+      const container = doc.querySelector(selector);
+      if (container) {
+        console.log("[DEBUG] Allbirds found product container:", selector);
+        container.querySelectorAll('img').forEach(img => {
+          const u = img.currentSrc || img.src;
+          // Skip navigation, menu, and tile images
+          if (u && !/(nav|menu|tile|navigation|header|footer|logo|icon)/i.test(u) && 
+              !img.closest('.navigation, .nav, .menu, .header, .footer')) {
+            out.add(u);
+            console.log("[DEBUG] Allbirds adding product image:", u);
+          }
+        });
+      }
+    });
+    
+    // Fallback: Look for high-quality product images in main content area
+    if (out.size < 3) {
+      const mainContent = doc.querySelector('main, .main, .content, .pdp, .product-detail');
+      if (mainContent) {
+        mainContent.querySelectorAll('img').forEach(img => {
+          const u = img.currentSrc || img.src;
+          if (u && /\d{3,}x\d{3,}/.test(u) && // Must have decent dimensions
+              !/(nav|menu|tile|navigation|header|footer|logo|icon|thumb)/i.test(u) &&
+              !img.closest('.navigation, .nav, .menu, .header, .footer, .breadcrumb')) {
+            out.add(u);
+          }
+        });
+      }
+    }
+    
+    console.log("[DEBUG] Allbirds found", out.size, "product images");
+    return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0, 20);
+  }
+};
+
 // ---------- Aesop (hi-res DW/SFCC) ----------
 const AESOP = {
   match: (h) => /\baesop\.com$/i.test(h),
@@ -837,6 +893,7 @@ const REGISTRY = [
   BANANA_FACTORY,
   EDGE_BY_XS,
   ACE_HARDWARE,
+  ALLBIRDS,
   AESOP,
   BARNES_NOBLE,
   BONBONBON,
