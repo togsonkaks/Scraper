@@ -358,6 +358,9 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     // Block app store badges and social media icons
     if (/(app-store|google-play|apple-store|download|badge|social|facebook|twitter|instagram|pinterest)/.test(url)) return false;
     
+    // Block COMMENSE app store badges specifically
+    if (/img\.shopoases\.com/.test(url)) return false;
+    
     // Block page URLs that aren't real images (like Adidas product pages)
     if (/\/(us|uk|ca|au)\/.*-(shoes|clothing|apparel|boots|sneakers|shirts|pants)\//.test(url)) return false;
     

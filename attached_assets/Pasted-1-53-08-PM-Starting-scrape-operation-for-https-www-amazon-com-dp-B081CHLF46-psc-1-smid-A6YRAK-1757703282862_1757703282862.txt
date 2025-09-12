@@ -1,0 +1,126 @@
+1:53:08 PM] 🚀 Starting scrape operation for: https://www.amazon.com/dp/B081CHLF46?psc=1&smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp
+[1:53:09 PM] 🚀 SCRAPE START {"host":"amazon.com","href":"https://www.amazon.com/dp/B081CHLF46?smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp&th=1","mode":"normal"}
+[1:53:09 PM] 🧠 LOADED MEMORY: {"host":"amazon.com","hasMemory":false,"fields":[],"memoryData":{}}
+[1:53:09 PM] 🔄 NORMAL MODE - memory + fallbacks
+[1:53:09 PM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":false}
+[1:53:09 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: title
+[1:53:09 PM] 📝 TITLE FROM MEMORY: null
+[1:53:09 PM] 📝 TITLE: Falling back to generic...
+[1:53:09 PM] 📝 TITLE FROM GENERIC: Product summary presents key product information Keyboard shortcut  shift + alt + opt + D
+[1:53:09 PM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[1:53:09 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[1:53:09 PM] 🏷️ BRAND FROM MEMORY: null
+[1:53:09 PM] 🏷️ BRAND: Falling back to generic...
+[1:53:09 PM] 🏷️ BRAND FROM GENERIC: null
+[1:53:09 PM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[1:53:09 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[1:53:09 PM] 📄 DESCRIPTION FROM MEMORY: null
+[1:53:09 PM] 📄 DESCRIPTION: Falling back to generic...
+[1:53:09 PM] 📄 DESCRIPTION FROM GENERIC: Buy Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers, Bedroom, with Sunrise Simulation, Sleep Aid, Dual Alarms, FM Radio, Snooze, Nightlight, Daylight, 7 Colors, 7 Natural Sounds, Ideal for Gift: Clock Radios - Amazon.com ✓ FREE DELIVERY possible on eligible purchases
+[1:53:09 PM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[1:53:09 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[1:53:09 PM] 💰 PRICE FROM MEMORY: null
+[1:53:09 PM] 💰 PRICE: Falling back to generic...
+[1:53:09 PM] 💰 PRICE FROM GENERIC: null
+[1:53:09 PM] 🧠 FROM MEMORY: {"field":"images","hasMemEntry":false}
+[1:53:09 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: images
+[1:53:09 PM] 🖼️ IMAGES FROM MEMORY: {"count":0}
+[1:53:09 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:53:09 PM] 🖼️ IMAGES: Getting generic images...
+[1:53:09 PM] 🖼️ Getting generic images for hostname: amazon.com
+[1:53:09 PM] 🎯 Trying site-specific selector for amazon.com: #imageBlockContainer img
+[1:53:09 PM] 🔍 GATHERING IMAGES with selector: #imageBlockContainer img
+[1:53:09 PM] 📊 Found 0 elements for selector: #imageBlockContainer img
+[1:53:09 PM] 🖼️ Raw enriched URLs collected: 0
+[1:53:09 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:53:09 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:53:09 PM] 🖼️ FINAL IMAGES: []
+[1:53:09 PM] 🖼️ After hybrid filtering: 0 images
+[1:53:09 PM] 🎯 Trying site-specific selector for amazon.com: #imageBlock img
+[1:53:09 PM] 🔍 GATHERING IMAGES with selector: #imageBlock img
+[1:53:09 PM] 📊 Found 10 elements for selector: #imageBlock img
+[1:53:09 PM] Image element <IMG>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485971279_SS40_FMpng_RI_.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485971279_SS40_FMpng_RI
+[1:53:09 PM] Image element <IMG>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/318fiQgZpbL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/318fiQgZpbL._AC_US40_.jpg
+[1:53:09 PM] Image element <IMG>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/41kHsVheHkL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/41kHsVheHkL._AC_US40_.jpg
+[1:53:09 PM] Image element <IMG>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51g+NvLG9tL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51g+NvLG9tL._AC_US40_.jpg
+[1:53:09 PM] Image element <IMG>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51GxMcNAIgL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51GxMcNAIgL._AC_US40_.jpg
+[1:53:09 PM] Image element <IMG>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51aO+eQEirL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51aO+eQEirL._AC_US40_.jpg
+[1:53:09 PM] Image element <IMG>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/41n3aRq0BgL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/41n3aRq0BgL._AC_US40_.jpg
+[1:53:09 PM] Image element <IMG>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51PfBsPefYL.SS40_BG85,85,85_BR-120_PKdp-play-icon-overlay__.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51PfBsPefYL.SS40_BG85,85,85_BR-120_PKdp-play-icon-overlay__.jpg
+[1:53:09 PM] Image element <IMG.a-lazy-loaded>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[1:53:09 PM] Image element <IMG#landingImage.a-dynamic-image>
+[1:53:09 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:53:09 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg
+[1:53:09 PM] 🖼️ Raw enriched URLs collected: 10
+[1:53:09 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":10}
+[1:53:09 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485
+0
+📋 Copy URL
+[1:53:09 PM] 📉 LOW SCORE REJECTED (25): https://m.media-amazon.com/images/I/318fiQgZpbL._AC_US40_.jpg
+25
+📋 Copy URL
+[1:53:09 PM] 📉 LOW SCORE REJECTED (25): https://m.media-amazon.com/images/I/41kHsVheHkL._AC_US40_.jpg
+25
+📋 Copy URL
+[1:53:09 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/51g+NvLG9tL._AC_US40_.jpg
+5
+📋 Copy URL
+[1:53:09 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/51GxMcNAIgL._AC_US40_.jpg
+5
+📋 Copy URL
+[1:53:09 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/51aO+eQEirL._AC_US40_.jpg
+5
+📋 Copy URL
+[1:53:09 PM] 📉 LOW SCORE REJECTED (0): https://m.media-amazon.com/images/I/41n3aRq0BgL._AC_US40_.jpg
+0
+📋 Copy URL
+[1:53:09 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/I/51PfBsPefYL.SS40_BG85,85,85_BR-120_PKdp-play
+0
+📋 Copy URL
+[1:53:09 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[1:53:09 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg
+50
+📋 Copy URL
+[1:53:09 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg
+50
+📋 Copy URL
+[1:53:09 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":2,"lowScore":7,"smallFile":0,"duplicateGroups":0,"kept":1}
+[1:53:09 PM] 🖼️ FINAL IMAGES: ["https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg"]
+[1:53:09 PM] 🖼️ After hybrid filtering: 1 images
+[1:53:09 PM] ✅ Site-specific success: 1 images found
+[1:53:09 PM] 🖼️ GENERIC IMAGES: {"count":1,"images":["https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg"]}
+[1:53:09 PM] 🖼️ IMAGES: Appending and deduplicating...
+[1:53:09 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[1:53:09 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[1:53:09 PM] ✅ SINGLE IMAGE (score: 65): https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg
+65
+📋 Copy URL
+[1:53:09 PM] 🎯 HIGH SCORE + SIZE OK (65): https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg
+65
+📋 Copy URL
+[1:53:09 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[1:53:09 PM] 🖼️ FINAL IMAGES: ["https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg"]
+[1:53:09 PM] 🖼️ FINAL IMAGES: {"count":1,"images":["https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg"]}
+[1:53:09 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Product summary presents key product information ","brand":null,"description":"Buy Wake Up Light Sunrise Alarm Clock for Kids, He","price":null,"imageCount":1,"firstImages":["https://m.medi
+[1:53:09 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":false,"description":true,"price":false,"images":1}
+[1:53:09 PM] ✅ Debug trace complete
