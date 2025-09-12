@@ -137,7 +137,55 @@ const AMZ = {
     return __uniq(out).slice(0, 20);
   },
 
-  images: null,
+  async images(doc = document) {
+    console.log("[DEBUG] Amazon custom image logic running...");
+    const urls = new Set();
+    
+    // Amazon main product image (high-res version)
+    const mainImage = doc.querySelector('#landingImage, #ivLargeImage, .a-dynamic-image');
+    if (mainImage && mainImage.src) {
+      // Convert to high-res version - replace size params with larger ones
+      let highResUrl = mainImage.src
+        .replace(/_AC_SX\d+_/, '_AC_SL1500_')  // Convert SX425 to SL1500
+        .replace(/_AC_US\d+_/, '_AC_SL1500_')  // Convert US40 to SL1500
+        .replace(/\._SS\d+_/, '._SL1500_');     // Convert SS to SL
+      urls.add(highResUrl);
+      console.log("[DEBUG] Amazon main image found:", highResUrl);
+    }
+    
+    // Amazon thumbnail gallery - convert thumbnails to high-res
+    const thumbnails = doc.querySelectorAll('#altImages img, .ivThumb img, #imageBlock img');
+    thumbnails.forEach(thumb => {
+      if (!thumb.src || thumb.src.includes('icon') || thumb.src.includes('grey-pixel')) return;
+      
+      // Convert thumbnail URLs to high-res versions
+      let highResUrl = thumb.src
+        .replace(/_AC_US\d+_/, '_AC_SL1500_')   // Convert US40/US240 to SL1500  
+        .replace(/_AC_SX\d+_/, '_AC_SL1500_')   // Convert SX to SL
+        .replace(/\._SS\d+_/, '._SL1500_')      // Convert SS to SL
+        .replace(/\._CR.*?_/, '._SL1500_');     // Remove crop params
+        
+      if (highResUrl !== thumb.src) {
+        urls.add(highResUrl);
+        console.log("[DEBUG] Amazon thumbnail converted:", thumb.src, "->", highResUrl);
+      }
+    });
+    
+    // Amazon alternate images container
+    const altImagesContainer = doc.querySelector('#altImages, #imageBlockThumbs');
+    if (altImagesContainer) {
+      altImagesContainer.querySelectorAll('img').forEach(img => {
+        if (!img.src || img.src.includes('icon') || img.src.includes('grey-pixel')) return;
+        let highResUrl = img.src.replace(/_AC_US\d+_/, '_AC_SL1500_');
+        if (highResUrl !== img.src) urls.add(highResUrl);
+      });
+    }
+    
+    // Filter and return
+    const good = [...urls].filter(u => u && /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u));
+    console.log("[DEBUG] Amazon found", good.length, "high-res images:", good.slice(0, 3));
+    return good.slice(0, 15);
+  },
 };
 
 // ---------- boohooMAN ----------
