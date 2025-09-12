@@ -249,10 +249,73 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     await __wakeSwiperGalleries(scope);
   }
 
-  // ---------- Filters / allow-list ----------
+  // ---------- Context-Aware Filters / allow-list ----------
   const EXT_ALLOW = /\.(jpe?g|png|webp|avif)(\?|#|$)/i;
+  // Remove 'cms' from BAD_PATH as it's used by legitimate CDNs like Ace Hardware
   const BAD_PATH =
-    /(\/|^)(plp|listing|category|promo|cms|ad|recommend|recs|similar|also|upsell|sprite|icons?|iconography|favicons?|size[_-]?chart|swatch|colorway|variant|placeholder)\b/i;
+    /(\/|^)(plp|listing|category|promo|ad|recommend|recs|similar|also|upsell|sprite|icons?|iconography|favicons?|size[_-]?chart|swatch|colorway|variant|placeholder)\b/i;
+  
+  // Known product CDNs that don't require extensions
+  const TRUSTED_PRODUCT_CDNS = [
+    /cdn-tp3\.mozu\.com/i,           // Ace Hardware
+    /assets\.adidas\.com/i,          // Adidas
+    /cdn\.shopify\.com/i,           // Shopify stores
+    /m\.media-amazon\.com/i,        // Amazon
+    /images-na\.ssl-images-amazon\.com/i, // Amazon
+    /scene7\.com/i,                 // Adobe Scene7 CDN
+    /demandware\.static/i,          // Salesforce Commerce Cloud
+  ];
+  
+  // Check if URL is from a trusted product CDN
+  function isTrustedProductCDN(url) {
+    return TRUSTED_PRODUCT_CDNS.some(pattern => pattern.test(url));
+  }
+  
+  // Pre-validate URL to catch broken/error images
+  function preValidateUrl(url) {
+    if (!url || url.length < 10) return false;
+    
+    // Block obvious error patterns
+    if (/(transparent-pixel|grey-pixel|error|404|not-found|placeholder\.)/i.test(url)) return false;
+    
+    // Block navigation sprites and UI elements
+    if /(sprite|nav-sprite|icon-sprite|ui-sprite)/i.test(url)) return false;
+    
+    // Block obvious non-product patterns
+    if (/(tracking|analytics|pixel|beacon|1x1|blank\.)/i.test(url)) return false;
+    
+    return true;
+  }
+  
+  // Extract actual dimensions from URL patterns
+  function extractDimensionsFromUrl(url) {
+    let w = 0, h = 0;
+    
+    // Shopify: _640x640
+    const shopifyMatch = url.match(/_(\d+)x(\d+)/i);
+    if (shopifyMatch) {
+      w = parseInt(shopifyMatch[1]);
+      h = parseInt(shopifyMatch[2]);
+    }
+    
+    // SFCC/Demandware: ?sw=600&sh=400
+    const sfccWMatch = url.match(/[?&]sw=(\d+)/i);
+    const sfccHMatch = url.match(/[?&]sh=(\d+)/i);
+    if (sfccWMatch) w = parseInt(sfccWMatch[1]);
+    if (sfccHMatch) h = parseInt(sfccHMatch[1]);
+    
+    // Generic patterns: 523x, width=600, etc.
+    if (!w) {
+      const widthMatch = url.match(/(\d{3,4})x\./) || url.match(/[?&]w(?:idth)?=(\d+)/i);
+      if (widthMatch) w = parseInt(widthMatch[1]);
+    }
+    if (!h) {
+      const heightMatch = url.match(/x(\d{3,4})\./) || url.match(/[?&]h(?:eight)?=(\d+)/i);
+      if (heightMatch) h = parseInt(heightMatch[1]);
+    }
+    
+    return { w, h };
+  }
   const BAD_NAME =
     /(logo|loading|spinner|placeholder|cookie|consent|banner|hero-banner|header-?banner|badge|ribbon|reward|tracking|pixel|close|arrow|prev|next|play|pause|thumbnail|thumbs?|_56x|_112x|_200x)(\.|-|_|\/)/i;
   const BAD_HOST =
@@ -311,49 +374,90 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     } catch { return u; }
   }
 
-  const ensure = (u, w = 0, h = 0, from = "") => {
+  const ensure = (u, w = 0, h = 0, from = "", imgElement = null) => {
     try {
       if (!u) return;
+      
+      // Pre-validate before any processing
+      if (!preValidateUrl(u)) return;
+      
       u = upgradeUrl(u);
       if (!looksHttp(u)) return;
 
       if (BAD_HOST.test(u)) return;
-      if (!EXT_ALLOW.test(u)) return;               // block svg, gif, etc.
-      if (BAD_PATH.test(u)) return;
+      
+      // Context-aware filtering: check for product context before applying hard filters
+      const isFromProductGallery = from && from.startsWith('gallery-');
+      const isTrustedCDN = isTrustedProductCDN(u);
+      const isInProductContainer = imgElement && imgElement.closest('.product, .pdp, [class*="Product"], [data-testid*="product"], [data-testid*="gallery"], [data-testid*="image"]');
+      
+      // Apply context-aware extension filtering
+      if (!EXT_ALLOW.test(u)) {
+        // Allow URLs without extensions if they're from trusted sources
+        if (!(isTrustedCDN || isFromProductGallery || isInProductContainer)) {
+          console.log(`[DEBUG] Blocked no-extension URL (not in product context): ${u.substring(u.lastIndexOf('/') + 1)}`);
+          return;
+        }
+      }
+      
+      // Apply context-aware path filtering
+      if (BAD_PATH.test(u)) {
+        // Allow some "bad" paths if they're from product contexts
+        if (!(isTrustedCDN || isFromProductGallery)) {
+          console.log(`[DEBUG] Blocked bad path URL: ${u.substring(u.lastIndexOf('/') + 1)}`);
+          return;
+        }
+      }
+      
       if (BAD_CONTENT.test(u)) return;              // block charts, graphs, analytics images
+
+      // Try to extract dimensions from URL if not provided
+      if ((!w || !h) && u) {
+        const extracted = extractDimensionsFromUrl(u);
+        if (extracted.w > w) w = extracted.w;
+        if (extracted.h > h) h = extracted.h;
+      }
 
       const key = urlKey(u);
       if (!candidates.has(key))
-        candidates.set(key, { url: u, w, h, hits: 0, from: new Set() });
+        candidates.set(key, { url: u, w, h, hits: 0, from: new Set(), element: imgElement });
       const rec = candidates.get(key);
       rec.hits++;
       rec.from.add(from);
+      if (imgElement && !rec.element) rec.element = imgElement;
       if (w * h > rec.w * rec.h) { rec.w = w; rec.h = h; rec.url = u; }
     } catch {}
   };
 
   function addFromImg(img) {
-    const w = img.naturalWidth || 0,
-          h = img.naturalHeight || 0;
+    const w = img.naturalWidth || parseInt(img.width) || 0,
+          h = img.naturalHeight || parseInt(img.height) || 0;
 
     [
       "data-photoswipe-src","data-zoom-image","data-zoom","data-large","data-large-image",
       "data-src-large","data-hires","data-original"
     ].forEach((a) => {
       const v = img.getAttribute(a);
-      if (v) ensure(v, w, h, "hires");
+      if (v) ensure(v, w, h, "hires", img);
     });
 
     const src = img.currentSrc || img.src;
-    if (src) ensure(src, w, h, "img");
+    if (src) ensure(src, w, h, "img", img);
 
-    keepBiggestFromSrcset(img.getAttribute("srcset")).forEach((u) =>
-      ensure(u, w, h, "srcset")
-    );
+    keepBiggestFromSrcset(img.getAttribute("srcset")).forEach((u) => {
+      // For srcset, try to extract width from descriptor
+      const srcsetParts = img.getAttribute("srcset") || "";
+      const match = srcsetParts.match(new RegExp(u.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s+(\\d+)w'));
+      const srcsetW = match ? parseInt(match[1]) : w;
+      ensure(u, srcsetW, h, "srcset", img);
+    });
 
     const a = img.closest("a[href]");
-    if (a && EXT_ALLOW.test(a.getAttribute("href")))
-      ensure(a.href, w, h, "anchor");
+    if (a) {
+      const href = a.getAttribute("href");
+      if (href && (EXT_ALLOW.test(href) || isTrustedProductCDN(href)))
+        ensure(a.href, w, h, "anchor", img);
+    }
   }
 
   function addFromPicture(pic) {
