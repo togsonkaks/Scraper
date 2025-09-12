@@ -1095,39 +1095,37 @@
           debug('🖼️ IMAGES: Need more images (have ' + (images?.length || 0) + ', need 3+)');
           const memoryImages = images || [];
           // Try custom handlers first
-          debug('🖼️ IMAGES: Checking custom handlers...');
-          const customHandlers = getCustomHandlers();
           let customImages = [];
-          try {
-            const customResult = await customHandlers.images();
-            if (customResult && Array.isArray(customResult)) {
-              customImages = customResult;
-              mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-              debug('🖼️ CUSTOM IMAGES:', { count: customImages.length, images: customImages.slice(0, 3) });
+          if (typeof getCustomHandlers === 'function') {
+            try {
+              const ch = getCustomHandlers();
+              if (ch?.images && typeof ch.images === 'function') {
+                debug('🧩 IMAGES: Trying custom handler...');
+                const customResult = await Promise.resolve(ch.images(document));
+                if (customResult && Array.isArray(customResult)) {
+                  customImages = customResult.filter(Boolean);
+                  mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
+                  debug('🧩 CUSTOM IMAGES:', { count: customImages.length, images: customImages.slice(0, 3) });
+                }
+              }
+            } catch (e) { 
+              debug('❌ Custom image handler error:', e.message); 
             }
-          } catch (e) {
-            debug('🖼️ CUSTOM IMAGES ERROR:', e.message);
           }
           
-          // Combine memory + custom images
-          const memoryAndCustom = await uniqueImages(memoryImages.concat(customImages));
+          // Merge and dedupe memory + custom
+          let combinedImages = await uniqueImages(memoryImages.concat(customImages));
           
-          // Only call generic if we still don't have enough images
-          if (memoryAndCustom.length < 3) {
-            debug('🖼️ IMAGES: Still need more images (have ' + memoryAndCustom.length + '), trying generic...');
+          // Fall back to generic only if still insufficient
+          if (combinedImages.length < 3) {
+            debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
             const genericImages = await getImagesGeneric();
             debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-            
-            // Combine all: memory + custom + generic
-            debug('🖼️ IMAGES: Combining all images (memory + custom + generic)...');
-            const combinedImages = await uniqueImages(memoryAndCustom.concat(genericImages));
-            images = combinedImages.slice(0, 30);
-            debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
-          } else {
-            debug('🖼️ IMAGES: Sufficient images from memory + custom (' + memoryAndCustom.length + '), skipping generic');
-            images = memoryAndCustom.slice(0, 30);
-            debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
+            combinedImages = await uniqueImages(combinedImages.concat(genericImages));
           }
+          
+          images = combinedImages.slice(0, 30);
+          debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
         }
       }
 
