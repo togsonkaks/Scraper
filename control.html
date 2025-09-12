@@ -301,16 +301,9 @@
       });
     }
 
-    // Event delegation for copy URL functionality (enhanced for debug panel)
+    // Event delegation for copy URL functionality
     document.addEventListener('click', function(e) {
       if (e.target.classList.contains('copy-url-span') || e.target.classList.contains('copy-url-btn')) {
-        const url = e.target.getAttribute('data-url');
-        if (url) {
-          copyImageURL(url, e.target);
-        }
-      }
-      // 🔥 UNIVERSAL COPY: Also handle debug panel copy elements
-      if (e.target.classList.contains('debug-copy-url')) {
         const url = e.target.getAttribute('data-url');
         if (url) {
           copyImageURL(url, e.target);
@@ -896,18 +889,6 @@
       
       const textSpan = document.createElement('span');
       textSpan.textContent = `[${timestamp}] ${message}`;
-      
-      // 🔥 FIX 1: Add copy-to-clipboard for debug URLs (use imageUrl parameter unconditionally)
-      if (imageUrl) {
-        const urlSpan = document.createElement('span');
-        urlSpan.className = 'copy-url-span debug-copy-url';
-        urlSpan.setAttribute('data-url', imageUrl);
-        urlSpan.style.cssText = 'cursor: pointer; color: #007bff; text-decoration: underline; margin-left: 8px; font-size: 10px; background: #f8f9fa; padding: 2px 6px; border-radius: 3px; border: 1px solid #dee2e6;';
-        urlSpan.textContent = '📋 Copy URL';
-        urlSpan.title = 'Click to copy URL to clipboard';
-        div.appendChild(urlSpan);
-      }
-      
       div.appendChild(textSpan);
       
       if (imageUrl) {
