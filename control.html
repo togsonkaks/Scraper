@@ -123,6 +123,7 @@
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
     <button id="batchAIBtn" title="Get AI suggestions for all fields at once (saves tokens)">🤖 Batch AI All</button>
+    <button id="copyDiagnosticsBtn" title="Copy structured diagnostic information for troubleshooting">📋 Copy Diagnostics</button>
     <span id="aiCacheStatus" class="ai-cache-status">🤖 AI cache: Not Ready</span>
   </div>
 
@@ -1591,5 +1592,7 @@
       <button onclick="hideValidationPanel()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Cancel</button>
     </div>
   </div>
+  <!-- Load diagnostics functionality -->
+  <script src="diagnostics.js"></script>
 </body>
 </html>

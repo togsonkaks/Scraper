@@ -984,6 +984,28 @@
     return null;
   }
   async function getImagesGeneric() {
+    const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
+    debug('🖼️ Getting generic images for hostname:', hostname);
+    
+    // Site-specific selectors for problematic sites
+    const siteSpecificSelectors = {
+      'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
+      'amazon.com': ['#imageBlockContainer img', '#imageBlock img', '.a-dynamic-image'],
+      'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
+      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+    };
+    
+    // Try site-specific selectors first
+    const siteSelectors = siteSpecificSelectors[hostname] || [];
+    for (const sel of siteSelectors) {
+      debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
+      const urls = await gatherImagesBySelector(sel);
+      if (urls.length >= 1) {
+        debug(`✅ Site-specific success: ${urls.length} images found`);
+        mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
+        return urls.slice(0,30); 
+      }
+    }
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
       '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'

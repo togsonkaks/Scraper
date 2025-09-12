@@ -767,14 +767,9 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     console.log(`[DEBUG] Best image at position ${bestIndex + 1}: ${primaryUrl.substring(primaryUrl.lastIndexOf('/') + 1)}`);
   }
   
-  // Return enhanced result with order metadata
-  return {
-    urls: finalUrls,
-    bestIndex: bestIndex,
-    primaryUrl: primaryUrl,
-    totalFound: finalUrls.length,
-    galleryBased: productGalleries.length > 0
-  };
+  // For backwards compatibility, return just the URLs array
+  // Enhanced metadata available via collectImagesFromPDPEnhanced() if needed
+  return finalUrls;
 }
 
 Object.assign(globalThis, { collectImagesFromPDP });
