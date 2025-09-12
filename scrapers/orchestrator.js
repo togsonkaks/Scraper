@@ -682,9 +682,9 @@
         continue;
       }
       // Trust high scores over file size limits (modern CDN optimization) - EARLY CHECK
-      if (img.score >= 65) {  // LOWERED FROM 100 - user's images scored 65!
+      if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {  // High score + minimum size check
         sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `🎯 HIGH SCORE OVERRIDE (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
         continue;
       } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {  // LOWERED FROM 85 TO 50
         // Good score + modern CDN optimization = keep it
@@ -722,9 +722,9 @@
       
       for (const { img, actualSize, estimatedSize } of sizeResults) {
         // Trust high scores over file size limits (modern CDN optimization)
-        if (img.score >= 65) {  // LOWERED FROM 100 - user's images scored 65!
+        if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {  // High score + minimum size check
           sizeFilteredImages.push(img);
-          addImageDebugLog('debug', `🎯 HIGH SCORE OVERRIDE (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+          addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
         } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {  // LOWERED FROM 85 TO 50
           // Good score + modern CDN optimization = keep it
           sizeFilteredImages.push(img);

@@ -1,0 +1,228 @@
+[1:12:23 PM] 🚀 Starting scrape operation for: https://www.livelarq.com/purification/larq-bottle-purevis-insulated-monaco-blue?size=17oz
+[1:12:23 PM] 🚀 SCRAPE START {"host":"livelarq.com","href":"https://www.livelarq.com/purification/larq-bottle-purevis-insulated-monaco-blue?size=17oz","mode":"normal"}
+[1:12:23 PM] 🧠 LOADED MEMORY: {"host":"livelarq.com","hasMemory":true,"fields":["title","images","brand","description"],"memoryData":{"title":{"selectors":["[property=\"og:title\"]"],"attr":"text"},"images":{"selectors":["meta[pro
+[1:12:23 PM] 🔄 NORMAL MODE - memory + fallbacks
+[1:12:23 PM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":true,"selectors":["[property=\"og:title\"]"],"attr":"text"}
+[1:12:23 PM] 🔍 TRYING CSS SELECTORS: ["[property=\"og:title\"]"]
+[1:12:23 PM] 🎯 TRYING SELECTOR [title]: [property="og:title"]
+[1:12:23 PM] ✅ SELECTOR SUCCESS [Memory title]: [property="og:title"] found: 1 elements
+[1:12:23 PM] Single element <META>
+[1:12:23 PM] 📋 RAW VALUE: {"selector":"[property=\"og:title\"]","attr":"text","rawValue":null,"element":"META"}
+[1:12:23 PM] 💰 AFTER NORMALIZATION: null
+[1:12:23 PM] ❌ NO VALUE after processing for [title]
+[1:12:23 PM] 📝 TITLE FROM MEMORY: null
+[1:12:23 PM] 📝 TITLE: Falling back to generic...
+[1:12:23 PM] 📝 TITLE FROM GENERIC: LARQ Bottle PureVis™
+[1:12:23 PM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":true,"selectors":["script[type=\"application/ld+json\"]"],"attr":"text"}
+[1:12:23 PM] 🔍 TRYING JSON-LD for field: brand
+[1:12:23 PM] ✅ JSON-LD PRODUCT DATA: ["@context","@type","name","description","image","color","brand","sku","gtin13","mpn","offers","aggregateRating","review"]
+[1:12:23 PM] 🏷️ BRAND FROM MEMORY: LARQ
+[1:12:23 PM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":true,"selectors":["[property=\"og:description\"]"],"attr":"text"}
+[1:12:23 PM] 🔍 TRYING CSS SELECTORS: ["[property=\"og:description\"]"]
+[1:12:23 PM] 🎯 TRYING SELECTOR [description]: [property="og:description"]
+[1:12:23 PM] ✅ SELECTOR SUCCESS [Memory description]: [property="og:description"] found: 1 elements
+[1:12:23 PM] Single element <META>
+[1:12:23 PM] 📋 RAW VALUE: {"selector":"[property=\"og:description\"]","attr":"text","rawValue":null,"element":"META"}
+[1:12:23 PM] 💰 AFTER NORMALIZATION: null
+[1:12:23 PM] ❌ NO VALUE after processing for [description]
+[1:12:23 PM] 📄 DESCRIPTION FROM MEMORY: null
+[1:12:23 PM] 📄 DESCRIPTION: Falling back to generic...
+[1:12:23 PM] 📄 DESCRIPTION FROM GENERIC: The world's first self-cleaning water bottle and portable water purification system. Neutralizes up to 99.9999%* of harmful, odor-causing bacteria using UV-C light.
+[1:12:23 PM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[1:12:23 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[1:12:23 PM] 💰 PRICE FROM MEMORY: null
+[1:12:23 PM] 💰 PRICE: Falling back to generic...
+[1:12:23 PM] 🔍 PRICE PARSING: {"input":"99","preferFirst":false,"inputType":"string","inputLength":2}
+[1:12:23 PM] 💰 MONETARY TOKENS: []
+[1:12:23 PM] 🔢 FALLBACK NUMBERS: [99]
+[1:12:23 PM] ✅ FINAL PRICE RESULT: {"result":99,"method":"MIN_FALLBACK","allNumbers":[99]}
+[1:12:23 PM] 💰 PRICE FROM GENERIC: 99
+[1:12:23 PM] 🧠 FROM MEMORY: {"field":"images","hasMemEntry":true,"selectors":["meta[property=\"og:image\"], [itemprop=\"image\"], .product-image img"],"attr":"src"}
+[1:12:23 PM] 🔍 TRYING CSS SELECTORS: ["meta[property=\"og:image\"], [itemprop=\"image\"], .product-image img"]
+[1:12:23 PM] 🎯 TRYING SELECTOR [images]: meta[property="og:image"], [itemprop="image"], .product-image img
+[1:12:23 PM] 🔍 GATHERING IMAGES with selector: meta[property="og:image"], [itemprop="image"], .product-image img
+[1:12:23 PM] 📊 Found 1 elements for selector: meta[property="og:image"], [itemprop="image"], .product-image img
+[1:12:23 PM] Image element <META>
+[1:12:23 PM] 📋 Image attributes: {"data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:12:23 PM] 🖼️ Raw enriched URLs collected: 0
+[1:12:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:12:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:12:23 PM] 🖼️ FINAL IMAGES: []
+[1:12:23 PM] 🖼️ After hybrid filtering: 0 images
+[1:12:23 PM] ❌ MEMORY IMAGES: No images found for selector: meta[property="og:image"], [itemprop="image"], .product-image img
+[1:12:23 PM] 🖼️ IMAGES FROM MEMORY: {"count":0}
+[1:12:23 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:12:23 PM] 🖼️ IMAGES: Getting generic images...
+[1:12:23 PM] 🖼️ Getting generic images for hostname: livelarq.com
+[1:12:23 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[1:12:23 PM] 📊 Found 0 elements for selector: .product-media img
+[1:12:23 PM] 🖼️ Raw enriched URLs collected: 0
+[1:12:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:12:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:12:23 PM] 🖼️ FINAL IMAGES: []
+[1:12:23 PM] 🖼️ After hybrid filtering: 0 images
+[1:12:23 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[1:12:23 PM] 📊 Found 0 elements for selector: .gallery img
+[1:12:23 PM] 🖼️ Raw enriched URLs collected: 0
+[1:12:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:12:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:12:23 PM] 🖼️ FINAL IMAGES: []
+[1:12:23 PM] 🖼️ After hybrid filtering: 0 images
+[1:12:23 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[1:12:23 PM] 📊 Found 0 elements for selector: .image-gallery img
+[1:12:23 PM] 🖼️ Raw enriched URLs collected: 0
+[1:12:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:12:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:12:23 PM] 🖼️ FINAL IMAGES: []
+[1:12:23 PM] 🖼️ After hybrid filtering: 0 images
+[1:12:23 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[1:12:23 PM] 📊 Found 0 elements for selector: .product-images img
+[1:12:23 PM] 🖼️ Raw enriched URLs collected: 0
+[1:12:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:12:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:12:23 PM] 🖼️ FINAL IMAGES: []
+[1:12:23 PM] 🖼️ After hybrid filtering: 0 images
+[1:12:23 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[1:12:23 PM] 📊 Found 0 elements for selector: .product-gallery img
+[1:12:23 PM] 🖼️ Raw enriched URLs collected: 0
+[1:12:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:12:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:12:23 PM] 🖼️ FINAL IMAGES: []
+[1:12:23 PM] 🖼️ After hybrid filtering: 0 images
+[1:12:23 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[1:12:23 PM] 📊 Found 8 elements for selector: [class*=gallery] img
+[1:12:23 PM] Image element <IMG.gallerySummary_itemImage>
+[1:12:23 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:12:23 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09
+[1:12:23 PM] Image element <IMG.gallerySummary_itemImage>
+[1:12:23 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:12:23 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-160%2Ch-160&ts=12-09
+[1:12:23 PM] Image element <IMG.gallerySummary_itemImage>
+[1:12:23 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/9b8f32f1812871248fb3015fda1a3634.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:12:23 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/9b8f32f1812871248fb3015fda1a3634.jpg?tr=w-160%2Ch-160&ts=12-09
+[1:12:23 PM] Image element <IMG.gallerySummary_itemImage>
+[1:12:23 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/02c9af18ddb5095324333e4a792b9797.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:12:23 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/02c9af18ddb5095324333e4a792b9797.jpg?tr=w-160%2Ch-160&ts=12-09
+[1:12:23 PM] Image element <IMG.gallerySummary_itemImage>
+[1:12:23 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/d44ed30c653afa06ea8e6732d6d4123a.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:12:23 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/d44ed30c653afa06ea8e6732d6d4123a.jpg?tr=w-160%2Ch-160&ts=12-09
+[1:12:23 PM] Image element <IMG.gallerySummary_itemImage>
+[1:12:23 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/1ea5a55fecf462c476f9570268571c67.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:12:23 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/1ea5a55fecf462c476f9570268571c67.jpg?tr=w-160%2Ch-160&ts=12-09
+[1:12:23 PM] Image element <IMG.gallerySummary_itemImage>
+[1:12:23 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/d33348ff201fc54f796ae1bc88ceefba.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:12:23 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/d33348ff201fc54f796ae1bc88ceefba.jpg?tr=w-160%2Ch-160&ts=12-09
+[1:12:23 PM] Image element <IMG.gallerySummary_itemImage>
+[1:12:23 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/2b91d748f523c0a4d03ba7abd8b171da.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[1:12:23 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/2b91d748f523c0a4d03ba7abd8b171da.jpg?tr=w-160%2Ch-160&ts=12-09
+[1:12:23 PM] 🖼️ Raw enriched URLs collected: 8
+[1:12:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 120): https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09
+120
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 110): https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-160%2Ch-160&ts=12-09
+110
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 110): https://cdn.stamped.io/uploads/videos/9b8f32f1812871248fb3015fda1a3634.jpg?tr=w-160%2Ch-160&ts=12-09
+110
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.stamped.io/uploads/videos/02c9af18ddb5095324333e4a792b9797.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.stamped.io/uploads/videos/d44ed30c653afa06ea8e6732d6d4123a.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.stamped.io/uploads/videos/1ea5a55fecf462c476f9570268571c67.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.stamped.io/uploads/videos/d33348ff201fc54f796ae1bc88ceefba.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.stamped.io/uploads/videos/2b91d748f523c0a4d03ba7abd8b171da.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (120): https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09
+120
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (110): https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-160%2Ch-160&ts=12-09
+110
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (110): https://cdn.stamped.io/uploads/videos/9b8f32f1812871248fb3015fda1a3634.jpg?tr=w-160%2Ch-160&ts=12-09
+110
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (90): https://cdn.stamped.io/uploads/videos/02c9af18ddb5095324333e4a792b9797.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (90): https://cdn.stamped.io/uploads/videos/d44ed30c653afa06ea8e6732d6d4123a.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (90): https://cdn.stamped.io/uploads/videos/1ea5a55fecf462c476f9570268571c67.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (90): https://cdn.stamped.io/uploads/videos/d33348ff201fc54f796ae1bc88ceefba.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (90): https://cdn.stamped.io/uploads/videos/2b91d748f523c0a4d03ba7abd8b171da.jpg?tr=w-160%2Ch-160&ts=12-09
+90
+📋 Copy URL
+[1:12:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":8}
+[1:12:23 PM] 🖼️ FINAL IMAGES: ["https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-","https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-","https://cdn.stamped.io/uploads/v
+[1:12:23 PM] 🖼️ After hybrid filtering: 8 images
+[1:12:23 PM] 🖼️ GENERIC IMAGES: {"count":8,"images":["https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09-2025","https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf
+[1:12:23 PM] 🖼️ IMAGES: Appending and deduplicating...
+[1:12:23 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":8}
+[1:12:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 105): https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09
+105
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 95): https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-160%2Ch-160&ts=12-09
+95
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 95): https://cdn.stamped.io/uploads/videos/9b8f32f1812871248fb3015fda1a3634.jpg?tr=w-160%2Ch-160&ts=12-09
+95
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 75): https://cdn.stamped.io/uploads/videos/02c9af18ddb5095324333e4a792b9797.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 75): https://cdn.stamped.io/uploads/videos/d44ed30c653afa06ea8e6732d6d4123a.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 75): https://cdn.stamped.io/uploads/videos/1ea5a55fecf462c476f9570268571c67.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 75): https://cdn.stamped.io/uploads/videos/d33348ff201fc54f796ae1bc88ceefba.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] ✅ SINGLE IMAGE (score: 75): https://cdn.stamped.io/uploads/videos/2b91d748f523c0a4d03ba7abd8b171da.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (105): https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09
+105
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (95): https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-160%2Ch-160&ts=12-09
+95
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (95): https://cdn.stamped.io/uploads/videos/9b8f32f1812871248fb3015fda1a3634.jpg?tr=w-160%2Ch-160&ts=12-09
+95
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (75): https://cdn.stamped.io/uploads/videos/02c9af18ddb5095324333e4a792b9797.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (75): https://cdn.stamped.io/uploads/videos/d44ed30c653afa06ea8e6732d6d4123a.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (75): https://cdn.stamped.io/uploads/videos/1ea5a55fecf462c476f9570268571c67.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (75): https://cdn.stamped.io/uploads/videos/d33348ff201fc54f796ae1bc88ceefba.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] 🎯 HIGH SCORE OVERRIDE (75): https://cdn.stamped.io/uploads/videos/2b91d748f523c0a4d03ba7abd8b171da.jpg?tr=w-160%2Ch-160&ts=12-09
+75
+📋 Copy URL
+[1:12:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":8}
+[1:12:23 PM] 🖼️ FINAL IMAGES: ["https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-","https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-","https://cdn.stamped.io/uploads/v
+[1:12:23 PM] 🖼️ FINAL IMAGES: {"count":8,"images":["https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09-2025","https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf
+[1:12:23 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"LARQ Bottle PureVis™","brand":"LARQ","description":"The world's first self-cleaning water bottle and p","price":"99","imageCount":8,"firstImages":["https://cdn.stamped.io/uploads/videos/0a4f
+[1:12:23 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":8}
+[1:12:23 PM] ✅ Debug trace complete

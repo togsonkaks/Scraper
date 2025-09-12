@@ -336,10 +336,19 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     if (/(transparent-pixel|grey-pixel|error|404|not-found|placeholder\.)/i.test(url)) return false;
     
     // Block navigation sprites and UI elements
-    if /(sprite|nav-sprite|icon-sprite|ui-sprite)/i.test(url)) return false;
+    if (/(sprite|nav-sprite|icon-sprite|ui-sprite)/i.test(url)) return false;
     
     // Block obvious non-product patterns
     if (/(tracking|analytics|pixel|beacon|1x1|blank\.)/i.test(url)) return false;
+    
+    // Block review platforms (never product images)
+    if (/(stamped\.io|trustpilot\.com|reviews\.io|yotpo\.com)/.test(url)) return false;
+    
+    // Block app store badges and social media icons
+    if (/(app-store|google-play|apple-store|download|badge|social|facebook|twitter|instagram|pinterest)/.test(url)) return false;
+    
+    // Block page URLs that aren't real images (like Adidas product pages)
+    if (/\/(us|uk|ca|au)\/.*-(shoes|clothing|apparel|boots|sneakers|shirts|pants)\//.test(url)) return false;
     
     return true;
   }
