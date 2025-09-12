@@ -9,6 +9,36 @@ ipcRenderer.on('compare-target-url', (_evt, url) => {
   try { window.__compareTargetURL = url; } catch {}
 });
 
+// Navigation error handling
+ipcRenderer.on('navigation-error', (_evt, errorData) => {
+  try {
+    const { url, errorCode, errorDescription } = errorData;
+    console.error('Navigation error received:', errorData);
+    
+    // Update status display
+    const statusEl = document.getElementById('status');
+    if (statusEl) {
+      statusEl.innerHTML = `<span class="pill" style="background:#ffcccc; color:#990000;">Network Error</span>`;
+    }
+    
+    // Show user-friendly error message
+    let hostname = 'the website';
+    try { hostname = new URL(url).hostname; } catch(e) {}
+    
+    let userMessage = `❌ Failed to load ${hostname}`;
+    
+    if (errorCode === -3) {
+      userMessage += `\n\nThis appears to be a network connectivity issue. This can happen when:\n• The site blocks automated requests\n• DNS resolution fails\n• SSL/certificate issues occur\n\nTry visiting the URL manually in the product window, or try a different product page from the same site.`;
+    } else {
+      userMessage += `\n\nError: ${errorDescription}`;
+    }
+    
+    alert(userMessage);
+  } catch (e) {
+    console.error('Error handling navigation error:', e);
+  }
+});
+
 contextBridge.exposeInMainWorld('api', {
   // ---- Core product flow
   openProduct: (url) => call('open-product', url),

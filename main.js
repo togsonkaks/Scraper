@@ -203,6 +203,30 @@ function ensureProduct(){
       preload: path.join(__dirname, 'preload.js')
     }
   });
+  
+  // Add error handling for network failures
+  productWin.webContents.on('did-fail-load', (event, errorCode, errorDescription, validatedURL) => {
+    console.error(`Navigation failed for ${validatedURL}: ${errorCode} - ${errorDescription}`);
+    if (controlWin && !controlWin.isDestroyed()) {
+      controlWin.webContents.send('navigation-error', {
+        url: validatedURL,
+        errorCode,
+        errorDescription: errorDescription || `Network error (${errorCode})`
+      });
+    }
+  });
+  
+  productWin.webContents.on('did-fail-navigate', (event, errorCode, errorDescription, validatedURL) => {
+    console.error(`Navigation failed for ${validatedURL}: ${errorCode} - ${errorDescription}`);
+    if (controlWin && !controlWin.isDestroyed()) {
+      controlWin.webContents.send('navigation-error', {
+        url: validatedURL,
+        errorCode,
+        errorDescription: errorDescription || `Navigation failed (${errorCode})`
+      });
+    }
+  });
+  
   productWin.on('closed', () => { productWin = null; });
   return productWin;
 }
