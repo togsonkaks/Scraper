@@ -467,7 +467,7 @@ const ACE_HARDWARE = {
 
 // ---------- Allbirds (target product gallery, avoid navigation tiles) ----------
 const ALLBIRDS = {
-  match: (h) => /\ballbirds\.com$/i.test(h),
+  match: (h) => /allbirds\.com$/i.test(h),
   images(doc = document) {
     console.log("[DEBUG] Allbirds custom image logic running...");
     const out = new Set();

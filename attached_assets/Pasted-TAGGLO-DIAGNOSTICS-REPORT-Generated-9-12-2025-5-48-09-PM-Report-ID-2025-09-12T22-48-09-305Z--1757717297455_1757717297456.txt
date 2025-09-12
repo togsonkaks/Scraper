@@ -1,0 +1,140 @@
+TAGGLO DIAGNOSTICS REPORT
+Generated: 9/12/2025, 5:48:09 PM
+Report ID: 2025-09-12T22:48:09.305Z
+
+═══ PAGE INFO ═══
+URL: https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki
+Hostname: allbirds.com
+Page Title: Tagglo Control
+
+═══ SCRAPING RESULTS ═══
+Fields Found: 4/5
+
+Title: ✅ FOUND (5 chars)
+🤖 AI
+
+Brand: ✅ FOUND
+🤖 AI
+
+Price: ✅ FOUND
+🤖 AI
+
+Description: ✅ FOUND (5 chars)
+🤖 AI
+
+Images: ❌ NOT FOUND (0 total)
+No images extracted
+
+
+═══ DEBUG ACTIVITY ═══
+Total Debug Entries: 1 (low activity)
+Image Processing: 1 entries (0 kept, 0 rejected)
+Price Processing: 1 entries
+Errors: 0
+Warnings: 0
+
+Recent Errors:
+(none)
+
+Image Rejection Reasons (recent):
+(none)
+
+═══ SELECTORS USED ═══
+(no selectors recorded)
+
+═══ AI CACHE STATUS ═══
+Cache Ready: ❌ No
+LLM Cache Exists: ❌ No
+Cached Results: 0 fields
+
+═══ SYSTEM INFO ═══
+Viewport: 1184x795
+Platform: Win32
+Browser: Safari/537.36
+Timezone: America/Chicago
+Generated: 9/12/2025, 5:48:09 PM
+
+═══ RAW DATA (JSON) ═══
+{
+  "metadata": {
+    "timestamp": "2025-09-12T22:48:09.305Z",
+    "generated": "9/12/2025, 5:48:09 PM",
+    "version": "Tagglo v1.0",
+    "type": "diagnostic_report"
+  },
+  "pageInfo": {
+    "url": "https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki",
+    "hostname": "allbirds.com",
+    "currentHost": "allbirds.com",
+    "pageTitle": "Tagglo Control",
+    "lastPayloadUrl": null
+  },
+  "fieldResults": {
+    "title": {
+      "found": true,
+      "value": "🤖 AI",
+      "length": 5,
+      "preview": "🤖 AI"
+    },
+    "brand": {
+      "found": true,
+      "value": "🤖 AI",
+      "length": 5,
+      "preview": "🤖 AI"
+    },
+    "price": {
+      "found": true,
+      "value": "🤖 AI",
+      "length": 5,
+      "preview": "🤖 AI"
+    },
+    "description": {
+      "found": true,
+      "value": "🤖 AI",
+      "length": 5,
+      "preview": "🤖 AI"
+    },
+    "images": {
+      "found": false,
+      "count": 0,
+      "urls": [],
+      "hasMore": false
+    }
+  },
+  "selectorsUsed": {},
+  "aiCache": {
+    "aiCacheReady": false,
+    "llmCacheExists": false,
+    "cachedResultsStatus": "none",
+    "cachedResultsCount": 0
+  },
+  "debugSummary": {
+    "totalEntries": 1,
+    "imageEntries": 1,
+    "priceEntries": 1,
+    "errorEntries": 0,
+    "warnEntries": 0,
+    "keptImages": 0,
+    "rejectedImages": 0,
+    "rejectionReasons": [],
+    "recentErrors": []
+  },
+  "systemInfo": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) tagglo-electron/1.0.0 Chrome/140.0.7339.41 Electron/38.0.0 Safari/537.36",
+    "platform": "Win32",
+    "language": "en-US",
+    "viewport": "1184x795",
+    "screen": "3440x1440",
+    "timestamp": "9/12/2025, 5:48:09 PM",
+    "timezone": "America/Chicago",
+    "host": ""
+  },
+  "summary": {
+    "fieldsFound": 4,
+    "totalFields": 5,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "imagesFoundCount": 0,
+    "debugActivityLevel": "low"
+  }
+}
