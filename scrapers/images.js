@@ -352,8 +352,8 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     // Block obvious non-product patterns
     if (/(tracking|analytics|pixel|beacon|1x1|blank\.)/i.test(url)) return false;
     
-    // Block review platforms (never product images)
-    if (/(stamped\.io|trustpilot\.com|reviews\.io|yotpo\.com)/.test(url)) return false;
+    // Block review platforms (never product images) - including all subdomains
+    if (/(?:^|\.)(stamped\.io|trustpilot\.com|reviews\.io|yotpo\.com|bazaarvoice\.com)(?:\/|$)/.test(url)) return false;
     
     // Block app store badges and social media icons
     if (/(app-store|google-play|apple-store|download|badge|social|facebook|twitter|instagram|pinterest)/.test(url)) return false;
