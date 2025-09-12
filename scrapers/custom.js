@@ -618,6 +618,50 @@ const ILIA = {
   }
 };
 
+// ---------- LARQ (target .productgallery, avoid review thumbnails) ----------
+const LARQ = {
+  match: (h) => /\blarq\.com$/i.test(h),
+  images(doc = document) {
+    console.log("[DEBUG] LARQ custom image logic running...");
+    const out = new Set();
+    
+    // Target main product gallery first - this is where the actual product images are
+    const productGallery = doc.querySelector('.productgallery, [class*="productgallery"], .product-gallery');
+    if (productGallery) {
+      console.log("[DEBUG] LARQ found product gallery container");
+      productGallery.querySelectorAll('img').forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && !/(review|thumb|icon|sprite)/i.test(u)) {
+          out.add(u);
+          console.log("[DEBUG] LARQ adding gallery image:", u);
+        }
+      });
+    }
+    
+    // Additional selectors for product images, avoiding review containers
+    const additionalSelectors = [
+      '.product-images img:not([class*="review"]):not([class*="thumb"])',
+      '.product-media img:not([class*="review"])',
+      '.pdp-gallery img',
+      '[data-testid*="gallery"] img',
+      '.carousel-item img:not([class*="review"])',
+      '.slider img:not([class*="review"])'
+    ];
+    
+    additionalSelectors.forEach(selector => {
+      doc.querySelectorAll(selector).forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && !/(review|thumb|icon|sprite|testimonial|customer)/i.test(u)) {
+          out.add(u);
+        }
+      });
+    });
+    
+    console.log("[DEBUG] LARQ found", out.size, "product images");
+    return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0, 20);
+  }
+};
+
 // ---------- John's Crazy Socks (gallery-only; drop size charts) ----------
 const JOHNSCRAZYSOCKS = {
   match: (h) => /\bjohnscrazysocks\.com$/i.test(h),
@@ -803,6 +847,7 @@ const REGISTRY = [
   ILIA,
   JOHNSCRAZYSOCKS,
   KIRRINFINCH,
+  LARQ,
   MAHABIS,
   { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
 
