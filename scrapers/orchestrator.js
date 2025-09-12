@@ -541,7 +541,7 @@
     
     if (maxSize > 0) {
       // CDN images get higher estimates even for medium sizes
-      const isCDN = /(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media)\.com/i.test(url);
+      const isCDN = /(?:adoredvintage|alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media|cdn-tp3\.mozu|assets\.adidas)\.com/i.test(url);
       
       if (maxSize >= 1200) return 150000; // ~150KB for large images
       if (maxSize >= 800) return 100000;  // ~100KB for medium-large
@@ -551,7 +551,7 @@
     }
     
     // CDN-specific estimates (known to serve larger images)
-    if (/(?:alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media)\.com/i.test(url)) {
+    if (/(?:adoredvintage|alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media|cdn-tp3\.mozu|assets\.adidas)\.com/i.test(url)) {
       // Check for file extensions OR format parameters
       const isJPEG = /\.(jpg|jpeg)($|\?)/i.test(url) || /[?&](fmt|format|fm)=(jpg|jpeg)/i.test(url);
       const isPNG = /\.(png)($|\?)/i.test(url) || /[?&](fmt|format|fm)=png/i.test(url);
@@ -675,12 +675,18 @@
     const fileSizeCheckPromises = [];
     
     for (const img of bestImages) {
+      // Trusted CDNs bypass ALL size checks - HIGHEST PRIORITY  
+      if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        continue;
+      }
       // Trust high scores over file size limits (modern CDN optimization) - EARLY CHECK
-      if (img.score >= 100) {
+      if (img.score >= 65) {  // LOWERED FROM 100 - user's images scored 65!
         sizeFilteredImages.push(img);
         addImageDebugLog('debug', `🎯 HIGH SCORE OVERRIDE (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
         continue;
-      } else if (img.score >= 85 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {
+      } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {  // LOWERED FROM 85 TO 50
         // Good score + modern CDN optimization = keep it
         sizeFilteredImages.push(img);
         addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
@@ -689,11 +695,11 @@
       
       const estimatedSize = estimateFileSize(img.url);
       
-      if (estimatedSize >= 100000) {
+      if (estimatedSize >= 50000) {  // LOWERED FROM 100KB TO 50KB
         // Estimated size is good, keep it
         sizeFilteredImages.push(img);
         addImageDebugLog('debug', `📏 SIZE OK (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-      } else if (estimatedSize >= 60000 && img.score >= 50) {
+      } else if (estimatedSize >= 20000 && img.score >= 40) {  // MUCH MORE GENEROUS - was 60KB & score 50
         // Borderline case with decent score, check actual size
         fileSizeCheckPromises.push(
           checkFileSize(img.url).then(actualSize => ({
@@ -716,10 +722,10 @@
       
       for (const { img, actualSize, estimatedSize } of sizeResults) {
         // Trust high scores over file size limits (modern CDN optimization)
-        if (img.score >= 100) {
+        if (img.score >= 65) {  // LOWERED FROM 100 - user's images scored 65!
           sizeFilteredImages.push(img);
           addImageDebugLog('debug', `🎯 HIGH SCORE OVERRIDE (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        } else if (img.score >= 85 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {
+        } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {  // LOWERED FROM 85 TO 50
           // Good score + modern CDN optimization = keep it
           sizeFilteredImages.push(img);
           addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
@@ -989,6 +995,7 @@
     
     // Site-specific selectors for problematic sites
     const siteSpecificSelectors = {
+      'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
       'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
       'amazon.com': ['#imageBlockContainer img', '#imageBlock img', '.a-dynamic-image'],
       'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
