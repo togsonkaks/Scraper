@@ -128,12 +128,6 @@
 
   <div id="status"></div>
 
-  <!-- Debug Panel -->
-  <div id="debugPanel" style="display:none; background:#f0f8ff; border:1px solid #ccc; margin:10px 0; padding:10px; border-radius:4px;">
-    <h3 style="margin:0 0 10px 0;">🔍 Debug Information</h3>
-    <div id="debugOutput" style="font-family:monospace; font-size:12px; max-height:300px; overflow-y:auto; background:white; padding:8px; border:1px solid #ddd;"></div>
-    <button onclick="clearDebugOutput()" style="margin-top:5px;">Clear Debug</button>
-  </div>
 
   <!-- Image Preview Modal -->
   <div id="imageModal" class="debug-image-modal" onclick="hideImageModal()">
@@ -278,6 +272,12 @@
     </div>
   </div>
 
+  <!-- Debug Panel (moved below scrape results) -->
+  <div id="debugPanel" style="display:none; background:#f0f8ff; border:1px solid #ccc; margin:10px 0; padding:10px; border-radius:4px;">
+    <h3 style="margin:0 0 10px 0;">🔍 Debug Information</h3>
+    <div id="debugOutput" style="font-family:monospace; font-size:12px; max-height:300px; overflow-y:auto; background:white; padding:8px; border:1px solid #ddd;"></div>
+    <button onclick="clearDebugOutput()" style="margin-top:5px;">Clear Debug</button>
+  </div>
   <div class="label" style="margin-top:10px;">Image URLs (top 20)</div>
   <div id="out" title="Only image URLs appear here"></div>
 
@@ -339,7 +339,11 @@
       saveBtn.textContent = label || (disabled ? 'Waiting for page…' : 'Save (scrape)');
     }
     function hostFrom(url) {
-      try { return new URL(url).host.replace(/^www\./,''); } catch { return null; }
+      try { 
+        // Use consistent domain normalization
+        const hostname = new URL(url).hostname;
+        return hostname.toLowerCase().replace(/^www\./, '');
+      } catch { return null; }
     }
 
     let currentHost = null;
@@ -915,6 +919,19 @@
         }
         
         div.appendChild(previewDiv);
+        
+        // Add individual copy button for this image URL
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'debug-copy-btn';
+        copyBtn.style.cssText = 'margin-left: 8px; padding: 2px 6px; font-size: 10px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;';
+        copyBtn.textContent = '📋 Copy URL';
+        copyBtn.title = 'Copy image URL: ' + imageUrl;
+        copyBtn.onclick = (e) => {
+          e.stopPropagation(); // Prevent triggering the modal
+          copyImageURL(imageUrl, copyBtn);
+        };
+        
+        div.appendChild(copyBtn);
       }
       
       output.appendChild(div);

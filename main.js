@@ -9,8 +9,16 @@ const SELECTORS_DIR = path.join(app.getPath('userData'), 'selectors');
 const LLM_CACHE_DIR = path.join(app.getPath('userData'), 'llm_cache');
 const crypto = require('crypto');
 
+// Unified domain normalization - consistent with orchestrator.js
+function normalizeHost(hostname) {
+  if (!hostname) return '';
+  return hostname.toLowerCase().replace(/^www\./, '');
+}
+
 function sanitizeHostname(host) {
-  return host.replace(/[^a-zA-Z0-9.-]/g, '_');
+  // First normalize the host, then sanitize for filename
+  const normalized = normalizeHost(host);
+  return normalized.replace(/[^a-zA-Z0-9.-]/g, '_');
 }
 
 function getSelectorFilePath(host) {
@@ -316,19 +324,23 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   
   // Get current URL to determine host
   const currentURL = await win.webContents.executeJavaScript('location.href');
-  const host = new URL(currentURL).hostname.replace(/^www\./, '');
+  const host = normalizeHost(new URL(currentURL).hostname);
   
   // Load memory data for injection
   const allMemory = {};
   try {
     const files = fs.readdirSync(SELECTORS_DIR).filter(f => f.endsWith('.json'));
     for (const file of files) {
-      const fileHost = file.replace('.json', '').replace(/_/g, '.');
+      const sanitizedHost = file.replace('.json', '');
+      // Convert sanitized filename back to normalized host
+      const fileHost = sanitizedHost.replace(/_/g, '.');
       const data = readSelectorFile(fileHost);
       if (data) {
         // Convert to orchestrator-compatible format
         const { __history, host: hostField, updated, __migrated, __migrationDate, ...selectorData } = data;
-        allMemory[fileHost] = selectorData;
+        // Use normalized host as key for consistency
+        const normalizedFileHost = normalizeHost(fileHost);
+        allMemory[normalizedFileHost] = selectorData;
       }
     }
   } catch (e) {

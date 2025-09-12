@@ -285,6 +285,13 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         url = url.replace(/[?&](wid|hei|fmt|qlt|op_sharpen)=\d*[^&]*/gi, "");
       }
 
+      // Ace Hardware (Mozu): upgrade low quality images to higher quality
+      if (/cdn-tp3\.mozu\.com/i.test(url) && url.includes('quality=60')) {
+        // Upgrade quality from 60 to 90 and remove small size limits
+        url = url.replace(/quality=60/g, 'quality=90');
+        url = url.replace(/max=\d+/g, 'max=800');
+      }
+
       // strip generic width/height query hints
       url = url.replace(/[?&](w|h|width|height|size)=\d+[^&]*/gi, "");
       // collapse trailing ? or & if empty
