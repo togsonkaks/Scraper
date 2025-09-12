@@ -91,8 +91,65 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
   // Enhanced product gallery detection
   function findProductGalleries() {
     const galleries = [];
+    const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
     
-    // Priority 1: Explicit product image containers
+    // Site-specific selectors for problematic sites
+    const siteSpecificSelectors = {
+      'allbirds.com': [
+        '.product-image-wrapper',
+        '.ProductImages',
+        '.product-images-container',
+        '[data-testid="product-images"]',
+        '.pdp-images',
+        // Fallback to any reasonable image container in main content
+        'main img[src*="cdn.shop"], main img[src*="shopify"]'
+      ],
+      'amazon.com': [
+        '#imageBlockContainer',
+        '#imageBlock img',
+        '#altImages',
+        '.a-dynamic-image',
+        '#main-image-container',
+        '[data-action="main-image-click"]',
+        // Amazon product image selectors
+        '[data-dp-carousel] img'
+      ],
+      'adidas.com': [
+        '.product-image-container',
+        '.pdp-image-carousel',
+        '.image-container',
+        '.product-media img[src*="assets.adidas.com"]'
+      ],
+      'acehardware.com': [
+        '.product-gallery img',
+        '.mz-productimages img', 
+        '.product-images img'
+      ]
+    };
+    
+    // Priority 1: Site-specific selectors
+    const siteSelectors = siteSpecificSelectors[hostname] || [];
+    for (const sel of siteSelectors) {
+      try {
+        const containers = document.querySelectorAll(sel);
+        containers.forEach(container => {
+          let imgs = [];
+          if (container.tagName === 'IMG') {
+            imgs = [container];
+          } else {
+            imgs = Array.from(container.querySelectorAll('img'));
+          }
+          if (imgs.length >= 1) {
+            console.log(`[DEBUG] Found site-specific product gallery: ${sel} (${imgs.length} images)`);
+            galleries.push({ container, selector: sel, priority: 0, images: imgs }); // Highest priority
+          }
+        });
+      } catch (e) {
+        console.log(`[DEBUG] Site-specific selector failed: ${sel}`, e.message);
+      }
+    }
+    
+    // Priority 2: Explicit product image containers
     const highPrioritySelectors = [
       '.product-gallery',
       '.product-images', 
@@ -110,7 +167,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       const container = document.querySelector(sel);
       if (container) {
         const imgs = container.querySelectorAll('img');
-        if (imgs.length >= 2) { // Must have multiple images
+        if (imgs.length >= 1) { // Reduced from 2 to 1 for single-product galleries
           console.log(`[DEBUG] Found high-priority product gallery: ${sel} (${imgs.length} images)`);
           galleries.push({ container, selector: sel, priority: 1, images: Array.from(imgs) });
         }
@@ -134,7 +191,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         const productContext = container.closest('.product, .pdp, main, [class*="Product"]');
         if (productContext) {
           const imgs = container.querySelectorAll('img');
-          if (imgs.length >= 2) {
+          if (imgs.length >= 1) { // Reduced threshold
             console.log(`[DEBUG] Found product carousel: ${sel} (${imgs.length} images)`);
             galleries.push({ container, selector: sel, priority: 2, images: Array.from(imgs) });
           }
@@ -570,7 +627,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     }
   }
 
-  // ---------- scoring / filters ----------
+  // ---------- scoring / filters with ORDER PRESERVATION ----------
   const overlap = (s) => {
     const low = s.toLowerCase();
     let hits = 0;
@@ -651,12 +708,73 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
 
       return { ...r, score: s };
     })
-    .filter((r) => r.score > 0)
-    .sort((a, b) => b.score - a.score);
+    .filter((r) => r.score > 0);
 
-  const finalUrls = scored.slice(0, 20).map((r) => r.url);
+  // ========== ORDER PRESERVATION LOGIC ==========
+  // Instead of reordering by score, preserve gallery order and mark the best image
+  let finalUrls = [];
+  let bestIndex = -1;
+  let bestScore = 0;
+  let primaryUrl = '';
+  
+  // If we found product galleries, prioritize their order
+  if (productGalleries.length > 0 && productGalleries[0].images.length > 0) {
+    console.log('[DEBUG] Using gallery order preservation');
+    
+    // Create a mapping of URLs to scores for lookup
+    const urlToScore = new Map();
+    scored.forEach(item => {
+      const key = urlKey(item.url);
+      urlToScore.set(key, item);
+    });
+    
+    // Process gallery images in their original DOM order
+    for (const gallery of productGalleries) {
+      for (let i = 0; i < gallery.images.length && finalUrls.length < 20; i++) {
+        const img = gallery.images[i];
+        const imgSrc = img.currentSrc || img.src;
+        if (imgSrc) {
+          const key = urlKey(imgSrc);
+          const scoreData = urlToScore.get(key);
+          if (scoreData && scoreData.score > 0) {
+            finalUrls.push(scoreData.url);
+            
+            // Track the best scoring image for marking
+            if (scoreData.score > bestScore) {
+              bestScore = scoreData.score;
+              bestIndex = finalUrls.length - 1;
+              primaryUrl = scoreData.url;
+            }
+          }
+        }
+      }
+    }
+    
+    console.log(`[DEBUG] Gallery order preserved: ${finalUrls.length} images, best at index ${bestIndex}`);
+  }
+  
+  // Fallback: if no gallery found or not enough images, use traditional scoring
+  if (finalUrls.length < 3) {
+    console.log('[DEBUG] Using traditional score-based ordering');
+    const sortedScored = scored.sort((a, b) => b.score - a.score);
+    finalUrls = sortedScored.slice(0, 20).map((r) => r.url);
+    bestIndex = finalUrls.length > 0 ? 0 : -1;
+    primaryUrl = finalUrls.length > 0 ? finalUrls[0] : '';
+  }
+
   console.log("[DEBUG] collectImagesFromPDP found", finalUrls.length, "images:", finalUrls.slice(0, 3));
-  return finalUrls;
+  if (bestIndex >= 0) {
+    console.log(`[DEBUG] Best image at position ${bestIndex + 1}: ${primaryUrl.substring(primaryUrl.lastIndexOf('/') + 1)}`);
+  }
+  
+  // Return enhanced result with order metadata
+  return {
+    urls: finalUrls,
+    bestIndex: bestIndex,
+    primaryUrl: primaryUrl,
+    totalFound: finalUrls.length,
+    galleryBased: productGalleries.length > 0
+  };
 }
 
 Object.assign(globalThis, { collectImagesFromPDP });
