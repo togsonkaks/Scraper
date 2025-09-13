@@ -1048,6 +1048,7 @@ function getCustomHandlers() {
     return { title: noop, brand: noop, price: noop, specs: noop, tags: noop, images: asyncNoop };
   }
 
+  console.log("[DEBUG] Custom handlers: returning site with images =", typeof site.images);
   return {
     title: site.title || noop,
     brand: site.brand || noop,
