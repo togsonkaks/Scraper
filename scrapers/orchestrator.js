@@ -2042,7 +2042,17 @@
       } else {
         debug('🔄 NORMAL MODE - memory + fallbacks');
         
-        title = window.__TG_AUDIT_GENERIC_FIRST ? handleTitleGenericFirst() : await fromMemory('title', mem.title);
+        // NON-DESTRUCTIVE AUDIT: Try generic first, fallback to memory if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          title = handleTitleGenericFirst();
+          // Fallback to memory if audit failed
+          if (!title) {
+            debug('🔄 AUDIT FALLBACK: Title audit failed, trying memory...');
+            title = await fromMemory('title', mem.title);
+          }
+        } else {
+          title = await fromMemory('title', mem.title);
+        }
         debug('📝 TITLE FROM MEMORY:', title);
         if (!title) {
           debug('📝 TITLE: Falling back to generic...');
@@ -2050,7 +2060,17 @@
           debug('📝 TITLE FROM GENERIC:', title);
         }
         
-        brand = window.__TG_AUDIT_GENERIC_FIRST ? handleBrandGenericFirst() : await fromMemory('brand', mem.brand);
+        // NON-DESTRUCTIVE AUDIT: Try generic first, fallback to memory if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          brand = handleBrandGenericFirst();
+          // Fallback to memory if audit failed
+          if (!brand) {
+            debug('🔄 AUDIT FALLBACK: Brand audit failed, trying memory...');
+            brand = await fromMemory('brand', mem.brand);
+          }
+        } else {
+          brand = await fromMemory('brand', mem.brand);
+        }
         debug('🏷️ BRAND FROM MEMORY:', brand);
         if (!brand) {
           debug('🏷️ BRAND: Falling back to generic...');
@@ -2058,7 +2078,17 @@
           debug('🏷️ BRAND FROM GENERIC:', brand);
         }
         
-        description = window.__TG_AUDIT_GENERIC_FIRST ? handleDescriptionGenericFirst() : await fromMemory('description', mem.description);
+        // NON-DESTRUCTIVE AUDIT: Try generic first, fallback to memory if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          description = handleDescriptionGenericFirst();
+          // Fallback to memory if audit failed
+          if (!description) {
+            debug('🔄 AUDIT FALLBACK: Description audit failed, trying memory...');
+            description = await fromMemory('description', mem.description);
+          }
+        } else {
+          description = await fromMemory('description', mem.description);
+        }
         debug('📄 DESCRIPTION FROM MEMORY:', description);
         if (!description) {
           debug('📄 DESCRIPTION: Falling back to generic...');
@@ -2066,7 +2096,17 @@
           debug('📄 DESCRIPTION FROM GENERIC:', description);
         }
         
-        price = window.__TG_AUDIT_GENERIC_FIRST ? handlePriceGenericFirst() : await fromMemory('price', mem.price);
+        // NON-DESTRUCTIVE AUDIT: Try generic first, fallback to memory if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          price = handlePriceGenericFirst();
+          // Fallback to memory if audit failed
+          if (!price) {
+            debug('🔄 AUDIT FALLBACK: Price audit failed, trying memory...');
+            price = await fromMemory('price', mem.price);
+          }
+        } else {
+          price = await fromMemory('price', mem.price);
+        }
         debug('💰 PRICE FROM MEMORY:', price);
         if (!price) {
           debug('💰 PRICE: Falling back to generic...');
@@ -2078,15 +2118,29 @@
         debug('🖼️ IMAGES: Skipping memory in normal mode');
         images = [];
         
-        // AUDIT: Generic-first image flow
+        // NON-DESTRUCTIVE AUDIT: Try generic-first images, fallback to normal flow if insufficient
         if (window.__TG_AUDIT_GENERIC_FIRST) {
           debug('🧪 AUDIT: Generic-first image flow enabled');
           try {
             images = await handleImagesGenericFirst();
+            // Fallback to normal flow if audit failed or insufficient
+            if (!images || images.length < 3) {
+              debug('🔄 AUDIT FALLBACK: Image audit insufficient (got ' + (images?.length || 0) + '), trying normal flow...');
+              // Reset and use normal flow
+              images = [];
+            } else {
+              // Audit succeeded, skip normal flow
+              debug('✅ AUDIT SUCCESS: Got ' + images.length + ' images from generic, skipping normal flow');
+            }
           } catch (e) {
             debug('❌ AUDIT generic-first failed:', e?.message || e);
+            debug('🔄 AUDIT FALLBACK: Exception occurred, trying normal flow...');
+            images = [];
           }
-        } else {
+        }
+        
+        // Normal flow (runs if not audit mode OR if audit fallback needed)
+        if (!window.__TG_AUDIT_GENERIC_FIRST || !images || images.length < 3) {
         
         // ALWAYS try custom handlers (regardless of memory count)
         {
@@ -2130,7 +2184,7 @@
             images = combinedImages.slice(0, 30);
           }
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
-        }  // end AUDIT else
+        }  // end normal flow block
           
           // LLM FALLBACK: If no images found, try AI-powered selector discovery
           if (images.length === 0 && mode !== 'memoryOnly') {
