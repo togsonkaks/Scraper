@@ -686,6 +686,7 @@ const LARQ = {
   match: (h) => /(^|\.)((live)?larq\.com)$/i.test(h),
   images(doc = document) {
     console.log("[DEBUG] LARQ BULLETPROOF handler running...");
+    console.log("[DEBUG] LARQ: document =", doc ? 'EXISTS' : 'NULL');
     const validImages = [];
     let totalCandidates = 0;
     
@@ -1036,7 +1037,9 @@ const REGISTRY = [
 
 function getCustomHandlers() {
   const h = __host();
+  console.log("[DEBUG] Custom handlers: hostname detected =", h);
   const site = REGISTRY.find((r) => r.match && r.match(h));
+  console.log("[DEBUG] Custom handlers: selected site =", site ? (site.constructor?.name || 'UNNAMED') : 'NONE');
 
   const noop = () => null;
   const asyncNoop = async () => null;
