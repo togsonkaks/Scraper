@@ -1,0 +1,28 @@
+5:21:45 PM] 🚀 Starting scrape operation for: https://www.acmetools.com/bosch-18v-brushless-9-inch-cutoff-saw-kit-gcs18v-230n212/S0000000088753.html
+[5:21:45 PM] 🚀 SCRAPE START {"host":"acmetools.com","href":"https://www.acmetools.com/bosch-18v-brushless-9-inch-cutoff-saw-kit-gcs18v-230n212/S0000000088753.html","mode":"normal"}
+[5:21:45 PM] 🧠 LOADED MEMORY: {"host":"acmetools.com","hasMemory":true,"fields":["title","price","brand","description","images","__history"],"memoryData":{"title":{"selectors":["h1"],"attr":"text"},"price":{"selectors":[".price"],
+[5:21:45 PM] 🔄 NORMAL MODE - memory + fallbacks
+[5:21:45 PM] 🧪 TITLE: AUDIT MODE - Generic → Custom
+[5:21:45 PM] 🧠 TITLE: Trying getTitleGeneric()...
+[5:21:45 PM] 🧠 TITLE ADVANCED GENERIC: Bosch 18V Brushless 9 Inch Cutoff Saw Kit
+[5:21:45 PM] ✅ TITLE FINAL: Bosch 18V Brushless 9 Inch Cutoff Saw Kit (method: advanced-generic) ▼ [Show Details: 5 steps]
+[5:21:45 PM] 📝 TITLE FROM MEMORY: Bosch 18V Brushless 9 Inch Cutoff Saw Kit
+[5:21:45 PM] 🧪 BRAND: AUDIT MODE - Generic → Custom
+[5:21:45 PM] 🧠 BRAND: Trying getBrandGeneric()...
+[5:21:45 PM] 🧠 BRAND ADVANCED GENERIC: Bosch
+[5:21:45 PM] 🏷️ BRAND FROM MEMORY: Bosch
+[5:21:45 PM] 🧪 DESCRIPTION: AUDIT MODE - Generic only
+[5:21:45 PM] 🖼️ DESCRIPTION: Trying getDescription()...
+[5:21:45 PM] 🖼️ DESCRIPTION GENERIC: The Bosch GCS18V-230 9 In. Cutoff Saw provides powerful, efficient cuts in concrete or metal with a cutting depth of up to 3.3 inches and a 6-position guard to accommodate a variety of working angles. The powerful, brushless motor delivers corded performance in a cordless solution. Make quick wheel changes with the innovative spindle lock lever and control water usage with a convenient shut-off valve. Lightweight and ergonomic, the saw features a wraparound handle and soft grip for easier mobility and greater balance and control. AMPShare™ System compatibility – 18V batteries and chargers are compatible with Bosch 18V power tools and a growing list of cordless products from AMPShare™ brands.
+[5:21:45 PM] 📄 DESCRIPTION FROM MEMORY: The Bosch GCS18V-230 9 In. Cutoff Saw provides powerful, efficient cuts in concrete or metal with a cutting depth of up to 3.3 inches and a 6-position guard to accommodate a variety of working angles. The powerful, brushless motor delivers corded performance in a cordless solution. Make quick wheel changes with the innovative spindle lock lever and control water usage with a convenient shut-off valve. Lightweight and ergonomic, the saw features a wraparound handle and soft grip for easier mobility and greater balance and control. AMPShare™ System compatibility – 18V batteries and chargers are compatible with Bosch 18V power tools and a growing list of cordless products from AMPShare™ brands.
+[5:21:45 PM] 🧪 PRICE: AUDIT MODE - Generic → Custom
+[5:21:45 PM] 🧠 PRICE: Trying getPriceGeneric()...
+[5:21:45 PM] 🧠 PRICE ADVANCED GENERIC: USD1049.00
+[5:21:45 PM] 💰 PRICE FROM MEMORY: USD1049.00
+[5:21:45 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[5:21:45 PM] 🧪 AUDIT: Generic-first image flow enabled
+[5:21:45 PM] 🔄 IMAGES: AUDIT MODE - Generic → Custom
+[5:21:45 PM] 🧠 IMAGES: Trying advanced generic (collectImagesFromPDP)...
+[5:21:45 PM] 🧠 ADVANCED GENERIC: {"count":9,"images":["https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/default/dw62250448/images/images/catalog/product/S0000000088753/bosch-18v-brushless-
+[5:21:45 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":9}
+[5:21:45 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":9}
