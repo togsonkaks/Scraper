@@ -1226,7 +1226,7 @@
     return modalUrls;
   }
 
-  function scoreImageUrl(url) {
+  function scoreImageUrlQuality(url) {
     let score = 0;
     const urlLower = url.toLowerCase();
     
@@ -1528,7 +1528,7 @@
     // STEP 3: Sort by URL quality (prefer large/zoom/high-res)
     const scoredUrls = foundUrls.map(url => ({
       url,
-      score: scoreImageUrl(url)
+      score: scoreImageUrlQuality(url)
     })).sort((a, b) => b.score - a.score);
     
     const qualityUrls = scoredUrls.map(item => item.url);
@@ -1790,31 +1790,68 @@
   const T = (s) => typeof s === 'string' ? s.trim() : '';
   const uniq = (arr) => [...new Set(arr)];
 
+  // Expandable logging system for detailed method traces
+  const detailedLogs = {};
+  
+  function debugDetail(field, message) {
+    if (!detailedLogs[field]) detailedLogs[field] = [];
+    detailedLogs[field].push(`  📋 ${field.toUpperCase()}: ${message}`);
+  }
+  
+  function getDetailedLogs(field) {
+    return detailedLogs[field] || [];
+  }
+  
+  function clearDetailedLogs() {
+    Object.keys(detailedLogs).forEach(key => delete detailedLogs[key]);
+  }
+  
+  function formatExpandableLog(field, summary, details) {
+    return `${summary} ▼ [Show Details: ${details.length} steps]`;
+  }
+
   // 🔄 AUDIT MODE: Enable generic-first for clean slate testing
   window.__TG_AUDIT_GENERIC_FIRST = true;
 
   // Generic-first audit helpers for all fields
   function handleTitleGenericFirst() {
     debug('🧪 TITLE: AUDIT MODE - Generic → Custom');
+    debugDetail('title', 'Skipping memory (audit mode)');
     
     // STEP 1: Try advanced generic first
     debug('🧠 TITLE: Trying getTitleGeneric()...');
+    debugDetail('title', 'Trying getTitleGeneric() - product container detection...');
     const advancedTitle = getTitleGeneric();
     if (advancedTitle?.text) {
       mark('title', { selectors: [advancedTitle.selector], attr: advancedTitle.attr, method: 'advanced-generic' });
       debug('🧠 TITLE ADVANCED GENERIC:', advancedTitle.text);
+      debugDetail('title', `getTitleGeneric() found: "${advancedTitle.text}" via ${advancedTitle.selector}`);
+      debugDetail('title', 'Skipping legacy getTitle() - advanced method succeeded');
+      debugDetail('title', 'Skipping custom handler - generic sufficient');
+      const details = getDetailedLogs('title');
+      debug(formatExpandableLog('TITLE', `✅ TITLE FINAL: ${advancedTitle.text} (method: advanced-generic)`, details));
       return advancedTitle.text;
     }
     
     // STEP 2: Try legacy generic
     debug('🖼️ TITLE: Advanced failed, trying legacy getTitle()...');
+    debugDetail('title', 'getTitleGeneric() failed - no product container or valid selectors');
+    debugDetail('title', 'Trying legacy getTitle() - h1/h2 fallback selectors...');
     const legacyTitle = getTitle();
     if (legacyTitle) {
       debug('🖼️ TITLE LEGACY GENERIC:', legacyTitle);
+      debugDetail('title', `getTitle() found: "${legacyTitle}" via legacy selectors`);
+      debugDetail('title', 'Skipping custom handler - legacy method succeeded');
+      const details = getDetailedLogs('title');
+      debug(formatExpandableLog('TITLE', `✅ TITLE FINAL: ${legacyTitle} (method: legacy-generic)`, details));
       return legacyTitle;
     }
     
     debug('❌ TITLE: Both generic methods failed');
+    debugDetail('title', 'getTitle() failed - no h1/h2 found');
+    debugDetail('title', 'Both advanced and legacy generic methods failed');
+    const details = getDetailedLogs('title');
+    debug(formatExpandableLog('TITLE', `❌ TITLE FINAL: null (method: none-successful)`, details));
     return null;
   }
 
@@ -1939,6 +1976,7 @@
       const host = location.hostname.replace(/^www\./,'');
       const mode = (opts && opts.mode) || 'normal';
       log('🚀 SCRAPE START', { host, href: location.href, mode });
+      clearDetailedLogs(); // Clear detailed logs from previous scrape
 
       const mem = loadMemory(host);
       debug('🧠 LOADED MEMORY:', {
