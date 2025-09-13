@@ -1091,7 +1091,8 @@
         images = await fromMemory('images', mem.images);
         debug('🖼️ IMAGES FROM MEMORY:', { count: images?.length || 0, images: images?.slice(0, 3) });
         
-        if (!images || images.length < 3) {
+        // ALWAYS try custom handlers (regardless of memory count)
+        {
           debug('🖼️ IMAGES: Need more images (have ' + (images?.length || 0) + ', need 3+)');
           const memoryImages = images || [];
           // Try custom handlers first
@@ -1113,18 +1114,24 @@
             }
           }
           
-          // Merge and dedupe memory + custom
-          let combinedImages = await uniqueImages(memoryImages.concat(customImages));
+          // If we have custom images, use them (custom overrides memory)
+          if (customImages.length > 0) {
+            debug('🎯 USING CUSTOM IMAGES (overriding memory)');
+            images = customImages.slice(0, 30);
+          } else {
+            // Merge and dedupe memory + custom
+            let combinedImages = await uniqueImages(memoryImages.concat(customImages));
+            
+            // Fall back to generic only if still insufficient
+            if (combinedImages.length < 3) {
+              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+              const genericImages = await getImagesGeneric();
+              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+            }
           
-          // Fall back to generic only if still insufficient
-          if (combinedImages.length < 3) {
-            debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
-            const genericImages = await getImagesGeneric();
-            debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-            combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+            images = combinedImages.slice(0, 30);
           }
-          
-          images = combinedImages.slice(0, 30);
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
         }
       }
