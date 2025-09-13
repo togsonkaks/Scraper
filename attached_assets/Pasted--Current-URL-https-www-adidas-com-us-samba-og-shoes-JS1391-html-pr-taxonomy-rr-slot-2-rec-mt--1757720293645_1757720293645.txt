@@ -1,0 +1,140 @@
+📍 Current URL: https://www.adidas.com/us/samba-og-shoes/JS1391.html?pr=taxonomy_rr&slot=2&rec=mt
+📄 Page Title: adidas Samba OG Shoes - White | Free Shipping with adiClub | adidas US
+
+⏳ Waiting 3 seconds for dynamic content to load...
+1️⃣ CHECKING MAIN PRODUCT CONTAINERS:
+   .product-image-container img: 0 elements found
+   .pdp-image-carousel img: 0 elements found
+   .image-container img: 0 elements found
+   .product-media img: 0 elements found
+   .product-gallery img: 0 elements found
+   .media-gallery img: 0 elements found
+   [data-testid*="product"] img: 21 elements found
+     ✅ [0] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/25d00bef9f2a492db4958208ef7719b9_9366/Crossbody_Bowling_Bag_Pink_JX3127_00_plp_standard.jpg
+     ✅ [1] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fur_Jacket_Black_JW7287_HM1.jpg
+     ✅ [2] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/bd051c1e8ddc4ac5851b3fb525c6d22b_9366/Adicolor_Trefoil_Boxy_Tee_Plus_Size_Purple_KB2821_000_plp_model.jpg
+     ✅ [3] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boyshort_Black_JW7318_HM1.jpg
+     ✅ [4] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/2492ea7bd9614450bac7180ca93b315a_9366/Samba_OG_Shoes_Blue_JS1317_00_plp_standard.jpg
+     ✅ [5] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/13a718a818c2471ebfdd2d2a57226508_9366/Samba_OG_Shoes_Burgundy_JS1316_00_plp_standard.jpg
+     ✅ [6] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/0d3bd9be75fd4066871da03bef813dab_9366/Handball_Spezial_Shoes_Green_JR0850_00_plp_standard.jpg
+     ✅ [7] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/9e796aee04cf47ae94b88c2c9627f90e_9366/Sambae_Shoes_Purple_JS3955_00_plp_standard.jpg
+     ✅ [8] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/e843af02cef64ef2a7aad7a7d3d4f226_9366/Sambae_Shoes_Pink_JS3956_00_plp_standard.jpg
+     ✅ [9] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/315a65273b6741508ec43a8019e78428_9366/Handball_Spezial_Shoes_Green_JR0847_00_plp_standard.jpg
+     ✅ [10] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/97b6d98fc8944c778367c98feaaa98bc_9366/Handball_Spezial_Shoes_Purple_JR0849_00_plp_standard.jpg
+     ✅ [11] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/8599d283a2dd44909601b4bb6ad95143_9366/Handball_Spezial_Shoes_Blue_JQ6822_00_plp_standard.jpg
+     ✅ [12] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/024134f2da464fa1881de8f9e35d7b40_9366/Sambae_Shoes_White_JS3943_00_plp_standard.jpg
+     ✅ [13] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/46dffeeda5d442a4a2235cd418aac662_9366/Samba_OG_Shoes_Beige_JS3935_00_plp_standard.jpg
+     ✅ [14] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/efc0f755b474430e81f183aadfc10665_9366/SL_72_OG_Shoes_Pink_JQ8309_00_plp_standard.jpg
+     ✅ [15] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/c7dc609fc13e4243b3e9579ab551ef97_9366/Handball_Spezial_Shoes_Beige_JQ8410_00_plp_standard.jpg
+     ✅ [16] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_Shoes_White_JS1391_00_plp_standard.jpg
+     ✅ [17] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/3cce14d1f42b41fcbe958719c49edf17_9366/Hooded_Fur_Jacket_Brown_JY2383_HM1.jpg
+     ✅ [18] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fur_Jacket_Black_JW7287_HM1.jpg
+     ✅ [19] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_Shoes_Brown_JR1640_00_plp_standard.jpg
+     ✅ [20] PRODUCT: https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print_Samba_Long_Tongue_Shoes_White_JS3931_00_plp_standard.jpg
+   [data-testid*="image"] img: 10 elements found
+     ✅ [0] PRODUCT: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg
+     ✅ [1] PRODUCT: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/276ef8ad26214502bc08827126af645c_9366/Samba_OG_Shoes_White_JS1391_02_standard.jpg
+     ✅ [2] PRODUCT: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9db81627f5684390ac6ad5467aaea27e_9366/Samba_OG_Shoes_White_JS1391_03_standard.jpg
+     ❌ [3] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [4] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [5] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [6] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [7] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [8] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [9] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+   [data-testid*="gallery"] img: 10 elements found
+     ✅ [0] PRODUCT: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg
+     ✅ [1] PRODUCT: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/276ef8ad26214502bc08827126af645c_9366/Samba_OG_Shoes_White_JS1391_02_standard.jpg
+     ✅ [2] PRODUCT: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9db81627f5684390ac6ad5467aaea27e_9366/Samba_OG_Shoes_White_JS1391_03_standard.jpg
+     ❌ [3] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [4] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [5] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [6] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [7] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [8] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+     ❌ [9] RANDOM: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+
+2️⃣ CHECKING LAZY-LOADED IMAGES:
+   img[data-src]: 0 elements found
+   img[data-original]: 0 elements found
+   img[data-lazy]: 0 elements found
+   img[data-srcset]: 0 elements found
+
+3️⃣ SCANNING ALL ADIDAS CDN IMAGES:
+   📊 Total Adidas CDN images: 67
+   📊 Other domain images: 7
+
+4️⃣ PRODUCT IMAGES (assets.adidas.com):
+   [1] https://assets.adidas.com/images/w_600,f_auto,q_auto/25d00bef9f2a492db4958208ef7719b9_9366/Crossbody_Bowling_Bag_Pink_JX3127_00_plp_standard.jpg
+   [2] https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fur_Jacket_Black_JW7287_HM1.jpg
+   [3] https://assets.adidas.com/images/w_600,f_auto,q_auto/bd051c1e8ddc4ac5851b3fb525c6d22b_9366/Adicolor_Trefoil_Boxy_Tee_Plus_Size_Purple_KB2821_000_plp_model.jpg
+   [4] https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boyshort_Black_JW7318_HM1.jpg
+   [5] https://assets.adidas.com/images/w_600,f_auto,q_auto/2492ea7bd9614450bac7180ca93b315a_9366/Samba_OG_Shoes_Blue_JS1317_00_plp_standard.jpg
+   [6] https://assets.adidas.com/images/w_600,f_auto,q_auto/13a718a818c2471ebfdd2d2a57226508_9366/Samba_OG_Shoes_Burgundy_JS1316_00_plp_standard.jpg
+   [7] https://assets.adidas.com/images/w_600,f_auto,q_auto/0d3bd9be75fd4066871da03bef813dab_9366/Handball_Spezial_Shoes_Green_JR0850_00_plp_standard.jpg
+   [8] https://assets.adidas.com/images/w_600,f_auto,q_auto/9e796aee04cf47ae94b88c2c9627f90e_9366/Sambae_Shoes_Purple_JS3955_00_plp_standard.jpg
+   [9] https://assets.adidas.com/images/w_600,f_auto,q_auto/e843af02cef64ef2a7aad7a7d3d4f226_9366/Sambae_Shoes_Pink_JS3956_00_plp_standard.jpg
+   [10] https://assets.adidas.com/images/w_600,f_auto,q_auto/315a65273b6741508ec43a8019e78428_9366/Handball_Spezial_Shoes_Green_JR0847_00_plp_standard.jpg
+   [11] https://assets.adidas.com/images/w_600,f_auto,q_auto/97b6d98fc8944c778367c98feaaa98bc_9366/Handball_Spezial_Shoes_Purple_JR0849_00_plp_standard.jpg
+   [12] https://assets.adidas.com/images/w_600,f_auto,q_auto/8599d283a2dd44909601b4bb6ad95143_9366/Handball_Spezial_Shoes_Blue_JQ6822_00_plp_standard.jpg
+   [13] https://assets.adidas.com/images/w_600,f_auto,q_auto/024134f2da464fa1881de8f9e35d7b40_9366/Sambae_Shoes_White_JS3943_00_plp_standard.jpg
+   [14] https://assets.adidas.com/images/w_600,f_auto,q_auto/46dffeeda5d442a4a2235cd418aac662_9366/Samba_OG_Shoes_Beige_JS3935_00_plp_standard.jpg
+   [15] https://assets.adidas.com/images/w_600,f_auto,q_auto/efc0f755b474430e81f183aadfc10665_9366/SL_72_OG_Shoes_Pink_JQ8309_00_plp_standard.jpg
+   [16] https://assets.adidas.com/images/w_600,f_auto,q_auto/c7dc609fc13e4243b3e9579ab551ef97_9366/Handball_Spezial_Shoes_Beige_JQ8410_00_plp_standard.jpg
+   [17] https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_Shoes_White_JS1391_00_plp_standard.jpg
+   [18] https://assets.adidas.com/images/w_600,f_auto,q_auto/3cce14d1f42b41fcbe958719c49edf17_9366/Hooded_Fur_Jacket_Brown_JY2383_HM1.jpg
+   [19] https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_Shoes_Brown_JR1640_00_plp_standard.jpg
+   [20] https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print_Samba_Long_Tongue_Shoes_White_JS3931_00_plp_standard.jpg
+   [21] https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg
+   [22] https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/276ef8ad26214502bc08827126af645c_9366/Samba_OG_Shoes_White_JS1391_02_standard.jpg
+   [23] https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9db81627f5684390ac6ad5467aaea27e_9366/Samba_OG_Shoes_White_JS1391_03_standard.jpg
+   [24] https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e68f.jpg
+   [25] https://assets.adidas.com/videos/h_840,c_fill,f_auto,q_auto,fl_lossy,so_1,g_auto/b456b23862264260aa71e51fe393849a_d98c/Samba_OG_Shoes_White_JS1391_video.jpg
+   [26] https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes_White_JS1391.jpg
+   [27] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/70e36958be4f480cb5ea5bfa675e7810_9366/Samba_OG_Shoes_White_ID0478_00_plp_standard.jpg
+   [28] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/89282cea6ef8495caff848b041a0a3ce_9366/Samba_OG_Shoes_Black_IE5836_00_plp_standard.jpg
+   [29] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9b1ede7c6d048f48e8694cf80a91d5d_9366/Samba_OG_Shoes_White_IF6513_00_plp_standard.jpg
+   [30] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/054ce13d1f6444bc9d41574875b8c7e8_9366/Samba_OG_Shoes_White_IG1963_00_plp_standard.jpg
+   [31] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/3f97a71da3ae4cb98250122966491184_9366/Samba_OG_Shoes_White_IG9030_00_plp_standard.jpg
+   [32] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/cebcf6052ff3443ca0f9812cdf6b993d_9366/Samba_OG_Shoes_Black_IG9031_00_plp_standard.jpg
+   [33] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/0f75cf98e306496c9401fb0907d09839_9366/Samba_OG_Shoes_White_JH7300_00_plp_standard.jpg
+   [34] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/56e244b423ec41eb8a6a2e9c705bcd4f_9366/Samba_OG_Shoes_White_JI2677_00_plp_standard.jpg
+   [35] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/a6f74dc80f6c445e9ecea797626923c1_9366/Samba_OG_Shoes_White_JI2678_00_plp_standard.jpg
+   [36] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/6dc90a7f338a4417860fbb2bdeb60a12_9366/Samba_OG_Shoes_White_JI2725_00_plp_standard.jpg
+   [37] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/c59cb964794644edb63b24c4fb216a4e_9366/Samba_OG_Shoes_Orange_JI2732_00_plp_standard.jpg
+   [38] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/49d73d8eaccb48ee89ee3feb82ce098c_9366/Samba_OG_shoes_Black_JI2734_00_plp_standard.jpg
+   [39] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/42af08336f3645da8768205bea660f4a_9366/Samba_OG_Shoes_Purple_JI2736_00_plp_standard.jpg
+   [40] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/09e6b9ef0cf646639e18e6c78edc1654_9366/Samba_OG_Shoes_White_JQ2106_00_plp_standard.jpg
+   [41] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/9b11e2070258471cac6c62e6ae89d4f1_9366/Samba_OG_Shoes_Black_JQ3532_00_plp_standard.jpg
+   [42] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/b668a22ed8ee475e87beafeeedb96657_9366/Samba_OG_Shoes_Silver_JR0035_00_plp_standard.jpg
+   [43] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/fe732a7fe7864a2aa2e46b68321a1555_9366/Samba_OG_Shoes_Blue_JR8829_00_plp_standard.jpg
+   [44] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/b6e9cd6cf65b4b1480e26075f65af825_9366/Samba_OG_Shoes_Grey_JR8831_00_plp_standard.jpg
+   [45] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/7f6d738b4bd541a1a17f6370a5953c7f_9366/Samba_OG_Shoes_White_JR8842_00_plp_standard.jpg
+   [46] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/85fa5cc1f482437ba1a9a6e23da233a5_9366/Samba_OG_Shoes_White_JR8843_00_plp_standard.jpg
+   [47] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/794d410e877c4eb499aa87f6ff01c7d3_9366/Samba_OG_Shoes_Burgundy_JR8844_00_plp_standard.jpg
+   [48] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/d1c0ca35973b46d3bd297bc403f364f0_9366/Samba_OG_Shoes_White_JR8848_00_plp_standard.jpg
+   [49] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/4ae332fa816744bb8731fb22e39dddfc_9366/Samba_OG_Shoes_Green_JR9447_00_plp_standard.jpg
+   [50] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/13a718a818c2471ebfdd2d2a57226508_9366/Samba_OG_Shoes_Burgundy_JS1316_00_plp_standard.jpg
+   [51] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/2492ea7bd9614450bac7180ca93b315a_9366/Samba_OG_Shoes_Blue_JS1317_00_plp_standard.jpg
+   [52] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/27adbdee852147ee914de78876970e36_9366/Samba_OG_Shoes_White_JS1352_00_plp_standard.jpg
+   [53] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/0151d5ddfd9142dca70e1c6339a885e9_9366/Samba_OG_Shoes_Black_JS1386_00_plp_standard.jpg
+   [54] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/86f631a047d648dbbd17f5673450b734_9366/Samba_OG_Shoes_Black_JS1387_00_plp_standard.jpg
+   [55] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_Shoes_White_JS1391_00_plp_standard.jpg
+   [56] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/d58981abc9d54f90a426ec68dfab6a18_9366/Samba_OG_Shoes_White_JS1392_00_plp_standard.jpg
+   [57] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/e795383412794043b922913af05c558e_9366/Samba_OG_Shoes_Blue_JS3934_00_plp_standard.jpg
+   [58] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/46dffeeda5d442a4a2235cd418aac662_9366/Samba_OG_Shoes_Beige_JS3935_00_plp_standard.jpg
+   [59] https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/92853b55ef7e45f38600c0ef77175901_9366/Samba_OG_X_Liberty_London_Shoes_White_JR8841_00_plp_standard.jpg
+
+5️⃣ RANDOM/NON-PRODUCT IMAGES (first 10):
+   [1] data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+   [2] https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_sustain_left_d_c96faee944.png
+   [3] https://assets.adidas.com/images/w_600,f_auto,q_auto/bd051c1e8ddc4ac5851b3fb525c6d22b_9366/Adicolor_Trefoil_Boxy_Tee_Plus_Size_Purple_KB2821_000_plp_model.jpg
+
+6️⃣ FINAL SUMMARY:
+   🎯 Product images found: 59
+   🗑️  Random images filtered: 3
+   📊 Total images scanned: 74
+
+============================================================
+📋 REPORT COMPLETE - COPY OUTPUT BELOW
+============================================================

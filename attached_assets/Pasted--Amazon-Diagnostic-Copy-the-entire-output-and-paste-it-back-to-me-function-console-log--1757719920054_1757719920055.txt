@@ -1,0 +1,122 @@
+// Amazon Diagnostic - Copy the entire output and paste it back to me
+(function() {
+  console.log("=".repeat(60));
+  console.log("🔍 AMAZON DIAGNOSTIC REPORT");
+  console.log("=".repeat(60));
+  
+  const report = [];
+  const images = new Set();
+  
+  // Helper to log and collect info
+  function log(message) {
+    console.log(message);
+    report.push(message);
+  }
+  
+  log(`📍 Current URL: ${window.location.href}`);
+  log(`📄 Page Title: ${document.title}`);
+  log("");
+  
+  // 1. Check main image containers
+  log("1️⃣ CHECKING MAIN IMAGE CONTAINERS:");
+  const mainSelectors = ['#ivLargeImage', '#landingImage', '.a-dynamic-image'];
+  mainSelectors.forEach(sel => {
+    const elements = document.querySelectorAll(sel);
+    log(`   ${sel}: ${elements.length} elements found`);
+    elements.forEach((el, i) => {
+      const src = el.currentSrc || el.src;
+      log(`     [${i}] src: ${src}`);
+      if (src) images.add(src);
+    });
+  });
+  log("");
+  
+  // 2. Check thumbnail gallery
+  log("2️⃣ CHECKING THUMBNAIL GALLERY:");
+  const thumbSelectors = ['#ivThumbColumn .ivThumb img', '.ivThumbs img', '.ivThumb img'];
+  thumbSelectors.forEach(sel => {
+    const elements = document.querySelectorAll(sel);
+    log(`   ${sel}: ${elements.length} elements found`);
+    elements.forEach((el, i) => {
+      const src = el.currentSrc || el.src;
+      const dataHires = el.getAttribute('data-old-hires') || el.getAttribute('data-a-hires');
+      log(`     [${i}] src: ${src}`);
+      if (dataHires) log(`     [${i}] data-hires: ${dataHires}`);
+      if (src) images.add(src);
+      if (dataHires) images.add(dataHires);
+    });
+  });
+  log("");
+  
+  // 3. Check other possible containers
+  log("3️⃣ CHECKING OTHER CONTAINERS:");
+  const otherSelectors = ['[data-dp-carousel] img', '.a-carousel img', '#imageBlock img'];
+  otherSelectors.forEach(sel => {
+    const elements = document.querySelectorAll(sel);
+    log(`   ${sel}: ${elements.length} elements found`);
+    elements.forEach((el, i) => {
+      const src = el.currentSrc || el.src;
+      if (src) {
+        log(`     [${i}] src: ${src}`);
+        images.add(src);
+      }
+    });
+  });
+  log("");
+  
+  // 4. Show all found URLs
+  log("4️⃣ ALL FOUND IMAGE URLS:");
+  const allUrls = [...images];
+  allUrls.forEach((url, i) => {
+    log(`   [${i+1}] ${url}`);
+  });
+  log("");
+  
+  // 5. Test URL conversions
+  log("5️⃣ TESTING HIGH-RES CONVERSIONS:");
+  const converted = new Set();
+  allUrls.forEach(url => {
+    let newUrl = url.replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_');
+    newUrl = newUrl.replace(/\._[SU][SXYL]\d+_/g, '._SL1500_');
+    if (newUrl !== url) {
+      log(`   ✅ ${url} → ${newUrl}`);
+    } else {
+      log(`   ⚠️  No conversion: ${url}`);
+    }
+    converted.add(newUrl);
+  });
+  log("");
+  
+  // 6. Final summary
+  log("6️⃣ FINAL SUMMARY:");
+  log(`   📊 Original URLs found: ${allUrls.length}`);
+  log(`   📊 After conversion: ${converted.size}`);
+  log(`   📊 Unique images: ${[...converted].length}`);
+  log("");
+  
+  log("=".repeat(60));
+  log("📋 COPY THIS ENTIRE OUTPUT AND PASTE IT BACK");
+  log("=".repeat(60));
+  
+  // Return the report as a string for easy copying
+  const reportText = report.join('\n');
+  
+  // Try to copy to clipboard if possible
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(reportText).then(() => {
+      log("✅ Report copied to clipboard!");
+    }).catch(() => {
+      log("❌ Could not copy to clipboard automatically");
+    });
+  }
+  
+  return {
+    report: reportText,
+    originalUrls: allUrls,
+    convertedUrls: [...converted],
+    summary: {
+      originalCount: allUrls.length,
+      convertedCount: converted.size
+    }
+  };
+})();

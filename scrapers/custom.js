@@ -141,50 +141,57 @@ const AMZ = {
     console.log("[DEBUG] Amazon custom image logic running...");
     const urls = new Set();
     
-    // Amazon main product image (high-res version)
-    const mainImage = doc.querySelector('#landingImage, #ivLargeImage, .a-dynamic-image');
-    if (mainImage && mainImage.src) {
-      // Convert to high-res version - replace size params with larger ones
-      let highResUrl = mainImage.src
-        .replace(/_AC_SX\d+_/, '_AC_SL1500_')  // Convert SX425 to SL1500
-        .replace(/_AC_US\d+_/, '_AC_SL1500_')  // Convert US40 to SL1500
-        .replace(/\._SS\d+_/, '._SL1500_');     // Convert SS to SL
-      urls.add(highResUrl);
-      console.log("[DEBUG] Amazon main image found:", highResUrl);
+    // 1. Main large product image only
+    const mainImage = doc.querySelector('#ivLargeImage, #landingImage');
+    if (mainImage && (mainImage.currentSrc || mainImage.src)) {
+      let url = mainImage.currentSrc || mainImage.src;
+      url = url.replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_').replace(/\._[A-Z]{2}\d+_/g, '._SL1500_');
+      urls.add(url);
+      console.log("[DEBUG] Amazon main image:", url);
     }
     
-    // Amazon thumbnail gallery - convert thumbnails to high-res
-    const thumbnails = doc.querySelectorAll('#altImages img, .ivThumb img, #imageBlock img');
-    thumbnails.forEach(thumb => {
-      if (!thumb.src || thumb.src.includes('icon') || thumb.src.includes('grey-pixel')) return;
+    // 2. Main thumbnail gallery images only (not tiny ones)
+    doc.querySelectorAll('#ivThumbColumn .ivThumb img, #altImages img, #imageBlockThumbs img, .a-dynamic-image[data-old-hires]').forEach(thumb => {
+      const originalSrc = thumb.currentSrc || thumb.src;
       
-      // Convert thumbnail URLs to high-res versions
-      let highResUrl = thumb.src
-        .replace(/_AC_US\d+_/, '_AC_SL1500_')   // Convert US40/US240 to SL1500  
-        .replace(/_AC_SX\d+_/, '_AC_SL1500_')   // Convert SX to SL
-        .replace(/\._SS\d+_/, '._SL1500_')      // Convert SS to SL
-        .replace(/\._CR.*?_/, '._SL1500_');     // Remove crop params
+      // Skip junk: tiny thumbnails, UI elements, reviews
+      if (originalSrc && 
+          !/_SR\d{1,2},\d{1,2}_/.test(originalSrc) &&        // Skip 100x100 etc
+          !/_US\d{1,2}_/.test(originalSrc) &&                // Skip _US40_ etc  
+          !/grey-pixel|play-icon|overlay/.test(originalSrc) && // Skip UI
+          !/community-reviews|aicid=/.test(originalSrc) &&   // Skip reviews
+          !/aplus-media/.test(originalSrc) &&                // Skip A+ content
+          originalSrc.includes('media-amazon.com/images/I/')) { // Real product images
         
-      if (highResUrl !== thumb.src) {
-        urls.add(highResUrl);
-        console.log("[DEBUG] Amazon thumbnail converted:", thumb.src, "->", highResUrl);
+        let hdUrl = originalSrc.replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_').replace(/\._[A-Z]{2}\d+_/g, '._SL1500_');
+        urls.add(hdUrl);
+        console.log("[DEBUG] Amazon gallery:", hdUrl);
+      } else if (originalSrc) {
+        console.log("[DEBUG] Amazon filtered out:", originalSrc);
       }
     });
     
-    // Amazon alternate images container
-    const altImagesContainer = doc.querySelector('#altImages, #imageBlockThumbs');
-    if (altImagesContainer) {
-      altImagesContainer.querySelectorAll('img').forEach(img => {
-        if (!img.src || img.src.includes('icon') || img.src.includes('grey-pixel')) return;
-        let highResUrl = img.src.replace(/_AC_US\d+_/, '_AC_SL1500_');
-        if (highResUrl !== img.src) urls.add(highResUrl);
-      });
-    }
+    // 3. Check for high-res data attributes
+    doc.querySelectorAll('.ivThumb img[data-old-hires], .ivThumb img[data-a-hires]').forEach(img => {
+      const hdUrl = img.getAttribute('data-old-hires') || img.getAttribute('data-a-hires');
+      if (hdUrl && hdUrl.includes('media-amazon.com/images/I/')) {
+        urls.add(hdUrl);
+        console.log("[DEBUG] Amazon data-hires:", hdUrl);
+      }
+    });
     
-    // Filter and return
-    const good = [...urls].filter(u => u && /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u));
-    console.log("[DEBUG] Amazon found", good.length, "high-res images:", good.slice(0, 3));
-    return good.slice(0, 15);
+    // Final cleanup - remove known junk patterns
+    const cleanedImages = [...urls].filter(url => {
+      const isJunk = /community-reviews|grey-pixel|play-icon|overlay|aplus-media|_SR\d{1,3},\d{1,3}_|_UC\d+,\d+_|\.gif$/.test(url);
+      if (isJunk) {
+        console.log("[DEBUG] Amazon final filter removed:", url);
+        return false;
+      }
+      return true;
+    });
+    
+    console.log("[DEBUG] Amazon found", cleanedImages.length, "main HD images (filtered from", urls.size, "total)");
+    return cleanedImages.slice(0, 10);
   },
 };
 
@@ -676,7 +683,7 @@ const ILIA = {
 
 // ---------- LARQ (target .productgallery, avoid review thumbnails) ----------
 const LARQ = {
-  match: (h) => /\blarq\.com$/i.test(h),
+  match: (h) => /(^|\.)((live)?larq\.com)$/i.test(h),
   images(doc = document) {
     console.log("[DEBUG] LARQ custom image logic running...");
     const out = new Set();
@@ -792,6 +799,125 @@ const MESHKI = {
   }
 };
 
+// ---------- Nike (convert t_default to t_PDP_1728_v1 for high-res) ----------
+const NIKE = {
+  match: (h) => /(^|\.)nike\.com$/i.test(h),
+  images(doc = document) {
+    console.log("[DEBUG] Nike custom image logic running...");
+    const out = new Set();
+    
+    // Nike main hero image
+    const heroSelectors = [
+      '[data-testid="HeroImg"] img',
+      '[data-testid="hero-image"] img', 
+      '.hero-image img',
+      '.product-hero img'
+    ];
+    
+    heroSelectors.forEach(selector => {
+      const imgs = doc.querySelectorAll(selector);
+      imgs.forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && u.includes('static.nike.com/a/images')) {
+          // Convert to high-res version
+          let highResUrl = u.replace(/t_default/gi, 't_PDP_1728_v1').replace(/t_s3/gi, 't_PDP_1728_v1');
+          // If no template present, add it
+          if (!highResUrl.includes('t_PDP_1728_v1') && highResUrl.includes('static.nike.com/a/images')) {
+            highResUrl = highResUrl.replace('/a/images/', '/a/images/t_PDP_1728_v1/');
+          }
+          out.add(highResUrl);
+          console.log("[DEBUG] Nike hero image converted:", u, "->", highResUrl);
+        }
+      });
+    });
+    
+    // Nike carousel/gallery images
+    const gallerySelectors = [
+      '[data-testid*="carousel"] img',
+      '[data-testid*="gallery"] img',
+      '.carousel img',
+      '.product-carousel img',
+      '.image-gallery img'
+    ];
+    
+    gallerySelectors.forEach(selector => {
+      const imgs = doc.querySelectorAll(selector);
+      imgs.forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && u.includes('static.nike.com/a/images') && !/(icon|thumb|sprite)/i.test(u)) {
+          // Convert to high-res version
+          let highResUrl = u.replace(/t_default/gi, 't_PDP_1728_v1').replace(/t_s3/gi, 't_PDP_1728_v1');
+          if (!highResUrl.includes('t_PDP_1728_v1') && highResUrl.includes('static.nike.com/a/images')) {
+            highResUrl = highResUrl.replace('/a/images/', '/a/images/t_PDP_1728_v1/');
+          }
+          out.add(highResUrl);
+        }
+      });
+    });
+    
+    // Fallback: any Nike static images, convert to high-res
+    if (out.size < 3) {
+      doc.querySelectorAll('img').forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && u.includes('static.nike.com/a/images') && !/(icon|thumb|sprite|logo)/i.test(u)) {
+          let highResUrl = u.replace(/t_default/gi, 't_PDP_1728_v1').replace(/t_s3/gi, 't_PDP_1728_v1');
+          if (!highResUrl.includes('t_PDP_1728_v1') && highResUrl.includes('static.nike.com/a/images')) {
+            highResUrl = highResUrl.replace('/a/images/', '/a/images/t_PDP_1728_v1/');
+          }
+          out.add(highResUrl);
+        }
+      });
+    }
+    
+    console.log("[DEBUG] Nike found", out.size, "high-res images");
+    return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0, 15);
+  }
+};
+
+// ---------- Adidas (filter for assets.adidas.com domain only) ----------
+const ADIDAS = {
+  match: (h) => /(^|\.)adidas\.com$/i.test(h),
+  images(doc = document) {
+    console.log("[DEBUG] Adidas custom image logic running...");
+    const realImages = new Set();
+    const otherImages = new Set();
+    
+    // Target PDP gallery containers specifically, avoiding PLP images
+    // Focus on [data-testid*="image"] which user confirmed finds the real 10 product images
+    const pdpContainerSelectors = [
+      '[data-testid*="image"] img',
+      '[data-testid*="gallery"] img'
+    ];
+    
+    pdpContainerSelectors.forEach(selector => {
+      doc.querySelectorAll(selector).forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && u.startsWith('https://assets.adidas.com/') && 
+            !u.startsWith('data:') && 
+            !/_plp_/.test(u)) { // Exclude PLP (product listing page) images
+          
+          // Upsize images: w_600 → w_1200 for better quality
+          let highResUrl = u.replace(/\/w_\d+([,\/])/g, '/w_1200$1');
+          realImages.add(highResUrl);
+          console.log("[DEBUG] Adidas real PDP image:", u, "->", highResUrl);
+        } else if (u && !u.startsWith('data:')) {
+          otherImages.add(u);
+          console.log("[DEBUG] Adidas filtered (PLP/other):", u);
+        }
+      });
+    });
+    
+    // Return real product images first, other images at bottom if needed
+    const result = [...realImages];
+    if (result.length < 5) {
+      result.push(...[...otherImages].slice(0, 15 - result.length));
+    }
+    
+    console.log("[DEBUG] Adidas found", realImages.size, "real PDP images,", otherImages.size, "other images");
+    return result.filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0, 15);
+  }
+};
+
 // ---------- Allies (custom title and price logic) ----------
 const ALLIES = {
   title() {
@@ -882,6 +1008,9 @@ const ALLIES = {
 //////////////////// registry -> unified handler ////////////////////
 const REGISTRY = [
   AMZ,
+  NIKE,
+  ADIDAS,
+  LARQ,
   BOOHOO,
   COSTCO,
   HOMEDEPOT,
@@ -904,10 +1033,9 @@ const REGISTRY = [
   ILIA,
   JOHNSCRAZYSOCKS,
   KIRRINFINCH,
-  LARQ,
   MAHABIS,
   { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
-
+  MESHKI,
 
 
 ];

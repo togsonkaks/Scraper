@@ -1,0 +1,37 @@
+Object { report: "📍 Current URL: https://www.amazon.com/dp/B081CHLF46?smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp&th=1\n📄 Page Title: Amazon.com: Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers, Bedroom, with Sunrise Simulation, Sleep Aid, Dual Alarms, FM Radio, Snooze, Nightlight, Daylight, 7 Colors, 7 Natural Sounds, Ideal for Gift : Electronics\n\n1️⃣ CHECKING MAIN IMAGE CONTAINERS:\n   #ivLargeImage: 1 elements found\n     [0] src: undefined\n   #landingImage: 1 elements found\n     [0] src: https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg\n   .a-dynamic-image: 7 elements found\n     [0] src: https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SX425_.jpg\n     [1] src: https://m.media-amazon.com/images/I/81Qw3xU0RQL._AC_SX425_.jpg\n     [2] src: https://m.media-amazon.com/images/I/71XkmmnAtML._AC_SX425_.jpg\n     [3] src: https://m.media-amazon.com/images/I/71jwX-21cTL._AC_SX425_.jpg\n     [4] src: https://m.media-amazon.com/images/I/61eeL5JROTL._AC_SX425_.jpg\n     [5] src: https://images-…", originalUrls: (52) […], convertedUrls: (52) […], summary: {…} }
+​
+convertedUrls: Array(52) [ "https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg", "https://m.media-amazon.com/images/I/81Qw3xU0RQL._AC_SL1500_.jpg", "https://m.media-amazon.com/images/I/71XkmmnAtML._AC_SL1500_.jpg", … ]
+​​
+0: "https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg"
+​​
+1: "https://m.media-amazon.com/images/I/81Qw3xU0RQL._AC_SL1500_.jpg"
+​​
+2: "https://m.media-amazon.com/images/I/71XkmmnAtML._AC_SL1500_.jpg"
+​​
+3: "https://m.media-amazon.com/images/I/71jwX-21cTL._AC_SL1500_.jpg"
+​​
+4: "https://m.media-amazon.com/images/I/61eeL5JROTL._AC_SL1500_.jpg"
+​​
+5: "https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_SR232,232_.jpg"
+​​
+6: "https://images-na.ssl-images-amazon.com/images/I/71OsfblXYJL._AC_SL1500_SR232,232_.jpg"
+​​
+7: "https://m.media-amazon.com/images/I/41ncQm3xYRL._AC_SL1500_.jpg"
+​​
+8: "https://m.media-amazon.com/images/I/41TM91EOFxL._AC_SL1500_.jpg"
+​​
+9: "https://m.media-amazon.com/images/I/61URVJk62TL._AC_UF480,480_SR480,480_.jpg"
+​​
+10: "https://m.media-amazon.com/images/I/216-OX9rBaL.png"
+​​
+11: "https://m.media-amazon.com/images/I/81-WKZJHmKL._AC_UF480,480_SR480,480_.jpg"
+​​
+12: "https://m.media-amazon.com/images/I/61IneC3CI+L._AC_UF480,480_SR480,480_.jpg"
+​​
+13: "https://m.media-amazon.com/images/I/5157gYwMycL._AC_UF480,480_SR480,480_.jpg"
+​​
+14: "https://m.media-amazon.com/images/I/71OsfblXYJL._AC_UF480,480_SR480,480_.jpg"
+​​
+15: "https://m.media-amazon.com/images/I/51nodIt5QFL._AC_UF480,480_SR480,480_.jpg"
+​​
+16: "https://m.media-amazon.com/images/I/61aAVCyFSYL._AC_UF480,480_SR480,480_.jpg"
