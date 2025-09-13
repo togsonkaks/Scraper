@@ -141,8 +141,8 @@ const AMZ = {
     console.log("[DEBUG] Amazon custom image logic running...");
     const urls = new Set();
     
-    // 1. Main large product image (updated for 2024+ Amazon)
-    const mainImage = doc.querySelector('#ivLargeImage, #landingImage, .a-dynamic-image, [data-csa-c-element-id*="image"] img');
+    // 1. Main large product image (based on actual DOM structure)
+    const mainImage = doc.querySelector('#ivLargeImage, #landingImage, .a-dynamic-image, [data-csa-c-component="imageblock"] img');
     if (mainImage && (mainImage.currentSrc || mainImage.src)) {
       let url = mainImage.currentSrc || mainImage.src;
       url = url.replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_').replace(/\._[A-Z]{2}\d+_/g, '._SL1500_');
@@ -150,11 +150,11 @@ const AMZ = {
       console.log("[DEBUG] Amazon main image:", url);
     }
     
-    // 2. Main thumbnail gallery images (updated for 2024+ Amazon structure)
+    // 2. Thumbnail gallery images (based on ACTUAL DOM structure from screenshots)
     doc.querySelectorAll(`
       #ivThumbColumn .ivThumb img, #altImages img, #imageBlockThumbs img,
-      [class*="ivImages"] img, [id*="ivImage"] img, .iv-tab img,
-      [data-csa-c-element-id*="image"] img, [class*="imagesThumbnail"] img,
+      #ivImagesTab img, [id*="ivThumb"] img, .ivThumb img,
+      [data-csa-c-component="imageblock"] img,
       img[src*="images-amazon.com"], img[src*="ssl-images-amazon.com"], img[src*="m.media-amazon.com"],
       .a-dynamic-image[data-old-hires]
     `.replace(/\s+/g, ' ').trim()).forEach(thumb => {
@@ -177,10 +177,11 @@ const AMZ = {
       }
     });
     
-    // 3. Check for high-res data attributes (updated selectors)
+    // 3. Check for high-res data attributes (based on actual DOM structure)
     doc.querySelectorAll(`
       .ivThumb img[data-old-hires], .ivThumb img[data-a-hires],
-      [class*="ivImages"] img[data-old-hires], [class*="ivImages"] img[data-a-hires],
+      #ivImagesTab img[data-old-hires], #ivImagesTab img[data-a-hires],
+      [id*="ivThumb"] img[data-old-hires], [id*="ivThumb"] img[data-a-hires],
       img[data-old-hires], img[data-a-hires]
     `.replace(/\s+/g, ' ').trim()).forEach(img => {
       const hdUrl = img.getAttribute('data-old-hires') || img.getAttribute('data-a-hires');
