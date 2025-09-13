@@ -796,14 +796,14 @@
                  attrs['data-zoom-image'] || attrs['data-large'];
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
-        enrichedUrls.push({ url: s1, element: el, index: i });
+        enrichedUrls.push({ url: upgradeUrl(s1), element: el, index: i });
       }
       
       const ss = attrs.srcset;
       const best = pickFromSrcset(ss); 
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
-        enrichedUrls.push({ url: best, element: el, index: i });
+        enrichedUrls.push({ url: upgradeUrl(best), element: el, index: i });
       }
       
       // Check picture parent
@@ -813,7 +813,7 @@
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
-            enrichedUrls.push({ url: b, element: el, index: i });
+            enrichedUrls.push({ url: upgradeUrl(b), element: el, index: i });
           }
         }
       }
@@ -1171,16 +1171,16 @@
   function extractImageUrls(imgElement) {
     const urls = [];
     
-    // Extract from src and currentSrc
-    if (imgElement.currentSrc) urls.push(imgElement.currentSrc);
-    if (imgElement.src && imgElement.src !== imgElement.currentSrc) urls.push(imgElement.src);
+    // Extract from src and currentSrc with quality upgrades
+    if (imgElement.currentSrc) urls.push(upgradeUrl(imgElement.currentSrc));
+    if (imgElement.src && imgElement.src !== imgElement.currentSrc) urls.push(upgradeUrl(imgElement.src));
     
     // Extract from lazy loading attributes  
     const lazyAttrs = ['data-src', 'data-zoom-image', 'data-large-image', 'data-zoom-src', 'data-full-src'];
     lazyAttrs.forEach(attr => {
       const lazyUrl = imgElement.getAttribute(attr);
       if (lazyUrl && !urls.includes(lazyUrl)) {
-        urls.push(lazyUrl);
+        urls.push(upgradeUrl(lazyUrl));
       }
     });
     
@@ -1189,7 +1189,7 @@
       const srcsetUrls = imgElement.srcset.split(',').map(s => s.trim().split(' ')[0]);
       srcsetUrls.forEach(url => {
         if (url && !urls.includes(url)) {
-          urls.push(url);
+          urls.push(upgradeUrl(url));
         }
       });
     }
@@ -1275,6 +1275,49 @@
         .filter((x) => x.u)
         .sort((a, b) => b.w - a.w)
         .map((x) => x.u);
+
+    // CDN URL upgrade function for higher quality images
+    function upgradeUrl(u) {
+      try {
+        let url = u;
+        // protocol-less → absolute
+        if (url.startsWith("//")) url = location.protocol + url;
+
+        // Shopify: .../files/xxx_640x640.jpg → 2048x2048
+        if (/cdn\.shopify\.com/i.test(url)) {
+          url = url.replace(/_(\d+)x(\d+)\.(jpe?g|png|webp|avif)(\?|#|$)/i, "_2048x2048.$3$4");
+          url = url.replace(/[?&]width=\d+/i, "");
+        }
+
+        // SFCC (Demandware): Enhanced quality upgrades for Acme Tools
+        if (/\/dw\/image\/v2\//i.test(url)) {
+          // Remove existing size/quality params first
+          url = url.replace(/[?&](sw|sh|quality|fmt)=\d*[^&]*/gi, "");
+          
+          // Add high quality parameters for crisp images
+          const separator = url.includes('?') ? '&' : '?';
+          url += `${separator}sw=1200&sh=1200&quality=90&fmt=webp`;
+        }
+
+        // Scene7: is/image/... ?wid=640 → drop size params to let server serve big
+        if (/scene7\.com\/is\/image/i.test(url)) {
+          url = url.replace(/[?&](wid|hei|fmt|qlt|op_sharpen)=\d*[^&]*/gi, "");
+        }
+
+        // Ace Hardware (Mozu): upgrade low quality images to higher quality
+        if (/cdn-tp3\.mozu\.com/i.test(url) && url.includes('quality=60')) {
+          // Upgrade quality from 60 to 90 and remove small size limits
+          url = url.replace(/quality=60/g, 'quality=90');
+          url = url.replace(/max=\d+/g, 'max=800');
+        }
+
+        // strip generic width/height query hints
+        url = url.replace(/[?&](w|h|width|height|size)=\d+[^&]*/gi, "");
+        // collapse trailing ? or & if empty
+        url = url.replace(/\?(&|$)/, "").replace(/&$/, "");
+        return url;
+      } catch { return u; }
+    }
 
     // Image relevance scoring function
     function scoreImageRelevance(imgUrl, imgElement) {
