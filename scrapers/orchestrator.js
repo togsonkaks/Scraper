@@ -1167,6 +1167,96 @@
 
   // ========== ADVANCED FUNCTIONS FROM OTHER FILES ==========
   
+  // Enhanced image extraction helpers
+  function extractImageUrls(imgElement) {
+    const urls = [];
+    
+    // Extract from src and currentSrc
+    if (imgElement.currentSrc) urls.push(imgElement.currentSrc);
+    if (imgElement.src && imgElement.src !== imgElement.currentSrc) urls.push(imgElement.src);
+    
+    // Extract from lazy loading attributes  
+    const lazyAttrs = ['data-src', 'data-zoom-image', 'data-large-image', 'data-zoom-src', 'data-full-src'];
+    lazyAttrs.forEach(attr => {
+      const lazyUrl = imgElement.getAttribute(attr);
+      if (lazyUrl && !urls.includes(lazyUrl)) {
+        urls.push(lazyUrl);
+      }
+    });
+    
+    // Extract from srcset (get largest)
+    if (imgElement.srcset) {
+      const srcsetUrls = imgElement.srcset.split(',').map(s => s.trim().split(' ')[0]);
+      srcsetUrls.forEach(url => {
+        if (url && !urls.includes(url)) {
+          urls.push(url);
+        }
+      });
+    }
+    
+    return urls.filter(Boolean);
+  }
+
+  function extractModalImages() {
+    const modalUrls = [];
+    
+    // Look for modal containers
+    const modalSelectors = [
+      '.modal-overlay img', '.modal-content img', '.modal-dialog img',
+      '.carousel-inner img', '.swiper-container img', '.swiper-wrapper img',
+      '.lightbox img', '.gallery-modal img', '.zoom-container img'
+    ];
+    
+    modalSelectors.forEach(selector => {
+      try {
+        const modalImages = document.querySelectorAll(selector);
+        modalImages.forEach(img => {
+          const urls = extractImageUrls(img);
+          urls.forEach(url => {
+            if (url && !modalUrls.includes(url)) {
+              modalUrls.push(url);
+            }
+          });
+        });
+      } catch (e) {
+        console.log(`[DEBUG] Modal selector failed: ${selector}`, e.message);
+      }
+    });
+    
+    return modalUrls;
+  }
+
+  function scoreImageUrl(url) {
+    let score = 0;
+    const urlLower = url.toLowerCase();
+    
+    // Higher score for quality indicators in URL
+    if (urlLower.includes('/large/') || urlLower.includes('/large_')) score += 20;
+    if (urlLower.includes('/zoom/') || urlLower.includes('/zoom_')) score += 18;
+    if (urlLower.includes('/high/') || urlLower.includes('/high_')) score += 16;
+    if (urlLower.includes('/detail/') || urlLower.includes('/detail_')) score += 14;
+    if (urlLower.includes('/full/') || urlLower.includes('/full_')) score += 12;
+    
+    // Lower score for thumbnail indicators
+    if (urlLower.includes('/thumb/') || urlLower.includes('/thumb_')) score -= 15;
+    if (urlLower.includes('/small/') || urlLower.includes('/small_')) score -= 12;
+    if (urlLower.includes('/mini/') || urlLower.includes('/mini_')) score -= 10;
+    if (urlLower.includes('_thumb') || urlLower.includes('-thumb')) score -= 8;
+    
+    // Dimension scoring from URL
+    const dimensionMatch = url.match(/(\d+)x(\d+)/);
+    if (dimensionMatch) {
+      const width = parseInt(dimensionMatch[1]);
+      const height = parseInt(dimensionMatch[2]);
+      const area = width * height;
+      if (area > 800 * 800) score += 10;
+      else if (area > 400 * 400) score += 5;
+      else if (area < 200 * 200) score -= 5;
+    }
+    
+    return score;
+  }
+
   // FROM images.js - collectImagesFromPDP with sophisticated scoring
   async function collectImagesFromPDP() {
     if (window.__TAGGLO_IMAGES_CACHE__) return window.__TAGGLO_IMAGES_CACHE__;
@@ -1412,19 +1502,40 @@
     // Use the first/best gallery as root, or document.body as ultimate fallback
     const root = productGalleries.length > 0 ? productGalleries[0].container : document.body;
 
-    // Simplified version - return URLs from galleries found
+    // Enhanced URL extraction with lazy loading and quality detection
     const foundUrls = [];
+    
+    // STEP 1: Extract from galleries with enhanced URL detection
     for (const gallery of productGalleries) {
       for (const img of gallery.images) {
-        const url = img.currentSrc || img.src;
-        if (url && !foundUrls.includes(url)) {
-          foundUrls.push(url);
-        }
+        const urls = extractImageUrls(img);
+        urls.forEach(url => {
+          if (url && !foundUrls.includes(url)) {
+            foundUrls.push(url);
+          }
+        });
       }
     }
     
-    console.log("[DEBUG] collectImagesFromPDP found", foundUrls.length, "images:", foundUrls.slice(0, 3));
-    const finalImages = foundUrls.slice(0, 20); // Limit to 20 images
+    // STEP 2: Look for modal overlays with high-quality images
+    const modalUrls = extractModalImages();
+    modalUrls.forEach(url => {
+      if (url && !foundUrls.includes(url)) {
+        foundUrls.push(url);
+      }
+    });
+    
+    // STEP 3: Sort by URL quality (prefer large/zoom/high-res)
+    const scoredUrls = foundUrls.map(url => ({
+      url,
+      score: scoreImageUrl(url)
+    })).sort((a, b) => b.score - a.score);
+    
+    const qualityUrls = scoredUrls.map(item => item.url);
+    
+    console.log("[DEBUG] collectImagesFromPDP found", qualityUrls.length, "images:", qualityUrls.slice(0, 3));
+    console.log("[DEBUG] Image quality scores:", scoredUrls.slice(0, 5).map(item => `${item.url.split('/').pop()} (${item.score})`));
+    const finalImages = qualityUrls.slice(0, 20); // Limit to 20 images
     window.__TAGGLO_IMAGES_CACHE__ = finalImages; // Cache results for subsequent calls
     return finalImages;
   }
