@@ -141,8 +141,8 @@ const AMZ = {
     console.log("[DEBUG] Amazon custom image logic running...");
     const urls = new Set();
     
-    // 1. Main large product image only
-    const mainImage = doc.querySelector('#ivLargeImage, #landingImage');
+    // 1. Main large product image (updated for 2024+ Amazon)
+    const mainImage = doc.querySelector('#ivLargeImage, #landingImage, .a-dynamic-image, [data-csa-c-element-id*="image"] img');
     if (mainImage && (mainImage.currentSrc || mainImage.src)) {
       let url = mainImage.currentSrc || mainImage.src;
       url = url.replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_').replace(/\._[A-Z]{2}\d+_/g, '._SL1500_');
@@ -150,8 +150,14 @@ const AMZ = {
       console.log("[DEBUG] Amazon main image:", url);
     }
     
-    // 2. Main thumbnail gallery images only (not tiny ones)
-    doc.querySelectorAll('#ivThumbColumn .ivThumb img, #altImages img, #imageBlockThumbs img, .a-dynamic-image[data-old-hires]').forEach(thumb => {
+    // 2. Main thumbnail gallery images (updated for 2024+ Amazon structure)
+    doc.querySelectorAll(`
+      #ivThumbColumn .ivThumb img, #altImages img, #imageBlockThumbs img,
+      [class*="ivImages"] img, [id*="ivImage"] img, .iv-tab img,
+      [data-csa-c-element-id*="image"] img, [class*="imagesThumbnail"] img,
+      img[src*="images-amazon.com"], img[src*="ssl-images-amazon.com"], img[src*="m.media-amazon.com"],
+      .a-dynamic-image[data-old-hires]
+    `.replace(/\s+/g, ' ').trim()).forEach(thumb => {
       const originalSrc = thumb.currentSrc || thumb.src;
       
       // Skip junk: tiny thumbnails, UI elements, reviews
@@ -171,8 +177,12 @@ const AMZ = {
       }
     });
     
-    // 3. Check for high-res data attributes
-    doc.querySelectorAll('.ivThumb img[data-old-hires], .ivThumb img[data-a-hires]').forEach(img => {
+    // 3. Check for high-res data attributes (updated selectors)
+    doc.querySelectorAll(`
+      .ivThumb img[data-old-hires], .ivThumb img[data-a-hires],
+      [class*="ivImages"] img[data-old-hires], [class*="ivImages"] img[data-a-hires],
+      img[data-old-hires], img[data-a-hires]
+    `.replace(/\s+/g, ' ').trim()).forEach(img => {
       const hdUrl = img.getAttribute('data-old-hires') || img.getAttribute('data-a-hires');
       if (hdUrl && hdUrl.includes('media-amazon.com/images/I/')) {
         urls.add(hdUrl);
