@@ -685,43 +685,37 @@ const ILIA = {
 const LARQ = {
   match: (h) => /(^|\.)((live)?larq\.com)$/i.test(h),
   images(doc = document) {
-    console.log("[DEBUG] LARQ custom image logic running...");
-    const out = new Set();
+    console.log("[DEBUG] LARQ BULLETPROOF handler running...");
+    const validImages = [];
+    let totalCandidates = 0;
     
-    // Target main product gallery first - this is where the actual product images are
-    const productGallery = doc.querySelector('.productgallery, [class*="productgallery"], .product-gallery');
-    if (productGallery) {
-      console.log("[DEBUG] LARQ found product gallery container");
-      productGallery.querySelectorAll('img').forEach(img => {
-        const u = img.currentSrc || img.src;
-        if (u && !/(review|thumb|icon|sprite)/i.test(u)) {
-          out.add(u);
-          console.log("[DEBUG] LARQ adding gallery image:", u);
-        }
-      });
-    }
-    
-    // Additional selectors for product images, avoiding review containers
-    const additionalSelectors = [
-      '.product-images img:not([class*="review"]):not([class*="thumb"])',
-      '.product-media img:not([class*="review"])',
-      '.pdp-gallery img',
-      '[data-testid*="gallery"] img',
-      '.carousel-item img:not([class*="review"])',
-      '.slider img:not([class*="review"])'
+    // TARGET THE EXACT CAROUSEL STRUCTURE USER SHOWED ME
+    const carouselSelectors = [
+      '.swiper-slide img',           // Main carousel images
+      '.swiper .swiper-slide img',   // Nested swiper
+      '[class*="swiper-slide"] img'  // Class variations
     ];
     
-    additionalSelectors.forEach(selector => {
+    carouselSelectors.forEach(selector => {
+      console.log(`[DEBUG] LARQ checking selector: ${selector}`);
       doc.querySelectorAll(selector).forEach(img => {
-        const u = img.currentSrc || img.src;
-        if (u && !/(review|thumb|icon|sprite|testimonial|customer)/i.test(u)) {
-          out.add(u);
+        totalCandidates++;
+        const u = img.currentSrc || img.src || img.getAttribute('data-src');
+        
+        if (u && /\.(jpe?g|png|webp|avif)([?#]|$)/i.test(u) && 
+            !u.includes('stamped.io') && !u.startsWith('data:')) {
+          validImages.push(u);
+          console.log("[DEBUG] LARQ carousel image FOUND:", u);
+        } else if (u) {
+          console.log("[DEBUG] LARQ carousel image REJECTED:", u.substring(0, 100));
         }
       });
     });
     
-    console.log("[DEBUG] LARQ found", out.size, "product images");
-    return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0, 20);
+    console.log(`[DEBUG] LARQ FINAL: ${totalCandidates} carousel candidates → ${validImages.length} valid product images`);
+    
+    // CRITICAL: Always return array to prevent generic fallback
+    return validImages.slice(0, 15);
   }
 };
 
