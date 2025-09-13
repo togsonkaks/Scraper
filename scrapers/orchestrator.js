@@ -1089,7 +1089,8 @@
         }
         
         images = await fromMemory('images', mem.images);
-        debug('🖼️ IMAGES FROM MEMORY:', { count: images?.length || 0, images: images?.slice(0, 3) });
+        debug('🖼️ IMAGES: Skipping memory in normal mode');
+        images = [];
         
         // ALWAYS try custom handlers (regardless of memory count)
         {
