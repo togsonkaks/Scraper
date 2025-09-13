@@ -1854,8 +1854,8 @@
     return `${summary} ▼ [Show Details: ${details.length} steps]`;
   }
 
-  // 🔄 AUDIT MODE: Enable generic-first for clean slate testing
-  window.__TG_AUDIT_GENERIC_FIRST = true;
+  // 🔄 AUDIT MODE: Disable for now to restore normal functionality  
+  window.__TG_AUDIT_GENERIC_FIRST = false;
 
   // Generic-first audit helpers for all fields
   function handleTitleGenericFirst() {
