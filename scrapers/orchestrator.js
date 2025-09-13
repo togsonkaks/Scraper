@@ -997,7 +997,25 @@
     const siteSpecificSelectors = {
       'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
       'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
-      'amazon.com': ['#imageBlockContainer img', '#imageBlock img', '.a-dynamic-image'],
+      'amazon.com': [
+        // New 2024+ Amazon gallery selectors (thumbnails + main)
+        '[data-csa-c-element-id*="image"] img',
+        '[class*="ivImages"] img', 
+        '[id*="ivImage"] img',
+        '.iv-tab img',
+        '[id*="altImages"] img',
+        '[class*="imagesThumbnail"] img',
+        
+        // Broader Amazon image patterns
+        'img[src*="images-amazon.com"]',
+        'img[src*="ssl-images-amazon.com"]',
+        'img[src*="m.media-amazon.com"]',
+        
+        // Legacy selectors (fallback)
+        '.a-dynamic-image',
+        '#imageBlockContainer img', 
+        '#imageBlock img'
+      ],
       'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
       'acehardware.com': ['.product-gallery img', '.mz-productimages img']
     };
