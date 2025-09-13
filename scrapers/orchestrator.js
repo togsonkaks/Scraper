@@ -1682,6 +1682,94 @@
   // 🔄 AUDIT MODE: Enable generic-first for clean slate testing
   window.__TG_AUDIT_GENERIC_FIRST = true;
 
+  // Generic-first audit helpers for all fields
+  function handleTitleGenericFirst() {
+    debug('🧪 TITLE: AUDIT MODE - Generic → Custom');
+    
+    // STEP 1: Try advanced generic first
+    debug('🧠 TITLE: Trying getTitleGeneric()...');
+    const advancedTitle = getTitleGeneric();
+    if (advancedTitle?.text) {
+      mark('title', { selectors: [advancedTitle.selector], attr: advancedTitle.attr, method: 'advanced-generic' });
+      debug('🧠 TITLE ADVANCED GENERIC:', advancedTitle.text);
+      return advancedTitle.text;
+    }
+    
+    // STEP 2: Try legacy generic
+    debug('🖼️ TITLE: Advanced failed, trying legacy getTitle()...');
+    const legacyTitle = getTitle();
+    if (legacyTitle) {
+      debug('🖼️ TITLE LEGACY GENERIC:', legacyTitle);
+      return legacyTitle;
+    }
+    
+    debug('❌ TITLE: Both generic methods failed');
+    return null;
+  }
+
+  function handleBrandGenericFirst() {
+    debug('🧪 BRAND: AUDIT MODE - Generic → Custom');
+    
+    // STEP 1: Try advanced generic first
+    debug('🧠 BRAND: Trying getBrandGeneric()...');
+    const advancedBrand = getBrandGeneric();
+    if (advancedBrand?.text) {
+      mark('brand', { selectors: [advancedBrand.selector], attr: advancedBrand.attr, method: 'advanced-generic' });
+      debug('🧠 BRAND ADVANCED GENERIC:', advancedBrand.text);
+      return advancedBrand.text;
+    }
+    
+    // STEP 2: Try legacy generic
+    debug('🖼️ BRAND: Advanced failed, trying legacy getBrand()...');
+    const legacyBrand = getBrand();
+    if (legacyBrand) {
+      debug('🖼️ BRAND LEGACY GENERIC:', legacyBrand);
+      return legacyBrand;
+    }
+    
+    debug('❌ BRAND: Both generic methods failed');
+    return null;
+  }
+
+  function handlePriceGenericFirst() {
+    debug('🧪 PRICE: AUDIT MODE - Generic → Custom');
+    
+    // STEP 1: Try advanced generic first
+    debug('🧠 PRICE: Trying getPriceGeneric()...');
+    const advancedPrice = getPriceGeneric();
+    if (advancedPrice?.text) {
+      mark('price', { selectors: [advancedPrice.selector], attr: advancedPrice.attr, method: 'advanced-generic' });
+      debug('🧠 PRICE ADVANCED GENERIC:', advancedPrice.text);
+      return advancedPrice.text;
+    }
+    
+    // STEP 2: Try legacy generic (getPrice function)
+    debug('🖼️ PRICE: Advanced failed, trying legacy getPrice()...');
+    const legacyPrice = getPrice();
+    if (legacyPrice) {
+      debug('🖼️ PRICE LEGACY GENERIC:', legacyPrice);
+      return legacyPrice;
+    }
+    
+    debug('❌ PRICE: Both generic methods failed');
+    return null;
+  }
+
+  function handleDescriptionGenericFirst() {
+    debug('🧪 DESCRIPTION: AUDIT MODE - Generic only');
+    
+    // Only legacy generic available for description
+    debug('🖼️ DESCRIPTION: Trying getDescription()...');
+    const description = getDescription();
+    if (description) {
+      debug('🖼️ DESCRIPTION GENERIC:', description);
+      return description;
+    }
+    
+    debug('❌ DESCRIPTION: Generic method failed');
+    return null;
+  }
+
   // Generic-first audit helper for images
   async function handleImagesGenericFirst() {
     debug('🔄 IMAGES: AUDIT MODE - Generic → Custom');
@@ -1761,7 +1849,7 @@
       } else {
         debug('🔄 NORMAL MODE - memory + fallbacks');
         
-        title = await fromMemory('title', mem.title);
+        title = window.__TG_AUDIT_GENERIC_FIRST ? handleTitleGenericFirst() : await fromMemory('title', mem.title);
         debug('📝 TITLE FROM MEMORY:', title);
         if (!title) {
           debug('📝 TITLE: Falling back to generic...');
@@ -1769,7 +1857,7 @@
           debug('📝 TITLE FROM GENERIC:', title);
         }
         
-        brand = await fromMemory('brand', mem.brand);
+        brand = window.__TG_AUDIT_GENERIC_FIRST ? handleBrandGenericFirst() : await fromMemory('brand', mem.brand);
         debug('🏷️ BRAND FROM MEMORY:', brand);
         if (!brand) {
           debug('🏷️ BRAND: Falling back to generic...');
@@ -1777,7 +1865,7 @@
           debug('🏷️ BRAND FROM GENERIC:', brand);
         }
         
-        description = await fromMemory('description', mem.description);
+        description = window.__TG_AUDIT_GENERIC_FIRST ? handleDescriptionGenericFirst() : await fromMemory('description', mem.description);
         debug('📄 DESCRIPTION FROM MEMORY:', description);
         if (!description) {
           debug('📄 DESCRIPTION: Falling back to generic...');
@@ -1785,7 +1873,7 @@
           debug('📄 DESCRIPTION FROM GENERIC:', description);
         }
         
-        price = await fromMemory('price', mem.price);
+        price = window.__TG_AUDIT_GENERIC_FIRST ? handlePriceGenericFirst() : await fromMemory('price', mem.price);
         debug('💰 PRICE FROM MEMORY:', price);
         if (!price) {
           debug('💰 PRICE: Falling back to generic...');
