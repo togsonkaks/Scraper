@@ -1052,7 +1052,7 @@
         brand = await fromMemory('brand', mem.brand);
         description = await fromMemory('description', mem.description);
         price = await fromMemory('price', mem.price);
-        images = await fromMemory('images', mem.images);
+        // images = await fromMemory('images', mem.images);  // Skip memory for images
       } else {
         debug('🔄 NORMAL MODE - memory + fallbacks');
         
@@ -1088,7 +1088,7 @@
           debug('💰 PRICE FROM GENERIC:', price);
         }
         
-        images = await fromMemory('images', mem.images);
+        // images = await fromMemory('images', mem.images);  // Skip memory for images
         debug('🖼️ IMAGES: Skipping memory in normal mode');
         images = [];
         
