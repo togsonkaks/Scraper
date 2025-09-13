@@ -1276,48 +1276,6 @@
         .sort((a, b) => b.w - a.w)
         .map((x) => x.u);
 
-    // CDN URL upgrade function for higher quality images
-    function upgradeUrl(u) {
-      try {
-        let url = u;
-        // protocol-less → absolute
-        if (url.startsWith("//")) url = location.protocol + url;
-
-        // Shopify: .../files/xxx_640x640.jpg → 2048x2048
-        if (/cdn\.shopify\.com/i.test(url)) {
-          url = url.replace(/_(\d+)x(\d+)\.(jpe?g|png|webp|avif)(\?|#|$)/i, "_2048x2048.$3$4");
-          url = url.replace(/[?&]width=\d+/i, "");
-        }
-
-        // SFCC (Demandware): Enhanced quality upgrades for Acme Tools
-        if (/\/dw\/image\/v2\//i.test(url)) {
-          // Remove existing size/quality params first
-          url = url.replace(/[?&](sw|sh|quality|fmt)=\d*[^&]*/gi, "");
-          
-          // Add high quality parameters for crisp images
-          const separator = url.includes('?') ? '&' : '?';
-          url += `${separator}sw=1200&sh=1200&quality=90&fmt=webp`;
-        }
-
-        // Scene7: is/image/... ?wid=640 → drop size params to let server serve big
-        if (/scene7\.com\/is\/image/i.test(url)) {
-          url = url.replace(/[?&](wid|hei|fmt|qlt|op_sharpen)=\d*[^&]*/gi, "");
-        }
-
-        // Ace Hardware (Mozu): upgrade low quality images to higher quality
-        if (/cdn-tp3\.mozu\.com/i.test(url) && url.includes('quality=60')) {
-          // Upgrade quality from 60 to 90 and remove small size limits
-          url = url.replace(/quality=60/g, 'quality=90');
-          url = url.replace(/max=\d+/g, 'max=800');
-        }
-
-        // strip generic width/height query hints
-        url = url.replace(/[?&](w|h|width|height|size)=\d+[^&]*/gi, "");
-        // collapse trailing ? or & if empty
-        url = url.replace(/\?(&|$)/, "").replace(/&$/, "");
-        return url;
-      } catch { return u; }
-    }
 
     // Image relevance scoring function
     function scoreImageRelevance(imgUrl, imgElement) {
@@ -1832,6 +1790,49 @@
   // Helper functions for advanced scraping
   const T = (s) => typeof s === 'string' ? s.trim() : '';
   const uniq = (arr) => [...new Set(arr)];
+
+  // CDN URL upgrade function for higher quality images - GLOBAL SCOPE
+  function upgradeUrl(u) {
+    try {
+      let url = u;
+      // protocol-less → absolute
+      if (url.startsWith("//")) url = location.protocol + url;
+
+      // Shopify: .../files/xxx_640x640.jpg → 2048x2048
+      if (/cdn\.shopify\.com/i.test(url)) {
+        url = url.replace(/_(\d+)x(\d+)\.(jpe?g|png|webp|avif)(\?|#|$)/i, "_2048x2048.$3$4");
+        url = url.replace(/[?&]width=\d+/i, "");
+      }
+
+      // SFCC (Demandware): Enhanced quality upgrades for Acme Tools
+      if (/\/dw\/image\/v2\//i.test(url)) {
+        // Remove existing size/quality params first
+        url = url.replace(/[?&](sw|sh|quality|fmt)=\d*[^&]*/gi, "");
+        
+        // Add high quality parameters for crisp images
+        const separator = url.includes('?') ? '&' : '?';
+        url += `${separator}sw=1200&sh=1200&quality=90&fmt=webp`;
+      }
+
+      // Scene7: is/image/... ?wid=640 → drop size params to let server serve big
+      if (/scene7\.com\/is\/image/i.test(url)) {
+        url = url.replace(/[?&](wid|hei|fmt|qlt|op_sharpen)=\d*[^&]*/gi, "");
+      }
+
+      // Ace Hardware (Mozu): upgrade low quality images to higher quality
+      if (/cdn-tp3\.mozu\.com/i.test(url) && url.includes('quality=60')) {
+        // Upgrade quality from 60 to 90 and remove small size limits
+        url = url.replace(/quality=60/g, 'quality=90');
+        url = url.replace(/max=\d+/g, 'max=800');
+      }
+
+      // strip generic width/height query hints
+      url = url.replace(/[?&](w|h|width|height|size)=\d+[^&]*/gi, "");
+      // collapse trailing ? or & if empty
+      url = url.replace(/\?(&|$)/, "").replace(/&$/, "");
+      return url;
+    } catch { return u; }
+  }
 
   // Expandable logging system for detailed method traces
   const detailedLogs = {};
