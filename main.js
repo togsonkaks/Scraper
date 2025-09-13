@@ -372,7 +372,9 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   }
   
   const orchPath = path.join(__dirname, 'scrapers', 'orchestrator.js');
+  const customPath = path.join(__dirname, 'scrapers', 'custom.js');
   const orchSource = fs.readFileSync(orchPath, 'utf8');
+  const customSource = fs.readFileSync(customPath, 'utf8');
   const injected = `
     (async () => {
       try {
@@ -380,7 +382,13 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
         globalThis.__tg_injectedMemory = ${JSON.stringify(allMemory)};
         
         ${warmupScrollJS()}
+        
+        // CRITICAL: Load custom.js FIRST to expose getCustomHandlers
+        ${customSource}
+        
+        // Then load orchestrator.js which uses getCustomHandlers
         ${orchSource}
+        
         const out = await scrapeProduct(Object.assign({}, ${JSON.stringify({ mode:'control' })}, ${JSON.stringify(opts)}));
         return { result: out, selectorsUsed: (globalThis.__tg_lastSelectorsUsed||null) };
       } catch(e) { return { result: { __error: String(e) }, selectorsUsed: null }; }
@@ -518,6 +526,7 @@ async function runScrapeInEphemeral(url, opts){
       }
       
       const orchSource = fs.readFileSync(path.join(__dirname, 'scrapers', 'orchestrator.js'), 'utf8');
+      const customSource = fs.readFileSync(path.join(__dirname, 'scrapers', 'custom.js'), 'utf8');
       const injected = `
         (async () => {
           try {
@@ -525,7 +534,13 @@ async function runScrapeInEphemeral(url, opts){
             globalThis.__tg_injectedMemory = ${JSON.stringify(allMemory)};
             
             ${warmupScrollJS()}
+            
+            // CRITICAL: Load custom.js FIRST to expose getCustomHandlers
+            ${customSource}
+            
+            // Then load orchestrator.js which uses getCustomHandlers
             ${orchSource}
+            
             const out = await scrapeProduct(Object.assign({}, ( ${JSON.stringify(opts)} || {} ), { mode:'compare' }));
             return { result: out, selectorsUsed: (globalThis.__tg_lastSelectorsUsed||null) };
           } catch(e) { return { result: { __error: String(e) }, selectorsUsed: null }; }

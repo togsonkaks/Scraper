@@ -1,0 +1,29 @@
+[8:51:27 PM] 🎯 TRYING SELECTOR [images]: [class*=gallery] img
+[8:51:27 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[8:51:27 PM] 📊 Found 8 elements for selector: [class*=gallery] img
+[8:51:27 PM] Image element <IMG.gallerySummary_itemImage>
+[8:51:27 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[8:51:27 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/0a4fad9af2f662d63765d0fb730b93a7.jpg?tr=w-160%2Ch-160&ts=12-09
+[8:51:27 PM] Image element <IMG.gallerySummary_itemImage>
+[8:51:27 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[8:51:27 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/0d6f107479980e7bc0e474dd99f337cf.jpg?tr=w-160%2Ch-160&ts=12-09
+[8:51:27 PM] Image element <IMG.gallerySummary_itemImage>
+[8:51:27 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/9b8f32f1812871248fb3015fda1a3634.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[8:51:27 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/9b8f32f1812871248fb3015fda1a3634.jpg?tr=w-160%2Ch-160&ts=12-09
+[8:51:27 PM] Image element <IMG.gallerySummary_itemImage>
+[8:51:27 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/02c9af18ddb5095324333e4a792b9797.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[8:51:27 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/02c9af18ddb5095324333e4a792b9797.jpg?tr=w-160%2Ch-160&ts=12-09
+[8:51:27 PM] Image element <IMG.gallerySummary_itemImage>
+[8:51:27 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/d44ed30c653afa06ea8e6732d6d4123a.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[8:51:27 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/d44ed30c653afa06ea8e6732d6d4123a.jpg?tr=w-160%2Ch-160&ts=12-09
+[8:51:27 PM] Image element <IMG.gallerySummary_itemImage>
+[8:51:27 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/1ea5a55fecf462c476f9570268571c67.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[8:51:27 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/1ea5a55fecf462c476f9570268571c67.jpg?tr=w-160%2Ch-160&ts=12-09
+[8:51:27 PM] Image element <IMG.gallerySummary_itemImage>
+[8:51:27 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/d33348ff201fc54f796ae1bc88ceefba.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[8:51:27 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/d33348ff201fc54f796ae1bc88ceefba.jpg?tr=w-160%2Ch-160&ts=12-09
+[8:51:27 PM] Image element <IMG.gallerySummary_itemImage>
+[8:51:27 PM] 📋 Image attributes: {"src":"https://cdn.stamped.io/uploads/videos/2b91d748f523c0a4d03ba7abd8b171da.jpg?tr=w-160%2Ch-160&ts=12-09-2025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[8:51:27 PM] ✅ Found image URL from attributes: https://cdn.stamped.io/uploads/videos/2b91d748f523c0a4d03ba7abd8b171da.jpg?tr=w-160%2Ch-160&ts=12-09
+[8:51:27 PM] 🖼️ Raw enriched URLs collected: 8
+[8:51:27 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
