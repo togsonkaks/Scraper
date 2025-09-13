@@ -1101,22 +1101,17 @@
           if (typeof getCustomHandlers === 'function') {
             try {
               const ch = getCustomHandlers();
-              debug('🧩 Custom handlers object:', ch ? 'EXISTS' : 'NULL');
               if (ch?.images && typeof ch.images === 'function') {
                 debug('🧩 IMAGES: Trying custom handler...');
-                debug('🧩 Custom images function type:', typeof ch.images);
                 const customResult = await Promise.resolve(ch.images(document));
-                debug('🧩 Custom handler result:', customResult ? `Array(${customResult.length})` : 'NULL/UNDEFINED');
                 if (customResult && Array.isArray(customResult)) {
                   customImages = customResult.filter(Boolean);
                   mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
                   debug('🧩 CUSTOM IMAGES:', { count: customImages.length, images: customImages.slice(0, 3) });
                 }
-              } else {
-                debug('🧩 No custom images function found or not a function');
               }
             } catch (e) { 
-              debug('❌ Custom image handler error:', e.message, e.stack); 
+              debug('❌ Custom image handler error:', e.message); 
             }
           }
           

@@ -685,8 +685,6 @@ const ILIA = {
 const LARQ = {
   match: (h) => /(^|\.)((live)?larq\.com)$/i.test(h),
   images(doc = document) {
-    console.log("[DEBUG] LARQ BULLETPROOF handler running...");
-    console.log("[DEBUG] LARQ: document =", doc ? 'EXISTS' : 'NULL');
     const validImages = [];
     let totalCandidates = 0;
     
@@ -700,7 +698,6 @@ const LARQ = {
     ];
     
     realSelectors.forEach(selector => {
-      console.log(`[DEBUG] LARQ checking selector: ${selector}`);
       doc.querySelectorAll(selector).forEach(img => {
         totalCandidates++;
         const u = img.currentSrc || img.src || img.getAttribute('data-src');
@@ -708,14 +705,12 @@ const LARQ = {
         if (u && /\.(jpe?g|png|webp|avif)([?#]|$)/i.test(u) && 
             !u.includes('stamped.io') && !u.startsWith('data:')) {
           validImages.push(u);
-          console.log("[DEBUG] LARQ gallery image FOUND:", u);
-        } else if (u) {
-          console.log("[DEBUG] LARQ gallery image REJECTED:", u.substring(0, 100));
+          // Image found and added
         }
       });
     });
     
-    console.log(`[DEBUG] LARQ FINAL: ${totalCandidates} gallery candidates → ${validImages.length} valid product images`);
+    // Return collected product gallery images
     
     // CRITICAL: Always return array to prevent generic fallback
     return validImages.slice(0, 15);
@@ -1039,9 +1034,7 @@ const REGISTRY = [
 
 function getCustomHandlers() {
   const h = __host();
-  console.log("[DEBUG] Custom handlers: hostname detected =", h);
   const site = REGISTRY.find((r) => r.match && r.match(h));
-  console.log("[DEBUG] Custom handlers: selected site =", site ? (site.constructor?.name || 'UNNAMED') : 'NONE');
 
   const noop = () => null;
   const asyncNoop = async () => null;
@@ -1050,7 +1043,6 @@ function getCustomHandlers() {
     return { title: noop, brand: noop, price: noop, specs: noop, tags: noop, images: asyncNoop };
   }
 
-  console.log("[DEBUG] Custom handlers: returning site with images =", typeof site.images);
   return {
     title: site.title || noop,
     brand: site.brand || noop,

@@ -381,23 +381,6 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
         // Inject memory data
         globalThis.__tg_injectedMemory = ${JSON.stringify(allMemory)};
         
-        // CONSOLE HOOK: Redirect console.log to scraping debug buffer
-        (function(){
-          try {
-            window.__tg_debugLog = window.__tg_debugLog || [];
-            const orig = console.log;
-            console.log = (...args) => {
-              try { 
-                window.__tg_debugLog.push({ 
-                  timestamp: new Date().toLocaleTimeString(), 
-                  level: 'log', 
-                  message: args.map(a => (typeof a==='string'?a:JSON.stringify(a))).join(' ') 
-                }); 
-              } catch {}
-              orig(...args);
-            };
-          } catch {}
-        })();
         
         ${warmupScrollJS()}
         
