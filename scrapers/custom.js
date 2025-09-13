@@ -145,7 +145,14 @@ const AMZ = {
     const mainImage = doc.querySelector('#ivLargeImage, #landingImage, .a-dynamic-image, [data-csa-c-component="imageblock"] img');
     if (mainImage && (mainImage.currentSrc || mainImage.src)) {
       let url = mainImage.currentSrc || mainImage.src;
-      url = url.replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_').replace(/\._[A-Z]{2}\d+_/g, '._SL1500_');
+      // Enhanced URL upgrade patterns based on actual Amazon URL structures
+      url = url
+        .replace(/_AC_US\d+_AA\d+_/g, '_AC_SL1500_')      // _AC_US40_AA50_ format
+        .replace(/_AC_SX\d+_SY\d+_/g, '_AC_SL1500_')      // _AC_SX38_SY50_ format  
+        .replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_')    // Original patterns
+        .replace(/_AC_US\d+_/g, '_AC_SL1500_')            // _AC_US40_ format
+        .replace(/\._[A-Z]{2}\d+_/g, '._SL1500_')         // Other size patterns
+        .replace(/_CR,\d+,\d+,\d+,\d+_/g, '')             // Remove crop parameters
       urls.add(url);
       console.log("[DEBUG] Amazon main image:", url);
     }
@@ -169,7 +176,14 @@ const AMZ = {
           !/aplus-media/.test(originalSrc) &&                // Skip A+ content
           originalSrc.includes('media-amazon.com/images/I/')) { // Real product images
         
-        let hdUrl = originalSrc.replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_').replace(/\._[A-Z]{2}\d+_/g, '._SL1500_');
+        // Enhanced URL upgrade patterns for thumbnails
+        let hdUrl = originalSrc
+          .replace(/_AC_US\d+_AA\d+_/g, '_AC_SL1500_')      // _AC_US40_AA50_ format
+          .replace(/_AC_SX\d+_SY\d+_/g, '_AC_SL1500_')      // _AC_SX38_SY50_ format  
+          .replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_')    // Original patterns
+          .replace(/_AC_US\d+_/g, '_AC_SL1500_')            // _AC_US40_ format
+          .replace(/\._[A-Z]{2}\d+_/g, '._SL1500_')         // Other size patterns
+          .replace(/_CR,\d+,\d+,\d+,\d+_/g, '')             // Remove crop parameters
         urls.add(hdUrl);
         console.log("[DEBUG] Amazon gallery:", hdUrl);
       } else if (originalSrc) {
