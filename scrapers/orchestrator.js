@@ -1029,6 +1029,124 @@
     return uniq.slice(0,30);
   }
 
+  // LLM FALLBACK: Use AI to discover image selectors when all else fails  
+  async function tryLLMImageFallback(document) {
+    debug('🤖 LLM FALLBACK: Starting AI-powered image selector discovery...');
+    
+    try {
+      // Get HTML for LLM analysis (trim to reasonable size)
+      const html = document.documentElement.outerHTML.slice(0, 120000);
+      const url = document.location.href;
+      
+      debug('🤖 LLM FALLBACK: Sending request to LLM agent', { 
+        htmlLength: html.length, 
+        url: url.slice(0, 50) 
+      });
+      
+      // Call LLM via IPC (we're in browser context, LLM agent is in main process)
+      const llmResponse = await new Promise((resolve, reject) => {
+        if (typeof window !== 'undefined' && window.ipc) {
+          const timeoutId = setTimeout(() => reject(new Error('LLM timeout')), 30000);
+          
+          window.ipc.invoke('llm-propose', {
+            html: html,
+            label: 'images',
+            url: url
+          }).then(result => {
+            clearTimeout(timeoutId);
+            resolve(result);
+          }).catch(err => {
+            clearTimeout(timeoutId);
+            reject(err);
+          });
+        } else {
+          reject(new Error('IPC not available'));
+        }
+      });
+      
+      debug('🤖 LLM FALLBACK: Response received', { 
+        ok: llmResponse.ok, 
+        responseType: typeof llmResponse,
+        keys: Object.keys(llmResponse)
+      });
+      
+      if (!llmResponse.ok) {
+        debug('🤖 LLM FALLBACK: Response not ok:', llmResponse.error || 'Unknown error');
+        return [];
+      }
+      
+      // Extract selectors from different response formats
+      let selectors = [];
+      if (llmResponse.selectors && Array.isArray(llmResponse.selectors)) {
+        // Backwards compatibility format: { ok: true, selectors: [...] }
+        selectors = llmResponse.selectors.filter(s => typeof s === 'string');
+      } else if (llmResponse.results && Array.isArray(llmResponse.results)) {
+        // New format: { ok: true, results: [...] } - may be objects or strings
+        selectors = llmResponse.results
+          .filter(r => r && (typeof r === 'string' || r.selector))
+          .map(r => typeof r === 'string' ? r : r.selector)
+          .filter(s => typeof s === 'string');
+      } else if (llmResponse.results && llmResponse.results.candidates) {
+        // New format with candidates: { ok: true, results: { candidates: [...] } }
+        selectors = llmResponse.results.candidates.filter(s => typeof s === 'string');
+      } else if (llmResponse.candidates && Array.isArray(llmResponse.candidates)) {
+        // Direct candidates format: { ok: true, candidates: [...] }
+        selectors = llmResponse.candidates.filter(s => typeof s === 'string');
+      }
+      
+      debug('🤖 LLM FALLBACK: Extracted selectors', { count: selectors.length, selectors });
+      
+      if (!selectors.length) {
+        debug('🤖 LLM FALLBACK: No valid selectors found in response');
+        return [];
+      }
+      
+      const foundImages = [];
+      const maxImages = 30;
+      
+      // Test each suggested selector
+      for (const selector of selectors) {
+        debug('🤖 LLM FALLBACK: Testing selector:', selector);
+        
+        try {
+          const urls = await gatherImagesBySelector(selector);
+          if (urls.length > 0) {
+            debug('🤖 LLM SUCCESS: Found', urls.length, 'images with selector:', selector);
+            foundImages.push(...urls);
+            
+            // Mark the successful selector for memory 
+            mark('images', { 
+              selectors: [selector], 
+              attr: 'AI-discovered', 
+              method: 'llm-fallback',
+              urls: urls.slice(0, 10)
+            });
+            
+            // Stop if we have enough images
+            if (foundImages.length >= maxImages) break;
+          }
+        } catch (e) {
+          debug('🤖 LLM FALLBACK: Selector test failed:', selector, e.message);
+        }
+      }
+      
+      // Remove duplicates and limit
+      const uniqueImages = [...new Set(foundImages)].slice(0, maxImages);
+      
+      debug('🤖 LLM FALLBACK: Final results', { 
+        totalFound: foundImages.length,
+        uniqueCount: uniqueImages.length,
+        selectors: selectors
+      });
+      
+      return uniqueImages;
+      
+    } catch (e) {
+      debug('🤖 LLM FALLBACK: Critical error:', e.message);
+      return [];
+    }
+  }
+
   /* ---------- ENTRY ---------- */
   async function scrapeProduct(opts) {
     try {
@@ -1134,6 +1252,23 @@
             images = combinedImages.slice(0, 30);
           }
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
+          
+          // LLM FALLBACK: If no images found, try AI-powered selector discovery
+          if (images.length === 0 && mode !== 'memoryOnly') {
+            debug('🤖 IMAGES: Zero images found, activating LLM fallback...');
+            try {
+              const llmImages = await tryLLMImageFallback(document);
+              if (llmImages.length > 0) {
+                images = llmImages.slice(0, 30);
+                debug('🤖 LLM RESCUE SUCCESS:', { count: images.length, images: images.slice(0, 3) });
+                mark('images', { selectors: ['llm-fallback'], attr: 'AI-discovered', method: 'llm-fallback' });
+              } else {
+                debug('🤖 LLM FALLBACK: No additional images found');
+              }
+            } catch (e) {
+              debug('❌ LLM FALLBACK ERROR:', e.message);
+            }
+          }
         }
       }
 
