@@ -690,14 +690,16 @@ const LARQ = {
     const validImages = [];
     let totalCandidates = 0;
     
-    // TARGET THE EXACT CAROUSEL STRUCTURE USER SHOWED ME
-    const carouselSelectors = [
-      '.swiper-slide img',           // Main carousel images
-      '.swiper .swiper-slide img',   // Nested swiper
-      '[class*="swiper-slide"] img'  // Class variations
+    // TARGET THE REAL LARQ PRODUCT GALLERY STRUCTURE (from DOM screenshot)
+    const realSelectors = [
+      '.productGallery img',         // Main product gallery
+      '.productGallery_item img',    // Gallery items
+      '.itemImage_inner img',        // Image containers
+      '[class*="li1_"] img',         // List item images
+      '[class*="li2_"] img'          // Additional list images
     ];
     
-    carouselSelectors.forEach(selector => {
+    realSelectors.forEach(selector => {
       console.log(`[DEBUG] LARQ checking selector: ${selector}`);
       doc.querySelectorAll(selector).forEach(img => {
         totalCandidates++;
@@ -706,14 +708,14 @@ const LARQ = {
         if (u && /\.(jpe?g|png|webp|avif)([?#]|$)/i.test(u) && 
             !u.includes('stamped.io') && !u.startsWith('data:')) {
           validImages.push(u);
-          console.log("[DEBUG] LARQ carousel image FOUND:", u);
+          console.log("[DEBUG] LARQ gallery image FOUND:", u);
         } else if (u) {
-          console.log("[DEBUG] LARQ carousel image REJECTED:", u.substring(0, 100));
+          console.log("[DEBUG] LARQ gallery image REJECTED:", u.substring(0, 100));
         }
       });
     });
     
-    console.log(`[DEBUG] LARQ FINAL: ${totalCandidates} carousel candidates → ${validImages.length} valid product images`);
+    console.log(`[DEBUG] LARQ FINAL: ${totalCandidates} gallery candidates → ${validImages.length} valid product images`);
     
     // CRITICAL: Always return array to prevent generic fallback
     return validImages.slice(0, 15);

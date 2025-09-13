@@ -1,0 +1,308 @@
+[55] IMG 393x440 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1643308563/assets/sp... tracker.js:13:254
+    class: media_image tracker.js:13:254
+    parent: DIV.media_inner tracker.js:13:254
+<empty string> tracker.js:13:254
+[56] IMG 393x440 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1643308762/assets/sp... tracker.js:13:254
+    class: media_image tracker.js:13:254
+    parent: DIV.media_inner tracker.js:13:254
+<empty string> tracker.js:13:254
+[57] IMG unknownxunknown tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1642978247/assets/sp... tracker.js:13:254
+    class: media_image tracker.js:13:254
+    parent: DIV.media_inner tracker.js:13:254
+<empty string> tracker.js:13:254
+[58] IMG unknownxunknown tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1642978247/assets/sp... tracker.js:13:254
+    class: media_image tracker.js:13:254
+    parent: DIV.media_inner tracker.js:13:254
+<empty string> tracker.js:13:254
+[59] IMG 134x134 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/sp... tracker.js:13:254
+    class: certificatesSection_listItem_image tracker.js:13:254
+    parent: LI.certificatesSection_listItem tracker.js:13:254
+<empty string> tracker.js:13:254
+[60] IMG 134x134 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/sp... tracker.js:13:254
+    class: certificatesSection_listItem_image tracker.js:13:254
+    parent: LI.certificatesSection_listItem tracker.js:13:254
+<empty string> tracker.js:13:254
+[61] IMG 134x134 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/sp... tracker.js:13:254
+    class: certificatesSection_listItem_image tracker.js:13:254
+    parent: LI.certificatesSection_listItem tracker.js:13:254
+<empty string> tracker.js:13:254
+[62] IMG 134x134 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/sp... tracker.js:13:254
+    class: certificatesSection_listItem_image tracker.js:13:254
+    parent: LI.certificatesSection_listItem tracker.js:13:254
+<empty string> tracker.js:13:254
+[63] IMG 134x134 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/sp... tracker.js:13:254
+    class: certificatesSection_listItem_image tracker.js:13:254
+    parent: LI.certificatesSection_listItem tracker.js:13:254
+<empty string> tracker.js:13:254
+[64] IMG 393x440 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1642978248/assets/sp... tracker.js:13:254
+    class: media_image tracker.js:13:254
+    parent: DIV.media_inner tracker.js:13:254
+<empty string> tracker.js:13:254
+[65] IMG 393x440 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1642978248/assets/sp... tracker.js:13:254
+    class: media_image tracker.js:13:254
+    parent: DIV.media_inner tracker.js:13:254
+<empty string> tracker.js:13:254
+[66] IMG 288x288 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1671184346/assets/sp... tracker.js:13:254
+    class: mediaTextCard_media_asset css-0 e1nv8j4y1 tracker.js:13:254
+    parent: DIV.mediaTextCard_media tracker.js:13:254
+<empty string> tracker.js:13:254
+[68] IMG 703x469 tracker.js:13:254
+    src: https://res.cloudinary.com/larq/image/upload/q_auto/v1748933622/assets/spa/v3/lo... tracker.js:13:254
+    class: content_head_image css-0 e1nv8j4y1 tracker.js:13:254
+    parent: DIV.content_head tracker.js:13:254
+<empty string> tracker.js:13:254
+[71] IMG unknownxunknown tracker.js:13:254
+    src: https://bat.bing.com/action/0?ti=26016814&tm=gtm002&Ver=2&mid=7399a849-6d63-44e8... tracker.js:13:254
+    class: none tracker.js:13:254
+    parent: DIV.none tracker.js:13:254
+<empty string> tracker.js:13:254
+📦 PRODUCT CONTAINERS: tracker.js:13:254
+main: 1 found tracker.js:13:254
+[class*="product"]: 51 found tracker.js:13:254
+[class*="gallery"]: 24 found tracker.js:13:254
+.media: 6 found tracker.js:13:254
+[class*="media"]: 31 found tracker.js:13:254
+================================================== tracker.js:13:254
+🎯 COPY THIS OUTPUT AND PASTE TO AGENT! tracker.js:13:254
+Object { productImages: (50) […], containers: (5) […], summary: "Found 50 potential product images in 5 container types" }
+​
+containers: Array(5) [ {…}, {…}, {…}, … ]
+​
+productImages: Array(50) [ {…}, {…}, {…}, … ]
+​​
+0: Object { index: 0, tag: "IMG", src: "https://res.cloudinary.com/larq/images/f_auto,q_auto/v1757318437/sets-slideout/sets-slideout.jpg?_i=AA", … }
+​​
+1: Object { index: 1, tag: "IMG", src: "https://res.cloudinary.com/larq/image/fetch/q_auto,f_auto/https://res.cloudinary.com/larq/images/f_auto,q_auto/v1638225402/p1-mb-17-2-white-q/p1-mb-17-2-white-q.jpg?_i=AA", … }
+​​
+2: Object { index: 2, tag: "IMG", src: "https://res.cloudinary.com/larq/image/fetch/q_auto,f_auto/https://res.cloudinary.com/larq/images/f_auto,q_auto/v1607536834/p1-mb-17-1/p1-mb-17-1.jpg?_i=AA", … }
+​​
+3: Object { index: 3, tag: "IMG", src: "https://res.cloudinary.com/larq/image/fetch/q_auto,f_auto/https://res.cloudinary.com/larq/images/f_auto,q_auto/v1607536830/p1-mb-17-4/p1-mb-17-4.jpg?_i=AA", … }
+​​
+4: Object { index: 4, tag: "IMG", src: "https://res.cloudinary.com/larq/image/fetch/q_auto,f_auto/https://res.cloudinary.com/larq/images/f_auto,q_auto/v1607536829/p1-mb-17-6/p1-mb-17-6.jpg?_i=AA", … }
+​​
+5: Object { index: 5, tag: "IMG", src: "https://res.cloudinary.com/larq/image/fetch/q_auto,f_auto/https://res.cloudinary.com/larq/images/f_auto,q_auto/v1620409727/BDMB050A-4/BDMB050A-4.jpg?_i=AA", … }
+​​
+6: Object { index: 6, tag: "IMG", src: "https://res.cloudinary.com/larq/image/fetch/q_auto,f_auto/https://res.cloudinary.com/larq/images/f_auto,q_auto/v1607536828/p1-mb-17-7/p1-mb-17-7.jpg?_i=AA", … }
+​​
+7: Object { index: 7, tag: "IMG", src: "https://res.cloudinary.com/larq/image/fetch/q_auto,f_auto/https://res.cloudinary.com/larq/images/f_auto,q_auto/v1607536828/p1-mb-17-8/p1-mb-17-8.jpg?_i=AA", … }
+​​
+8: Object { index: 11, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/w_900/v1738137667/SKU/SPA/v3/BFCOB050A.png", … }
+​​
+9: Object { index: 12, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/w_900/v1738137667/SKU/SPA/v3/SLOB050A.png", … }
+​​
+10: Object { index: 13, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/w_900/v1738137667/SKU/SPA/v3/SHG050A.png", … }
+​​
+11: Object { index: 14, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/w_900/v1738137667/SKU/SPA/v3/NVSL01-BLK-01.png", … }
+​​
+12: Object { index: 15, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,h_1400/v1651000144/assets/spa/v2/content/explore/larq-bottle-purevis/insulated_mb_desktop.png", … }
+​​
+13: Object { index: 16, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1648683678/assets/spa/v2/content/explore/larq-bottle-purevis/non-insulated_small.png", … }
+​​
+14: Object { index: 18, tag: "SOURCE", src: "https://res.cloudinary.com/larq/video/upload/v1651574332/assets/spa/v2/content/product/text-media/larq-bottle-insulated_promo-card_anim_v.mp4", … }
+​​
+15: Object { index: 19, tag: "SOURCE", src: "https://res.cloudinary.com/larq/video/upload/v1651574332/assets/spa/v2/content/product/text-media/larq-bottle-insulated_promo-card_anim_v.mp4", … }
+​​
+16: Object { index: 20, tag: "SOURCE", src: "https://res.cloudinary.com/larq/video/upload/v1651574332/assets/spa/v2/content/product/text-media/larq-bottle-insulated_promo-card_anim_v.mp4", … }
+​​
+17: Object { index: 21, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_600/v1651005821/assets/spa/v2/content/product/text-media/larq-bottle-insulated_promo-card_v2.png", … }
+​​
+18: Object { index: 22, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1571138657/assets/spa/presentation/LARQ_Product-page_450x370_2x.jpg", … }
+​​
+19: Object { index: 38, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1572378591/assets/spa/faq/in-box/LARQ_Website_FAQs_MDW.jpg", … }
+​​
+20: Object { index: 39, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1572378591/assets/spa/faq/in-box/LARQ_Website_FAQs_USB.jpg", … }
+​​
+21: Object { index: 40, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1572378591/assets/spa/faq/in-box/LARQ_Website_FAQs_QSG.jpg", … }
+​​
+22: Object { index: 41, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_auto/v1605802618/assets/spa/v2/content/technology/technology_1.png", … }
+​​
+23: Object { index: 42, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_auto/v1605802618/assets/spa/v2/content/technology/tecnology_2.png", … }
+​​
+24: Object { index: 43, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_auto/v1605802618/assets/spa/v2/content/technology/technology_3.png", … }
+​​
+25: Object { index: 44, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_auto/v1565443234/assets/spa/steps/LARQ_Fill-The-Bottle_2x.jpg", … }
+​​
+26: Object { index: 45, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_auto/v1565443234/assets/spa/steps/LARQ_Press-The-Button-Cup_2x.jpg", … }
+​​
+27: Object { index: 46, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_auto/v1565443234/assets/spa/steps/LARQ_Drink-Clean_2x.jpg", … }
+​​
+28: Object { index: 47, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/e_bgremoval,q_auto,f_auto/v1605802806/assets/spa/v2/content/product/tech-specs/DW.png", … }
+​​
+29: Object { index: 48, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_600,h_600,c_fill/v1605804428/assets/spa/v2/content/product/lifestyle/DW/1.jpg", … }
+​​
+30: Object { index: 49, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_600,h_600,c_fill/v1605804428/assets/spa/v2/content/product/lifestyle/DW/3.jpg", … }
+​​
+31: Object { index: 50, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_600,h_600,c_fill/v1605804428/assets/spa/v2/content/product/lifestyle/DW/4.jpg", … }
+​​
+32: Object { index: 51, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_600,h_600,c_fill/v1605804428/assets/spa/v2/content/product/lifestyle/DW/13.jpg", … }
+​​
+33: Object { index: 52, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_600,h_600,c_fill/v1605804428/assets/spa/v2/content/product/lifestyle/DW/7.jpg", … }
+​​
+34: Object { index: 53, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_600,h_600,c_fill/v1605804428/assets/spa/v2/content/product/lifestyle/DW/17.jpg", … }
+​​
+35: Object { index: 54, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto,w_600,h_600,c_fill/v1605804428/assets/spa/v2/content/product/lifestyle/DW/14.jpg", … }
+​​
+36: Object { index: 55, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1643308563/assets/spa/v2/content/slide_out/double_wall_vacuum_insulation.png", … }
+​​
+37: Object { index: 56, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1643308762/assets/spa/v2/content/slide_out/ultra_light_stainless_steel.png", … }
+​​
+38: Object { index: 57, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1642978247/assets/spa/v2/content/slide_out/larq_bottle_purevis.png", … }
+​​
+39: Object { index: 58, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1642978247/assets/spa/v2/content/slide_out/larq_bottle_movement_purevis.png", … }
+​​
+40: Object { index: 59, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/spa/v2/content/certificate/certificat_fc.png", … }
+​​
+41: Object { index: 60, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/spa/v2/content/certificate/certificat_ce.png", … }
+​​
+42: Object { index: 61, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/spa/v2/content/certificate/certificat_harrens.png", … }
+​​
+43: Object { index: 62, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/spa/v2/content/certificate/certificat_fda.png", … }
+​​
+44: Object { index: 63, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1618518608/assets/spa/v2/content/certificate/certificat_rohs.png", … }
+​​
+45: Object { index: 64, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1642978248/assets/spa/v2/content/slide_out/purevis_technology.png", … }
+​​
+46: Object { index: 65, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1642978248/assets/spa/v2/content/slide_out/nano_zero_filter_technology.png", … }
+​​
+47: Object { index: 66, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto,f_auto/v1671184346/assets/spa/v2/content/promo/corporate-gifting/products/bottle-filtered_spotify.png", … }
+​​
+48: Object { index: 68, tag: "IMG", src: "https://res.cloudinary.com/larq/image/upload/q_auto/v1748933622/assets/spa/v3/loyalty/slide_out/head_1.jpg", … }
+​​
+49: Object { index: 71, tag: "IMG", src: "https://bat.bing.com/action/0?ti=26016814&tm=gtm002&Ver=2&mid=7399a849-6d63-44e8-9e91-7c7ee05f17d8&bo=4&sid=1c6f5bd0900411f0b44873ff16c0584f&vid=f73697e0554b11f08b2e3d334e851411&vids=0&msclkid=N&pi=918639831&lg=en-US&sw=3440&sh=1440&sc=24&tl=Buy%20The%20LARQ%20Bottle%20PureVis%E2%84%A2%20%7C%20LARQ&p=https%3A%2F%2Fwww.livelarq.com%2Fpurification%2Flarq-bottle-purevis-insulated-monaco-blue%3Fsize%3D17oz&r=&lt=2907&evt=pageLoad&sv=2&asc=G&cdb=AQAS&rn=29249", … }
+​​
+length: 50
+​​
+<prototype>: Array []
+​​​
+at: function at()
+​​​
+concat: function concat()
+​​​
+constructor: function Array()
+​​​
+copyWithin: function copyWithin()
+​​​
+entries: function entries()
+​​​
+every: function every()
+​​​
+fill: function fill()
+​​​
+filter: function filter()
+​​​
+find: function find()
+​​​
+findIndex: function findIndex()
+​​​
+findLast: function findLast()
+​​​
+findLastIndex: function findLastIndex()
+​​​
+flat: function flat()
+​​​
+flatMap: function flatMap()
+​​​
+forEach: function forEach()
+​​​
+includes: function includes()
+​​​
+indexOf: function indexOf()
+​​​
+join: function join()
+​​​
+keys: function keys()
+​​​
+lastIndexOf: function lastIndexOf()
+​​​
+length: 0
+​​​
+map: function map()
+​​​
+pop: function pop()
+​​​
+push: function push()
+​​​
+reduce: function reduce()
+​​​
+reduceRight: function reduceRight()
+​​​
+reverse: function reverse()
+​​​
+shift: function shift()
+​​​
+slice: function slice()
+​​​
+some: function some()
+​​​
+sort: function sort()
+​​​
+splice: function splice()
+​​​
+toLocaleString: function toLocaleString()
+​​​
+toReversed: function toReversed()
+​​​
+toSorted: function toSorted()
+​​​
+toSpliced: function toSpliced()
+​​​
+toString: function toString()
+​​​
+unshift: function unshift()
+​​​
+values: function values()
+​​​
+with: function with()
+​​​
+Symbol(Symbol.iterator): function values()
+​​​
+Symbol(Symbol.unscopables): Object { at: true, copyWithin: true, entries: true, … }
+​​​
+<prototype>: Object { … }
+​
+summary: "Found 50 potential product images in 5 container types"
+​
+<prototype>: Object { … }
+​​
+__defineGetter__: function __defineGetter__()
+​​
+__defineSetter__: function __defineSetter__()
+​​
+__lookupGetter__: function __lookupGetter__()
+​​
+__lookupSetter__: function __lookupSetter__()
+​​
+__proto__: 
+​​
+constructor: function Object()
+​​
+hasOwnProperty: function hasOwnProperty()
+​​
+isPrototypeOf: function isPrototypeOf()
+​​
+propertyIsEnumerable: function propertyIsEnumerable()
+​​
+toLocaleString: function toLocaleString()
+​​
+toString: function toString()
+​​
+valueOf: function valueOf()
+​​
+<get __proto__()>: function __proto__()
+​​
+<set __proto__()>: function __proto__()
+
+​
+
