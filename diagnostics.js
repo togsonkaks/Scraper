@@ -367,14 +367,19 @@ if (document.readyState === 'loading') {
     wrap = document.createElement('div');
     wrap.id = 'compareWrap';
     wrap.style.cssText = 'margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:10px;';
-    const mkPane = (id, title) => {
+    const mkPane = (id, title, debugId) => {
       const box = document.createElement('div');
       box.className = 'box';
-      box.innerHTML = `<div class="label">${title}</div><div id="${id}" style="font-size:12px"></div>`;
+      box.innerHTML = `
+        <div class="label">${title}</div>
+        <div id="${id}" style="font-size:12px"></div>
+        <div class="label" style="margin-top:10px; font-size:11px;">Debug Output:</div>
+        <div id="${debugId}" style="font-size:10px; max-height:200px; overflow-y:auto; background:#f9f9f9; padding:6px; border-radius:4px; font-family:monospace;"></div>
+      `;
       return box;
     };
-    wrap.appendChild(mkPane('orchPane','🔧 Orchestrator')); // left
-    wrap.appendChild(mkPane('origPane','📝 Original Logic')); // right
+    wrap.appendChild(mkPane('orchPane','🔧 Orchestrator', 'orchDebug')); // left
+    wrap.appendChild(mkPane('origPane','📝 Original Logic', 'origDebug')); // right
     const panel = document.getElementById('panel') || document.body;
     panel.parentNode.insertBefore(wrap, (panel.nextSibling));
     return wrap;
@@ -406,21 +411,24 @@ if (document.readyState === 'loading') {
       const wrap = ensureCompareUI();
       const orchEl = document.getElementById('orchPane');
       const origEl = document.getElementById('origPane');
+      const orchDebug = document.getElementById('orchDebug');
+      const origDebug = document.getElementById('origDebug');
+      
       orchEl.textContent = 'Running Orchestrator…';
       origEl.textContent = 'Running Original Logic…';
+      orchDebug.textContent = 'Waiting for debug output...';
+      origDebug.textContent = 'Waiting for debug output...';
       
-      // Show debug panel and clear previous debug logs
-      const showDebugPanel = window.showDebugPanel;
-      const clearDebugOutput = window.clearDebugOutput;
-      const addDebugOutput = window.addDebugOutput;
-      
-      if (showDebugPanel) showDebugPanel();
-      if (clearDebugOutput) clearDebugOutput(); // Clear stale debug info
-      
-      if (addDebugOutput) {
-        addDebugOutput('🔍 Starting side-by-side comparison...', 'info');
-        addDebugOutput('🚀 Running both Orchestrator and Original Logic simultaneously', 'info');
-      }
+      // Helper to add debug to specific container
+      const addDebugToContainer = (container, message, level = 'info') => {
+        const colors = { info: '#333', warning: '#f57c00', error: '#d32f2f', success: '#388e3c', debug: '#7b1fa2' };
+        const div = document.createElement('div');
+        div.style.color = colors[level] || '#333';
+        div.style.marginBottom = '2px';
+        div.textContent = message;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+      };
       
       const [orch, orig] = await Promise.allSettled([
         window.api.scrapeCurrent({ mode: 'normal' }),
@@ -433,32 +441,30 @@ if (document.readyState === 'loading') {
       if (orig.status === 'fulfilled') renderResult(origEl, orig.value?.result || orig.value, null);
       else renderResult(origEl, null, orig.reason?.message || String(orig.reason));
       
-      // Extract and display detailed debug logs from both approaches (shape-agnostic)
-      if (addDebugOutput) {
-        const orchLog = orch.status === 'fulfilled' && (orch.value?.result?.__debugLog || orch.value?.__debugLog);
-        const origLog = orig.status === 'fulfilled' && (orig.value?.result?.__debugLog || orig.value?.__debugLog);
-        
-        // Display Orchestrator debug logs
-        if (Array.isArray(orchLog)) {
-          addDebugOutput('🔧 ORCHESTRATOR DEBUG LOG:', 'info');
-          orchLog.forEach(entry => {
-            const colors = { info: 'info', warn: 'warning', warning: 'warning', error: 'error', debug: 'debug' };
-            addDebugOutput(`[ORCHESTRATOR] ${entry.message}`, colors[entry.level] || 'info');
-          });
-          addDebugOutput('✅ Orchestrator trace complete', 'success');
-        }
-        
-        // Display Original Logic debug logs  
-        if (Array.isArray(origLog)) {
-          addDebugOutput('📝 ORIGINAL LOGIC DEBUG LOG:', 'info');
-          origLog.forEach(entry => {
-            const colors = { info: 'info', warn: 'warning', warning: 'warning', error: 'error', debug: 'debug' };
-            addDebugOutput(`[ORIGINAL LOGIC] ${entry.message}`, colors[entry.level] || 'info');
-          });
-          addDebugOutput('✅ Original Logic trace complete', 'success');
-        }
-        
-        addDebugOutput('✅ Side-by-side comparison complete', 'success');
+      // Extract and display debug logs in separate containers
+      const orchLog = orch.status === 'fulfilled' && (orch.value?.result?.__debugLog || orch.value?.__debugLog);
+      const origLog = orig.status === 'fulfilled' && (orig.value?.result?.__debugLog || orig.value?.__debugLog);
+      
+      // Clear and display Orchestrator debug logs in left container
+      orchDebug.innerHTML = '';
+      if (Array.isArray(orchLog) && orchLog.length > 0) {
+        orchLog.forEach(entry => {
+          addDebugToContainer(orchDebug, entry.message, entry.level);
+        });
+        addDebugToContainer(orchDebug, `✅ Complete (${orchLog.length} entries)`, 'success');
+      } else {
+        addDebugToContainer(orchDebug, 'No debug logs found', 'warning');
+      }
+      
+      // Clear and display Original Logic debug logs in right container  
+      origDebug.innerHTML = '';
+      if (Array.isArray(origLog) && origLog.length > 0) {
+        origLog.forEach(entry => {
+          addDebugToContainer(origDebug, entry.message, entry.level);
+        });
+        addDebugToContainer(origDebug, `✅ Complete (${origLog.length} entries)`, 'success');
+      } else {
+        addDebugToContainer(origDebug, 'No debug logs found', 'warning');
       }
       
       wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
