@@ -384,15 +384,70 @@ if (document.readyState === 'loading') {
     panel.parentNode.insertBefore(wrap, (panel.nextSibling));
     return wrap;
   }
-  function renderResult(el, result, err) {
+  function renderResult(el, result, err, config = {}) {
     if (err) { el.innerHTML = `<div style="color:#b22;">Error: ${err}</div>`; return; }
-    const imgs = Array.isArray(result?.images) ? result.images.slice(0,8) : [];
-    el.innerHTML = `
-      <div><b>Title:</b> ${result?.title||'null'}</div>
-      <div><b>Price:</b> ${result?.price||'null'}</div>
-      <div><b>Brand:</b> ${result?.brand||'null'}</div>
-      <div style="word-wrap:break-word; white-space:normal; max-width:100%;"><b>Description:</b> ${(result?.description||'').slice(0,200)}${result?.description?.length > 200 ? '...' : ''}</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;">${imgs.map(u=>`<img referrerpolicy="no-referrer" src="${u}" style="height:64px;border:1px solid #eee;border-radius:6px;cursor:pointer;" onclick="openImageOverlay('${u}')">`).join('')}</div>`;
+    if (!result) { el.innerHTML = `<div style="color:#666;">No result</div>`; return; }
+    
+    // Define field order and formatting per approach
+    const defaultOrder = ['title', 'price', 'brand', 'description', 'specs', 'tags', 'gender', 'sku', 'images'];
+    const orchOrder = ['title', 'brand', 'price', 'price_original', 'currency', 'availability', 'description', 'images', 'specs', 'tags', 'sku', 'mpn', 'upc', 'breadcrumbs', 'category', 'rating', 'review_count', 'variants'];
+    const hideKeys = ['url', '__debugLog', 'selectorsUsed', '__error'];
+    
+    const fieldOrder = config.isOrchestrator ? orchOrder : defaultOrder;
+    
+    // Get all available fields, ordered by preference
+    const resultKeys = Object.keys(result || {});
+    const visibleKeys = resultKeys.filter(k => !hideKeys.includes(k) && !k.startsWith('__'));
+    const orderedKeys = fieldOrder.filter(k => visibleKeys.includes(k))
+      .concat(visibleKeys.filter(k => !fieldOrder.includes(k)));
+    
+    
+    // Render all fields dynamically with safe DOM methods
+    el.innerHTML = ''; // Clear first
+    
+    orderedKeys.forEach(key => {
+      const label = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+      const value = result[key];
+      
+      const row = document.createElement('div');
+      row.style.marginBottom = '4px';
+      
+      const labelEl = document.createElement('b');
+      labelEl.textContent = label + ': ';
+      row.appendChild(labelEl);
+      
+      if (key === 'images' && Array.isArray(value)) {
+        const imgContainer = document.createElement('div');
+        imgContainer.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;';
+        value.slice(0,8).forEach(url => {
+          const img = document.createElement('img');
+          img.src = url;
+          img.style.cssText = 'height:64px;border:1px solid #eee;border-radius:4px;cursor:pointer;';
+          img.referrerPolicy = 'no-referrer';
+          img.addEventListener('click', () => openImageOverlay(url));
+          imgContainer.appendChild(img);
+        });
+        row.appendChild(imgContainer);
+      } else {
+        const valueEl = document.createElement('span');
+        row.style.cssText += 'word-wrap:break-word; white-space:normal; max-width:100%;';
+        
+        if (!value && value !== 0) {
+          valueEl.textContent = 'null';
+        } else if (Array.isArray(value)) {
+          valueEl.textContent = value.length <= 5 ? value.join(', ') : `${value.slice(0,3).join(', ')}... (+${value.length-3} more)`;
+        } else if (typeof value === 'object') {
+          valueEl.textContent = JSON.stringify(value).slice(0,100) + (JSON.stringify(value).length > 100 ? '...' : '');
+        } else {
+          const str = String(value);
+          valueEl.textContent = key === 'description' && str.length > 200 ? str.slice(0,200) + '...' : str;
+        }
+        
+        row.appendChild(valueEl);
+      }
+      
+      el.appendChild(row);
+    });
   }
   function syncButtonState(compareBtn) {
     const saveBtn = document.getElementById('saveBtn');
@@ -434,11 +489,11 @@ if (document.readyState === 'loading') {
         window.api.scrapeOriginal({})
       ]);
       
-      // Render results in UI panels
-      if (orch.status === 'fulfilled') renderResult(orchEl, orch.value?.result || orch.value, null);
-      else renderResult(orchEl, null, orch.reason?.message || String(orch.reason));
-      if (orig.status === 'fulfilled') renderResult(origEl, orig.value?.result || orig.value, null);
-      else renderResult(origEl, null, orig.reason?.message || String(orig.reason));
+      // Render results in UI panels with approach-specific configs
+      if (orch.status === 'fulfilled') renderResult(orchEl, orch.value?.result || orch.value, null, { isOrchestrator: true });
+      else renderResult(orchEl, null, orch.reason?.message || String(orch.reason), { isOrchestrator: true });
+      if (orig.status === 'fulfilled') renderResult(origEl, orig.value?.result || orig.value, null, { isOrchestrator: false });
+      else renderResult(origEl, null, orig.reason?.message || String(orig.reason), { isOrchestrator: false });
       
       // Extract and display debug logs in separate containers
       const orchLog = orch.status === 'fulfilled' && (orch.value?.result?.__debugLog || orch.value?.__debugLog);
