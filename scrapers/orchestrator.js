@@ -796,14 +796,14 @@
                  attrs['data-zoom-image'] || attrs['data-large'];
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
-        enrichedUrls.push({ url: upgradeUrl(s1), element: el, index: i });
+        enrichedUrls.push({ url: s1, element: el, index: i });
       }
       
       const ss = attrs.srcset;
       const best = pickFromSrcset(ss); 
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
-        enrichedUrls.push({ url: upgradeUrl(best), element: el, index: i });
+        enrichedUrls.push({ url: best, element: el, index: i });
       }
       
       // Check picture parent
@@ -813,7 +813,7 @@
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
-            enrichedUrls.push({ url: upgradeUrl(b), element: el, index: i });
+            enrichedUrls.push({ url: b, element: el, index: i });
           }
         }
       }
@@ -1165,862 +1165,12 @@
     }
   }
 
-  // ========== ADVANCED FUNCTIONS FROM OTHER FILES ==========
-  
-  // Enhanced image extraction helpers
-  function extractImageUrls(imgElement) {
-    const urls = [];
-    
-    // Extract from src and currentSrc with quality upgrades
-    if (imgElement.currentSrc) urls.push(upgradeUrl(imgElement.currentSrc));
-    if (imgElement.src && imgElement.src !== imgElement.currentSrc) urls.push(upgradeUrl(imgElement.src));
-    
-    // Extract from lazy loading attributes  
-    const lazyAttrs = ['data-src', 'data-zoom-image', 'data-large-image', 'data-zoom-src', 'data-full-src'];
-    lazyAttrs.forEach(attr => {
-      const lazyUrl = imgElement.getAttribute(attr);
-      if (lazyUrl && !urls.includes(lazyUrl)) {
-        urls.push(upgradeUrl(lazyUrl));
-      }
-    });
-    
-    // Extract from srcset (get largest)
-    if (imgElement.srcset) {
-      const srcsetUrls = imgElement.srcset.split(',').map(s => s.trim().split(' ')[0]);
-      srcsetUrls.forEach(url => {
-        if (url && !urls.includes(url)) {
-          urls.push(upgradeUrl(url));
-        }
-      });
-    }
-    
-    return urls.filter(Boolean);
-  }
-
-  function extractModalImages() {
-    const modalUrls = [];
-    
-    // Look for modal containers
-    const modalSelectors = [
-      '.modal-overlay img', '.modal-content img', '.modal-dialog img',
-      '.carousel-inner img', '.swiper-container img', '.swiper-wrapper img',
-      '.lightbox img', '.gallery-modal img', '.zoom-container img'
-    ];
-    
-    modalSelectors.forEach(selector => {
-      try {
-        const modalImages = document.querySelectorAll(selector);
-        modalImages.forEach(img => {
-          const urls = extractImageUrls(img);
-          urls.forEach(url => {
-            if (url && !modalUrls.includes(url)) {
-              modalUrls.push(url);
-            }
-          });
-        });
-      } catch (e) {
-        console.log(`[DEBUG] Modal selector failed: ${selector}`, e.message);
-      }
-    });
-    
-    return modalUrls;
-  }
-
-  function scoreImageUrlQuality(url) {
-    let score = 0;
-    const urlLower = url.toLowerCase();
-    
-    // Higher score for quality indicators in URL
-    if (urlLower.includes('/large/') || urlLower.includes('/large_')) score += 20;
-    if (urlLower.includes('/zoom/') || urlLower.includes('/zoom_')) score += 18;
-    if (urlLower.includes('/high/') || urlLower.includes('/high_')) score += 16;
-    if (urlLower.includes('/detail/') || urlLower.includes('/detail_')) score += 14;
-    if (urlLower.includes('/full/') || urlLower.includes('/full_')) score += 12;
-    
-    // Lower score for thumbnail indicators
-    if (urlLower.includes('/thumb/') || urlLower.includes('/thumb_')) score -= 15;
-    if (urlLower.includes('/small/') || urlLower.includes('/small_')) score -= 12;
-    if (urlLower.includes('/mini/') || urlLower.includes('/mini_')) score -= 10;
-    if (urlLower.includes('_thumb') || urlLower.includes('-thumb')) score -= 8;
-    
-    // Dimension scoring from URL
-    const dimensionMatch = url.match(/(\d+)x(\d+)/);
-    if (dimensionMatch) {
-      const width = parseInt(dimensionMatch[1]);
-      const height = parseInt(dimensionMatch[2]);
-      const area = width * height;
-      if (area > 800 * 800) score += 10;
-      else if (area > 400 * 400) score += 5;
-      else if (area < 200 * 200) score -= 5;
-    }
-    
-    return score;
-  }
-
-  // FROM images.js - collectImagesFromPDP with sophisticated scoring
-  async function collectImagesFromPDP() {
-    if (window.__TAGGLO_IMAGES_CACHE__) return window.__TAGGLO_IMAGES_CACHE__;
-    window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
-    console.log("[DEBUG] collectImagesFromPDP starting...");
-    
-    const keepBiggestFromSrcset = (srcset) =>
-      (srcset || "")
-        .split(",")
-        .map((s) => s.trim())
-        .map((s) => {
-          const [u, d] = s.split(/\s+/);
-          const m = (d || "").match(/(\d+)w/);
-          return { u, w: m ? +m[1] : 0 };
-        })
-        .filter((x) => x.u)
-        .sort((a, b) => b.w - a.w)
-        .map((x) => x.u);
-
-
-    // Image relevance scoring function
-    function scoreImageRelevance(imgUrl, imgElement) {
-      let score = 0;
-      
-      // Higher score for larger images (main product images are usually larger)
-      const imgRect = imgElement.getBoundingClientRect();
-      if (imgRect.width > 400) score += 20;
-      else if (imgRect.width > 250) score += 10;
-      else if (imgRect.width > 150) score += 5;
-      
-      // Higher score for images in main product containers
-      const containerClasses = (imgElement.closest('[class*="product"], [class*="gallery"], [class*="main"], [class*="hero"]')?.className || '').toLowerCase();
-      if (containerClasses.includes('main') || containerClasses.includes('hero')) score += 15;
-      if (containerClasses.includes('product') && !containerClasses.includes('related')) score += 10;
-      if (containerClasses.includes('gallery')) score += 8;
-      
-      // Lower score for images in sidebars, related products, recommendations
-      const parentClasses = (imgElement.closest('[class*="sidebar"], [class*="related"], [class*="recommend"], [class*="similar"], [class*="you-may"], [class*="also-"]')?.className || '').toLowerCase();
-      if (parentClasses.includes('sidebar')) score -= 15;
-      if (parentClasses.includes('related') || parentClasses.includes('recommend')) score -= 10;
-      if (parentClasses.includes('similar') || parentClasses.includes('you-may')) score -= 8;
-      
-      // Higher score for images near the product title
-      const h1 = document.querySelector('h1');
-      if (h1) {
-        const h1Rect = h1.getBoundingClientRect();
-        const distance = Math.abs(imgRect.top - h1Rect.top) + Math.abs(imgRect.left - h1Rect.left);
-        if (distance < 500) score += 12;
-        else if (distance < 1000) score += 6;
-      }
-      
-      // Higher score for images in the main content area (not header/footer)
-      const inMain = imgElement.closest('main, [role="main"], .main-content, .content');
-      if (inMain) score += 8;
-      
-      // Lower score for very small images (likely icons/thumbnails)
-      if (imgRect.width < 100 || imgRect.height < 100) score -= 10;
-      
-      // Higher score for square or portrait aspect ratios (typical for product photos)
-      const aspectRatio = imgRect.width / imgRect.height;
-      if (aspectRatio >= 0.7 && aspectRatio <= 1.3) score += 5; // Square-ish
-      else if (aspectRatio >= 0.5 && aspectRatio <= 0.8) score += 3; // Portrait
-      
-      return Math.max(0, score);
-    }
-
-    const title = T(q("h1")?.textContent) || "";
-    const titleTokens = uniq(
-      title
-        .toLowerCase()
-        .replace(/[|–—\-_/,:(){}$+@™®©%^*<>]/g, " ")
-        .split(" ")
-        .filter(
-          (w) =>
-            w &&
-            !/^\d+$/.test(w) &&
-            !new Set([
-              "the","a","an","and","or","for","with","of","to","in","on","by",
-              "this","that","is","are","be","your","our","new","sale","now",
-              "women","woman","womens","men","mens","girls","boys","unisex",
-              "size","sizes","color","colours","colour",
-            ]).has(w)
-        )
-    );
-
-    // Enhanced product gallery detection
-    function findProductGalleries() {
-      const galleries = [];
-      const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
-      
-      // Site-specific selectors for problematic sites
-      const siteSpecificSelectors = {
-        'allbirds.com': [
-          '.swiper-slide img',           // Swiper carousel - very common
-          '.swiper-container img',       // Alternative swiper structure
-          '.product-image-wrapper',
-          '.ProductImages',
-          '.product-images-container',
-          '[data-testid="product-images"]',
-          '.pdp-images',
-          // Fallback to any reasonable image container in main content
-          'main img[src*="cdn.shop"], main img[src*="shopify"]'
-        ],
-        'amazon.com': [
-          '.ivThumb img',               // Amazon thumbnail gallery - the good stuff!
-          '#ivLargeImage',              // Main product image
-          '#imageBlockContainer',
-          '#imageBlock img',
-          '#altImages',
-          '.a-dynamic-image',
-          '#main-image-container',
-          '[data-action="main-image-click"]',
-          '[data-dp-carousel] img'
-        ],
-        'adidas.com': [
-          '.product-image-container',
-          '.pdp-image-carousel',
-          '.image-container',
-          '.product-media img[src*="assets.adidas.com"]'
-        ],
-        'acehardware.com': [
-          '.product-gallery img',
-          '.mz-productimages img', 
-          '.product-images img'
-        ]
-      };
-      
-      // Priority 1: Site-specific selectors
-      const siteSelectors = siteSpecificSelectors[hostname] || [];
-      for (const sel of siteSelectors) {
-        try {
-          const containers = document.querySelectorAll(sel);
-          containers.forEach(container => {
-            let imgs = [];
-            if (container.tagName === 'IMG') {
-              imgs = [container];
-            } else {
-              imgs = Array.from(container.querySelectorAll('img'));
-            }
-            if (imgs.length >= 1) {
-              console.log(`[DEBUG] Found site-specific product gallery: ${sel} (${imgs.length} images)`);
-              galleries.push({ container, selector: sel, priority: 0, images: imgs }); // Highest priority
-            }
-          });
-        } catch (e) {
-          console.log(`[DEBUG] Site-specific selector failed: ${sel}`, e.message);
-        }
-      }
-      
-      // Priority 2: Explicit product image containers
-      const highPrioritySelectors = [
-        '.swiper-slide img',              // Swiper carousels - very common across e-commerce
-        '.swiper-container img',          // Alternative swiper structure  
-        '.product-gallery',
-        '.product-images', 
-        '.product-media',
-        '.product-photos',
-        '[class*="productgallery"] img',  // For sites like LARQ
-        '[data-testid*="gallery"]',
-        '[data-testid*="images"]',
-        '[class*="ProductGallery"]',
-        '[class*="ProductImages"]',
-        '.pdp-gallery',
-        '.pdp-images'
-      ];
-      
-      for (const sel of highPrioritySelectors) {
-        const containers = document.querySelectorAll(sel);
-        containers.forEach(container => {
-          let imgs = [];
-          if (container.tagName === 'IMG') {
-            imgs = [container];  // Handle direct IMG selectors like '.swiper-slide img'
-          } else {
-            imgs = Array.from(container.querySelectorAll('img'));
-          }
-          if (imgs.length >= 1) {
-            console.log(`[DEBUG] Found high-priority product gallery: ${sel} (${imgs.length} images)`);
-            galleries.push({ container, selector: sel, priority: 1, images: imgs });
-          }
-        });
-      }
-      
-      // Priority 2: Image carousels/sliders in product context
-      const carouselSelectors = [
-        '.carousel .carousel-inner',
-        '.swiper-wrapper',
-        '.slick-track',
-        '.slider-container',
-        '[class*="carousel"]',
-        '[class*="slider"]'
-      ];
-      
-      for (const sel of carouselSelectors) {
-        const containers = document.querySelectorAll(sel);
-        containers.forEach(container => {
-          // Check if this carousel is in a product context
-          const productContext = container.closest('.product, .pdp, main, [class*="Product"]');
-          if (productContext) {
-            const imgs = container.querySelectorAll('img');
-            if (imgs.length >= 1) { // Reduced threshold
-              console.log(`[DEBUG] Found product carousel: ${sel} (${imgs.length} images)`);
-              galleries.push({ container, selector: sel, priority: 2, images: Array.from(imgs) });
-            }
-          }
-        });
-      }
-      
-      // Priority 3: Fallback to product root if no galleries found
-      if (galleries.length === 0) {
-        const h1 = q("h1");
-        let node = h1;
-        while (node && node !== document.body) {
-          const cls = (node.className || "") + " " + (node.id || "");
-          if (/(pdp|product|__product|detail|details|main|container)/i.test(cls)) {
-            const imgs = node.querySelectorAll('img');
-            if (imgs.length >= 1) {
-              console.log(`[DEBUG] Using product root fallback: ${node.className || node.tagName} (${imgs.length} images)`);
-              galleries.push({ container: node, selector: 'product-root', priority: 3, images: Array.from(imgs) });
-            }
-            break;
-          }
-          node = node.parentElement;
-        }
-        
-        // If still no galleries, try main content area
-        if (galleries.length === 0) {
-          const main = document.querySelector('main, [role="main"], .main-content, .content');
-          if (main) {
-            const imgs = main.querySelectorAll('img');
-            if (imgs.length >= 1) {
-              console.log(`[DEBUG] Using main content fallback (${imgs.length} images)`);
-              galleries.push({ container: main, selector: 'main-content', priority: 4, images: Array.from(imgs) });
-            }
-          }
-        }
-      }
-      
-      return galleries.sort((a, b) => a.priority - b.priority); // Highest priority first
-    }
-    
-    const productGalleries = findProductGalleries();
-    console.log(`[DEBUG] Found ${productGalleries.length} product galleries`);
-    
-    // Use the first/best gallery as root, or document.body as ultimate fallback
-    const root = productGalleries.length > 0 ? productGalleries[0].container : document.body;
-
-    // Enhanced URL extraction with lazy loading and quality detection
-    const foundUrls = [];
-    
-    // STEP 1: Extract from galleries with enhanced URL detection
-    for (const gallery of productGalleries) {
-      for (const img of gallery.images) {
-        const urls = extractImageUrls(img);
-        urls.forEach(url => {
-          if (url && !foundUrls.includes(url)) {
-            foundUrls.push(url);
-          }
-        });
-      }
-    }
-    
-    // STEP 2: Look for modal overlays with high-quality images
-    const modalUrls = extractModalImages();
-    modalUrls.forEach(url => {
-      if (url && !foundUrls.includes(url)) {
-        foundUrls.push(url);
-      }
-    });
-    
-    // STEP 3: Sort by URL quality (prefer large/zoom/high-res)
-    const scoredUrls = foundUrls.map(url => ({
-      url,
-      score: scoreImageUrlQuality(url)
-    })).sort((a, b) => b.score - a.score);
-    
-    const qualityUrls = scoredUrls.map(item => item.url);
-    
-    console.log("[DEBUG] collectImagesFromPDP found", qualityUrls.length, "images:", qualityUrls.slice(0, 3));
-    console.log("[DEBUG] Image quality scores:", scoredUrls.slice(0, 5).map(item => `${item.url.split('/').pop()} (${item.score})`));
-    const finalImages = qualityUrls.slice(0, 20); // Limit to 20 images
-    window.__TAGGLO_IMAGES_CACHE__ = finalImages; // Cache results for subsequent calls
-    return finalImages;
-  }
-
-  // FROM title.js - Advanced title and brand detection
-  function getTitleGeneric() {
-    // First, try to find the main product container
-    const productContainers = [
-      '.product-detail, .product-details, .product-main, .product-container',
-      '#product, #product-detail, #product-main',
-      '[data-product], [data-product-detail]',
-      '.pdp, .product-page, .item-detail',
-      'main .product, article .product',
-      '.product-info, .product-content'
-    ];
-    
-    let productContainer = null;
-    for (const selector of productContainers) {
-      productContainer = document.querySelector(selector);
-      if (productContainer) break;
-    }
-    
-    // If we found a product container, search within it first
-    if (productContainer) {
-      const scopedSelectors = [
-        'h1', 'h2',
-        '.product-title, .product__title, .product-name',
-        '[data-product-title], [itemprop="name"]'
-      ];
-      
-      for (const sel of scopedSelectors) {
-        const el = productContainer.querySelector(sel);
-        if (el) {
-          const text = T(el.innerText || el.textContent);
-          if (text && text.length > 5) {
-            return {
-              text: text,
-              selector: sel,
-              attr: 'text'
-            };
-          }
-        }
-      }
-    }
-    
-    // Fallback: try document-wide search but prioritize product-related selectors
-    const globalSelectors = [
-      '.product-title, .product__title, .product-name',
-      '[data-product-title], [itemprop="name"]',
-      'h1:not(nav h1):not(header h1):not(.site-title)',
-      'h1'
-    ];
-    
-    for (const sel of globalSelectors) {
-      const el = document.querySelector(sel);
-      if (el) {
-        const text = T(el.innerText || el.textContent);
-        if (text && text.length > 5) {
-          return {
-            text: text,
-            selector: sel,
-            attr: 'text'
-          };
-        }
-      }
-    }
-    
-    // Final fallback: og:title meta tag
-    const ogTitle = T(document.querySelector('meta[property="og:title"]')?.content);
-    if (ogTitle) {
-      return {
-        text: ogTitle,
-        selector: 'meta[property="og:title"]',
-        attr: 'content'
-      };
-    }
-    return null;
-  }
-
-  function getBrandGeneric() {
-    // First try JSON-LD structured data
-    for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
-      try {
-        const data = JSON.parse(b.textContent.trim());
-        const arr = Array.isArray(data) ? data : [data];
-        for (const node of arr) {
-          const types = [].concat(node?.["@type"]||[]).map(String);
-          if (types.some(t=>/product/i.test(t))) {
-            const brand = node.brand?.name || node.brand || node.manufacturer?.name || "";
-            if (brand && T(brand)) {
-              return {
-                text: T(brand),
-                selector: 'script[type="application/ld+json"]',
-                attr: 'json'
-              };
-            }
-          }
-        }
-      } catch {}
-    }
-    
-    // Extended brand selectors with more variations
-    const brandSelectors = [
-      'meta[property="product:brand"]',
-      'meta[name="brand"]', 
-      'meta[property="og:brand"]',
-      '[itemprop="brand"] [itemprop="name"]',
-      '[itemprop="brand"]',
-      '[data-brand]',
-      '.brand, .product-brand, .product__brand',
-      '.manufacturer, .product-manufacturer',
-      '[class*="brand"]:not([class*="branding"])',
-      '.vendor, .product-vendor'
-    ];
-    
-    for (const sel of brandSelectors) {
-      const el = document.querySelector(sel);
-      if (el) {
-        let brandText = "";
-        if (sel.includes('data-brand')) {
-          brandText = el.getAttribute('data-brand') || "";
-        } else {
-          brandText = el.content || el.getAttribute("content") || el.textContent || "";
-        }
-        if (brandText && T(brandText)) {
-          return {
-            text: T(brandText),
-            selector: sel,
-            attr: el.content || el.getAttribute("content") ? 'content' : 'text'
-          };
-        }
-      }
-    }
-    
-    return null;
-  }
-
-  // FROM price.js - Advanced price detection  
-  const CURRENCY = /[$€£¥₹]|\b(AED|AUD|BRL|CAD|CHF|CNY|DKK|EUR|GBP|HKD|IDR|ILS|INR|JPY|KRW|MXN|MYR|NOK|NZD|PHP|PLN|RON|RUB|SAR|SEK|SGD|THB|TRY|TWD|USD|VND|ZAR)\b/i;
-  const NUM = /\d+[\d.,\s]*\d|\d/;
-
-  const normalizeMoney = (raw) => {
-    if (!raw) return null;
-    let s = T(raw).replace(/\u00A0/g," ");
-    if (/(was|list|regular|original|compare|mrp)/i.test(s)) return null;
-    const m = s.match(/(\$|€|£|¥|₹|\b[A-Z]{3}\b)\s*([0-9][0-9.,\s]*)/i);
-    if (!m) return null;
-    let cur = m[1];
-    let num = m[2];
-    num = num.replace(/\s/g,"");
-    const lastComma = num.lastIndexOf(",");
-    const lastDot = num.lastIndexOf(".");
-    if (lastComma > lastDot) {
-      num = num.replace(/\./g,"").replace(/,/g,".");
-    } else {
-      num = num.replace(/,/g,"");
-    }
-    return `${cur}${num}`;
-  };
-
-  function getPriceGeneric() {
-    // Try JSON-LD first
-    for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
-      try {
-        const data = JSON.parse(b.textContent.trim());
-        const arr = Array.isArray(data) ? data : [data];
-        for (const node of arr) {
-          const types = [].concat(node?.["@type"]||[]).map(String);
-          if (!types.some(t=>/product/i.test(t))) continue;
-          const cur = node.priceCurrency || node.offers?.priceCurrency || "";
-          const offers = []
-            .concat(node.offers || [])
-            .map(o => o?.priceSpecification?.price || o?.price || o?.lowPrice || o?.highPrice)
-            .filter(Boolean);
-          if (offers.length) {
-            const val = offers.find(v => /\d/.test(String(v)));
-            if (val != null) return {
-              text: normalizeMoney(`${cur ? cur + " " : ""}${val}`),
-              selector: 'script[type="application/ld+json"]',
-              attr: 'json'
-            };
-          }
-        }
-      } catch {}
-    }
-
-    const meta = document.querySelector("meta[itemprop='price']")?.getAttribute("content");
-    if (meta) {
-      const m = normalizeMoney(meta);
-      if (m) return {
-        text: m,
-        selector: "meta[itemprop='price']",
-        attr: 'content'
-      };
-    }
-    
-    // Continue with more price detection logic...
-    return null;
-  }
-
-  // FROM specs_tags.js - Product specifications and tags
-  function collectSpecs(limit=10) {
-    const items = [];
-    const pushFrom = (root) => {
-      if (!root) return;
-      root.querySelectorAll("li").forEach(li => { const s=T(li.textContent); if (s) items.push(s); });
-      root.querySelectorAll("tr").forEach(tr => {
-        const k=T(tr.querySelector("th,td:first-child")?.textContent);
-        const v=T(tr.querySelector("td:last-child")?.textContent);
-        if (k && v) items.push(`${k}: ${v}`);
-      });
-      root.querySelectorAll("dt").forEach(dt=>{
-        const dd=dt.nextElementSibling;
-        const k=T(dt.textContent), v=T(dd?.textContent);
-        if (k && v) items.push(`${k}: ${v}`);
-      });
-    };
-    const LABEL=/(specs?|specifications?|details?|product details?|tech specs?|materials?|dimensions?|features?|warranty|composition)/i;
-    document.querySelectorAll("section,div,article,details").forEach(sec=>{
-      const head=sec.querySelector("h1,h2,h3,h4,h5,h6,summary,[role='heading']");
-      if (!head || !LABEL.test(head.textContent||"")) return;
-      pushFrom(sec);
-    });
-    return uniq(items).slice(0, limit);
-  }
-
-  function collectTags(limit = 12) {
-    const tags = [];
-    
-    // Only collect from product-specific containers, not random UI elements
-    const productContainers = document.querySelectorAll(
-      '[class*="product"]:not([class*="related"]):not([class*="recommend"]), ' +
-      '[class*="detail"], [class*="spec"], [class*="attribute"], ' +
-      'main, [role="main"], .main-content'
-    );
-    
-    productContainers.forEach(container => {
-      // Look for actual product attribute chips/pills/tags within product containers
-      container.querySelectorAll('[class*="chip"],[class*="pill"],[class*="tag"],[class*="badge"]').forEach(el => {
-        const t = T(el.textContent);
-        // Filter out common UI elements and navigation
-        if (t && t.length <= 30 && !/^(save|add|buy|cart|checkout|login|menu|search|filter|sort|view|more|less|show|hide|close|accept|decline|ok|cancel|yes|no|prev|next|back|home|shop)$/i.test(t)) {
-          tags.push(t);
-        }
-      });
-    });
-    
-    return uniq(tags).slice(0, limit);
-  }
-
-  // Helper functions for advanced scraping
-  const T = (s) => typeof s === 'string' ? s.trim() : '';
-  const uniq = (arr) => [...new Set(arr)];
-
-  // CDN URL upgrade function for higher quality images - GLOBAL SCOPE
-  function upgradeUrl(u) {
-    try {
-      let url = u;
-      // protocol-less → absolute
-      if (url.startsWith("//")) url = location.protocol + url;
-
-      // Shopify: .../files/xxx_640x640.jpg → 2048x2048
-      if (/cdn\.shopify\.com/i.test(url)) {
-        url = url.replace(/_(\d+)x(\d+)\.(jpe?g|png|webp|avif)(\?|#|$)/i, "_2048x2048.$3$4");
-        url = url.replace(/[?&]width=\d+/i, "");
-      }
-
-      // SFCC (Demandware): Enhanced quality upgrades for Acme Tools
-      if (/\/dw\/image\/v2\//i.test(url)) {
-        // Remove existing size/quality params first
-        url = url.replace(/[?&](sw|sh|quality|fmt)=\d*[^&]*/gi, "");
-        
-        // Add high quality parameters for crisp images
-        const separator = url.includes('?') ? '&' : '?';
-        url += `${separator}sw=1200&sh=1200&quality=90&fmt=webp`;
-      }
-
-      // Scene7: is/image/... ?wid=640 → drop size params to let server serve big
-      if (/scene7\.com\/is\/image/i.test(url)) {
-        url = url.replace(/[?&](wid|hei|fmt|qlt|op_sharpen)=\d*[^&]*/gi, "");
-      }
-
-      // Ace Hardware (Mozu): upgrade low quality images to higher quality
-      if (/cdn-tp3\.mozu\.com/i.test(url) && url.includes('quality=60')) {
-        // Upgrade quality from 60 to 90 and remove small size limits
-        url = url.replace(/quality=60/g, 'quality=90');
-        url = url.replace(/max=\d+/g, 'max=800');
-      }
-
-      // strip generic width/height query hints
-      url = url.replace(/[?&](w|h|width|height|size)=\d+[^&]*/gi, "");
-      // collapse trailing ? or & if empty
-      url = url.replace(/\?(&|$)/, "").replace(/&$/, "");
-      return url;
-    } catch { return u; }
-  }
-
-  // Expandable logging system for detailed method traces
-  const detailedLogs = {};
-  
-  function debugDetail(field, message) {
-    if (!detailedLogs[field]) detailedLogs[field] = [];
-    detailedLogs[field].push(`  📋 ${field.toUpperCase()}: ${message}`);
-  }
-  
-  function getDetailedLogs(field) {
-    return detailedLogs[field] || [];
-  }
-  
-  function clearDetailedLogs() {
-    Object.keys(detailedLogs).forEach(key => delete detailedLogs[key]);
-  }
-  
-  function formatExpandableLog(field, summary, details) {
-    return `${summary} ▼ [Show Details: ${details.length} steps]`;
-  }
-
-  // 🚀 CLEAN MODE: Advanced generic approaches are now standard behavior  
-  window.__TG_AUDIT_GENERIC_FIRST = false;
-
-  // Generic-first audit helpers for all fields
-  function handleTitleGenericFirst() {
-    debug('🧪 TITLE: CLEAN MODE - Generic → Custom');
-    debugDetail('title', 'Skipping memory (audit mode)');
-    
-    // STEP 1: Try advanced generic first
-    debug('🧠 TITLE: Trying getTitleGeneric()...');
-    debugDetail('title', 'Trying getTitleGeneric() - product container detection...');
-    const advancedTitle = getTitleGeneric();
-    if (advancedTitle?.text) {
-      mark('title', { selectors: [advancedTitle.selector], attr: advancedTitle.attr, method: 'advanced-generic' });
-      debug('🧠 TITLE ADVANCED GENERIC:', advancedTitle.text);
-      debugDetail('title', `getTitleGeneric() found: "${advancedTitle.text}" via ${advancedTitle.selector}`);
-      debugDetail('title', 'Skipping legacy getTitle() - advanced method succeeded');
-      debugDetail('title', 'Skipping custom handler - generic sufficient');
-      const details = getDetailedLogs('title');
-      debug(formatExpandableLog('TITLE', `✅ TITLE FINAL: ${advancedTitle.text} (method: advanced-generic)`, details));
-      return advancedTitle.text;
-    }
-    
-    // STEP 2: Try legacy generic
-    debug('🖼️ TITLE: Advanced failed, trying legacy getTitle()...');
-    debugDetail('title', 'getTitleGeneric() failed - no product container or valid selectors');
-    debugDetail('title', 'Trying legacy getTitle() - h1/h2 fallback selectors...');
-    const legacyTitle = getTitle();
-    if (legacyTitle) {
-      debug('🖼️ TITLE LEGACY GENERIC:', legacyTitle);
-      debugDetail('title', `getTitle() found: "${legacyTitle}" via legacy selectors`);
-      debugDetail('title', 'Skipping custom handler - legacy method succeeded');
-      const details = getDetailedLogs('title');
-      debug(formatExpandableLog('TITLE', `✅ TITLE FINAL: ${legacyTitle} (method: legacy-generic)`, details));
-      return legacyTitle;
-    }
-    
-    debug('❌ TITLE: Both generic methods failed');
-    debugDetail('title', 'getTitle() failed - no h1/h2 found');
-    debugDetail('title', 'Both advanced and legacy generic methods failed');
-    const details = getDetailedLogs('title');
-    debug(formatExpandableLog('TITLE', `❌ TITLE FINAL: null (method: none-successful)`, details));
-    return null;
-  }
-
-  function handleBrandGenericFirst() {
-    debug('🧪 BRAND: CLEAN MODE - Generic → Custom');
-    
-    // STEP 1: Try advanced generic first
-    debug('🧠 BRAND: Trying getBrandGeneric()...');
-    const advancedBrand = getBrandGeneric();
-    if (advancedBrand?.text) {
-      mark('brand', { selectors: [advancedBrand.selector], attr: advancedBrand.attr, method: 'advanced-generic' });
-      debug('🧠 BRAND ADVANCED GENERIC:', advancedBrand.text);
-      return advancedBrand.text;
-    }
-    
-    // STEP 2: Try legacy generic
-    debug('🖼️ BRAND: Advanced failed, trying legacy getBrand()...');
-    const legacyBrand = getBrand();
-    if (legacyBrand) {
-      debug('🖼️ BRAND LEGACY GENERIC:', legacyBrand);
-      return legacyBrand;
-    }
-    
-    debug('❌ BRAND: Both generic methods failed');
-    return null;
-  }
-
-  function handlePriceGenericFirst() {
-    debug('🧪 PRICE: CLEAN MODE - Generic → Custom');
-    
-    // STEP 1: Try advanced generic first
-    debug('🧠 PRICE: Trying getPriceGeneric()...');
-    const advancedPrice = getPriceGeneric();
-    if (advancedPrice?.text) {
-      mark('price', { selectors: [advancedPrice.selector], attr: advancedPrice.attr, method: 'advanced-generic' });
-      debug('🧠 PRICE ADVANCED GENERIC:', advancedPrice.text);
-      return advancedPrice.text;
-    }
-    
-    // STEP 2: Try legacy generic (getPrice function)
-    debug('🖼️ PRICE: Advanced failed, trying legacy getPrice()...');
-    const legacyPrice = getPrice();
-    if (legacyPrice) {
-      debug('🖼️ PRICE LEGACY GENERIC:', legacyPrice);
-      return legacyPrice;
-    }
-    
-    debug('❌ PRICE: Both generic methods failed');
-    return null;
-  }
-
-  function handleDescriptionGenericFirst() {
-    debug('🧪 DESCRIPTION: CLEAN MODE - Generic only');
-    
-    // Only legacy generic available for description
-    debug('🖼️ DESCRIPTION: Trying getDescription()...');
-    const description = getDescription();
-    if (description) {
-      debug('🖼️ DESCRIPTION GENERIC:', description);
-      return description;
-    }
-    
-    debug('❌ DESCRIPTION: Generic method failed');
-    return null;
-  }
-
-  // Generic-first audit helper for images
-  async function handleImagesGenericFirst() {
-    debug('🔄 IMAGES: CLEAN MODE - Generic → Custom');
-    
-    // STEP 1: Try advanced generic first (sophisticated gallery detection)
-    debug('🧠 IMAGES: Trying advanced generic (collectImagesFromPDP)...');
-    let advancedGenericImages = [];
-    try {
-      advancedGenericImages = await collectImagesFromPDP();
-      if (advancedGenericImages.length > 0) {
-        mark('images', { selectors: ['advanced-gallery-detection'], attr: 'src', method: 'advanced-generic' });
-        debug('🧠 ADVANCED GENERIC:', { count: advancedGenericImages.length, images: advancedGenericImages.slice(0, 3) });
-      }
-    } catch (e) { debug('❌ Advanced generic error:', e.message); }
-    
-    // STEP 2: Try legacy generic if insufficient
-    let legacyGenericImages = [];
-    if (advancedGenericImages.length < 3) {
-      debug('🖼️ IMAGES: Advanced insufficient, trying legacy generic...');
-      try {
-        legacyGenericImages = await getImagesGeneric();
-        debug('🖼️ LEGACY GENERIC:', { count: legacyGenericImages.length, images: legacyGenericImages.slice(0, 3) });
-      } catch (e) { debug('❌ Legacy generic error:', e.message); }
-    }
-    
-    // STEP 3: Only try custom if generic still insufficient
-    let customImages = [];
-    const allGenericImages = await uniqueImages(advancedGenericImages.concat(legacyGenericImages));
-    if (allGenericImages.length < 3) {
-      debug('🧩 IMAGES: Generic insufficient (' + allGenericImages.length + ' < 3), trying custom fallback...');
-      if (typeof getCustomHandlers === 'function') {
-        try {
-          const ch = getCustomHandlers();
-          if (ch?.images && typeof ch.images === 'function') {
-            const customResult = await Promise.resolve(ch.images(document));
-            if (customResult && Array.isArray(customResult)) {
-              customImages = customResult.filter(Boolean);
-              mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-fallback' });
-              debug('🧩 CUSTOM FALLBACK:', { count: customImages.length, images: customImages.slice(0, 3) });
-            }
-          }
-        } catch (e) { debug('❌ Custom fallback error:', e.message); }
-      }
-    } else {
-      debug('🎯 GENERIC SUCCESS! No custom handler needed');
-    }
-    
-    const finalImages = await uniqueImages(allGenericImages.concat(customImages));
-    debug('🔄 AUDIT FINAL IMAGES:', { count: finalImages.length, images: finalImages.slice(0, 3) });
-    return finalImages.slice(0, 30);
-  }
-
   /* ---------- ENTRY ---------- */
   async function scrapeProduct(opts) {
     try {
       const host = location.hostname.replace(/^www\./,'');
       const mode = (opts && opts.mode) || 'normal';
       log('🚀 SCRAPE START', { host, href: location.href, mode });
-      clearDetailedLogs(); // Clear detailed logs from previous scrape
 
       const mem = loadMemory(host);
       debug('🧠 LOADED MEMORY:', {
@@ -2040,143 +1190,104 @@
         price = await fromMemory('price', mem.price);
         // images = await fromMemory('images', mem.images);  // Skip memory for images
       } else {
-        debug('🚀 CLEAN MODE - Advanced Generic → Custom Handler');
+        debug('🔄 NORMAL MODE - memory + fallbacks');
         
-        // TITLE: Advanced Generic → Custom Handler
-        title = handleTitleGenericFirst();
+        title = await fromMemory('title', mem.title);
+        debug('📝 TITLE FROM MEMORY:', title);
         if (!title) {
-          debug('📝 TITLE: Trying custom handler fallback...');
-          if (typeof getCustomHandlers === 'function') {
-            try {
-              const ch = getCustomHandlers();
-              if (ch?.title && typeof ch.title === 'function') {
-                title = await Promise.resolve(ch.title(document));
-                if (title) {
-                  mark('title', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('📝 TITLE CUSTOM HANDLER:', title);
-                }
-              }
-            } catch (e) { debug('❌ Custom title handler error:', e.message); }
-          }
+          debug('📝 TITLE: Falling back to generic...');
+          title = getTitle();
+          debug('📝 TITLE FROM GENERIC:', title);
         }
         
-        // BRAND: Advanced Generic → Custom Handler
-        brand = handleBrandGenericFirst();
+        brand = await fromMemory('brand', mem.brand);
+        debug('🏷️ BRAND FROM MEMORY:', brand);
         if (!brand) {
-          debug('🏷️ BRAND: Trying custom handler fallback...');
-          if (typeof getCustomHandlers === 'function') {
-            try {
-              const ch = getCustomHandlers();
-              if (ch?.brand && typeof ch.brand === 'function') {
-                brand = await Promise.resolve(ch.brand(document));
-                if (brand) {
-                  mark('brand', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('🏷️ BRAND CUSTOM HANDLER:', brand);
-                }
-              }
-            } catch (e) { debug('❌ Custom brand handler error:', e.message); }
-          }
+          debug('🏷️ BRAND: Falling back to generic...');
+          brand = getBrand();
+          debug('🏷️ BRAND FROM GENERIC:', brand);
         }
         
-        // DESCRIPTION: Advanced Generic → Custom Handler
-        description = handleDescriptionGenericFirst();
+        description = await fromMemory('description', mem.description);
+        debug('📄 DESCRIPTION FROM MEMORY:', description);
         if (!description) {
-          debug('📄 DESCRIPTION: Trying custom handler fallback...');
-          if (typeof getCustomHandlers === 'function') {
-            try {
-              const ch = getCustomHandlers();
-              if (ch?.description && typeof ch.description === 'function') {
-                description = await Promise.resolve(ch.description(document));
-                if (description) {
-                  mark('description', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('📄 DESCRIPTION CUSTOM HANDLER:', description);
-                }
-              }
-            } catch (e) { debug('❌ Custom description handler error:', e.message); }
-          }
+          debug('📄 DESCRIPTION: Falling back to generic...');
+          description = getDescription();
+          debug('📄 DESCRIPTION FROM GENERIC:', description);
         }
         
-        // PRICE: Advanced Generic → Custom Handler
-        price = handlePriceGenericFirst();
+        price = await fromMemory('price', mem.price);
+        debug('💰 PRICE FROM MEMORY:', price);
         if (!price) {
-          debug('💰 PRICE: Trying custom handler fallback...');
-          if (typeof getCustomHandlers === 'function') {
-            try {
-              const ch = getCustomHandlers();
-              if (ch?.price && typeof ch.price === 'function') {
-                price = await Promise.resolve(ch.price(document));
-                if (price) {
-                  mark('price', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('💰 PRICE CUSTOM HANDLER:', price);
-                }
-              }
-            } catch (e) { debug('❌ Custom price handler error:', e.message); }
-          }
+          debug('💰 PRICE: Falling back to generic...');
+          price = getPriceGeneric();
+          debug('💰 PRICE FROM GENERIC:', price);
         }
         
-        // IMAGES: collectImagesFromPDP → Custom Handler → Generic Fallback
-        debug('🖼️ IMAGES: Starting with collectImagesFromPDP...');
-        try {
-          images = await collectImagesFromPDP();
-          if (images && images.length > 0) {
-            mark('images', { selectors: ['collectImagesFromPDP'], attr: 'src', method: 'advanced-generic' });
-            debug('🖼️ IMAGES FROM ADVANCED GENERIC:', { count: images.length, images: images.slice(0, 3) });
-          }
-        } catch (e) { 
-          debug('❌ collectImagesFromPDP error:', e.message); 
-          images = [];
-        }
+        // images = await fromMemory('images', mem.images);  // Skip memory for images
+        debug('🖼️ IMAGES: Skipping memory in normal mode');
+        images = [];
         
-        // Custom handler fallback if insufficient images
-        if (!images || images.length < 3) {
-          debug('🖼️ IMAGES: Advanced generic insufficient, trying custom handler...');
+        // ALWAYS try custom handlers (regardless of memory count)
+        {
+          debug('🖼️ IMAGES: Need more images (have ' + (images?.length || 0) + ', need 3+)');
+          const memoryImages = images || [];
+          // Try custom handlers first
+          let customImages = [];
           if (typeof getCustomHandlers === 'function') {
             try {
               const ch = getCustomHandlers();
               if (ch?.images && typeof ch.images === 'function') {
+                debug('🧩 IMAGES: Trying custom handler...');
                 const customResult = await Promise.resolve(ch.images(document));
                 if (customResult && Array.isArray(customResult)) {
-                  const customImages = customResult.filter(Boolean);
-                  if (customImages.length > 0) {
-                    mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                    debug('🖼️ IMAGES FROM CUSTOM HANDLER:', { count: customImages.length, images: customImages.slice(0, 3) });
-                    images = await uniqueImages((images || []).concat(customImages));
-                  }
+                  customImages = customResult.filter(Boolean);
+                  mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
+                  debug('🧩 CUSTOM IMAGES:', { count: customImages.length, images: customImages.slice(0, 3) });
                 }
               }
-            } catch (e) { debug('❌ Custom image handler error:', e.message); }
+            } catch (e) { 
+              debug('❌ Custom image handler error:', e.message); 
+            }
+          }
+          
+          // If we have custom images, use them (custom overrides memory)
+          if (customImages.length > 0) {
+            debug('🎯 USING CUSTOM IMAGES (overriding memory)');
+            images = customImages.slice(0, 30);
+          } else {
+            // Merge and dedupe memory + custom
+            let combinedImages = await uniqueImages(memoryImages.concat(customImages));
+            
+            // Fall back to generic only if still insufficient
+            if (combinedImages.length < 3) {
+              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+              const genericImages = await getImagesGeneric();
+              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+            }
+          
+            images = combinedImages.slice(0, 30);
+          }
+          debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
+          
+          // LLM FALLBACK: If no images found, try AI-powered selector discovery
+          if (images.length === 0 && mode !== 'memoryOnly') {
+            debug('🤖 IMAGES: Zero images found, activating LLM fallback...');
+            try {
+              const llmImages = await tryLLMImageFallback(document);
+              if (llmImages.length > 0) {
+                images = llmImages.slice(0, 30);
+                debug('🤖 LLM RESCUE SUCCESS:', { count: images.length, images: images.slice(0, 3) });
+                mark('images', { selectors: ['llm-fallback'], attr: 'AI-discovered', method: 'llm-fallback' });
+              } else {
+                debug('🤖 LLM FALLBACK: No additional images found');
+              }
+            } catch (e) {
+              debug('❌ LLM FALLBACK ERROR:', e.message);
+            }
           }
         }
-        
-        // Generic fallback if still insufficient
-        if (!images || images.length < 3) {
-          debug('🖼️ IMAGES: Still insufficient, trying legacy generic...');
-          try {
-            const genericImages = await getImagesGeneric();
-            debug('🖼️ IMAGES FROM LEGACY GENERIC:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-            images = await uniqueImages((images || []).concat(genericImages));
-          } catch (e) { debug('❌ Legacy generic images error:', e.message); }
-        }
-        
-        // LLM fallback if still no images
-        if (!images || images.length === 0) {
-          debug('🤖 IMAGES: Zero images found, activating LLM fallback...');
-          try {
-            const llmImages = await tryLLMImageFallback(document);
-            if (llmImages.length > 0) {
-              images = llmImages.slice(0, 30);
-              debug('🤖 LLM RESCUE SUCCESS:', { count: images.length, images: images.slice(0, 3) });
-              mark('images', { selectors: ['llm-fallback'], attr: 'AI-discovered', method: 'llm-fallback' });
-            }
-          } catch (e) { debug('❌ LLM FALLBACK ERROR:', e.message); }
-        }
-        
-        // Limit final image count
-        if (images && images.length > 30) {
-          images = images.slice(0, 30);
-        }
-        
-        debug('🖼️ FINAL IMAGES:', { count: images?.length || 0, images: (images || []).slice(0, 3) });
       }
 
       const payload = { title, brand, description, price, url: location.href, images, timestamp: new Date().toISOString(), mode };
@@ -2212,5 +1323,6 @@
       return { __error: (e && e.stack) || String(e), __stage: 'scrapeProduct' };
     }
   }
+
   Object.assign(globalThis, { scrapeProduct });
 })();
