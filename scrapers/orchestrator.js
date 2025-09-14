@@ -944,12 +944,28 @@
 
   /* ---------- GENERIC EXTRACTORS ---------- */
   function getTitle() {
+    log('📝 [ORCHESTRATOR] Calling getTitle()...');
     const sels = ['h1', '.product-title', '[itemprop="name"]'];
-    for (const sel of sels) { const v = txt(q(sel)); if (v) { mark('title', { selectors:[sel], attr:'text', method:'generic' }); return v; } }
-    const v = (document.title || '').trim(); if (v) mark('title', { selectors:['document.title'], attr:'text', method:'fallback' });
-    return v || null;
+    log('📝 [ORCHESTRATOR] Trying selectors:', sels);
+    for (const sel of sels) { 
+      const el = q(sel);
+      const v = txt(el); 
+      log(`📝 [ORCHESTRATOR] Selector "${sel}":`, el ? 'found element' : 'not found', v ? `-> "${v}"` : '-> no text');
+      if (v) { 
+        mark('title', { selectors:[sel], attr:'text', method:'generic' }); 
+        log('📝 [ORCHESTRATOR] TITLE SUCCESS:', { text: v, selector: sel, attr: 'text' });
+        return v; 
+      } 
+    }
+    const v = (document.title || '').trim(); 
+    log('📝 [ORCHESTRATOR] Fallback to document.title:', v ? `"${v}"` : 'empty');
+    if (v) mark('title', { selectors:['document.title'], attr:'text', method:'fallback' });
+    const result = v || null;
+    log('📝 [ORCHESTRATOR] TITLE RESULT:', result);
+    return result;
   }
   function getBrand() {
+    log('🏷️ [ORCHESTRATOR] Calling getBrand()...');
     const pairs = [['meta[name="brand"]','content'], ['meta[property="og:brand"]','content']];
     for (const [sel,at] of pairs) { const v = attr(q(sel),at); if (v) { mark('brand', { selectors:[sel], attr:at, method:'generic' }); return v; } }
     const prod = scanJSONLDProducts()[0];
