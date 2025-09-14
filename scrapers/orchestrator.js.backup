@@ -1854,12 +1854,12 @@
     return `${summary} ▼ [Show Details: ${details.length} steps]`;
   }
 
-  // 🚀 CLEAN MODE: Advanced generic approaches are now standard behavior  
+  // 🔄 AUDIT MODE: Disable for now to restore normal functionality  
   window.__TG_AUDIT_GENERIC_FIRST = false;
 
   // Generic-first audit helpers for all fields
   function handleTitleGenericFirst() {
-    debug('🧪 TITLE: CLEAN MODE - Generic → Custom');
+    debug('🧪 TITLE: AUDIT MODE - Generic → Custom');
     debugDetail('title', 'Skipping memory (audit mode)');
     
     // STEP 1: Try advanced generic first
@@ -1900,7 +1900,7 @@
   }
 
   function handleBrandGenericFirst() {
-    debug('🧪 BRAND: CLEAN MODE - Generic → Custom');
+    debug('🧪 BRAND: AUDIT MODE - Generic → Custom');
     
     // STEP 1: Try advanced generic first
     debug('🧠 BRAND: Trying getBrandGeneric()...');
@@ -1924,7 +1924,7 @@
   }
 
   function handlePriceGenericFirst() {
-    debug('🧪 PRICE: CLEAN MODE - Generic → Custom');
+    debug('🧪 PRICE: AUDIT MODE - Generic → Custom');
     
     // STEP 1: Try advanced generic first
     debug('🧠 PRICE: Trying getPriceGeneric()...');
@@ -1948,7 +1948,7 @@
   }
 
   function handleDescriptionGenericFirst() {
-    debug('🧪 DESCRIPTION: CLEAN MODE - Generic only');
+    debug('🧪 DESCRIPTION: AUDIT MODE - Generic only');
     
     // Only legacy generic available for description
     debug('🖼️ DESCRIPTION: Trying getDescription()...');
@@ -1964,7 +1964,7 @@
 
   // Generic-first audit helper for images
   async function handleImagesGenericFirst() {
-    debug('🔄 IMAGES: CLEAN MODE - Generic → Custom');
+    debug('🔄 IMAGES: AUDIT MODE - Generic → Custom');
     
     // STEP 1: Try advanced generic first (sophisticated gallery detection)
     debug('🧠 IMAGES: Trying advanced generic (collectImagesFromPDP)...');
@@ -2042,141 +2042,167 @@
       } else {
         debug('🚀 CLEAN MODE - Advanced Generic → Custom Handler');
         
-        // TITLE: Advanced Generic → Custom Handler
-        title = handleTitleGenericFirst();
+        // NON-DESTRUCTIVE AUDIT: Try generic first, fallback to memory if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          title = handleTitleGenericFirst();
+          // Fallback to memory if audit failed
+          if (!title) {
+            debug('🔄 AUDIT FALLBACK: Title audit failed, trying memory...');
+            title = await fromMemory('title', mem.title);
+          }
+        } else {
+          title = await fromMemory('title', mem.title);
+        }
+        debug('📝 TITLE FROM MEMORY:', title);
         if (!title) {
-          debug('📝 TITLE: Trying custom handler fallback...');
-          if (typeof getCustomHandlers === 'function') {
-            try {
-              const ch = getCustomHandlers();
-              if (ch?.title && typeof ch.title === 'function') {
-                title = await Promise.resolve(ch.title(document));
-                if (title) {
-                  mark('title', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('📝 TITLE CUSTOM HANDLER:', title);
-                }
-              }
-            } catch (e) { debug('❌ Custom title handler error:', e.message); }
-          }
+          debug('📝 TITLE: Falling back to generic...');
+          title = getTitle();
+          debug('📝 TITLE FROM GENERIC:', title);
         }
         
-        // BRAND: Advanced Generic → Custom Handler
-        brand = handleBrandGenericFirst();
+        // NON-DESTRUCTIVE AUDIT: Try generic first, fallback to memory if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          brand = handleBrandGenericFirst();
+          // Fallback to memory if audit failed
+          if (!brand) {
+            debug('🔄 AUDIT FALLBACK: Brand audit failed, trying memory...');
+            brand = await fromMemory('brand', mem.brand);
+          }
+        } else {
+          brand = await fromMemory('brand', mem.brand);
+        }
+        debug('🏷️ BRAND FROM MEMORY:', brand);
         if (!brand) {
-          debug('🏷️ BRAND: Trying custom handler fallback...');
-          if (typeof getCustomHandlers === 'function') {
-            try {
-              const ch = getCustomHandlers();
-              if (ch?.brand && typeof ch.brand === 'function') {
-                brand = await Promise.resolve(ch.brand(document));
-                if (brand) {
-                  mark('brand', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('🏷️ BRAND CUSTOM HANDLER:', brand);
-                }
-              }
-            } catch (e) { debug('❌ Custom brand handler error:', e.message); }
-          }
+          debug('🏷️ BRAND: Falling back to generic...');
+          brand = getBrand();
+          debug('🏷️ BRAND FROM GENERIC:', brand);
         }
         
-        // DESCRIPTION: Advanced Generic → Custom Handler
-        description = handleDescriptionGenericFirst();
+        // NON-DESTRUCTIVE AUDIT: Try generic first, fallback to memory if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          description = handleDescriptionGenericFirst();
+          // Fallback to memory if audit failed
+          if (!description) {
+            debug('🔄 AUDIT FALLBACK: Description audit failed, trying memory...');
+            description = await fromMemory('description', mem.description);
+          }
+        } else {
+          description = await fromMemory('description', mem.description);
+        }
+        debug('📄 DESCRIPTION FROM MEMORY:', description);
         if (!description) {
-          debug('📄 DESCRIPTION: Trying custom handler fallback...');
-          if (typeof getCustomHandlers === 'function') {
-            try {
-              const ch = getCustomHandlers();
-              if (ch?.description && typeof ch.description === 'function') {
-                description = await Promise.resolve(ch.description(document));
-                if (description) {
-                  mark('description', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('📄 DESCRIPTION CUSTOM HANDLER:', description);
-                }
-              }
-            } catch (e) { debug('❌ Custom description handler error:', e.message); }
-          }
+          debug('📄 DESCRIPTION: Falling back to generic...');
+          description = getDescription();
+          debug('📄 DESCRIPTION FROM GENERIC:', description);
         }
         
-        // PRICE: Advanced Generic → Custom Handler
-        price = handlePriceGenericFirst();
+        // NON-DESTRUCTIVE AUDIT: Try generic first, fallback to memory if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          price = handlePriceGenericFirst();
+          // Fallback to memory if audit failed
+          if (!price) {
+            debug('🔄 AUDIT FALLBACK: Price audit failed, trying memory...');
+            price = await fromMemory('price', mem.price);
+          }
+        } else {
+          price = await fromMemory('price', mem.price);
+        }
+        debug('💰 PRICE FROM MEMORY:', price);
         if (!price) {
-          debug('💰 PRICE: Trying custom handler fallback...');
-          if (typeof getCustomHandlers === 'function') {
-            try {
-              const ch = getCustomHandlers();
-              if (ch?.price && typeof ch.price === 'function') {
-                price = await Promise.resolve(ch.price(document));
-                if (price) {
-                  mark('price', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('💰 PRICE CUSTOM HANDLER:', price);
-                }
-              }
-            } catch (e) { debug('❌ Custom price handler error:', e.message); }
+          debug('💰 PRICE: Falling back to generic...');
+          price = getPriceGeneric();
+          debug('💰 PRICE FROM GENERIC:', price);
+        }
+        
+        // images = await fromMemory('images', mem.images);  // Skip memory for images
+        debug('🖼️ IMAGES: Skipping memory in normal mode');
+        images = [];
+        
+        // NON-DESTRUCTIVE AUDIT: Try generic-first images, fallback to normal flow if insufficient
+        if (window.__TG_AUDIT_GENERIC_FIRST) {
+          debug('🧪 AUDIT: Generic-first image flow enabled');
+          try {
+            images = await handleImagesGenericFirst();
+            // Fallback to normal flow if audit failed or insufficient
+            if (!images || images.length < 3) {
+              debug('🔄 AUDIT FALLBACK: Image audit insufficient (got ' + (images?.length || 0) + '), trying normal flow...');
+              // Reset and use normal flow
+              images = [];
+            } else {
+              // Audit succeeded, skip normal flow
+              debug('✅ AUDIT SUCCESS: Got ' + images.length + ' images from generic, skipping normal flow');
+            }
+          } catch (e) {
+            debug('❌ AUDIT generic-first failed:', e?.message || e);
+            debug('🔄 AUDIT FALLBACK: Exception occurred, trying normal flow...');
+            images = [];
           }
         }
         
-        // IMAGES: collectImagesFromPDP → Custom Handler → Generic Fallback
-        debug('🖼️ IMAGES: Starting with collectImagesFromPDP...');
-        try {
-          images = await collectImagesFromPDP();
-          if (images && images.length > 0) {
-            mark('images', { selectors: ['collectImagesFromPDP'], attr: 'src', method: 'advanced-generic' });
-            debug('🖼️ IMAGES FROM ADVANCED GENERIC:', { count: images.length, images: images.slice(0, 3) });
-          }
-        } catch (e) { 
-          debug('❌ collectImagesFromPDP error:', e.message); 
-          images = [];
-        }
+        // Normal flow (runs if not audit mode OR if audit fallback needed)
+        if (!window.__TG_AUDIT_GENERIC_FIRST || !images || images.length < 3) {
         
-        // Custom handler fallback if insufficient images
-        if (!images || images.length < 3) {
-          debug('🖼️ IMAGES: Advanced generic insufficient, trying custom handler...');
+        // ALWAYS try custom handlers (regardless of memory count)
+        {
+          debug('🖼️ IMAGES: Need more images (have ' + (images?.length || 0) + ', need 3+)');
+          const memoryImages = images || [];
+          // Try custom handlers first
+          let customImages = [];
           if (typeof getCustomHandlers === 'function') {
             try {
               const ch = getCustomHandlers();
               if (ch?.images && typeof ch.images === 'function') {
+                debug('🧩 IMAGES: Trying custom handler...');
                 const customResult = await Promise.resolve(ch.images(document));
                 if (customResult && Array.isArray(customResult)) {
-                  const customImages = customResult.filter(Boolean);
-                  if (customImages.length > 0) {
-                    mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                    debug('🖼️ IMAGES FROM CUSTOM HANDLER:', { count: customImages.length, images: customImages.slice(0, 3) });
-                    images = await uniqueImages((images || []).concat(customImages));
-                  }
+                  customImages = customResult.filter(Boolean);
+                  mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
+                  debug('🧩 CUSTOM IMAGES:', { count: customImages.length, images: customImages.slice(0, 3) });
                 }
               }
-            } catch (e) { debug('❌ Custom image handler error:', e.message); }
+            } catch (e) { 
+              debug('❌ Custom image handler error:', e.message); 
+            }
+          }
+          
+          // If we have custom images, use them (custom overrides memory)
+          if (customImages.length > 0) {
+            debug('🎯 USING CUSTOM IMAGES (overriding memory)');
+            images = customImages.slice(0, 30);
+          } else {
+            // Merge and dedupe memory + custom
+            let combinedImages = await uniqueImages(memoryImages.concat(customImages));
+            
+            // Fall back to generic only if still insufficient
+            if (combinedImages.length < 3) {
+              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+              const genericImages = await getImagesGeneric();
+              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+            }
+          
+            images = combinedImages.slice(0, 30);
+          }
+          debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
+        }  // end normal flow block
+          
+          // LLM FALLBACK: If no images found, try AI-powered selector discovery
+          if (images.length === 0 && mode !== 'memoryOnly') {
+            debug('🤖 IMAGES: Zero images found, activating LLM fallback...');
+            try {
+              const llmImages = await tryLLMImageFallback(document);
+              if (llmImages.length > 0) {
+                images = llmImages.slice(0, 30);
+                debug('🤖 LLM RESCUE SUCCESS:', { count: images.length, images: images.slice(0, 3) });
+                mark('images', { selectors: ['llm-fallback'], attr: 'AI-discovered', method: 'llm-fallback' });
+              } else {
+                debug('🤖 LLM FALLBACK: No additional images found');
+              }
+            } catch (e) {
+              debug('❌ LLM FALLBACK ERROR:', e.message);
+            }
           }
         }
-        
-        // Generic fallback if still insufficient
-        if (!images || images.length < 3) {
-          debug('🖼️ IMAGES: Still insufficient, trying legacy generic...');
-          try {
-            const genericImages = await getImagesGeneric();
-            debug('🖼️ IMAGES FROM LEGACY GENERIC:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-            images = await uniqueImages((images || []).concat(genericImages));
-          } catch (e) { debug('❌ Legacy generic images error:', e.message); }
-        }
-        
-        // LLM fallback if still no images
-        if (!images || images.length === 0) {
-          debug('🤖 IMAGES: Zero images found, activating LLM fallback...');
-          try {
-            const llmImages = await tryLLMImageFallback(document);
-            if (llmImages.length > 0) {
-              images = llmImages.slice(0, 30);
-              debug('🤖 LLM RESCUE SUCCESS:', { count: images.length, images: images.slice(0, 3) });
-              mark('images', { selectors: ['llm-fallback'], attr: 'AI-discovered', method: 'llm-fallback' });
-            }
-          } catch (e) { debug('❌ LLM FALLBACK ERROR:', e.message); }
-        }
-        
-        // Limit final image count
-        if (images && images.length > 30) {
-          images = images.slice(0, 30);
-        }
-        
-        debug('🖼️ FINAL IMAGES:', { count: images?.length || 0, images: (images || []).slice(0, 3) });
       }
 
       const payload = { title, brand, description, price, url: location.href, images, timestamp: new Date().toISOString(), mode };
@@ -2212,5 +2238,6 @@
       return { __error: (e && e.stack) || String(e), __stage: 'scrapeProduct' };
     }
   }
+
   Object.assign(globalThis, { scrapeProduct });
 })();
