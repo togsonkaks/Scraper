@@ -398,6 +398,67 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   return win.webContents.executeJavaScript(injected, true);
 });
 
+ipcMain.handle('scrape-original', async (_e, opts = {}) => {
+  const win = ensureProduct();
+  
+  // Load your modular scripts
+  const utilsPath = path.join(__dirname, 'scrapers', 'utils.js');
+  const titlePath = path.join(__dirname, 'scrapers', 'title.js');
+  const pricePath = path.join(__dirname, 'scrapers', 'price.js');
+  const imagesPath = path.join(__dirname, 'scrapers', 'images.js');
+  const specsTagsPath = path.join(__dirname, 'scrapers', 'specs_tags.js');
+  
+  const utilsSource = fs.readFileSync(utilsPath, 'utf8');
+  const titleSource = fs.readFileSync(titlePath, 'utf8');
+  const priceSource = fs.readFileSync(pricePath, 'utf8');
+  const imagesSource = fs.readFileSync(imagesPath, 'utf8');
+  const specsTagsSource = fs.readFileSync(specsTagsPath, 'utf8');
+  
+  const injected = `
+    (async () => {
+      try {
+        ${warmupScrollJS()}
+        
+        // Load your modular scripts in order
+        ${utilsSource}
+        ${titleSource}
+        ${priceSource}
+        ${imagesSource}
+        ${specsTagsSource}
+        
+        // Call your original functions directly
+        const titleResult = getTitleGeneric();
+        const brandResult = getBrandGeneric(); 
+        const priceResult = getPriceGeneric();
+        const images = await collectImagesFromPDP();
+        const specs = collectSpecs();
+        const tags = collectTags();
+        const gender = guessGender();
+        const sku = getSKU();
+        
+        const result = {
+          title: titleResult?.text || titleResult || '',
+          brand: brandResult?.text || brandResult || '',
+          price: priceResult?.text || priceResult || '',
+          images: Array.isArray(images) ? images : [],
+          specs: Array.isArray(specs) ? specs : [],
+          tags: Array.isArray(tags) ? tags : [],
+          gender: gender || '',
+          sku: sku || '',
+          url: location.href,
+          timestamp: new Date().toISOString(),
+          mode: 'original-modular'
+        };
+        
+        return { result, selectorsUsed: null };
+      } catch(e) { 
+        return { result: { __error: String(e) }, selectorsUsed: null }; 
+      }
+    })();
+  `;
+  return win.webContents.executeJavaScript(injected, true);
+});
+
 /* ========= LLM agent ========= */
 ipcMain.handle('llm-propose', async (_e, payload) => {
   try {

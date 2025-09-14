@@ -22,37 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
       panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
       
       try {
-        const result = await window.api.evalInProduct(`
-          (async () => {
-            try {
-              // Call your modular functions directly
-              const titleResult = getTitleGeneric();
-              const brandResult = getBrandGeneric(); 
-              const priceResult = getPriceGeneric();
-              const images = await collectImagesFromPDP();
-              const specs = collectSpecs();
-              const tags = collectTags();
-              const gender = guessGender();
-              const sku = getSKU();
-              
-              return {
-                title: titleResult?.text || titleResult || '',
-                brand: brandResult?.text || brandResult || '',
-                price: priceResult?.text || priceResult || '',
-                images: Array.isArray(images) ? images : [],
-                specs: Array.isArray(specs) ? specs : [],
-                tags: Array.isArray(tags) ? tags : [],
-                gender: gender || '',
-                sku: sku || '',
-                url: location.href,
-                timestamp: new Date().toISOString(),
-                mode: 'original-modular'
-              };
-            } catch (e) {
-              return { __error: e.message, __stage: 'original-modular' };
-            }
-          })();
-        `);
+        const { result, selectorsUsed } = await window.api.scrapeOriginal({});
         
         if (result.__error) {
           throw new Error(result.__error);
