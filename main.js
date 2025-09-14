@@ -356,6 +356,15 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
         var getCustomHandlers = () => ({});
         globalThis.__DISABLE_CUSTOM = true;
         
+        // NUKE localStorage memory so orchestrator can't access saved selectors
+        try {
+          localStorage.removeItem('selector_memory_v2');
+          sessionStorage.removeItem('selector_memory_v2');
+          // Prevent re-reads during this run
+          const __origGetItem = localStorage.getItem.bind(localStorage);
+          localStorage.getItem = (k) => (k === 'selector_memory_v2' ? null : __origGetItem(k));
+        } catch {}
+        
         ${warmupScrollJS()}
         
         // Load pure orchestrator
