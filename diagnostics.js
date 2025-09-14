@@ -484,10 +484,9 @@ if (document.readyState === 'loading') {
         container.scrollTop = container.scrollHeight;
       };
       
-      const [orch, orig] = await Promise.allSettled([
-        window.api.scrapeCurrent({ mode: 'normal' }),
-        window.api.scrapeOriginal({})
-      ]);
+      // Run sequentially to avoid debug log race condition
+      const orch = await window.api.scrapeCurrent({ mode: 'normal' }).then(r => ({ status: 'fulfilled', value: r })).catch(e => ({ status: 'rejected', reason: e }));
+      const orig = await window.api.scrapeOriginal({}).then(r => ({ status: 'fulfilled', value: r })).catch(e => ({ status: 'rejected', reason: e }));
       
       // Render results in UI panels with approach-specific configs
       if (orch.status === 'fulfilled') renderResult(orchEl, orch.value?.result || orch.value, null, { isOrchestrator: true });
