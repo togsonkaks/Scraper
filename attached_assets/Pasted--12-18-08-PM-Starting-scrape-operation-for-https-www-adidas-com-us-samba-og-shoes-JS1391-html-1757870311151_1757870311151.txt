@@ -1,0 +1,1596 @@
+[12:18:08 PM] 🚀 Starting scrape operation for: https://www.adidas.com/us/samba-og-shoes/JS1391.html?pr=taxonomy_rr&slot=2&rec=mt
+[12:18:08 PM] 🚀 SCRAPE START {"host":"adidas.com","href":"https://www.adidas.com/us/samba-og-shoes/JS1391.html?pr=taxonomy_rr&slot=2&rec=mt","mode":"normal"}
+[12:18:08 PM] 🧠 LOADED MEMORY: {"host":"adidas.com","hasMemory":false,"fields":[],"memoryData":{}}
+[12:18:08 PM] 🔄 NORMAL MODE - memory + fallbacks
+[12:18:08 PM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":false}
+[12:18:08 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: title
+[12:18:08 PM] 📝 TITLE FROM MEMORY: null
+[12:18:08 PM] 📝 TITLE: Falling back to generic...
+[12:18:08 PM] 📝 TITLE FROM GENERIC: Samba OG Shoes
+[12:18:08 PM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[12:18:08 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[12:18:08 PM] 🏷️ BRAND FROM MEMORY: null
+[12:18:08 PM] 🏷️ BRAND: Falling back to generic...
+[12:18:08 PM] 🏷️ BRAND FROM GENERIC: adidas
+[12:18:08 PM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[12:18:08 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[12:18:08 PM] 📄 DESCRIPTION FROM MEMORY: null
+[12:18:08 PM] 📄 DESCRIPTION: Falling back to generic...
+[12:18:08 PM] 📄 DESCRIPTION FROM GENERIC: Shop the Samba OG Shoes - White at adidas.com/us! See all the styles and colors of Samba OG Shoes - White at the official adidas online shop.
+[12:18:08 PM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[12:18:08 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[12:18:08 PM] 💰 PRICE FROM MEMORY: null
+[12:18:08 PM] 💰 PRICE: Falling back to generic...
+[12:18:08 PM] 🔍 PRICE PARSING: {"input":"Price$100","preferFirst":false,"inputType":"string","inputLength":9}
+[12:18:08 PM] 💰 MONETARY TOKENS: [100]
+[12:18:08 PM] ✅ PRICE FROM MONETARY: {"result":100,"method":"MINIMUM","allTokens":[100]}
+[12:18:08 PM] 🎯 REFINING PRICE: {"baseVal":"100","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[12:18:08 PM] Price element <DIV._priceComponent_1dnvn_14>
+[12:18:08 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"aria-label":null,"attrFirst":null}
+[12:18:08 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[12:18:08 PM] 📍 ANCESTOR 0: <DIV._priceComponent_1dnvn_14>
+[12:18:08 PM] 🔍 PRICE PARSING: {"input":"Price$100","preferFirst":false,"inputType":"string","inputLength":9}
+[12:18:08 PM] 💰 MONETARY TOKENS: [100]
+[12:18:08 PM] ✅ PRICE FROM MONETARY: {"result":100,"method":"MINIMUM","allTokens":[100]}
+[12:18:08 PM] 💰 ANCESTOR 0 PRICE: 100
+[12:18:08 PM] 📍 ANCESTOR 1: <DIV.product-price_price__jocBj>
+[12:18:08 PM] 🔍 PRICE PARSING: {"input":"Price$100","preferFirst":false,"inputType":"string","inputLength":9}
+[12:18:08 PM] 💰 MONETARY TOKENS: [100]
+[12:18:08 PM] ✅ PRICE FROM MONETARY: {"result":100,"method":"MINIMUM","allTokens":[100]}
+[12:18:08 PM] 💰 ANCESTOR 1 PRICE: 100
+[12:18:08 PM] 📍 ANCESTOR 2: <DIV.product-description_product-price__ZlQUS>
+[12:18:08 PM] 🔍 PRICE PARSING: {"input":"Price$100","preferFirst":false,"inputType":"string","inputLength":9}
+[12:18:08 PM] 💰 MONETARY TOKENS: [100]
+[12:18:08 PM] ✅ PRICE FROM MONETARY: {"result":100,"method":"MINIMUM","allTokens":[100]}
+[12:18:08 PM] 💰 ANCESTOR 2 PRICE: 100
+[12:18:08 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"100","originalBase":"100"}
+[12:18:08 PM] 💰 PRICE FROM GENERIC: 100
+[12:18:08 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:18:08 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:18:08 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:18:08 PM] 🖼️ Getting generic images for hostname: adidas.com
+[12:18:08 PM] 🎯 Trying site-specific selector for adidas.com: .product-image-container img
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .product-image-container img
+[12:18:08 PM] 📊 Found 0 elements for selector: .product-image-container img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🎯 Trying site-specific selector for adidas.com: .product-media img[src*="assets.adidas.com"]
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .product-media img[src*="assets.adidas.com"]
+[12:18:08 PM] 📊 Found 0 elements for selector: .product-media img[src*="assets.adidas.com"]
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[12:18:08 PM] 📊 Found 0 elements for selector: .product-media img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[12:18:08 PM] 📊 Found 0 elements for selector: .gallery img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[12:18:08 PM] 📊 Found 0 elements for selector: .image-gallery img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[12:18:08 PM] 📊 Found 0 elements for selector: .product-images img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[12:18:08 PM] 📊 Found 0 elements for selector: .product-gallery img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[12:18:08 PM] 📊 Found 11 elements for selector: [class*=gallery] img
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg","data-src":null,"data-image":null,"data-zoom-image":n
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+[12:18:08 PM] ✅ Found image URL from srcset: g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/videos/w_600,f_auto,q_auto/b456b23862264260aa71e51fe393849a_d98c/Samba_OG_Shoes_White_JS1391_video.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/videos/w_600,f_auto,q_auto/b456b23862264260aa71e51fe393849a_d98c/Samba_OG_
+[12:18:08 PM] ✅ Found image URL from srcset: g_auto/b456b23862264260aa71e51fe393849a_d98c/Samba_OG_Shoes_White_JS1391_video.jpg
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 32
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":32}
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] 🗑️ JUNK IMAGE: https://assets.adidas.com/videos/w_600,f_auto,q_auto/b456b23862264260aa71e51fe39
+0
+📋 Copy URL
+[12:18:08 PM] 🗑️ JUNK IMAGE: https://www.adidas.com/us/samba-og-shoes/g_auto/b456b23862264260aa71e51fe393849a
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 128): https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+128
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 95): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+95[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+128
+📋 Copy URL
+[12:18:08 PM] 🎯 HIGH SCORE + SIZE OK (95): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+95[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":28,"junk":2,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":2}
+[12:18:08 PM] 🖼️ FINAL IMAGES: ["https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b","https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1"]
+[12:18:08 PM] 🖼️ After hybrid filtering: 2 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .slider img
+[12:18:08 PM] 📊 Found 0 elements for selector: .slider img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .thumbnails img
+[12:18:08 PM] 📊 Found 0 elements for selector: .thumbnails img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+[12:18:08 PM] 📊 Found 0 elements for selector: .pdp-gallery img
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 0
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:18:08 PM] 🖼️ FINAL IMAGES: []
+[12:18:08 PM] 🖼️ After hybrid filtering: 0 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+[12:18:08 PM] 📊 Found 10 elements for selector: [data-testid*=image] img
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg","data-src":null,"data-image":null,"data-zoom-image":n
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+[12:18:08 PM] ✅ Found image URL from srcset: g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 30
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 128): https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+128
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 95): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+95[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+128
+📋 Copy URL
+[12:18:08 PM] 🎯 HIGH SCORE + SIZE OK (95): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+95[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":28,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":2}
+[12:18:08 PM] 🖼️ FINAL IMAGES: ["https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b","https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1"]
+[12:18:08 PM] 🖼️ After hybrid filtering: 2 images
+[12:18:08 PM] 🔍 GATHERING IMAGES with selector: img
+[12:18:08 PM] 📊 Found 65 elements for selector: img
+[12:18:08 PM] Image element <IMG._image_n199c_68>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_sustain_left_d_c96faee944.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-lar
+[12:18:08 PM] ✅ Found image URL from attributes: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_susta
+[12:18:08 PM] Image element <IMG._image_n199c_68>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e68f.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset"
+[12:18:08 PM] ✅ Found image URL from attributes: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+[12:18:08 PM] Image element <IMG._image_n199c_68>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_sustain_left_d_c96faee944.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-lar
+[12:18:08 PM] ✅ Found image URL from attributes: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_susta
+[12:18:08 PM] Image element <IMG._image_n199c_68>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e68f.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset"
+[12:18:08 PM] ✅ Found image URL from attributes: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+[12:18:08 PM] Image element <IMG._image_n199c_68>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_sustain_left_d_c96faee944.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-lar
+[12:18:08 PM] ✅ Found image URL from attributes: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_susta
+[12:18:08 PM] Image element <IMG._image_n199c_68>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e68f.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset"
+[12:18:08 PM] ✅ Found image URL from attributes: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+[12:18:08 PM] Image element <IMG._image_n199c_68>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e68f.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset"
+[12:18:08 PM] ✅ Found image URL from attributes: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+[12:18:08 PM] Image element <IMG._image_n199c_68>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_sustain_left_d_c96faee944.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-lar
+[12:18:08 PM] ✅ Found image URL from attributes: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_prime_v1_topnav_susta
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg","data-src":null,"data-image":null,"data-zoom-image":n
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+[12:18:08 PM] ✅ Found image URL from srcset: g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes_White_JS1391_01_00_standard.jpg
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/videos/w_600,f_auto,q_auto/b456b23862264260aa71e51fe393849a_d98c/Samba_OG_Shoes_White_JS1391_video.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/videos/w_600,f_auto,q_auto/b456b23862264260aa71e51fe393849a_d98c/Samba_OG_
+[12:18:08 PM] ✅ Found image URL from srcset: g_auto/b456b23862264260aa71e51fe393849a_d98c/Samba_OG_Shoes_White_JS1391_video.jpg
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"data:image/gif;base64,R
+[12:18:08 PM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] ✅ Found image URL from srcset: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] 📸 Checking picture parent for sources...
+[12:18:08 PM] ✅ Found image URL from picture source: R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes_White_JS1391.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_
+[12:18:08 PM] ✅ Found image URL from srcset: g_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes_White_JS1391.jpg
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_Shoes_White_JS1391_00_plp_standard.jpg","data-src":null,"data-image":null,"data-zoom-image":
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/581a995b7edd45ea945f2fc06b214e54_9366/Originals_Trefoil_Sweater_Blue_JX9267_HM1.jpg","data-src":null,"data-image":null,"data-zoom-image":nu
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/581a995b7edd45ea945f2fc06b214e54_9366/Originals
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/18954245e8c847879638df67d829b8ae_9366/Polo_Shirt_White_JY3515_000_plp_model.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/18954245e8c847879638df67d829b8ae_9366/Polo_Shir
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boyshort_Black_JW7318_HM1.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-la
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boys
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fur_Jacket_Black_JW7287_HM1.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"dat
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fu
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/1a253f9e012d4402b0eb8dc351cf9c7e_9366/Adicolor_Classic_Firebird_Loose_Track_Pants_Black_JC8245_000_plp_model.jpg","data-src":null,"data-ima
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/1a253f9e012d4402b0eb8dc351cf9c7e_9366/Adicolor_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/fcda3d9d72b3488ea8e93fd165e572c6_9366/adidas_Pixar_Cars_Adifom_Forum_360_Shoes_Kids_Yellow_JQ1339_00_plp_standard.jpg","data-src":null,"dat
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/fcda3d9d72b3488ea8e93fd165e572c6_9366/adidas_Pi
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_Shoes_Brown_JR1640_00_plp_standard.jpg","data-src":null,"data-image":null,"data-zoom-image":
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/c83ea4b607264227b109b9206e58edc3_9366/Superstar_82_Roller_skate_White_JS4038_00_plp_standard.jpg","data-src":null,"data-image":null,"data-z
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/c83ea4b607264227b109b9206e58edc3_9366/Superstar
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print_Samba_Long_Tongue_Shoes_White_JS3931_00_plp_standard.jpg","data-src":null,"data-image":null
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/7722d1dd95184da6937ed2d099c1cebd_9366/Gazelle_Bold_Shoes_Black_IE0876_00_plp_standard.jpg","data-src":null,"data-image":null,"data-zoom-ima
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/7722d1dd95184da6937ed2d099c1cebd_9366/Gazelle_B
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/ae6fc2d6904e491191f7786763cf604a_9366/Campus_00s_Shoes_White_JQ2101_00_plp_standard.jpg","data-src":null,"data-image":null,"data-zoom-image
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/ae6fc2d6904e491191f7786763cf604a_9366/Campus_00
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/b1bdffcbbfc54060913f50947e248019_9366/adidas_Pixar_Cars_Adifom_Samba_360_Shoes_Kids_Multi_JR3772_00_plp_standard.jpg","data-src":null,"data
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/b1bdffcbbfc54060913f50947e248019_9366/adidas_Pi
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/4404feeead4944f0a3ba76afa143565b_9366/adidas_Originals_x_Liberty_London_Airliner_Medium_Green_JX3195_00_plp_standard.jpg","data-src":null,"
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/4404feeead4944f0a3ba76afa143565b_9366/adidas_Or
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/e785cfd7733d4104a42e6304b1ab8685_9366/3-Stripes_Tricot_Regular_Track_Jacket_White_JN6491_000_plp_model.jpg","data-src":null,"data-image":nu
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/e785cfd7733d4104a42e6304b1ab8685_9366/3-Stripes
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/w_600,f_auto,q_auto/8a0575532cb44a04a54cc8844eaa0d32_9366/Z.N.E._Full-Zip_Hooded_Track_Jacket_Blue_JW4718_000_plp_model.jpg","data-src":null,"data-image":null,
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/w_600,f_auto,q_auto/8a0575532cb44a04a54cc8844eaa0d32_9366/Z.N.E._Fu
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/70e36958be4f480cb5ea5bfa675e7810_9366/Samba_OG_Shoes_White_ID0478_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/89282cea6ef8495caff848b041a0a3ce_9366/Samba_OG_Shoes_Black_IE5836_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/054ce13d1f6444bc9d41574875b8c7e8_9366/Samba_OG_Shoes_White_IG1963_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/3f97a71da3ae4cb98250122966491184_9366/Samba_OG_Shoes_White_IG9030_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/cebcf6052ff3443ca0f9812cdf6b993d_9366/Samba_OG_Shoes_Black_IG9031_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/56e244b423ec41eb8a6a2e9c705bcd4f_9366/Samba_OG_Shoes_White_JI2677_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/91727bfaebb04156bd0c58117a52b871_9366/Samba_OG_Shoes_White_JI2724_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/6dc90a7f338a4417860fbb2bdeb60a12_9366/Samba_OG_Shoes_White_JI2725_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/49d73d8eaccb48ee89ee3feb82ce098c_9366/Samba_OG_shoes_Black_JI2734_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/09e6b9ef0cf646639e18e6c78edc1654_9366/Samba_OG_Shoes_White_JQ2106_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/9b11e2070258471cac6c62e6ae89d4f1_9366/Samba_OG_Shoes_Black_JQ3532_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/b668a22ed8ee475e87beafeeedb96657_9366/Samba_OG_Shoes_Silver_JR0035_00_pl
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/fe732a7fe7864a2aa2e46b68321a1555_9366/Samba_OG_Shoes_Blue_JR8829_00_plp_
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/b6e9cd6cf65b4b1480e26075f65af825_9366/Samba_OG_Shoes_Grey_JR8831_00_plp_
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/7f6d738b4bd541a1a17f6370a5953c7f_9366/Samba_OG_Shoes_White_JR8842_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/85fa5cc1f482437ba1a9a6e23da233a5_9366/Samba_OG_Shoes_White_JR8843_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/794d410e877c4eb499aa87f6ff01c7d3_9366/Samba_OG_Shoes_Burgundy_JR8844_00_
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/d1c0ca35973b46d3bd297bc403f364f0_9366/Samba_OG_Shoes_White_JR8848_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/4ae332fa816744bb8731fb22e39dddfc_9366/Samba_OG_Shoes_Green_JR9447_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/13a718a818c2471ebfdd2d2a57226508_9366/Samba_OG_Shoes_Burgundy_JS1316_00_
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/2492ea7bd9614450bac7180ca93b315a_9366/Samba_OG_Shoes_Blue_JS1317_00_plp_
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/27adbdee852147ee914de78876970e36_9366/Samba_OG_Shoes_White_JS1352_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/0151d5ddfd9142dca70e1c6339a885e9_9366/Samba_OG_Shoes_Black_JS1386_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/86f631a047d648dbbd17f5673450b734_9366/Samba_OG_Shoes_Black_JS1387_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_Shoes_White_JS1391_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/d58981abc9d54f90a426ec68dfab6a18_9366/Samba_OG_Shoes_White_JS1392_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/e795383412794043b922913af05c558e_9366/Samba_OG_Shoes_Blue_JS3934_00_plp_
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/46dffeeda5d442a4a2235cd418aac662_9366/Samba_OG_Shoes_Beige_JS3935_00_plp
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] Image element <IMG>
+[12:18:08 PM] 📋 Image attributes: {"src":"https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_lossy,c_fill,g_auto/92853b55ef7e45f38600c0ef77175901_9366/Samba_OG_X_Liberty_London_Shoes_Wh
+[12:18:08 PM] ✅ Found image URL from attributes: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+[12:18:08 PM] 🖼️ Raw enriched URLs collected: 87
+[12:18:08 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":87}
+[12:18:08 PM] 🗑️ JUNK IMAGE: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_p
+0
+📋 Copy URL
+[12:18:08 PM] 🗑️ JUNK IMAGE: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_p
+0
+📋 Copy URL
+[12:18:08 PM] 🗑️ JUNK IMAGE: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_p
+0
+📋 Copy URL
+[12:18:08 PM] 🗑️ JUNK IMAGE: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/x_cat_fw25_p
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] 🗑️ JUNK IMAGE: https://assets.adidas.com/videos/w_600,f_auto,q_auto/b456b23862264260aa71e51fe39
+0
+📋 Copy URL
+[12:18:08 PM] 🗑️ JUNK IMAGE: https://www.adidas.com/us/samba-og-shoes/g_auto/b456b23862264260aa71e51fe393849a
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ❌ NOT IMAGE URL: https://www.adidas.com/us/samba-og-shoes/R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=
+0[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ✅ BEST OF 4 (score: 103): https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+103
+📋 Copy URL
+[12:18:08 PM] 🔄 DUPLICATE GROUP: 3 lower-scored versions rejected
+103
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 65): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+65[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 65): https://www.adidas.com/us/samba-og-shoes/g_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes
+65[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/581a995b7edd45ea945f2fc06b214e54_9366/Originals
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/18954245e8c847879638df67d829b8ae_9366/Polo_Shir
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boys
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fu
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/1a253f9e012d4402b0eb8dc351cf9c7e_9366/Adicolor_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 118): https://assets.adidas.com/images/w_600,f_auto,q_auto/fcda3d9d72b3488ea8e93fd165e572c6_9366/adidas_Pi
+118
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/c83ea4b607264227b109b9206e58edc3_9366/Superstar
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/7722d1dd95184da6937ed2d099c1cebd_9366/Gazelle_B
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 118): https://assets.adidas.com/images/w_600,f_auto,q_auto/ae6fc2d6904e491191f7786763cf604a_9366/Campus_00
+118
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/b1bdffcbbfc54060913f50947e248019_9366/adidas_Pi
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/4404feeead4944f0a3ba76afa143565b_9366/adidas_Or
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/e785cfd7733d4104a42e6304b1ab8685_9366/3-Stripes
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/w_600,f_auto,q_auto/8a0575532cb44a04a54cc8844eaa0d32_9366/Z.N.E._Fu
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 118): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+118
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 118): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+118
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] ✅ SINGLE IMAGE (score: 98): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+103
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+98
+📋 Copy URL
+[12:18:08 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+65[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_
+98
+📋 Copy URL
+[12:18:08 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.adidas.com/us/samba-og-shoes/g_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes
+65[IMG ERROR]
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/581a995b7edd45ea945f2fc06b214e54_9366/Originals
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/18954245e8c847879638df67d829b8ae_9366/Polo_Shir
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boys
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fu
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/1a253f9e012d4402b0eb8dc351cf9c7e_9366/Adicolor_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/fcda3d9d72b3488ea8e93fd165e572c6_9366/adidas_Pi
+118
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/c83ea4b607264227b109b9206e58edc3_9366/Superstar
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/7722d1dd95184da6937ed2d099c1cebd_9366/Gazelle_B
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/ae6fc2d6904e491191f7786763cf604a_9366/Campus_00
+118
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/b1bdffcbbfc54060913f50947e248019_9366/adidas_Pi
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/4404feeead4944f0a3ba76afa143565b_9366/adidas_Or
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/e785cfd7733d4104a42e6304b1ab8685_9366/3-Stripes
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/8a0575532cb44a04a54cc8844eaa0d32_9366/Z.N.E._Fu
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:08 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+118
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+118
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+98
+📋 Copy URL
+[12:18:09 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":28,"junk":6,"lowScore":0,"smallFile":0,"duplicateGroups":1,"kept":50}
+[12:18:09 PM] 🖼️ FINAL IMAGES: ["https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_e","https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b","https://www.adidas.com/us/samba-
+[12:18:09 PM] 🖼️ After hybrid filtering: 50 images
+[12:18:09 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":50}
+[12:18:09 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":50}
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 113): https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+113
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 103): https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+103
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 70): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+70[IMG ERROR]
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 50): https://www.adidas.com/us/samba-og-shoes/g_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes
+50[IMG ERROR]
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/581a995b7edd45ea945f2fc06b214e54_9366/Originals
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/18954245e8c847879638df67d829b8ae_9366/Polo_Shir
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boys
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fu
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/1a253f9e012d4402b0eb8dc351cf9c7e_9366/Adicolor_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 103): https://assets.adidas.com/images/w_600,f_auto,q_auto/fcda3d9d72b3488ea8e93fd165e572c6_9366/adidas_Pi
+103
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/c83ea4b607264227b109b9206e58edc3_9366/Superstar
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/7722d1dd95184da6937ed2d099c1cebd_9366/Gazelle_B
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 103): https://assets.adidas.com/images/w_600,f_auto,q_auto/ae6fc2d6904e491191f7786763cf604a_9366/Campus_00
+103
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/b1bdffcbbfc54060913f50947e248019_9366/adidas_Pi
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/4404feeead4944f0a3ba76afa143565b_9366/adidas_Or
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/e785cfd7733d4104a42e6304b1ab8685_9366/3-Stripes
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/8a0575532cb44a04a54cc8844eaa0d32_9366/Z.N.E._Fu
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 103): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+103
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 103): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+103
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+113
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+103
+📋 Copy URL
+[12:18:09 PM] 🎯 HIGH SCORE + SIZE OK (70): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+70[IMG ERROR]
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_
+83
+📋 Copy URL
+[12:18:09 PM] 📏 SIZE OK (est: 80KB): https://www.adidas.com/us/samba-og-shoes/g_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes
+50[IMG ERROR]
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/581a995b7edd45ea945f2fc06b214e54_9366/Originals
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/18954245e8c847879638df67d829b8ae_9366/Polo_Shir
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boys
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fu
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/1a253f9e012d4402b0eb8dc351cf9c7e_9366/Adicolor_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/fcda3d9d72b3488ea8e93fd165e572c6_9366/adidas_Pi
+103
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/c83ea4b607264227b109b9206e58edc3_9366/Superstar
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/7722d1dd95184da6937ed2d099c1cebd_9366/Gazelle_B
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/ae6fc2d6904e491191f7786763cf604a_9366/Campus_00
+103
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/b1bdffcbbfc54060913f50947e248019_9366/adidas_Pi
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/4404feeead4944f0a3ba76afa143565b_9366/adidas_Or
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/e785cfd7733d4104a42e6304b1ab8685_9366/3-Stripes
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/8a0575532cb44a04a54cc8844eaa0d32_9366/Z.N.E._Fu
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+103
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+103
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":50}
+[12:18:09 PM] 🖼️ FINAL IMAGES: ["https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_e","https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b","https://www.adidas.com/us/samba-
+[12:18:09 PM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e68f.jpg","https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547
+[12:18:09 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":30}
+[12:18:09 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 113): https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+113
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 103): https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+103
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 70): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+70[IMG ERROR]
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 50): https://www.adidas.com/us/samba-og-shoes/g_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes
+50[IMG ERROR]
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/581a995b7edd45ea945f2fc06b214e54_9366/Originals
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/18954245e8c847879638df67d829b8ae_9366/Polo_Shir
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boys
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fu
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/1a253f9e012d4402b0eb8dc351cf9c7e_9366/Adicolor_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 103): https://assets.adidas.com/images/w_600,f_auto,q_auto/fcda3d9d72b3488ea8e93fd165e572c6_9366/adidas_Pi
+103
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/c83ea4b607264227b109b9206e58edc3_9366/Superstar
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/7722d1dd95184da6937ed2d099c1cebd_9366/Gazelle_B
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 103): https://assets.adidas.com/images/w_600,f_auto,q_auto/ae6fc2d6904e491191f7786763cf604a_9366/Campus_00
+103
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/b1bdffcbbfc54060913f50947e248019_9366/adidas_Pi
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/4404feeead4944f0a3ba76afa143565b_9366/adidas_Or
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/e785cfd7733d4104a42e6304b1ab8685_9366/3-Stripes
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/w_600,f_auto,q_auto/8a0575532cb44a04a54cc8844eaa0d32_9366/Z.N.E._Fu
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] ✅ SINGLE IMAGE (score: 83): https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e
+113
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_
+103
+📋 Copy URL
+[12:18:09 PM] 🎯 HIGH SCORE + SIZE OK (70): https://www.adidas.com/us/samba-og-shoes/g_auto/22bc1090fb6547559a89448455b4c3b1_9366/Samba_OG_Shoes
+70[IMG ERROR]
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_
+83
+📋 Copy URL
+[12:18:09 PM] 📏 SIZE OK (est: 80KB): https://www.adidas.com/us/samba-og-shoes/g_auto/1927c5b76fee411094f8b1d338e26031_9366/Samba_OG_Shoes
+50[IMG ERROR]
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/c114ef57e2174345af3d352134a09ecb_9366/Samba_OG_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/581a995b7edd45ea945f2fc06b214e54_9366/Originals
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/18954245e8c847879638df67d829b8ae_9366/Polo_Shir
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/16e67fb9103347e19ca353b972090b58_9366/Sock_Boys
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/884be41e0058406eaf96adb7f703ef6c_9366/Hooded_Fu
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/1a253f9e012d4402b0eb8dc351cf9c7e_9366/Adicolor_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/fcda3d9d72b3488ea8e93fd165e572c6_9366/adidas_Pi
+103
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/33846cecf729449aad207f6ec8618d4e_9366/SL_72_OG_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/c83ea4b607264227b109b9206e58edc3_9366/Superstar
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/ad3d6d029e414c1ba24603629de60f5e_9366/Cow_Print
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/7722d1dd95184da6937ed2d099c1cebd_9366/Gazelle_B
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/ae6fc2d6904e491191f7786763cf604a_9366/Campus_00
+103
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/b1bdffcbbfc54060913f50947e248019_9366/adidas_Pi
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/4404feeead4944f0a3ba76afa143565b_9366/adidas_Or
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/e785cfd7733d4104a42e6304b1ab8685_9366/3-Stripes
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/w_600,f_auto,q_auto/8a0575532cb44a04a54cc8844eaa0d32_9366/Z.N.E._Fu
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🔒 TRUSTED CDN BYPASS: https://assets.adidas.com/images/e_trim:EAEEEF/c_lpad,w_iw,h_ih/b_rgb:EAEEEF/w_180,f_auto,q_auto,fl_
+83
+📋 Copy URL
+[12:18:09 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":30}
+[12:18:09 PM] 🖼️ FINAL IMAGES: ["https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_e","https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547559a89448455b","https://www.adidas.com/us/samba-
+[12:18:09 PM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/promo_fw25_eoq_sale_tn_d_6f9ce1e68f.jpg","https://assets.adidas.com/images/w_600,f_auto,q_auto/22bc1090fb6547
+[12:18:09 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Samba OG Shoes","brand":"adidas","description":"Shop the Samba OG Shoes - White at adidas.com/us! ","price":"100","imageCount":30,"firstImages":["https://brand.assets.adidas.com/image/upload
+[12:18:09 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":30}
+[12:18:09 PM] ✅ Debug trace complete
+Clear Debug

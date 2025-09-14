@@ -365,6 +365,21 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
           localStorage.getItem = (k) => (k === 'selector_memory_v2' ? null : __origGetItem(k));
         } catch {}
         
+        // PURGE globals from original logic to prevent contamination
+        try {
+          delete globalThis.getTitleGeneric;
+          delete globalThis.getBrandGeneric;
+          delete globalThis.getPriceGeneric;
+          delete globalThis.collectImagesFromPDP;
+          delete globalThis.collectSpecs;
+          delete globalThis.collectTags;
+          delete globalThis.guessGender;
+          delete globalThis.getSKU;
+          delete globalThis.T;
+          delete globalThis.uniq;
+          delete globalThis.looksHttp;
+        } catch {}
+        
         ${warmupScrollJS()}
         
         // Load pure orchestrator

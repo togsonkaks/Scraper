@@ -967,7 +967,7 @@
     if (prod && prod.description) { mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return prod.description; }
     return null;
   }
-  function getPriceGeneric() {
+  function getPrice() {
     const pairs = [
       ['[itemprop="price"]','content'],
       ['[data-test*=price]','text'],
@@ -1220,7 +1220,7 @@
         debug('💰 PRICE FROM MEMORY:', price);
         if (!price) {
           debug('💰 PRICE: Falling back to generic...');
-          price = getPriceGeneric();
+          price = getPrice();
           debug('💰 PRICE FROM GENERIC:', price);
         }
         
