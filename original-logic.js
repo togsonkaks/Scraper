@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
       panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
       
       try {
-        const { result, selectorsUsed } = await window.api.scrapeOriginal({});
+        const { result, selectorsUsed, debugLog } = await window.api.scrapeOriginal({});
         
         if (result.__error) {
           throw new Error(result.__error);
@@ -51,6 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
           div.textContent = url;
           out.appendChild(div);
         });
+        
+        // Display debug log for original logic (similar to orchestrator)
+        if (debugLog && debugLog.length > 0) {
+          window.lastDebugLog = debugLog;
+        }
         
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done (Original)</span>`;

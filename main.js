@@ -394,6 +394,25 @@ ipcMain.handle('scrape-original', async (_e, opts = {}) => {
         globalThis.__DISABLE_CUSTOM = true;
         try { delete globalThis.__tg_injectedMemory; } catch {}
         
+        // Initialize debug log for original logic
+        window.__tg_debugLog = [];
+        const TAG = '[ORIGINAL]';
+        const addToDebugLog = (level, ...args) => {
+          if (window.__tg_debugLog) {
+            window.__tg_debugLog.push({
+              timestamp: new Date().toLocaleTimeString(),
+              level,
+              message: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ')
+            });
+          }
+        };
+        const log = (...a) => { 
+          try { 
+            console.log(TAG, ...a);
+            addToDebugLog('info', ...a);
+          } catch(_){} 
+        };
+        
         ${warmupScrollJS()}
         
         // Load your modular scripts in order
@@ -403,15 +422,43 @@ ipcMain.handle('scrape-original', async (_e, opts = {}) => {
         ${imagesSource}
         ${specsTagsSource}
         
-        // Call your original functions directly
+        // Debug logging for original logic
+        log('🔧 ORIGINAL LOGIC START:', location.href);
+        
+        // Call your original functions with debug
+        log('📝 Calling getTitleGeneric()...');
         const titleResult = getTitleGeneric();
+        log('📝 TITLE RESULT:', titleResult);
+        
+        log('🏷️ Calling getBrandGeneric()...');
         const brandResult = getBrandGeneric(); 
+        log('🏷️ BRAND RESULT:', brandResult);
+        
+        log('💰 Calling getPriceGeneric()...');
         const priceResult = getPriceGeneric();
+        log('💰 PRICE RESULT:', priceResult);
+        
+        log('🖼️ Calling collectImagesFromPDP()...');
         const images = await collectImagesFromPDP();
+        log('🖼️ IMAGES FOUND:', Array.isArray(images) ? images.length : 0);
+        
+        log('📊 Calling collectSpecs()...');
         const specs = collectSpecs();
+        log('📊 SPECS FOUND:', Array.isArray(specs) ? specs.length : 0);
+        
+        log('🏷️ Calling collectTags()...');
         const tags = collectTags();
+        log('🏷️ TAGS FOUND:', Array.isArray(tags) ? tags.length : 0);
+        
+        log('👤 Calling guessGender()...');
         const gender = guessGender();
+        log('👤 GENDER RESULT:', gender);
+        
+        log('🔢 Calling getSKU()...');
         const sku = getSKU();
+        log('🔢 SKU RESULT:', sku);
+        
+        log('✅ ORIGINAL LOGIC COMPLETE');
         
         const result = {
           title: titleResult?.text || titleResult || '',
@@ -427,7 +474,11 @@ ipcMain.handle('scrape-original', async (_e, opts = {}) => {
           mode: 'original-modular'
         };
         
-        return { result, selectorsUsed: null };
+        return { 
+          result, 
+          selectorsUsed: null,
+          debugLog: window.__tg_debugLog || []
+        };
       } catch(e) { 
         return { result: { __error: String(e) }, selectorsUsed: null }; 
       }
