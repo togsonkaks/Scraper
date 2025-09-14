@@ -18,11 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (originalBtn) {
     originalBtn.onclick = async () => {
+      // Show debug panel and clear previous output (same as Save button)
+      showDebugPanel();
+      clearDebugOutput();
+      addDebugOutput('🔧 Starting Original Logic for: ' + (window.urlInput?.value || 'current page'), 'info');
+      
       statusEl.innerHTML = `<span class="pill">Original Logic</span>`;
       panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
       
       try {
-        const { result, selectorsUsed, debugLog } = await window.api.scrapeOriginal({});
+        const { result, selectorsUsed } = await window.api.scrapeOriginal({});
         
         if (result.__error) {
           throw new Error(result.__error);
@@ -52,9 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
           out.appendChild(div);
         });
         
-        // Display debug log for original logic (similar to orchestrator)
-        if (debugLog && debugLog.length > 0) {
-          window.lastDebugLog = debugLog;
+        // Display debug log (same as orchestrator approach)
+        if (result && result.__debugLog && Array.isArray(result.__debugLog)) {
+          result.__debugLog.forEach(entry => {
+            const colors = { info: 'info', warning: 'warning', error: 'error', debug: 'debug' };
+            addDebugOutput(entry.message, colors[entry.level] || 'info');
+          });
+          addDebugOutput('✅ Original Logic trace complete', 'success');
         }
         
         panel.style.display = 'grid';

@@ -474,10 +474,14 @@ ipcMain.handle('scrape-original', async (_e, opts = {}) => {
           mode: 'original-modular'
         };
         
+        const finalResult = {
+          ...result,
+          __debugLog: window.__tg_debugLog || []
+        };
+        
         return { 
-          result, 
-          selectorsUsed: null,
-          debugLog: window.__tg_debugLog || []
+          result: finalResult, 
+          selectorsUsed: null
         };
       } catch(e) { 
         return { result: { __error: String(e) }, selectorsUsed: null }; 
