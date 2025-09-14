@@ -409,10 +409,14 @@ if (document.readyState === 'loading') {
       orchEl.textContent = 'Running Orchestrator…';
       origEl.textContent = 'Running Original Logic…';
       
-      // Show debug panel for logging
+      // Show debug panel and clear previous debug logs
       const showDebugPanel = window.showDebugPanel;
+      const clearDebugOutput = window.clearDebugOutput;
       const addDebugOutput = window.addDebugOutput;
+      
       if (showDebugPanel) showDebugPanel();
+      if (clearDebugOutput) clearDebugOutput(); // Clear stale debug info
+      
       if (addDebugOutput) {
         addDebugOutput('🔍 Starting side-by-side comparison...', 'info');
         addDebugOutput('🚀 Running both Orchestrator and Original Logic simultaneously', 'info');
@@ -422,14 +426,42 @@ if (document.readyState === 'loading') {
         window.api.scrapeCurrent({ mode: 'normal' }),
         window.api.scrapeOriginal()
       ]);
+      
+      // Render results in UI panels
       if (orch.status === 'fulfilled') renderResult(orchEl, orch.value?.result || orch.value, null);
       else renderResult(orchEl, null, orch.reason?.message || String(orch.reason));
       if (orig.status === 'fulfilled') renderResult(origEl, orig.value?.result || orig.value, null);
       else renderResult(origEl, null, orig.reason?.message || String(orig.reason));
       
-      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Extract and display detailed debug logs from both approaches (shape-agnostic)
+      if (addDebugOutput) {
+        const orchLog = orch.status === 'fulfilled' && (orch.value?.result?.__debugLog || orch.value?.__debugLog);
+        const origLog = orig.status === 'fulfilled' && (orig.value?.result?.__debugLog || orig.value?.__debugLog);
+        
+        // Display Orchestrator debug logs
+        if (Array.isArray(orchLog)) {
+          addDebugOutput('🔧 ORCHESTRATOR DEBUG LOG:', 'info');
+          orchLog.forEach(entry => {
+            const colors = { info: 'info', warn: 'warning', warning: 'warning', error: 'error', debug: 'debug' };
+            addDebugOutput(`[ORCHESTRATOR] ${entry.message}`, colors[entry.level] || 'info');
+          });
+          addDebugOutput('✅ Orchestrator trace complete', 'success');
+        }
+        
+        // Display Original Logic debug logs  
+        if (Array.isArray(origLog)) {
+          addDebugOutput('📝 ORIGINAL LOGIC DEBUG LOG:', 'info');
+          origLog.forEach(entry => {
+            const colors = { info: 'info', warn: 'warning', warning: 'warning', error: 'error', debug: 'debug' };
+            addDebugOutput(`[ORIGINAL LOGIC] ${entry.message}`, colors[entry.level] || 'info');
+          });
+          addDebugOutput('✅ Original Logic trace complete', 'success');
+        }
+        
+        addDebugOutput('✅ Side-by-side comparison complete', 'success');
+      }
       
-      if (addDebugOutput) addDebugOutput('✅ Side-by-side comparison complete', 'success');
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 })();
