@@ -424,7 +424,7 @@ if (document.readyState === 'loading') {
       
       const [orch, orig] = await Promise.allSettled([
         window.api.scrapeCurrent({ mode: 'normal' }),
-        window.api.scrapeOriginal()
+        window.api.scrapeOriginal({})
       ]);
       
       // Render results in UI panels
