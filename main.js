@@ -346,48 +346,19 @@ ipcMain.handle('eval-in-product', async (_e, js) => {
 ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   const win = ensureProduct();
   
-  // Get current URL to determine host
-  const currentURL = await win.webContents.executeJavaScript('location.href');
-  const host = normalizeHost(new URL(currentURL).hostname);
-  
-  // Load memory data for injection
-  const allMemory = {};
-  try {
-    const files = fs.readdirSync(SELECTORS_DIR).filter(f => f.endsWith('.json'));
-    for (const file of files) {
-      const sanitizedHost = file.replace('.json', '');
-      // Convert sanitized filename back to normalized host
-      const fileHost = sanitizedHost.replace(/_/g, '.');
-      const data = readSelectorFile(fileHost);
-      if (data) {
-        // Convert to orchestrator-compatible format
-        const { __history, host: hostField, updated, __migrated, __migrationDate, ...selectorData } = data;
-        // Use normalized host as key for consistency
-        const normalizedFileHost = normalizeHost(fileHost);
-        allMemory[normalizedFileHost] = selectorData;
-      }
-    }
-  } catch (e) {
-    console.log('Error loading memory for injection:', e);
-  }
-  
   const orchPath = path.join(__dirname, 'scrapers', 'orchestrator.js');
-  const customPath = path.join(__dirname, 'scrapers', 'custom.js');
   const orchSource = fs.readFileSync(orchPath, 'utf8');
-  const customSource = fs.readFileSync(customPath, 'utf8');
   const injected = `
     (async () => {
       try {
-        // Inject memory data
-        globalThis.__tg_injectedMemory = ${JSON.stringify(allMemory)};
-        
+        // Disable memory and custom completely for clean comparison
+        globalThis.__tg_injectedMemory = {};
+        var getCustomHandlers = () => ({});
+        globalThis.__DISABLE_CUSTOM = true;
         
         ${warmupScrollJS()}
         
-        // CRITICAL: Load custom.js FIRST to expose getCustomHandlers
-        ${customSource}
-        
-        // Then load orchestrator.js which uses getCustomHandlers
+        // Load pure orchestrator
         ${orchSource}
         
         const out = await scrapeProduct(Object.assign({}, ${JSON.stringify({ mode:'control' })}, ${JSON.stringify(opts)}));
@@ -417,6 +388,12 @@ ipcMain.handle('scrape-original', async (_e, opts = {}) => {
   const injected = `
     (async () => {
       try {
+        // Clean up any contamination from previous runs
+        try { delete globalThis.getCustomHandlers; } catch {}
+        var getCustomHandlers = () => ({});
+        globalThis.__DISABLE_CUSTOM = true;
+        try { delete globalThis.__tg_injectedMemory; } catch {}
+        
         ${warmupScrollJS()}
         
         // Load your modular scripts in order
