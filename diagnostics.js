@@ -391,8 +391,7 @@ if (document.readyState === 'loading') {
       <div><b>Title:</b> ${result?.title||'null'}</div>
       <div><b>Price:</b> ${result?.price||'null'}</div>
       <div><b>Brand:</b> ${result?.brand||'null'}</div>
-      <div><b>URL:</b> ${result?.url||''}</div>
-      <div><b>Description:</b> ${(result?.description||'').slice(0,200)}${result?.description?.length > 200 ? '...' : ''}</div>
+      <div style="word-wrap:break-word; white-space:normal; max-width:100%;"><b>Description:</b> ${(result?.description||'').slice(0,200)}${result?.description?.length > 200 ? '...' : ''}</div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;">${imgs.map(u=>`<img referrerpolicy="no-referrer" src="${u}" style="height:64px;border:1px solid #eee;border-radius:6px;cursor:pointer;" onclick="openImageOverlay('${u}')">`).join('')}</div>`;
   }
   function syncButtonState(compareBtn) {
