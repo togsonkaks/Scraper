@@ -121,6 +121,7 @@
     <button id="memoryBtn" title="Scrape using saved selector memory only">Selector memory</button>
     <button id="saveBtn" disabled>Save (scrape)</button>
     <button id="originalBtn" disabled title="Scrape using original modular functions directly">Original Logic</button>
+    <button id="compareBothBtn" disabled title="Run both Orchestrator and Original Logic side-by-side" style="background: #2196F3; color: white; font-weight: bold;">🔍 Compare Both</button>
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
     <button id="batchAIBtn" title="Get AI suggestions for all fields at once (saves tokens)">🤖 Batch AI All</button>
@@ -318,6 +319,7 @@
     const memoryBtn = document.getElementById('memoryBtn');
     const saveBtn  = document.getElementById('saveBtn');
     const originalBtn = document.getElementById('originalBtn');
+    const compareBothBtn = document.getElementById('compareBothBtn');
     const statusEl = document.getElementById('status');
 
     const panel = document.getElementById('panel');

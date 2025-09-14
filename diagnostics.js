@@ -358,3 +358,78 @@ if (document.readyState === 'loading') {
     console.log('Diagnostics: Copy button listener attached (immediate)');
   }
 }
+
+// Compare Both functionality - runs both approaches simultaneously
+(() => {
+  function ensureCompareUI() {
+    let wrap = document.getElementById('compareWrap');
+    if (wrap) return wrap;
+    wrap = document.createElement('div');
+    wrap.id = 'compareWrap';
+    wrap.style.cssText = 'margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:10px;';
+    const mkPane = (id, title) => {
+      const box = document.createElement('div');
+      box.className = 'box';
+      box.innerHTML = `<div class="label">${title}</div><div id="${id}" style="font-size:12px"></div>`;
+      return box;
+    };
+    wrap.appendChild(mkPane('orchPane','🔧 Orchestrator')); // left
+    wrap.appendChild(mkPane('origPane','📝 Original Logic')); // right
+    const panel = document.getElementById('panel') || document.body;
+    panel.parentNode.insertBefore(wrap, (panel.nextSibling));
+    return wrap;
+  }
+  function renderResult(el, result, err) {
+    if (err) { el.innerHTML = `<div style="color:#b22;">Error: ${err}</div>`; return; }
+    const imgs = Array.isArray(result?.images) ? result.images.slice(0,8) : [];
+    el.innerHTML = `
+      <div><b>Title:</b> ${result?.title||'null'}</div>
+      <div><b>Price:</b> ${result?.price||'null'}</div>
+      <div><b>Brand:</b> ${result?.brand||'null'}</div>
+      <div><b>URL:</b> ${result?.url||''}</div>
+      <div><b>Description:</b> ${(result?.description||'').slice(0,200)}${result?.description?.length > 200 ? '...' : ''}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;">${imgs.map(u=>`<img referrerpolicy="no-referrer" src="${u}" style="height:64px;border:1px solid #eee;border-radius:6px;cursor:pointer;" onclick="openImageOverlay('${u}')">`).join('')}</div>`;
+  }
+  function syncButtonState(compareBtn) {
+    const saveBtn = document.getElementById('saveBtn');
+    if (!saveBtn) return;
+    const apply = () => { compareBtn.disabled = saveBtn.disabled; };
+    apply();
+    const mo = new MutationObserver(apply);
+    mo.observe(saveBtn, { attributes:true, attributeFilter:['disabled'] });
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('compareBothBtn');
+    if (!btn) return;
+    syncButtonState(btn);
+    btn.addEventListener('click', async () => {
+      const wrap = ensureCompareUI();
+      const orchEl = document.getElementById('orchPane');
+      const origEl = document.getElementById('origPane');
+      orchEl.textContent = 'Running Orchestrator…';
+      origEl.textContent = 'Running Original Logic…';
+      
+      // Show debug panel for logging
+      const showDebugPanel = window.showDebugPanel;
+      const addDebugOutput = window.addDebugOutput;
+      if (showDebugPanel) showDebugPanel();
+      if (addDebugOutput) {
+        addDebugOutput('🔍 Starting side-by-side comparison...', 'info');
+        addDebugOutput('🚀 Running both Orchestrator and Original Logic simultaneously', 'info');
+      }
+      
+      const [orch, orig] = await Promise.allSettled([
+        window.api.scrapeCurrent({ mode: 'normal' }),
+        window.api.scrapeOriginal()
+      ]);
+      if (orch.status === 'fulfilled') renderResult(orchEl, orch.value?.result || orch.value, null);
+      else renderResult(orchEl, null, orch.reason?.message || String(orch.reason));
+      if (orig.status === 'fulfilled') renderResult(origEl, orig.value?.result || orig.value, null);
+      else renderResult(origEl, null, orig.reason?.message || String(orig.reason));
+      
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      if (addDebugOutput) addDebugOutput('✅ Side-by-side comparison complete', 'success');
+    });
+  });
+})();

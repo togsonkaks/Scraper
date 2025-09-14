@@ -36,6 +36,12 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
 
 ## Recent Changes
+- **2024-09-14**: Completed unified "Compare Both" button implementation
+  - Fixed major contamination issue between orchestrator and original logic approaches 
+  - Added global cleanup system to ensure complete separation
+  - Implemented single-click simultaneous comparison with side-by-side results
+  - Enhanced orchestrator with detailed function call logging and selector tracing
+  - Verified true independence between approaches (different results prove separation)
 - Installed system dependencies for Electron GUI support
 - Configured virtual display setup for Replit environment
 - Added deployment configuration as VM target
