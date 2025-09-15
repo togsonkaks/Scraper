@@ -817,8 +817,8 @@
       addImageDebugLog('warn', `⚠️ SAFETY FALLBACK: Returning top ${topByScore.length} by score`, '', 0, false);
     }
     
-    // Sort again by DOM order and limit
-    sizeFilteredImages.sort((a, b) => a.index - b.index);
+    // Sort by score (highest first) and limit
+    sizeFilteredImages.sort((a, b) => b.score - a.score);
     const finalUrls = sizeFilteredImages.slice(0, 50).map(img => img.url);
     
     if (sizeFilteredImages.length > 50) {
@@ -1188,6 +1188,14 @@
           '[data-testid*="image"] img', 
           '.pdp-MediaContainer img',
           '[class*="ProductMedia"] img'
+        ],
+        'swarovski.com': [
+          '.swa-pdp-grid__carousel-area picture',
+          '.swa-product-carousel picture', 
+          '.swa-pdp-grid__carousel-area img',
+          '.swa-product-carousel img',
+          'picture[data-thumbnail-sm]',
+          '.swa-pdp-grid__carousel-area source[srcset]'
         ]
       };
       
