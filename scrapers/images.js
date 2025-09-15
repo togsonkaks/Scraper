@@ -3,7 +3,15 @@
 // NOTE: relies on global utils: T, uniq, looksHttp from utils.js
 
 async function collectImagesFromPDP() {
-    console.log("[DEBUG] collectImagesFromPDP starting...");
+  // Use debug system if available (Original Logic), fallback to console.log
+  const debug = (msg) => {
+    console.log("[DEBUG]", msg);
+    if (typeof addToDebugLog === 'function') {
+      addToDebugLog('debug', '[IMAGES]', msg);
+    }
+  };
+  
+  debug("collectImagesFromPDP starting...");
   const keepBiggestFromSrcset = (srcset) =>
     (srcset || "")
       .split(",")
@@ -157,12 +165,12 @@ async function collectImagesFromPDP() {
             imgs = Array.from(container.querySelectorAll('img'));
           }
           if (imgs.length >= 1) {
-            console.log(`[DEBUG] Found site-specific product gallery: ${sel} (${imgs.length} images)`);
+            debug(`Found site-specific product gallery: ${sel} (${imgs.length} images)`);
             galleries.push({ container, selector: sel, priority: 0, images: imgs }); // Highest priority
           }
         });
       } catch (e) {
-        console.log(`[DEBUG] Site-specific selector failed: ${sel}`, e.message);
+        debug(`Site-specific selector failed: ${sel} - ${e.message}`);
       }
     }
     
@@ -193,7 +201,7 @@ async function collectImagesFromPDP() {
           imgs = Array.from(container.querySelectorAll('img'));
         }
         if (imgs.length >= 1) {
-          console.log(`[DEBUG] Found high-priority product gallery: ${sel} (${imgs.length} images)`);
+          debug(`Found high-priority product gallery: ${sel} (${imgs.length} images)`);
           galleries.push({ container, selector: sel, priority: 1, images: imgs });
         }
       });
@@ -219,7 +227,7 @@ async function collectImagesFromPDP() {
           const allText = ((containerElement.className || '') + ' ' + (containerElement.getAttribute('aria-label') || '') + ' ' + (containerElement.textContent || '')).toLowerCase();
           
           if (/recent|recently|history|browsing|viewed|previously|last\s+viewed|you\s+viewed|your\s+history|recommend|related|similar|you[\s-_]*may|also[\s-_]*like|cross[\s-_]*sell|upsell/.test(allText)) {
-            console.log(`[DEBUG] BLACKLISTED carousel (browsing history/recommendations): ${sel}`);
+            debug(`🚫 BLACKLISTED carousel (browsing history/recommendations): ${sel}`);
             return; // Skip this container entirely
           }
         }
@@ -229,7 +237,7 @@ async function collectImagesFromPDP() {
         if (productContext) {
           const imgs = container.querySelectorAll('img');
           if (imgs.length >= 1) { // Reduced threshold
-            console.log(`[DEBUG] Found product carousel: ${sel} (${imgs.length} images)`);
+            debug(`Found product carousel: ${sel} (${imgs.length} images)`);
             galleries.push({ container, selector: sel, priority: 2, images: Array.from(imgs) });
           }
         }
@@ -270,7 +278,7 @@ async function collectImagesFromPDP() {
   }
   
   const productGalleries = findProductGalleries();
-  console.log(`[DEBUG] Found ${productGalleries.length} product galleries`);
+  debug(`Found ${productGalleries.length} product galleries`);
   
   // Use the first/best gallery as root, or document.body as ultimate fallback
   const root = productGalleries.length > 0 ? productGalleries[0].container : document.body;
