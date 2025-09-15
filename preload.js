@@ -44,7 +44,6 @@ contextBridge.exposeInMainWorld('api', {
   openProduct: (url) => call('open-product', url),
   evalInProduct: (js) => call('eval-in-product', js),
   scrapeCurrent: (opts) => call('scrape-current', opts),
-  scrapeOriginal: (opts) => call('scrape-original', opts),
 
   // ---- LLM + compare
   openCompare: (url) => call('open-compare', url),

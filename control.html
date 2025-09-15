@@ -120,6 +120,8 @@
     <button id="visitBtn">Load</button>
     <button id="memoryBtn" title="Scrape using saved selector memory only">Selector memory</button>
     <button id="saveBtn" disabled>Save (scrape)</button>
+    <!-- LLM (compare) button — added -->
+    <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
     <button id="batchAIBtn" title="Get AI suggestions for all fields at once (saves tokens)">🤖 Batch AI All</button>
     <button id="copyDiagnosticsBtn" title="Copy structured diagnostic information for troubleshooting">📋 Copy Diagnostics</button>
     <span id="aiCacheStatus" class="ai-cache-status">🤖 AI cache: Not Ready</span>
@@ -1439,6 +1441,20 @@
     });
     urlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') visitBtn.click(); });
 
+    /* === LLM (compare) minimal hook === */
+    (function(){
+      const btn = document.getElementById('llmCompareBtn');
+      if (!btn) return;
+      btn.addEventListener('click', async () => {
+        const url = (document.getElementById('urlInput')?.value || '').trim();
+        if (!url) { alert('Paste a URL first.'); return; }
+        try {
+          await window.api.openCompare?.(url);
+        } catch (e) {
+          alert('Compare window failed. Make sure main_bridge.js is required from main.js');
+        }
+      });
+    })();
 
     // Validation Panel Functions
     function showValidationPanel(results, summaryMsg, foundSuggestions) {
@@ -1578,6 +1594,5 @@
   </div>
   <!-- Load diagnostics functionality -->
   <script src="diagnostics.js"></script>
-  <script src="original-logic.js"></script>
 </body>
 </html>

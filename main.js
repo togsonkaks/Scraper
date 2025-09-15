@@ -346,210 +346,53 @@ ipcMain.handle('eval-in-product', async (_e, js) => {
 ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   const win = ensureProduct();
   
+  // Get current URL to determine host
+  const currentURL = await win.webContents.executeJavaScript('location.href');
+  const host = normalizeHost(new URL(currentURL).hostname);
+  
+  // Load memory data for injection
+  const allMemory = {};
+  try {
+    const files = fs.readdirSync(SELECTORS_DIR).filter(f => f.endsWith('.json'));
+    for (const file of files) {
+      const sanitizedHost = file.replace('.json', '');
+      // Convert sanitized filename back to normalized host
+      const fileHost = sanitizedHost.replace(/_/g, '.');
+      const data = readSelectorFile(fileHost);
+      if (data) {
+        // Convert to orchestrator-compatible format
+        const { __history, host: hostField, updated, __migrated, __migrationDate, ...selectorData } = data;
+        // Use normalized host as key for consistency
+        const normalizedFileHost = normalizeHost(fileHost);
+        allMemory[normalizedFileHost] = selectorData;
+      }
+    }
+  } catch (e) {
+    console.log('Error loading memory for injection:', e);
+  }
+  
   const orchPath = path.join(__dirname, 'scrapers', 'orchestrator.js');
+  const customPath = path.join(__dirname, 'scrapers', 'custom.js');
   const orchSource = fs.readFileSync(orchPath, 'utf8');
+  const customSource = fs.readFileSync(customPath, 'utf8');
   const injected = `
     (async () => {
       try {
-        // Disable memory and custom completely for clean comparison
-        globalThis.__tg_injectedMemory = {};
-        var getCustomHandlers = () => ({});
-        globalThis.__DISABLE_CUSTOM = true;
+        // Inject memory data
+        globalThis.__tg_injectedMemory = ${JSON.stringify(allMemory)};
         
-        // NUKE localStorage memory so orchestrator can't access saved selectors
-        try {
-          localStorage.removeItem('selector_memory_v2');
-          sessionStorage.removeItem('selector_memory_v2');
-          // Prevent re-reads during this run
-          const __origGetItem = localStorage.getItem.bind(localStorage);
-          localStorage.getItem = (k) => (k === 'selector_memory_v2' ? null : __origGetItem(k));
-        } catch {}
-        
-        // PURGE globals from original logic to prevent contamination
-        try {
-          delete globalThis.getTitleGeneric;
-          delete globalThis.getBrandGeneric;
-          delete globalThis.getPriceGeneric;
-          delete globalThis.collectImagesFromPDP;
-          delete globalThis.collectSpecs;
-          delete globalThis.collectTags;
-          delete globalThis.guessGender;
-          delete globalThis.getSKU;
-          delete globalThis.T;
-          delete globalThis.uniq;
-          delete globalThis.looksHttp;
-        } catch {}
         
         ${warmupScrollJS()}
         
-        // RESET Orchestrator globals to prevent cross-run contamination
-        try {
-          delete globalThis.__tg_lastSelectorsUsed;
-          window.__tg_debugLog = [];
-        } catch {}
+        // CRITICAL: Load custom.js FIRST to expose getCustomHandlers
+        ${customSource}
         
-        // Load pure orchestrator
+        // Then load orchestrator.js which uses getCustomHandlers
         ${orchSource}
         
         const out = await scrapeProduct(Object.assign({}, ${JSON.stringify({ mode:'control' })}, ${JSON.stringify(opts)}));
         return { result: out, selectorsUsed: (globalThis.__tg_lastSelectorsUsed||null) };
       } catch(e) { return { result: { __error: String(e) }, selectorsUsed: null }; }
-    })();
-  `;
-  return win.webContents.executeJavaScript(injected, true);
-});
-
-ipcMain.handle('scrape-original', async (_e, opts = {}) => {
-  const win = ensureProduct();
-  
-  // Load your modular scripts
-  const utilsPath = path.join(__dirname, 'scrapers', 'utils.js');
-  const titlePath = path.join(__dirname, 'scrapers', 'title.js');
-  const pricePath = path.join(__dirname, 'scrapers', 'price.js');
-  const imagesPath = path.join(__dirname, 'scrapers', 'images.js');
-  const specsTagsPath = path.join(__dirname, 'scrapers', 'specs_tags.js');
-  
-  const utilsSource = fs.readFileSync(utilsPath, 'utf8');
-  const titleSource = fs.readFileSync(titlePath, 'utf8');
-  const priceSource = fs.readFileSync(pricePath, 'utf8');
-  const imagesSource = fs.readFileSync(imagesPath, 'utf8');
-  const specsTagsSource = fs.readFileSync(specsTagsPath, 'utf8');
-  
-  const injected = `
-    (async () => {
-      try {
-        // THOROUGH cleanup to prevent contamination (mirror scrape-current)
-        try { delete globalThis.getCustomHandlers; } catch {}
-        var getCustomHandlers = () => ({});
-        globalThis.__DISABLE_CUSTOM = true;
-        
-        // Disable memory and custom completely for clean comparison
-        globalThis.__tg_injectedMemory = {};
-        
-        // NUKE localStorage memory so original logic can't access saved selectors
-        try {
-          localStorage.removeItem('selector_memory_v2');
-          sessionStorage.removeItem('selector_memory_v2');
-          // Prevent re-reads during this run
-          const __origGetItem = localStorage.getItem.bind(localStorage);
-          localStorage.getItem = (k) => (k === 'selector_memory_v2' ? null : __origGetItem(k));
-        } catch {}
-        
-        // PURGE ALL globals from previous runs (both orchestrator and original)
-        try {
-          delete globalThis.getTitleGeneric;
-          delete globalThis.getBrandGeneric; 
-          delete globalThis.getPriceGeneric;
-          delete globalThis.collectImagesFromPDP;
-          delete globalThis.collectSpecs;
-          delete globalThis.collectTags;
-          delete globalThis.guessGender;
-          delete globalThis.getSKU;
-          delete globalThis.T;
-          delete globalThis.uniq;
-          delete globalThis.looksHttp;
-          delete globalThis.__tg_lastSelectorsUsed;
-        } catch {}
-        
-        // Clear any run guards that could affect results  
-        try {
-          delete window.__TAGGLO_IMAGES_ALREADY_RAN__;
-          delete window.__TAGGLO_TITLE_ALREADY_RAN__;
-          delete window.__TAGGLO_PRICE_ALREADY_RAN__;
-        } catch {}
-        
-        // Initialize clean debug log for original logic
-        window.__tg_debugLog = [];
-        const TAG = '[ORIGINAL]';
-        const addToDebugLog = (level, ...args) => {
-          if (window.__tg_debugLog) {
-            window.__tg_debugLog.push({
-              timestamp: new Date().toLocaleTimeString(),
-              level,
-              message: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ')
-            });
-          }
-        };
-        const log = (...a) => { 
-          try { 
-            console.log(TAG, ...a);
-            addToDebugLog('info', ...a);
-          } catch(_){} 
-        };
-        
-        ${warmupScrollJS()}
-        
-        // Load your modular scripts in order
-        ${utilsSource}
-        ${titleSource}
-        ${priceSource}
-        ${imagesSource}
-        ${specsTagsSource}
-        
-        // Debug logging for original logic
-        log('🔧 ORIGINAL LOGIC START:', location.href);
-        
-        // Call your original functions with debug
-        log('📝 Calling getTitleGeneric()...');
-        const titleResult = getTitleGeneric();
-        log('📝 TITLE RESULT:', titleResult);
-        
-        log('🏷️ Calling getBrandGeneric()...');
-        const brandResult = getBrandGeneric(); 
-        log('🏷️ BRAND RESULT:', brandResult);
-        
-        log('💰 Calling getPriceGeneric()...');
-        const priceResult = getPriceGeneric();
-        log('💰 PRICE RESULT:', priceResult);
-        
-        log('🖼️ Calling collectImagesFromPDP()...');
-        const images = await collectImagesFromPDP();
-        log('🖼️ IMAGES FOUND:', Array.isArray(images) ? images.length : 0);
-        
-        log('📊 Calling collectSpecs()...');
-        const specs = collectSpecs();
-        log('📊 SPECS FOUND:', Array.isArray(specs) ? specs.length : 0);
-        
-        log('🏷️ Calling collectTags()...');
-        const tags = collectTags();
-        log('🏷️ TAGS FOUND:', Array.isArray(tags) ? tags.length : 0);
-        
-        log('👤 Calling guessGender()...');
-        const gender = guessGender();
-        log('👤 GENDER RESULT:', gender);
-        
-        log('🔢 Calling getSKU()...');
-        const sku = getSKU();
-        log('🔢 SKU RESULT:', sku);
-        
-        log('✅ ORIGINAL LOGIC COMPLETE');
-        
-        const result = {
-          title: titleResult?.text || titleResult || '',
-          brand: brandResult?.text || brandResult || '',
-          price: priceResult?.text || priceResult || '',
-          images: Array.isArray(images) ? images : [],
-          specs: Array.isArray(specs) ? specs : [],
-          tags: Array.isArray(tags) ? tags : [],
-          gender: gender || '',
-          sku: sku || '',
-          url: location.href,
-          timestamp: new Date().toISOString(),
-          mode: 'original-modular'
-        };
-        
-        const finalResult = {
-          ...result,
-          __debugLog: window.__tg_debugLog || []
-        };
-        
-        return { 
-          result: finalResult, 
-          selectorsUsed: null
-        };
-      } catch(e) { 
-        return { result: { __error: String(e) }, selectorsUsed: null }; 
-      }
     })();
   `;
   return win.webContents.executeJavaScript(injected, true);

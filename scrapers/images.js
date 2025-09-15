@@ -3,15 +3,9 @@
 // NOTE: relies on global utils: T, uniq, looksHttp from utils.js
 
 async function collectImagesFromPDP() {
-  // Use debug system if available (Original Logic), fallback to console.log
-  const debug = (msg) => {
-    console.log("[DEBUG]", msg);
-    if (typeof addToDebugLog === 'function') {
-      addToDebugLog('debug', '[IMAGES]', msg);
-    }
-  };
-  
-  debug("collectImagesFromPDP starting...");
+    if (window.__TAGGLO_IMAGES_ALREADY_RAN__) return [];
+window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
+    console.log("[DEBUG] collectImagesFromPDP starting...");
   const keepBiggestFromSrcset = (srcset) =>
     (srcset || "")
       .split(",")
@@ -41,27 +35,11 @@ async function collectImagesFromPDP() {
     if (containerClasses.includes('product') && !containerClasses.includes('related')) score += 10;
     if (containerClasses.includes('gallery')) score += 8;
     
-    // BLACKLIST: Heavily penalize browsing history and recommendation sections
-    const parentElement = imgElement.closest('[class*="sidebar"], [class*="related"], [class*="recommend"], [class*="similar"], [class*="you-may"], [class*="also-"], [class*="recent"], [class*="history"], [class*="browsing"], [class*="viewed"], [class*="previously"], [class*="last-"], [class*="cross-"], [class*="upsell"], [aria-label*="recent"], [aria-label*="history"], [aria-label*="viewed"], [aria-label*="browsing"]');
-    
-    if (parentElement) {
-      const allText = ((parentElement.className || '') + ' ' + (parentElement.getAttribute('aria-label') || '') + ' ' + (parentElement.textContent || '')).toLowerCase();
-      
-      // Heavy penalties for browsing history sections
-      if (/recent|recently|history|browsing|viewed|previously|last\s+viewed|you\s+viewed|your\s+history/.test(allText)) {
-        score -= 50; // Heavy penalty to effectively exclude
-      }
-      
-      // Strong penalties for recommendation sections  
-      if (/related|recommend|similar|you[\s-_]*may|also[\s-_]*like|cross[\s-_]*sell|upsell/.test(allText)) {
-        score -= 25; // Strong penalty
-      }
-      
-      // Standard penalties for sidebar content
-      if (/sidebar|aside/.test(allText)) {
-        score -= 15;
-      }
-    }
+    // Lower score for images in sidebars, related products, recommendations
+    const parentClasses = (imgElement.closest('[class*="sidebar"], [class*="related"], [class*="recommend"], [class*="similar"], [class*="you-may"], [class*="also-"]')?.className || '').toLowerCase();
+    if (parentClasses.includes('sidebar')) score -= 15;
+    if (parentClasses.includes('related') || parentClasses.includes('recommend')) score -= 10;
+    if (parentClasses.includes('similar') || parentClasses.includes('you-may')) score -= 8;
     
     // Higher score for images near the product title
     const h1 = document.querySelector('h1');
@@ -165,12 +143,12 @@ async function collectImagesFromPDP() {
             imgs = Array.from(container.querySelectorAll('img'));
           }
           if (imgs.length >= 1) {
-            debug(`Found site-specific product gallery: ${sel} (${imgs.length} images)`);
+            console.log(`[DEBUG] Found site-specific product gallery: ${sel} (${imgs.length} images)`);
             galleries.push({ container, selector: sel, priority: 0, images: imgs }); // Highest priority
           }
         });
       } catch (e) {
-        debug(`Site-specific selector failed: ${sel} - ${e.message}`);
+        console.log(`[DEBUG] Site-specific selector failed: ${sel}`, e.message);
       }
     }
     
@@ -194,105 +172,20 @@ async function collectImagesFromPDP() {
     for (const sel of highPrioritySelectors) {
       const containers = document.querySelectorAll(sel);
       containers.forEach(container => {
-        // CRITICAL: Apply same blacklisting as generic carousels
-        // Check for Shopify recently-viewed sections
-        const shopifySection = container.closest('[data-section-id*="recently-viewed"], [data-section-id*="recent"], [data-section-id*="recommend"], [data-section-id*="related"]');
-        if (shopifySection) {
-          debug(`🚫 BLACKLISTED high-priority Shopify section: ${sel}`);
-          return;
-        }
-        
-        // Check for generic browsing history patterns
-        const containerElement = container.closest('[class*="recent"], [class*="history"], [class*="browsing"], [class*="viewed"], [class*="previously"], [class*="recommend"], [class*="related"], [class*="similar"], [class*="you-may"], [class*="also-"], [class*="cross-"], [class*="upsell"], [aria-label*="recent"], [aria-label*="history"], [aria-label*="viewed"], [aria-label*="browsing"]');
-        
-        if (containerElement) {
-          const allText = ((containerElement.className || '') + ' ' + (containerElement.getAttribute('aria-label') || '') + ' ' + (containerElement.textContent || '')).toLowerCase();
-          
-          if (/recent|recently|history|browsing|viewed|previously|last\s+viewed|you\s+viewed|your\s+history|recommend|related|similar|you[\s-_]*may|also[\s-_]*like|cross[\s-_]*sell|upsell/.test(allText)) {
-            debug(`🚫 BLACKLISTED high-priority carousel (browsing history): ${sel}`);
-            return;
-          }
-        }
-        
-        // H1 proximity check for high-priority selectors
-        const h1 = document.querySelector('h1');
-        if (h1) {
-          const h1Rect = h1.getBoundingClientRect();
-          const containerRect = container.getBoundingClientRect();
-          const distance = Math.abs(containerRect.top - h1Rect.top) + Math.abs(containerRect.left - h1Rect.left);
-          
-          // Stricter proximity for high-priority selectors (600px vs 800px for generic)
-          if (distance > 600) {
-            debug(`🚫 SKIPPED distant high-priority gallery (${Math.round(distance)}px from H1): ${sel}`);
-            return;
-          }
-        }
-        
-        // Require product context for high-priority selectors
-        const productContext = container.closest('.product, .pdp, main, [class*="Product"], [class*="product"]');
-        if (!productContext) {
-          debug(`🚫 SKIPPED high-priority selector without product context: ${sel}`);
-          return;
-        }
-        
-        // Fix container detection for IMG-based selectors
-        let actualContainer = container;
-        let imgs = [];
-        
-        if (container.tagName === 'IMG') {
-          // For IMG selectors like '.swiper-slide img', find the proper gallery wrapper
-          const galleryWrapper = container.closest('.swiper-wrapper, .slick-track, .swiper-container, .product-gallery, .product-images, .product-media, [class*="gallery"], [class*="carousel"]');
-          if (galleryWrapper) {
-            actualContainer = galleryWrapper;
-            imgs = Array.from(galleryWrapper.querySelectorAll('img'));
-            debug(`Found gallery wrapper for IMG selector: ${sel} -> ${galleryWrapper.className || galleryWrapper.tagName}`);
-          } else {
-            // Fall back to the IMG itself only if in strong product context
-            const strongProductContext = container.closest('.product-detail, .pdp-main, .product-info, [class*="ProductDetail"]');
-            if (strongProductContext) {
-              imgs = [container];
-            } else {
-              debug(`🚫 SKIPPED isolated IMG without gallery wrapper: ${sel}`);
-              return;
-            }
-          }
-        } else {
-          imgs = Array.from(container.querySelectorAll('img'));
-        }
-        
-        if (imgs.length >= 1) {
-          debug(`Found high-priority product gallery: ${sel} (${imgs.length} images, container: ${actualContainer.className || actualContainer.tagName})`);
-          galleries.push({ container: actualContainer, selector: sel, priority: 1, images: imgs });
-        }
-      });
-    }
-    
-    // Priority 2: Product context selectors (images near H1/main product area)
-    const productContextSelectors = [
-      '.product-detail img',
-      '.product-info img', 
-      '.main-product img',
-      '[class*="pdp"] img',
-      '[class*="product-detail"] img'
-    ];
-    
-    for (const sel of productContextSelectors) {
-      const containers = document.querySelectorAll(sel);
-      containers.forEach(container => {
         let imgs = [];
         if (container.tagName === 'IMG') {
-          imgs = [container];
+          imgs = [container];  // Handle direct IMG selectors like '.swiper-slide img'
         } else {
           imgs = Array.from(container.querySelectorAll('img'));
         }
         if (imgs.length >= 1) {
-          debug(`Found product context gallery: ${sel} (${imgs.length} images)`);
-          galleries.push({ container, selector: sel, priority: 2, images: imgs });
+          console.log(`[DEBUG] Found high-priority product gallery: ${sel} (${imgs.length} images)`);
+          galleries.push({ container, selector: sel, priority: 1, images: imgs });
         }
       });
     }
     
-    // Priority 5: Generic carousels/sliders (LOWEST PRIORITY to avoid browsing history)
+    // Priority 2: Image carousels/sliders in product context
     const carouselSelectors = [
       '.carousel .carousel-inner',
       '.swiper-wrapper',
@@ -305,53 +198,19 @@ async function collectImagesFromPDP() {
     for (const sel of carouselSelectors) {
       const containers = document.querySelectorAll(sel);
       containers.forEach(container => {
-        // ENHANCED BLACKLIST: Skip browsing history and recommendation carousels
-        // Check for Shopify recently-viewed sections (data-section-id)
-        const shopifySection = container.closest('[data-section-id*="recently-viewed"], [data-section-id*="recent"], [data-section-id*="recommend"], [data-section-id*="related"]');
-        if (shopifySection) {
-          debug(`🚫 BLACKLISTED Shopify recently-viewed section: ${sel}`);
-          return;
-        }
-        
-        // Check for generic browsing history patterns
-        const containerElement = container.closest('[class*="recent"], [class*="history"], [class*="browsing"], [class*="viewed"], [class*="previously"], [class*="recommend"], [class*="related"], [class*="similar"], [class*="you-may"], [class*="also-"], [class*="cross-"], [class*="upsell"], [aria-label*="recent"], [aria-label*="history"], [aria-label*="viewed"], [aria-label*="browsing"]');
-        
-        if (containerElement) {
-          const allText = ((containerElement.className || '') + ' ' + (containerElement.getAttribute('aria-label') || '') + ' ' + (containerElement.textContent || '')).toLowerCase();
-          
-          if (/recent|recently|history|browsing|viewed|previously|last\s+viewed|you\s+viewed|your\s+history|recommend|related|similar|you[\s-_]*may|also[\s-_]*like|cross[\s-_]*sell|upsell/.test(allText)) {
-            debug(`🚫 BLACKLISTED carousel (browsing history/recommendations): ${sel}`);
-            return; // Skip this container entirely
-          }
-        }
-        
-        // H1 proximity check - only use carousels near the product title
-        const h1 = document.querySelector('h1');
-        if (h1) {
-          const h1Rect = h1.getBoundingClientRect();
-          const containerRect = container.getBoundingClientRect();
-          const distance = Math.abs(containerRect.top - h1Rect.top) + Math.abs(containerRect.left - h1Rect.left);
-          
-          // Only include carousels within 800px of H1 (product area)
-          if (distance > 800) {
-            debug(`🚫 SKIPPED distant carousel (${Math.round(distance)}px from H1): ${sel}`);
-            return;
-          }
-        }
-        
         // Check if this carousel is in a product context
         const productContext = container.closest('.product, .pdp, main, [class*="Product"]');
         if (productContext) {
           const imgs = container.querySelectorAll('img');
-          if (imgs.length >= 1) {
-            debug(`Found generic carousel: ${sel} (${imgs.length} images, LOW PRIORITY)`);
-            galleries.push({ container, selector: sel, priority: 5, images: Array.from(imgs) }); // MUCH LOWER PRIORITY
+          if (imgs.length >= 1) { // Reduced threshold
+            console.log(`[DEBUG] Found product carousel: ${sel} (${imgs.length} images)`);
+            galleries.push({ container, selector: sel, priority: 2, images: Array.from(imgs) });
           }
         }
       });
     }
     
-    // Priority 6: Fallback to product root if no galleries found
+    // Priority 3: Fallback to product root if no galleries found
     if (galleries.length === 0) {
       const h1 = q("h1");
       let node = h1;
@@ -361,7 +220,7 @@ async function collectImagesFromPDP() {
           const imgs = node.querySelectorAll('img');
           if (imgs.length >= 1) {
             console.log(`[DEBUG] Using product root fallback: ${node.className || node.tagName} (${imgs.length} images)`);
-            galleries.push({ container: node, selector: 'product-root', priority: 6, images: Array.from(imgs) });
+            galleries.push({ container: node, selector: 'product-root', priority: 3, images: Array.from(imgs) });
           }
           break;
         }
@@ -375,7 +234,7 @@ async function collectImagesFromPDP() {
           const imgs = main.querySelectorAll('img');
           if (imgs.length >= 1) {
             console.log(`[DEBUG] Using main content fallback (${imgs.length} images)`);
-            galleries.push({ container: main, selector: 'main-content', priority: 7, images: Array.from(imgs) });
+            galleries.push({ container: main, selector: 'main-content', priority: 4, images: Array.from(imgs) });
           }
         }
       }
@@ -385,7 +244,7 @@ async function collectImagesFromPDP() {
   }
   
   const productGalleries = findProductGalleries();
-  debug(`Found ${productGalleries.length} product galleries`);
+  console.log(`[DEBUG] Found ${productGalleries.length} product galleries`);
   
   // Use the first/best gallery as root, or document.body as ultimate fallback
   const root = productGalleries.length > 0 ? productGalleries[0].container : document.body;
