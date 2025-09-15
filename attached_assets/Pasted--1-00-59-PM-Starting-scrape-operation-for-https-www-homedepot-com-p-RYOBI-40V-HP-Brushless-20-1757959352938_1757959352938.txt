@@ -1,0 +1,346 @@
+[1:00:59 PM] 🚀 Starting scrape operation for: https://www.homedepot.com/p/RYOBI-40V-HP-Brushless-20-in-Cordless-Battery-Walk-Behind-Push-Lawn-Mower-with-6-0-Ah-Battery-and-Charger-RY401170/317061059
+[1:00:59 PM] 🚀 SCRAPE START {"host":"homedepot.com","href":"https://www.homedepot.com/p/RYOBI-40V-HP-Brushless-20-in-Cordless-Battery-Walk-Behind-Push-Lawn-Mower-with-6-0-Ah-Battery-and-Charger-RY401170/317061059","mode":"normal
+[1:00:59 PM] 🧠 LOADED MEMORY: {"host":"homedepot.com","hasMemory":false,"fields":[],"memoryData":{}}
+[1:00:59 PM] 🔄 NORMAL MODE - memory + fallbacks
+[1:00:59 PM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":false}
+[1:00:59 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: title
+[1:00:59 PM] 📝 TITLE FROM MEMORY: null
+[1:00:59 PM] 📝 TITLE: Falling back to generic...
+[1:00:59 PM] 📝 TITLE FROM GENERIC: 40V HP Brushless 20 in. Cordless Battery Walk Behind Push Lawn Mower with 6.0 Ah Battery and Charger
+[1:00:59 PM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[1:00:59 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[1:00:59 PM] 🏷️ BRAND FROM MEMORY: null
+[1:00:59 PM] 🏷️ BRAND: Falling back to generic...
+[1:00:59 PM] 🏷️ BRAND FROM GENERIC: RYOBI
+[1:00:59 PM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[1:00:59 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[1:00:59 PM] 📄 DESCRIPTION FROM MEMORY: null
+[1:00:59 PM] 📄 DESCRIPTION: Falling back to generic...
+[1:00:59 PM] 📄 DESCRIPTION FROM GENERIC: Improve your lawn's elegance with the help of this RYOBI Brushless Lithium-Ion Cordless Battery Walk Behind Push Lawn Mower Battery and Charger Included.
+[1:00:59 PM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[1:00:59 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[1:00:59 PM] 💰 PRICE FROM MEMORY: null
+[1:00:59 PM] 💰 PRICE: Falling back to generic...
+[1:00:59 PM] 🔍 PRICE PARSING: {"input":"$299.00","preferFirst":false,"inputType":"string","inputLength":7}
+[1:00:59 PM] 💰 MONETARY TOKENS: [299]
+[1:00:59 PM] ✅ PRICE FROM MONETARY: {"result":299,"method":"MINIMUM","allTokens":[299]}
+[1:00:59 PM] 🎯 REFINING PRICE: {"baseVal":"299","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[1:00:59 PM] Price element <DIV.sui-flex>
+[1:00:59 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"aria-label":null,"attrFirst":null}
+[1:00:59 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[1:00:59 PM] 📍 ANCESTOR 0: <DIV.sui-flex>
+[1:00:59 PM] 🔍 PRICE PARSING: {"input":"$299.00","preferFirst":false,"inputType":"string","inputLength":7}
+[1:00:59 PM] 💰 MONETARY TOKENS: [299]
+[1:00:59 PM] ✅ PRICE FROM MONETARY: {"result":299,"method":"MINIMUM","allTokens":[299]}
+[1:00:59 PM] 💰 ANCESTOR 0 PRICE: 299
+[1:00:59 PM] 📍 ANCESTOR 1: <DIV>
+[1:00:59 PM] 🔍 PRICE PARSING: {"input":"$299.00","preferFirst":false,"inputType":"string","inputLength":7}
+[1:00:59 PM] 💰 MONETARY TOKENS: [299]
+[1:00:59 PM] ✅ PRICE FROM MONETARY: {"result":299,"method":"MINIMUM","allTokens":[299]}
+[1:00:59 PM] 💰 ANCESTOR 1 PRICE: 299
+[1:00:59 PM] 📍 ANCESTOR 2: <DIV.sui-block>
+[1:00:59 PM] 🔍 PRICE PARSING: {"input":"$299.00","preferFirst":false,"inputType":"string","inputLength":7}
+[1:00:59 PM] 💰 MONETARY TOKENS: [299]
+[1:00:59 PM] ✅ PRICE FROM MONETARY: {"result":299,"method":"MINIMUM","allTokens":[299]}
+[1:00:59 PM] 💰 ANCESTOR 2 PRICE: 299
+[1:00:59 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"299","originalBase":"299"}
+[1:00:59 PM] 💰 PRICE FROM GENERIC: 299
+[1:00:59 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[1:00:59 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:00:59 PM] 🧩 IMAGES: Trying custom handler...
+[1:00:59 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[1:00:59 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:00:59 PM] 🏆 TOP SCORED IMAGES: []
+[1:00:59 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:00:59 PM] 🖼️ FINAL IMAGES: []
+[1:00:59 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[1:00:59 PM] 🖼️ Getting generic images for hostname: homedepot.com
+[1:00:59 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[1:00:59 PM] 📊 Found 0 elements for selector: .product-media img
+[1:00:59 PM] 🖼️ Raw enriched URLs collected: 0
+[1:00:59 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:00:59 PM] 🏆 TOP SCORED IMAGES: []
+[1:00:59 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:00:59 PM] 🖼️ FINAL IMAGES: []
+[1:00:59 PM] 🖼️ After hybrid filtering: 0 images
+[1:00:59 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[1:00:59 PM] 📊 Found 0 elements for selector: .gallery img
+[1:00:59 PM] 🖼️ Raw enriched URLs collected: 0
+[1:00:59 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:00:59 PM] 🏆 TOP SCORED IMAGES: []
+[1:00:59 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:00:59 PM] 🖼️ FINAL IMAGES: []
+[1:00:59 PM] 🖼️ After hybrid filtering: 0 images
+[1:00:59 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[1:00:59 PM] 📊 Found 0 elements for selector: .image-gallery img
+[1:00:59 PM] 🖼️ Raw enriched URLs collected: 0
+[1:00:59 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:00:59 PM] 🏆 TOP SCORED IMAGES: []
+[1:00:59 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:00:59 PM] 🖼️ FINAL IMAGES: []
+[1:00:59 PM] 🖼️ After hybrid filtering: 0 images
+[1:00:59 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[1:00:59 PM] 📊 Found 0 elements for selector: .product-images img
+[1:00:59 PM] 🖼️ Raw enriched URLs collected: 0
+[1:00:59 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:00:59 PM] 🏆 TOP SCORED IMAGES: []
+[1:00:59 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:00:59 PM] 🖼️ FINAL IMAGES: []
+[1:00:59 PM] 🖼️ After hybrid filtering: 0 images
+[1:00:59 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[1:00:59 PM] 📊 Found 0 elements for selector: .product-gallery img
+[1:00:59 PM] 🖼️ Raw enriched URLs collected: 0
+[1:00:59 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:00:59 PM] 🏆 TOP SCORED IMAGES: []
+[1:00:59 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:00:59 PM] 🖼️ FINAL IMAGES: []
+[1:00:59 PM] 🖼️ After hybrid filtering: 0 images
+[1:00:59 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[1:00:59 PM] 📊 Found 16 elements for selector: [class*=gallery] img
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/svn/ryobi-electric-push-mowers-ry401170-64_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/a1d8679c-47f3-4c25-9474-ce0f85f9c063/svn/ryobi-electric-push-mowers-ry401170-e1_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/a1d8679c-47f3-4c25-9474-ce0f85f9c063/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.video-thumbnail>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/43f07b5f-33e7-4e9c-9e11-912c05730d86/main/1280x720/12s213ms/match/image.jpg?pubId=66036796001","data-src":null,"data-image":nu
+[1:00:59 PM] ✅ Found image URL from attributes: https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/43f07b5f-33e7-4e9c-9e11-912c05730d
+[1:00:59 PM] Image element <IMG.video-thumbnail>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://cf-images.us-east-1.prod.boltdns.net/v1/jit/66036796001/3d91c838-700e-444c-afee-b220ac89f3aa/main/1280x720/15s50ms/match/image.jpg","data-src":null,"data-image":null,"data-zoom-image":
+[1:00:59 PM] ✅ Found image URL from attributes: https://cf-images.us-east-1.prod.boltdns.net/v1/jit/66036796001/3d91c838-700e-444c-afee-b220ac89f3aa
+[1:00:59 PM] Image element <IMG.video-thumbnail>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/cdeeaeb4-fec5-459e-b02f-fe5667436435/main/1280x720/52s608ms/match/image.jpg?pubId=66036796001","data-src":null,"data-image":nu
+[1:00:59 PM] ✅ Found image URL from attributes: https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/cdeeaeb4-fec5-459e-b02f-fe56674364
+[1:00:59 PM] Image element <IMG.three-sixty>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://www.thdstatic.com/spin/59/317061059/317061059_S01.spin/?thumb&profile=600","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:00:59 PM] ✅ Found image URL from attributes: https://www.thdstatic.com/spin/59/317061059/317061059_S01.spin/?thumb&profile=600
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/0551b2b2-fed2-40f8-b937-ebcf7af8787f/svn/ryobi-electric-push-mowers-ry401170-40_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/0551b2b2-fed2-40f8-b937-ebcf7af8787f/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/eb8bc234-2514-45dc-aaaa-d6fd75ac3a0c/svn/ryobi-electric-push-mowers-ry401170-a0_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/eb8bc234-2514-45dc-aaaa-d6fd75ac3a0c/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/4f0c7abe-9ef9-4218-8b27-a524b8ff32b1/svn/ryobi-electric-push-mowers-ry401170-1d_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/4f0c7abe-9ef9-4218-8b27-a524b8ff32b1/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/a4a5d682-f88c-4c6a-b384-1b4bab8591cc/svn/ryobi-electric-push-mowers-ry401170-66_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/a4a5d682-f88c-4c6a-b384-1b4bab8591cc/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/a8b33503-9e06-4f1c-bf6a-2f03bee8b4fa/svn/ryobi-electric-push-mowers-ry401170-77_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/a8b33503-9e06-4f1c-bf6a-2f03bee8b4fa/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/59d57c0f-dffd-4547-b782-f3087607456d/svn/ryobi-electric-push-mowers-ry401170-c3_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/59d57c0f-dffd-4547-b782-f3087607456d/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/f0275391-229d-4f6e-9784-f5a3b908900a/svn/ryobi-electric-push-mowers-ry401170-4f_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/f0275391-229d-4f6e-9784-f5a3b908900a/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/7faec6e4-aa10-48bb-b415-943c427812c8/svn/ryobi-electric-push-mowers-ry401170-1f_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/7faec6e4-aa10-48bb-b415-943c427812c8/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/55d0b021-46d8-462e-9bb2-437f09a99b94/svn/ryobi-electric-push-mowers-ry401170-d4_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/55d0b021-46d8-462e-9bb2-437f09a99b94/svn/ryobi-electric-p
+[1:00:59 PM] Image element <IMG.image>
+[1:00:59 PM] 📋 Image attributes: {"src":"https://images.thdstatic.com/productImages/6602d0ec-b89d-427c-9537-8a832a036ecf/svn/ryobi-electric-push-mowers-ry401170-31_600.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"da
+[1:00:59 PM] ✅ Found image URL from attributes: https://images.thdstatic.com/productImages/6602d0ec-b89d-427c-9537-8a832a036ecf/svn/ryobi-electric-p
+[1:00:59 PM] 🖼️ Raw enriched URLs collected: 16
+[1:00:59 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":16}
+[1:00:59 PM] ❌ NOT IMAGE URL: https://www.thdstatic.com/spin/59/317061059/317061059_S01.spin/?thumb&profile=600
+0
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 130): https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/svn/ryobi-electric-p
+130
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 120): https://images.thdstatic.com/productImages/a1d8679c-47f3-4c25-9474-ce0f85f9c063/svn/ryobi-electric-p
+120
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 70): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/43f07b5f-33e7-4e9c-9e11-912c05730d
+70
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 50): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/66036796001/3d91c838-700e-444c-afee-b220ac89f3aa
+50
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 50): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/cdeeaeb4-fec5-459e-b02f-fe56674364
+50
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/0551b2b2-fed2-40f8-b937-ebcf7af8787f/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/eb8bc234-2514-45dc-aaaa-d6fd75ac3a0c/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/4f0c7abe-9ef9-4218-8b27-a524b8ff32b1/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/a4a5d682-f88c-4c6a-b384-1b4bab8591cc/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/a8b33503-9e06-4f1c-bf6a-2f03bee8b4fa/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/59d57c0f-dffd-4547-b782-f3087607456d/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/f0275391-229d-4f6e-9784-f5a3b908900a/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/7faec6e4-aa10-48bb-b415-943c427812c8/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/55d0b021-46d8-462e-9bb2-437f09a99b94/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 100): https://images.thdstatic.com/productImages/6602d0ec-b89d-427c-9537-8a832a036ecf/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (130): https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/svn/ryobi-electric-p
+130
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (120): https://images.thdstatic.com/productImages/a1d8679c-47f3-4c25-9474-ce0f85f9c063/svn/ryobi-electric-p
+120
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (70): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/43f07b5f-33e7-4e9c-9e11-912c05730d
+70
+📋 Copy URL
+[1:00:59 PM] 📏 SIZE OK (est: 80KB): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/66036796001/3d91c838-700e-444c-afee-b220ac89f3aa
+50
+📋 Copy URL
+[1:00:59 PM] 📏 SIZE OK (est: 80KB): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/cdeeaeb4-fec5-459e-b02f-fe56674364
+50
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/0551b2b2-fed2-40f8-b937-ebcf7af8787f/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/eb8bc234-2514-45dc-aaaa-d6fd75ac3a0c/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/4f0c7abe-9ef9-4218-8b27-a524b8ff32b1/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/a4a5d682-f88c-4c6a-b384-1b4bab8591cc/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/a8b33503-9e06-4f1c-bf6a-2f03bee8b4fa/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/59d57c0f-dffd-4547-b782-f3087607456d/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/f0275391-229d-4f6e-9784-f5a3b908900a/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/7faec6e4-aa10-48bb-b415-943c427812c8/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/55d0b021-46d8-462e-9bb2-437f09a99b94/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images.thdstatic.com/productImages/6602d0ec-b89d-427c-9537-8a832a036ecf/svn/ryobi-electric-p
+100
+📋 Copy URL
+[1:00:59 PM] 🏆 TOP SCORED IMAGES: ["ryobi-electric-push-mowers-ry401170-64_600.jpg (score: 130)","ryobi-electric-push-mowers-ry401170-e1_600.jpg (score: 120)","ryobi-electric-push-mowers-ry401170-40_600.jpg (score: 100)","ryobi-electr
+[1:00:59 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":1,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":15}
+[1:00:59 PM] 🖼️ FINAL IMAGES: ["https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/","https://images.thdstatic.com/productImages/a1d8679c-47f3-4c25-9474-ce0f85f9c063/","https://images.thdstatic.com/pro
+[1:00:59 PM] 🖼️ After hybrid filtering: 15 images
+[1:00:59 PM] 🖼️ GENERIC IMAGES: {"count":15,"images":["https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/svn/ryobi-electric-push-mowers-ry401170-64_600.jpg","https://images.thdstatic.com/productImages/a
+[1:00:59 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":15}
+[1:00:59 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":15}
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 115): https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/svn/ryobi-electric-p
+115
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 105): https://images.thdstatic.com/productImages/a1d8679c-47f3-4c25-9474-ce0f85f9c063/svn/ryobi-electric-p
+105
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 105): https://images.thdstatic.com/productImages/0551b2b2-fed2-40f8-b937-ebcf7af8787f/svn/ryobi-electric-p
+105
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/eb8bc234-2514-45dc-aaaa-d6fd75ac3a0c/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/4f0c7abe-9ef9-4218-8b27-a524b8ff32b1/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/a4a5d682-f88c-4c6a-b384-1b4bab8591cc/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/a8b33503-9e06-4f1c-bf6a-2f03bee8b4fa/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/59d57c0f-dffd-4547-b782-f3087607456d/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/f0275391-229d-4f6e-9784-f5a3b908900a/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/7faec6e4-aa10-48bb-b415-943c427812c8/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/55d0b021-46d8-462e-9bb2-437f09a99b94/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 85): https://images.thdstatic.com/productImages/6602d0ec-b89d-427c-9537-8a832a036ecf/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 65): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/43f07b5f-33e7-4e9c-9e11-912c05730d
+65
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 65): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/66036796001/3d91c838-700e-444c-afee-b220ac89f3aa
+65
+📋 Copy URL
+[1:00:59 PM] ✅ SINGLE IMAGE (score: 65): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/cdeeaeb4-fec5-459e-b02f-fe56674364
+65
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (115): https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/svn/ryobi-electric-p
+115
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (105): https://images.thdstatic.com/productImages/a1d8679c-47f3-4c25-9474-ce0f85f9c063/svn/ryobi-electric-p
+105
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (105): https://images.thdstatic.com/productImages/0551b2b2-fed2-40f8-b937-ebcf7af8787f/svn/ryobi-electric-p
+105
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/eb8bc234-2514-45dc-aaaa-d6fd75ac3a0c/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/4f0c7abe-9ef9-4218-8b27-a524b8ff32b1/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/a4a5d682-f88c-4c6a-b384-1b4bab8591cc/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/a8b33503-9e06-4f1c-bf6a-2f03bee8b4fa/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/59d57c0f-dffd-4547-b782-f3087607456d/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/f0275391-229d-4f6e-9784-f5a3b908900a/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/7faec6e4-aa10-48bb-b415-943c427812c8/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/55d0b021-46d8-462e-9bb2-437f09a99b94/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.thdstatic.com/productImages/6602d0ec-b89d-427c-9537-8a832a036ecf/svn/ryobi-electric-p
+85
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (65): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/43f07b5f-33e7-4e9c-9e11-912c05730d
+65
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (65): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/66036796001/3d91c838-700e-444c-afee-b220ac89f3aa
+65
+📋 Copy URL
+[1:00:59 PM] 🎯 HIGH SCORE + SIZE OK (65): https://cf-images.us-east-1.prod.boltdns.net/v1/jit/1834613806001/cdeeaeb4-fec5-459e-b02f-fe56674364
+65
+📋 Copy URL
+[1:00:59 PM] 🏆 TOP SCORED IMAGES: ["ryobi-electric-push-mowers-ry401170-64_600.jpg (score: 115)","ryobi-electric-push-mowers-ry401170-e1_600.jpg (score: 105)","ryobi-electric-push-mowers-ry401170-40_600.jpg (score: 105)","ryobi-electr
+[1:00:59 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":15}
+[1:00:59 PM] 🖼️ FINAL IMAGES: ["https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/","https://images.thdstatic.com/productImages/a1d8679c-47f3-4c25-9474-ce0f85f9c063/","https://images.thdstatic.com/pro
+[1:00:59 PM] 🖼️ FINAL IMAGES: {"count":15,"images":["https://images.thdstatic.com/productImages/89fe9162-aa9a-4ebd-9ebe-aa5f454678bb/svn/ryobi-electric-push-mowers-ry401170-64_600.jpg","https://images.thdstatic.com/productImages/a
+[1:00:59 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"40V HP Brushless 20 in. Cordless Battery Walk Behi","brand":"RYOBI","description":"Improve your lawn's elegance with the help of this","price":"299","imageCount":15,"firstImages":["https://i
+[1:00:59 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":15}
+[1:00:59 PM] ✅ Debug trace complete

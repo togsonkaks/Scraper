@@ -403,6 +403,20 @@
       }
     }
     
+    // HOME DEPOT: Upgrade thumbnail sizes to high-res versions
+    if (/(?:images\.thdstatic\.com|www\.thdstatic\.com)/i.test(url)) {
+      // Upgrade product image thumbnails to high-res versions
+      upgraded = upgraded.replace(/_600\.(jpg|jpeg|png|webp)/gi, '_1000.$1');
+      
+      // Upgrade spin image profiles from 600 to 1000
+      upgraded = upgraded.replace(/[?&]profile=600/gi, '&profile=1000');
+      upgraded = upgraded.replace(/\?&/g, '?'); // Clean up malformed query strings
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Home Depot URL: ${url.substring(url.lastIndexOf('/') + 1)} -> High-res version`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
@@ -487,6 +501,27 @@
           debug(`✅ SHOCHO PRODUCT LARGE: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
           return 75; // Good score for large product images
         }
+      }
+    }
+    
+    // HOME DEPOT: Prioritize high-res over thumbnails
+    if (/(?:images\.thdstatic\.com|www\.thdstatic\.com)/i.test(url)) {
+      // High score for upgraded high-res images
+      if (/_1000\.(jpg|jpeg|png|webp)/i.test(url) || /profile=1000/i.test(url)) {
+        debug(`🎯 HOME DEPOT HIGH-RES: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 90; // High score for 1000px+ images
+      }
+      
+      // Block or penalize small thumbnails
+      if (/_600\.(jpg|jpeg|png|webp)/i.test(url) || /profile=600/i.test(url)) {
+        debug(`⚠️ HOME DEPOT THUMBNAIL: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 60; // Lower score for 600px thumbnails (demoted but not blocked)
+      }
+      
+      // Medium score for full-size images without size suffix
+      if (/productImages\/.*\/[^_]+\.(jpg|jpeg|png|webp)/i.test(url)) {
+        debug(`✅ HOME DEPOT FULL-SIZE: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 85; // Good score for full-size images
       }
     }
     
