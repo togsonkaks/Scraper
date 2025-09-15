@@ -402,6 +402,18 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
 ipcMain.handle('scrape-original', async (_e, opts = {}) => {
   const win = ensureProduct();
   
+  // Navigate to URL if provided and different from current
+  if (opts.url) {
+    const currentUrl = await win.webContents.executeJavaScript('window.location.href', true);
+    if (currentUrl !== opts.url) {
+      await win.loadURL(opts.url);
+      // Wait for page to be ready
+      await new Promise(resolve => {
+        win.webContents.once('did-finish-load', resolve);
+      });
+    }
+  }
+  
   // Load your modular scripts
   const utilsPath = path.join(__dirname, 'scrapers', 'utils.js');
   const titlePath = path.join(__dirname, 'scrapers', 'title.js');
@@ -418,13 +430,47 @@ ipcMain.handle('scrape-original', async (_e, opts = {}) => {
   const injected = `
     (async () => {
       try {
-        // Clean up any contamination from previous runs
+        // THOROUGH cleanup to prevent contamination (mirror scrape-current)
         try { delete globalThis.getCustomHandlers; } catch {}
         var getCustomHandlers = () => ({});
         globalThis.__DISABLE_CUSTOM = true;
-        try { delete globalThis.__tg_injectedMemory; } catch {}
         
-        // Initialize debug log for original logic
+        // Disable memory and custom completely for clean comparison
+        globalThis.__tg_injectedMemory = {};
+        
+        // NUKE localStorage memory so original logic can't access saved selectors
+        try {
+          localStorage.removeItem('selector_memory_v2');
+          sessionStorage.removeItem('selector_memory_v2');
+          // Prevent re-reads during this run
+          const __origGetItem = localStorage.getItem.bind(localStorage);
+          localStorage.getItem = (k) => (k === 'selector_memory_v2' ? null : __origGetItem(k));
+        } catch {}
+        
+        // PURGE ALL globals from previous runs (both orchestrator and original)
+        try {
+          delete globalThis.getTitleGeneric;
+          delete globalThis.getBrandGeneric; 
+          delete globalThis.getPriceGeneric;
+          delete globalThis.collectImagesFromPDP;
+          delete globalThis.collectSpecs;
+          delete globalThis.collectTags;
+          delete globalThis.guessGender;
+          delete globalThis.getSKU;
+          delete globalThis.T;
+          delete globalThis.uniq;
+          delete globalThis.looksHttp;
+          delete globalThis.__tg_lastSelectorsUsed;
+        } catch {}
+        
+        // Clear any run guards that could affect results  
+        try {
+          delete window.__TAGGLO_IMAGES_ALREADY_RAN__;
+          delete window.__TAGGLO_TITLE_ALREADY_RAN__;
+          delete window.__TAGGLO_PRICE_ALREADY_RAN__;
+        } catch {}
+        
+        // Initialize clean debug log for original logic
         window.__tg_debugLog = [];
         const TAG = '[ORIGINAL]';
         const addToDebugLog = (level, ...args) => {

@@ -18,16 +18,33 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (originalBtn) {
     originalBtn.onclick = async () => {
+      // Get current URL from input
+      const url = document.getElementById('urlInput')?.value?.trim();
+      if (!url) {
+        alert('Please paste a URL first.');
+        return;
+      }
+      
       // Show debug panel and clear previous output (same as Save button)
       showDebugPanel();
       clearDebugOutput();
-      addDebugOutput('🔧 Starting Original Logic for: ' + (window.urlInput?.value || 'current page'), 'info');
+      addDebugOutput('🔧 Starting Original Logic for: ' + url, 'info');
       
-      statusEl.innerHTML = `<span class="pill">Original Logic</span>`;
+      statusEl.innerHTML = `<span class="pill">Loading & scraping...</span>`;
       panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
       
       try {
-        const { result, selectorsUsed } = await window.api.scrapeOriginal({});
+        // Navigate to the target URL first
+        addDebugOutput('📍 Navigating to: ' + url, 'info');
+        await window.api.openProduct(url);
+        
+        // Wait a moment for navigation to complete
+        await new Promise(r => setTimeout(r, 500));
+        
+        addDebugOutput('🔧 Running Original Logic scrapers...', 'info');
+        statusEl.innerHTML = `<span class="pill">Original Logic</span>`;
+        
+        const { result, selectorsUsed } = await window.api.scrapeOriginal({ url });
         
         if (result.__error) {
           throw new Error(result.__error);
