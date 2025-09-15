@@ -1093,7 +1093,7 @@
       ['.product-description, [itemprop="description"], #description','text']
     ];
     for (const [sel,at] of pairs) { const v = at==='text' ? txt(q(sel)) : attr(q(sel),at); if (v) { mark('description', { selectors:[sel], attr:at, method:'generic' }); return v; } }
-    const prod = scanJSONLDProducts()[0];
+    const prod = findProductNode(getJsonLd(document));
     if (prod && prod.description) { mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return prod.description; }
     return null;
   }
@@ -1635,7 +1635,7 @@
         brand: !!brand, 
         description: !!description,
         price: !!price,
-        images: images?.length || 0
+        images: images?.length || 0,
         specs: specs?.length || 0,
         tags: tags?.length || 0,
       });
