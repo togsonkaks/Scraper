@@ -1,10 +1,10 @@
-modules = ["nodejs-20", "web"]
-expertMode = true
+run = "npm start"
 
 [env]
-# put any keys you want, or leave empty
+NODE_ENV = "development"
 
-run = "npm run replit"
+[packager]
+language = "nodejs"
 
 [deployment]
 deploymentTarget = "vm"
