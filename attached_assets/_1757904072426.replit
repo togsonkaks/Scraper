@@ -1,0 +1,10 @@
+modules = ["nodejs-20", "web"]
+expertMode = true
+
+[env]
+# put any keys you want, or leave empty
+
+run = "npm run replit"
+
+[deployment]
+deploymentTarget = "vm"
