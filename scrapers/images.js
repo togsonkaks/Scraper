@@ -311,9 +311,40 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       } catch {}
     });
 
-    // click open common zoom modals if present (B&N, PhotoSwipe, etc.)
-    const zoomBtns = scope.querySelectorAll('[data-modal], [data-zoom], [data-testid="image-magnify"], button[title*="zoom" i], .product__photo-zoom, .js-photoswipe__zoom');
-    zoomBtns.forEach(btn => { try { btn.click(); } catch {} });
+    // Enhanced gallery/modal activation - PhotoSwipe, Custom Modals, etc.
+    const galleryTriggers = [
+      // PhotoSwipe triggers
+      '[data-modal], [data-zoom], .js-photoswipe__zoom',
+      
+      // Specific site patterns with explicit semantics
+      '[data-testid="image-magnify"]', '.product__photo-zoom',
+      
+      // Image zoom specific patterns
+      '[class*="image-zoom"], [role="button"][class*="zoom"]',
+      
+      // Button patterns for enlarge/zoom (more focused)
+      'button[title*="zoom" i], button[title*="enlarge" i]',
+      'button[title*="gallery" i]'
+    ];
+    
+    let totalClicked = 0;
+    galleryTriggers.forEach(selector => {
+      try {
+        const buttons = scope.querySelectorAll(selector);
+        buttons.forEach(btn => { 
+          try { 
+            btn.click(); 
+            totalClicked++;
+          } catch {} 
+        });
+      } catch {}
+    });
+    
+    if (totalClicked > 0) {
+      console.log(`[DEBUG] Activated ${totalClicked} gallery/modal triggers`);
+      // Wait for modals to open and images to load
+      await new Promise(r => setTimeout(r, 250));
+    }
     await __wakeSwiperGalleries(scope);
   }
 
@@ -782,8 +813,51 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     });
   });
 
-  // Barnes & Noble / PhotoSwipe modal (if open)
-  document.querySelectorAll('.pswp img, .modal-body img, [class*="zoom"] img').forEach(addFromImg);
+  // Enhanced Modal/Gallery Detection - PhotoSwipe, Custom Modals, Sliders
+  function collectFromModalGalleries() {
+    const modalGallerySelectors = [
+      // PhotoSwipe patterns (handles nested structure)
+      '.pswp img, .pswp__item img, .pswp__zoom-wrap img, .pswp__container img',
+      
+      // Generic modal patterns (catches Free People .pem-image-zoom-modal, etc.)
+      '[class*="modal"] img, [class*="Modal"] img',
+      
+      // Slider/carousel patterns (catches .pem-slider_item, etc.)  
+      '[class*="slider"] img, [class*="Slider"] img',
+      '[class*="carousel"] img, [class*="Carousel"] img',
+      
+      // Zoom containers
+      '[class*="zoom"] img, [class*="Zoom"] img',
+      
+      // Lightbox patterns
+      '[class*="lightbox"] img, [class*="Lightbox"] img',
+      '[class*="gallery"] img, [class*="Gallery"] img',
+      
+      // Common modal containers
+      '.modal-body img, .modal-content img, .modal img',
+      
+      // Overlay patterns
+      '[class*="overlay"] img, [class*="Overlay"] img'
+    ];
+    
+    let totalFound = 0;
+    modalGallerySelectors.forEach(selector => {
+      try {
+        const images = document.querySelectorAll(selector);
+        if (images.length > 0) {
+          console.log(`[DEBUG] Enhanced modal detection found ${images.length} images with: ${selector}`);
+          images.forEach(addFromImg);
+          totalFound += images.length;
+        }
+      } catch (e) {
+        console.log(`[DEBUG] Modal selector failed: ${selector}`, e.message);
+      }
+    });
+    
+    console.log(`[DEBUG] Total modal/gallery images found: ${totalFound}`);
+  }
+  
+  collectFromModalGalleries();
 
   // Wide fallback sweep if few found
   console.log("[DEBUG] After initial collection:", candidates.size, "candidates");
@@ -807,7 +881,7 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       });
     });
 
-    document.querySelectorAll('.pswp img, .modal-body img, [class*="zoom"] img').forEach(addFromImg);
+    collectFromModalGalleries(); // Use enhanced modal detection
     console.log("[DEBUG] After wide sweep:", candidates.size, "candidates");
   }
 
