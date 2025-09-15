@@ -382,6 +382,12 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
         
         ${warmupScrollJS()}
         
+        // RESET Orchestrator globals to prevent cross-run contamination
+        try {
+          delete globalThis.__tg_lastSelectorsUsed;
+          window.__tg_debugLog = [];
+        } catch {}
+        
         // Load pure orchestrator
         ${orchSource}
         
