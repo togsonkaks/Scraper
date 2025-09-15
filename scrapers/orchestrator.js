@@ -950,10 +950,95 @@
     return v || null;
   }
   function getBrand() {
-    const pairs = [['meta[name="brand"]','content'], ['meta[property="og:brand"]','content']];
-    for (const [sel,at] of pairs) { const v = attr(q(sel),at); if (v) { mark('brand', { selectors:[sel], attr:at, method:'generic' }); return v; } }
-    const prod = scanJSONLDProducts()[0];
-    if (prod) { const v = (prod.brand && (prod.brand.name || prod.brand)) || null; if (v) { mark('brand', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return v; } }
+    // First try JSON-LD structured data
+    for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
+      try {
+        const data = JSON.parse(b.textContent.trim());
+        const arr = Array.isArray(data) ? data : [data];
+        for (const node of arr) {
+          const types = [].concat(node?.["@type"]||[]).map(String);
+          if (types.some(t=>/product/i.test(t))) {
+            const brand = node.brand?.name || node.brand || node.manufacturer?.name || "";
+            if (brand && brand.trim()) {
+              mark('brand', { selectors:['script[type="application/ld+json"]'], attr:'json', method:'jsonld' });
+              return brand.trim();
+            }
+          }
+        }
+      } catch {}
+    }
+    
+    // Extended brand selectors with more variations
+    const brandSelectors = [
+      'meta[property="product:brand"]',
+      'meta[name="brand"]', 
+      'meta[property="og:brand"]',
+      '[itemprop="brand"] [itemprop="name"]',
+      '[itemprop="brand"]',
+      '[data-brand]',
+      '.brand, .product-brand, .product__brand',
+      '.manufacturer, .product-manufacturer',
+      '[class*="brand"]:not([class*="branding"])',
+      '.vendor, .product-vendor'
+    ];
+    
+    for (const sel of brandSelectors) {
+      const el = document.querySelector(sel);
+      if (el) {
+        let brandText = "";
+        if (sel.includes('data-brand')) {
+          brandText = el.getAttribute('data-brand') || "";
+        } else {
+          brandText = el.content || el.getAttribute("content") || el.textContent || "";
+        }
+        if (brandText && brandText.trim()) {
+          mark('brand', { selectors:[sel], attr: el.content || el.getAttribute("content") ? 'content' : 'text', method:'css' });
+          return brandText.trim();
+        }
+      }
+    }
+    
+    // Try to extract brand from breadcrumbs
+    const breadcrumb = document.querySelector('.breadcrumb, nav[aria-label*="breadcrumb"], [class*="breadcrumb"]');
+    if (breadcrumb) {
+      const links = breadcrumb.querySelectorAll('a');
+      // Look for brand in second or third breadcrumb item (often: Home > Brand > Category > Product)
+      for (let i = 1; i < Math.min(links.length - 1, 4); i++) {
+        const text = (links[i].textContent || "").trim();
+        if (text && text.length >= 3 && text.length <= 20 && !/^(home|shop|all|products?|category|categories)$/i.test(text)) {
+          mark('brand', { selectors:['.breadcrumb a'], attr:'text', method:'breadcrumb' });
+          return text;
+        }
+      }
+    }
+    
+    // Try to extract brand from URL path
+    const path = location.pathname;
+    const pathMatch = path.match(/\/(?:brand|brands|manufacturer)\/([^\/]+)/i);
+    if (pathMatch) {
+      const brandFromPath = pathMatch[1].replace(/[-_]/g, ' ').trim();
+      if (brandFromPath && brandFromPath.length >= 3) {
+        mark('brand', { selectors:['url-path'], attr:'text', method:'url' });
+        return brandFromPath;
+      }
+    }
+    
+    // Try common brand patterns in product titles
+    const title = (document.querySelector('h1')?.textContent || "").trim();
+    if (title) {
+      // Look for patterns like "Nike Air Max" where first word could be brand
+      const titleWords = title.split(/\s+/);
+      if (titleWords.length >= 2) {
+        const firstWord = titleWords[0];
+        // Check if first word looks like a brand (capitalized, reasonable length)
+        if (firstWord && /^[A-Z][a-zA-Z]{2,15}$/.test(firstWord) && 
+            !/(the|new|sale|buy|shop|get|free|best|top|hot|limited|special|exclusive)$/i.test(firstWord)) {
+          mark('brand', { selectors:['h1-first-word'], attr:'text', method:'title' });
+          return firstWord;
+        }
+      }
+    }
+    
     return null;
   }
   function getDescription() {
