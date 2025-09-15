@@ -5,7 +5,7 @@ const NUM = /\d+[\d.,\s]*\d|\d/;
 const normalizeMoney = (raw) => {
   if (!raw) return null;
   let s = T(raw).replace(/\u00A0/g," ");
-  if (/(was|list|regular|original|compare|mrp)/i.test(s)) return null;
+  if (/(was|list|regular|original|compare|mrp|save|you save|discount|off|rebate|coupon)/i.test(s)) return null;
   const m = s.match(/(\$|€|£|¥|₹|\b[A-Z]{3}\b)\s*([0-9][0-9.,\s]*)/i);
   if (!m) return null;
   let cur = m[1];
@@ -150,7 +150,7 @@ function getPriceGeneric() {
     }
   }
 
-  const BAD_WORDS = /(was|list|regular|original|compare|mrp|strik(e|ed)|previous)/i;
+  const BAD_WORDS = /(was|list|regular|original|compare|mrp|strik(e|ed)|previous|save|you save|discount|off|rebate|coupon)/i;
   const GOOD_WORDS = /(now|current|final|sale|deal|price|buy)/i;
 
   const selHints = [
