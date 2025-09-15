@@ -33,11 +33,27 @@ async function collectImagesFromPDP() {
     if (containerClasses.includes('product') && !containerClasses.includes('related')) score += 10;
     if (containerClasses.includes('gallery')) score += 8;
     
-    // Lower score for images in sidebars, related products, recommendations
-    const parentClasses = (imgElement.closest('[class*="sidebar"], [class*="related"], [class*="recommend"], [class*="similar"], [class*="you-may"], [class*="also-"]')?.className || '').toLowerCase();
-    if (parentClasses.includes('sidebar')) score -= 15;
-    if (parentClasses.includes('related') || parentClasses.includes('recommend')) score -= 10;
-    if (parentClasses.includes('similar') || parentClasses.includes('you-may')) score -= 8;
+    // BLACKLIST: Heavily penalize browsing history and recommendation sections
+    const parentElement = imgElement.closest('[class*="sidebar"], [class*="related"], [class*="recommend"], [class*="similar"], [class*="you-may"], [class*="also-"], [class*="recent"], [class*="history"], [class*="browsing"], [class*="viewed"], [class*="previously"], [class*="last-"], [class*="cross-"], [class*="upsell"], [aria-label*="recent"], [aria-label*="history"], [aria-label*="viewed"], [aria-label*="browsing"]');
+    
+    if (parentElement) {
+      const allText = ((parentElement.className || '') + ' ' + (parentElement.getAttribute('aria-label') || '') + ' ' + (parentElement.textContent || '')).toLowerCase();
+      
+      // Heavy penalties for browsing history sections
+      if (/recent|recently|history|browsing|viewed|previously|last\s+viewed|you\s+viewed|your\s+history/.test(allText)) {
+        score -= 50; // Heavy penalty to effectively exclude
+      }
+      
+      // Strong penalties for recommendation sections  
+      if (/related|recommend|similar|you[\s-_]*may|also[\s-_]*like|cross[\s-_]*sell|upsell/.test(allText)) {
+        score -= 25; // Strong penalty
+      }
+      
+      // Standard penalties for sidebar content
+      if (/sidebar|aside/.test(allText)) {
+        score -= 15;
+      }
+    }
     
     // Higher score for images near the product title
     const h1 = document.querySelector('h1');
@@ -196,6 +212,18 @@ async function collectImagesFromPDP() {
     for (const sel of carouselSelectors) {
       const containers = document.querySelectorAll(sel);
       containers.forEach(container => {
+        // BLACKLIST: Skip browsing history and recommendation carousels 
+        const containerElement = container.closest('[class*="recent"], [class*="history"], [class*="browsing"], [class*="viewed"], [class*="previously"], [class*="recommend"], [class*="related"], [class*="similar"], [class*="you-may"], [class*="also-"], [class*="cross-"], [class*="upsell"], [aria-label*="recent"], [aria-label*="history"], [aria-label*="viewed"], [aria-label*="browsing"]');
+        
+        if (containerElement) {
+          const allText = ((containerElement.className || '') + ' ' + (containerElement.getAttribute('aria-label') || '') + ' ' + (containerElement.textContent || '')).toLowerCase();
+          
+          if (/recent|recently|history|browsing|viewed|previously|last\s+viewed|you\s+viewed|your\s+history|recommend|related|similar|you[\s-_]*may|also[\s-_]*like|cross[\s-_]*sell|upsell/.test(allText)) {
+            console.log(`[DEBUG] BLACKLISTED carousel (browsing history/recommendations): ${sel}`);
+            return; // Skip this container entirely
+          }
+        }
+        
         // Check if this carousel is in a product context
         const productContext = container.closest('.product, .pdp, main, [class*="Product"]');
         if (productContext) {
