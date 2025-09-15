@@ -3,8 +3,6 @@
 // NOTE: relies on global utils: T, uniq, looksHttp from utils.js
 
 async function collectImagesFromPDP() {
-    if (window.__TAGGLO_IMAGES_ALREADY_RAN__) return [];
-window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     console.log("[DEBUG] collectImagesFromPDP starting...");
   const keepBiggestFromSrcset = (srcset) =>
     (srcset || "")
