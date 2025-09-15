@@ -8,6 +8,30 @@ run = "npm run replit"
 
 [deployment]
 deploymentTarget = "vm"
+run = ["npm", "run", "replit"]
 
 [agent]
 expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Tagglo Lightweight"
+
+[[workflows.workflow]]
+name = "Tagglo Lightweight"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run replit"
+
+[workflows.workflow.metadata]
+outputType = "console"
