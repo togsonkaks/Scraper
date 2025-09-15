@@ -376,27 +376,38 @@
     return false;
   }
   
-  // Free People URL upgrade function
-  function upgradeFreePeopleUrl(url) {
-    if (!/images\.urbndata\.com\/is\/image/i.test(url)) return url;
-    
+  // Universal CDN URL upgrade function
+  function upgradeCDNUrl(url) {
     let upgraded = url;
     
-    // Upgrade detail shots to high-res zoom images  
-    upgraded = upgraded.replace(/\$a15-pdp-detail-shot\$/g, '$redesign-zoom-5x$');
-    upgraded = upgraded.replace(/\$pdp-detail-shot\$/g, '$redesign-zoom-5x$');
+    // FREE PEOPLE/URBAN OUTFITTERS: Scene7 CDN upgrades
+    if (/images\.urbndata\.com\/is\/image/i.test(url)) {
+      // Upgrade detail shots to high-res zoom images  
+      upgraded = upgraded.replace(/\$a15-pdp-detail-shot\$/g, '$redesign-zoom-5x$');
+      upgraded = upgraded.replace(/\$pdp-detail-shot\$/g, '$redesign-zoom-5x$');
+      
+      // Remove small dimension constraints
+      upgraded = upgraded.replace(/[?&]wid=\d+/gi, '');
+      upgraded = upgraded.replace(/[?&]hei=\d+/gi, '');
+      upgraded = upgraded.replace(/[?&]fit=constrain/gi, '');
+      upgraded = upgraded.replace(/[?&]qlt=\d+/gi, '');
+    }
     
-    // Remove small dimension constraints
-    upgraded = upgraded.replace(/[?&]wid=\d+/gi, '');
-    upgraded = upgraded.replace(/[?&]hei=\d+/gi, '');
-    upgraded = upgraded.replace(/[?&]fit=constrain/gi, '');
-    upgraded = upgraded.replace(/[?&]qlt=\d+/gi, '');
+    // BBQ GUYS/SHOCHO CDN: Remove resize parameters for full-size images
+    if (/cdn\.shocho\.co/i.test(url)) {
+      // Remove resize parameters completely to get full-size images
+      upgraded = upgraded.replace(/\?i10c=img\.resize\([^)]+\)/gi, '');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Shocho CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> Full-size image`);
+      }
+    }
     
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
-    if (upgraded !== url) {
-      debug(`✨ UPGRADED Free People URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+    if (upgraded !== url && !/cdn\.shocho\.co/i.test(url)) {
+      debug(`✨ UPGRADED CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
     }
     
     return upgraded;
@@ -428,6 +439,26 @@
       if (/\$redesign-zoom-5x\$/i.test(url)) {
         debug(`🎯 FREE PEOPLE HIGH-RES: ${url.substring(url.lastIndexOf('/') + 1)}`);
         return 95; // High score for zoom images
+      }
+    }
+    
+    // BBQ GUYS/SHOCHO CDN: Filter small resized images
+    if (/cdn\.shocho\.co/i.test(url)) {
+      // Block small resize parameters (≤800px)
+      const shochoResizeMatch = url.match(/\?i10c=img\.resize\(width:([0-9]+),height:([0-9]+)\)/i);
+      if (shochoResizeMatch) {
+        const width = parseInt(shochoResizeMatch[1]);
+        const height = parseInt(shochoResizeMatch[2]);
+        if (width <= 800 || height <= 800) {
+          debug(`🚫 BLOCKED Shocho small image: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 0; // Block small images
+        }
+      }
+      
+      // High score for full-size images (no resize params)
+      if (!/\?i10c=img\.resize/i.test(url)) {
+        debug(`🎯 SHOCHO FULL-SIZE: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 90; // High score for full-size images
       }
     }
     
@@ -848,7 +879,7 @@
                  attrs['data-zoom-image'] || attrs['data-large'];
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
-        const upgradedUrl = upgradeFreePeopleUrl(s1); // Apply Free People URL upgrade
+        const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
         enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
       
@@ -856,7 +887,7 @@
       const best = pickFromSrcset(ss); 
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
-        const upgradedUrl = upgradeFreePeopleUrl(best); // Apply Free People URL upgrade
+        const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
         enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
       
@@ -867,7 +898,7 @@
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
-            const upgradedUrl = upgradeFreePeopleUrl(b); // Apply Free People URL upgrade
+            const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades
             enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
           }
         }
