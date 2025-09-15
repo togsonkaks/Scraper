@@ -1,49 +1,10 @@
 modules = ["nodejs-20", "web"]
-[agent]
 expertMode = true
 
-[nix]
-channel = "stable-25_05"
-packages = ["xorg.xvfb", "gtk3", "glib", "nss", "alsa-lib", "at-spi2-atk", "at-spi2-core", "cups", "dbus", "libdrm", "libxkbcommon", "mesa", "xdg-utils", "vulkan-loader", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXrandr", "xorg.libXScrnSaver", "xorg.xorgserver", "libGL", "libgbm", "xorg.xf86videonouveau", "xorg.xf86videointel"]
+[env]
+# put any keys you want, or leave empty
 
-[workflows]
-runButton = "Project"
-
-[[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Tagglo Electron App"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Tagglo Simple"
-
-[[workflows.workflow]]
-name = "Tagglo Electron App"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "vnc"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run start:replit"
-
-[[workflows.workflow]]
-name = "Tagglo Simple"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run replit"
-
-[workflows.workflow.metadata]
-outputType = "console"
+run = "npm run replit"
 
 [deployment]
 deploymentTarget = "vm"
-run = ["npm", "run", "replit"]

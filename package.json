@@ -5,8 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "electron .",
-    "start:replit": "echo 'Skipping Electron launch on Replit...'",
-    "replit": "echo 'Tagglo running in web mode - Electron GUI disabled'"
+    "start:replit": "echo 'Skipping Electron launch on Replit...'"
   },
   "dependencies": {
     "dotenv": "^17.2.2",
@@ -15,5 +14,4 @@
   "devDependencies": {
     "electron": "^38.0.0"
   }
-  
 }
