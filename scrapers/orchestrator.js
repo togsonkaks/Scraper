@@ -1313,6 +1313,79 @@
     return { values: urls, selector: selUsed };
   }
 
+  // ===== getSpecsAndTags (unified with fallbacks, tags/gender removed) =====
+  function getSpecsAndTags() {
+    log('📋 [UNIFIED] Calling getSpecsAndTags()...');
+    let specs = [], tags = [];
+
+    try {
+      // A) Try collectSpecs (primary source)
+      if (typeof collectSpecs === 'function') {
+        specs = collectSpecs(10) || [];
+        log('📋 [UNIFIED] collectSpecs returned:', specs.length, 'items');
+      }
+    } catch (e) {
+      log('📋 [UNIFIED] collectSpecs failed:', e.message);
+    }
+
+    // B) Fallback specs extraction if primary failed
+    if (!specs.length) {
+      log('📋 [UNIFIED] No specs from collectSpecs, trying fallback...');
+      const specContainers = document.querySelectorAll('[class*="spec"], [class*="detail"], [class*="feature"], [class*="attribute"]');
+      for (const container of specContainers) {
+        const items = container.querySelectorAll('li, dt, tr');
+        for (const item of Array.from(items).slice(0, 10)) {
+          const text = cleanText(item);
+          if (text && text.length > 5 && text.length < 100) {
+            specs.push(text);
+          }
+        }
+        if (specs.length >= 5) break;
+      }
+    }
+
+    // C) Try collectTags (primary source) - but filter out gender-related tags
+    try {
+      if (typeof collectTags === 'function') {
+        const rawTags = collectTags(12) || [];
+        // Filter out gender/demographic tags as per user request
+        tags = rawTags.filter(tag => {
+          const lower = tag.toLowerCase();
+          return !/(women|womens|woman|ladies|female|men|mens|man|boys|girls|boy|girl|unisex|gender)/i.test(lower);
+        });
+        log('📋 [UNIFIED] collectTags returned:', rawTags.length, 'raw,', tags.length, 'filtered');
+      }
+    } catch (e) {
+      log('📋 [UNIFIED] collectTags failed:', e.message);
+    }
+
+    // D) Fallback tags extraction if primary failed  
+    if (!tags.length) {
+      log('📋 [UNIFIED] No tags from collectTags, trying fallback...');
+      const tagElements = document.querySelectorAll('[class*="chip"], [class*="pill"], [class*="tag"], [class*="badge"], [class*="category"]');
+      for (const el of Array.from(tagElements).slice(0, 12)) {
+        const text = cleanText(el);
+        if (text && text.length > 2 && text.length < 30) {
+          const lower = text.toLowerCase();
+          // Apply same gender filter to fallback tags
+          if (!/(women|womens|woman|ladies|female|men|mens|man|boys|girls|boy|girl|unisex|gender)/i.test(lower)) {
+            tags.push(text);
+          }
+        }
+      }
+    }
+
+    // E) Mark and return results
+    mark('specs', { selectors:['collectSpecs+fallback'], attr:'text', method:'unified-enhanced', values: specs.slice(0,10) });
+    mark('tags', { selectors:['collectTags+fallback'], attr:'text', method:'unified-enhanced', values: tags.slice(0,12) });
+    
+    log('📋 [UNIFIED] FINAL RESULT:', { specs: specs.length, tags: tags.length });
+    return {
+      specs: specs.slice(0, 10),
+      tags: tags.slice(0, 12)
+    };
+  }
+
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
   async function tryLLMImageFallback(document) {
     debug('🤖 LLM FALLBACK: Starting AI-powered image selector discovery...');
