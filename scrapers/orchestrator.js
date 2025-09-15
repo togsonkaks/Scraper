@@ -1199,62 +1199,118 @@
     mark('price', { selectors:[selUsed || 'none'], attr:'fallback', method:'last-resort' });
     return good(asNum(val)) ? asNum(val) : null;
   }
-  async function getImagesGeneric() {
-    const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
-    debug('🖼️ Getting generic images for hostname:', hostname);
+  // ===== getImagesGeneric (augmented with filtering → gallery → page fallback) =====
+  async function getImagesGeneric(document, memorySel) {
+    // A) Your existing logic FIRST
+    let urls = []; let selUsed = null;
+    try {
+      const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
+      debug('🖼️ Getting generic images for hostname:', hostname);
+      
+      // Site-specific selectors for problematic sites
+      const siteSpecificSelectors = {
+        'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
+        'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
+        'amazon.com': [
+          '[data-csa-c-element-id*="image"] img',
+          '[class*="ivImages"] img', 
+          '[id*="ivImage"] img',
+          '.iv-tab img',
+          '[id*="altImages"] img',
+          '[class*="imagesThumbnail"] img',
+          'img[src*="images-amazon.com"]',
+          'img[src*="ssl-images-amazon.com"]',
+          'img[src*="m.media-amazon.com"]',
+          '.a-dynamic-image',
+          '#imageBlockContainer img', 
+          '#imageBlock img'
+        ],
+        'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
+        'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+      };
+      
+      // Try site-specific selectors first
+      const siteSelectors = siteSpecificSelectors[hostname] || [];
+      for (const sel of siteSelectors) {
+        debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
+        const siteUrls = await gatherImagesBySelector(sel);
+        if (siteUrls.length >= 1) {
+          debug(`✅ Site-specific success: ${siteUrls.length} images found`);
+          urls = siteUrls; selUsed = sel;
+          break;
+        }
+      }
+      
+      if (!urls.length) {
+        const gallerySels = [
+          '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
+          '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+        ];
+        for (const sel of gallerySels) {
+          const galleryUrls = await gatherImagesBySelector(sel);
+          if (galleryUrls.length >= 3) { 
+            urls = galleryUrls; selUsed = sel;
+            break; 
+          }
+        }
+      }
+    } catch {}
     
-    // Site-specific selectors for problematic sites
-    const siteSpecificSelectors = {
-      'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
-      'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
-      'amazon.com': [
-        // New 2024+ Amazon gallery selectors (thumbnails + main)
-        '[data-csa-c-element-id*="image"] img',
-        '[class*="ivImages"] img', 
-        '[id*="ivImage"] img',
-        '.iv-tab img',
-        '[id*="altImages"] img',
-        '[class*="imagesThumbnail"] img',
-        
-        // Broader Amazon image patterns
-        'img[src*="images-amazon.com"]',
-        'img[src*="ssl-images-amazon.com"]',
-        'img[src*="m.media-amazon.com"]',
-        
-        // Legacy selectors (fallback)
-        '.a-dynamic-image',
-        '#imageBlockContainer img', 
-        '#imageBlock img'
-      ],
-      'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
-      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+    // B) Hard filter & dedupe whatever you already found
+    urls = filterImageUrls(urls);
+
+    // If enough → done
+    if (isGoodImages(urls)) {
+      mark('images', { selectors:[selUsed], attr:'src', method:'orchestrator-first', urls: urls.slice(0,30) });
+      return { values: urls, selector: selUsed || null };
+    }
+
+    // C) Strength 1: memory selector (if any)
+    const tryFromSel = (sel) => {
+      const nodes = [...document.querySelectorAll(sel)];
+      if (!nodes.length) return null;
+      const gathered = [];
+      for (const n of nodes) gathered.push(...collectImgCandidates(n));
+      const cleaned = filterImageUrls(gathered);
+      return cleaned.length >= 3 ? cleaned : null;
     };
-    
-    // Try site-specific selectors first
-    const siteSelectors = siteSpecificSelectors[hostname] || [];
-    for (const sel of siteSelectors) {
-      debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
-      const urls = await gatherImagesBySelector(sel);
-      if (urls.length >= 1) {
-        debug(`✅ Site-specific success: ${urls.length} images found`);
-        mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
-        return urls.slice(0,30); 
+
+    if (memorySel) {
+      const attempt = tryFromSel(memorySel);
+      if (attempt) {
+        urls = attempt; selUsed = memorySel;
+        return { values: urls, selector: selUsed };
       }
     }
-    const gallerySels = [
-      '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
-      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+
+    // D) Strength 2: common gallery selectors
+    const guesses = [
+      '[class*="gallery"] img',
+      '.product-media img',
+      '.pdp-gallery img',
+      '[data-testid*="image"] img',
+      '.slick-slide img, .swiper-slide img'
     ];
-    for (const sel of gallerySels) {
-      const urls = await gatherImagesBySelector(sel);
-      if (urls.length >= 3) { mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); return urls.slice(0,30); }
+    for (const g of guesses) {
+      const attempt = tryFromSel(g);
+      if (attempt) { urls = attempt; selUsed = g; break; }
     }
-    const og = q('meta[property="og:image"]')?.content;
-    const all = await gatherImagesBySelector('img');
-    const combined = (og ? [og] : []).concat(all);
-    const uniq = await uniqueImages(combined);
-    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
-    return uniq.slice(0,30);
+    if (isGoodImages(urls)) {
+      mark('images', { selectors:[selUsed], attr:'src', method:'unified-enhanced', urls: urls.slice(0,30) });
+      return { values: urls, selector: selUsed };
+    }
+
+    // E) Strength 3: whole-page harvest fallback
+    const all = filterImageUrls(collectImgCandidates(document));
+    if (all.length >= 3) {
+      urls = all; selUsed = 'page:all';
+      mark('images', { selectors:[selUsed], attr:'src', method:'page-fallback', urls: urls.slice(0,30) });
+      return { values: urls, selector: selUsed };
+    }
+
+    // F) return best-effort (even if <3)
+    mark('images', { selectors:[selUsed || 'none'], attr:'src', method:'best-effort', urls: urls.slice(0,30) });
+    return { values: urls, selector: selUsed };
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
