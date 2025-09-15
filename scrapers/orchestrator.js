@@ -1559,7 +1559,7 @@
         debug('💰 PRICE FROM MEMORY:', price);
         if (!price) {
           debug('💰 PRICE: Falling back to generic...');
-          price = getPrice();
+          price = getPrice(document, mem.price);
           debug('💰 PRICE FROM GENERIC:', price);
         }
         
@@ -1601,7 +1601,8 @@
             // Fall back to generic only if still insufficient
             if (combinedImages.length < 3) {
               debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
-              const genericImages = await getImagesGeneric();
+              const genericImagesResult = await getImagesGeneric(document, mem.images);
+              const genericImages = genericImagesResult.values || [];
               debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
               combinedImages = await uniqueImages(combinedImages.concat(genericImages));
             }
@@ -1628,8 +1629,17 @@
           }
         }
       }
+      // Extract specs and tags using unified function
+      let specs = [], tags = [];
+      if (mode !== 'memoryOnly') {
+        debug('📋 SPECS & TAGS: Extracting...');
+        const specsAndTags = getSpecsAndTags();
+        specs = specsAndTags.specs || [];
+        tags = specsAndTags.tags || [];
+        debug('📋 SPECS & TAGS RESULT:', { specs: specs.length, tags: tags.length });
+      }
 
-      const payload = { title, brand, description, price, url: location.href, images, timestamp: new Date().toISOString(), mode };
+      const payload = { title, brand, description, price, specs, tags, url: location.href, images, timestamp: new Date().toISOString(), mode };
       
       debug('✅ SCRAPE COMPLETE - FINAL RESULTS:', {
         title: title?.slice(0, 50),
@@ -1647,6 +1657,8 @@
         description: !!description,
         price: !!price,
         images: images?.length || 0
+        specs: specs?.length || 0,
+        tags: tags?.length || 0,
       });
       
       globalThis.__tg_lastSelectorsUsed = __used;
