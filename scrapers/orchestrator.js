@@ -200,11 +200,45 @@
   }
 
   // --- image helpers ---
-  function collectImgCandidates(root) {
+  function collectImgCandidates(root, variantContext = null) {
     const list = [];
+    const enrichedList = []; // For tracking element context
+    
+    // Use active gallery root if variant context is provided
+    if (variantContext?.activeGalleryRoot && variantContext.activeGalleryRoot !== document) {
+      root = variantContext.activeGalleryRoot;
+      debug(`🎯 Using active gallery root for collection: ${root.className || root.tagName}`);
+    }
+    
+    // Helper to check if element should be included
+    const shouldIncludeElement = (el, url) => {
+      // Check visibility (skip hidden variant carousels)
+      if (!isVisibleElement(el)) {
+        debug(`⏭️ SKIP invisible element: ${url?.slice(0, 50)}`);
+        return false;
+      }
+      
+      // Check if element is in active slide
+      if (!isActiveSlideElement(el)) {
+        debug(`⏭️ SKIP inactive slide: ${url?.slice(0, 50)}`);
+        return false;
+      }
+      
+      // Check variant match if context available
+      if (variantContext?.selectedVariantKey && url) {
+        if (!isVariantMatch(url, variantContext.selectedVariantKey)) {
+          debug(`⏭️ SKIP variant mismatch: ${url?.slice(0, 50)} (want: ${variantContext.selectedVariantKey})`);
+          return false;
+        }
+      }
+      
+      return true;
+    };
     
     // Target picture elements first (where the gold is!)
     for (const picture of root.querySelectorAll('picture')) {
+      if (!shouldIncludeElement(picture)) continue;
+      
       for (const source of picture.querySelectorAll('source[srcset]')) {
         const srcset = source.getAttribute('srcset');
         if (srcset) {
@@ -219,7 +253,12 @@
             const bW = parseInt(b.descriptor.replace('w', '')) || 0;
             return bW - aW;
           })[0];
-          if (largest?.url) list.push(largest.url);
+          
+          if (largest?.url && shouldIncludeElement(picture, largest.url)) {
+            list.push(largest.url);
+            enrichedList.push({ url: largest.url, element: picture, source: 'picture-srcset' });
+            debug(`✅ INCLUDED picture srcset: ${largest.url.slice(0, 80)}`);
+          }
         }
       }
       
@@ -227,14 +266,25 @@
       const img = picture.querySelector('img');
       if (img) {
         const src = img.getAttribute('src');
-        if (src) list.push(src);
+        if (src && shouldIncludeElement(img, src)) {
+          list.push(src);
+          enrichedList.push({ url: src, element: img, source: 'picture-img' });
+          debug(`✅ INCLUDED picture img: ${src.slice(0, 80)}`);
+        }
       }
     }
 
     // Regular img elements (but prefer picture elements above)
     for (const img of root.querySelectorAll('img:not(picture img)')) {
+      if (!shouldIncludeElement(img)) continue;
+      
       const src = img.getAttribute('src');
-      if (src) list.push(src);
+      if (src && shouldIncludeElement(img, src)) {
+        list.push(src);
+        enrichedList.push({ url: src, element: img, source: 'img-src' });
+        debug(`✅ INCLUDED img src: ${src.slice(0, 80)}`);
+      }
+      
       const srcset = img.getAttribute('srcset');
       if (srcset) {
         const urls = srcset.split(',').map(item => {
@@ -246,18 +296,35 @@
           const bW = parseInt(b.descriptor.replace('w', '')) || 0;
           return bW - aW;
         })[0];
-        if (largest?.url) list.push(largest.url);
+        
+        if (largest?.url && shouldIncludeElement(img, largest.url)) {
+          list.push(largest.url);
+          enrichedList.push({ url: largest.url, element: img, source: 'img-srcset' });
+          debug(`✅ INCLUDED img srcset: ${largest.url.slice(0, 80)}`);
+        }
       }
     }
     
     // CSS background-image (common in sliders)
     const bgElems = root.querySelectorAll('[style*="background-image"]');
     for (const el of bgElems) {
+      if (!shouldIncludeElement(el)) continue;
+      
       const m = (el.getAttribute('style')||'').match(/url\((['"]?)(.*?)\1\)/);
-      if (m && m[2]) list.push(m[2]);
+      if (m && m[2] && shouldIncludeElement(el, m[2])) {
+        list.push(m[2]);
+        enrichedList.push({ url: m[2], element: el, source: 'bg-image' });
+        debug(`✅ INCLUDED bg-image: ${m[2].slice(0, 80)}`);
+      }
     }
     
-    return list;
+    debug(`🖼️ VARIANT-AWARE COLLECTION: ${list.length} images from ${enrichedList.length} elements`);
+    if (variantContext?.selectedVariantKey) {
+      debug(`🎯 Filtered for variant: ${variantContext.selectedVariantKey}`);
+    }
+    
+    // Return enriched format for better processing
+    return enrichedList.length > 0 ? enrichedList : list.map(url => ({ url, element: null, source: 'legacy' }));
   }
   function filterImageUrls(urls=[]) {
     const seen = new Set();
@@ -891,8 +958,8 @@
   }
 
   // LQIP-aware hybrid unique images with adaptive filtering (OVERRIDE)
-  async function hybridUniqueImages(enrichedUrls) {
-    debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
+  async function hybridUniqueImages(enrichedUrls, variantContext = null) {
+    debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length, variantKey: variantContext?.selectedVariantKey });
     const groups = new Map(); // canonical URL -> array of enriched URLs
     const seenDebugLogs = new Set();
     const filtered = { empty: 0, invalid: 0, junk: 0, lowScore: 0, smallFile: 0, duplicateGroups: 0, kept: 0 };
@@ -1056,8 +1123,13 @@
     return await hybridUniqueImages(enriched);
   }
   
-  async function gatherImagesBySelector(sel) {
+  async function gatherImagesBySelector(sel, variantContext = null) {
     debug('🔍 GATHERING IMAGES with selector:', sel);
+    
+    // Create variant context if not provided
+    if (!variantContext) {
+      variantContext = createVariantContext();
+    }
     
     const elements = qa(sel);
     debug(`📊 Found ${elements.length} elements for selector:`, sel);
@@ -1071,18 +1143,31 @@
       // Use the enhanced collectImgCandidates on the element's container
       // This ensures consistent picture/srcset parsing
       const container = el.closest('picture') || el.parentElement || el;
-      const urls = collectImgCandidates(container);
+      const urls = collectImgCandidates(container, variantContext);
       
       debug(`🔗 Found ${urls.length} URLs for element ${i}:`, urls.slice(0, 3));
       
-      // Convert to enriched format with element info
-      urls.forEach(url => {
-        if (url) {
-          enrichedUrls.push({ url, element: el, index: i });
-        }
-      });
+      // Handle enriched format from collectImgCandidates
+      if (urls.length > 0 && typeof urls[0] === 'object' && urls[0].url) {
+        // Already enriched format
+        urls.forEach((enriched, idx) => {
+          enrichedUrls.push({ 
+            url: enriched.url, 
+            element: enriched.element || el, 
+            index: i,
+            source: enriched.source 
+          });
+        });
+      } else {
+        // Legacy format - convert to enriched
+        urls.forEach(url => {
+          if (url) {
+            enrichedUrls.push({ url, element: el, index: i, source: 'legacy' });
+          }
+        });
+      }
       
-      // Also check the element itself for data attributes
+      // Also check the element itself for data attributes (with variant filtering)
       const dataAttrs = {
         'data-src': el.getAttribute('data-src'),
         'data-image': el.getAttribute('data-image'), 
@@ -1092,14 +1177,20 @@
       
       for (const [attr, value] of Object.entries(dataAttrs)) {
         if (value) {
+          // Apply variant filtering to data attributes too
+          if (variantContext?.selectedVariantKey && !isVariantMatch(value, variantContext.selectedVariantKey)) {
+            debug(`⏭️ SKIP data attr variant mismatch: ${attr}=${value.slice(0, 50)}`);
+            continue;
+          }
+          
           debug(`✅ Found ${attr}:`, value.slice(0, 100));
-          enrichedUrls.push({ url: value, element: el, index: i });
+          enrichedUrls.push({ url: value, element: el, index: i, source: attr });
         }
       }
     }
     
     debug(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
-    const filtered = await hybridUniqueImages(enrichedUrls);
+    const filtered = await hybridUniqueImages(enrichedUrls, variantContext);
     debug(`🖼️ After hybrid filtering: ${filtered.length} images`);
     
     return filtered;
@@ -1754,18 +1845,29 @@
         debug('🖼️ IMAGES: Skipping memory in normal mode');
         images = [];
         
-        // ALWAYS try custom handlers (regardless of memory count)
+        // VARIANT-AWARE IMAGE COLLECTION
         {
-          debug('🖼️ IMAGES: Need more images (have ' + (images?.length || 0) + ', need 3+)');
+          debug('🖼️ IMAGES: Starting variant-aware collection...');
+          
+          // Create variant context for precise targeting
+          const variantContext = createVariantContext();
+          debug('🎯 VARIANT CONTEXT CREATED:', {
+            selectedVariant: variantContext.selectedVariantKey,
+            detectionMethod: variantContext.detectionMethod,
+            activeGallery: variantContext.activeGalleryRoot?.className || 'document',
+            debugInfo: variantContext.debugInfo
+          });
+          
           const memoryImages = images || [];
-          // Try custom handlers first
+          
+          // Try custom handlers first (with variant context)
           let customImages = [];
           if (typeof getCustomHandlers === 'function') {
             try {
               const ch = getCustomHandlers();
               if (ch?.images && typeof ch.images === 'function') {
                 debug('🧩 IMAGES: Trying custom handler...');
-                const customResult = await Promise.resolve(ch.images(document));
+                const customResult = await Promise.resolve(ch.images(document, variantContext));
                 if (customResult && Array.isArray(customResult)) {
                   customImages = customResult.filter(Boolean);
                   mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
@@ -1782,27 +1884,27 @@
             debug('🎯 USING CUSTOM IMAGES (overriding memory)');
             images = customImages.slice(0, 30);
           } else {
-            // Merge and dedupe memory + custom
+            // Merge and dedupe memory + custom (with variant context)
             let combinedImages = await uniqueImages(memoryImages.concat(customImages));
             
-            // Fall back to generic only if still insufficient
+            // Fall back to generic only if still insufficient (with variant context)
             if (combinedImages.length < 3) {
-              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
-              const genericImagesResult = await getImagesGeneric(document, mem.images);
+              debug('🖼️ IMAGES: Custom insufficient, getting variant-aware generic images...');
+              const genericImagesResult = await getImagesGeneric(document, mem.images, variantContext);
               const genericImages = genericImagesResult.values || [];
-              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+              debug('🖼️ VARIANT-AWARE GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
               combinedImages = await uniqueImages(combinedImages.concat(genericImages));
             }
           
             images = combinedImages.slice(0, 30);
           }
-          debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
+          debug('🖼️ FINAL VARIANT-FILTERED IMAGES:', { count: images.length, images: images.slice(0, 3) });
           
-          // LLM FALLBACK: If no images found, try AI-powered selector discovery
+          // LLM FALLBACK: If no images found, try AI-powered selector discovery (with variant context)
           if (images.length === 0 && mode !== 'memoryOnly') {
-            debug('🤖 IMAGES: Zero images found, activating LLM fallback...');
+            debug('🤖 IMAGES: Zero images found, activating variant-aware LLM fallback...');
             try {
-              const llmImages = await tryLLMImageFallback(document);
+              const llmImages = await tryLLMImageFallback(document, variantContext);
               if (llmImages.length > 0) {
                 images = llmImages.slice(0, 30);
                 debug('🤖 LLM RESCUE SUCCESS:', { count: images.length, images: images.slice(0, 3) });
