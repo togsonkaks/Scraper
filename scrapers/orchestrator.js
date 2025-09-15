@@ -1,4 +1,3 @@
-
 /**
  * orchestrator.js — FINAL w/ memoryOnly mode
  * - mode: 'memoryOnly' => use ONLY saved selectors (no fallbacks)
@@ -201,23 +200,63 @@
   }
 
   // --- image helpers ---
-  function collectImgCandidates(root){
+  function collectImgCandidates(root) {
     const list = [];
-    for (const img of root.querySelectorAll('img')) {
+    
+    // Target picture elements first (where the gold is!)
+    for (const picture of root.querySelectorAll('picture')) {
+      for (const source of picture.querySelectorAll('source[srcset]')) {
+        const srcset = source.getAttribute('srcset');
+        if (srcset) {
+          // Get the largest from srcset
+          const urls = srcset.split(',').map(item => {
+            const parts = item.trim().split(/\s+/);
+            return { url: parts[0], descriptor: parts[1] || '' };
+          });
+          // Prefer largest by descriptor (2000w > 1000w) or last as fallback
+          const largest = urls.sort((a, b) => {
+            const aW = parseInt(a.descriptor.replace('w', '')) || 0;
+            const bW = parseInt(b.descriptor.replace('w', '')) || 0;
+            return bW - aW;
+          })[0];
+          if (largest?.url) list.push(largest.url);
+        }
+      }
+      
+      // Also check img inside picture as fallback
+      const img = picture.querySelector('img');
+      if (img) {
+        const src = img.getAttribute('src');
+        if (src) list.push(src);
+      }
+    }
+
+    // Regular img elements (but prefer picture elements above)
+    for (const img of root.querySelectorAll('img:not(picture img)')) {
       const src = img.getAttribute('src');
       if (src) list.push(src);
       const srcset = img.getAttribute('srcset');
       if (srcset) {
-        const big = srcset.split(',').map(s => s.trim().split(' ')[0]).filter(Boolean).pop();
-        if (big) list.push(big);
+        const urls = srcset.split(',').map(item => {
+          const parts = item.trim().split(/\s+/);
+          return { url: parts[0], descriptor: parts[1] || '' };
+        });
+        const largest = urls.sort((a, b) => {
+          const aW = parseInt(a.descriptor.replace('w', '')) || 0;
+          const bW = parseInt(b.descriptor.replace('w', '')) || 0;
+          return bW - aW;
+        })[0];
+        if (largest?.url) list.push(largest.url);
       }
     }
+    
     // CSS background-image (common in sliders)
     const bgElems = root.querySelectorAll('[style*="background-image"]');
     for (const el of bgElems) {
       const m = (el.getAttribute('style')||'').match(/url\((['"]?)(.*?)\1\)/);
       if (m && m[2]) list.push(m[2]);
     }
+    
     return list;
   }
   function filterImageUrls(urls=[]) {
@@ -240,6 +279,53 @@
     return out.slice(0, 20);
   }
   function isGoodImages(arr){ return Array.isArray(arr) && arr.length >= 3; }
+
+  /* ---------- UNIVERSAL IMAGE CONSTANTS (LQIP-aware) ---------- */
+  // ---- UNIVERSAL SIZE HINT REGEXES (comprehensive CDN support) ----
+  const RX_SRCSET_W   = /\s(\d{2,4})w(?:\s|$)/i;                       // "2000w"
+  const RX_W_SEG      = /(?:^|\/)[whmwx][_ -]?(\d{2,4})(?=[\/._-]|$)/i;// "/w_375/" "/h-800" "/x1200"
+  const RX_W_QS       = /[?&](?:im?width|mw|maxw?|w|wid|width)=(\d{2,4})\b/i;
+  const RX_H_QS       = /[?&](?:h|height)=(\d{2,4})\b/i;
+  const RX_SIZE_SEG   = /(?:^|\/)(\$size_|\$Size_|Size[_-])(\d{3,4})(?=\/|$)/i;  // "/Size_2000/" or "/$size_2000/"
+  const RX_PAIR_X     = /(?:^|[\W_])(\d{3,4})[x×](\d{3,4})(?:[\W_]|$)/i;// "2000x2000" "800x1200"
+  const RX_AMZ_SX     = /[_-]SX(\d{2,4})[_-]/i;                        // "SX679" (Amazon)
+  const RX_CLOUDINARY = /\/upload\/[^/]*?w_(\d{2,4})/i;                 // Cloudinary "w_2000"
+  const RX_IMGIX_QS   = /[?&](?:auto=[^&]*&)?w=(\d{2,4})\b/i;          // imgix
+  const RX_AEM_IMW    = /[?&](?:imwidth|width)=(\d{2,4})\b/i;          // Adobe AEM
+  const RX_SHOPIFY    = /_(\d{3,4})x\.\w+\b/i;                          // Shopify "_2000x.jpg"
+
+  // Universal size extraction - returns { w, h, confidence, reasons:[] }
+  function estimateSizeFromHints(url, srcsetItem = '') {
+    let w = 0, h = 0, conf = 0; const reasons = [];
+
+    const take = (val, bonus, reason) => {
+      if (val && val > w) { w = val; conf += bonus; reasons.push(reason + ':' + val); }
+    };
+
+    // Highest confidence first
+    let m;
+    if ((m = url.match(RX_SIZE_SEG)))    take(+m[2], 6, 'Size_####');
+    if ((m = srcsetItem.match(RX_SRCSET_W))) take(+m[1], 5, 'srcset ####w');
+    if ((m = url.match(RX_PAIR_X)))      { take(+m[1], 5, 'pairX'); h = +m[2]; }
+    if ((m = url.match(RX_CLOUDINARY)))  take(+m[1], 4, 'cloudinary w_');
+    if ((m = url.match(RX_SHOPIFY)))     take(+m[1], 4, 'shopify _####x');
+    if ((m = url.match(RX_W_SEG)))       take(+m[1], 3, 'path w_####/h_####');
+    if ((m = url.match(RX_W_QS)))        take(+m[1], 3, 'qs w=');
+    if ((m = url.match(RX_IMGIX_QS)))    take(+m[1], 3, 'imgix w=');
+    if ((m = url.match(RX_AEM_IMW)))     take(+m[1], 3, 'aem width=');
+    if ((m = url.match(RX_AMZ_SX)))      take(+m[1], 2, 'amazon SX####');
+    if ((m = url.match(RX_H_QS)))        { h = +m[1]; conf += 1; reasons.push('qs h=' + h); }
+
+    return { w, h, confidence: conf, reasons };
+  }
+
+  // Junk detection patterns  
+  const JUNK_HINTS_NEW = ['/thumb', '/thumbnail', '/mini', '/sprite', '/logo', '/banner', '/icon', '/swatch', '/color', '/placeholder', '/poster', '/360/', '/video'];
+  
+  function looksLikeJunk(url) { 
+    const u = url.toLowerCase(); 
+    return JUNK_HINTS_NEW.some(h => u.includes(h)); 
+  }
 
   /* ---------- PRICE (currency-aware) ---------- */
   function parseMoneyTokens(s) {
@@ -462,124 +548,6 @@
     return false;
   }
   
-  // Enhanced image quality scoring function with aggressive filtering
-  function scoreImageURL(url, element = null, elementIndex = 0) {
-    if (!url) return 0;
-    let score = 50; // Base score
-    
-    // Aggressive dimension penalties for thumbnails
-    const amazonThumbMatch = url.match(/_(?:AC_)?(?:US|SS|SY|SR|UL)(\d+)(?:_|\.)/i);
-    if (amazonThumbMatch) {
-      const size = parseInt(amazonThumbMatch[1]);
-      if (size <= 40) score -= 60; // 40px thumbnails
-      else if (size <= 64) score -= 50; // 64px thumbnails  
-      else if (size <= 100) score -= 40; // 100px thumbnails
-      else if (size <= 200) score -= 20; // Small images
-      else if (size >= 800) score += 25; // Good size
-      else if (size >= 400) score += 15; // Decent size
-    }
-    
-    // Enhanced size detection (multiple patterns)
-    const sizePatterns = [
-      /(?:max|w|width|imwidth|imageWidth)=([0-9]+)/i,
-      /_(\d+)x\d*(?:_|\.|$)/i, // _750x, _1024x1024
-      /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
-      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
-      /[?&]\$n_(\d+)w?\b/i,  // ASOS patterns: ?$n_640w, ?$n_1920
-      /\bw_(\d+)\b/i  // *** CRITICAL FIX: Swarovski w_375 style ***
-    ];
-    
-    let detectedSize = 0;
-    for (const pattern of sizePatterns) {
-      const match = url.match(pattern);
-      if (match) {
-        detectedSize = Math.max(detectedSize, parseInt(match[1]));
-      }
-    }
-    
-    if (detectedSize > 0) {
-      if (detectedSize >= 1200) score += 40;
-      else if (detectedSize >= 800) score += 30; 
-      else if (detectedSize >= 600) score += 20;
-      else if (detectedSize >= 400) score += 10;
-      else if (detectedSize < 200) score -= 40; // Strong penalty for tiny images
-    }
-    
-    // Quality bonuses (enhanced patterns)
-    const qualityPatterns = [
-      /quality=([0-9]+)/i,
-      /q_([0-9]+)/i, // Cloudinary
-      /q([0-9]+)/i   // Some CDNs
-    ];
-    
-    for (const pattern of qualityPatterns) {
-      const match = url.match(pattern);
-      if (match) {
-        const quality = parseInt(match[1]);
-        if (quality >= 90) score += 20;
-        else if (quality >= 80) score += 15;
-        else if (quality >= 70) score += 10;
-        else if (quality < 50) score -= 15;
-        break; // Only use first match
-      }
-    }
-    
-    // Format bonuses (enhanced)
-    if (/\.(webp|avif)($|\?)/i.test(url)) score += 10;
-    if (/(format|fm)=(webp|avif)/i.test(url)) score += 10;
-    if (/f_auto/i.test(url)) score += 8; // Cloudinary auto format
-    
-    // Enhanced CDN bonuses
-    if (/\b(assets?|static|cdn|media|img)\./i.test(url)) score += 25; // Asset subdomains
-    if (/\b(mozu\.com|cloudinary\.com|imgix\.net|shopify\.com|fastly\.com)\b/i.test(url)) score += 15;
-    
-    // Product code detection bonuses
-    if (/\b[A-Z]\d{4}[A-Z]?\b/i.test(url)) score += 40; // Product codes like M6169R, A0480U
-    if (/\bproduct/i.test(url)) score += 20;
-    
-    // Path context bonuses and penalties  
-    if (/\/(product|main|hero|detail|primary)/i.test(url)) score += 15;
-    if (/\/(thumb|small|mini|icon)/i.test(url)) score -= 30;
-    
-    // Aggressive semantic penalties for navigation/UI elements
-    if (/\b(womens?-clothing|mens?-clothing|best-sellers?|new-arrivals?|accessories|shop-by|featured-edit|wellness|searchburger)\b/i.test(url)) score -= 70;
-    if (/\b(banner|logo|bg|background|header|footer|nav|navigation|menu)\b/i.test(url)) score -= 50;
-    if (/\b(ad|advertisement|promo|campaign|marketing|sidebar|bullet-point)\b/i.test(url)) score -= 60;
-    if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;
-    if (/\b(warranty|insurance|coverage|support|claim)\b/i.test(url)) score -= 55;
-    
-    // Community/review image penalties
-    if (/aicid=community/i.test(url)) score -= 45;
-    if (/community-reviews/i.test(url)) score -= 45;
-    
-    // Position-based bonuses (first images more likely to be main product)
-    if (elementIndex < 3) score += 20; // First few images get bonus
-    if (elementIndex < 1) score += 10; // Very first image gets extra bonus
-    
-    // Element-based bonuses if element provided
-    if (element) {
-      const className = element.className || '';
-      const id = element.id || '';
-      const combined = (className + ' ' + id).toLowerCase();
-      
-      if (/\b(main|hero|primary|featured|product-image|gallery-main)\b/i.test(combined)) score += 30;
-      if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 30;
-      if (/\b(banner|ad|sidebar|nav|header|footer|menu)\b/i.test(combined)) score -= 45;
-      
-      // Aspect ratio penalties from element dimensions
-      const width = element.naturalWidth || element.width || 0;
-      const height = element.naturalHeight || element.height || 0;
-      if (width > 0 && height > 0) {
-        const aspectRatio = width / height;
-        if (aspectRatio > 3) score -= 40; // Too wide (likely banner)
-        if (aspectRatio < 0.3) score -= 40; // Too tall (likely sidebar)
-        if (aspectRatio >= 0.8 && aspectRatio <= 1.5) score += 15; // Good product image ratio
-      }
-    }
-    
-    return Math.max(0, score);
-  }
-  
   const pickFromSrcset = (srcset) => {
     if (!srcset) return null;
     const parts = srcset.split(',').map(s => s.trim());
@@ -588,78 +556,109 @@
     return url || null;
   };
   const toAbs = (u) => { try { return new URL(u, location.href).toString(); } catch { return u; } };
-  const canonicalKey = (u) => {
-    try {
-      const url = new URL(u, location.href);
-      url.hash = ''; url.search='';
-      let p = url.pathname;
-      p = p.replace(/\/((w|h|c|q|dpr|ar|f)_[^/]+)/g,'/');
-      return url.origin + p;
-    } catch { return u.replace(/[?#].*$/,''); }
-  };
+  
   // Estimate file size from URL patterns (fast approximation)
   function estimateFileSize(url) {
-    // Look for size indicators in URL
-    const amazonThumbMatch = url.match(/_(?:AC_)?(?:US|SS|SY|SR|UL)(\d+)(?:_|\.)/i);
-    if (amazonThumbMatch) {
-      const size = parseInt(amazonThumbMatch[1]);
-      if (size <= 40) return 2000;   // ~2KB for tiny thumbnails
-      if (size <= 100) return 8000;  // ~8KB for small thumbs
-      if (size <= 200) return 25000; // ~25KB for medium
-      return 80000; // ~80KB for larger Amazon images
-    }
+    // Use universal size extraction for better estimates
+    const { w } = estimateSizeFromHints(url);
     
-    // Check for dimension patterns
-    const sizePatterns = [
-      /(?:max|w|width|imwidth|imageWidth)=([0-9]+)/i,
-      /_(\d+)x\d*(?:_|\.|$)/i,
-      /(\d+)x\d+(?:_|\.|$)/i,
-      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i,
-      /[?&]\$n_(\d+)w?\b/i,  // ASOS patterns: ?$n_640w, ?$n_1920
-      /\bw_(\d+)\b/i  // *** CRITICAL FIX: Swarovski w_375 style ***
-    ];
-    
-    let maxSize = 0;
-    for (const pattern of sizePatterns) {
-      const match = url.match(pattern);
-      if (match) {
-        maxSize = Math.max(maxSize, parseInt(match[1]));
-      }
-    }
-    
-    if (maxSize > 0) {
-      // CDN images get higher estimates even for medium sizes
-      const isCDN = /(?:adoredvintage|alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media|cdn-tp3\.mozu|assets\.adidas)\.com/i.test(url);
+    if (w > 0) {
+      // Width-based estimates with CDN awareness
+      const isCDN = /(?:swarovski|adoredvintage|alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media|cdn-tp3\.mozu|assets\.adidas)\.com/i.test(url);
       
-      if (maxSize >= 1200) return 150000; // ~150KB for large images
-      if (maxSize >= 800) return 100000;  // ~100KB for medium-large
-      if (maxSize >= 400) return isCDN ? 100000 : 50000;   // CDN: ~100KB, others: ~50KB for medium
-      if (maxSize >= 200) return isCDN ? 80000 : 25000;    // CDN: ~80KB, others: ~25KB for small
+      if (w >= 2000) return 200000; // ~200KB for very large
+      if (w >= 1200) return 150000; // ~150KB for large images
+      if (w >= 800) return 100000;  // ~100KB for medium-large
+      if (w >= 400) return isCDN ? 80000 : 50000;   // CDN: ~80KB, others: ~50KB for medium
+      if (w >= 200) return isCDN ? 60000 : 25000;    // CDN: ~60KB, others: ~25KB for small
       return 8000; // ~8KB for tiny
     }
     
-    // CDN-specific estimates (known to serve larger images)
-    if (/(?:adoredvintage|alicdn|amazonaws|shopifycdn|akamaized|fastly|cloudfront|imgix|cloudinary|scene7|asos-media|cdn-tp3\.mozu|assets\.adidas)\.com/i.test(url)) {
-      // Check for file extensions OR format parameters
-      const isJPEG = /\.(jpg|jpeg)($|\?)/i.test(url) || /[?&](fmt|format|fm)=(jpg|jpeg)/i.test(url);
-      const isPNG = /\.(png)($|\?)/i.test(url) || /[?&](fmt|format|fm)=png/i.test(url);
-      const isWebP = /\.(webp)($|\?)/i.test(url) || /[?&](fmt|format|fm)=webp/i.test(url);
-      
-      if (isJPEG) return 150000; // ~150KB for CDN JPG (covers Scene7 fmt=jpeg)
-      if (isPNG) return 180000;  // ~180KB for CDN PNG  
-      if (isWebP) return 100000; // ~100KB for CDN WebP
-      
-      // Default to higher estimate for CDN images with any image indicators
-      if (/\$pdp|image|product/i.test(url)) return 150000; // Product image indicators
-    }
-    
-    // Default estimates based on file type
-    if (/\.(jpg|jpeg)($|\?)/i.test(url)) return 80000;   // ~80KB default JPG (increased)
-    if (/\.(png)($|\?)/i.test(url)) return 100000;       // ~100KB default PNG (increased)
-    if (/\.(webp)($|\?)/i.test(url)) return 50000;       // ~50KB default WebP (increased)
+    // Fallback estimates
+    if (/\.(jpg|jpeg)($|\?)/i.test(url)) return 80000;   // ~80KB default JPG
+    if (/\.(png)($|\?)/i.test(url)) return 100000;       // ~100KB default PNG
+    if (/\.(webp)($|\?)/i.test(url)) return 50000;       // ~50KB default WebP
     if (/\.(gif)($|\?)/i.test(url)) return 20000;        // ~20KB default GIF
     
     return 50000; // ~50KB default
+  }
+
+  // Enhanced canonical grouping for LQIP variant detection
+  function canonicalKey(url) {
+    try {
+      const u = new URL(url);
+      // Strip all size/format/quality transforms
+      ['w','width','h','height','fit','auto','q','quality','fm','format'].forEach(p => u.searchParams.delete(p));
+      
+      let path = u.pathname;
+      // Normalize size containers and transforms for variant grouping
+      path = path.replace(/\/(\$size_|\$Size_|Size[_-])\d{3,4}\//ig, '/Size_XXXX/')
+                 .replace(/\/w[_-]\d{2,4}(?=\/|\.|_|-)/ig, '/w_XX')
+                 .replace(/_\d{3,4}x\./ig, '_XXXx.')
+                 .replace(/[_-]SX\d{2,4}[_-]/ig, '_SXXX_');
+      
+      return `${u.host}${path}`;
+    } catch { 
+      return url.replace(/[?#].*$/, ''); 
+    }
+  }
+
+  // Universal image scoring with LQIP awareness 
+  function scoreImageURL(url, element = null, elementIndex = 0, srcsetItem = '') {
+    if (!url) return 0;
+    
+    const { w, confidence } = estimateSizeFromHints(url, srcsetItem);
+    let score = 50; // Base score
+
+    // Size bonus/penalty from *any* hint we detected (CRITICAL FIX)
+    if (w >= 2000) score += 40;
+    else if (w >= 1600) score += 30;
+    else if (w >= 1200) score += 20;
+    else if (w >= 800)  score += 10;
+    else if (w > 0 && w < 450) score -= 50;     // Red-flag small thumbs (LQIP detection)
+
+    // Double-bonus if we saw the very strong Size_#### path
+    if (/\/(\$size_|\$Size_|Size[_-])(?:2000|1600|1440|1080)\//i.test(url)) score += 20;
+
+    // Vendor "w_####" that's still big gets some love too
+    if (/\/w[_-](?:2000|1600|1440|1200)(?:[\/._-]|$)/i.test(url)) score += 12;
+
+    // Junk/UI elements sink
+    if (looksLikeJunk(url)) score -= 60;
+
+    // Position bias for first few gallery images (but gated by size)
+    if (elementIndex <= 2 && (w === 0 || w >= 500)) score += 18; 
+    else if (elementIndex <= 6 && (w === 0 || w >= 500)) score += 8;
+
+    // Quality bonuses (gated by size to prevent small images getting bonuses)
+    if (w === 0 || w >= 500) {
+      if (/\.(webp|avif)($|\?)/i.test(url)) score += 10;
+      if (/(format|fm)=(webp|avif)/i.test(url)) score += 10;
+      if (/f_auto/i.test(url)) score += 8; // Cloudinary auto format
+      
+      // CDN bonuses
+      if (/\b(assets?|static|cdn|media|img)\./i.test(url)) score += 15;
+      if (/\b(swarovski\.com|asset\.swarovski\.com|cloudinary\.com|imgix\.net|shopify\.com)\b/i.test(url)) score += 15;
+    }
+
+    // Confidence tiebreaker
+    score += Math.min(confidence, 8);
+
+    // Aggressive penalties for UI/navigation elements
+    if (/\b(banner|logo|bg|background|header|footer|nav|navigation|menu)\b/i.test(url)) score -= 50;
+    if (/\b(sprite|icon|badge|placeholder|loading|spinner)\b/i.test(url)) score -= 80;
+    
+    // Element-based context
+    if (element) {
+      const className = element.className || '';
+      const id = element.id || '';
+      const combined = (className + ' ' + id).toLowerCase();
+      
+      if (/\b(main|hero|primary|featured|product-image|gallery-main)\b/i.test(combined)) score += 20;
+      if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 30;
+    }
+
+    return Math.max(0, score);
   }
 
   // Check actual file size via HTTP HEAD request (expensive, use sparingly)
@@ -674,7 +673,7 @@
     }
   }
 
-  // Hybrid unique images with score threshold and file size filtering
+  // LQIP-aware hybrid unique images with adaptive filtering (OVERRIDE)
   async function hybridUniqueImages(enrichedUrls) {
     debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
     const groups = new Map(); // canonical URL -> array of enriched URLs
@@ -703,9 +702,9 @@
         continue;
       }
       
-      // Apply score threshold (minimum 50 points)
+      // Apply score threshold (minimum 30 points - lowered for LQIP cases)
       const score = scoreImageURL(abs, enriched.element, enriched.index);
-      if (score < 50) {
+      if (score < 30) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
         continue;
@@ -726,7 +725,7 @@
       });
     }
     
-    // Select best scoring image from each group, maintain DOM order
+    // Select best scoring image from each group, with LQIP awareness
     const bestImages = [];
     for (const [canonical, candidates] of groups) {
       if (candidates.length === 1) {
@@ -736,10 +735,25 @@
         addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${candidate.score}): ${candidate.url.slice(0, 100)}`, candidate.url, candidate.score, true);
         filtered.kept++;
       } else {
-        // Multiple candidates, pick highest score
-        let bestCandidate = candidates.reduce((best, current) => 
-          current.score > best.score ? current : best
-        );
+        // Multiple candidates - prefer high-quality over LQIP
+        const { w: width } = estimateSizeFromHints(candidates[0].url);
+        const nonLQIP = candidates.filter(c => {
+          const { w } = estimateSizeFromHints(c.url);
+          return w === 0 || w >= 450; // Non-LQIP candidates
+        });
+        
+        let bestCandidate;
+        if (nonLQIP.length > 0) {
+          // Pick highest scoring non-LQIP
+          bestCandidate = nonLQIP.reduce((best, current) => 
+            current.score > best.score ? current : best
+          );
+        } else {
+          // All are LQIP, pick highest score
+          bestCandidate = candidates.reduce((best, current) => 
+            current.score > best.score ? current : best
+          );
+        }
         
         bestImages.push({ ...bestCandidate, canonical });
         addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestCandidate.score}): ${bestCandidate.url.slice(0, 100)}`, bestCandidate.url, bestCandidate.score, true);
@@ -758,85 +772,52 @@
     // Sort by DOM order (index)
     bestImages.sort((a, b) => a.index - b.index);
     
-    // Apply file size filtering (100KB minimum)
+    // Adaptive file size filtering with LQIP awareness
     const sizeFilteredImages = [];
-    const fileSizeCheckPromises = [];
     
     for (const img of bestImages) {
-      // Trusted CDNs bypass ALL size checks - HIGHEST PRIORITY  
-      if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
+      const { w } = estimateSizeFromHints(img.url);
+      
+      // Trusted CDNs bypass size checks
+      if (/(?:swarovski\.com|asset\.swarovski\.com|adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
         sizeFilteredImages.push(img);
         addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${img.url.slice(0, 100)}`, img.url, img.score, true);
         continue;
       }
-      // Trust high scores over file size limits (modern CDN optimization) - EARLY CHECK
-      if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {  // High score + minimum size check
+      
+      // High scores bypass size checks 
+      if (img.score >= 70) {
         sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        continue;
-      } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {  // LOWERED FROM 85 TO 50
-        // Good score + modern CDN optimization = keep it
-        sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        addImageDebugLog('debug', `🎯 HIGH SCORE BYPASS (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
         continue;
       }
       
+      // Adaptive size thresholds based on detected width
       const estimatedSize = estimateFileSize(img.url);
+      let threshold = 20000; // Default 20KB
       
-      if (estimatedSize >= 50000) {  // LOWERED FROM 100KB TO 50KB
-        // Estimated size is good, keep it
+      if (w >= 1200) threshold = 60000;      // 60KB for large
+      else if (w >= 800) threshold = 40000;  // 40KB for medium-large  
+      else if (w >= 400) threshold = 20000;  // 20KB for medium
+      else threshold = 10000;                // 10KB for small
+      
+      if (estimatedSize >= threshold) {
         sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `📏 SIZE OK (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-      } else if (estimatedSize >= 20000 && img.score >= 40) {  // MUCH MORE GENEROUS - was 60KB & score 50
-        // Borderline case with decent score, check actual size
-        fileSizeCheckPromises.push(
-          checkFileSize(img.url).then(actualSize => ({
-            img,
-            actualSize,
-            estimatedSize
-          }))
-        );
+        addImageDebugLog('debug', `📏 SIZE OK (${Math.round(estimatedSize/1000)}KB≥${Math.round(threshold/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
       } else {
-        // Too small, reject
-        addImageDebugLog('debug', `📉 TOO SMALL (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
+        addImageDebugLog('debug', `📉 TOO SMALL (${Math.round(estimatedSize/1000)}KB<${Math.round(threshold/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
         filtered.smallFile++;
       }
     }
     
-    // Check actual file sizes for borderline cases
-    if (fileSizeCheckPromises.length > 0) {
-      debug(`📏 CHECKING ACTUAL FILE SIZES for ${fileSizeCheckPromises.length} borderline images...`);
-      const sizeResults = await Promise.all(fileSizeCheckPromises);
-      
-      for (const { img, actualSize, estimatedSize } of sizeResults) {
-        // Trust high scores over file size limits (modern CDN optimization)
-        if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {  // High score + minimum size check
-          sizeFilteredImages.push(img);
-          addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {  // LOWERED FROM 85 TO 50
-          // Good score + modern CDN optimization = keep it
-          sizeFilteredImages.push(img);
-          addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        } else if (actualSize && actualSize >= 100000) {
-          sizeFilteredImages.push(img);
-          addImageDebugLog('debug', `📏 SIZE VERIFIED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        } else if (!actualSize && (img.score >= 95 || /\b(assets?|cdn|media)\./i.test(img.url))) {
-          // HEAD failed but high score or CDN - likely CORS issue, keep it
-          sizeFilteredImages.push(img);
-          addImageDebugLog('debug', `📏 SIZE CHECK FAILED (CORS?) - keeping high-score/CDN: ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        } else if (actualSize && actualSize < 5000 && !/w[_=]\d{3,}|h[_=]\d{3,}/i.test(img.url)) {
-          // Only reject truly tiny images without dimension hints
-          addImageDebugLog('debug', `📉 TRULY TINY REJECTED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
-          filtered.smallFile++;
-        } else {
-          // Keep borderline cases - better to include than exclude
-          sizeFilteredImages.push(img);
-          addImageDebugLog('debug', `📊 BORDERLINE KEPT (${actualSize ? Math.round(actualSize/1000) : '?'}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        }
-      }
+    // Safety fallback: if no images remain, return top 3 by score
+    if (sizeFilteredImages.length === 0 && bestImages.length > 0) {
+      const topByScore = bestImages.sort((a, b) => b.score - a.score).slice(0, 3);
+      sizeFilteredImages.push(...topByScore);
+      addImageDebugLog('warn', `⚠️ SAFETY FALLBACK: Returning top ${topByScore.length} by score`, '', 0, false);
     }
     
-    // Sort again by DOM order and limit to 50
+    // Sort again by DOM order and limit
     sizeFilteredImages.sort((a, b) => a.index - b.index);
     const finalUrls = sizeFilteredImages.slice(0, 50).map(img => img.url);
     
@@ -857,6 +838,7 @@
     const enriched = urls.map((url, index) => ({ url, element: null, index }));
     return await hybridUniqueImages(enriched);
   }
+  
   async function gatherImagesBySelector(sel) {
     debug('🔍 GATHERING IMAGES with selector:', sel);
     
@@ -888,20 +870,42 @@
       }
       
       const ss = attrs.srcset;
-      const best = pickFromSrcset(ss); 
-      if (best) {
-        debug('✅ Found image URL from srcset:', best.slice(0, 100));
-        enrichedUrls.push({ url: best, element: el, index: i });
+      if (ss) {
+        // Parse srcset properly and get the largest
+        const urls = ss.split(',').map(item => {
+          const parts = item.trim().split(/\s+/);
+          return { url: parts[0], descriptor: parts[1] || '' };
+        });
+        const largest = urls.sort((a, b) => {
+          const aW = parseInt(a.descriptor.replace('w', '')) || 0;
+          const bW = parseInt(b.descriptor.replace('w', '')) || 0;
+          return bW - aW;
+        })[0];
+        if (largest?.url) {
+          debug('✅ Found image URL from srcset:', largest.url.slice(0, 100));
+          enrichedUrls.push({ url: largest.url, element: el, index: i });
+        }
       }
       
       // Check picture parent
       if (el.parentElement && el.parentElement.tagName.toLowerCase()==='picture') {
         debug('📸 Checking picture parent for sources...');
-        for (const src of el.parentElement.querySelectorAll('source')) {
-          const b = pickFromSrcset(src.getAttribute('srcset')); 
-          if (b) {
-            debug('✅ Found image URL from picture source:', b.slice(0, 100));
-            enrichedUrls.push({ url: b, element: el, index: i });
+        for (const src of el.parentElement.querySelectorAll('source[srcset]')) {
+          const srcset = src.getAttribute('srcset');
+          if (srcset) {
+            const urls = srcset.split(',').map(item => {
+              const parts = item.trim().split(/\s+/);
+              return { url: parts[0], descriptor: parts[1] || '' };
+            });
+            const largest = urls.sort((a, b) => {
+              const aW = parseInt(a.descriptor.replace('w', '')) || 0;
+              const bW = parseInt(b.descriptor.replace('w', '')) || 0;
+              return bW - aW;
+            })[0];
+            if (largest?.url) {
+              debug('✅ Found image URL from picture source:', largest.url.slice(0, 100));
+              enrichedUrls.push({ url: largest.url, element: el, index: i });
+            }
           }
         }
       }
