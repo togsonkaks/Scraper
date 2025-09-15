@@ -849,64 +849,34 @@
     
     for (let i = 0; i < elements.length; i++) {
       const el = elements[i];
-      debugElement(el, `Image element`);
+      debugElement(el, `Image element ${i}`);
       
-      const attrs = {
-        src: el.getAttribute('src') || el.currentSrc,
+      // Use the enhanced collectImgCandidates on the element's container
+      // This ensures consistent picture/srcset parsing
+      const container = el.closest('picture') || el.parentElement || el;
+      const urls = collectImgCandidates(container);
+      
+      debug(`🔗 Found ${urls.length} URLs for element ${i}:`, urls.slice(0, 3));
+      
+      // Convert to enriched format with element info
+      urls.forEach(url => {
+        if (url) {
+          enrichedUrls.push({ url, element: el, index: i });
+        }
+      });
+      
+      // Also check the element itself for data attributes
+      const dataAttrs = {
         'data-src': el.getAttribute('data-src'),
-        'data-image': el.getAttribute('data-image'),
+        'data-image': el.getAttribute('data-image'), 
         'data-zoom-image': el.getAttribute('data-zoom-image'),
-        'data-large': el.getAttribute('data-large'),
-        srcset: el.getAttribute('srcset')
+        'data-large': el.getAttribute('data-large')
       };
       
-      debug('📋 Image attributes:', attrs);
-      
-      const s1 = attrs.src || attrs['data-src'] || attrs['data-image'] || 
-                 attrs['data-zoom-image'] || attrs['data-large'];
-      if (s1) {
-        debug('✅ Found image URL from attributes:', s1.slice(0, 100));
-        enrichedUrls.push({ url: s1, element: el, index: i });
-      }
-      
-      const ss = attrs.srcset;
-      if (ss) {
-        // Parse srcset properly and get the largest
-        const urls = ss.split(',').map(item => {
-          const parts = item.trim().split(/\s+/);
-          return { url: parts[0], descriptor: parts[1] || '' };
-        });
-        const largest = urls.sort((a, b) => {
-          const aW = parseInt(a.descriptor.replace('w', '')) || 0;
-          const bW = parseInt(b.descriptor.replace('w', '')) || 0;
-          return bW - aW;
-        })[0];
-        if (largest?.url) {
-          debug('✅ Found image URL from srcset:', largest.url.slice(0, 100));
-          enrichedUrls.push({ url: largest.url, element: el, index: i });
-        }
-      }
-      
-      // Check picture parent
-      if (el.parentElement && el.parentElement.tagName.toLowerCase()==='picture') {
-        debug('📸 Checking picture parent for sources...');
-        for (const src of el.parentElement.querySelectorAll('source[srcset]')) {
-          const srcset = src.getAttribute('srcset');
-          if (srcset) {
-            const urls = srcset.split(',').map(item => {
-              const parts = item.trim().split(/\s+/);
-              return { url: parts[0], descriptor: parts[1] || '' };
-            });
-            const largest = urls.sort((a, b) => {
-              const aW = parseInt(a.descriptor.replace('w', '')) || 0;
-              const bW = parseInt(b.descriptor.replace('w', '')) || 0;
-              return bW - aW;
-            })[0];
-            if (largest?.url) {
-              debug('✅ Found image URL from picture source:', largest.url.slice(0, 100));
-              enrichedUrls.push({ url: largest.url, element: el, index: i });
-            }
-          }
+      for (const [attr, value] of Object.entries(dataAttrs)) {
+        if (value) {
+          debug(`✅ Found ${attr}:`, value.slice(0, 100));
+          enrichedUrls.push({ url: value, element: el, index: i });
         }
       }
     }
