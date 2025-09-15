@@ -8,3 +8,6 @@ run = "npm run replit"
 
 [deployment]
 deploymentTarget = "vm"
+
+[agent]
+expertMode = true
