@@ -1,0 +1,483 @@
+[12:16:29 PM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[12:16:29 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[12:16:29 PM] 💰 PRICE FROM MEMORY: null
+[12:16:29 PM] 💰 PRICE: Falling back to generic...
+[12:16:29 PM] 🔍 PRICE PARSING: {"input":"68","preferFirst":false,"inputType":"string","inputLength":2}
+[12:16:29 PM] 💰 MONETARY TOKENS: []
+[12:16:29 PM] 🔢 FALLBACK NUMBERS: [68]
+[12:16:29 PM] ✅ FINAL PRICE RESULT: {"result":68,"method":"MIN_FALLBACK","allNumbers":[68]}
+[12:16:29 PM] 💰 PRICE FROM GENERIC: 68
+[12:16:29 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:16:29 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:16:29 PM] 🧩 IMAGES: Trying custom handler...
+[12:16:29 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:16:29 PM] 🖼️ Getting generic images for hostname: freepeople.com
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[12:16:29 PM] 📊 Found 0 elements for selector: .product-media img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[12:16:29 PM] 📊 Found 0 elements for selector: .gallery img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[12:16:29 PM] 📊 Found 0 elements for selector: .image-gallery img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[12:16:29 PM] 📊 Found 0 elements for selector: .product-images img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[12:16:29 PM] 📊 Found 0 elements for selector: .product-gallery img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[12:16:29 PM] 📊 Found 0 elements for selector: [class*=gallery] img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: .slider img
+[12:16:29 PM] 📊 Found 0 elements for selector: .slider img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: .thumbnails img
+[12:16:29 PM] 📊 Found 0 elements for selector: .thumbnails img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+[12:16:29 PM] 📊 Found 0 elements for selector: .pdp-gallery img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+[12:16:29 PM] 📊 Found 0 elements for selector: [data-testid*=image] img
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 0
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:16:29 PM] 🖼️ FINAL IMAGES: []
+[12:16:29 PM] 🖼️ After hybrid filtering: 0 images
+[12:16:29 PM] 🔍 GATHERING IMAGES with selector: img
+[12:16:29 PM] 📊 Found 20 elements for selector: img
+[12:16:29 PM] Image element <IMG.c-pwa-header-tabs__img>
+[12:16:29 PM] 📋 Image attributes: {"src":"//images.ctfassets.net/udk41sh7kfzj/2GcuAlT2uFzpQy1hmX0i72/86e949ce18f87f88c85e25ca39af6ac5/Logo_FreePeople.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"src
+[12:16:29 PM] ✅ Found image URL from attributes: //images.ctfassets.net/udk41sh7kfzj/2GcuAlT2uFzpQy1hmX0i72/86e949ce18f87f88c85e25ca39af6ac5/Logo_Fre
+[12:16:29 PM] 📸 Checking picture parent for sources...
+[12:16:29 PM] Image element <IMG.c-pwa-header-tabs__img>
+[12:16:29 PM] 📋 Image attributes: {"src":"//images.ctfassets.net/udk41sh7kfzj/13zMramB5P5SGXE2sNs2zr/e8538af76276a2554d8c163199866d9e/Logo_FPMovement.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"src
+[12:16:29 PM] ✅ Found image URL from attributes: //images.ctfassets.net/udk41sh7kfzj/13zMramB5P5SGXE2sNs2zr/e8538af76276a2554d8c163199866d9e/Logo_FPM
+[12:16:29 PM] 📸 Checking picture parent for sources...
+[12:16:29 PM] Image element <IMG.o-pwa-image__img>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] 📸 Checking picture parent for sources...
+[12:16:29 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] Image element <IMG.o-pwa-image__img>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] 📸 Checking picture parent for sources...
+[12:16:29 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] Image element <IMG.o-pwa-image__img>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] 📸 Checking picture parent for sources...
+[12:16:29 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] Image element <IMG.o-pwa-image__img>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] 📸 Checking picture parent for sources...
+[12:16:29 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] Image element <IMG.o-pwa-image__img>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] 📸 Checking picture parent for sources...
+[12:16:29 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+[12:16:29 PM] Image element <IMG.o-pwa-color-swatch>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/?fit=constrain&hei=56&qlt=75
+[12:16:29 PM] Image element <IMG.o-pwa-color-swatch>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/?fit=constrain&hei=56&qlt=75
+[12:16:29 PM] Image element <IMG.o-pwa-color-swatch>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/?fit=constrain&hei=56&qlt=75
+[12:16:29 PM] Image element <IMG.o-pwa-color-swatch>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/?fit=constrain&hei=56&qlt=75
+[12:16:29 PM] Image element <IMG.o-pwa-color-swatch>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/?fit=constrain&hei=56&qlt=75
+[12:16:29 PM] Image element <IMG.o-pwa-color-swatch>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/?fit=constrain&hei=56&qlt=75
+[12:16:29 PM] Image element <IMG.o-pwa-color-swatch>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/?fit=constrain&hei=56&qlt=75
+[12:16:29 PM] Image element <IMG.o-pwa-color-swatch>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/?fit=constrain&hei=56&qlt=75
+[12:16:29 PM] Image element <IMG.c-pwa-icon>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://static.freepeople.com/static/v3/assets/klarna-logo-black-CdKAKn0h.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://static.freepeople.com/static/v3/assets/klarna-logo-black-CdKAKn0h.svg
+[12:16:29 PM] Image element <IMG.c-pwa-icon>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://static.freepeople.com/static/v3/assets/afterpay-logo-black-CvYC8Sxt.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://static.freepeople.com/static/v3/assets/afterpay-logo-black-CvYC8Sxt.svg
+[12:16:29 PM] Image element <IMG.c-pwa-chat-invitation__avatar>
+[12:16:29 PM] 📋 Image attributes: {"src":"//images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP_Avatar.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[12:16:29 PM] ✅ Found image URL from attributes: //images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP_Avata
+[12:16:29 PM] Image element <IMG>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://cdn.cookielaw.org/logos/a9d3dc19-0c91-478e-9e19-de0cc524c81c/018e2e0d-728a-7f8d-a08f-0f7bb5b34122/c4fdad73-48ad-4faa-b438-57f3ea833191/Screen_Shot_2024-03-11_at_10.30.37_AM.png","data-
+[12:16:29 PM] ✅ Found image URL from attributes: https://cdn.cookielaw.org/logos/a9d3dc19-0c91-478e-9e19-de0cc524c81c/018e2e0d-728a-7f8d-a08f-0f7bb5b
+[12:16:29 PM] Image element <IMG>
+[12:16:29 PM] 📋 Image attributes: {"src":"https://cdn.cookielaw.org/logos/static/powered_by_logo.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:16:29 PM] ✅ Found image URL from attributes: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+[12:16:29 PM] 🖼️ Raw enriched URLs collected: 30
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[12:16:29 PM] ❌ NOT IMAGE URL: https://images.ctfassets.net/udk41sh7kfzj/2GcuAlT2uFzpQy1hmX0i72/86e949ce18f87f88c85e25ca39af6ac5/Lo
+0
+📋 Copy URL
+[12:16:29 PM] ❌ NOT IMAGE URL: https://images.ctfassets.net/udk41sh7kfzj/13zMramB5P5SGXE2sNs2zr/e8538af76276a2554d8c163199866d9e/Lo
+0
+📋 Copy URL
+[12:16:29 PM] 🗑️ JUNK IMAGE: https://static.freepeople.com/static/v3/assets/klarna-logo-black-CdKAKn0h.svg
+0
+📋 Copy URL
+[12:16:29 PM] 🗑️ JUNK IMAGE: https://static.freepeople.com/static/v3/assets/afterpay-logo-black-CvYC8Sxt.svg
+0
+📋 Copy URL
+[12:16:29 PM] 🗑️ JUNK IMAGE: https://cdn.cookielaw.org/logos/a9d3dc19-0c91-478e-9e19-de0cc524c81c/018e2e0d-72
+0
+📋 Copy URL
+[12:16:29 PM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+0
+📋 Copy URL
+[12:16:29 PM] ✅ BEST OF 3 (score: 70): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+70
+📋 Copy URL
+[12:16:29 PM] ✅ BEST OF 3 (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+50
+📋 Copy URL
+[12:16:29 PM] ✅ BEST OF 3 (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+50
+📋 Copy URL
+[12:16:29 PM] ✅ BEST OF 3 (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+50
+📋 Copy URL
+[12:16:29 PM] ✅ BEST OF 3 (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 65): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/?fit=constrain&hei=56&qlt=75
+65
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+65
+📋 Copy URL
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":3,"lowScore":0,"smallFile":0,"duplicateGroups":5,"kept":14}
+[12:16:29 PM] 🖼️ FINAL IMAGES: ["https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-","https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-","https://images.urbndata.com/is/i
+[12:16:29 PM] 🖼️ After hybrid filtering: 14 images
+[12:16:29 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":15}
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":15}
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 80): https://images.urbndata.com/is/image/FreePeople/89421648_101_0
+80
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 70): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 70): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+50
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (80): https://images.urbndata.com/is/image/FreePeople/89421648_101_0
+80
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 100KB): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+50
+📋 Copy URL
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":15}
+[12:16:29 PM] 🖼️ FINAL IMAGES: ["https://images.urbndata.com/is/image/FreePeople/89421648_101_0","https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-","https://images.urbndata.com/is/image/FreePeople/89
+[12:16:29 PM] 🖼️ GENERIC IMAGES: {"count":15,"images":["https://images.urbndata.com/is/image/FreePeople/89421648_101_0","https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=6
+[12:16:29 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":15}
+[12:16:29 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":15}
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 80): https://images.urbndata.com/is/image/FreePeople/89421648_101_0
+80
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 70): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 70): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] ✅ SINGLE IMAGE (score: 50): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+50
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (80): https://images.urbndata.com/is/image/FreePeople/89421648_101_0
+80
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$a15-pdp-detail-shot$&fit=constrain&
+70
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$a15-pdp-detail-shot$&fit=constrain&
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/?fit=constrain&hei=56&qlt=75
+50
+📋 Copy URL
+[12:16:29 PM] 📏 SIZE OK (est: 100KB): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+50
+📋 Copy URL
+[12:16:29 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":15}
+[12:16:29 PM] 🖼️ FINAL IMAGES: ["https://images.urbndata.com/is/image/FreePeople/89421648_101_0","https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-","https://images.urbndata.com/is/image/FreePeople/89
+[12:16:29 PM] 🖼️ FINAL IMAGES: {"count":15,"images":["https://images.urbndata.com/is/image/FreePeople/89421648_101_0","https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=6
+[12:16:29 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"In The Wild Long Shorts","brand":"FP Movement","description":"Shop our In The Wild Long Shorts at FreePeople.com","price":"68","imageCount":15,"firstImages":["https://images.urbndata.com/is/
+[12:16:29 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":15}
+[12:16:29 PM] ✅ Debug trace complete
+Clear Debug

@@ -376,9 +376,61 @@
     return false;
   }
   
-  // Enhanced image quality scoring function with aggressive filtering
+  // Free People URL upgrade function
+  function upgradeFreePeopleUrl(url) {
+    if (!/images\.urbndata\.com\/is\/image/i.test(url)) return url;
+    
+    let upgraded = url;
+    
+    // Upgrade detail shots to high-res zoom images  
+    upgraded = upgraded.replace(/\$a15-pdp-detail-shot\$/g, '$redesign-zoom-5x$');
+    upgraded = upgraded.replace(/\$pdp-detail-shot\$/g, '$redesign-zoom-5x$');
+    
+    // Remove small dimension constraints
+    upgraded = upgraded.replace(/[?&]wid=\d+/gi, '');
+    upgraded = upgraded.replace(/[?&]hei=\d+/gi, '');
+    upgraded = upgraded.replace(/[?&]fit=constrain/gi, '');
+    upgraded = upgraded.replace(/[?&]qlt=\d+/gi, '');
+    
+    // Clean up trailing ? or &
+    upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
+    
+    if (upgraded !== url) {
+      debug(`✨ UPGRADED Free People URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+    }
+    
+    return upgraded;
+  }
+
+  // Enhanced image quality scoring function with aggressive filtering  
   function scoreImageURL(url, element = null, elementIndex = 0) {
     if (!url) return 0;
+    
+    // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns 
+    if (/images\.urbndata\.com\/is\/image/i.test(url)) {
+      // Block swatch URLs entirely
+      if (/_swatch\//i.test(url) || /swatch\?/i.test(url)) {
+        debug(`🚫 BLOCKED Free People swatch: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 0; // Block swatches completely
+      }
+      
+      // Block small dimension URLs (≤800px)
+      const smallDimMatch = url.match(/[?&](?:wid|hei|w|h)=([0-9]+)/i);
+      if (smallDimMatch) {
+        const dimension = parseInt(smallDimMatch[1]);
+        if (dimension <= 800) {
+          debug(`🚫 BLOCKED Free People small image: ${dimension}px in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 0; // Block small images
+        }
+      }
+      
+      // High score for high-res zoom images
+      if (/\$redesign-zoom-5x\$/i.test(url)) {
+        debug(`🎯 FREE PEOPLE HIGH-RES: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 95; // High score for zoom images
+      }
+    }
+    
     let score = 50; // Base score
     
     // Aggressive dimension penalties for thumbnails
@@ -796,14 +848,16 @@
                  attrs['data-zoom-image'] || attrs['data-large'];
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
-        enrichedUrls.push({ url: s1, element: el, index: i });
+        const upgradedUrl = upgradeFreePeopleUrl(s1); // Apply Free People URL upgrade
+        enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
       
       const ss = attrs.srcset;
       const best = pickFromSrcset(ss); 
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
-        enrichedUrls.push({ url: best, element: el, index: i });
+        const upgradedUrl = upgradeFreePeopleUrl(best); // Apply Free People URL upgrade
+        enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
       
       // Check picture parent
@@ -813,7 +867,8 @@
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
-            enrichedUrls.push({ url: b, element: el, index: i });
+            const upgradedUrl = upgradeFreePeopleUrl(b); // Apply Free People URL upgrade
+            enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
           }
         }
       }
