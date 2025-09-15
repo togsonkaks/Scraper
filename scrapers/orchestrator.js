@@ -1205,7 +1205,14 @@
           '#imageBlock img'
         ],
         'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
-        'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+        'acehardware.com': ['.product-gallery img', '.mz-productimages img'],
+        'target.com': [
+          '.ProductMedia img', 
+          '[data-test*="image"] img',
+          '[data-testid*="image"] img', 
+          '.pdp-MediaContainer img',
+          '[class*="ProductMedia"] img'
+        ]
       };
       
       // Try site-specific selectors first
@@ -1213,7 +1220,7 @@
       for (const sel of siteSelectors) {
         debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
         const siteUrls = await gatherImagesBySelector(sel);
-        if (siteUrls.length >= 1) {
+        if (siteUrls.length >= 3) {
           debug(`✅ Site-specific success: ${siteUrls.length} images found`);
           urls = siteUrls; selUsed = sel;
           break;

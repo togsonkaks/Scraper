@@ -1,0 +1,150 @@
+[1:43:17 AM] 🚀 Starting scrape operation for: https://www.target.com/p/sloosh-85-inflatable-tanning-pool-suntan-lounge-lounger-float-for-adults-extra-large-suntan-tub-pool-floats-sun-tan-tub/-/A-91799131
+[1:43:17 AM] 🚀 SCRAPE START {"host":"target.com","href":"https://www.target.com/p/sloosh-85-inflatable-tanning-pool-suntan-lounge-lounger-float-for-adults-extra-large-suntan-tub-pool-floats-sun-tan-tub/-/A-91799131","mode":"norm
+[1:43:17 AM] 🧠 LOADED MEMORY: {"host":"target.com","hasMemory":false,"fields":[],"memoryData":{}}
+[1:43:17 AM] 🔄 NORMAL MODE - memory + fallbacks
+[1:43:17 AM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":false}
+[1:43:17 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: title
+[1:43:17 AM] 📝 TITLE FROM MEMORY: null
+[1:43:17 AM] 📝 TITLE: Falling back to generic...
+[1:43:17 AM] 📝 [ORCHESTRATOR] Calling getTitle()...
+[1:43:17 AM] 📝 [ORCHESTRATOR] Trying selectors: ["h1",".product-title","[itemprop=\"name\"]"]
+[1:43:17 AM] 📝 [ORCHESTRATOR] Selector "h1": found element -> "Sloosh Pool Tanning Pool Floats Inflatable Adult Float Pool Outdoor Tanning Pool Tanning Bed Extra Large with 2 Drink Holders Pool Lounger"
+[1:43:17 AM] 📝 [ORCHESTRATOR] TITLE SUCCESS: {"text":"Sloosh Pool Tanning Pool Floats Inflatable Adult Float Pool Outdoor Tanning Pool Tanning Bed Extra Large with 2 Drink Holders Pool Lounger","selector":"h1","attr":"text"}
+[1:43:17 AM] 📝 TITLE FROM GENERIC: Sloosh Pool Tanning Pool Floats Inflatable Adult Float Pool Outdoor Tanning Pool Tanning Bed Extra Large with 2 Drink Holders Pool Lounger
+[1:43:17 AM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[1:43:17 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[1:43:17 AM] 🏷️ BRAND FROM MEMORY: null
+[1:43:17 AM] 🏷️ BRAND: Falling back to generic...
+[1:43:17 AM] 🏷️ [UNIFIED] Calling getBrand()...
+[1:43:17 AM] 🏷️ BRAND FROM GENERIC: null
+[1:43:17 AM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[1:43:17 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[1:43:17 AM] 📄 DESCRIPTION FROM MEMORY: null
+[1:43:17 AM] 📄 DESCRIPTION: Falling back to generic...
+[1:43:17 AM] 📄 DESCRIPTION FROM GENERIC: Shop Sloosh Pool Tanning Pool Floats Inflatable Adult Float Pool Outdoor Tanning Pool Tanning Bed Extra Large with 2 Drink Holders Pool Lounger at Target. Choose from Same Day Delivery, Drive Up or Order Pickup. Free standard shipping with $35 orders.
+[1:43:17 AM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[1:43:17 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[1:43:17 AM] 💰 PRICE FROM MEMORY: null
+[1:43:17 AM] 💰 PRICE: Falling back to generic...
+[1:43:17 AM] 🔍 PRICE PARSING: {"input":"$33.99","preferFirst":false,"inputType":"string","inputLength":6}
+[1:43:17 AM] 💰 MONETARY TOKENS: [33.99]
+[1:43:17 AM] ✅ PRICE FROM MONETARY: {"result":33.99,"method":"MINIMUM","allTokens":[33.99]}
+[1:43:17 AM] 🎯 REFINING PRICE: {"baseVal":"33.99","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[1:43:17 AM] Price element <SPAN.sc-44e8b7a0-1>
+[1:43:17 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"aria-label":null,"attrFirst":null}
+[1:43:17 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[1:43:17 AM] 📍 ANCESTOR 0: <SPAN.sc-44e8b7a0-1>
+[1:43:17 AM] 🔍 PRICE PARSING: {"input":"$33.99","preferFirst":false,"inputType":"string","inputLength":6}
+[1:43:17 AM] 💰 MONETARY TOKENS: [33.99]
+[1:43:17 AM] ✅ PRICE FROM MONETARY: {"result":33.99,"method":"MINIMUM","allTokens":[33.99]}
+[1:43:17 AM] 💰 ANCESTOR 0 PRICE: 33.99
+[1:43:17 AM] 📍 ANCESTOR 1: <SPAN.h-text-red>
+[1:43:17 AM] 🔍 PRICE PARSING: {"input":"$33.99","preferFirst":false,"inputType":"string","inputLength":6}
+[1:43:17 AM] 💰 MONETARY TOKENS: [33.99]
+[1:43:17 AM] ✅ PRICE FROM MONETARY: {"result":33.99,"method":"MINIMUM","allTokens":[33.99]}
+[1:43:17 AM] 💰 ANCESTOR 1 PRICE: 33.99
+[1:43:17 AM] 📍 ANCESTOR 2: <DIV>
+[1:43:17 AM] 🔍 PRICE PARSING: {"input":"$33.99 reg $67.99Sale save $34.00 (50% off)","preferFirst":false,"inputType":"string","inputLength":43}
+[1:43:17 AM] 💰 MONETARY TOKENS: [33.99,67.99,34]
+[1:43:17 AM] ✅ PRICE FROM MONETARY: {"result":33.99,"method":"MINIMUM","allTokens":[33.99,67.99,34]}
+[1:43:17 AM] 💰 ANCESTOR 2 PRICE: 33.99
+[1:43:17 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"33.99","originalBase":"33.99"}
+[1:43:17 AM] 💰 PRICE FROM GENERIC: 33.99
+[1:43:17 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[1:43:17 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:43:17 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[1:43:17 AM] 🖼️ Getting generic images for hostname: target.com
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: .product-media img
+[1:43:17 AM] 📊 Found 0 elements for selector: .product-media img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: .gallery img
+[1:43:17 AM] 📊 Found 0 elements for selector: .gallery img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[1:43:17 AM] 📊 Found 0 elements for selector: .image-gallery img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: .product-images img
+[1:43:17 AM] 📊 Found 0 elements for selector: .product-images img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[1:43:17 AM] 📊 Found 0 elements for selector: .product-gallery img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[1:43:17 AM] 📊 Found 0 elements for selector: [class*=gallery] img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: .slider img
+[1:43:17 AM] 📊 Found 0 elements for selector: .slider img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: .thumbnails img
+[1:43:17 AM] 📊 Found 0 elements for selector: .thumbnails img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+[1:43:17 AM] 📊 Found 0 elements for selector: .pdp-gallery img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+[1:43:17 AM] 📊 Found 0 elements for selector: [data-testid*=image] img
+[1:43:17 AM] 🖼️ Raw enriched URLs collected: 0
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ After hybrid filtering: 0 images
+[1:43:17 AM] 🖼️ GENERIC IMAGES: {"count":0,"images":[]}
+[1:43:17 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[1:43:17 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:43:17 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:43:17 AM] 🖼️ FINAL IMAGES: []
+[1:43:17 AM] 🖼️ FINAL IMAGES: {"count":0,"images":[]}
+[1:43:17 AM] 🤖 IMAGES: Zero images found, activating LLM fallback...
+[1:43:17 AM] 🤖 LLM FALLBACK: Starting AI-powered image selector discovery...
+[1:43:17 AM] 🤖 LLM FALLBACK: Sending request to LLM agent {"htmlLength":120000,"url":"https://www.target.com/p/sloosh-85-inflatable-tann"}
+[1:43:17 AM] 🤖 LLM FALLBACK: Critical error: IPC not available
+[1:43:17 AM] 🤖 LLM FALLBACK: No additional images found
+[1:43:17 AM] 📋 SPECS & TAGS: Extracting...
+[1:43:17 AM] 📋 [UNIFIED] Calling getSpecsAndTags()...
+[1:43:17 AM] 📋 [UNIFIED] No specs from collectSpecs, trying fallback...
+[1:43:17 AM] 📋 [UNIFIED] No tags from collectTags, trying fallback...
+[1:43:17 AM] 📋 [UNIFIED] FINAL RESULT: {"specs":0,"tags":0}
+[1:43:17 AM] 📋 SPECS & TAGS RESULT: {"specs":0,"tags":0}
+[1:43:17 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Sloosh Pool Tanning Pool Floats Inflatable Adult F","brand":null,"description":"Shop Sloosh Pool Tanning Pool Floats Inflatable Ad","price":33.99,"imageCount":0,"firstImages":[],"selectorsUs
+[1:43:17 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":false,"description":true,"price":true,"images":0,"specs":0,"tags":0}
+[1:43:17 AM] ✅ Debug trace complete
