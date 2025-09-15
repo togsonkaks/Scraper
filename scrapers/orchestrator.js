@@ -1615,17 +1615,17 @@
           }
         }
       }
-      // Extract specs and tags using unified function
-      let specs = [], tags = [];
+      // Extract specs using unified function (tags dropped per requirements)
+      let specs = [];
       if (mode !== 'memoryOnly') {
         debug('📋 SPECS & TAGS: Extracting...');
         const specsAndTags = getSpecsAndTags();
         specs = specsAndTags.specs || [];
-        tags = specsAndTags.tags || [];
-        debug('📋 SPECS & TAGS RESULT:', { specs: specs.length, tags: tags.length });
+        // tags removed per requirements - no longer extracting
+        debug('📋 SPECS RESULT:', { specs: specs.length });
       }
 
-      const payload = { title, brand, description, price, specs, tags, url: location.href, images, timestamp: new Date().toISOString(), mode };
+      const payload = { title, brand, description, price, specs, url: location.href, images, timestamp: new Date().toISOString(), mode };
       
       debug('✅ SCRAPE COMPLETE - FINAL RESULTS:', {
         title: title?.slice(0, 50),
@@ -1644,7 +1644,6 @@
         price: !!price,
         images: images?.length || 0,
         specs: specs?.length || 0,
-        tags: tags?.length || 0,
       });
       
       globalThis.__tg_lastSelectorsUsed = __used;
