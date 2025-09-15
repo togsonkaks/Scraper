@@ -286,6 +286,55 @@ const HOMEDEPOT = {
 
     return null;
   },
+
+  async images(doc = document) {
+    console.log("[DEBUG] Home Depot custom image logic running...");
+    const out = new Set();
+    
+    // Collect all gallery images with broader selectors
+    const gallerySelectors = [
+      '[class*=gallery] img',
+      '.product-images img',
+      '.image-container img',
+      '.media-gallery img',
+      '.product-media img'
+    ];
+    
+    gallerySelectors.forEach(selector => {
+      const imgs = doc.querySelectorAll(selector);
+      imgs.forEach(img => {
+        let url = img.currentSrc || img.src;
+        if (url && /(?:images\.thdstatic\.com|www\.thdstatic\.com)/i.test(url)) {
+          // Upgrade ALL thumbnail sizes (_100, _200, _300, _600) to high-res _1000
+          url = url.replace(/_\d{2,3}\.(jpg|jpeg|png|webp)/gi, '_1000.$1');
+          
+          // Upgrade spin image profiles from any size to 1000
+          url = url.replace(/[?&]profile=\d+/gi, '&profile=1000');
+          url = url.replace(/\?&/g, '?'); // Clean up malformed query strings
+          
+          out.add(url);
+          console.log("[DEBUG] Home Depot image upgraded:", img.src, "->", url);
+        }
+      });
+    });
+    
+    // Fallback: any Home Depot product images if gallery didn't catch enough
+    if (out.size < 5) {
+      doc.querySelectorAll('img').forEach(img => {
+        let url = img.currentSrc || img.src;
+        if (url && /(?:images\.thdstatic\.com|www\.thdstatic\.com)/i.test(url) && 
+            !/(?:icon|logo|sprite|thumb)/i.test(url)) {
+          url = url.replace(/_\d{2,3}\.(jpg|jpeg|png|webp)/gi, '_1000.$1');
+          url = url.replace(/[?&]profile=\d+/gi, '&profile=1000');
+          url = url.replace(/\?&/g, '?');
+          out.add(url);
+        }
+      });
+    }
+    
+    console.log("[DEBUG] Home Depot found", out.size, "high-res images");
+    return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0, 15);
+  }
 };
 
 
