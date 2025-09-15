@@ -34,3 +34,7 @@ args = "npm run replit"
 
 [workflows.workflow.metadata]
 outputType = "console"
+
+[[ports]]
+localPort = 37091
+externalPort = 80

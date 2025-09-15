@@ -410,27 +410,6 @@
   }
 
   /* ---------- JSON-LD ---------- */
-  function scanJSONLDProducts() {
-    const out = [];
-    for (const node of qa('script[type="application/ld+json"]')) {
-      try {
-        const data = JSON.parse(node.textContent);
-        const arr = Array.isArray(data) ? data : [data];
-        for (const d of arr) {
-          if (d && typeof d === 'object') {
-            if (d['@type'] === 'Product') out.push(d);
-            if (Array.isArray(d.itemListElement)) {
-              for (const it of d.itemListElement) {
-                const item = it && (it.item || it);
-                if (item && item['@type'] === 'Product') out.push(item);
-              }
-            }
-          }
-        }
-      } catch {}
-    }
-    return out;
-  }
   const ldPickPrice = (prod) => {
     const o = prod.offers || prod.aggregateOffer || prod.aggregateOffers;
     const pick = (x) => {
@@ -949,7 +928,7 @@
 
     if (memEntry.selectors.some(s => /^script\[type="application\/ld\+json"\]$/i.test(s))) {
       debug('🔍 TRYING JSON-LD for field:', field);
-      const prod = scanJSONLDProducts()[0];
+      const prod = findProductNode(getJsonLd(document));
       
       if (!prod) {
         debug('❌ NO JSON-LD PRODUCT DATA FOUND');
