@@ -354,6 +354,15 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
   const BAD_PATH =
     /(\/|^)(plp|listing|category|promo|ad|recommend|recs|similar|also|upsell|sprite|icons?|iconography|favicons?|size[_-]?chart|swatch|colorway|variant|placeholder)\b/i;
   
+  // Free People/Urban Outfitters specific bad patterns
+  const FREE_PEOPLE_BAD_PATTERNS = [
+    /\/swatch\//i,                          // Color swatches 
+    /\$a15-pdp-detail-shot\$/i,            // Detail shots (before upgrade)
+    /[?&]hei=(?:[1-9]?\d|[1-7]\d{2})(?:[^0-9]|$)/i, // Small height (≤799px)
+    /[?&]wid=(?:[1-9]?\d|[1-7]\d{2})(?:[^0-9]|$)/i, // Small width (≤799px)
+    /_swatch(?:\?|$)/i                      // Swatch in filename
+  ];
+  
   // Known product CDNs that don't require extensions
   const TRUSTED_PRODUCT_CDNS = [
     /cdn-tp3\.mozu\.com/i,           // Ace Hardware
@@ -511,6 +520,28 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       /[?&]scl=[01](?:[^0-9]|$)/i          // scale 0-1
     ];
 
+    // 5. AGGRESSIVE: Small image detection from URL parameters (anything ≤800px)
+    const smallImageParams = [
+      /[?&](?:w|wid|width)=([1-7]?\d{1,2}|800)(?:[^0-9]|$)/i,  // width ≤ 800
+      /[?&](?:h|hei|height)=([1-7]?\d{1,2}|800)(?:[^0-9]|$)/i, // height ≤ 800
+      /[?&]imwidth=([1-7]?\d{1,2}|800)(?:[^0-9]|$)/i,          // Akamai width ≤ 800
+      /[?&]imheight=([1-7]?\d{1,2}|800)(?:[^0-9]|$)/i,         // Akamai height ≤ 800
+      /[?&]rs=w:([1-7]?\d{1,2}|800)(?:[^0-9]|$)/i              // rs format ≤ 800
+    ];
+
+    // Check for small image parameters (≤800px = BAD)
+    for (const pattern of smallImageParams) {
+      const match = url.match(pattern);
+      if (match) {
+        const dimension = parseInt(match[1] || '0');
+        lqipIndicators.isLQIP = true;
+        lqipIndicators.confidence = 0.9; // Very confident this is too small
+        lqipIndicators.reasons.push(`small-url-dimension-${dimension}px`);
+        console.log(`[DEBUG] Small image detected: ${dimension}px in URL`);
+        break;
+      }
+    }
+
     for (const pattern of lowQualityParams) {
       if (pattern.test(url)) {
         lqipIndicators.isLQIP = true;
@@ -622,6 +653,24 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         url = url.replace(/max=\d+/g, 'max=800');
       }
 
+      // Free People/Urban Outfitters (Scene7): upgrade detail shots to zoom images
+      if (/images\.urbndata\.com\/is\/image/i.test(url)) {
+        // Upgrade detail shots to high-res zoom images  
+        url = url.replace(/\$a15-pdp-detail-shot\$/g, '$redesign-zoom-5x$');
+        url = url.replace(/\$pdp-detail-shot\$/g, '$redesign-zoom-5x$');
+        
+        // Remove small dimension constraints to get full size
+        url = url.replace(/[?&]wid=\d+/gi, '');
+        url = url.replace(/[?&]hei=\d+/gi, '');
+        url = url.replace(/[?&]fit=constrain/gi, '');
+        url = url.replace(/[?&]qlt=\d+/gi, '');
+      }
+
+      // Shocho CDN: remove resize parameters to get full-size images
+      if (/cdn\.shocho\.co/i.test(url)) {
+        url = url.replace(/\?i10c=img\.resize\([^)]+\)/gi, '');
+      }
+
       // strip generic width/height query hints
       url = url.replace(/[?&](w|h|width|height|size)=\d+[^&]*/gi, "");
       // collapse trailing ? or & if empty
@@ -677,6 +726,16 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       }
       
       if (BAD_CONTENT.test(u)) return;              // block charts, graphs, analytics images
+      
+      // Block Free People/Urban Outfitters bad patterns (swatches, small images)
+      if (/images\.urbndata\.com/i.test(u)) {
+        for (const pattern of FREE_PEOPLE_BAD_PATTERNS) {
+          if (pattern.test(u)) {
+            console.log(`[DEBUG] Blocked Free People bad pattern: ${u.substring(u.lastIndexOf('/') + 1)}`);
+            return;
+          }
+        }
+      }
 
       // LQIP Detection and High-Res Alternative Handling
       const lqipResult = detectLQIP(u, imgElement);
