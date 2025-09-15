@@ -8,7 +8,6 @@ run = "npm run replit"
 
 [deployment]
 deploymentTarget = "vm"
-run = ["npm", "run", "replit"]
 
 [agent]
 expertMode = true
