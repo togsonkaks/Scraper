@@ -402,18 +402,6 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
 ipcMain.handle('scrape-original', async (_e, opts = {}) => {
   const win = ensureProduct();
   
-  // Navigate to URL if provided and different from current
-  if (opts.url) {
-    const currentUrl = await win.webContents.executeJavaScript('window.location.href', true);
-    if (currentUrl !== opts.url) {
-      await win.loadURL(opts.url);
-      // Wait for page to be ready
-      await new Promise(resolve => {
-        win.webContents.once('did-finish-load', resolve);
-      });
-    }
-  }
-  
   // Load your modular scripts
   const utilsPath = path.join(__dirname, 'scrapers', 'utils.js');
   const titlePath = path.join(__dirname, 'scrapers', 'title.js');
