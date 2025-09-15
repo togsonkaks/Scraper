@@ -1071,12 +1071,40 @@
     log('📝 [ORCHESTRATOR] TITLE RESULT:', result);
     return result;
   }
+  // ===== getBrand (unified with enhanced logic) =====
   function getBrand() {
-    log('🏷️ [ORCHESTRATOR] Calling getBrand()...');
-    const pairs = [['meta[name="brand"]','content'], ['meta[property="og:brand"]','content']];
-    for (const [sel,at] of pairs) { const v = attr(q(sel),at); if (v) { mark('brand', { selectors:[sel], attr:at, method:'generic' }); return v; } }
-    const prod = scanJSONLDProducts()[0];
-    if (prod) { const v = (prod.brand && (prod.brand.name || prod.brand)) || null; if (v) { mark('brand', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return v; } }
+    log('🏷️ [UNIFIED] Calling getBrand()...');
+    const ld = getJsonLd(document);
+    const product = findProductNode(ld);
+
+    // 1) JSON-LD brand.name
+    const jsonBrand = product?.brand && (product.brand.name || product.brand);
+    if (jsonBrand) {
+      const s = String(jsonBrand).trim();
+      if (/^[\p{L}\s.&'-]{2,24}$/u.test(s)) {
+        mark('brand', { selectors:['jsonld:brand'], attr:'jsonld', method:'jsonld-priority' });
+        return s;
+      }
+    }
+
+    // 2) Microdata/meta
+    const metaBrand = document.querySelector('[itemprop="brand"], meta[name="brand"]');
+    const metaVal = metaBrand?.getAttribute('content') || cleanText(metaBrand);
+    if (metaVal && /^[\p{L}\s.&'-]{2,24}$/u.test(metaVal.trim())) {
+      const sel = metaBrand?.tagName === 'META' ? 'meta[name=brand]' : '[itemprop=brand]';
+      mark('brand', { selectors:[sel], attr:'content', method:'microdata' });
+      return metaVal.trim();
+    }
+
+    // 3) Heuristic near title
+    const h1 = document.querySelector('h1');
+    const brandNode = h1 ? (h1.closest('article, main, section') || document).querySelector('.brand,[class*="brand"]') : document.querySelector('.brand,[class*="brand"]');
+    const guess = cleanText(brandNode);
+    if (guess && /^[\p{L}\s.&'-]{2,24}$/u.test(guess)) {
+      mark('brand', { selectors:['.brand*'], attr:'text', method:'heuristic' });
+      return guess;
+    }
+
     return null;
   }
   function getDescription() {
