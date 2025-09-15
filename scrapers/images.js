@@ -332,6 +332,14 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     /images-na\.ssl-images-amazon\.com/i, // Amazon
     /scene7\.com/i,                 // Adobe Scene7 CDN
     /demandware\.static/i,          // Salesforce Commerce Cloud
+    /res\.cloudinary\.com/i,        // Cloudinary
+    /images\.ctfassets\.net/i,      // Contentful
+    /cdn\.sanity\.io/i,             // Sanity
+    /[^.]*\.imgix\.net/i,          // Imgix
+    /ik\.imagekit\.io/i,           // ImageKit
+    /[^.]*\.b-cdn\.net/i,          // BunnyCDN
+    /[^.]*\.r2\.dev/i,             // Cloudflare R2
+    /fastly\.com/i,                 // Fastly
   ];
   
   // Check if URL is from a trusted product CDN
@@ -395,6 +403,154 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     }
     
     return { w, h };
+  }
+
+  // LQIP (Low Quality Image Placeholder) Detection System
+  function detectLQIP(url, imgElement = null) {
+    const lqipIndicators = {
+      isLQIP: false,
+      confidence: 0,
+      reasons: [],
+      highResAlternative: null
+    };
+
+    // 1. Base64 data URLs (common LQIP pattern)
+    if (url.startsWith('data:image/')) {
+      lqipIndicators.isLQIP = true;
+      lqipIndicators.confidence = 0.9;
+      lqipIndicators.reasons.push('base64-data-url');
+      
+      // Look for high-res alternative in data attributes
+      if (imgElement) {
+        const highResAttrs = ['data-src', 'data-original', 'data-large', 'data-zoom-image', 'data-full-image', 'data-hires'];
+        for (const attr of highResAttrs) {
+          const altUrl = imgElement.getAttribute(attr);
+          if (altUrl && !altUrl.startsWith('data:')) {
+            lqipIndicators.highResAlternative = altUrl;
+            break;
+          }
+        }
+      }
+      return lqipIndicators;
+    }
+
+    // 2. Obvious LQIP file patterns including tiny size hints
+    const lqipPatterns = [
+      /placeholder|blur|preview|thumb|tiny|micro|mini/i,
+      /_(?:blur|lqip|placeholder|preview)[\._-]/i,
+      /(?:blur|lqip|placeholder|preview)[_-]?\d*\.(jpg|jpeg|png|webp)/i,
+      /\/(?:blur|lqip|placeholder|preview)\//i,
+      TINY_HINT  // Include the existing tiny size detection
+    ];
+
+    for (const pattern of lqipPatterns) {
+      if (pattern.test(url)) {
+        lqipIndicators.isLQIP = true;
+        lqipIndicators.confidence = 0.8;
+        lqipIndicators.reasons.push('filename-pattern');
+        break;
+      }
+    }
+
+    // 3. Very small dimensions in URL (likely LQIP)
+    const urlDims = extractDimensionsFromUrl(url);
+    if (urlDims.w > 0 && urlDims.h > 0) {
+      const area = urlDims.w * urlDims.h;
+      if (area < 10000) { // Less than 100x100
+        lqipIndicators.isLQIP = true;
+        lqipIndicators.confidence = 0.7;
+        lqipIndicators.reasons.push('small-url-dimensions');
+      } else if (area < 40000) { // Less than 200x200
+        lqipIndicators.isLQIP = true;
+        lqipIndicators.confidence = 0.5;
+        lqipIndicators.reasons.push('suspicious-url-dimensions');
+      }
+    }
+
+    // 4. CDN quality parameters indicating low quality
+    const lowQualityParams = [
+      /[?&]quality?=[1-4]\d(?:[^0-9]|$)/i, // quality=10-49
+      /[?&]q=[1-4]\d(?:[^0-9]|$)/i,        // q=10-49
+      /[?&]qlt=[1-4]\d(?:[^0-9]|$)/i,      // Scene7 qlt=10-49
+      /[?&]compress=\d{2,}(?:[^0-9]|$)/i,  // high compression
+      /[?&]blur=\d+/i,                     // blur parameter
+      /[?&](?:w|width)=(?:[1-9]?\d|1[0-4]\d)(?:[^0-9]|$)/i, // width < 150
+      /[?&]imwidth=(?:[1-9]?\d|1[0-4]\d)(?:[^0-9]|$)/i, // Akamai/IM width < 150
+      /[?&]rs=w:\d{1,3}(?:[^0-9]|$)/i,     // rs=w:100 format
+      /[?&]scl=[01](?:[^0-9]|$)/i          // scale 0-1
+    ];
+
+    for (const pattern of lowQualityParams) {
+      if (pattern.test(url)) {
+        lqipIndicators.isLQIP = true;
+        lqipIndicators.confidence = Math.max(lqipIndicators.confidence, 0.6);
+        lqipIndicators.reasons.push('low-quality-params');
+        break;
+      }
+    }
+
+    // 5. Check element properties if available
+    if (imgElement) {
+      const rect = imgElement.getBoundingClientRect();
+      const naturalW = imgElement.naturalWidth || 0;
+      const naturalH = imgElement.naturalHeight || 0;
+
+      // Very small natural dimensions
+      if (naturalW > 0 && naturalH > 0) {
+        const naturalArea = naturalW * naturalH;
+        if (naturalArea < 5000) { // Less than ~70x70
+          lqipIndicators.isLQIP = true;
+          lqipIndicators.confidence = Math.max(lqipIndicators.confidence, 0.8);
+          lqipIndicators.reasons.push('tiny-natural-size');
+        } else if (naturalArea < 15000) { // Less than ~120x120
+          lqipIndicators.isLQIP = true;
+          lqipIndicators.confidence = Math.max(lqipIndicators.confidence, 0.6);
+          lqipIndicators.reasons.push('small-natural-size');
+        }
+      }
+
+      // Check for lazy loading attributes (often paired with LQIP)
+      const lazyAttrs = ['loading="lazy"', 'data-src', 'data-lazy', 'data-original'];
+      const hasLazyLoading = lazyAttrs.some(attr => {
+        if (attr.includes('=')) {
+          const [key, value] = attr.split('=');
+          return imgElement.getAttribute(key.replace(/"/g, '')) === value.replace(/"/g, '');
+        }
+        return imgElement.hasAttribute(attr);
+      });
+
+      if (hasLazyLoading && lqipIndicators.reasons.length > 0) {
+        lqipIndicators.confidence = Math.min(lqipIndicators.confidence + 0.2, 1.0);
+        lqipIndicators.reasons.push('lazy-loading-context');
+      }
+
+      // Look for high-res alternatives
+      if (lqipIndicators.isLQIP) {
+        const highResAttrs = [
+          'data-src', 'data-original', 'data-large', 'data-zoom-image', 
+          'data-full-image', 'data-hires', 'data-photoswipe-src'
+        ];
+        
+        for (const attr of highResAttrs) {
+          const altUrl = imgElement.getAttribute(attr);
+          if (altUrl && altUrl !== url && !altUrl.startsWith('data:')) {
+            lqipIndicators.highResAlternative = altUrl;
+            break;
+          }
+        }
+
+        // Check srcset for larger versions
+        const srcset = imgElement.getAttribute('srcset');
+        if (srcset) {
+          const sources = keepBiggestFromSrcset(srcset);
+          if (sources.length > 0 && sources[0] !== url) {
+            lqipIndicators.highResAlternative = sources[0];
+          }
+        }
+      }
+    }
+
+    return lqipIndicators;
   }
   const BAD_NAME =
     /(logo|loading|spinner|placeholder|cookie|consent|banner|hero-banner|header-?banner|badge|ribbon|reward|tracking|pixel|close|arrow|prev|next|play|pause|thumbnail|thumbs?|_56x|_112x|_200x)(\.|-|_|\/)/i;
@@ -491,6 +647,19 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       
       if (BAD_CONTENT.test(u)) return;              // block charts, graphs, analytics images
 
+      // LQIP Detection and High-Res Alternative Handling
+      const lqipResult = detectLQIP(u, imgElement);
+      if (lqipResult.isLQIP && lqipResult.highResAlternative) {
+        // If we found a high-res alternative, use that instead
+        console.log(`[DEBUG] LQIP detected with alternative: ${u.substring(u.lastIndexOf('/') + 1)} -> ${lqipResult.highResAlternative.substring(lqipResult.highResAlternative.lastIndexOf('/') + 1)}`);
+        u = upgradeUrl(lqipResult.highResAlternative);
+        from = from + '-hires-upgrade';
+      } else if (lqipResult.isLQIP && lqipResult.confidence > 0.7) {
+        // Very confident this is LQIP with no alternative - skip it
+        console.log(`[DEBUG] Skipping high-confidence LQIP: ${u.substring(u.lastIndexOf('/') + 1)} (${lqipResult.reasons.join(', ')})`);
+        return;
+      }
+
       // Try to extract dimensions from URL if not provided
       if ((!w || !h) && u) {
         const extracted = extractDimensionsFromUrl(u);
@@ -500,11 +669,12 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
 
       const key = urlKey(u);
       if (!candidates.has(key))
-        candidates.set(key, { url: u, w, h, hits: 0, from: new Set(), element: imgElement });
+        candidates.set(key, { url: u, w, h, hits: 0, from: new Set(), element: imgElement, lqipInfo: lqipResult });
       const rec = candidates.get(key);
       rec.hits++;
       rec.from.add(from);
       if (imgElement && !rec.element) rec.element = imgElement;
+      if (!rec.lqipInfo) rec.lqipInfo = lqipResult;
       if (w * h > rec.w * rec.h) { rec.w = w; rec.h = h; rec.url = u; }
     } catch {}
   };
@@ -522,7 +692,19 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     });
 
     const src = img.currentSrc || img.src;
-    if (src) ensure(src, w, h, "img", img);
+    if (src) {
+      // Special handling for data: URLs - check for LQIP and upgrade before ensure()
+      if (src.startsWith('data:image/')) {
+        const lqipResult = detectLQIP(src, img);
+        if (lqipResult.isLQIP && lqipResult.highResAlternative) {
+          console.log(`[DEBUG] Data URL LQIP upgrade: ${src.substring(0, 30)}... -> ${lqipResult.highResAlternative.substring(lqipResult.highResAlternative.lastIndexOf('/') + 1)}`);
+          ensure(lqipResult.highResAlternative, w, h, "data-lqip-upgrade", img);
+        }
+        // Don't add the data: URL itself to candidates as it won't pass looksHttp()
+      } else {
+        ensure(src, w, h, "img", img);
+      }
+    }
 
     keepBiggestFromSrcset(img.getAttribute("srcset")).forEach((u) => {
       // For srcset, try to extract width from descriptor
@@ -716,6 +898,26 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         
         console.log(`[DEBUG] Image ${r.url.substring(r.url.lastIndexOf('/') + 1)} - Area: ${s - relevanceScore - (r.from && Array.from(r.from).some(src => src.startsWith('gallery-')) ? 25 : 0)}, Relevance: ${relevanceScore}, Total: ${s}`);
       }
+
+      // LQIP Penalty System
+      if (r.lqipInfo && r.lqipInfo.isLQIP) {
+        const penalty = Math.round(r.lqipInfo.confidence * 20); // 0-20 point penalty based on confidence
+        s -= penalty;
+        console.log(`[DEBUG] LQIP penalty applied: ${r.url.substring(r.url.lastIndexOf('/') + 1)} - Penalty: ${penalty} (${r.lqipInfo.reasons.join(', ')})`);
+        
+        // Extra penalty for very obvious LQIP patterns
+        if (r.lqipInfo.reasons.includes('base64-data-url') || r.lqipInfo.reasons.includes('tiny-natural-size')) {
+          s -= 10; // Additional heavy penalty
+          console.log(`[DEBUG] Extra LQIP penalty: ${r.url.substring(r.url.lastIndexOf('/') + 1)} - Additional 10 points`);
+        }
+      }
+
+      // Bonus for high-res upgrades (images that replaced LQIP)
+      if (r.from && Array.from(r.from).some(src => src.includes('hires-upgrade'))) {
+        s += 15;
+        console.log(`[DEBUG] High-res upgrade bonus: ${r.url.substring(r.url.lastIndexOf('/') + 1)}`);
+      }
+
       if (r.w && r.h) {
         const ar = r.w / Math.max(1, r.h);
         if (ar > 3.2 || ar < 0.3) s -= 6; // banner-ish or too tall

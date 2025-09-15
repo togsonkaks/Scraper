@@ -36,10 +36,13 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
 
 ## Recent Changes
+- **LQIP Detection System**: Implemented comprehensive Low Quality Image Placeholder detection with automatic high-resolution upgrades
+- **Enhanced Brand Detection**: Replaced simple brand logic with comprehensive detection including JSON-LD, meta tags, breadcrumbs, URL patterns, and title analysis
+- **CDN Pattern Recognition**: Added support for 12+ major CDNs including Cloudinary, Imgix, ImageKit, Fastly, and e-commerce platforms
+- **Image Quality Scoring**: Enhanced scoring system with LQIP penalties and high-resolution upgrade bonuses
 - Installed system dependencies for Electron GUI support
 - Configured virtual display setup for Replit environment
 - Added deployment configuration as VM target
-- Created custom startup script to handle display initialization
 
 ## User Preferences
 - Prefers existing project structure and conventions
