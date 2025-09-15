@@ -1,0 +1,1276 @@
+[12:34:48 PM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[12:34:48 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[12:34:48 PM] 🏷️ BRAND FROM MEMORY: null
+[12:34:48 PM] 🏷️ BRAND: Falling back to generic...
+[12:34:48 PM] 🏷️ BRAND FROM GENERIC: BBQGuys Signature
+[12:34:48 PM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[12:34:48 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[12:34:48 PM] 📄 DESCRIPTION FROM MEMORY: null
+[12:34:48 PM] 📄 DESCRIPTION: Falling back to generic...
+[12:34:48 PM] 📄 DESCRIPTION FROM GENERIC: Made in the USA by our skilled team of artisans, the Covewood 58 Inch rectangle propane fire table has refined, minimalistic design. With the ability to conceal a propane tank in the base of this fire table, you can maintain a sleek appearance with no exposed hose or gas source. This modern aluminum fire table features a reliable push-button ignition and has adjustable flame height. Gas fire pit table with leveling feet, stainless steel burner, burner lid, lava rock, storage cover and propane hose with regulator are included. When not in use, transform this gas fireplace into a useful outdoor coffee table with the included matching burner lid. This gas fire pit is CSA certified and weather, sun and rust resistant.
+[12:34:48 PM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[12:34:48 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[12:34:48 PM] 💰 PRICE FROM MEMORY: null
+[12:34:48 PM] 💰 PRICE: Falling back to generic...
+[12:34:48 PM] 🔍 PRICE PARSING: {"input":"2699","preferFirst":false,"inputType":"string","inputLength":4}
+[12:34:48 PM] 💰 MONETARY TOKENS: []
+[12:34:48 PM] 🔢 FALLBACK NUMBERS: [2699]
+[12:34:48 PM] ✅ FINAL PRICE RESULT: {"result":2699,"method":"MIN_FALLBACK","allNumbers":[2699]}
+[12:34:48 PM] 💰 PRICE FROM GENERIC: 2699
+[12:34:48 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:34:48 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:34:48 PM] 🧩 IMAGES: Trying custom handler...
+[12:34:48 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[12:34:48 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:48 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:48 PM] 🖼️ FINAL IMAGES: []
+[12:34:48 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:34:48 PM] 🖼️ Getting generic images for hostname: bbqguys.com
+[12:34:48 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[12:34:48 PM] 📊 Found 0 elements for selector: .product-media img
+[12:34:48 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:48 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:48 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:48 PM] 🖼️ FINAL IMAGES: []
+[12:34:48 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:48 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[12:34:48 PM] 📊 Found 0 elements for selector: .gallery img
+[12:34:48 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:48 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:48 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:48 PM] 🖼️ FINAL IMAGES: []
+[12:34:48 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:48 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[12:34:48 PM] 📊 Found 0 elements for selector: .image-gallery img
+[12:34:48 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:48 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:48 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:48 PM] 🖼️ FINAL IMAGES: []
+[12:34:48 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:48 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[12:34:48 PM] 📊 Found 0 elements for selector: .product-images img
+[12:34:48 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:48 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:48 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:48 PM] 🖼️ FINAL IMAGES: []
+[12:34:48 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:48 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[12:34:48 PM] 📊 Found 0 elements for selector: .product-gallery img
+[12:34:48 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:48 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:48 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:48 PM] 🖼️ FINAL IMAGES: []
+[12:34:48 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:48 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[12:34:48 PM] 📊 Found 0 elements for selector: [class*=gallery] img
+[12:34:48 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:48 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:48 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:48 PM] 🖼️ FINAL IMAGES: []
+[12:34:48 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:48 PM] 🔍 GATHERING IMAGES with selector: .slider img
+[12:34:49 PM] 📊 Found 0 elements for selector: .slider img
+[12:34:49 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:49 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:49 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:49 PM] 🖼️ FINAL IMAGES: []
+[12:34:49 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:49 PM] 🔍 GATHERING IMAGES with selector: .thumbnails img
+[12:34:49 PM] 📊 Found 0 elements for selector: .thumbnails img
+[12:34:49 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:49 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:49 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:49 PM] 🖼️ FINAL IMAGES: []
+[12:34:49 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:49 PM] 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+[12:34:49 PM] 📊 Found 0 elements for selector: .pdp-gallery img
+[12:34:49 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:49 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:49 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:49 PM] 🖼️ FINAL IMAGES: []
+[12:34:49 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:49 PM] 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+[12:34:49 PM] 📊 Found 0 elements for selector: [data-testid*=image] img
+[12:34:49 PM] 🖼️ Raw enriched URLs collected: 0
+[12:34:49 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:34:49 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:34:49 PM] 🖼️ FINAL IMAGES: []
+[12:34:49 PM] 🖼️ After hybrid filtering: 0 images
+[12:34:49 PM] 🔍 GATHERING IMAGES with selector: img
+[12:34:49 PM] 📊 Found 62 elements for selector: img
+[12:34:49 PM] Image element <IMG.logo>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-site/bbqguys/branding/logos/BBQGuys-Logo.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-site/bbqguys/branding/logos/BBQGuys-Logo.svg
+[12:34:49 PM] Image element <IMG.MuiAvatar-img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcs
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png?i10c=img.resize(width:250,h
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: ask-the-experts--delva.png?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/7/b/8/67b84e308feadebc52bab330bbe44e7a.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/7/b/8/67b84e308feadebc52bab330bbe44e7a.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 67b84e308feadebc52bab330bbe44e7a.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/3/d/2/6/3d2657ecb53fd2f74362ff89f5622c81.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/3/d/2/6/3d2657ecb53fd2f74362ff89f5622c81.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 3d2657ecb53fd2f74362ff89f5622c81.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/5/3/7/1/53719c669b8f39aa1b6558150887d4ff.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/5/3/7/1/53719c669b8f39aa1b6558150887d4ff.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 53719c669b8f39aa1b6558150887d4ff.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/8/a/3/e/8a3e8ea5db62289380511a6c58c488f4.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/8/a/3/e/8a3e8ea5db62289380511a6c58c488f4.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 8a3e8ea5db62289380511a6c58c488f4.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/b/8/9/d/b89d7e9a5ac70e6d3b456c71560e4cfc.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/b/8/9/d/b89d7e9a5ac70e6d3b456c71560e4cfc.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: b89d7e9a5ac70e6d3b456c71560e4cfc.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/d/d/8/1/dd81bcce3617d1b99b97410e5a83c8a1.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/d/d/8/1/dd81bcce3617d1b99b97410e5a83c8a1.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: dd81bcce3617d1b99b97410e5a83c8a1.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/f/5/5/c/f55ca7c982e21fab94d54cd13ed0ae96.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/f/5/5/c/f55ca7c982e21fab94d54cd13ed0ae96.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: f55ca7c982e21fab94d54cd13ed0ae96.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/8/2/4/8/824894117423c809a74b192b8f3df960.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/8/2/4/8/824894117423c809a74b192b8f3df960.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 824894117423c809a74b192b8f3df960.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/3/a/1/e/3a1e77a51984a2253398f982b8689fb5.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/3/a/1/e/3a1e77a51984a2253398f982b8689fb5.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 3a1e77a51984a2253398f982b8689fb5.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/5/a/2/7/5a27cd5aaf650a3911740debda279e96.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/5/a/2/7/5a27cd5aaf650a3911740debda279e96.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 5a27cd5aaf650a3911740debda279e96.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/0/b/4/b/0b4b64df1ef29fde53fc11df54af7462.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/0/b/4/b/0b4b64df1ef29fde53fc11df54af7462.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 0b4b64df1ef29fde53fc11df54af7462.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/f/7/a/6f7abd4234b3fe63a67bb019e4410d1b.jpg?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/f/7/a/6f7abd4234b3fe63a67bb019e4410d1b.jpg?i10c=img.resize(width:25
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 6f7abd4234b3fe63a67bb019e4410d1b.jpg?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-0>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:1200,height:1200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:12
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:1200,height:1200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-15fzge>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-site/icons/Extend/Extend_color.png?i10c=img.resize(width:47,height:10)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-site/icons/Extend/Extend_color.png?i10c=img.resize(width:47,height:10)
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: Extend_color.png?i10c=img.resize(width:47,height:10) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/7/e/d/a/7eda136470f73c7f7a0ec534ab680a25.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/7/e/d/a/7eda136470f73c7f7a0ec534ab680a25.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 7eda136470f73c7f7a0ec534ab680a25.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 9edbbfa05a5c10e8f988a39b6a5a3b52.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/c/0/6/7/c067e74fc7c103e440e5f5deb0015428.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/c/0/6/7/c067e74fc7c103e440e5f5deb0015428.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: c067e74fc7c103e440e5f5deb0015428.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/f/5/b/a/f5ba3648a3a8b7938c5021d402d2579c.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/f/5/b/a/f5ba3648a3a8b7938c5021d402d2579c.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: f5ba3648a3a8b7938c5021d402d2579c.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: a2e0a3d680ddd28371cd36ba7e00950c.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 9edbbfa05a5c10e8f988a39b6a5a3b52.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/4/6/9/0/4690260183b474b26edacb260fb88ee5.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/4/6/9/0/4690260183b474b26edacb260fb88ee5.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 4690260183b474b26edacb260fb88ee5.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/7/8/0/a/780aa3a9238b92f08135c1c2d3845411.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/7/8/0/a/780aa3a9238b92f08135c1c2d3845411.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 780aa3a9238b92f08135c1c2d3845411.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/f/7/8/8/f788c68f454bbccc042e0867f6b80bec.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/f/7/8/8/f788c68f454bbccc042e0867f6b80bec.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: f788c68f454bbccc042e0867f6b80bec.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/8/9/c/1/89c1702c4162361396ccd10be869c1ff.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/8/9/c/1/89c1702c4162361396ccd10be869c1ff.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 89c1702c4162361396ccd10be869c1ff.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/8/a/3/f/8a3f59a632066c91d4af76d7b0228f59.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/8/a/3/f/8a3f59a632066c91d4af76d7b0228f59.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 8a3f59a632066c91d4af76d7b0228f59.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-gomqcl>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png?i10c=img.resize(width:250,height:250)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcs
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png?i10c=img.resize(width:250,h
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: ask-the-experts--delva.png?i10c=img.resize(width:250,height:250) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/8/2/c/f/82cfc42777b25462b6598424e0dcff3a.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/8/2/c/f/82cfc42777b25462b6598424e0dcff3a.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 82cfc42777b25462b6598424e0dcff3a.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/8/9/c/a/89ca92cab62148e821028e8e5e1f05b5.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/8/9/c/a/89ca92cab62148e821028e8e5e1f05b5.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 89ca92cab62148e821028e8e5e1f05b5.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/b/7/1/c/b71c9de49e2c7e72587f628fbc6c76fb.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/b/7/1/c/b71c9de49e2c7e72587f628fbc6c76fb.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: b71c9de49e2c7e72587f628fbc6c76fb.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/b/6/7/4/b674b8dba996e611b6fd7c2cb5d3538d.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/b/6/7/4/b674b8dba996e611b6fd7c2cb5d3538d.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: b674b8dba996e611b6fd7c2cb5d3538d.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/6/a/3/66a3a2a143938953d034e8c5f7554caf.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/6/a/3/66a3a2a143938953d034e8c5f7554caf.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 66a3a2a143938953d034e8c5f7554caf.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/5/c/1/4/5c14f4e6821dfee59e9dc89ad59caf19.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/5/c/1/4/5c14f4e6821dfee59e9dc89ad59caf19.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 5c14f4e6821dfee59e9dc89ad59caf19.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/c/c/3/f/cc3fb176b0002987572277fa15157306.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/c/c/3/f/cc3fb176b0002987572277fa15157306.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: cc3fb176b0002987572277fa15157306.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/4/5/0/c/450c6c7f0872642dff9912c09609b0f6.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/4/5/0/c/450c6c7f0872642dff9912c09609b0f6.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 450c6c7f0872642dff9912c09609b0f6.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/1/8/1/5/18155238184233b285aa699b5b92cfbc.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/1/8/1/5/18155238184233b285aa699b5b92cfbc.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 18155238184233b285aa699b5b92cfbc.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/3/c/7/6/3c766999add0eea5ed736b8a1f04ff43.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/3/c/7/6/3c766999add0eea5ed736b8a1f04ff43.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 3c766999add0eea5ed736b8a1f04ff43.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/2/2/c/7/22c726f8c40465bae279dc629a66ebee.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/2/2/c/7/22c726f8c40465bae279dc629a66ebee.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 22c726f8c40465bae279dc629a66ebee.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/0/f/f/9/0ff9e0a5194a598278391a65910bec6f.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/0/f/f/9/0ff9e0a5194a598278391a65910bec6f.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 0ff9e0a5194a598278391a65910bec6f.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/2/9/e/5/29e517884e618402380cc8ce33046056.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/2/9/e/5/29e517884e618402380cc8ce33046056.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 29e517884e618402380cc8ce33046056.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/c/e/5/f/ce5f64b6a6ba485505a238be30f97355.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/c/e/5/f/ce5f64b6a6ba485505a238be30f97355.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: ce5f64b6a6ba485505a238be30f97355.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/a/0/f/e/a0fec9339134554dbcd318568b9de4a2.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/a/0/f/e/a0fec9339134554dbcd318568b9de4a2.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: a0fec9339134554dbcd318568b9de4a2.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/4/2/9/6429aaa5c89c470775a70c0cf3170e79.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/4/2/9/6429aaa5c89c470775a70c0cf3170e79.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 6429aaa5c89c470775a70c0cf3170e79.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/d/2/9/8/d2987b1216fef6b2c57a7c8b2417dc52.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/d/2/9/8/d2987b1216fef6b2c57a7c8b2417dc52.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: d2987b1216fef6b2c57a7c8b2417dc52.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/2/9/e/5/29e517884e618402380cc8ce33046056.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/2/9/e/5/29e517884e618402380cc8ce33046056.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 29e517884e618402380cc8ce33046056.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.bbq-i1y2kx>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/d/0/f/8/d0f84bc70187dccc3ffdbd671e65d904.jpg?i10c=img.resize(width:200,height:200)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/d/0/f/8/d0f84bc70187dccc3ffdbd671e65d904.jpg?i10c=img.resize(width:20
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: d0f84bc70187dccc3ffdbd671e65d904.jpg?i10c=img.resize(width:200,height:200) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: c03868bb7fb8a31476a8f2068a7bbce0.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: a2e0a3d680ddd28371cd36ba7e00950c.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/b/4/a/9/b4a939f62d597f8e595fc53c29312f69.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/b/4/a/9/b4a939f62d597f8e595fc53c29312f69.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: b4a939f62d597f8e595fc53c29312f69.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 66580253fc2605fbfd67092daa700b21.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/6/9/d/d/69dde53716d0d15d4a689880043704eb.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/6/9/d/d/69dde53716d0d15d4a689880043704eb.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 69dde53716d0d15d4a689880043704eb.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG.img>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-image/0/2/e/7/02e7d83c55e25e398684bd8aba1f8666.jpg?i10c=img.resize(width:500,height:500)","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-image/0/2/e/7/02e7d83c55e25e398684bd8aba1f8666.jpg?i10c=img.resize(width:50
+[12:34:49 PM] ✨ UPGRADED Shocho CDN URL: 02e7d83c55e25e398684bd8aba1f8666.jpg?i10c=img.resize(width:500,height:500) -> Full-size image
+[12:34:49 PM] Image element <IMG>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-site/corp/HonorRoll_TenTime.jpg","data-src":"https://cdn.shocho.co/sc-site/corp/HonorRoll_TenTime.jpg","data-image":null,"data-zoom-image":null,"data-large":null,"srcs
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-site/corp/HonorRoll_TenTime.jpg
+[12:34:49 PM] Image element <IMG>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-site/logo-badges/trust-badge--secure.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-site/logo-badges/trust-badge--secure.svg
+[12:34:49 PM] Image element <IMG>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://cdn.shocho.co/sc-site/logo-badges/us-senate-small-business-of-the-week-square-64x.png","data-src":"https://cdn.shocho.co/sc-site/logo-badges/us-senate-small-business-of-the-week-square
+[12:34:49 PM] ✅ Found image URL from attributes: https://cdn.shocho.co/sc-site/logo-badges/us-senate-small-business-of-the-week-square-64x.png
+[12:34:49 PM] Image element <IMG#batBeacon545822650611>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://bat.bing.com/action/0?ti=4034923&Ver=2&mid=684225c2-5fe9-4334-8e27-a0b6c37456a3&bo=1&sid=2b9afde0910311f0aeb4bb206c6ade5c&vid=a45a4dd0855d11f0880a79783ce9ece6&vids=0&msclkid=N&uach=pv%
+[12:34:49 PM] ✅ Found image URL from attributes: https://bat.bing.com/action/0?ti=4034923&Ver=2&mid=684225c2-5fe9-4334-8e27-a0b6c37456a3&bo=1&sid=2b9
+[12:34:49 PM] Image element <IMG#batBeacon268379687486>
+[12:34:49 PM] 📋 Image attributes: {"src":"https://bat.bing.com/action/0?ti=4034923&Ver=2&mid=684225c2-5fe9-4334-8e27-a0b6c37456a3&bo=2&sid=2b9afde0910311f0aeb4bb206c6ade5c&vid=a45a4dd0855d11f0880a79783ce9ece6&vids=0&msclkid=N&prodid=3
+[12:34:49 PM] ✅ Found image URL from attributes: https://bat.bing.com/action/0?ti=4034923&Ver=2&mid=684225c2-5fe9-4334-8e27-a0b6c37456a3&bo=2&sid=2b9
+[12:34:49 PM] 🖼️ Raw enriched URLs collected: 62
+[12:34:49 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":62}
+[12:34:49 PM] ❌ NOT IMAGE URL: https://cdn.shocho.co/sc-site/bbqguys/branding/logos/BBQGuys-Logo.svg
+0
+📋 Copy URL
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: ask-the-experts--delva.png
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66580253fc2605fbfd67092daa700b21.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 67b84e308feadebc52bab330bbe44e7a.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 3d2657ecb53fd2f74362ff89f5622c81.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 53719c669b8f39aa1b6558150887d4ff.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 8a3e8ea5db62289380511a6c58c488f4.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: dd81bcce3617d1b99b97410e5a83c8a1.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f55ca7c982e21fab94d54cd13ed0ae96.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 824894117423c809a74b192b8f3df960.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 3a1e77a51984a2253398f982b8689fb5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 5a27cd5aaf650a3911740debda279e96.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 0b4b64df1ef29fde53fc11df54af7462.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 6f7abd4234b3fe63a67bb019e4410d1b.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66580253fc2605fbfd67092daa700b21.jpg
+[12:34:49 PM] 🗑️ JUNK IMAGE: https://cdn.shocho.co/sc-site/icons/Extend/Extend_color.png
+0
+📋 Copy URL
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: c03868bb7fb8a31476a8f2068a7bbce0.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 7eda136470f73c7f7a0ec534ab680a25.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: c067e74fc7c103e440e5f5deb0015428.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f5ba3648a3a8b7938c5021d402d2579c.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: a2e0a3d680ddd28371cd36ba7e00950c.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 4690260183b474b26edacb260fb88ee5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 780aa3a9238b92f08135c1c2d3845411.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f788c68f454bbccc042e0867f6b80bec.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 89c1702c4162361396ccd10be869c1ff.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 8a3f59a632066c91d4af76d7b0228f59.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: ask-the-experts--delva.png
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 82cfc42777b25462b6598424e0dcff3a.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 89ca92cab62148e821028e8e5e1f05b5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b71c9de49e2c7e72587f628fbc6c76fb.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b674b8dba996e611b6fd7c2cb5d3538d.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66a3a2a143938953d034e8c5f7554caf.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 5c14f4e6821dfee59e9dc89ad59caf19.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: cc3fb176b0002987572277fa15157306.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 450c6c7f0872642dff9912c09609b0f6.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 18155238184233b285aa699b5b92cfbc.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 3c766999add0eea5ed736b8a1f04ff43.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 22c726f8c40465bae279dc629a66ebee.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 0ff9e0a5194a598278391a65910bec6f.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 29e517884e618402380cc8ce33046056.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: ce5f64b6a6ba485505a238be30f97355.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: a0fec9339134554dbcd318568b9de4a2.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 6429aaa5c89c470775a70c0cf3170e79.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: d2987b1216fef6b2c57a7c8b2417dc52.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 29e517884e618402380cc8ce33046056.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: c03868bb7fb8a31476a8f2068a7bbce0.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: d0f84bc70187dccc3ffdbd671e65d904.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66580253fc2605fbfd67092daa700b21.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: c03868bb7fb8a31476a8f2068a7bbce0.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: a2e0a3d680ddd28371cd36ba7e00950c.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b4a939f62d597f8e595fc53c29312f69.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66580253fc2605fbfd67092daa700b21.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 69dde53716d0d15d4a689880043704eb.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 02e7d83c55e25e398684bd8aba1f8666.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: HonorRoll_TenTime.jpg
+[12:34:49 PM] ❌ NOT IMAGE URL: https://cdn.shocho.co/sc-site/logo-badges/trust-badge--secure.svg
+0
+📋 Copy URL
+[12:34:49 PM] 🗑️ JUNK IMAGE: https://cdn.shocho.co/sc-site/logo-badges/us-senate-small-business-of-the-week-s
+0
+📋 Copy URL
+[12:34:49 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=4034923&Ver=2&mid=684225c2-5fe9-4334-8e27-a0b6c37456a3&bo=1&sid=2b9
+0[IMG ERROR]
+📋 Copy URL
+[12:34:49 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=4034923&Ver=2&mid=684225c2-5fe9-4334-8e27-a0b6c37456a3&bo=2&sid=2b9
+0[IMG ERROR]
+📋 Copy URL
+[12:34:49 PM] ✅ BEST OF 2 (score: 90): https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png
+90
+📋 Copy URL
+[12:34:49 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+90
+📋 Copy URL
+[12:34:49 PM] ✅ BEST OF 4 (score: 90): https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🔄 DUPLICATE GROUP: 3 lower-scored versions rejected
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/7/b/8/67b84e308feadebc52bab330bbe44e7a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/3/d/2/6/3d2657ecb53fd2f74362ff89f5622c81.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/5/3/7/1/53719c669b8f39aa1b6558150887d4ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/a/3/e/8a3e8ea5db62289380511a6c58c488f4.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/8/9/d/b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/d/d/8/1/dd81bcce3617d1b99b97410e5a83c8a1.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/5/5/c/f55ca7c982e21fab94d54cd13ed0ae96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/2/4/8/824894117423c809a74b192b8f3df960.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/3/a/1/e/3a1e77a51984a2253398f982b8689fb5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/5/a/2/7/5a27cd5aaf650a3911740debda279e96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/0/b/4/b/0b4b64df1ef29fde53fc11df54af7462.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/f/7/a/6f7abd4234b3fe63a67bb019e4410d1b.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ BEST OF 3 (score: 90): https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/7/e/d/a/7eda136470f73c7f7a0ec534ab680a25.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ BEST OF 2 (score: 90): https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/0/6/7/c067e74fc7c103e440e5f5deb0015428.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/5/b/a/f5ba3648a3a8b7938c5021d402d2579c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ BEST OF 2 (score: 90): https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/4/6/9/0/4690260183b474b26edacb260fb88ee5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/7/8/0/a/780aa3a9238b92f08135c1c2d3845411.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/7/8/8/f788c68f454bbccc042e0867f6b80bec.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/9/c/1/89c1702c4162361396ccd10be869c1ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/a/3/f/8a3f59a632066c91d4af76d7b0228f59.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/2/c/f/82cfc42777b25462b6598424e0dcff3a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/9/c/a/89ca92cab62148e821028e8e5e1f05b5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/7/1/c/b71c9de49e2c7e72587f628fbc6c76fb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/6/7/4/b674b8dba996e611b6fd7c2cb5d3538d.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/6/a/3/66a3a2a143938953d034e8c5f7554caf.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/5/c/1/4/5c14f4e6821dfee59e9dc89ad59caf19.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/c/3/f/cc3fb176b0002987572277fa15157306.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/4/5/0/c/450c6c7f0872642dff9912c09609b0f6.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/1/8/1/5/18155238184233b285aa699b5b92cfbc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/3/c/7/6/3c766999add0eea5ed736b8a1f04ff43.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/2/2/c/7/22c726f8c40465bae279dc629a66ebee.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/0/f/f/9/0ff9e0a5194a598278391a65910bec6f.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ BEST OF 2 (score: 90): https://cdn.shocho.co/sc-image/2/9/e/5/29e517884e618402380cc8ce33046056.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/e/5/f/ce5f64b6a6ba485505a238be30f97355.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/a/0/f/e/a0fec9339134554dbcd318568b9de4a2.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/4/2/9/6429aaa5c89c470775a70c0cf3170e79.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/d/2/9/8/d2987b1216fef6b2c57a7c8b2417dc52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/d/0/f/8/d0f84bc70187dccc3ffdbd671e65d904.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/4/a/9/b4a939f62d597f8e595fc53c29312f69.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/9/d/d/69dde53716d0d15d4a689880043704eb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/0/2/e/7/02e7d83c55e25e398684bd8aba1f8666.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-site/corp/HonorRoll_TenTime.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/7/b/8/67b84e308feadebc52bab330bbe44e7a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/3/d/2/6/3d2657ecb53fd2f74362ff89f5622c81.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/5/3/7/1/53719c669b8f39aa1b6558150887d4ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/a/3/e/8a3e8ea5db62289380511a6c58c488f4.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/8/9/d/b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/d/d/8/1/dd81bcce3617d1b99b97410e5a83c8a1.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/5/5/c/f55ca7c982e21fab94d54cd13ed0ae96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/2/4/8/824894117423c809a74b192b8f3df960.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/3/a/1/e/3a1e77a51984a2253398f982b8689fb5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/5/a/2/7/5a27cd5aaf650a3911740debda279e96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/0/b/4/b/0b4b64df1ef29fde53fc11df54af7462.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/f/7/a/6f7abd4234b3fe63a67bb019e4410d1b.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/7/e/d/a/7eda136470f73c7f7a0ec534ab680a25.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/0/6/7/c067e74fc7c103e440e5f5deb0015428.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/5/b/a/f5ba3648a3a8b7938c5021d402d2579c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/4/6/9/0/4690260183b474b26edacb260fb88ee5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/7/8/0/a/780aa3a9238b92f08135c1c2d3845411.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/7/8/8/f788c68f454bbccc042e0867f6b80bec.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/9/c/1/89c1702c4162361396ccd10be869c1ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/a/3/f/8a3f59a632066c91d4af76d7b0228f59.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/2/c/f/82cfc42777b25462b6598424e0dcff3a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/9/c/a/89ca92cab62148e821028e8e5e1f05b5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/7/1/c/b71c9de49e2c7e72587f628fbc6c76fb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/6/7/4/b674b8dba996e611b6fd7c2cb5d3538d.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/6/a/3/66a3a2a143938953d034e8c5f7554caf.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/5/c/1/4/5c14f4e6821dfee59e9dc89ad59caf19.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/c/3/f/cc3fb176b0002987572277fa15157306.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/4/5/0/c/450c6c7f0872642dff9912c09609b0f6.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/1/8/1/5/18155238184233b285aa699b5b92cfbc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/3/c/7/6/3c766999add0eea5ed736b8a1f04ff43.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/2/2/c/7/22c726f8c40465bae279dc629a66ebee.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/0/f/f/9/0ff9e0a5194a598278391a65910bec6f.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/2/9/e/5/29e517884e618402380cc8ce33046056.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/e/5/f/ce5f64b6a6ba485505a238be30f97355.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/a/0/f/e/a0fec9339134554dbcd318568b9de4a2.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/4/2/9/6429aaa5c89c470775a70c0cf3170e79.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/d/2/9/8/d2987b1216fef6b2c57a7c8b2417dc52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/d/0/f/8/d0f84bc70187dccc3ffdbd671e65d904.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/4/a/9/b4a939f62d597f8e595fc53c29312f69.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/9/d/d/69dde53716d0d15d4a689880043704eb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/0/2/e/7/02e7d83c55e25e398684bd8aba1f8666.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-site/corp/HonorRoll_TenTime.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":4,"junk":2,"lowScore":0,"smallFile":0,"duplicateGroups":6,"kept":47}
+[12:34:49 PM] 🖼️ FINAL IMAGES: ["https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png","https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg","https://cdn.shocho.co/sc-image/6/7/b/8/67b84e
+[12:34:49 PM] 🖼️ After hybrid filtering: 47 images
+[12:34:49 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":48}
+[12:34:49 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":48}
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66580253fc2605fbfd67092daa700b21.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: ask-the-experts--delva.png
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66580253fc2605fbfd67092daa700b21.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 67b84e308feadebc52bab330bbe44e7a.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 3d2657ecb53fd2f74362ff89f5622c81.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 53719c669b8f39aa1b6558150887d4ff.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 8a3e8ea5db62289380511a6c58c488f4.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: dd81bcce3617d1b99b97410e5a83c8a1.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f55ca7c982e21fab94d54cd13ed0ae96.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 824894117423c809a74b192b8f3df960.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 3a1e77a51984a2253398f982b8689fb5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 5a27cd5aaf650a3911740debda279e96.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 0b4b64df1ef29fde53fc11df54af7462.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 6f7abd4234b3fe63a67bb019e4410d1b.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: c03868bb7fb8a31476a8f2068a7bbce0.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 7eda136470f73c7f7a0ec534ab680a25.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: c067e74fc7c103e440e5f5deb0015428.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f5ba3648a3a8b7938c5021d402d2579c.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: a2e0a3d680ddd28371cd36ba7e00950c.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 4690260183b474b26edacb260fb88ee5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 780aa3a9238b92f08135c1c2d3845411.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f788c68f454bbccc042e0867f6b80bec.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 89c1702c4162361396ccd10be869c1ff.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 8a3f59a632066c91d4af76d7b0228f59.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 82cfc42777b25462b6598424e0dcff3a.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 89ca92cab62148e821028e8e5e1f05b5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b71c9de49e2c7e72587f628fbc6c76fb.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b674b8dba996e611b6fd7c2cb5d3538d.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66a3a2a143938953d034e8c5f7554caf.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 5c14f4e6821dfee59e9dc89ad59caf19.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: cc3fb176b0002987572277fa15157306.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 450c6c7f0872642dff9912c09609b0f6.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 18155238184233b285aa699b5b92cfbc.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 3c766999add0eea5ed736b8a1f04ff43.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 22c726f8c40465bae279dc629a66ebee.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 0ff9e0a5194a598278391a65910bec6f.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 29e517884e618402380cc8ce33046056.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: ce5f64b6a6ba485505a238be30f97355.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: a0fec9339134554dbcd318568b9de4a2.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 6429aaa5c89c470775a70c0cf3170e79.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: d2987b1216fef6b2c57a7c8b2417dc52.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: d0f84bc70187dccc3ffdbd671e65d904.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b4a939f62d597f8e595fc53c29312f69.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 69dde53716d0d15d4a689880043704eb.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 02e7d83c55e25e398684bd8aba1f8666.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: HonorRoll_TenTime.jpg
+[12:34:49 PM] ✅ BEST OF 2 (score: 90): https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/7/b/8/67b84e308feadebc52bab330bbe44e7a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/3/d/2/6/3d2657ecb53fd2f74362ff89f5622c81.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/5/3/7/1/53719c669b8f39aa1b6558150887d4ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/a/3/e/8a3e8ea5db62289380511a6c58c488f4.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/8/9/d/b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/d/d/8/1/dd81bcce3617d1b99b97410e5a83c8a1.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/5/5/c/f55ca7c982e21fab94d54cd13ed0ae96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/2/4/8/824894117423c809a74b192b8f3df960.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/3/a/1/e/3a1e77a51984a2253398f982b8689fb5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/5/a/2/7/5a27cd5aaf650a3911740debda279e96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/0/b/4/b/0b4b64df1ef29fde53fc11df54af7462.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/f/7/a/6f7abd4234b3fe63a67bb019e4410d1b.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/7/e/d/a/7eda136470f73c7f7a0ec534ab680a25.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/0/6/7/c067e74fc7c103e440e5f5deb0015428.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/5/b/a/f5ba3648a3a8b7938c5021d402d2579c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/4/6/9/0/4690260183b474b26edacb260fb88ee5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/7/8/0/a/780aa3a9238b92f08135c1c2d3845411.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/7/8/8/f788c68f454bbccc042e0867f6b80bec.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/9/c/1/89c1702c4162361396ccd10be869c1ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/a/3/f/8a3f59a632066c91d4af76d7b0228f59.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/2/c/f/82cfc42777b25462b6598424e0dcff3a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/9/c/a/89ca92cab62148e821028e8e5e1f05b5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/7/1/c/b71c9de49e2c7e72587f628fbc6c76fb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/6/7/4/b674b8dba996e611b6fd7c2cb5d3538d.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/6/a/3/66a3a2a143938953d034e8c5f7554caf.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/5/c/1/4/5c14f4e6821dfee59e9dc89ad59caf19.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/c/3/f/cc3fb176b0002987572277fa15157306.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/4/5/0/c/450c6c7f0872642dff9912c09609b0f6.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/1/8/1/5/18155238184233b285aa699b5b92cfbc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/3/c/7/6/3c766999add0eea5ed736b8a1f04ff43.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/2/2/c/7/22c726f8c40465bae279dc629a66ebee.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/0/f/f/9/0ff9e0a5194a598278391a65910bec6f.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/2/9/e/5/29e517884e618402380cc8ce33046056.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/e/5/f/ce5f64b6a6ba485505a238be30f97355.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/a/0/f/e/a0fec9339134554dbcd318568b9de4a2.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/4/2/9/6429aaa5c89c470775a70c0cf3170e79.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/d/2/9/8/d2987b1216fef6b2c57a7c8b2417dc52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/d/0/f/8/d0f84bc70187dccc3ffdbd671e65d904.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/4/a/9/b4a939f62d597f8e595fc53c29312f69.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/9/d/d/69dde53716d0d15d4a689880043704eb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/0/2/e/7/02e7d83c55e25e398684bd8aba1f8666.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-site/corp/HonorRoll_TenTime.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/7/b/8/67b84e308feadebc52bab330bbe44e7a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/3/d/2/6/3d2657ecb53fd2f74362ff89f5622c81.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/5/3/7/1/53719c669b8f39aa1b6558150887d4ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/a/3/e/8a3e8ea5db62289380511a6c58c488f4.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/8/9/d/b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/d/d/8/1/dd81bcce3617d1b99b97410e5a83c8a1.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/5/5/c/f55ca7c982e21fab94d54cd13ed0ae96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/2/4/8/824894117423c809a74b192b8f3df960.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/3/a/1/e/3a1e77a51984a2253398f982b8689fb5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/5/a/2/7/5a27cd5aaf650a3911740debda279e96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/0/b/4/b/0b4b64df1ef29fde53fc11df54af7462.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/f/7/a/6f7abd4234b3fe63a67bb019e4410d1b.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/7/e/d/a/7eda136470f73c7f7a0ec534ab680a25.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/0/6/7/c067e74fc7c103e440e5f5deb0015428.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/5/b/a/f5ba3648a3a8b7938c5021d402d2579c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/4/6/9/0/4690260183b474b26edacb260fb88ee5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/7/8/0/a/780aa3a9238b92f08135c1c2d3845411.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/7/8/8/f788c68f454bbccc042e0867f6b80bec.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/9/c/1/89c1702c4162361396ccd10be869c1ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/a/3/f/8a3f59a632066c91d4af76d7b0228f59.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/2/c/f/82cfc42777b25462b6598424e0dcff3a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/9/c/a/89ca92cab62148e821028e8e5e1f05b5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/7/1/c/b71c9de49e2c7e72587f628fbc6c76fb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/6/7/4/b674b8dba996e611b6fd7c2cb5d3538d.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/6/a/3/66a3a2a143938953d034e8c5f7554caf.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/5/c/1/4/5c14f4e6821dfee59e9dc89ad59caf19.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/c/3/f/cc3fb176b0002987572277fa15157306.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/4/5/0/c/450c6c7f0872642dff9912c09609b0f6.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/1/8/1/5/18155238184233b285aa699b5b92cfbc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/3/c/7/6/3c766999add0eea5ed736b8a1f04ff43.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/2/2/c/7/22c726f8c40465bae279dc629a66ebee.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/0/f/f/9/0ff9e0a5194a598278391a65910bec6f.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/2/9/e/5/29e517884e618402380cc8ce33046056.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/e/5/f/ce5f64b6a6ba485505a238be30f97355.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/a/0/f/e/a0fec9339134554dbcd318568b9de4a2.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/4/2/9/6429aaa5c89c470775a70c0cf3170e79.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/d/2/9/8/d2987b1216fef6b2c57a7c8b2417dc52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/d/0/f/8/d0f84bc70187dccc3ffdbd671e65d904.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/4/a/9/b4a939f62d597f8e595fc53c29312f69.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/9/d/d/69dde53716d0d15d4a689880043704eb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/0/2/e/7/02e7d83c55e25e398684bd8aba1f8666.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-site/corp/HonorRoll_TenTime.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":1,"kept":47}
+[12:34:49 PM] 🖼️ FINAL IMAGES: ["https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg","https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png","https://cdn.shocho.co/sc-image/6/7/b/8/67b84e
+[12:34:49 PM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg","https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png","https://cdn.shocho.co/sc
+[12:34:49 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":30}
+[12:34:49 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66580253fc2605fbfd67092daa700b21.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: ask-the-experts--delva.png
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 67b84e308feadebc52bab330bbe44e7a.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 3d2657ecb53fd2f74362ff89f5622c81.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 53719c669b8f39aa1b6558150887d4ff.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 8a3e8ea5db62289380511a6c58c488f4.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: dd81bcce3617d1b99b97410e5a83c8a1.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f55ca7c982e21fab94d54cd13ed0ae96.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 824894117423c809a74b192b8f3df960.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 3a1e77a51984a2253398f982b8689fb5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 5a27cd5aaf650a3911740debda279e96.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 0b4b64df1ef29fde53fc11df54af7462.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 6f7abd4234b3fe63a67bb019e4410d1b.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: c03868bb7fb8a31476a8f2068a7bbce0.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 7eda136470f73c7f7a0ec534ab680a25.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: c067e74fc7c103e440e5f5deb0015428.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f5ba3648a3a8b7938c5021d402d2579c.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: a2e0a3d680ddd28371cd36ba7e00950c.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 4690260183b474b26edacb260fb88ee5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 780aa3a9238b92f08135c1c2d3845411.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: f788c68f454bbccc042e0867f6b80bec.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 89c1702c4162361396ccd10be869c1ff.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 8a3f59a632066c91d4af76d7b0228f59.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 82cfc42777b25462b6598424e0dcff3a.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 89ca92cab62148e821028e8e5e1f05b5.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b71c9de49e2c7e72587f628fbc6c76fb.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: b674b8dba996e611b6fd7c2cb5d3538d.jpg
+[12:34:49 PM] 🎯 SHOCHO FULL-SIZE: 66a3a2a143938953d034e8c5f7554caf.jpg
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/7/b/8/67b84e308feadebc52bab330bbe44e7a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/3/d/2/6/3d2657ecb53fd2f74362ff89f5622c81.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/5/3/7/1/53719c669b8f39aa1b6558150887d4ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/a/3/e/8a3e8ea5db62289380511a6c58c488f4.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/8/9/d/b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/d/d/8/1/dd81bcce3617d1b99b97410e5a83c8a1.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/5/5/c/f55ca7c982e21fab94d54cd13ed0ae96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/2/4/8/824894117423c809a74b192b8f3df960.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/3/a/1/e/3a1e77a51984a2253398f982b8689fb5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/5/a/2/7/5a27cd5aaf650a3911740debda279e96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/0/b/4/b/0b4b64df1ef29fde53fc11df54af7462.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/f/7/a/6f7abd4234b3fe63a67bb019e4410d1b.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/7/e/d/a/7eda136470f73c7f7a0ec534ab680a25.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/c/0/6/7/c067e74fc7c103e440e5f5deb0015428.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/5/b/a/f5ba3648a3a8b7938c5021d402d2579c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/4/6/9/0/4690260183b474b26edacb260fb88ee5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/7/8/0/a/780aa3a9238b92f08135c1c2d3845411.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/f/7/8/8/f788c68f454bbccc042e0867f6b80bec.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/9/c/1/89c1702c4162361396ccd10be869c1ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/a/3/f/8a3f59a632066c91d4af76d7b0228f59.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/2/c/f/82cfc42777b25462b6598424e0dcff3a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/8/9/c/a/89ca92cab62148e821028e8e5e1f05b5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/7/1/c/b71c9de49e2c7e72587f628fbc6c76fb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/b/6/7/4/b674b8dba996e611b6fd7c2cb5d3538d.jpg
+90
+📋 Copy URL
+[12:34:49 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shocho.co/sc-image/6/6/a/3/66a3a2a143938953d034e8c5f7554caf.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/7/b/8/67b84e308feadebc52bab330bbe44e7a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/3/d/2/6/3d2657ecb53fd2f74362ff89f5622c81.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/5/3/7/1/53719c669b8f39aa1b6558150887d4ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/a/3/e/8a3e8ea5db62289380511a6c58c488f4.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/8/9/d/b89d7e9a5ac70e6d3b456c71560e4cfc.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/d/d/8/1/dd81bcce3617d1b99b97410e5a83c8a1.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/5/5/c/f55ca7c982e21fab94d54cd13ed0ae96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/2/4/8/824894117423c809a74b192b8f3df960.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/3/a/1/e/3a1e77a51984a2253398f982b8689fb5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/5/a/2/7/5a27cd5aaf650a3911740debda279e96.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/0/b/4/b/0b4b64df1ef29fde53fc11df54af7462.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/f/7/a/6f7abd4234b3fe63a67bb019e4410d1b.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/0/3/8/c03868bb7fb8a31476a8f2068a7bbce0.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/7/e/d/a/7eda136470f73c7f7a0ec534ab680a25.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/9/e/d/b/9edbbfa05a5c10e8f988a39b6a5a3b52.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/c/0/6/7/c067e74fc7c103e440e5f5deb0015428.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/5/b/a/f5ba3648a3a8b7938c5021d402d2579c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/a/2/e/0/a2e0a3d680ddd28371cd36ba7e00950c.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/4/6/9/0/4690260183b474b26edacb260fb88ee5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/7/8/0/a/780aa3a9238b92f08135c1c2d3845411.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/f/7/8/8/f788c68f454bbccc042e0867f6b80bec.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/9/c/1/89c1702c4162361396ccd10be869c1ff.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/a/3/f/8a3f59a632066c91d4af76d7b0228f59.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/2/c/f/82cfc42777b25462b6598424e0dcff3a.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/8/9/c/a/89ca92cab62148e821028e8e5e1f05b5.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/7/1/c/b71c9de49e2c7e72587f628fbc6c76fb.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/b/6/7/4/b674b8dba996e611b6fd7c2cb5d3538d.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn.shocho.co/sc-image/6/6/a/3/66a3a2a143938953d034e8c5f7554caf.jpg
+90
+📋 Copy URL
+[12:34:49 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":30}
+[12:34:49 PM] 🖼️ FINAL IMAGES: ["https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg","https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png","https://cdn.shocho.co/sc-image/6/7/b/8/67b84e
+[12:34:49 PM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://cdn.shocho.co/sc-image/6/6/5/8/66580253fc2605fbfd67092daa700b21.jpg","https://cdn.shocho.co/sc-site/redesign/people/ask-the-experts--delva.png","https://cdn.shocho.co/sc
+[12:34:49 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Covewood 58 Inch Rectangular Aluminum Propane Fire","brand":"BBQGuys Signature","description":"Made in the USA by our skilled team of artisans, t","price":"2699","imageCount":30,"firstImages
+[12:34:49 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":30}

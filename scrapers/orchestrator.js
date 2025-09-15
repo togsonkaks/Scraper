@@ -417,12 +417,18 @@
   function scoreImageURL(url, element = null, elementIndex = 0) {
     if (!url) return 0;
     
-    // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns 
+    // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns and prioritize high-res
     if (/images\.urbndata\.com\/is\/image/i.test(url)) {
       // Block swatch URLs entirely
       if (/_swatch\//i.test(url) || /swatch\?/i.test(url)) {
         debug(`🚫 BLOCKED Free People swatch: ${url.substring(url.lastIndexOf('/') + 1)}`);
         return 0; // Block swatches completely
+      }
+      
+      // Block category images (not product detail)
+      if (/\$a15-category\$/i.test(url)) {
+        debug(`🚫 BLOCKED Free People category image: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 0; // Block category thumbnails
       }
       
       // Block small dimension URLs (≤800px)
@@ -435,15 +441,27 @@
         }
       }
       
-      // High score for high-res zoom images
+      // High score for high-res zoom images (BEST QUALITY)
       if (/\$redesign-zoom-5x\$/i.test(url)) {
         debug(`🎯 FREE PEOPLE HIGH-RES: ${url.substring(url.lastIndexOf('/') + 1)}`);
         return 95; // High score for zoom images
       }
+      
+      // Penalty for non-upgraded Free People images (base images without zoom)
+      if (!/\$redesign-zoom-5x\$/i.test(url) && !/\$a15-category\$/i.test(url)) {
+        debug(`⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 55; // Low but passing score for non-upgraded images (below zoom's 95)
+      }
     }
     
-    // BBQ GUYS/SHOCHO CDN: Filter small resized images
+    // BBQ GUYS/SHOCHO CDN: Strict product-only filtering
     if (/cdn\.shocho\.co/i.test(url)) {
+      // Only allow /sc-image/ paths - block everything else
+      if (!/\/sc-image\//i.test(url)) {
+        debug(`🚫 BLOCKED Shocho non-product: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 0; // Block all non-product images
+      }
+      
       // Block small resize parameters (≤800px)
       const shochoResizeMatch = url.match(/\?i10c=img\.resize\(width:([0-9]+),height:([0-9]+)\)/i);
       if (shochoResizeMatch) {
@@ -455,10 +473,20 @@
         }
       }
       
-      // High score for full-size images (no resize params)
+      // High score for product images without resize params
       if (!/\?i10c=img\.resize/i.test(url)) {
-        debug(`🎯 SHOCHO FULL-SIZE: ${url.substring(url.lastIndexOf('/') + 1)}`);
-        return 90; // High score for full-size images
+        debug(`🎯 SHOCHO PRODUCT FULL-SIZE: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 90; // High score for full-size product images
+      }
+      
+      // Medium score for larger product images with resize params
+      if (shochoResizeMatch) {
+        const width = parseInt(shochoResizeMatch[1]);
+        const height = parseInt(shochoResizeMatch[2]);
+        if (width > 800 || height > 800) {
+          debug(`✅ SHOCHO PRODUCT LARGE: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 75; // Good score for large product images
+        }
       }
     }
     
@@ -683,6 +711,9 @@
         continue;
       }
       
+      // Apply CDN upgrades before scoring and processing
+      enriched.url = upgradeCDNUrl(enriched.url);
+      
       const abs = toAbs(enriched.url);
       
       // Basic image validation
@@ -831,8 +862,25 @@
       }
     }
     
-    // Sort again by DOM order and limit to 50
-    sizeFilteredImages.sort((a, b) => a.index - b.index);
+    // Sort by score (highest first), then by size estimate, then by DOM order for ties
+    sizeFilteredImages.sort((a, b) => {
+      // Primary sort: Score (highest first)
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      
+      // Secondary sort: Estimated file size (largest first)
+      const sizeA = estimateFileSize(a.url);
+      const sizeB = estimateFileSize(b.url);
+      const sizeDiff = sizeB - sizeA;
+      if (sizeDiff !== 0) return sizeDiff;
+      
+      // Tertiary sort: DOM order (earlier first)
+      return a.index - b.index;
+    });
+    
+    debug('🏆 TOP SCORED IMAGES:', sizeFilteredImages.slice(0, 5).map(img => 
+      `${img.url.substring(img.url.lastIndexOf('/') + 1)} (score: ${img.score})`));
+    
     const finalUrls = sizeFilteredImages.slice(0, 50).map(img => img.url);
     
     if (sizeFilteredImages.length > 50) {
@@ -1425,7 +1473,7 @@
           // If we have custom images, use them (custom overrides memory)
           if (customImages.length > 0) {
             debug('🎯 USING CUSTOM IMAGES (overriding memory)');
-            images = customImages.slice(0, 30);
+            images = (await uniqueImages(customImages)).slice(0, 30);
           } else {
             // Merge and dedupe memory + custom
             let combinedImages = await uniqueImages(memoryImages.concat(customImages));
