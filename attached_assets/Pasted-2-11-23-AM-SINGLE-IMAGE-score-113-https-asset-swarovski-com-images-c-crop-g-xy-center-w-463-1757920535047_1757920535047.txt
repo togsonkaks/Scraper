@@ -1,0 +1,118 @@
+2:11:23 AM] ✅ SINGLE IMAGE (score: 113): https://asset.swarovski.com/images/c_crop,g_xy_center,w_4631,h_3453,x_4768,y_3097/dpr_auto,f_auto,q_
+113
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 103): https://asset.swarovski.com/images/c_crop,g_xy_center,w_1866,h_1049,x_2967,y_836/dpr_auto,f_auto,q_a
+103
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 103): https://asset.swarovski.com/images/c_crop,g_xy_center,w_7328,h_4493,x_4579,y_3505/dpr_auto,f_auto,q_
+103
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 53): https://asset.swarovski.com/images/c_crop,g_xy_center,w_1076,h_868,x_538,y_723/dpr_auto,f_auto,q_aut
+53
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/c_crop,g_xy_center,w_2843,h_1599,x_2697,y_1216/dpr_auto,f_auto,q_
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/c_crop,g_xy_center,w_2646,h_1489,x_2500,y_2501/dpr_auto,f_auto,q_
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/c_crop,g_xy_center,w_5971,h_3359,x_3000,y_2025/dpr_auto,f_auto,q_
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_1450/t_swa002/c_scale,dpr_1.0,f_auto,w_375/5723298_ms1/stil
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_2000/t_swa002/c_scale,dpr_1.0,f_auto,w_580/5723298_ms1/stil
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] ✅ SINGLE IMAGE (score: 83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (113): https://asset.swarovski.com/images/c_crop,g_xy_center,w_4631,h_3453,x_4768,y_3097/dpr_auto,f_auto,q_
+113
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (103): https://asset.swarovski.com/images/c_crop,g_xy_center,w_1866,h_1049,x_2967,y_836/dpr_auto,f_auto,q_a
+103
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (103): https://asset.swarovski.com/images/c_crop,g_xy_center,w_7328,h_4493,x_4579,y_3505/dpr_auto,f_auto,q_
+103
+📋 Copy URL
+[2:11:23 AM] 📏 SIZE OK (est: 80KB): https://asset.swarovski.com/images/c_crop,g_xy_center,w_1076,h_868,x_538,y_723/dpr_auto,f_auto,q_aut
+53
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/c_crop,g_xy_center,w_2843,h_1599,x_2697,y_1216/dpr_auto,f_auto,q_
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/c_crop,g_xy_center,w_2646,h_1489,x_2500,y_2501/dpr_auto,f_auto,q_
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/c_crop,g_xy_center,w_5971,h_3359,x_3000,y_2025/dpr_auto,f_auto,q_
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_1450/t_swa002/c_scale,dpr_1.0,f_auto,w_375/5723298_ms1/stil
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_2000/t_swa002/c_scale,dpr_1.0,f_auto,w_580/5723298_ms1/stil
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+83
+📋 Copy URL
+[2:11:23 AM] 🎯 HIGH SCORE + SIZE OK (83): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572

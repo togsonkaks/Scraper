@@ -454,7 +454,7 @@
     if (/[?&]\$[a-z0-9_-]*/i.test(u)) return true; // ASOS variations
     
     // Known image CDNs (expanded)
-    if (/\b(mozu\.com|shopify\.com|cloudinary\.com|imgix\.net|fastly\.com|amazonaws\.com\/.*\/(images?|media|assets)|cloudfront\.net|asos-media\.com|scene7\.com)\b/i.test(u)) return true;
+    if (/\b(mozu\.com|shopify\.com|cloudinary\.com|imgix\.net|fastly\.com|amazonaws\.com\/.*\/(images?|media|assets)|cloudfront\.net|asos-media\.com|scene7\.com|swarovski\.com|asset\.swarovski\.com)\b/i.test(u)) return true;
     
     // Image-related paths (expanded)
     if (/\/(images?|media|assets|photos?|pics?|gallery|products)\//i.test(u)) return true;
@@ -485,7 +485,8 @@
       /_(\d+)x\d*(?:_|\.|$)/i, // _750x, _1024x1024
       /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
       /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
-      /[?&]\$n_(\d+)w?\b/i  // ASOS patterns: ?$n_640w, ?$n_1920
+      /[?&]\$n_(\d+)w?\b/i,  // ASOS patterns: ?$n_640w, ?$n_1920
+      /\bw_(\d+)\b/i  // *** CRITICAL FIX: Swarovski w_375 style ***
     ];
     
     let detectedSize = 0;
@@ -614,7 +615,8 @@
       /_(\d+)x\d*(?:_|\.|$)/i,
       /(\d+)x\d+(?:_|\.|$)/i,
       /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i,
-      /[?&]\$n_(\d+)w?\b/i  // ASOS patterns: ?$n_640w, ?$n_1920
+      /[?&]\$n_(\d+)w?\b/i,  // ASOS patterns: ?$n_640w, ?$n_1920
+      /\bw_(\d+)\b/i  // *** CRITICAL FIX: Swarovski w_375 style ***
     ];
     
     let maxSize = 0;

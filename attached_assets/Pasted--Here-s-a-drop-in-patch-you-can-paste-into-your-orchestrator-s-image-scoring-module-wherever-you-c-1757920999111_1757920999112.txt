@@ -1,0 +1,173 @@
+
+
+Here’s a drop-in patch you can paste into your orchestrator’s image scoring module (wherever you currently parse sizes / score images). It:
+
+    adds detection for w_###
+
+    strengthens penalties for thumb/swatch UI assets
+
+    adds better tie-breakers (prefer larger width, prefer earlier gallery order)
+
+    hard-filters obvious placeholders/base64
+
+    (optional) reads real intrinsic dimensions in-page if available to override URL guesses
+
+1) Size parsing helpers (add or replace your current extractors)// --- image-size parsing ----------------------------------------------------
+const SIZE_PATTERNS = [
+  // common query/param styles
+  /[?&](?:max|w|width|imgwidth|imagewidth)=([0-9]+)/i,   // ?w=375
+  /\b([0-9]{3,4})(?:x|×|w|h|px)(?:[^/.\n\s]|\.|\/|$)/i,  // 750x750, 750w
+  /\b([0-9]{3,4})w\b/i,                                  // 375w in srcset copied URL
+  // *** NEW: Swarovski /w_375/ style ***
+  /\bw_(\d+)\b/i
+];
+
+function widthFromUrl(url) {
+  try {
+    for (const rx of SIZE_PATTERNS) {
+      const m = url.match(rx);
+      if (m && m[1]) return parseInt(m[1], 10);
+    }
+  } catch {}
+  return 0;
+}
+
+function isTrashUrl(url) {
+  if (!url) return true;
+  const u = url.toLowerCase();
+  // obvious non-images or placeholders
+  if (u.startsWith('data:') || u.includes('placeholder') || u.includes('sprite')) return true;
+  // logos / ui / thumbs / banners / icons
+  if (/(?:logo|icon|sprite|banner|badge|promo|placeholder)/i.test(u)) return true;
+  // very likely blurred tiny previews
+  if (/(?:blur|tiny|thumb|mini|small)\b/i.test(u) && !/(\d{3,4})\b/.test(u)) return true;
+  return false;
+}
+  2) Scoring (replace your current function or merge with it) 
+function scoreImage({ url, idx, el, intrinsicW, intrinsicH }) {
+  // Base score
+  let score = 50;
+
+  // Hard filter
+  if (isTrashUrl(url)) return -999;
+
+  // SIZE: prefer bigger; penalize small
+  let w = intrinsicW || widthFromUrl(url);
+  if (w >= 1200) score += 40;
+  else if (w >= 800) score += 30;
+  else if (w >= 600) score += 20;
+  else if (w >= 400) score += 10;
+  else if (w > 0 && w < 400) score -= 40; // strong penalty for thumbs
+
+  // PATH CONTEXT bonuses (product/main/hero)
+  if (/(?:\/|^)(product|products|pdp|detail|gallery|main|hero)(?:\/|$)/i.test(url)) score += 15;
+
+  // ELEMENT CLASS bonuses (when we have the DOM element)
+  const cls = (el?.className || '').toString().toLowerCase();
+  if (/(product|main|hero|gallery)/.test(cls)) score += 30;
+
+  // POSITION bonus: nudge earlier gallery items up
+  if (idx === 0) score += 30;
+  else if (idx <= 2) score += 20;
+
+  // PENALTIES: UI bits even if big
+  if (/(?:thumb|mini|small|sprite|banner|logo|icon)\b/i.test(url)) score -= 50;
+
+  // FORMAT bonus for good formats auto/avif/webp
+  if (/[?&](?:f|format)=(?:auto|avif|webp)/i.test(url) || /\.avif(\?|$)/i.test(url) || /\.webp(\?|$)/i.test(url)) {
+    score += 8;
+  }
+
+  // Aspect ratio penalty if we know intrinsic dims (avoid tall banners)
+  if (intrinsicW && intrinsicH) {
+    const ar = intrinsicW / intrinsicH;
+    if (ar < 0.6 || ar > 2.2) score -= 40;
+  }
+
+  return score;
+}
+3) Choose top images (sorting + real dimension sniff, if available)
+
+Call this in your image collector, passing the NodeList/array of <img> elements or their URLs.
+async function rankImagesFromDom(imgEls) {
+  // Try to read real intrinsic size when possible (more accurate than URL guess)
+  const enriched = [];
+  for (let i = 0; i < imgEls.length; i++) {
+    const el = imgEls[i];
+    const url = (el?.src || el)?.toString();
+    if (!url) continue;
+    // naturalWidth/Height only when we actually have the element
+    const intrinsicW = el?.naturalWidth || 0;
+    const intrinsicH = el?.naturalHeight || 0;
+
+    const s = scoreImage({ url, idx: i, el, intrinsicW, intrinsicH });
+    if (s > -999) enriched.push({ url, idx: i, score: s, w: intrinsicW || widthFromUrl(url) });
+  }
+
+  // sort: score desc, then width desc, then original order asc
+  enriched.sort((a, b) => b.score - a.score || (b.w - a.w) || (a.idx - b.idx));
+
+  // de-dupe by filename-ish
+  const seen = new Set();
+  const out = [];
+  for (const it of enriched) {
+    const key = it.url.replace(/[?#].*$/, '').replace(/\/w_\d+\//, '/'); // normalize Swarovski style
+    if (!seen.has(key)) {
+      seen.add(key);
+      out.push(it.url);
+    }
+  }
+  return out;
+}
+
+    If your pipeline collects URLs (strings) rather than DOM nodes, just pass {src:url} instead of a real element; the code will fall back to URL-based width.
+
+4) Where to paste
+
+    Put (1) and (2) alongside your existing image utilities (same module as your current scoring function).
+
+    Call rankImagesFromDom where you currently assemble image candidates (from gallery selectors, img[src], JSON-LD, etc.) and then use the returned array as your final ordered list.
+
+5) Why this fixes your screenshot case
+
+    Swarovski URLs like …/w_375/… will now produce w=375 ➜ −40 small penalty.
+
+    The “thumb/mini/small” words in the path also produce −50 when present.
+
+    The first gallery items still get a strong nudge, but tiny widths will keep them below the real hero images.
+
+    Ties are broken by larger width first, then by original order.
+
+6) Optional: add Swarovski CDN awareness (tiny extra boost)
+
+If you keep a CDN map bonus, include Swarovski to prevent accidental negative bias:
+const CDN_BONUS = {
+  'cloudinary': 15,
+  'shopify': 15,
+  'swarovski': 0 // neutral; adjust if you want
+};
+
+function cdnHostBonus(url) {
+  try {
+    const h = new URL(url).hostname;
+    if (h.includes('cloudinary')) return CDN_BONUS.cloudinary;
+    if (h.includes('shopify')) return CDN_BONUS.shopify;
+    if (h.includes('swarovski')) return CDN_BONUS.swarovski;
+  } catch {}
+  return 0;
+}
+Then add score += cdnHostBonus(url); inside scoreImage. 
+TL;DR
+
+    Add the regex \bw_(\d+)\b to your size patterns.
+
+    Penalize small widths hard.
+
+    Bonus for gallery/hero classes and early positions, but never enough to overcome small size penalties.
+
+    Tie-break by width, then index.
+
+    Filter placeholders/UI assets.
+
+
+
