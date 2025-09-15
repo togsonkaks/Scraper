@@ -1118,27 +1118,86 @@
     if (prod && prod.description) { mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return prod.description; }
     return null;
   }
-  function getPrice() {
-    const pairs = [
-      ['[itemprop="price"]','content'],
-      ['[data-test*=price]','text'],
-      ['[data-testid*=price]','text'],
-      ['.price','text'],
-      ['.product-price','text']
-    ];
-    for (const [sel,at] of pairs) {
-      const el = q(sel);
-      const raw = at==='text' ? txt(el) : attr(el,at);
-      let val = normalizeMoneyPreferSale(raw);
-      if (val && el) val = refinePriceWithContext(el, val);
-      if (val) { mark('price', { selectors:[sel], attr:at, method:'generic' }); return val; }
+  // ===== getPrice (augmented with attrs → ancestor → JSON-LD hierarchy) =====
+  function getPrice(document, memorySel) {
+    // A) Try existing orchestrator logic FIRST and validate it
+    let val = null, selUsed = null;
+    try {
+      const pairs = [
+        ['[itemprop="price"]','content'],
+        ['[data-test*=price]','text'],
+        ['[data-testid*=price]','text'],
+        ['[class*="price"]','text'],
+        ['.product-price','text']
+      ];
+      for (const [sel,at] of pairs) {
+        const el = q(sel);
+        const raw = at==='text' ? txt(el) : attr(el,at);
+        let legacy = normalizeMoneyPreferSale(raw);
+        if (legacy && el) legacy = refinePriceWithContext(el, legacy);
+        if (legacy) { 
+          val = legacy; 
+          selUsed = sel;
+          break;
+        }
+      }
+    } catch {}
+
+    // quick validator
+    const good = (n) => isFinite(n) && n > 1 && n < 10000;
+    const asNum = (x) => typeof x === 'number' ? x : jsonNum(x);
+
+    // If legacy numeric is good → return immediately
+    if (good(asNum(val))) {
+      mark('price', { selectors:[selUsed], attr:'mixed', method:'orchestrator-first' });
+      return asNum(val);
     }
-    const prod = scanJSONLDProducts()[0];
-    if (prod) {
-      const val = normalizeMoneyPreferSale(ldPickPrice(prod));
-      if (val) { mark('price', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return val; }
+
+    // B) Strength 1: memory selector → attrs → ancestor block (pick LOWEST)
+    const tryPriceFromElement = (sel) => {
+      const el = sel ? document.querySelector(sel) : null;
+      if (!el) return null;
+      const attrN = numberFromAttrs(el);
+      if (attrN != null) return { n: attrN, sel, via:'attrs' };
+      const blockN = scanAncestorForPrice(el, 3);
+      if (blockN != null) return { n: blockN, sel, via:'block' };
+      return null;
+    };
+
+    let best = null;
+
+    if (memorySel) best = tryPriceFromElement(memorySel);
+
+    // C) Strength 2: common price selectors with the same rule
+    if (!best) {
+      const sels = [
+        '[itemprop="price"]',
+        'meta[itemprop="price"]',
+        '[data-testid*="price"]',
+        '.price,.Price,.product-price,[class*="price"]'
+      ];
+      for (const s of sels) {
+        best = tryPriceFromElement(s);
+        if (best) break;
+      }
     }
-    return null;
+
+    // D) Strength 3: JSON-LD fallback
+    if (!best) {
+      const product = findProductNode(getJsonLd(document));
+      const n = jsonNum(product?.offers?.price);
+      if (n != null) best = { n, sel: 'jsonld:offers.price', via:'jsonld' };
+    }
+
+    // E) Choose return
+    if (best && good(best.n)) {
+      mark('price', { selectors:[best.sel], attr:best.via, method:'unified-enhanced' });
+      return best.n;
+    }
+
+    // last resort — even if legacy was bad, return it to avoid empty
+    mark('price', { selectors:[selUsed || 'none'], attr:'fallback', method:'last-resort' });
+    return good(asNum(val)) ? asNum(val) : null;
   }
   async function getImagesGeneric() {
     const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
