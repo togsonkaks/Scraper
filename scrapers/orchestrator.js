@@ -201,136 +201,188 @@
 
   // --- image helpers ---
   function collectImgCandidates(root, variantContext = null) {
-    const list = [];
-    const enrichedList = []; // For tracking element context
-    
     // Use active gallery root if variant context is provided
     if (variantContext?.activeGalleryRoot && variantContext.activeGalleryRoot !== document) {
       root = variantContext.activeGalleryRoot;
       debug(`🎯 Using active gallery root for collection: ${root.className || root.tagName}`);
     }
     
-    // Helper to check if element should be included
-    const shouldIncludeElement = (el, url) => {
-      // Check visibility (skip hidden variant carousels)
-      if (!isVisibleElement(el)) {
-        debug(`⏭️ SKIP invisible element: ${url?.slice(0, 50)}`);
-        return false;
-      }
+    // Progressive fallback relaxation system
+    let fallbackLevel = 0; // 0 = strict, 1 = no slide checks, 2 = no variant checks
+    let finalResults = [];
+    
+    while (fallbackLevel <= 2 && finalResults.length < 3) {
+      const list = [];
+      const enrichedList = [];
       
-      // Check if element is in active slide
-      if (!isActiveSlideElement(el)) {
-        debug(`⏭️ SKIP inactive slide: ${url?.slice(0, 50)}`);
-        return false;
-      }
+      debug(`🔄 COLLECTION ATTEMPT (level ${fallbackLevel}):`, {
+        checkVisibility: true,
+        checkSlides: fallbackLevel < 1,
+        checkVariants: fallbackLevel < 2,
+        target: '≥3 images'
+      });
       
-      // Check variant match if context available
-      if (variantContext?.selectedVariantKey && url) {
-        if (!isVariantMatch(url, variantContext.selectedVariantKey)) {
-          debug(`⏭️ SKIP variant mismatch: ${url?.slice(0, 50)} (want: ${variantContext.selectedVariantKey})`);
+      // Helper to check if element should be included (with progressive relaxation)
+      const shouldIncludeElement = (el, url) => {
+        // Always check visibility (never relax this)
+        if (!isVisibleElement(el)) {
+          debug(`⏭️ SKIP invisible element: ${url?.slice(0, 50)}`);
           return false;
         }
+        
+        // Check if element is in active slide (relax at level 1+)
+        if (fallbackLevel < 1 && !isActiveSlideElement(el)) {
+          debug(`⏭️ SKIP inactive slide: ${url?.slice(0, 50)}`);
+          return false;
+        }
+        
+        // Check variant match if context available (relax at level 2+)
+        if (fallbackLevel < 2 && variantContext?.selectedVariantKey && url) {
+          if (!isVariantMatch(url, variantContext.selectedVariantKey)) {
+            debug(`⏭️ SKIP variant mismatch: ${url?.slice(0, 50)} (want: ${variantContext.selectedVariantKey})`);
+            return false;
+          }
+        }
+        
+        return true;
+      };
+      
+      // Target picture elements first (where the gold is!)
+      for (const picture of root.querySelectorAll('picture')) {
+        if (!shouldIncludeElement(picture)) continue;
+        
+        for (const source of picture.querySelectorAll('source[srcset]')) {
+          const srcset = source.getAttribute('srcset');
+          if (srcset) {
+            // Get the largest from srcset
+            const urls = srcset.split(',').map(item => {
+              const parts = item.trim().split(/\s+/);
+              return { url: parts[0], descriptor: parts[1] || '' };
+            });
+            // Prefer largest by descriptor (2000w > 1000w) or last as fallback
+            const largest = urls.sort((a, b) => {
+              const aW = parseInt(a.descriptor.replace('w', '')) || 0;
+              const bW = parseInt(b.descriptor.replace('w', '')) || 0;
+              return bW - aW;
+            })[0];
+            
+            if (largest?.url && shouldIncludeElement(picture, largest.url)) {
+              list.push(largest.url);
+              enrichedList.push({ url: largest.url, element: picture, source: 'picture-srcset' });
+              debug(`✅ INCLUDED picture srcset: ${largest.url.slice(0, 80)}`);
+            }
+          }
+        }
+        
+        // Also check img inside picture as fallback
+        const img = picture.querySelector('img');
+        if (img) {
+          const src = img.getAttribute('src');
+          if (src && shouldIncludeElement(img, src)) {
+            list.push(src);
+            enrichedList.push({ url: src, element: img, source: 'picture-img' });
+            debug(`✅ INCLUDED picture img: ${src.slice(0, 80)}`);
+          }
+        }
       }
-      
-      return true;
-    };
-    
-    // Target picture elements first (where the gold is!)
-    for (const picture of root.querySelectorAll('picture')) {
-      if (!shouldIncludeElement(picture)) continue;
-      
-      for (const source of picture.querySelectorAll('source[srcset]')) {
-        const srcset = source.getAttribute('srcset');
+
+      // Regular img elements (but prefer picture elements above)
+      for (const img of root.querySelectorAll('img:not(picture img)')) {
+        if (!shouldIncludeElement(img)) continue;
+        
+        const src = img.getAttribute('src');
+        if (src && shouldIncludeElement(img, src)) {
+          list.push(src);
+          enrichedList.push({ url: src, element: img, source: 'img-src' });
+          debug(`✅ INCLUDED img src: ${src.slice(0, 80)}`);
+        }
+        
+        const srcset = img.getAttribute('srcset');
         if (srcset) {
-          // Get the largest from srcset
           const urls = srcset.split(',').map(item => {
             const parts = item.trim().split(/\s+/);
             return { url: parts[0], descriptor: parts[1] || '' };
           });
-          // Prefer largest by descriptor (2000w > 1000w) or last as fallback
           const largest = urls.sort((a, b) => {
             const aW = parseInt(a.descriptor.replace('w', '')) || 0;
             const bW = parseInt(b.descriptor.replace('w', '')) || 0;
             return bW - aW;
           })[0];
           
-          if (largest?.url && shouldIncludeElement(picture, largest.url)) {
+          if (largest?.url && shouldIncludeElement(img, largest.url)) {
             list.push(largest.url);
-            enrichedList.push({ url: largest.url, element: picture, source: 'picture-srcset' });
-            debug(`✅ INCLUDED picture srcset: ${largest.url.slice(0, 80)}`);
+            enrichedList.push({ url: largest.url, element: img, source: 'img-srcset' });
+            debug(`✅ INCLUDED img srcset: ${largest.url.slice(0, 80)}`);
           }
         }
       }
       
-      // Also check img inside picture as fallback
-      const img = picture.querySelector('img');
-      if (img) {
-        const src = img.getAttribute('src');
-        if (src && shouldIncludeElement(img, src)) {
-          list.push(src);
-          enrichedList.push({ url: src, element: img, source: 'picture-img' });
-          debug(`✅ INCLUDED picture img: ${src.slice(0, 80)}`);
-        }
-      }
-    }
-
-    // Regular img elements (but prefer picture elements above)
-    for (const img of root.querySelectorAll('img:not(picture img)')) {
-      if (!shouldIncludeElement(img)) continue;
-      
-      const src = img.getAttribute('src');
-      if (src && shouldIncludeElement(img, src)) {
-        list.push(src);
-        enrichedList.push({ url: src, element: img, source: 'img-src' });
-        debug(`✅ INCLUDED img src: ${src.slice(0, 80)}`);
-      }
-      
-      const srcset = img.getAttribute('srcset');
-      if (srcset) {
-        const urls = srcset.split(',').map(item => {
-          const parts = item.trim().split(/\s+/);
-          return { url: parts[0], descriptor: parts[1] || '' };
-        });
-        const largest = urls.sort((a, b) => {
-          const aW = parseInt(a.descriptor.replace('w', '')) || 0;
-          const bW = parseInt(b.descriptor.replace('w', '')) || 0;
-          return bW - aW;
-        })[0];
+      // CSS background-image (common in sliders)
+      const bgElems = root.querySelectorAll('[style*="background-image"]');
+      for (const el of bgElems) {
+        if (!shouldIncludeElement(el)) continue;
         
-        if (largest?.url && shouldIncludeElement(img, largest.url)) {
-          list.push(largest.url);
-          enrichedList.push({ url: largest.url, element: img, source: 'img-srcset' });
-          debug(`✅ INCLUDED img srcset: ${largest.url.slice(0, 80)}`);
+        const m = (el.getAttribute('style')||'').match(/url\((['"]?)(.*?)\1\)/);
+        if (m && m[2] && shouldIncludeElement(el, m[2])) {
+          list.push(m[2]);
+          enrichedList.push({ url: m[2], element: el, source: 'bg-image' });
+          debug(`✅ INCLUDED bg-image: ${m[2].slice(0, 80)}`);
         }
       }
-    }
-    
-    // CSS background-image (common in sliders)
-    const bgElems = root.querySelectorAll('[style*="background-image"]');
-    for (const el of bgElems) {
-      if (!shouldIncludeElement(el)) continue;
       
-      const m = (el.getAttribute('style')||'').match(/url\((['"]?)(.*?)\1\)/);
-      if (m && m[2] && shouldIncludeElement(el, m[2])) {
-        list.push(m[2]);
-        enrichedList.push({ url: m[2], element: el, source: 'bg-image' });
-        debug(`✅ INCLUDED bg-image: ${m[2].slice(0, 80)}`);
+      const currentResults = enrichedList.length > 0 ? enrichedList : list.map(url => ({ url, element: null, source: 'legacy' }));
+      
+      debug(`📊 COLLECTION LEVEL ${fallbackLevel} RESULTS:`, {
+        found: currentResults.length,
+        target: 3,
+        sufficientImages: currentResults.length >= 3
+      });
+      
+      // If we have enough images, use these results
+      if (currentResults.length >= 3) {
+        finalResults = currentResults;
+        debug(`✅ SUCCESS at fallback level ${fallbackLevel}:`, {
+          images: finalResults.length,
+          variantFiltering: fallbackLevel < 2 ? 'enabled' : 'disabled',
+          slideFiltering: fallbackLevel < 1 ? 'enabled' : 'disabled'
+        });
+        break;
       }
+      
+      // Save current results and try next level
+      if (currentResults.length > finalResults.length) {
+        finalResults = currentResults;
+      }
+      
+      // Log fallback progression
+      if (fallbackLevel === 0 && currentResults.length < 3) {
+        debug(`🔄 RELAXING CONSTRAINTS: Removing active-slide requirement (${currentResults.length} < 3 images)`);
+      } else if (fallbackLevel === 1 && currentResults.length < 3) {
+        debug(`🔄 RELAXING CONSTRAINTS: Removing variant-match requirement (${currentResults.length} < 3 images)`);
+      }
+      
+      fallbackLevel++;
     }
     
-    debug(`🖼️ VARIANT-AWARE COLLECTION: ${list.length} images from ${enrichedList.length} elements`);
-    if (variantContext?.selectedVariantKey) {
-      debug(`🎯 Filtered for variant: ${variantContext.selectedVariantKey}`);
-    }
+    debug(`🖼️ FINAL VARIANT-AWARE COLLECTION:`, {
+      images: finalResults.length,
+      fallbackLevel: Math.max(0, fallbackLevel - 1),
+      variantKey: variantContext?.selectedVariantKey,
+      galleryRoot: variantContext?.activeGalleryRoot?.className || 'document'
+    });
     
-    // Return enriched format for better processing
-    return enrichedList.length > 0 ? enrichedList : list.map(url => ({ url, element: null, source: 'legacy' }));
+    return finalResults;
   }
   function filterImageUrls(urls=[]) {
     const seen = new Set();
     const out  = [];
-    for (let u of urls) {
+    for (let item of urls) {
+      if (!item) continue;
+      
+      // Handle both string URLs and enriched objects {url, element, source}
+      const u = typeof item === 'string' ? item : (item.url || null);
       if (!u) continue;
+      
       if (!/^https?:/i.test(u)) continue;
       if (u.startsWith('data:')) continue;
       const bare = String(u).split('?')[0];
@@ -1197,7 +1249,7 @@
   }
 
   /* ---------- MEMORY RESOLUTION ---------- */
-  async function fromMemory(field, memEntry) {
+  async function fromMemory(field, memEntry, variantContext = null) {
     debug('🧠 FROM MEMORY:', { 
       field, 
       hasMemEntry: !!memEntry,
@@ -1262,9 +1314,9 @@
         debug(`🎯 TRYING SELECTOR [${field}]:`, sel);
         
         if (field === 'images') {
-          const urls = await gatherImagesBySelector(sel);
+          const urls = await gatherImagesBySelector(sel, variantContext);
           if (urls.length) { 
-            debug(`✅ MEMORY IMAGES SUCCESS: ${urls.length} images found`);
+            debug(`✅ MEMORY IMAGES SUCCESS: ${urls.length} variant-filtered images found`);
             mark('images', { selectors:[sel], attr:'src', method:'css', urls: urls.slice(0,30) }); 
             return urls.slice(0,30); 
           } else {
@@ -1463,7 +1515,7 @@
     return good(asNum(val)) ? asNum(val) : null;
   }
   // ===== getImagesGeneric (augmented with filtering → gallery → page fallback) =====
-  async function getImagesGeneric(document, memorySel) {
+  async function getImagesGeneric(document, memorySel, variantContext = null) {
     // A) Your existing logic FIRST
     let urls = []; let selUsed = null;
     try {
@@ -1510,8 +1562,8 @@
       // Try site-specific selectors first
       const siteSelectors = siteSpecificSelectors[hostname] || [];
       for (const sel of siteSelectors) {
-        debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
-        const siteUrls = await gatherImagesBySelector(sel);
+        debug(`🎯 Trying variant-aware site-specific selector for ${hostname}:`, sel);
+        const siteUrls = await gatherImagesBySelector(sel, variantContext);
         if (siteUrls.length >= 3) {
           debug(`✅ Site-specific success: ${siteUrls.length} images found`);
           urls = siteUrls; selUsed = sel;
@@ -1525,7 +1577,7 @@
           '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
         ];
         for (const sel of gallerySels) {
-          const galleryUrls = await gatherImagesBySelector(sel);
+          const galleryUrls = await gatherImagesBySelector(sel, variantContext);
           if (galleryUrls.length >= 3) { 
             urls = galleryUrls; selUsed = sel;
             break; 
@@ -1548,7 +1600,10 @@
       const nodes = [...document.querySelectorAll(sel)];
       if (!nodes.length) return null;
       const gathered = [];
-      for (const n of nodes) gathered.push(...collectImgCandidates(n));
+      for (const n of nodes) {
+        const enrichedCandidates = collectImgCandidates(n, variantContext);
+        gathered.push(...enrichedCandidates);
+      }
       const cleaned = filterImageUrls(gathered);
       return cleaned.length >= 3 ? cleaned : null;
     };
@@ -1579,7 +1634,8 @@
     }
 
     // E) Strength 3: whole-page harvest fallback
-    const all = filterImageUrls(collectImgCandidates(document));
+    const enrichedAll = collectImgCandidates(document, variantContext);
+    const all = filterImageUrls(enrichedAll);
     if (all.length >= 3) {
       urls = all; selUsed = 'page:all';
       mark('images', { selectors:[selUsed], attr:'src', method:'page-fallback', urls: urls.slice(0,30) });
@@ -1665,7 +1721,7 @@
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
-  async function tryLLMImageFallback(document) {
+  async function tryLLMImageFallback(document, variantContext = null) {
     debug('🤖 LLM FALLBACK: Starting AI-powered image selector discovery...');
     
     try {
@@ -1744,7 +1800,7 @@
         debug('🤖 LLM FALLBACK: Testing selector:', selector);
         
         try {
-          const urls = await gatherImagesBySelector(selector);
+          const urls = await gatherImagesBySelector(selector, variantContext);
           if (urls.length > 0) {
             debug('🤖 LLM SUCCESS: Found', urls.length, 'images with selector:', selector);
             foundImages.push(...urls);
