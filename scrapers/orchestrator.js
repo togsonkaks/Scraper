@@ -327,6 +327,223 @@
     return JUNK_HINTS_NEW.some(h => u.includes(h)); 
   }
 
+  /* ---------- VARIANT CONTEXT RESOLVER ---------- */
+  // Detects the currently selected product variant to target precise images
+  
+  function createVariantContext() {
+    const ctx = {
+      selectedVariantKey: null,
+      activeGalleryRoot: null,
+      detectionMethod: 'none',
+      debugInfo: []
+    };
+    
+    // 1. Detect selected variant from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlVariant = urlParams.get('variant') || urlParams.get('color') || urlParams.get('variantId');
+    if (urlVariant) {
+      ctx.selectedVariantKey = normalizeVariantKey(urlVariant);
+      ctx.detectionMethod = 'url_param';
+      ctx.debugInfo.push(`URL variant: ${urlVariant} -> ${ctx.selectedVariantKey}`);
+    }
+    
+    // 2. Detect from URL path (e.g., /product/black, /earbuds-black)
+    if (!ctx.selectedVariantKey) {
+      const pathColors = ['black', 'white', 'blue', 'red', 'green', 'pink', 'gold', 'silver', 'gray', 'grey', 'bone', 'plasma', 'leopard', 'primer'];
+      const path = window.location.pathname.toLowerCase();
+      for (const color of pathColors) {
+        if (path.includes(`-${color}`) || path.includes(`_${color}`) || path.includes(`/${color}`)) {
+          ctx.selectedVariantKey = color;
+          ctx.detectionMethod = 'url_path';
+          ctx.debugInfo.push(`Path variant: ${color}`);
+          break;
+        }
+      }
+    }
+    
+    // 3. Detect from active DOM elements (swatches, selects)
+    if (!ctx.selectedVariantKey) {
+      const activeSwatches = [
+        'input[type="radio"]:checked[name*="color"]',
+        'input[type="radio"]:checked[name*="variant"]',
+        '[aria-selected="true"][data-color]',
+        '[aria-selected="true"][data-variant]',
+        '.selected[data-color]',
+        '.active[data-variant]',
+        '.is-selected[data-color]',
+        'select[name*="variant"] option:checked',
+        'select[name*="color"] option:checked'
+      ];
+      
+      for (const sel of activeSwatches) {
+        const el = document.querySelector(sel);
+        if (el) {
+          const variant = el.getAttribute('data-color') || el.getAttribute('data-variant') || 
+                         el.getAttribute('value') || el.textContent?.trim();
+          if (variant) {
+            ctx.selectedVariantKey = normalizeVariantKey(variant);
+            ctx.detectionMethod = 'dom_active';
+            ctx.debugInfo.push(`DOM active: ${sel} -> ${variant} -> ${ctx.selectedVariantKey}`);
+            break;
+          }
+        }
+      }
+    }
+    
+    // 4. Detect from platform-specific JSON (Shopify, WooCommerce)
+    if (!ctx.selectedVariantKey) {
+      try {
+        // Shopify
+        if (window.ShopifyAnalytics?.meta?.selectedVariantId) {
+          const variantId = window.ShopifyAnalytics.meta.selectedVariantId;
+          ctx.selectedVariantKey = String(variantId);
+          ctx.detectionMethod = 'shopify_analytics';
+          ctx.debugInfo.push(`Shopify variant ID: ${variantId}`);
+        }
+        
+        // Check for Shopify product JSON
+        const productScript = document.querySelector('script[data-product-json]');
+        if (productScript && !ctx.selectedVariantKey) {
+          const productData = JSON.parse(productScript.textContent);
+          if (productData.selected_or_first_available_variant?.id) {
+            ctx.selectedVariantKey = String(productData.selected_or_first_available_variant.id);
+            ctx.detectionMethod = 'shopify_product_json';
+            ctx.debugInfo.push(`Shopify product JSON variant: ${ctx.selectedVariantKey}`);
+          }
+        }
+      } catch (e) {
+        ctx.debugInfo.push(`Platform JSON error: ${e.message}`);
+      }
+    }
+    
+    // 5. Find active gallery root
+    ctx.activeGalleryRoot = findActiveGalleryRoot();
+    
+    debug('🎯 VARIANT CONTEXT:', ctx);
+    return ctx;
+  }
+  
+  function normalizeVariantKey(variant) {
+    if (!variant) return null;
+    return String(variant).toLowerCase()
+      .replace(/[^a-z0-9]/g, '')
+      .replace(/^(method360|stilla|attract)/, '') // Remove product prefixes
+      .substring(0, 20); // Limit length
+  }
+  
+  function findActiveGalleryRoot() {
+    // Look for the main product gallery container
+    const candidates = [
+      '.swa-pdp-grid__carousel-area', // Swarovski
+      '.product-single__photos', // Shopify
+      '.product-gallery',
+      '.product-images',
+      '.product-media',
+      '.gallery-wrap',
+      '.image-gallery',
+      '.pdp-gallery',
+      '[class*="ProductMedia"]', // Target
+      '[data-testid*="image"]',
+      '.slick-slider:not(.product-recommendations)', // Slick but not related products
+      '.swiper-container:not(.related-products)',
+      '.main-product-slider'
+    ];
+    
+    for (const sel of candidates) {
+      const gallery = document.querySelector(sel);
+      if (gallery && isVisibleElement(gallery)) {
+        debug(`📍 Active gallery root found: ${sel}`);
+        return gallery;
+      }
+    }
+    
+    // Fallback: find gallery near title/price
+    const title = document.querySelector('h1, .product-title, [itemprop="name"]');
+    if (title) {
+      const nearbyGallery = title.closest('main, .product, .pdp')?.querySelector('.gallery, .product-images, .slider');
+      if (nearbyGallery) {
+        debug('📍 Active gallery root found near title');
+        return nearbyGallery;
+      }
+    }
+    
+    debug('⚠️ No active gallery root found, using document');
+    return document;
+  }
+  
+  function isVisibleElement(el) {
+    if (!el) return false;
+    if (el.offsetParent === null) return false; // Hidden
+    if (el.style.display === 'none') return false;
+    if (el.style.visibility === 'hidden') return false;
+    if (el.getAttribute('aria-hidden') === 'true') return false;
+    if (el.getBoundingClientRect().width === 0) return false;
+    return true;
+  }
+  
+  function extractVariantKeyFromUrl(url) {
+    if (!url) return null;
+    
+    // Extract variant indicators from image URL
+    const patterns = [
+      /[-_](black|white|blue|red|green|pink|gold|silver|gray|grey|bone|plasma|leopard|primer)(?:[-_.]|$)/i,
+      /method360[-_]([\w]+)/i, // Skullcandy patterns
+      /stilla[-_]([\w]+)/i, // Swarovski patterns  
+      /\/(\w+)[-_](\w+)[-_](\w+)\//i // General product_variant_color pattern
+    ];
+    
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match) {
+        return normalizeVariantKey(match[1]);
+      }
+    }
+    
+    return null;
+  }
+  
+  function isVariantMatch(url, selectedVariantKey) {
+    if (!selectedVariantKey) return true; // No variant detected, include all
+    
+    const urlVariantKey = extractVariantKeyFromUrl(url);
+    if (!urlVariantKey) return true; // No variant in URL, probably generic
+    
+    return urlVariantKey === selectedVariantKey;
+  }
+  
+  function isActiveSlideElement(el) {
+    if (!el) return true; // Default to include
+    
+    // Check if element is in an active slide
+    const activeSlideClasses = [
+      'slick-current', 'slick-active',
+      'swiper-slide-active', 'swiper-slide-next', 'swiper-slide-prev',
+      'fotorama__active', 'fotorama__loaded--img',
+      'flex-active-slide',
+      'is-selected', 'is-active',
+      'active', 'current'
+    ];
+    
+    // Check element and its ancestors for active slide indicators
+    let current = el;
+    for (let i = 0; i < 5 && current; i++) {
+      // Check if this element has active classes
+      if (activeSlideClasses.some(cls => current.classList?.contains(cls))) {
+        return true;
+      }
+      
+      // Check if this element is marked as selected
+      if (current.getAttribute('aria-selected') === 'true') {
+        return true;
+      }
+      
+      current = current.parentElement;
+    }
+    
+    // If no active indicators found, check visibility
+    return isVisibleElement(el);
+  }
+
   /* ---------- PRICE (currency-aware) ---------- */
   function parseMoneyTokens(s) {
     if (!s) return [];

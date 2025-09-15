@@ -1,0 +1,123 @@
+4:03:58 AM] ✅ SINGLE IMAGE (score: 106): https://asset.swarovski.com/images/c_crop,g_xy_center,w_4631,h_3453,x_4768,y_3097/dpr_auto,f_auto,q_
+106
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 106): https://asset.swarovski.com/images/c_crop,g_xy_center,w_1866,h_1049,x_2967,y_836/dpr_auto,f_auto,q_a
+106
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 106): https://asset.swarovski.com/images/c_crop,g_xy_center,w_7328,h_4493,x_4579,y_3505/dpr_auto,f_auto,q_
+106
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 36): https://asset.swarovski.com/images/c_crop,g_xy_center,w_1076,h_868,x_538,y_723/dpr_auto,f_auto,q_aut
+36
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 96): https://asset.swarovski.com/images/c_crop,g_xy_center,w_2843,h_1599,x_2697,y_1216/dpr_auto,f_auto,q_
+96
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 96): https://asset.swarovski.com/images/c_crop,g_xy_center,w_2646,h_1489,x_2500,y_2501/dpr_auto,f_auto,q_
+96
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 96): https://asset.swarovski.com/images/c_crop,g_xy_center,w_5971,h_3359,x_3000,y_2025/dpr_auto,f_auto,q_
+96
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 114): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 114): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 114): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 114): https://asset.swarovski.com/images/$size_1450/t_swa002/c_scale,dpr_1.0,f_auto,w_375/5723298_ms1/stil
+114
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 114): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 114): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 114): https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 154): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 154): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 154): https://asset.swarovski.com/images/$size_2000/t_swa002/c_scale,dpr_1.0,f_auto,w_580/5723298_ms1/stil
+154
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 154): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 154): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] ✅ SINGLE IMAGE (score: 154): https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/c_crop,g_xy_center,w_4631,h_3453,x_4768,y_3097/dpr_auto,f_auto,q_
+106
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/c_crop,g_xy_center,w_1866,h_1049,x_2967,y_836/dpr_auto,f_auto,q_a
+106
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/c_crop,g_xy_center,w_7328,h_4493,x_4579,y_3505/dpr_auto,f_auto,q_
+106
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/c_crop,g_xy_center,w_1076,h_868,x_538,y_723/dpr_auto,f_auto,q_aut
+36
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/c_crop,g_xy_center,w_2843,h_1599,x_2697,y_1216/dpr_auto,f_auto,q_
+96
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/c_crop,g_xy_center,w_2646,h_1489,x_2500,y_2501/dpr_auto,f_auto,q_
+96
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/c_crop,g_xy_center,w_5971,h_3359,x_3000,y_2025/dpr_auto,f_auto,q_
+96
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_1450/t_swa002/c_scale,dpr_1.0,f_auto,w_375/5723298_ms1/stil
+114
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_375/572
+114
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_2000/t_swa002/c_scale,dpr_1.0,f_auto,w_580/5723298_ms1/stil
+154
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] 🔒 TRUSTED CDN BYPASS: https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/572
+154
+📋 Copy URL
+[4:03:58 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":20}
+[4:03:58 AM] 🖼️ FINAL IMAGES: ["https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_","https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_","https://asset.swarovski.com/imag
+[4:03:58 AM] 🖼️ FINAL IMAGES: {"count":20,"images":["https://asset.swarovski.com/images/$size_2000/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_580/5723298_png_var3/stilla-attract-pendant--round-cut--white--gold-tone-plated-swar
