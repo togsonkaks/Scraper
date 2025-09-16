@@ -143,10 +143,34 @@
     let m;
     while ((m = re.exec(s)) !== null) tokens.push(m[0]);
     const nums = tokens.map(t => {
-      t = t.replace(/[^\d.,]/g,'');
-      if (t.includes('.') && t.includes(',')) t = t.replace(/,/g,'');
-      else if (!t.includes('.') && t.includes(',')) t = t.replace(/,/g,'');
-      else t = t.replace(/,/g,'');
+      t = t.replace(/[^\d.,]/g,'').replace(/\u00A0/g,''); // Remove currency and spaces
+      
+      // Robust locale-aware decimal normalization
+      const lastComma = t.lastIndexOf(',');
+      const lastDot = t.lastIndexOf('.');
+      
+      if (lastComma > -1 && lastDot > -1) {
+        // Both comma and dot present
+        if (lastComma > lastDot) {
+          // European format: "1.234,56" → "1234.56"
+          t = t.replace(/\./g, '').replace(/,/g, '.');
+        } else {
+          // US format: "1,234.56" → "1234.56"
+          t = t.replace(/,/g, '');
+        }
+      } else if (lastComma > -1 && lastDot === -1) {
+        // Only comma present - check if it's decimal or thousands
+        const afterComma = t.length - lastComma - 1;
+        if (afterComma === 2 && !/,\d{3}/.test(t)) {
+          // Looks like European decimal: "33,99" → "33.99"
+          t = t.replace(/,/g, '.');
+        } else {
+          // Thousands separator: "1,234" → "1234"
+          t = t.replace(/,/g, '');
+        }
+      }
+      // If only dot present, keep as-is
+      
       const n = parseFloat(t);
       return Number.isFinite(n) ? n : null;
     }).filter(n => n != null && n > 0);
@@ -247,8 +271,10 @@
           textContent: t.slice(0, 100)
         });
         
-        const cand = bestPriceFromString(t);
-        debug(`💰 ANCESTOR ${i} PRICE:`, cand);
+        // Only consider prices that come from monetary tokens, not fallback integers
+        const monetaryTokens = parseMoneyTokens(t);
+        const cand = monetaryTokens.length ? (baseVal ? Math.min(...monetaryTokens) : monetaryTokens[0]) : null;
+        debug(`💰 ANCESTOR ${i} MONETARY PRICE:`, cand, 'from tokens:', monetaryTokens);
         
         if (cand != null && cand < best) {
           debug(`🔄 NEW BEST PRICE: ${cand} (was ${best})`);
