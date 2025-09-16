@@ -185,8 +185,22 @@
     
     // Pre-filter: Remove original/list price segments to focus on current/sale prices
     const originalPriceRegex = /(was|list|regular|original|compare|msrp|retail)\s*:?.{0,20}?[\p{Sc}$€£¥A-Z]{0,3}\s*\d[\d.,]*/giu;
-    const cleanedInput = String(s).replace(originalPriceRegex, '');
+    let cleanedInput = String(s).replace(originalPriceRegex, '');
     debug('🧹 CLEANED INPUT:', { original: s, cleaned: cleanedInput });
+    
+    // DECIMAL RECONSTRUCTION: Fix split cents like "$26 99" → "$26.99" and glued digits "$2699" → "$26.99"
+    // Pattern 1: Currency + dollars + separator + 2-digit cents: "$26 99" → "$26.99"
+    cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{0,3}(\d{2})\b/giu, '$1.$2');
+    
+    // Pattern 2: Currency + 3-5 digit block without decimals: "$2699" → "$26.99" (insert dot before last 2 digits)
+    cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*)(\d{3,5})(\D|$)/giu, (match, currency, digits, after) => {
+      if (digits.includes('.') || digits.includes(',')) return match; // Already has decimal
+      const intPart = digits.slice(0, -2);
+      const centsPart = digits.slice(-2);
+      return currency + intPart + '.' + centsPart + after;
+    });
+    
+    debug('🔧 RECONSTRUCTED INPUT:', { cleaned: String(s).replace(originalPriceRegex, ''), reconstructed: cleanedInput });
     
     const monetary = parseMoneyTokens(cleanedInput);
     debug('💰 MONETARY TOKENS:', monetary);
@@ -215,14 +229,47 @@
       return result;
     }
     
+    // CURRENCY-CONTEXT FALLBACK: Only consider numbers near currency symbols, avoid random integers
     const fallback = [];
-    String(cleanedInput).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => { 
-      const n = parseFloat(g1); 
-      if (isFinite(n)) fallback.push(n); 
-      return m; 
-    });
+    const hasCurrency = /[\p{Sc}$€£¥]|USD|EUR|GBP|AUD|CAD|NZD|CHF|JPY|CNY|RMB|INR|SAR|AED/giu.test(cleanedInput);
     
-    debug('🔢 FALLBACK NUMBERS:', fallback);
+    if (hasCurrency) {
+      // If currency present, try decimal reconstruction on remaining numbers and avoid bare 3-digit integers
+      let reconstructedInput = cleanedInput;
+      // Try to reconstruct decimals from remaining digit blocks near currency context
+      reconstructedInput = reconstructedInput.replace(/(\d{3,5})(?=\D|$)/giu, (match) => {
+        if (match.includes('.') || match.includes(',')) return match;
+        if (match.length >= 3 && match.length <= 5) {
+          const intPart = match.slice(0, -2);
+          const centsPart = match.slice(-2);
+          return intPart + '.' + centsPart;
+        }
+        return match;
+      });
+      
+      // Extract numbers, but prefer reconstructed decimals
+      String(reconstructedInput).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => {
+        const n = parseFloat(g1);
+        if (isFinite(n) && n > 0) {
+          // Skip bare 3-digit integers (100-999) that might be SKUs/quantities
+          if (n >= 100 && n <= 999 && n % 1 === 0) {
+            debug('🚫 SKIPPING LIKELY SKU/QUANTITY:', n);
+            return m;
+          }
+          fallback.push(n);
+        }
+        return m;
+      });
+    } else {
+      // No currency context - use original logic but be more restrictive
+      String(cleanedInput).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => { 
+        const n = parseFloat(g1); 
+        if (isFinite(n) && n > 0) fallback.push(n); 
+        return m; 
+      });
+    }
+    
+    debug('🔢 CURRENCY-CONTEXT FALLBACK:', { hasCurrency, numbers: fallback });
     
     const result = fallback.length ? Math.min(...fallback) : null; // Always minimum
     debug('✅ FINAL PRICE RESULT:', { 
@@ -289,10 +336,27 @@
           textContent: t.slice(0, 100)
         });
         
-        // Filter out original price segments, then parse monetary tokens
+        // Filter out original price segments, then apply decimal reconstruction
         const originalPriceRegex = /(was|list|regular|original|compare|msrp|retail)\s*:?.{0,20}?[\p{Sc}$€£¥A-Z]{0,3}\s*\d[\d.,]*/giu;
-        const cleanedText = t.replace(originalPriceRegex, '');
-        debug(`🧹 ANCESTOR ${i} CLEANED:`, { original: t.slice(0, 100), cleaned: cleanedText.slice(0, 100) });
+        let cleanedText = t.replace(originalPriceRegex, '');
+        
+        // Apply same decimal reconstruction as in bestPriceFromString
+        // Pattern 1: Currency + dollars + separator + 2-digit cents: "$26 99" → "$26.99"
+        cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{0,3}(\d{2})\b/giu, '$1.$2');
+        
+        // Pattern 2: Currency + 3-5 digit block without decimals: "$2699" → "$26.99"
+        cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*)(\d{3,5})(\D|$)/giu, (match, currency, digits, after) => {
+          if (digits.includes('.') || digits.includes(',')) return match; // Already has decimal
+          const intPart = digits.slice(0, -2);
+          const centsPart = digits.slice(-2);
+          return currency + intPart + '.' + centsPart + after;
+        });
+        
+        debug(`🧹 ANCESTOR ${i} CLEANED & RECONSTRUCTED:`, { 
+          original: t.slice(0, 100), 
+          cleaned: t.replace(originalPriceRegex, '').slice(0, 100),
+          reconstructed: cleanedText.slice(0, 100)
+        });
         
         const monetaryTokens = parseMoneyTokens(cleanedText);
         // Always use Math.min, prefer decimal tokens over integers
