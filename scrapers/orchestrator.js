@@ -179,26 +179,44 @@
   function bestPriceFromString(s, preferFirst = false) {
     debug('🔍 PRICE PARSING:', { 
       input: s, 
-      preferFirst,
       inputType: typeof s,
       inputLength: String(s).length 
     });
     
-    const monetary = parseMoneyTokens(s);
+    // Pre-filter: Remove original/list price segments to focus on current/sale prices
+    const originalPriceRegex = /(was|list|regular|original|compare|msrp|retail)\s*:?.{0,20}?[\p{Sc}$€£¥A-Z]{0,3}\s*\d[\d.,]*/giu;
+    const cleanedInput = String(s).replace(originalPriceRegex, '');
+    debug('🧹 CLEANED INPUT:', { original: s, cleaned: cleanedInput });
+    
+    const monetary = parseMoneyTokens(cleanedInput);
     debug('💰 MONETARY TOKENS:', monetary);
     
     if (monetary.length) {
-      const result = preferFirst ? monetary[0] : Math.min(...monetary);
+      // Separate decimal-bearing tokens from integers
+      const decimalTokens = monetary.filter(price => price % 1 !== 0); // Has decimal places
+      const integerTokens = monetary.filter(price => price % 1 === 0);  // No decimal places
+      
+      debug('🔢 TOKEN BREAKDOWN:', { 
+        decimalTokens, 
+        integerTokens,
+        preferDecimals: decimalTokens.length > 0
+      });
+      
+      // Always prefer decimal tokens over integers (54.99 over 549)
+      const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetary;
+      const result = Math.min(...chosenTokens); // Always use minimum, never first
+      
       debug('✅ PRICE FROM MONETARY:', { 
         result, 
-        method: preferFirst ? 'FIRST' : 'MINIMUM',
+        method: 'MINIMUM_SMART',
+        chosenFrom: decimalTokens.length > 0 ? 'DECIMAL_TOKENS' : 'ALL_TOKENS',
         allTokens: monetary 
       });
       return result;
     }
     
     const fallback = [];
-    String(s).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => { 
+    String(cleanedInput).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => { 
       const n = parseFloat(g1); 
       if (isFinite(n)) fallback.push(n); 
       return m; 
@@ -206,10 +224,10 @@
     
     debug('🔢 FALLBACK NUMBERS:', fallback);
     
-    const result = fallback.length ? (preferFirst ? fallback[0] : Math.min(...fallback)) : null;
+    const result = fallback.length ? Math.min(...fallback) : null; // Always minimum
     debug('✅ FINAL PRICE RESULT:', { 
       result, 
-      method: preferFirst ? 'FIRST_FALLBACK' : 'MIN_FALLBACK',
+      method: 'MIN_FALLBACK',
       allNumbers: fallback 
     });
     
@@ -271,10 +289,20 @@
           textContent: t.slice(0, 100)
         });
         
-        // Only consider prices that come from monetary tokens, not fallback integers
-        const monetaryTokens = parseMoneyTokens(t);
-        const cand = monetaryTokens.length ? (baseVal ? Math.min(...monetaryTokens) : monetaryTokens[0]) : null;
-        debug(`💰 ANCESTOR ${i} MONETARY PRICE:`, cand, 'from tokens:', monetaryTokens);
+        // Filter out original price segments, then parse monetary tokens
+        const originalPriceRegex = /(was|list|regular|original|compare|msrp|retail)\s*:?.{0,20}?[\p{Sc}$€£¥A-Z]{0,3}\s*\d[\d.,]*/giu;
+        const cleanedText = t.replace(originalPriceRegex, '');
+        debug(`🧹 ANCESTOR ${i} CLEANED:`, { original: t.slice(0, 100), cleaned: cleanedText.slice(0, 100) });
+        
+        const monetaryTokens = parseMoneyTokens(cleanedText);
+        // Always use Math.min, prefer decimal tokens over integers
+        let cand = null;
+        if (monetaryTokens.length) {
+          const decimalTokens = monetaryTokens.filter(price => price % 1 !== 0);
+          const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetaryTokens;
+          cand = Math.min(...chosenTokens); // Always minimum, never first
+        }
+        debug(`💰 ANCESTOR ${i} SMART PRICE:`, cand, 'from tokens:', monetaryTokens);
         
         if (cand != null && cand < best) {
           debug(`🔄 NEW BEST PRICE: ${cand} (was ${best})`);
