@@ -145,7 +145,7 @@
     const nums = tokens.map(t => {
       t = t.replace(/[^\d.,]/g,'');
       if (t.includes('.') && t.includes(',')) t = t.replace(/,/g,'');
-      else if (!t.includes('.') && t.includes(',')) t = t.replace(',', '.');
+      else if (!t.includes('.') && t.includes(',')) t = t.replace(/,/g,'');
       else t = t.replace(/,/g,'');
       const n = parseFloat(t);
       return Number.isFinite(n) ? n : null;
