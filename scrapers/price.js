@@ -13,9 +13,16 @@ const normalizeMoney = (raw) => {
   num = num.replace(/\s/g,"");
   const lastComma = num.lastIndexOf(",");
   const lastDot = num.lastIndexOf(".");
-  if (lastComma > lastDot) {
+  
+  // Enhanced decimal parsing logic
+  if (lastComma > lastDot && lastDot !== -1) {
+    // European format: "1.234,56" (period for thousands, comma for decimal)
     num = num.replace(/\./g,"").replace(/,/g,".");
+  } else if (lastComma !== -1 && lastDot === -1) {
+    // US format with thousands separator only: "1,234" (no decimal cents)
+    num = num.replace(/,/g,"");
   } else {
+    // US format: "1,234.56" or just "64.99" (comma for thousands, period for decimal)
     num = num.replace(/,/g,"");
   }
   return `${cur}${num}`;
