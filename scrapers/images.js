@@ -348,11 +348,46 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     await __wakeSwiperGalleries(scope);
   }
 
+  // ---------- URL Normalization ----------
+  function normalizeImageUrl(url) {
+    if (!url) return url;
+    try {
+      // Convert to lowercase for consistent pattern matching
+      let normalized = url.toLowerCase();
+      // Strip query parameters and hash
+      normalized = normalized.split('?')[0].split('#')[0];
+      // Decode URI components
+      normalized = decodeURIComponent(normalized);
+      return normalized;
+    } catch {
+      return url.toLowerCase();
+    }
+  }
+  
   // ---------- Context-Aware Filters / allow-list ----------
   const EXT_ALLOW = /\.(jpe?g|png|webp|avif)(\?|#|$)/i;
-  // Remove 'cms' from BAD_PATH as it's used by legitimate CDNs like Ace Hardware
+  
+  // Enhanced BAD_PATH with Albany Park specific patterns
   const BAD_PATH =
-    /(\/|^)(plp|listing|category|promo|ad|recommend|recs|similar|also|upsell|sprite|icons?|iconography|favicons?|size[_-]?chart|swatch|colorway|variant|placeholder)\b/i;
+    /(\/|^)(plp|listing|category|promo|ad|recommend|recs|similar|also|upsell|sprite|icons?|iconography|favicons?|size[_-]?chart|swatch|colorway|variant|placeholder|memorial|labor|holiday|sale|bfcm|black[_-]?friday|cyber[_-]?monday|collection|nav|shop_nav|banner|hero[_-]?banner|promo[_-]?banner)\b/i;
+  
+  // Shopify-specific junk patterns (Albany Park, etc.)
+  const SHOPIFY_JUNK_PATTERNS = [
+    /\/cdn\/shop\/files\//i,                    // Shopify files path (vs /products/ which is good)
+    /\bcust_/i,                               // Custom material swatches (cust_AP_DistressedVeganLeather)
+    /memorial[_-]?day/i,                      // Memorial Day banners
+    /labor[_-]?day/i,                         // Labor Day banners  
+    /black[_-]?friday/i,                      // Black Friday banners
+    /cyber[_-]?monday/i,                      // Cyber Monday banners
+    /holiday[_-]?sale/i,                      // Holiday sale banners
+    /shop[_-]?nav/i,                          // Shop navigation images
+    /collection[_-]?(comparison|nav)/i,       // Collection navigation
+    /[_-]desktop[_-]?\d+x/i,                  // Desktop banners (_desktop_1508x)
+    /[_-]mobile[_-]?\d+x/i,                   // Mobile banners (_mobile_1020x1020)
+    /kova[_-]box[_-]shop[_-]nav/i,           // Specific collection nav images
+    /comparison[_-]mobile/i,                  // Collection comparison images
+    /_swatch(?:\.|_|$)/i                     // Swatch files
+  ];
   
   // Free People/Urban Outfitters specific bad patterns
   const FREE_PEOPLE_BAD_PATTERNS = [
@@ -411,6 +446,21 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     
     // Block page URLs that aren't real images (like Adidas product pages)
     if (/\/(us|uk|ca|au)\/.*-(shoes|clothing|apparel|boots|sneakers|shirts|pants)\//.test(url)) return false;
+    
+    // NEW: Block Shopify junk patterns
+    const normalizedUrl = normalizeImageUrl(url);
+    for (const pattern of SHOPIFY_JUNK_PATTERNS) {
+      if (pattern.test(normalizedUrl)) {
+        console.log(`[DEBUG] BLOCKED by Shopify junk pattern: ${url.substring(url.lastIndexOf('/') + 1)} (${pattern})`);
+        return false;
+      }
+    }
+    
+    // NEW: Block enhanced bad path patterns
+    if (BAD_PATH.test(normalizedUrl)) {
+      console.log(`[DEBUG] BLOCKED by bad path pattern: ${url.substring(url.lastIndexOf('/') + 1)}`);
+      return false;
+    }
     
     return true;
   }
