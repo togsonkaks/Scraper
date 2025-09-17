@@ -1108,6 +1108,10 @@
           debug('❌ BLOCKED: Component image:', s1.substring(s1.lastIndexOf('/') + 1));
           continue;
         }
+        if (/cld\.accentuate\.io/i.test(s1)) {
+          debug('❌ BLOCKED: Accentuate CDN junk:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
+        }
         
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
         enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
@@ -1150,6 +1154,10 @@
         }
         if (/cushion-image/i.test(best)) {
           debug('❌ BLOCKED: Component image:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/cld\.accentuate\.io/i.test(best)) {
+          debug('❌ BLOCKED: Accentuate CDN junk:', best.substring(best.lastIndexOf('/') + 1));
           continue;
         }
         
@@ -1197,6 +1205,10 @@
             }
             if (/cushion-image/i.test(b)) {
               debug('❌ BLOCKED: Component image:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
+            }
+            if (/cld\.accentuate\.io/i.test(b)) {
+              debug('❌ BLOCKED: Accentuate CDN junk:', b.substring(b.lastIndexOf('/') + 1));
               continue;
             }
             
