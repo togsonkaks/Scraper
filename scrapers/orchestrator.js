@@ -514,6 +514,29 @@
       upgraded = upgraded.replace(/[?&]qlt=\d+/gi, '');
     }
     
+    // SHOPIFY CDN: Upgrade small dimensions to high-quality versions
+    if (/\/cdn\/shop\//i.test(url) || /cdn\.shopify\.com/i.test(url)) {
+      // Upgrade single dimension: 523x → 1020x, 640x → 1020x, etc.
+      upgraded = upgraded.replace(/_([1-9]\d{2})x(\.|\?|$)/gi, '_1020x$2');
+      
+      // Upgrade two dimensions only if both are small (avoid downgrading _640x1200 → _1020x1020)
+      upgraded = upgraded.replace(/_([1-9]\d{2})x(\d{3,4})/gi, (match, w, h) => {
+        const width = parseInt(w);
+        const height = parseInt(h);
+        if (width < 1020 && height < 1020) {
+          return '_1020x1020';
+        } else {
+          // Keep larger dimension, upgrade smaller one
+          const maxDim = Math.max(width, height, 1020);
+          return `_${maxDim}x${maxDim}`;
+        }
+      });
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Shopify URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // BBQ GUYS/SHOCHO CDN: Remove resize parameters for full-size images
     if (/cdn\.shocho\.co/i.test(url)) {
       // Remove resize parameters completely to get full-size images
