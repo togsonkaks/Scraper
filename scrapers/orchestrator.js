@@ -196,7 +196,7 @@
     
     // DECIMAL RECONSTRUCTION: Fix split cents like "$26 99" → "$26.99" and glued digits "$2699" → "$26.99"
     // Pattern 1: Currency + dollars + separator + 2-digit cents: "$26 99" → "$26.99"
-    cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{0,3}(\d{2})\b/giu, '$1.$2');
+    cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{1,3}(\d{2})\b/giu, '$1.$2');
     
     // Pattern 2: Currency + 4-6 digit block without decimals: "$2699" → "$26.99" (FIXED: exclude 3-digit valid prices like $100)
     cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*)(\d{4,6})(?![.,]\d{2})(?=\D|$)/giu, (match, currency, digits) => {
@@ -337,7 +337,7 @@
         
         // Apply same decimal reconstruction as in bestPriceFromString
         // Pattern 1: Currency + dollars + separator + 2-digit cents: "$26 99" → "$26.99"
-        cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{0,3}(\d{2})\b/giu, '$1.$2');
+        cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{1,3}(\d{2})\b/giu, '$1.$2');
         
         // Pattern 2: Currency + 4-6 digit block without decimals: "$2699" → "$26.99" (FIXED: exclude 3-digit valid prices like $100)
         cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*)(\d{4,6})(?![.,]\d{2})(?=\D|$)/giu, (match, currency, digits) => {
