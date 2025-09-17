@@ -183,6 +183,12 @@
       inputLength: String(s).length 
     });
     
+    // Early exit for "See price in cart" pages
+    if (/(see price in cart|add to cart to see price|price shown in cart)/i.test(String(s))) {
+      debug('🛒 CART-ONLY PRICING detected, returning null');
+      return null;
+    }
+    
     // Pre-filter: Remove original/list price segments to focus on current/sale prices
     const originalPriceRegex = /(was|list|regular|original|compare|msrp|retail)\s*:?.{0,20}?[\p{Sc}$€£¥A-Z]{0,3}\s*\d[\d.,]*/giu;
     let cleanedInput = String(s).replace(originalPriceRegex, '');
@@ -192,12 +198,12 @@
     // Pattern 1: Currency + dollars + separator + 2-digit cents: "$26 99" → "$26.99"
     cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{0,3}(\d{2})\b/giu, '$1.$2');
     
-    // Pattern 2: Currency + 3-5 digit block without decimals: "$2699" → "$26.99" (insert dot before last 2 digits)
-    cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*)(\d{3,5})(\D|$)/giu, (match, currency, digits, after) => {
+    // Pattern 2: Currency + 3-5 digit block without decimals: "$2699" → "$26.99" (FIXED: prevent matching existing decimals)
+    cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*)(\d{3,5})(?![.,]\d{2})(?=\D|$)/giu, (match, currency, digits) => {
       if (digits.includes('.') || digits.includes(',')) return match; // Already has decimal
       const intPart = digits.slice(0, -2);
       const centsPart = digits.slice(-2);
-      return currency + intPart + '.' + centsPart + after;
+      return currency + intPart + '.' + centsPart;
     });
     
     debug('🔧 RECONSTRUCTED INPUT:', { cleaned: String(s).replace(originalPriceRegex, ''), reconstructed: cleanedInput });
@@ -218,7 +224,10 @@
       
       // Always prefer decimal tokens over integers (54.99 over 549)
       const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetary;
-      const result = Math.min(...chosenTokens); // Always use minimum, never first
+      
+      // Plausibility filter: prefer realistic prices ≥ $5 to avoid tiny spurious amounts
+      const plausibleTokens = chosenTokens.filter(price => price >= 5 && price <= 100000);
+      const result = plausibleTokens.length > 0 ? Math.min(...plausibleTokens) : Math.min(...chosenTokens);
       
       debug('✅ PRICE FROM MONETARY:', { 
         result, 
@@ -233,45 +242,25 @@
     const fallback = [];
     const hasCurrency = /[\p{Sc}$€£¥]|USD|EUR|GBP|AUD|CAD|NZD|CHF|JPY|CNY|RMB|INR|SAR|AED/giu.test(cleanedInput);
     
-    if (hasCurrency) {
-      // If currency present, try decimal reconstruction on remaining numbers and avoid bare 3-digit integers
-      let reconstructedInput = cleanedInput;
-      // Try to reconstruct decimals from remaining digit blocks near currency context
-      reconstructedInput = reconstructedInput.replace(/(\d{3,5})(?=\D|$)/giu, (match) => {
-        if (match.includes('.') || match.includes(',')) return match;
-        if (match.length >= 3 && match.length <= 5) {
-          const intPart = match.slice(0, -2);
-          const centsPart = match.slice(-2);
-          return intPart + '.' + centsPart;
+    // Extract numbers from cleaned input without global reconstruction to avoid fake decimals
+    String(cleanedInput).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => {
+      const n = parseFloat(g1);
+      if (isFinite(n) && n > 0) {
+        // Skip bare 3-digit integers (100-999) that might be SKUs/quantities when currency is present
+        if (hasCurrency && n >= 100 && n <= 999 && n % 1 === 0) {
+          debug('🚫 SKIPPING LIKELY SKU/QUANTITY:', n);
+          return m;
         }
-        return match;
-      });
-      
-      // Extract numbers, but prefer reconstructed decimals
-      String(reconstructedInput).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => {
-        const n = parseFloat(g1);
-        if (isFinite(n) && n > 0) {
-          // Skip bare 3-digit integers (100-999) that might be SKUs/quantities
-          if (n >= 100 && n <= 999 && n % 1 === 0) {
-            debug('🚫 SKIPPING LIKELY SKU/QUANTITY:', n);
-            return m;
-          }
-          fallback.push(n);
-        }
-        return m;
-      });
-    } else {
-      // No currency context - use original logic but be more restrictive
-      String(cleanedInput).replace(/(\d+(?:\.\d+)?)(?!\s*%)/g, (m, g1) => { 
-        const n = parseFloat(g1); 
-        if (isFinite(n) && n > 0) fallback.push(n); 
-        return m; 
-      });
-    }
+        fallback.push(n);
+      }
+      return m;
+    });
     
     debug('🔢 CURRENCY-CONTEXT FALLBACK:', { hasCurrency, numbers: fallback });
     
-    const result = fallback.length ? Math.min(...fallback) : null; // Always minimum
+    // Apply plausibility filter to fallback numbers too
+    const plausibleFallback = fallback.filter(price => price >= 5 && price <= 100000);
+    const result = plausibleFallback.length > 0 ? Math.min(...plausibleFallback) : (fallback.length ? Math.min(...fallback) : null);
     debug('✅ FINAL PRICE RESULT:', { 
       result, 
       method: 'MIN_FALLBACK',
@@ -344,12 +333,12 @@
         // Pattern 1: Currency + dollars + separator + 2-digit cents: "$26 99" → "$26.99"
         cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{0,3}(\d{2})\b/giu, '$1.$2');
         
-        // Pattern 2: Currency + 3-5 digit block without decimals: "$2699" → "$26.99"
-        cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*)(\d{3,5})(\D|$)/giu, (match, currency, digits, after) => {
+        // Pattern 2: Currency + 3-5 digit block without decimals: "$2699" → "$26.99" (FIXED: prevent matching existing decimals)
+        cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*)(\d{3,5})(?![.,]\d{2})(?=\D|$)/giu, (match, currency, digits) => {
           if (digits.includes('.') || digits.includes(',')) return match; // Already has decimal
           const intPart = digits.slice(0, -2);
           const centsPart = digits.slice(-2);
-          return currency + intPart + '.' + centsPart + after;
+          return currency + intPart + '.' + centsPart;
         });
         
         debug(`🧹 ANCESTOR ${i} CLEANED & RECONSTRUCTED:`, { 
@@ -359,12 +348,15 @@
         });
         
         const monetaryTokens = parseMoneyTokens(cleanedText);
-        // Always use Math.min, prefer decimal tokens over integers
+        // Always use Math.min, prefer decimal tokens over integers, apply plausibility filter
         let cand = null;
         if (monetaryTokens.length) {
           const decimalTokens = monetaryTokens.filter(price => price % 1 !== 0);
           const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetaryTokens;
-          cand = Math.min(...chosenTokens); // Always minimum, never first
+          
+          // Apply plausibility filter: prefer realistic prices ≥ $5
+          const plausibleTokens = chosenTokens.filter(price => price >= 5 && price <= 100000);
+          cand = plausibleTokens.length > 0 ? Math.min(...plausibleTokens) : Math.min(...chosenTokens);
         }
         debug(`💰 ANCESTOR ${i} SMART PRICE:`, cand, 'from tokens:', monetaryTokens);
         

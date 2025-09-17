@@ -1,0 +1,25 @@
+[1:53:18 AM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[1:53:18 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[1:53:18 AM] 💰 PRICE FROM MEMORY: null
+[1:53:18 AM] 💰 PRICE: Falling back to generic...
+[1:53:18 AM] 🔍 PRICE PARSING: {"input":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t\n\t\t\n\t\t\tRetailers like Acme Tools have the legal right to set th
+[1:53:18 AM] 🧹 CLEANED INPUT: {"original":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t\n\t\t\n\t\t\tRetailers like Acme Tools have the legal right to set
+[1:53:18 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t\n\t\t\n\t\t\tRetailers like Acme Tools have the legal right to set
+[1:53:18 AM] 💰 MONETARY TOKENS: [1.49]
+[1:53:18 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[1.49],"integerTokens":[],"preferDecimals":true}
+[1:53:18 AM] ✅ PRICE FROM MONETARY: {"result":1.49,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[1.49]}
+[1:53:18 AM] 🎯 REFINING PRICE: {"baseVal":"1.49","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[1:53:18 AM] Price element <DIV.price>
+[1:53:18 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"aria-label":null,"attrFirst":null}
+[1:53:18 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[1:53:18 AM] 📍 ANCESTOR 0: <DIV.price>
+[1:53:18 AM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t","cleaned":"See Price in Cart\n\n\n\tDiscounted Price Shown in Car
+[1:53:18 AM] 💰 ANCESTOR 0 SMART PRICE: 1.49 from tokens: [1.49]
+[1:53:18 AM] 📍 ANCESTOR 1: <DIV.prices>
+[1:53:18 AM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t","cleaned":"See Price in Cart\n\n\n\tDiscounted Price Shown in Car
+[1:53:18 AM] 💰 ANCESTOR 1 SMART PRICE: 1.49 from tokens: [1.49]
+[1:53:18 AM] 📍 ANCESTOR 2: <DIV.col-12>
+[1:53:18 AM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t","cleaned":"See Price in Cart\n\n\n\tDiscounted Price Shown in Car
+[1:53:18 AM] 💰 ANCESTOR 2 SMART PRICE: 1.49 from tokens: [1.49]
+[1:53:18 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"1.49","originalBase":"1.49"}
+[1:53:18 AM] 💰 PRICE FROM GENERIC: 1.49
