@@ -1083,6 +1083,31 @@
           debug('❌ BLOCKED: Junk pattern:', s1.substring(s1.lastIndexOf('/') + 1));
           continue;
         }
+        // COMPREHENSIVE JUNK PATTERNS
+        if (/_web\.png/i.test(s1)) {
+          debug('❌ BLOCKED: Feature icon:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/_modal_/i.test(s1)) {
+          debug('❌ BLOCKED: Material swatch:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/yotpo\.com/i.test(s1)) {
+          debug('❌ BLOCKED: Review image:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/-\d{3}\.png/i.test(s1)) {
+          debug('❌ BLOCKED: Technical sample:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/(boucle|basketweave|velvet)/i.test(s1)) {
+          debug('❌ BLOCKED: Fabric pattern:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/cushion-image/i.test(s1)) {
+          debug('❌ BLOCKED: Component image:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
+        }
         
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
         enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
@@ -1100,6 +1125,31 @@
         }
         if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(best)) {
           debug('❌ BLOCKED: Junk pattern:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
+        }
+        // COMPREHENSIVE JUNK PATTERNS
+        if (/_web\.png/i.test(best)) {
+          debug('❌ BLOCKED: Feature icon:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/_modal_/i.test(best)) {
+          debug('❌ BLOCKED: Material swatch:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/yotpo\.com/i.test(best)) {
+          debug('❌ BLOCKED: Review image:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/-\d{3}\.png/i.test(best)) {
+          debug('❌ BLOCKED: Technical sample:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/(boucle|basketweave|velvet)/i.test(best)) {
+          debug('❌ BLOCKED: Fabric pattern:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/cushion-image/i.test(best)) {
+          debug('❌ BLOCKED: Component image:', best.substring(best.lastIndexOf('/') + 1));
           continue;
         }
         
@@ -1122,6 +1172,31 @@
             }
             if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(b)) {
               debug('❌ BLOCKED: Junk pattern:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
+            }
+            // COMPREHENSIVE JUNK PATTERNS
+            if (/_web\.png/i.test(b)) {
+              debug('❌ BLOCKED: Feature icon:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
+            }
+            if (/_modal_/i.test(b)) {
+              debug('❌ BLOCKED: Material swatch:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
+            }
+            if (/yotpo\.com/i.test(b)) {
+              debug('❌ BLOCKED: Review image:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
+            }
+            if (/-\d{3}\.png/i.test(b)) {
+              debug('❌ BLOCKED: Technical sample:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
+            }
+            if (/(boucle|basketweave|velvet)/i.test(b)) {
+              debug('❌ BLOCKED: Fabric pattern:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
+            }
+            if (/cushion-image/i.test(b)) {
+              debug('❌ BLOCKED: Component image:', b.substring(b.lastIndexOf('/') + 1));
               continue;
             }
             

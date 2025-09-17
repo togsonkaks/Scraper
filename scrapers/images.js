@@ -809,17 +809,17 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         const naturalW = imgElement.naturalWidth || 0;
         const naturalH = imgElement.naturalHeight || 0;
         
-        // Check natural dimensions first (most accurate)
+        // Check natural dimensions first (most accurate) - INCREASED THRESHOLD
         if (naturalW > 0 && naturalH > 0) {
-          if (Math.min(naturalW, naturalH) < 120 || naturalW * naturalH < 15000) {
-            console.log(`[DEBUG] HARD DROPPED tiny natural size: ${naturalW}x${naturalH} ${u.substring(u.lastIndexOf('/') + 1)}`);
+          if (Math.min(naturalW, naturalH) < 200 || naturalW * naturalH < 100000) {
+            console.log(`[DEBUG] HARD DROPPED small natural size: ${naturalW}x${naturalH} ${u.substring(u.lastIndexOf('/') + 1)}`);
             return;
           }
         }
-        // Fallback to rendered dimensions
+        // Fallback to rendered dimensions - INCREASED THRESHOLD
         else if (rect.width > 0 && rect.height > 0) {
-          if (Math.min(rect.width, rect.height) < 120 || rect.width * rect.height < 15000) {
-            console.log(`[DEBUG] HARD DROPPED tiny rendered size: ${Math.round(rect.width)}x${Math.round(rect.height)} ${u.substring(u.lastIndexOf('/') + 1)}`);
+          if (Math.min(rect.width, rect.height) < 200 || rect.width * rect.height < 100000) {
+            console.log(`[DEBUG] HARD DROPPED small rendered size: ${Math.round(rect.width)}x${Math.round(rect.height)} ${u.substring(u.lastIndexOf('/') + 1)}`);
             return;
           }
         }
