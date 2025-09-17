@@ -198,8 +198,8 @@
     // Pattern 1: Currency + dollars + separator + 2-digit cents: "$26 99" → "$26.99"
     cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{0,3}(\d{2})\b/giu, '$1.$2');
     
-    // Pattern 2: Currency + 3-5 digit block without decimals: "$2699" → "$26.99" (FIXED: prevent matching existing decimals)
-    cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*)(\d{3,5})(?![.,]\d{2})(?=\D|$)/giu, (match, currency, digits) => {
+    // Pattern 2: Currency + 4-6 digit block without decimals: "$2699" → "$26.99" (FIXED: exclude 3-digit valid prices like $100)
+    cleanedInput = cleanedInput.replace(/([\p{Sc}$€£¥]\s*)(\d{4,6})(?![.,]\d{2})(?=\D|$)/giu, (match, currency, digits) => {
       if (digits.includes('.') || digits.includes(',')) return match; // Already has decimal
       const intPart = digits.slice(0, -2);
       const centsPart = digits.slice(-2);
@@ -222,12 +222,18 @@
         preferDecimals: decimalTokens.length > 0
       });
       
-      // Always prefer decimal tokens over integers (54.99 over 549)
-      const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetary;
+      // Smart selection: prefer plausible prices across ALL tokens first, then fallback to decimals preference
+      const plausibleAll = monetary.filter(price => price >= 5 && price <= 100000);
       
-      // Plausibility filter: prefer realistic prices ≥ $5 to avoid tiny spurious amounts
-      const plausibleTokens = chosenTokens.filter(price => price >= 5 && price <= 100000);
-      const result = plausibleTokens.length > 0 ? Math.min(...plausibleTokens) : Math.min(...chosenTokens);
+      let result;
+      if (plausibleAll.length > 0) {
+        // Choose minimum plausible price (prevents $1.00 winning over $100)
+        result = Math.min(...plausibleAll);
+      } else {
+        // Fallback: prefer decimal tokens over integers when no plausible prices exist
+        const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetary;
+        result = Math.min(...chosenTokens);
+      }
       
       debug('✅ PRICE FROM MONETARY:', { 
         result, 
@@ -333,8 +339,8 @@
         // Pattern 1: Currency + dollars + separator + 2-digit cents: "$26 99" → "$26.99"
         cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*\d{1,3}(?:[.,]\d{3})*)[^\d]{0,3}(\d{2})\b/giu, '$1.$2');
         
-        // Pattern 2: Currency + 3-5 digit block without decimals: "$2699" → "$26.99" (FIXED: prevent matching existing decimals)
-        cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*)(\d{3,5})(?![.,]\d{2})(?=\D|$)/giu, (match, currency, digits) => {
+        // Pattern 2: Currency + 4-6 digit block without decimals: "$2699" → "$26.99" (FIXED: exclude 3-digit valid prices like $100)
+        cleanedText = cleanedText.replace(/([\p{Sc}$€£¥]\s*)(\d{4,6})(?![.,]\d{2})(?=\D|$)/giu, (match, currency, digits) => {
           if (digits.includes('.') || digits.includes(',')) return match; // Already has decimal
           const intPart = digits.slice(0, -2);
           const centsPart = digits.slice(-2);
@@ -348,15 +354,20 @@
         });
         
         const monetaryTokens = parseMoneyTokens(cleanedText);
-        // Always use Math.min, prefer decimal tokens over integers, apply plausibility filter
+        // Smart selection: prefer plausible prices across ALL tokens first, then fallback to decimals preference
         let cand = null;
         if (monetaryTokens.length) {
           const decimalTokens = monetaryTokens.filter(price => price % 1 !== 0);
-          const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetaryTokens;
+          const plausibleAll = monetaryTokens.filter(price => price >= 5 && price <= 100000);
           
-          // Apply plausibility filter: prefer realistic prices ≥ $5
-          const plausibleTokens = chosenTokens.filter(price => price >= 5 && price <= 100000);
-          cand = plausibleTokens.length > 0 ? Math.min(...plausibleTokens) : Math.min(...chosenTokens);
+          if (plausibleAll.length > 0) {
+            // Choose minimum plausible price (prevents $1.00 winning over $100)
+            cand = Math.min(...plausibleAll);
+          } else {
+            // Fallback: prefer decimal tokens over integers when no plausible prices exist
+            const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetaryTokens;
+            cand = Math.min(...chosenTokens);
+          }
         }
         debug(`💰 ANCESTOR ${i} SMART PRICE:`, cand, 'from tokens:', monetaryTokens);
         
