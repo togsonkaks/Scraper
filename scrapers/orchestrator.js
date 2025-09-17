@@ -1346,7 +1346,8 @@
       const el = q(sel);
       const raw = at==='text' ? txt(el) : attr(el,at);
       let val = normalizeMoneyPreferSale(raw);
-      if (val && el) val = refinePriceWithContext(el, val);
+      // Always run refinement even if initial val is null - it can find price in attributes
+      if (el) val = refinePriceWithContext(el, val);
       if (val) { mark('price', { selectors:[sel], attr:at, method:'generic' }); return val; }
     }
     const prod = scanJSONLDProducts()[0];
