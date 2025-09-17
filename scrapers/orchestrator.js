@@ -1048,12 +1048,23 @@
   async function gatherImagesBySelector(sel) {
     debug('🔍 GATHERING IMAGES with selector:', sel);
     
+    // Safe wrapper for filtering - fail-open if error
+    const safeShouldKeepImage = (url, el) => {
+      try {
+        return globalThis.shouldKeepImage ? globalThis.shouldKeepImage(url, el) : true;
+      } catch(e) {
+        console.warn('[DEBUG] shouldKeepImage error, allowing image:', e.message);
+        return true; // Fail-open to keep scraper working
+      }
+    };
+    
     const elements = qa(sel);
     debug(`📊 Found ${elements.length} elements for selector:`, sel);
     
     const enrichedUrls = []; // Now includes element info
     
-    for (let i = 0; i < elements.length; i++) {
+    try {
+      for (let i = 0; i < elements.length; i++) {
       const el = elements[i];
       debugElement(el, `Image element`);
       
@@ -1073,7 +1084,7 @@
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
         // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
-        if (!shouldKeepImage(s1, el)) {
+        if (!safeShouldKeepImage(s1, el)) {
           continue; // Skip this URL - already logged the reason
         }
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
@@ -1085,7 +1096,7 @@
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
         // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
-        if (!shouldKeepImage(best, el)) {
+        if (!safeShouldKeepImage(best, el)) {
           continue; // Skip this URL - already logged the reason
         }
         const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
@@ -1100,7 +1111,7 @@
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
             // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
-            if (!shouldKeepImage(b, el)) {
+            if (!safeShouldKeepImage(b, el)) {
               continue; // Skip this URL - already logged the reason
             }
             const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades
@@ -1108,6 +1119,10 @@
           }
         }
       }
+    }
+    } catch(e) {
+      console.warn('[DEBUG] gatherImagesBySelector error:', e.message);
+      debug('❌ Image gathering failed, returning empty array');
     }
     
     debug(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
