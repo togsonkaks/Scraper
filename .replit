@@ -24,6 +24,10 @@ author = "agent"
 task = "workflow.run"
 args = "Tagglo Lightweight"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Tagglo Test"
+
 [[workflows.workflow]]
 name = "Tagglo Lightweight"
 author = "agent"
@@ -34,3 +38,14 @@ args = "npm run replit"
 
 [workflows.workflow.metadata]
 outputType = "console"
+
+[[workflows.workflow]]
+name = "Tagglo Test"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run electron"
+
+[workflows.workflow.metadata]
+outputType = "vnc"

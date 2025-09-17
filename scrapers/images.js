@@ -739,8 +739,8 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       let pathname = a.pathname;
       
       // NEW: Normalize Shopify size variants for proper deduplication
-      // Convert _1508x.progressive.jpg, _1388x.progressive.jpg -> _1020x.progressive.jpg (base)
-      pathname = pathname.replace(/_\d+x(\.progressive)?(\.(jpg|jpeg|png|webp|avif))/i, '_1020x$1$2');
+      // Convert _1508x.progressive.jpg, _1024x1024.progressive.jpg -> _1020x.progressive.jpg (base)
+      pathname = pathname.replace(/_\d+x(\d+)?(\.progressive)?(\.(jpg|jpeg|png|webp|avif))/i, '_1020x$2$3');
       
       return a.protocol + '//' + a.host + pathname; // strip query/hash, normalize size
     } catch { return u; }
