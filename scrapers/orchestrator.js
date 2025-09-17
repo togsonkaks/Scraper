@@ -1072,6 +1072,10 @@
                  attrs['data-zoom-image'] || attrs['data-large'];
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
+        // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
+        if (!shouldKeepImage(s1, el)) {
+          continue; // Skip this URL - already logged the reason
+        }
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
         enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
@@ -1080,6 +1084,10 @@
       const best = pickFromSrcset(ss); 
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
+        // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
+        if (!shouldKeepImage(best, el)) {
+          continue; // Skip this URL - already logged the reason
+        }
         const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
         enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
@@ -1091,6 +1099,10 @@
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
+            // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
+            if (!shouldKeepImage(b, el)) {
+              continue; // Skip this URL - already logged the reason
+            }
             const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades
             enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
           }

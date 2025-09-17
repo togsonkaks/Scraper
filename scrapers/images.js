@@ -800,8 +800,8 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     try {
       if (!u) return;
       
-      // UNIVERSAL GATE - ALL images must pass through this
-      if (!shouldKeepImage(u, imgElement)) return;
+      // UNIVERSAL GATE - ALL images must pass through this (now from shared utils.js)
+      if (!globalThis.shouldKeepImage(u, imgElement)) return;
       
       // NEW: Hard size filtering - drop tiny images immediately
       if (imgElement) {
