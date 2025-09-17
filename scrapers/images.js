@@ -736,7 +736,13 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
     try {
       const a = document.createElement("a");
       a.href = u;
-      return a.protocol + '//' + a.host + a.pathname; // strip query/hash
+      let pathname = a.pathname;
+      
+      // NEW: Normalize Shopify size variants for proper deduplication
+      // Convert _1508x.progressive.jpg, _1388x.progressive.jpg -> _1020x.progressive.jpg (base)
+      pathname = pathname.replace(/_\d+x(\.progressive)?(\.(jpg|jpeg|png|webp|avif))/i, '_1020x$1$2');
+      
+      return a.protocol + '//' + a.host + pathname; // strip query/hash, normalize size
     } catch { return u; }
   }
 
@@ -746,6 +752,37 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
       
       // Pre-validate before any processing
       if (!preValidateUrl(u)) return;
+      
+      // NEW: Hard size filtering - drop tiny images immediately
+      if (imgElement) {
+        const rect = imgElement.getBoundingClientRect();
+        const naturalW = imgElement.naturalWidth || 0;
+        const naturalH = imgElement.naturalHeight || 0;
+        
+        // Check natural dimensions first (most accurate)
+        if (naturalW > 0 && naturalH > 0) {
+          if (Math.min(naturalW, naturalH) < 120 || naturalW * naturalH < 15000) {
+            console.log(`[DEBUG] HARD DROPPED tiny natural size: ${naturalW}x${naturalH} ${u.substring(u.lastIndexOf('/') + 1)}`);
+            return;
+          }
+        }
+        // Fallback to rendered dimensions
+        else if (rect.width > 0 && rect.height > 0) {
+          if (Math.min(rect.width, rect.height) < 120 || rect.width * rect.height < 15000) {
+            console.log(`[DEBUG] HARD DROPPED tiny rendered size: ${Math.round(rect.width)}x${Math.round(rect.height)} ${u.substring(u.lastIndexOf('/') + 1)}`);
+            return;
+          }
+        }
+      }
+      
+      // Also check URL-based dimensions for size hints
+      const urlDims = extractDimensionsFromUrl(u);
+      if (urlDims.w > 0 && urlDims.h > 0) {
+        if (Math.min(urlDims.w, urlDims.h) < 120 || urlDims.w * urlDims.h < 15000) {
+          console.log(`[DEBUG] HARD DROPPED tiny URL dimensions: ${urlDims.w}x${urlDims.h} ${u.substring(u.lastIndexOf('/') + 1)}`);
+          return;
+        }
+      }
       
       u = upgradeUrl(u);
       if (!looksHttp(u)) return;
