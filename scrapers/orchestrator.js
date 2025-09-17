@@ -1048,16 +1048,6 @@
   async function gatherImagesBySelector(sel) {
     debug('🔍 GATHERING IMAGES with selector:', sel);
     
-    // Safe wrapper for filtering - fail-open if error
-    const safeShouldKeepImage = (url, el) => {
-      try {
-        return globalThis.shouldKeepImage ? globalThis.shouldKeepImage(url, el) : true;
-      } catch(e) {
-        console.warn('[DEBUG] shouldKeepImage error, allowing image:', e.message);
-        return true; // Fail-open to keep scraper working
-      }
-    };
-    
     const elements = qa(sel);
     debug(`📊 Found ${elements.length} elements for selector:`, sel);
     
@@ -1083,10 +1073,17 @@
                  attrs['data-zoom-image'] || attrs['data-large'];
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
-        // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
-        if (!safeShouldKeepImage(s1, el)) {
-          continue; // Skip this URL - already logged the reason
+        
+        // DIRECT JUNK BLOCKING - NO BULLSHIT
+        if (/\/cdn\/shop\/files\//.test(s1)) {
+          debug('❌ BLOCKED: Shopify files path:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
         }
+        if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(s1)) {
+          debug('❌ BLOCKED: Junk pattern:', s1.substring(s1.lastIndexOf('/') + 1));
+          continue;
+        }
+        
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
         enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
@@ -1095,10 +1092,17 @@
       const best = pickFromSrcset(ss); 
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
-        // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
-        if (!safeShouldKeepImage(best, el)) {
-          continue; // Skip this URL - already logged the reason
+        
+        // DIRECT JUNK BLOCKING - NO BULLSHIT
+        if (/\/cdn\/shop\/files\//.test(best)) {
+          debug('❌ BLOCKED: Shopify files path:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
         }
+        if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(best)) {
+          debug('❌ BLOCKED: Junk pattern:', best.substring(best.lastIndexOf('/') + 1));
+          continue;
+        }
+        
         const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
         enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
@@ -1110,10 +1114,17 @@
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
-            // APPLY UNIVERSAL FILTER BEFORE ANY PROCESSING
-            if (!safeShouldKeepImage(b, el)) {
-              continue; // Skip this URL - already logged the reason
+            
+            // DIRECT JUNK BLOCKING - NO BULLSHIT
+            if (/\/cdn\/shop\/files\//.test(b)) {
+              debug('❌ BLOCKED: Shopify files path:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
             }
+            if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(b)) {
+              debug('❌ BLOCKED: Junk pattern:', b.substring(b.lastIndexOf('/') + 1));
+              continue;
+            }
+            
             const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades
             enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
           }
