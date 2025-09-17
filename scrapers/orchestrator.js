@@ -296,10 +296,11 @@
       
       debugElement(el, 'Price element');
       
-      const attrFirst = attr(el, 'content') || attr(el, 'data-price') || attr(el, 'aria-label');
+      const attrFirst = attr(el, 'content') || attr(el, 'data-price') || attr(el, 'data-js-pricelabel') || attr(el, 'aria-label');
       debug('📋 CHECKING ATTRIBUTES:', { 
         content: attr(el, 'content'),
         'data-price': attr(el, 'data-price'),
+        'data-js-pricelabel': attr(el, 'data-js-pricelabel'),
         'aria-label': attr(el, 'aria-label'),
         attrFirst 
       });
@@ -1333,10 +1334,13 @@
   function getPriceGeneric() {
     const pairs = [
       ['[itemprop="price"]','content'],
+      ['[data-js-pricelabel]','data-js-pricelabel'], // Aesop and similar sites
       ['[data-test*=price]','text'],
       ['[data-testid*=price]','text'],
       ['.price','text'],
-      ['.product-price','text']
+      ['.product-price','text'],
+      ['.c-product-price','text'], // Aesop price container
+      ['.c-product-main__price','text'] // Aesop main price
     ];
     for (const [sel,at] of pairs) {
       const el = q(sel);
