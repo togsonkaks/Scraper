@@ -548,6 +548,17 @@
       }
     }
     
+    // ALIEXPRESS: Upgrade small thumbnails to larger sizes
+    if (/aliexpress.*\.com/i.test(url)) {
+      const original = upgraded;
+      upgraded = upgraded.replace(/_220x220q75\.jpg_\.avif/i, '_960x960q75.jpg_.avif');
+      upgraded = upgraded.replace(/_220x220\.jpg_\.webp/i, '_960x960.jpg_.webp');
+      
+      if (upgraded !== original) {
+        debug(`✨ UPGRADED AliExpress URL: ${original.substring(original.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
