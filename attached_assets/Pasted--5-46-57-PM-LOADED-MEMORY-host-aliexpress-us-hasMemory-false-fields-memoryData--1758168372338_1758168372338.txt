@@ -1,0 +1,987 @@
+[5:46:57 PM] 🧠 LOADED MEMORY: {"host":"aliexpress.us","hasMemory":false,"fields":[],"memoryData":{}}
+[5:46:57 PM] 🔄 NORMAL MODE - memory + fallbacks
+[5:46:57 PM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":false}
+[5:46:57 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: title
+[5:46:57 PM] 📝 TITLE FROM MEMORY: null
+[5:46:57 PM] 📝 TITLE: Falling back to generic...
+[5:46:57 PM] 📝 TITLE FROM GENERIC: Aliexpress
+[5:46:57 PM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[5:46:57 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[5:46:57 PM] 🏷️ BRAND FROM MEMORY: null
+[5:46:57 PM] 🏷️ BRAND: Falling back to generic...
+[5:46:57 PM] 🏷️ BRAND FROM GENERIC: null
+[5:46:57 PM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[5:46:57 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[5:46:57 PM] 📄 DESCRIPTION FROM MEMORY: null
+[5:46:57 PM] 📄 DESCRIPTION: Falling back to generic...
+[5:46:57 PM] 📄 DESCRIPTION FROM GENERIC: Buy 700ml Cocktail Shaker Whiskey Glass Cup Professional Cocktail Stirring Cup Wine Bar mixing cups Bartender Mixing Bar Tool at Aliexpress for . Find more 15, 100003056 and products. Enjoy ✓Free Shipping Worldwide! ✓Limited Time Sale ✓Easy Return.
+[5:46:57 PM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[5:46:57 PM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[5:46:57 PM] 💰 PRICE FROM MEMORY: null
+[5:46:57 PM] 💰 PRICE: Falling back to generic...
+[5:46:57 PM] 🔍 PRICE PARSING: {"input":"1.58","inputType":"string","inputLength":4}
+[5:46:57 PM] 🧹 CLEANED INPUT: {"original":"1.58","cleaned":"1.58"}
+[5:46:57 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"1.58","reconstructed":"1.58"}
+[5:46:57 PM] 💰 MONETARY TOKENS: []
+[5:46:57 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[1.58]}
+[5:46:57 PM] ✅ FINAL PRICE RESULT: {"result":1.58,"method":"MIN_FALLBACK","allNumbers":[1.58]}
+[5:46:57 PM] 💰 PRICE FROM GENERIC: 1.58
+[5:46:57 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[5:46:57 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[5:46:57 PM] 🧩 IMAGES: Trying custom handler...
+[5:46:57 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[5:46:57 PM] 🖼️ Getting generic images for hostname: aliexpress.us
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[5:46:57 PM] 📊 Found 0 elements for selector: .product-media img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[5:46:57 PM] 📊 Found 0 elements for selector: .gallery img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[5:46:57 PM] 📊 Found 0 elements for selector: .image-gallery img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[5:46:57 PM] 📊 Found 0 elements for selector: .product-images img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[5:46:57 PM] 📊 Found 0 elements for selector: .product-gallery img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[5:46:57 PM] 📊 Found 0 elements for selector: [class*=gallery] img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: .slider img
+[5:46:57 PM] 📊 Found 0 elements for selector: .slider img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: .thumbnails img
+[5:46:57 PM] 📊 Found 0 elements for selector: .thumbnails img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+[5:46:57 PM] 📊 Found 0 elements for selector: .pdp-gallery img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+[5:46:57 PM] 📊 Found 0 elements for selector: [data-testid*=image] img
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 0
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: []
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:46:57 PM] 🖼️ FINAL IMAGES: []
+[5:46:57 PM] 🖼️ After hybrid filtering: 0 images
+[5:46:57 PM] 🔍 GATHERING IMAGES with selector: img
+[5:46:57 PM] 📊 Found 60 elements for selector: img
+[5:46:57 PM] Image element <IMG.Categoey--icon--1SqId_b>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S094766f8ea1e40e78afb52fc061d0632o/56x56.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S094766f8ea1e40e78afb52fc061d0632o/56x56.png
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Sf683a50b80cc4690a747a857f150abc8p/48x48.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Sf683a50b80cc4690a747a857f150abc8p/48x48.png
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG.magnifier--image--RM17RL2>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+[5:46:57 PM] Image element <IMG.price-default--bannerSlogan--aLiCN5o>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Sd16d289e29914b1481bb63ebb0e03b8cH.png_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Sd16d289e29914b1481bb63ebb0e03b8cH.png_.avif
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S26d37b92952a4294946f404012515ecbx/24x48.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S26d37b92952a4294946f404012515ecbx/24x48.png
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avi
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"//ae-pic-a1.aliexpress-media.com/kf/S47ea903b3b7a441087bea451695cc7a2x/144x144.png_.webp","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: //ae-pic-a1.aliexpress-media.com/kf/S47ea903b3b7a441087bea451695cc7a2x/144x144.png_.webp
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/A9f87691ad5004581b2a2ef9158de14b3p.jpg_220x220.jpg_.webp","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/A9f87691ad5004581b2a2ef9158de14b3p.jpg_220x220.jpg_.webp
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/A29030eed37a849c5bca7865f18b87542K.jpg_220x220.jpg_.webp","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/A29030eed37a849c5bca7865f18b87542K.jpg_220x220.jpg_.webp
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Af197dd791762430bb323ba6ea0340e4b5.jpg_220x220.jpg_.webp","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Af197dd791762430bb323ba6ea0340e4b5.jpg_220x220.jpg_.webp
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"//ae-pic-a1.aliexpress-media.com/kf/S47ea903b3b7a441087bea451695cc7a2x/144x144.png_.webp","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: //ae-pic-a1.aliexpress-media.com/kf/S47ea903b3b7a441087bea451695cc7a2x/144x144.png_.webp
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/A5390c70ddc1d4beb80e7b59c28e8f2f4t.jpg_220x220.jpg_.webp","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/A5390c70ddc1d4beb80e7b59c28e8f2f4t.jpg_220x220.jpg_.webp
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S13b2bf19445f4a50a9b241b4ccc17432i.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S13b2bf19445f4a50a9b241b4ccc17432i.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/Sa086040e8fc840e88b543e31fbe27ea8u.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/Sa086040e8fc840e88b543e31fbe27ea8u.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S1d477daed72c4196841c413900bd9d0by.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S1d477daed72c4196841c413900bd9d0by.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/Sf9fcd89a27cf4f04b8b24156972c35561.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/Sf9fcd89a27cf4f04b8b24156972c35561.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S70fd5755864342ea99ef1dfdfb9cb393A.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S16183c3f12904fbbaf3f8aef523f0b73T.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S16183c3f12904fbbaf3f8aef523f0b73T.png
+[5:46:57 PM] Image element <IMG.shipping--icon--vAVr7jZ>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S9e723ca0d10848499e4e3fb33be2224do.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S9e723ca0d10848499e4e3fb33be2224do.png
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/Sedf2d52d8f1848d18773d88425dd92d5U.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/Sedf2d52d8f1848d18773d88425dd92d5U.png
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S46636aaaba5e404d9d6f76dbbff937e0M.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S46636aaaba5e404d9d6f76dbbff937e0M.png
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/Se3d8009555d54f638873b0c361385e49M.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/Se3d8009555d54f638873b0c361385e49M.png
+[5:46:57 PM] Image element <IMG.shipping--icon--vAVr7jZ>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S6773df40cde9455581b0427e09de7689v.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S6773df40cde9455581b0427e09de7689v.png
+[5:46:57 PM] Image element <IMG.shipping--descIcon--dGr7zk4>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+[5:46:57 PM] Image element <IMG.shipping--descIcon--dGr7zk4>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+[5:46:57 PM] Image element <IMG.shipping--descIcon--dGr7zk4>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+[5:46:57 PM] Image element <IMG.shipping--descIcon--dGr7zk4>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+[5:46:57 PM] Image element <IMG.shipping--icon--vAVr7jZ>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/S64c04957a1244dffbab7086d6e1a7cad7.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/S64c04957a1244dffbab7086d6e1a7cad7.png
+[5:46:57 PM] Image element <IMG.shipping--icon--vAVr7jZ>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/Sb100bd23552d499c9fa8e1499f3c46dbw.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/Sb100bd23552d499c9fa8e1499f3c46dbw.png
+[5:46:57 PM] Image element <IMG.shipping--icon--vAVr7jZ>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/Sa80f39408cde41f7a22f4a739ce5b189y.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/Sa80f39408cde41f7a22f4a739ce5b189y.png
+[5:46:57 PM] Image element <IMG.store-info--choiceTag--mQInccN>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png_.avif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png_.avif
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ae01.alicdn.com/kf/Hfff52cf71f784d99ad93c73a334e7e37a/65x70.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ae01.alicdn.com/kf/Hfff52cf71f784d99ad93c73a334e7e37a/65x70.gif
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"//ae01.alicdn.com/kf/H107313c145a24eec94287c19fd2aa5c0e/20x20.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: //ae01.alicdn.com/kf/H107313c145a24eec94287c19fd2aa5c0e/20x20.png
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://cm.g.doubleclick.net/pixel?google_nid=rtb_house&google_cm&google_sc&google_ula=5153224&process_consent=T&google_hm=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM&pi=adx&tdc=ash","data-src
+[5:46:57 PM] ✅ Found image URL from attributes: https://cm.g.doubleclick.net/pixel?google_nid=rtb_house&google_cm&google_sc&google_ula=5153224&proce
+[5:46:57 PM] Image element <IMG#batBeacon736051202706>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://bat.bing.com/action/0?ti=4020110&tm=gtm002&Ver=2&mid=fa6fa1d9-1e99-4dd9-8525-233bccca4de8&bo=2&sid=34f65ce0941811f0834dd7fc58cdf539&vid=b8b1c4f08f4b11f0bd6445e1f93e0f68&vids=0&msclkid=
+[5:46:57 PM] ✅ Found image URL from attributes: https://bat.bing.com/action/0?ti=4020110&tm=gtm002&Ver=2&mid=fa6fa1d9-1e99-4dd9-8525-233bccca4de8&bo
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://ib.adnxs.com/setuid?entity=529&code=02a6aafdf943359b2tbr0h00mexkewrw","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://ib.adnxs.com/setuid?entity=529&code=02a6aafdf943359b2tbr0h00mexkewrw
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://cm.g.doubleclick.net/pixel?google_nid=baidu_mediago&google_hm=02a6aafdf943359b2tbr0h00mexkewrw","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[5:46:57 PM] ✅ Found image URL from attributes: https://cm.g.doubleclick.net/pixel?google_nid=baidu_mediago&google_hm=02a6aafdf943359b2tbr0h00mexkew
+[5:46:57 PM] Image element <IMG>
+[5:46:57 PM] 📋 Image attributes: {"src":"https://dsum-sec.casalemedia.com/crum?cm_dsp_id=215&external_user_id=02a6aafdf943359b2tbr0h00mexkewrw","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:46:57 PM] ✅ Found image URL from attributes: https://dsum-sec.casalemedia.com/crum?cm_dsp_id=215&external_user_id=02a6aafdf943359b2tbr0h00mexkewr
+[5:46:57 PM] 🖼️ Raw enriched URLs collected: 60
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":60}
+[5:46:57 PM] 📉 LOW SCORE REJECTED (45): https://ae-pic-a1.aliexpress-media.com/kf/Sd16d289e29914b1481bb63ebb0e03b8cH.png_.avif
+45
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (10): https://ae01.alicdn.com/kf/S26d37b92952a4294946f404012515ecbx/24x48.png
+10
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (35): https://ae01.alicdn.com/kf/S9e723ca0d10848499e4e3fb33be2224do.png
+35
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (10): https://ae01.alicdn.com/kf/Sedf2d52d8f1848d18773d88425dd92d5U.png
+10
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (35): https://ae01.alicdn.com/kf/S6773df40cde9455581b0427e09de7689v.png
+35
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (35): https://ae01.alicdn.com/kf/S64c04957a1244dffbab7086d6e1a7cad7.png
+35
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (35): https://ae01.alicdn.com/kf/Sb100bd23552d499c9fa8e1499f3c46dbw.png
+35
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (35): https://ae01.alicdn.com/kf/Sa80f39408cde41f7a22f4a739ce5b189y.png
+35
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (25): https://ae01.alicdn.com/kf/Hfff52cf71f784d99ad93c73a334e7e37a/65x70.gif
+25
+📋 Copy URL
+[5:46:57 PM] 📉 LOW SCORE REJECTED (25): https://ae01.alicdn.com/kf/H107313c145a24eec94287c19fd2aa5c0e/20x20.png
+25
+📋 Copy URL
+[5:46:57 PM] ❌ NOT IMAGE URL: https://cm.g.doubleclick.net/pixel?google_nid=rtb_house&google_cm&google_sc&google_ula=5153224&proce
+0
+📋 Copy URL
+[5:46:57 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=4020110&tm=gtm002&Ver=2&mid=fa6fa1d9-1e99-4dd9-8525-233bccca4de8&bo
+0[IMG ERROR]
+📋 Copy URL
+[5:46:57 PM] ❌ NOT IMAGE URL: https://ib.adnxs.com/setuid?entity=529&code=02a6aafdf943359b2tbr0h00mexkewrw
+0
+📋 Copy URL
+[5:46:57 PM] ❌ NOT IMAGE URL: https://cm.g.doubleclick.net/pixel?google_nid=baidu_mediago&google_hm=02a6aafdf943359b2tbr0h00mexkew
+0
+📋 Copy URL
+[5:46:57 PM] ❌ NOT IMAGE URL: https://dsum-sec.casalemedia.com/crum?cm_dsp_id=215&external_user_id=02a6aafdf943359b2tbr0h00mexkewr
+0
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae-pic-a1.aliexpress-media.com/kf/S094766f8ea1e40e78afb52fc061d0632o/56x56.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 70): https://ae-pic-a1.aliexpress-media.com/kf/Sf683a50b80cc4690a747a857f150abc8p/48x48.png
+70
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 130): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avi
+130
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] ✅ BEST OF 2 (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+110
+📋 Copy URL
+[5:46:57 PM] ✅ BEST OF 2 (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+110
+📋 Copy URL
+[5:46:57 PM] ✅ BEST OF 2 (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+110
+📋 Copy URL
+[5:46:57 PM] ✅ BEST OF 2 (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+110
+📋 Copy URL
+[5:46:57 PM] ✅ BEST OF 2 (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+110
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 110): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] ✅ BEST OF 2 (score: 60): https://ae-pic-a1.aliexpress-media.com/kf/S47ea903b3b7a441087bea451695cc7a2x/144x144.png_.webp
+60
+📋 Copy URL
+[5:46:57 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+60
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/A9f87691ad5004581b2a2ef9158de14b3p.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 100): https://ae-pic-a1.aliexpress-media.com/kf/A29030eed37a849c5bca7865f18b87542K.jpg_220x220.jpg_.webp
+100
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/Af197dd791762430bb323ba6ea0340e4b5.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 100): https://ae-pic-a1.aliexpress-media.com/kf/A5390c70ddc1d4beb80e7b59c28e8f2f4t.jpg_220x220.jpg_.webp
+100
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S13b2bf19445f4a50a9b241b4ccc17432i.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/Sa086040e8fc840e88b543e31fbe27ea8u.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S1d477daed72c4196841c413900bd9d0by.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/Sf9fcd89a27cf4f04b8b24156972c35561.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 65): https://ae01.alicdn.com/kf/S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+65
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 65): https://ae01.alicdn.com/kf/S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+65
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S16183c3f12904fbbaf3f8aef523f0b73T.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S46636aaaba5e404d9d6f76dbbff937e0M.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 65): https://ae01.alicdn.com/kf/Se3d8009555d54f638873b0c361385e49M.png
+65
+📋 Copy URL
+[5:46:57 PM] ✅ BEST OF 4 (score: 65): https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+65
+📋 Copy URL
+[5:46:57 PM] 🔄 DUPLICATE GROUP: 3 lower-scored versions rejected
+65
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png_.avif
+85
+📋 Copy URL
+[5:46:57 PM] 📉 TOO SMALL (est: 8KB): https://ae-pic-a1.aliexpress-media.com/kf/S094766f8ea1e40e78afb52fc061d0632o/56x56.png
+50
+📋 Copy URL
+[5:46:57 PM] 📉 TOO SMALL (est: 8KB): https://ae-pic-a1.aliexpress-media.com/kf/Sf683a50b80cc4690a747a857f150abc8p/48x48.png
+70
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (130): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avi
+130
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (110): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+110
+📋 Copy URL
+[5:46:57 PM] 📉 TOO SMALL (est: 8KB): https://ae-pic-a1.aliexpress-media.com/kf/S47ea903b3b7a441087bea451695cc7a2x/144x144.png_.webp
+60
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/A9f87691ad5004581b2a2ef9158de14b3p.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (100): https://ae-pic-a1.aliexpress-media.com/kf/A29030eed37a849c5bca7865f18b87542K.jpg_220x220.jpg_.webp
+100
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/Af197dd791762430bb323ba6ea0340e4b5.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (100): https://ae-pic-a1.aliexpress-media.com/kf/A5390c70ddc1d4beb80e7b59c28e8f2f4t.jpg_220x220.jpg_.webp
+100
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S13b2bf19445f4a50a9b241b4ccc17432i.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/Sa086040e8fc840e88b543e31fbe27ea8u.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S1d477daed72c4196841c413900bd9d0by.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/Sf9fcd89a27cf4f04b8b24156972c35561.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (65): https://ae01.alicdn.com/kf/S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+65
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (65): https://ae01.alicdn.com/kf/S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+65
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/S16183c3f12904fbbaf3f8aef523f0b73T.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/S46636aaaba5e404d9d6f76dbbff937e0M.png
+50
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (65): https://ae01.alicdn.com/kf/Se3d8009555d54f638873b0c361385e49M.png
+65
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (65): https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+65
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png_.avif
+85
+📋 Copy URL
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: ["Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avif (score: 130)","S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avif (score: 110)","S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q7
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":5,"junk":0,"lowScore":10,"smallFile":3,"duplicateGroups":7,"kept":36}
+[5:46:57 PM] 🖼️ FINAL IMAGES: ["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg","https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg","https://ae-pic-a1.aliexpress-med
+[5:46:57 PM] 🖼️ After hybrid filtering: 33 images
+[5:46:57 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":34}
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":34}
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 80): https://ae01.alicdn.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg
+80
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 115): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avi
+115
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 115): https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avi
+115
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/A29030eed37a849c5bca7865f18b87542K.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/A5390c70ddc1d4beb80e7b59c28e8f2f4t.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/A9f87691ad5004581b2a2ef9158de14b3p.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/Af197dd791762430bb323ba6ea0340e4b5.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png_.avif
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/Se3d8009555d54f638873b0c361385e49M.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S16183c3f12904fbbaf3f8aef523f0b73T.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S46636aaaba5e404d9d6f76dbbff937e0M.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S13b2bf19445f4a50a9b241b4ccc17432i.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/Sa086040e8fc840e88b543e31fbe27ea8u.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S1d477daed72c4196841c413900bd9d0by.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/Sf9fcd89a27cf4f04b8b24156972c35561.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (80): https://ae01.alicdn.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg
+80
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (115): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avi
+115
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (115): https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avi
+115
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/A29030eed37a849c5bca7865f18b87542K.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/A5390c70ddc1d4beb80e7b59c28e8f2f4t.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/A9f87691ad5004581b2a2ef9158de14b3p.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/Af197dd791762430bb323ba6ea0340e4b5.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png_.avif
+85
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/Se3d8009555d54f638873b0c361385e49M.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/S16183c3f12904fbbaf3f8aef523f0b73T.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/S46636aaaba5e404d9d6f76dbbff937e0M.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S13b2bf19445f4a50a9b241b4ccc17432i.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/Sa086040e8fc840e88b543e31fbe27ea8u.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S1d477daed72c4196841c413900bd9d0by.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/Sf9fcd89a27cf4f04b8b24156972c35561.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: ["Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avif (score: 115)","S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avif (score: 115)","S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q7
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":34}
+[5:46:57 PM] 🖼️ FINAL IMAGES: ["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg","https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg","https://ae-pic-a1.aliexpress-med
+[5:46:57 PM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avif","https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e15334
+[5:46:57 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":30}
+[5:46:57 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 125): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avi
+125
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 115): https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avi
+115
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 115): https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q75.jpg_.avi
+115
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/A29030eed37a849c5bca7865f18b87542K.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/A5390c70ddc1d4beb80e7b59c28e8f2f4t.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/A9f87691ad5004581b2a2ef9158de14b3p.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/Af197dd791762430bb323ba6ea0340e4b5.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 85): https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png_.avif
+85
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/Se3d8009555d54f638873b0c361385e49M.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S16183c3f12904fbbaf3f8aef523f0b73T.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S46636aaaba5e404d9d6f76dbbff937e0M.png
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+50
+📋 Copy URL
+[5:46:57 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (125): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avi
+125
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (115): https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avi
+115
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (115): https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q75.jpg_.avi
+115
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_220x220q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/A29030eed37a849c5bca7865f18b87542K.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/A5390c70ddc1d4beb80e7b59c28e8f2f4t.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/A9f87691ad5004581b2a2ef9158de14b3p.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/Af197dd791762430bb323ba6ea0340e4b5.jpg_220x220.jpg_.webp
+85
+📋 Copy URL
+[5:46:57 PM] 🎯 HIGH SCORE + SIZE OK (85): https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png_.avif
+85
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/Se3d8009555d54f638873b0c361385e49M.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/S13490c66d6d24422b5e09634794aeb50j.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/S16183c3f12904fbbaf3f8aef523f0b73T.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 180KB): https://ae01.alicdn.com/kf/S46636aaaba5e404d9d6f76dbbff937e0M.png
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+50
+📋 Copy URL
+[5:46:57 PM] 🏆 TOP SCORED IMAGES: ["Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avif (score: 125)","S1b155ae5183849588f4e2f29e153346eA.jpg_220x220q75.jpg_.avif (score: 115)","S5fb241563ee044f0bb4b5931653410eeo.jpg_220x220q7
+[5:46:57 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":30}
+[5:46:57 PM] 🖼️ FINAL IMAGES: ["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg","https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg","https://ae-pic-a1.aliexpress-med
+[5:46:57 PM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_220x220q75.jpg_.avif","https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e15334
+[5:46:57 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Aliexpress","brand":null,"description":"Buy 700ml Cocktail Shaker Whiskey Glass Cup Profes","price":"1.58","imageCount":30,"firstImages":["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e267
+[5:46:57 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":false,"description":true,"price":true,"images":30}
+[5:46:57 PM] ✅ Debug trace complete

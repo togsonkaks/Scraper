@@ -771,6 +771,12 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
         url = url.replace(/\?i10c=img\.resize\([^)]+\)/gi, '');
       }
 
+      // AliExpress: upgrade small thumbnails to larger sizes
+      if (/aliexpress.*\.com/i.test(url)) {
+        url = url.replace(/_220x220q75\.jpg_\.avif/i, '_960x960q75.jpg_.avif');
+        url = url.replace(/_220x220\.jpg_\.webp/i, '_960x960.jpg_.webp');
+      }
+
       // strip generic width/height query hints
       url = url.replace(/[?&](w|h|width|height|size)=\d+[^&]*/gi, "");
       // collapse trailing ? or & if empty
