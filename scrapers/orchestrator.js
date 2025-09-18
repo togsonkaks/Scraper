@@ -1699,13 +1699,20 @@
       const mode = (opts && opts.mode) || 'normal';
       log('🚀 SCRAPE START', { host, href: location.href, mode });
 
-      const mem = loadMemory(host);
-      debug('🧠 LOADED MEMORY:', {
-        host,
-        hasMemory: Object.keys(mem).length > 0,
-        fields: Object.keys(mem),
-        memoryData: mem
-      });
+      // GLOBAL FLAG: Disable memory completely (custom handlers take priority)
+      const DISABLE_MEMORY = true;
+      const mem = DISABLE_MEMORY ? {} : loadMemory(host);
+      
+      if (DISABLE_MEMORY) {
+        debug('🚫 MEMORY DISABLED - Custom handlers take priority');
+      } else {
+        debug('🧠 LOADED MEMORY:', {
+          host,
+          hasMemory: Object.keys(mem).length > 0,
+          fields: Object.keys(mem),
+          memoryData: mem
+        });
+      }
 
       let title=null, brand=null, description=null, price=null, images=null;
 
@@ -1719,8 +1726,11 @@
       } else {
         debug('🔄 NORMAL MODE - memory + fallbacks');
         
-        title = await fromMemory('title', mem.title);
-        debug('📝 TITLE FROM MEMORY:', title);
+        // Skip memory when disabled, go directly to custom/generic handlers
+        if (!DISABLE_MEMORY) {
+          title = await fromMemory('title', mem.title);
+          debug('📝 TITLE FROM MEMORY:', title);
+        }
         if (!title) {
           // Try custom handler before falling back to generic
           if (typeof getCustomHandlers === 'function') {
@@ -1751,28 +1761,58 @@
           }
         }
         
-        brand = await fromMemory('brand', mem.brand);
-        debug('🏷️ BRAND FROM MEMORY:', brand);
+        if (!DISABLE_MEMORY) {
+          brand = await fromMemory('brand', mem.brand);
+          debug('🏷️ BRAND FROM MEMORY:', brand);
+        }
         if (!brand) {
           debug('🏷️ BRAND: Falling back to generic...');
           brand = getBrand();
           debug('🏷️ BRAND FROM GENERIC:', brand);
         }
         
-        description = await fromMemory('description', mem.description);
-        debug('📄 DESCRIPTION FROM MEMORY:', description);
+        if (!DISABLE_MEMORY) {
+          description = await fromMemory('description', mem.description);
+          debug('📄 DESCRIPTION FROM MEMORY:', description);
+        }
         if (!description) {
           debug('📄 DESCRIPTION: Falling back to generic...');
           description = getDescription();
           debug('📄 DESCRIPTION FROM GENERIC:', description);
         }
         
-        price = await fromMemory('price', mem.price);
-        debug('💰 PRICE FROM MEMORY:', price);
+        if (!DISABLE_MEMORY) {
+          price = await fromMemory('price', mem.price);
+          debug('💰 PRICE FROM MEMORY:', price);
+        }
         if (!price) {
-          debug('💰 PRICE: Falling back to generic...');
-          price = getPriceGeneric();
-          debug('💰 PRICE FROM GENERIC:', price);
+          // Try custom handler before falling back to generic
+          if (typeof getCustomHandlers === 'function') {
+            try {
+              const ch = getCustomHandlers();
+              if (ch?.price && typeof ch.price === 'function') {
+                debug('🧩 PRICE: Trying custom handler...');
+                const customPrice = await Promise.resolve(ch.price(document));
+                if (customPrice && typeof customPrice === 'string') {
+                  price = customPrice.trim();
+                  mark('price', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
+                  debug('🧩 CUSTOM PRICE SUCCESS:', price);
+                } else {
+                  debug('🧩 CUSTOM PRICE MISS: returned', typeof customPrice, customPrice);
+                }
+              } else {
+                debug('🧩 NO CUSTOM PRICE HANDLER AVAILABLE');
+              }
+            } catch (e) { 
+              debug('❌ Custom price handler error:', e.message); 
+            }
+          }
+          
+          if (!price) {
+            debug('💰 PRICE: Falling back to generic...');
+            price = getPriceGeneric();
+            debug('💰 PRICE FROM GENERIC:', price);
+          }
         }
         
         // images = await fromMemory('images', mem.images);  // Skip memory for images
