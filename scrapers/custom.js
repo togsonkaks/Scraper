@@ -176,7 +176,7 @@ const AMZ = {
 
     // 1) data-a-dynamic-image (the gold mine for high-res!)
     debug("Amazon checking data-a-dynamic-image...");
-    doc.querySelectorAll('img[data-a-dynamic-image]').forEach((img, idx) => {
+    live.querySelectorAll('img[data-a-dynamic-image]').forEach((img, idx) => {
       try {
         const jsonStr = img.getAttribute("data-a-dynamic-image");
         if (jsonStr) {
@@ -196,7 +196,7 @@ const AMZ = {
     // 2) explicit hi-res attributes (often point to ivLargeImage sources)
     debug("Amazon checking hi-res attributes...");
     const hiResSelectors = ['data-old-hires', 'data-a-hires', 'data-zoom-image', 'data-large-image', 'data-src'];
-    doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image], img[data-src]')
+    live.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image], img[data-src]')
       .forEach((img, idx) => {
         hiResSelectors.forEach((attr) => {
           const u = img.getAttribute(attr);
@@ -211,7 +211,7 @@ const AMZ = {
     debug("Amazon scanning image containers...");
     
     // Main product image
-    doc.querySelectorAll("#landingImage").forEach((img) => {
+    live.querySelectorAll("#landingImage").forEach((img) => {
       const u = img.currentSrc || img.src;
       if (u) {
         debug(`Amazon landingImage: ${u.slice(-50)}`);
@@ -220,7 +220,7 @@ const AMZ = {
     });
     
     // iv-box containers (what you've been pointing me to!)
-    doc.querySelectorAll(".iv-box-inner img, .iv-box img").forEach((img) => {
+    live.querySelectorAll(".iv-box-inner img, .iv-box img").forEach((img) => {
       const u = img.currentSrc || img.src;
       if (u) {
         debug(`Amazon iv-box: ${u.slice(-50)}`);
