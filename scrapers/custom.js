@@ -174,9 +174,9 @@ const AMZ = {
       }
     };
 
-    // 1) data-a-dynamic-image (the gold mine for high-res!)
+    // 1) data-a-dynamic-image (the gold mine for high-res!) - FOCUSED ON MAIN PRODUCT AREA
     debug("Amazon checking data-a-dynamic-image...");
-    live.querySelectorAll('img[data-a-dynamic-image]').forEach((img, idx) => {
+    live.querySelectorAll('#ivImageBlock img[data-a-dynamic-image], #iv-tab-view-container img[data-a-dynamic-image], .iv-box img[data-a-dynamic-image]').forEach((img, idx) => {
       try {
         const jsonStr = img.getAttribute("data-a-dynamic-image");
         if (jsonStr) {
@@ -210,8 +210,8 @@ const AMZ = {
     // 3) Amazon image containers - the ones you've been showing me!
     debug("Amazon scanning image containers...");
     
-    // Main product image
-    live.querySelectorAll("#landingImage").forEach((img) => {
+    // Main product image (focused on main containers)
+    live.querySelectorAll("#ivImageBlock #landingImage, #iv-tab-view-container #landingImage").forEach((img) => {
       const u = img.currentSrc || img.src;
       if (u) {
         debug(`Amazon landingImage: ${u.slice(-50)}`);
@@ -219,8 +219,8 @@ const AMZ = {
       }
     });
     
-    // iv-box containers (what you've been pointing me to!)
-    live.querySelectorAll(".iv-box-inner img, .iv-box img").forEach((img) => {
+    // iv-box containers (what you've been pointing me to!) 
+    live.querySelectorAll("#ivImageBlock .iv-box-inner img, #ivImageBlock .iv-box img, #iv-tab-view-container .iv-box img").forEach((img) => {
       const u = img.currentSrc || img.src;
       if (u) {
         debug(`Amazon iv-box: ${u.slice(-50)}`);
