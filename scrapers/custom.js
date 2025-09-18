@@ -108,7 +108,7 @@ const AMZ = {
     return null;
   },
 
-  images(doc = document) {
+  async images(doc = document) {
     // route logs to orchestrator if present - be robust about the type
     const debug = (msg) => {
       try {
@@ -240,12 +240,35 @@ const AMZ = {
     // GOLD HUNT: ivLargeImage and immersive viewer content
     debug("Amazon hunting for ivLargeImage (the gold!)...");
     
-    // Try to trigger dynamic content by simulating thumbnail interaction
+    // FOCUSED APPROACH: Scroll around main product area to trigger lazy loading
+    debug("Amazon scrolling main product area to trigger 81-series premium images...");
+    
+    // Find main product containers to scroll around
+    const mainProductAreas = [
+      '#imageBlock',
+      '#dp-image-block', 
+      '[data-action="dp-image-main"]',
+      '.imageBlock_container',
+      '#imageBlockThumbs'
+    ];
+    
+    // Simulate scrolling in main product area to trigger lazy loading
+    for (const selector of mainProductAreas) {
+      const area = live.querySelector(selector);
+      if (area) {
+        debug(`Amazon scrolling area: ${selector}`);
+        area.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Small delay to let lazy loading kick in
+        await new Promise(resolve => setTimeout(resolve, 200));
+        break;
+      }
+    }
+    
+    // Also trigger thumbnail interactions (keep existing logic)
     const thumbnails = doc.querySelectorAll("[id*='altImages'] img, .iv-thumb img");
     debug(`Amazon found ${thumbnails.length} thumbnails to potentially trigger`);
     
     thumbnails.forEach((thumb, idx) => {
-      // Try to trigger hover/click events to load ivLargeImage
       try {
         thumb.dispatchEvent(new Event('mouseenter', { bubbles: true }));
         thumb.dispatchEvent(new Event('click', { bubbles: true }));
@@ -294,14 +317,8 @@ const AMZ = {
       });
     });
 
-    // 5) last resort: any inline product-looking <img> (sanitized doc)
-    if (qualityImages.size === 0) {
-      doc.querySelectorAll('img[src*="/images/I/"]').forEach((img) => {
-        const u = img.currentSrc || img.src;
-        if (u && !/sprite|grey\-pixel|\.gif$/i.test(u)) add(u);
-      });
-      debug("Amazon fallback <img> scan used (no a-state yet)");
-    }
+    // FOCUSED SCOPE: Only scan main product area containers, no page-wide junk collection
+    debug("Amazon focused main product area scanning complete - avoiding junk from ads/recommendations");
 
     // Sort by quality score (highest first), then by JPG preference
     const result = Array.from(qualityImages.values())

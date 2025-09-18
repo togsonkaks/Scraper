@@ -1,0 +1,273 @@
+[2:51:37 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[2:51:37 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[2:51:37 PM] 🧩 IMAGES: Trying custom handler...
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] undefined
+[2:51:37 PM] 🧩 CUSTOM IMAGES: {"count":20,"images":["https://m.media-amazon.com/images/I/81+oN+w14ZL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/81C3IHOklpL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/81HEJ7cLh
+[2:51:37 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[2:51:37 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":20}
+[2:51:37 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":20}
+[2:51:37 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71X-IyY02UL._SY88.jpg
+10
+📋 Copy URL
+[2:51:37 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61I0feenY4L._SY88.jpg
+10
+📋 Copy URL
+[2:51:37 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61oy7GEGmTL._SY88.jpg
+10
+📋 Copy URL
+[2:51:37 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61QuOnIunBL._SY88.jpg
+10
+📋 Copy URL
+[2:51:37 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61T+eJpZo-L._SY88.jpg
+10
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 80): https://m.media-amazon.com/images/I/81+oN+w14ZL._AC_SL1500_.jpg
+80
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 70): https://m.media-amazon.com/images/I/81C3IHOklpL._AC_SL1500_.jpg
+70
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 70): https://m.media-amazon.com/images/I/81HEJ7cLhuL._AC_SL1500_.jpg
+70
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/81y5vYSG5SL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/81ZzaHa2jWL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/71AJkb9PY+L._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/71FkdWjXQSL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/71iJ0PvEjFL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/71lprXHznaL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/71OsfblXYJL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/71yIS+40i3L._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/71-V-Xo1b9L._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/51nodIt5QFL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 🎯 HIGH SCORE + SIZE OK (80): https://m.media-amazon.com/images/I/81+oN+w14ZL._AC_SL1500_.jpg
+80
+📋 Copy URL
+[2:51:37 PM] 🎯 HIGH SCORE + SIZE OK (70): https://m.media-amazon.com/images/I/81C3IHOklpL._AC_SL1500_.jpg
+70
+📋 Copy URL
+[2:51:37 PM] 🎯 HIGH SCORE + SIZE OK (70): https://m.media-amazon.com/images/I/81HEJ7cLhuL._AC_SL1500_.jpg
+70
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/81y5vYSG5SL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/81ZzaHa2jWL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/71AJkb9PY+L._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/71FkdWjXQSL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/71iJ0PvEjFL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/71lprXHznaL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/71OsfblXYJL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/71yIS+40i3L._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/71-V-Xo1b9L._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/51nodIt5QFL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:51:37 PM] 🏆 TOP SCORED IMAGES: ["81+oN+w14ZL._AC_SL1500_.jpg (score: 80)","81C3IHOklpL._AC_SL1500_.jpg (score: 70)","81HEJ7cLhuL._AC_SL1500_.jpg (score: 70)","81y5vYSG5SL._AC_SL1500_.jpg (score: 50)","81ZzaHa2jWL._AC_SL1500_.jpg (s
+[2:51:37 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":5,"smallFile":0,"duplicateGroups":0,"kept":15}
+[2:51:37 PM] 🖼️ FINAL IMAGES: ["https://m.media-amazon.com/images/I/81+oN+w14ZL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/81C3IHOklpL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/81HEJ7cLhuL._AC_SL1500_.jpg","
+[2:51:37 PM] 🖼️ FINAL IMAGES: {"count":15,"images":["https://m.media-amazon.com/images/I/81+oN+w14ZL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/81C3IHOklpL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/81HEJ7cLh
+[2:51:37 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"5000mAh Hand Crank Emergency Radio, AM/FM/SW/NOAA ","brand":"Brand Rckskaya","description":"Buy 5000mAh Hand Crank Emergency Radio, AM/FM/SW/N","price":"49.99","imageCount":15,"firstI
+[2:51:37 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":15}
+[2:51:37 PM] ✅ Debug trace complete
