@@ -1394,29 +1394,34 @@ const ALIEXPRESS = {
 
 // ---------- American Eagle ----------
 const AE = {
-  match: (h) => /americaneagle\.com$/i.test(h),
+  match: (h) => /(^|\.)ae\.com$|(^|\.)americaneagle\.com$/i.test(h),
   
   price(doc = document) {
-    // Target AE's specific price structure from DOM inspection
+    // Target AE's actual price structure from debug log
     const selectors = [
+      '.product-sale-price',
+      '[class*="product-sale-price"]',
       '.sale-price',
-      '.price-promo', 
+      '.price-promo',
       '[data-testid*="sale-price"]',
       '[data-testid*="price"]',
-      '.extras-price-group_kfr7e8 .sale-price',
-      '.price-options-list_price-on-sale_1bm605',
-      '.product-list-price-on-sale'
+      '._container_1bn8o3 .product-sale-price',
+      '.extras-content .product-sale-price'
     ];
     
     for (const sel of selectors) {
       const el = doc.querySelector(sel);
       if (el) {
         let priceText = el.textContent?.trim() || '';
-        // Clean up the price text
+        // Clean up the price text and extract just the price
         priceText = priceText.replace(/\s+/g, ' ').trim();
-        if (priceText && /\$\d+(\.\d{2})?/.test(priceText)) {
-          console.log(`[DEBUG] AE price found with selector: ${sel} -> ${priceText}`);
-          return priceText;
+        
+        // Extract price using regex to get the main price, avoiding installment prices
+        const priceMatch = priceText.match(/\$(\d+(?:\.\d{2})?)/);
+        if (priceMatch) {
+          const price = '$' + priceMatch[1];
+          console.log(`[DEBUG] AE price found with selector: ${sel} -> ${price} (from: ${priceText})`);
+          return price;
         }
       }
     }
@@ -1437,15 +1442,14 @@ const AE = {
   async images(doc = document) {
     const urls = new Set();
     
-    // Target AE's high-res responsive image classes from DOM inspection  
+    // Target AE's actual image selectors from debug log
     const selectors = [
-      '.img-responsive_product-image_1b27dg',
-      '[class*="img-responsive_product-image"]',
-      '[class*="product-image-placeholder"]', 
-      '.product-image-placeholder_1b27dg',
-      '[class*="img-responsive"][class*="product"]',
-      '.product-badges_ae-product-badges img',
-      '[data-testid*="product-image"]'
+      '[data-testid*="image"] img',
+      '._image_2vfqsz',
+      '[class*="_image_"]',
+      '[data-testid*="product-image"]',
+      'picture img',
+      'img[src*="scene7.com"]'
     ];
     
     console.log(`[DEBUG] AE scanning for images with ${selectors.length} selectors`);
@@ -1453,6 +1457,22 @@ const AE = {
     for (const sel of selectors) {
       doc.querySelectorAll(sel).forEach(img => {
         const src = img.currentSrc || img.src || img.getAttribute('data-src') || img.getAttribute('data-original');
+        
+        // Also check parent picture element for source elements
+        const parent = img.closest('picture');
+        if (parent) {
+          parent.querySelectorAll('source').forEach(source => {
+            const srcset = source.srcset;
+            if (srcset) {
+              // Extract the first URL from srcset
+              const firstUrl = srcset.split(',')[0].trim().split(' ')[0];
+              if (firstUrl && !firstUrl.includes('data:image')) {
+                urls.add(firstUrl.startsWith('//') ? 'https:' + firstUrl : firstUrl);
+                console.log(`[DEBUG] AE image from picture source: ${firstUrl.slice(-50)}`);
+              }
+            }
+          });
+        }
         if (src && !src.includes('data:image') && !src.includes('blank.gif')) {
           urls.add(src);
           console.log(`[DEBUG] AE image from ${sel}: ${src.slice(-50)}`);

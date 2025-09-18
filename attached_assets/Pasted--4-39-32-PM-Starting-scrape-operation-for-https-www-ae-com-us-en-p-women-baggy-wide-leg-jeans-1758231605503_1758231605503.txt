@@ -1,0 +1,323 @@
+[4:39:32 PM] 🚀 Starting scrape operation for: https://www.ae.com/us/en/p/women/baggy-wide-leg-jeans/baggy-wide-leg-jeans/ae-dreamy-drape-stretch-low-rise-baggy-wide-leg-jean/0437_5198_155?menu=cat4840004
+[4:39:32 PM] 🚀 SCRAPE START {"host":"ae.com","href":"https://www.ae.com/us/en/p/women/baggy-wide-leg-jeans/baggy-wide-leg-jeans/ae-dreamy-drape-stretch-low-rise-baggy-wide-leg-jean/0437_5198_155?menu=cat4840004","mode":"normal"}
+[4:39:32 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[4:39:32 PM] 🔄 NORMAL MODE - memory + fallbacks
+[4:39:32 PM] 🧩 TITLE: Trying custom handler...
+[4:39:32 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[4:39:32 PM] 📝 TITLE: Falling back to generic...
+[4:39:32 PM] 📝 TITLE FROM GENERIC: AE Dreamy Drape Stretch Low-Rise Baggy Wide-Leg Jean
+[4:39:32 PM] 🏷️ BRAND: Falling back to generic...
+[4:39:32 PM] 🏷️ BRAND FROM GENERIC: AE
+[4:39:32 PM] 📄 DESCRIPTION: Falling back to generic...
+[4:39:32 PM] 📄 DESCRIPTION FROM GENERIC: Shop American Eagle Outfitters for men's and women&#x27;s jeans, T&#x27;s, shoes and more. All styles are available in additional sizes only at ae.com
+[4:39:32 PM] 🧩 PRICE: Trying custom handler...
+[4:39:32 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[4:39:32 PM] 💰 PRICE: Falling back to generic...
+[4:39:32 PM] 🔍 PRICE PARSING: {"input":"Now\n $56.95","inputType":"string","inputLength":14}
+[4:39:32 PM] 🧹 CLEANED INPUT: {"original":"Now\n $56.95","cleaned":"Now\n $56.95"}
+[4:39:32 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"Now\n $56.95","reconstructed":"Now\n $56.95"}
+[4:39:32 PM] 💰 MONETARY TOKENS: [56.95]
+[4:39:32 PM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[56.95],"integerTokens":[],"preferDecimals":true}
+[4:39:32 PM] ✅ PRICE FROM MONETARY: {"result":56.95,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[56.95]}
+[4:39:32 PM] 🎯 REFINING PRICE: {"baseVal":"56.95","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[4:39:32 PM] Price element <DIV.product-sale-price>
+[4:39:32 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[4:39:32 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[4:39:32 PM] 📍 ANCESTOR 0: <DIV.product-sale-price>
+[4:39:32 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"Now\n $56.95","cleaned":"Now\n $56.95","reconstructed":"Now\n $56.95"}
+[4:39:32 PM] 💰 ANCESTOR 0 SMART PRICE: 56.95 from tokens: [56.95]
+[4:39:32 PM] 📍 ANCESTOR 1: <DIV._container_1bn8o3>
+[4:39:32 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"Now\n $56.95\n \n\n \n \n Save\n \n 5%\n \n \n\n ","cleaned":"Now\n $56.95\n \n\n \n \n Save\n
+[4:39:32 PM] 💰 ANCESTOR 1 SMART PRICE: 56.95 from tokens: [56.95,59.95]
+[4:39:32 PM] 📍 ANCESTOR 2: <DIV.extras-content>
+[4:39:32 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Now\n $56.95\n \n\n \n \n Save\n \n 5%\n \n \n\n ","cleaned":"Now\n $56.95\n \n\n \n \n Save\n
+[4:39:32 PM] 💰 ANCESTOR 2 SMART PRICE: 14.24 from tokens: [56.95,59.95,14.24]
+[4:39:32 PM] 🔄 NEW BEST PRICE: 14.24 (was 56.95)
+[4:39:32 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"14.24","originalBase":"56.95"}
+[4:39:32 PM] 💰 PRICE FROM GENERIC: 14.24
+[4:39:32 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[4:39:32 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[4:39:32 PM] 🧩 IMAGES: Trying custom handler...
+[4:39:32 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[4:39:32 PM] 🖼️ Getting generic images for hostname: ae.com
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[4:39:32 PM] 📊 Found 0 elements for selector: .product-media img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[4:39:32 PM] 📊 Found 0 elements for selector: .gallery img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[4:39:32 PM] 📊 Found 0 elements for selector: .image-gallery img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[4:39:32 PM] 📊 Found 0 elements for selector: .product-images img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[4:39:32 PM] 📊 Found 0 elements for selector: .product-gallery img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[4:39:32 PM] 📊 Found 0 elements for selector: [class*=gallery] img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: .slider img
+[4:39:32 PM] 📊 Found 0 elements for selector: .slider img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: .thumbnails img
+[4:39:32 PM] 📊 Found 0 elements for selector: .thumbnails img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+[4:39:32 PM] 📊 Found 0 elements for selector: .pdp-gallery img
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 0
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: []
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[4:39:32 PM] 🖼️ FINAL IMAGES: []
+[4:39:32 PM] 🖼️ After hybrid filtering: 0 images
+[4:39:32 PM] 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+[4:39:32 PM] 📊 Found 6 elements for selector: [data-testid*=image] img
+[4:39:32 PM] Image element <IMG._image_2vfqsz>
+[4:39:32 PM] 📋 Image attributes: {"src":"//s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[4:39:32 PM] ✅ Found image URL from attributes: //s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg
+[4:39:32 PM] 📸 Checking picture parent for sources...
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-mt-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-mt-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-thumb-v2$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-thumb-v2$&fmt=jpeg
+[4:39:32 PM] Image element <IMG._image_2vfqsz>
+[4:39:32 PM] 📋 Image attributes: {"src":"//s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[4:39:32 PM] ✅ Found image URL from attributes: //s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] 📸 Checking picture parent for sources...
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mtg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mtg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-thumb-v2$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-thumb-v2$&fmt=jpeg
+[4:39:32 PM] Image element <IMG._image_2vfqsz>
+[4:39:32 PM] 📋 Image attributes: {"src":"//s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[4:39:32 PM] ✅ Found image URL from attributes: //s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] 📸 Checking picture parent for sources...
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mdg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mtg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mtg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-thumb-v2$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-thumb-v2$&fmt=jpeg
+[4:39:32 PM] Image element <IMG._image_2vfqsz>
+[4:39:32 PM] 📋 Image attributes: {"src":"//s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mdg-opt$&fmt=jpeg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[4:39:32 PM] ✅ Found image URL from attributes: //s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] 📸 Checking picture parent for sources...
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mdg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mtg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mtg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-thumb-v2$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-thumb-v2$&fmt=jpeg
+[4:39:32 PM] Image element <IMG._image_2vfqsz>
+[4:39:32 PM] 📋 Image attributes: {"src":"//s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mdg-opt$&fmt=jpeg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[4:39:32 PM] ✅ Found image URL from attributes: //s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] 📸 Checking picture parent for sources...
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mdg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mtg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mtg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-thumb-v2$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-thumb-v2$&fmt=jpeg
+[4:39:32 PM] Image element <IMG._image_2vfqsz>
+[4:39:32 PM] 📋 Image attributes: {"src":"//s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mdg-opt$&fmt=jpeg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[4:39:32 PM] ✅ Found image URL from attributes: //s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] 📸 Checking picture parent for sources...
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mdg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mdg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mtg-opt$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mtg-opt$&fmt=jpeg
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-thumb-v2$&fmt=webp
+[4:39:32 PM] ✅ Found image URL from picture source: //s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-thumb-v2$&fmt=jpeg
+[4:39:32 PM] 🖼️ Raw enriched URLs collected: 42
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":42}
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-thumb-v2$&fmt=webp
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-thumb-v2$&fmt=jpeg
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-thumb-v2$&fmt=webp
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-thumb-v2$&fmt=jpeg
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-thumb-v2$&fmt=webp
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-thumb-v2$&fmt=jpeg
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-thumb-v2$&fmt=webp
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-thumb-v2$&fmt=jpeg
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-thumb-v2$&fmt=webp
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-thumb-v2$&fmt=jpeg
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-thumb-v2$&fmt=webp
+0
+📋 Copy URL
+[4:39:32 PM] 🗑️ JUNK IMAGE: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-thumb-v2$&fmt=jpeg
+0
+📋 Copy URL
+[4:39:32 PM] ✅ BEST OF 5 (score: 80): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg
+80
+📋 Copy URL
+[4:39:32 PM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+80
+📋 Copy URL
+[4:39:32 PM] ✅ BEST OF 5 (score: 70): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg
+70
+📋 Copy URL
+[4:39:32 PM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+70
+📋 Copy URL
+[4:39:32 PM] ✅ BEST OF 5 (score: 70): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg
+70
+📋 Copy URL
+[4:39:32 PM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+70
+📋 Copy URL
+[4:39:32 PM] ✅ BEST OF 5 (score: 50): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+50
+📋 Copy URL
+[4:39:32 PM] ✅ BEST OF 5 (score: 50): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+50
+📋 Copy URL
+[4:39:32 PM] ✅ BEST OF 5 (score: 50): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+50
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg
+80
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg
+70
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg
+70
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: ["0437_5198_155_of?$pdp-md-opt$&fmt=jpeg (score: 80)","0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg (score: 70)","0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg (score: 70)","0437_5198_155_os?$pdp-mdg-opt$&fmt=jp
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":12,"lowScore":0,"smallFile":0,"duplicateGroups":6,"kept":6}
+[4:39:32 PM] 🖼️ FINAL IMAGES: ["https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg","https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg","https://s7d2.scene7.com/is/image/aeo/0437
+[4:39:32 PM] 🖼️ After hybrid filtering: 6 images
+[4:39:32 PM] 🖼️ GENERIC IMAGES: {"count":6,"images":["https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg","https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg","https://s7d2.scene7.c
+[4:39:32 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":6}
+[4:39:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":6}
+[4:39:32 PM] ✅ SINGLE IMAGE (score: 80): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg
+80
+📋 Copy URL
+[4:39:32 PM] ✅ SINGLE IMAGE (score: 70): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg
+70
+📋 Copy URL
+[4:39:32 PM] ✅ SINGLE IMAGE (score: 70): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg
+70
+📋 Copy URL
+[4:39:32 PM] ✅ SINGLE IMAGE (score: 50): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] ✅ SINGLE IMAGE (score: 50): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] ✅ SINGLE IMAGE (score: 50): https://s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg
+80
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg
+70
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg
+70
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_os?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_f?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🔒 TRUSTED CDN BYPASS: https://s7d2.scene7.com/is/image/aeo/0437_5198_155_b?$pdp-mdg-opt$&fmt=jpeg
+50
+📋 Copy URL
+[4:39:32 PM] 🏆 TOP SCORED IMAGES: ["0437_5198_155_of?$pdp-md-opt$&fmt=jpeg (score: 80)","0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg (score: 70)","0437_5198_155_d2?$pdp-mdg-opt$&fmt=jpeg (score: 70)","0437_5198_155_os?$pdp-mdg-opt$&fmt=jp
+[4:39:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":6}
+[4:39:32 PM] 🖼️ FINAL IMAGES: ["https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg","https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg","https://s7d2.scene7.com/is/image/aeo/0437
+[4:39:32 PM] 🖼️ FINAL IMAGES: {"count":6,"images":["https://s7d2.scene7.com/is/image/aeo/0437_5198_155_of?$pdp-md-opt$&fmt=jpeg","https://s7d2.scene7.com/is/image/aeo/0437_5198_155_ob?$pdp-mdg-opt$&fmt=jpeg","https://s7d2.scene7.c
+[4:39:32 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"AE Dreamy Drape Stretch Low-Rise Baggy Wide-Leg Je","brand":"AE","description":"Shop American Eagle Outfitters for men's and women","price":"14.24","imageCount":6,"firstImages":["https://s7d
+[4:39:32 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":6}
+[4:39:32 PM] ✅ Debug trace complete
