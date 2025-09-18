@@ -1077,6 +1077,14 @@ const ALIEXPRESS = {
   match: (h) => /(^|\.)aliexpress\.(com|us)$/i.test(h),
 
   title(doc = document) {
+    console.log("[DEBUG] AliExpress title extraction starting...");
+    
+    // Helper function to clean text (in case T() is not available)
+    const cleanText = (text) => {
+      if (!text) return null;
+      return text.trim().replace(/\s+/g, ' ').replace(/[\r\n]+/g, ' ').trim();
+    };
+    
     // Try product title selectors in order of preference
     const titleSelectors = [
       'h1[data-pl="product-title"]',
@@ -1086,30 +1094,36 @@ const ALIEXPRESS = {
       '.pdp-product-title h1',
       'h1.title',
       '[data-spm-anchor-id*="product_title"] h1',
-      '.product-info h1'
+      '.product-info h1',
+      'h1'
     ];
     
     for (const selector of titleSelectors) {
-      const el = doc.querySelector(selector);
-      if (el) {
-        const title = T(el.textContent);
-        if (title && title.toLowerCase() !== 'aliexpress') {
-          console.log("[DEBUG] AliExpress title found with selector:", selector);
-          return title;
+      try {
+        const elements = doc.querySelectorAll(selector);
+        console.log(`[DEBUG] AliExpress trying selector '${selector}', found ${elements.length} elements`);
+        
+        for (const el of elements) {
+          if (el && el.textContent) {
+            const title = cleanText(el.textContent);
+            console.log(`[DEBUG] AliExpress found text: '${title}'`);
+            
+            if (title && 
+                title.toLowerCase() !== 'aliexpress' && 
+                title.length > 5 &&
+                !title.toLowerCase().includes('sign in') &&
+                !title.toLowerCase().includes('register')) {
+              console.log("[DEBUG] AliExpress title ACCEPTED:", title);
+              return title;
+            }
+          }
         }
+      } catch (e) {
+        console.log(`[DEBUG] AliExpress title selector '${selector}' failed:`, e.message);
       }
     }
     
-    // Fallback: try any h1 that's not "AliExpress"
-    const fallbackTitles = doc.querySelectorAll('h1');
-    for (const h1 of fallbackTitles) {
-      const title = T(h1.textContent);
-      if (title && title.toLowerCase() !== 'aliexpress' && title.length > 5) {
-        console.log("[DEBUG] AliExpress title found via h1 fallback:", title);
-        return title;
-      }
-    }
-
+    console.log("[DEBUG] AliExpress title extraction failed - no valid title found");
     return null;
   },
 
@@ -1117,100 +1131,84 @@ const ALIEXPRESS = {
     console.log("[DEBUG] AliExpress custom image logic running...");
     const urls = new Set();
     
-    // Collect images from various containers
-    const containerSelectors = [
-      '.product-image, .product-images, .product-gallery',
-      '.image-view, .imageview, .image-container',
-      '.pdp-image, .pdp-images, .pdp-gallery',
-      '[class*="gallery"], [class*="image"], [class*="photo"]',
-      '.carousel, .slider, .swiper'
-    ];
-    
-    // Try targeted containers first
-    for (const selector of containerSelectors) {
-      const container = doc.querySelector(selector);
-      if (container) {
-        console.log("[DEBUG] AliExpress found container:", selector);
-        container.querySelectorAll('img').forEach(img => {
-          const url = img.currentSrc || img.src;
-          if (url) urls.add(url);
-        });
-        if (urls.size > 5) break; // Stop if we found enough
-      }
-    }
-    
-    // Fallback: collect all reasonable product images
-    if (urls.size < 3) {
-      doc.querySelectorAll('img').forEach(img => {
-        const url = img.currentSrc || img.src;
-        if (url && (/aliexpress.*\.com|ae01\.alicdn\.com|ae-pic.*\.aliexpress-media\.com/i.test(url))) {
+    // STEP 1: Cast a wide net - collect ALL images first
+    doc.querySelectorAll('img').forEach(img => {
+      const url = img.currentSrc || img.src;
+      if (url) {
+        // Only require basic URL validity - be permissive at collection stage
+        if (url.startsWith('http') || url.startsWith('//')) {
           urls.add(url);
+          console.log("[DEBUG] AliExpress collected:", url.substring(url.lastIndexOf('/') + 1));
         }
-      });
-    }
+      }
+    });
     
-    // CRITICAL: Filter out AliExpress junk patterns
+    console.log(`[DEBUG] AliExpress collected ${urls.size} total images before filtering`);
+    
+    // STEP 2: Apply smart filtering - ONLY block obvious junk
     const filteredImages = [...urls].filter(url => {
-      // HARD BLOCK: junk file patterns (the main issue)
+      // HARD BLOCK: The specific junk patterns you identified
       if (/jpg_\.webp$|png_\.avif$/i.test(url)) {
         console.log("[DEBUG] AliExpress BLOCKED junk pattern:", url.substring(url.lastIndexOf('/') + 1));
         return false;
       }
       
-      // HARD BLOCK: promotional keywords
-      if (/(icon|logo|badge|shipping|delivery|guarantee|visa|mastercard|paypal|rating|star|review|store|banner|discount|coupon|deal|sale|offer|promo)/i.test(url)) {
+      // HARD BLOCK: Obvious promotional keywords (minimal list)
+      if (/(icon|logo|badge|shipping|delivery|guarantee|visa|mastercard|paypal)/i.test(url)) {
         console.log("[DEBUG] AliExpress BLOCKED promotional:", url.substring(url.lastIndexOf('/') + 1));
         return false;
       }
       
-      // HARD BLOCK: small dimensions (parse from URL)
-      const dimMatch = url.match(/(\d{3,4})x(\d{3,4})/i);
+      // HARD BLOCK: Tiny dimensions only (very small threshold)
+      const dimMatch = url.match(/(\d{2,4})x(\d{2,4})/i);
       if (dimMatch) {
         const width = parseInt(dimMatch[1]);
         const height = parseInt(dimMatch[2]);
-        if (width < 300 || height < 300) {
-          console.log("[DEBUG] AliExpress BLOCKED small size:", `${width}x${height}`);
-          return false;
-        }
-        
-        // HARD BLOCK: banner aspect ratios
-        const aspectRatio = width / height;
-        if (aspectRatio > 2.2 || aspectRatio < 0.45) {
-          console.log("[DEBUG] AliExpress BLOCKED banner ratio:", aspectRatio.toFixed(2));
+        if ((width < 100 && height < 100) || (width < 50 || height < 50)) {
+          console.log("[DEBUG] AliExpress BLOCKED tiny size:", `${width}x${height}`);
           return false;
         }
       }
       
+      // Allow everything else through
+      console.log("[DEBUG] AliExpress KEPT:", url.substring(url.lastIndexOf('/') + 1));
       return true;
     });
     
-    // Sort by quality (prioritize ae-pic-*.aliexpress-media.com and /kf/ paths)
+    // STEP 3: Sort by quality (prioritize good CDNs and patterns)
     const sortedImages = filteredImages.sort((a, b) => {
       let scoreA = 0, scoreB = 0;
       
-      // Prioritize ae-pic CDN
-      if (/ae-pic.*\.aliexpress-media\.com/i.test(a)) scoreA += 60;
-      if (/ae-pic.*\.aliexpress-media\.com/i.test(b)) scoreB += 60;
+      // Prioritize AliExpress CDNs
+      if (/ae-pic.*\.aliexpress-media\.com/i.test(a)) scoreA += 100;
+      if (/ae-pic.*\.aliexpress-media\.com/i.test(b)) scoreB += 100;
+      if (/ae01\.alicdn\.com/i.test(a)) scoreA += 80;
+      if (/ae01\.alicdn\.com/i.test(b)) scoreB += 80;
       
-      // Prioritize /kf/ paths  
-      if (/\/kf\//i.test(a)) scoreA += 30;
-      if (/\/kf\//i.test(b)) scoreB += 30;
+      // Prioritize /kf/ product paths  
+      if (/\/kf\//i.test(a)) scoreA += 50;
+      if (/\/kf\//i.test(b)) scoreB += 50;
       
       // Prioritize high-res dimensions
       const dimA = a.match(/(\d{3,4})x(\d{3,4})/i);
       const dimB = b.match(/(\d{3,4})x(\d{3,4})/i);
-      if (dimA && parseInt(dimA[1]) >= 960) scoreA += 40;
-      if (dimB && parseInt(dimB[1]) >= 960) scoreB += 40;
+      if (dimA && parseInt(dimA[1]) >= 960) scoreA += 60;
+      if (dimB && parseInt(dimB[1]) >= 960) scoreB += 60;
+      if (dimA && parseInt(dimA[1]) >= 500) scoreA += 30;
+      if (dimB && parseInt(dimB[1]) >= 500) scoreB += 30;
       
-      // Prioritize .jpg and .avif over other formats
-      if (/\.(jpg|avif)($|\?)/i.test(a)) scoreA += 15;
-      if (/\.(jpg|avif)($|\?)/i.test(b)) scoreB += 15;
+      // Prioritize good formats
+      if (/\.(jpg|jpeg|avif)($|\?)/i.test(a)) scoreA += 20;
+      if (/\.(jpg|jpeg|avif)($|\?)/i.test(b)) scoreB += 20;
+      if (/\.webp($|\?)/i.test(a)) scoreA += 10;
+      if (/\.webp($|\?)/i.test(b)) scoreB += 10;
       
       return scoreB - scoreA;
     });
     
-    console.log("[DEBUG] AliExpress found", sortedImages.length, "good images (filtered from", urls.size, "total)");
-    return sortedImages.slice(0, 15);
+    console.log("[DEBUG] AliExpress final results:", sortedImages.length, "images (from", urls.size, "collected)");
+    console.log("[DEBUG] AliExpress top 5:", sortedImages.slice(0, 5).map(url => url.substring(url.lastIndexOf('/') + 1)));
+    return sortedImages.slice(0, 20);
   }
 };
 

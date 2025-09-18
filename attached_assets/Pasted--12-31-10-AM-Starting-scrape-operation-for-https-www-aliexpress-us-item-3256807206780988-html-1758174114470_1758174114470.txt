@@ -1,0 +1,50 @@
+[12:31:10 AM] 🚀 Starting scrape operation for: https://www.aliexpress.us/item/3256807206780988.html?spm=a2g0o.tm1000009216.d4.1.6897474csKaqTq&sourceType=562&pvid=7a497d52-ae87-4fb7-a81f-b8361a3ee996&pdp_ext_f=%7B%22ship_from%22%3A%22CN%22%2C%22sku_id%22%3A%2212000040562616900%22%7D&scm=1007.28480.422277.0&scm-url=1007.28480.422277.0&scm_id=1007.28480.422277.0&pdp_npi=4%40dis%21USD%21US%20%2432.14%21US%20%2410.93%21%21%21229.11%2177.90%21%402103146f17512431227063580e7fe3%2112000040562616900%21gsd%21US%21160250367%21X&channel=sd&aecmd=true&gatewayAdapt=glo2usa
+[12:31:10 AM] 🚀 SCRAPE START {"host":"aliexpress.us","href":"https://www.aliexpress.us/item/3256807206780988.html?spm=a2g0o.tm1000009216.d4.1.6897474csKaqTq&sourceType=562&pvid=7a497d52-ae87-4fb7-a81f-b8361a3ee996&pdp_ext_f=%7B%2
+[12:31:10 AM] 🧠 LOADED MEMORY: {"host":"aliexpress.us","hasMemory":false,"fields":[],"memoryData":{}}
+[12:31:10 AM] 🔄 NORMAL MODE - memory + fallbacks
+[12:31:10 AM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":false}
+[12:31:10 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: title
+[12:31:10 AM] 📝 TITLE FROM MEMORY: null
+[12:31:10 AM] 📝 TITLE: Falling back to generic...
+[12:31:10 AM] 📝 TITLE FROM GENERIC: Aliexpress
+[12:31:10 AM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[12:31:10 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[12:31:10 AM] 🏷️ BRAND FROM MEMORY: null
+[12:31:10 AM] 🏷️ BRAND: Falling back to generic...
+[12:31:10 AM] 🏷️ BRAND FROM GENERIC: null
+[12:31:10 AM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[12:31:10 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[12:31:10 AM] 📄 DESCRIPTION FROM MEMORY: null
+[12:31:10 AM] 📄 DESCRIPTION: Falling back to generic...
+[12:31:10 AM] 📄 DESCRIPTION FROM GENERIC: Buy 700ml Cocktail Shaker Whiskey Glass Cup Professional Cocktail Stirring Cup Wine Bar mixing cups Bartender Mixing Bar Tool at Aliexpress for . Find more 15, 100003056 and products. Enjoy ✓Free Shipping Worldwide! ✓Limited Time Sale ✓Easy Return.
+[12:31:10 AM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[12:31:10 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[12:31:10 AM] 💰 PRICE FROM MEMORY: null
+[12:31:10 AM] 💰 PRICE: Falling back to generic...
+[12:31:10 AM] 🔍 PRICE PARSING: {"input":"1.58","inputType":"string","inputLength":4}
+[12:31:10 AM] 🧹 CLEANED INPUT: {"original":"1.58","cleaned":"1.58"}
+[12:31:10 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"1.58","reconstructed":"1.58"}
+[12:31:10 AM] 💰 MONETARY TOKENS: []
+[12:31:10 AM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[1.58]}
+[12:31:10 AM] ✅ FINAL PRICE RESULT: {"result":1.58,"method":"MIN_FALLBACK","allNumbers":[1.58]}
+[12:31:10 AM] 💰 PRICE FROM GENERIC: 1.58
+[12:31:10 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:31:10 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:31:10 AM] 🧩 IMAGES: Trying custom handler...
+[12:31:10 AM] 🧩 CUSTOM IMAGES: {"count":1,"images":["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avif"]}
+[12:31:10 AM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[12:31:10 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[12:31:10 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[12:31:10 AM] ✅ SINGLE IMAGE (score: 125): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+125
+📋 Copy URL
+[12:31:10 AM] 🎯 HIGH SCORE + SIZE OK (125): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+125
+📋 Copy URL
+[12:31:10 AM] 🏆 TOP SCORED IMAGES: ["Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avif (score: 125)"]
+[12:31:10 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[12:31:10 AM] 🖼️ FINAL IMAGES: ["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg"]
+[12:31:10 AM] 🖼️ FINAL IMAGES: {"count":1,"images":["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avif"]}
+[12:31:10 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Aliexpress","brand":null,"description":"Buy 700ml Cocktail Shaker Whiskey Glass Cup Profes","price":"1.58","imageCount":1,"firstImages":["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e2671
+[12:31:10 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":false,"description":true,"price":true,"images":1}
+[12:31:10 AM] ✅ Debug trace complete
