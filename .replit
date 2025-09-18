@@ -49,3 +49,6 @@ args = "npm run electron"
 
 [workflows.workflow.metadata]
 outputType = "vnc"
+
+[nix]
+channel = "stable-25_05"

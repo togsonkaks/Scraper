@@ -646,41 +646,111 @@
       }
     }
     
-    // ALIEXPRESS: Aggressive quality scoring for better image ranking
-    if (/aliexpress.*\.com|ae01\.alicdn\.com/i.test(url)) {
-      // Heavily favor ae01.alicdn.com (full-size CDN) over thumbnail CDN
-      if (/ae01\.alicdn\.com/i.test(url)) {
-        debug(`🎯 ALIEXPRESS HIGH-QUALITY CDN: ${url.substring(url.lastIndexOf('/') + 1)}`);
-        return 95; // Highest score for full-size CDN
+    // ALIEXPRESS: Complete junk elimination with content-first filtering
+    if (/aliexpress.*\.com|ae01\.alicdn\.com|ae-pic.*\.aliexpress-media\.com/i.test(url)) {
+      // HARD BLOCK: Promotional/junk keywords (complete elimination)
+      if (/(icon|logo|badge|shipping|delivery|guarantee|visa|mastercard|paypal|klarna|afterpay|rating|star|review|store|shop|brand|banner|discount|coupon|deal|sale|offer|event|promo|campaign|marketing|warranty|insurance|support)\b/i.test(url)) {
+        debug(`🚫 BLOCKED AliExpress promotional junk: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 0; // Complete elimination
       }
       
-      // Detect dimensions in filename patterns
-      const aliDimMatch = url.match(/(\d{3,4})x(\d{3,4})/i);
-      if (aliDimMatch) {
-        const width = parseInt(aliDimMatch[1]);
-        const height = parseInt(aliDimMatch[2]);
-        const area = width * height;
+      // Parse dimensions from URL patterns
+      let width = 0, height = 0;
+      const dimPatterns = [
+        /(\d+)x(\d+)(?:q\d+)?\.(jpg|webp|avif|png)/i, // _960x960q75.jpg_.webp
+        /_(\d+)x(\d+)/i, // _220x220
+        /\b(\d{3,4})x(\d{3,4})\b/i, // 232x98
+      ];
+      
+      for (const pattern of dimPatterns) {
+        const match = url.match(pattern);
+        if (match) {
+          width = parseInt(match[1]);
+          height = parseInt(match[2]);
+          break;
+        }
+      }
+      
+      // HARD BLOCK: Small dimensions (complete elimination)
+      if (width > 0 && height > 0) {
+        if (width < 300 || height < 300) {
+          debug(`🚫 BLOCKED AliExpress small image: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 0; // Complete elimination
+        }
         
-        if (area >= 8000000) { // 3000x3000+
-          debug(`🎯 ALIEXPRESS ULTRA-HIGH-RES: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
-          return 90;
-        } else if (area >= 900000) { // 960x960+  
-          debug(`✅ ALIEXPRESS HIGH-RES: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
-          return 75;
-        } else if (area <= 50000) { // 220x220
-          debug(`🚫 ALIEXPRESS LOW-RES: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
-          return 25; // Low score for thumbnails
+        // HARD BLOCK: Banner aspect ratios (complete elimination)
+        const aspectRatio = width / height;
+        if (aspectRatio > 2.2 || aspectRatio < 0.45) {
+          debug(`🚫 BLOCKED AliExpress banner ratio: ${aspectRatio.toFixed(2)} (${width}x${height}) in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 0; // Complete elimination
         }
       }
       
-      // Penalty for quality parameters (q75, etc.)
-      if (/q\d+/i.test(url)) {
-        const qMatch = url.match(/q(\d+)/i);
-        if (qMatch && parseInt(qMatch[1]) < 90) {
-          debug(`⚠️ ALIEXPRESS QUALITY PENALTY: q${qMatch[1]} in ${url.substring(url.lastIndexOf('/') + 1)}`);
-          return 35; // Penalty for low quality
+      // Start with base score
+      let aliScore = 30;
+      
+      // CDN HIERARCHY (Inverted - product images prioritized)
+      if (/ae-pic.*\.aliexpress-media\.com/i.test(url)) {
+        aliScore += 60; // Real product images CDN
+        debug(`✅ AliExpress product CDN: ae-pic-*.aliexpress-media.com`);
+      } else if (/ae01\.alicdn\.com/i.test(url)) {
+        aliScore += 20; // Demoted from 95 - often promotional
+        debug(`⚠️ AliExpress promotional CDN: ae01.alicdn.com`);
+      }
+      
+      // POSITIVE SIGNALS: Product image indicators
+      if (/\/kf\//i.test(url)) {
+        aliScore += 30; // AliExpress product path
+        debug(`✅ AliExpress product path: /kf/`);
+      }
+      
+      // HIGH-RES SIZE BONUSES
+      if (width > 0 && height > 0) {
+        const area = width * height;
+        if (area >= 900000) { // 960x960+
+          aliScore += 40;
+          debug(`✅ AliExpress high-res: ${width}x${height}`);
+        }
+        
+        // Square-ish product images (common for AliExpress)
+        const aspectRatio = width / height;
+        if (aspectRatio >= 0.9 && aspectRatio <= 1.1) {
+          aliScore += 20;
+          debug(`✅ AliExpress square product: ${aspectRatio.toFixed(2)}`);
         }
       }
+      
+      // FORMAT BONUSES
+      if (/\.(jpg|webp)($|\?)/i.test(url)) {
+        aliScore += 15;
+        debug(`✅ AliExpress product format: JPG/WebP`);
+      }
+      
+      // SIZE SUFFIX BONUSES
+      if (/_960x960|_1000x1000|q9[0-9]/i.test(url)) {
+        aliScore += 15;
+        debug(`✅ AliExpress quality suffix detected`);
+      }
+      
+      // PNG PENALTY SYSTEM
+      if (/\.png($|\?|_)/i.test(url)) {
+        if (width >= 1000 && height >= 1000) {
+          aliScore += 50; // Override penalty for large PNGs
+          debug(`✅ AliExpress large PNG: ${width}x${height}`);
+        } else {
+          aliScore -= 40; // Penalty for PNG (usually UI elements)
+          debug(`⚠️ AliExpress PNG penalty applied`);
+        }
+      }
+      
+      // MINIMUM SCORE THRESHOLD (eliminates remaining junk)
+      if (aliScore < 40) {
+        debug(`🚫 BLOCKED AliExpress low score: ${aliScore} for ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 0; // Complete elimination
+      }
+      
+      debug(`🎯 AliExpress image scored: ${aliScore} for ${url.substring(url.lastIndexOf('/') + 1)}`);
+      return aliScore;
     }
     
     let score = 50; // Base score
