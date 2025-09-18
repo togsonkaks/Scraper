@@ -142,6 +142,7 @@ const AMZ = {
     const normalize = (u) =>
       clean(u)
         .replace(/_CR\d+,\d+,\d+,\d+_/g, "_")      // remove crop box
+        .replace(/_(SR|SX|SY|SS)\d+,\d+_/g, "_")  // remove dimension pairs like _SR116,116_
         .replace(SIZE, "_SL1500_");               // force large size
 
     const baseKey = (u) => clean(u).replace(/^.*\/I\//, "").replace(/\._.*$/, "");
@@ -153,23 +154,36 @@ const AMZ = {
       if (!out.has(k)) out.set(k, n);
     };
 
-    // 1) data-a-dynamic-image (sanitized DOM still has attributes)
-    doc.querySelectorAll('img[data-a-dynamic-image]').forEach((img) => {
+    // 1) data-a-dynamic-image (the gold mine for high-res!)
+    debug("Amazon checking data-a-dynamic-image...");
+    doc.querySelectorAll('img[data-a-dynamic-image]').forEach((img, idx) => {
       try {
-        const map = JSON.parse(img.getAttribute("data-a-dynamic-image"));
-        Object.keys(map).forEach(add);
-      } catch {}
+        const jsonStr = img.getAttribute("data-a-dynamic-image");
+        if (jsonStr) {
+          const map = JSON.parse(jsonStr);
+          const urls = Object.keys(map);
+          debug(`Amazon data-a-dynamic-image[${idx}] has ${urls.length} URLs`);
+          urls.forEach(url => {
+            debug(`Amazon dynamic URL: ${url.slice(-50)}`);
+            add(url);
+          });
+        }
+      } catch(e) {
+        debug(`Amazon data-a-dynamic-image parse error: ${e.message}`);
+      }
     });
 
-    // 2) explicit hi-res attributes
-    doc
-      .querySelectorAll(
-        'img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]'
-      )
-      .forEach((img) => {
-        ["data-old-hires", "data-a-hires", "data-zoom-image", "data-large-image"].forEach((a) => {
-          const u = img.getAttribute(a);
-          if (u) add(u);
+    // 2) explicit hi-res attributes (often point to ivLargeImage sources)
+    debug("Amazon checking hi-res attributes...");
+    const hiResSelectors = ['data-old-hires', 'data-a-hires', 'data-zoom-image', 'data-large-image', 'data-src'];
+    doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image], img[data-src]')
+      .forEach((img, idx) => {
+        hiResSelectors.forEach((attr) => {
+          const u = img.getAttribute(attr);
+          if (u && u.includes('/images/I/')) {
+            debug(`Amazon ${attr}[${idx}]: ${u.slice(-50)}`);
+            add(u);
+          }
         });
       });
 
@@ -203,13 +217,61 @@ const AMZ = {
       }
     });
     
-    // Immersive viewer (if open)
-    doc.querySelectorAll("img.fullscreen, .ivLargeImage img, #ivLargeImage img").forEach((img) => {
+    // GOLD HUNT: ivLargeImage and immersive viewer content
+    debug("Amazon hunting for ivLargeImage (the gold!)...");
+    
+    // Try to trigger dynamic content by simulating thumbnail interaction
+    const thumbnails = doc.querySelectorAll("[id*='altImages'] img, .iv-thumb img");
+    debug(`Amazon found ${thumbnails.length} thumbnails to potentially trigger`);
+    
+    thumbnails.forEach((thumb, idx) => {
+      // Try to trigger hover/click events to load ivLargeImage
+      try {
+        thumb.dispatchEvent(new Event('mouseenter', { bubbles: true }));
+        thumb.dispatchEvent(new Event('click', { bubbles: true }));
+      } catch(e) {
+        // Silently continue if events fail
+      }
+    });
+    
+    // Check live document for dynamic ivLargeImage content (might be loaded already)
+    if (live !== doc) {
+      live.querySelectorAll("img.fullscreen, .ivLargeImage img, #ivLargeImage img, [class*='ivLarge'] img").forEach((img) => {
+        const u = img.currentSrc || img.src;
+        if (u) {
+          debug(`Amazon LIVE ivLargeImage GOLD: ${u.slice(-50)}`);
+          add(u);
+        }
+      });
+    }
+    
+    // Immediate scan (in case ivLargeImage already exists)
+    doc.querySelectorAll("img.fullscreen, .ivLargeImage img, #ivLargeImage img, [class*='ivLarge'] img").forEach((img) => {
       const u = img.currentSrc || img.src;
       if (u) {
         debug(`Amazon immersive: ${u.slice(-50)}`);
         add(u);
       }
+    });
+    
+    // Look for zoom/large image data in onclick handlers and data attributes
+    debug("Amazon checking for zoom data in thumbnails...");
+    thumbnails.forEach((thumb, idx) => {
+      // Check onclick attribute for image URLs
+      const onclick = thumb.getAttribute('onclick') || '';
+      const match = onclick.match(/['"]([^'"]*\/images\/I\/[^'"]+)['"]/);
+      if (match) {
+        debug(`Amazon onclick image[${idx}]: ${match[1].slice(-50)}`);
+        add(match[1]);
+      }
+      
+      // Check all data-* attributes for image URLs
+      Array.from(thumb.attributes).forEach(attr => {
+        if (attr.name.startsWith('data-') && attr.value.includes('/images/I/')) {
+          debug(`Amazon ${attr.name}[${idx}]: ${attr.value.slice(-50)}`);
+          add(attr.value);
+        }
+      });
     });
 
     // 5) last resort: any inline product-looking <img> (sanitized doc)
