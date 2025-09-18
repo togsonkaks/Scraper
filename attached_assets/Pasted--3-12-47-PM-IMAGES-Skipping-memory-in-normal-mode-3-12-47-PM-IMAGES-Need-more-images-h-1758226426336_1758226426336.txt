@@ -1,0 +1,337 @@
+[3:12:47 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[3:12:47 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[3:12:47 PM] 🧩 IMAGES: Trying custom handler...
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] undefined
+[3:12:47 PM] ❌ Custom image handler error: thumbnails is not defined
+[3:12:47 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: []
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:12:47 PM] 🖼️ FINAL IMAGES: []
+[3:12:47 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[3:12:47 PM] 🖼️ Getting generic images for hostname: amazon.com
+[3:12:47 PM] 🎯 Trying site-specific selector for amazon.com: [data-csa-c-element-id*="image"] img
+[3:12:47 PM] 🔍 GATHERING IMAGES with selector: [data-csa-c-element-id*="image"] img
+[3:12:47 PM] 📊 Found 0 elements for selector: [data-csa-c-element-id*="image"] img
+[3:12:47 PM] 🖼️ Raw enriched URLs collected: 0
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: []
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:12:47 PM] 🖼️ FINAL IMAGES: []
+[3:12:47 PM] 🖼️ After hybrid filtering: 0 images
+[3:12:47 PM] 🎯 Trying site-specific selector for amazon.com: [class*="ivImages"] img
+[3:12:47 PM] 🔍 GATHERING IMAGES with selector: [class*="ivImages"] img
+[3:12:47 PM] 📊 Found 0 elements for selector: [class*="ivImages"] img
+[3:12:47 PM] 🖼️ Raw enriched URLs collected: 0
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: []
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:12:47 PM] 🖼️ FINAL IMAGES: []
+[3:12:47 PM] 🖼️ After hybrid filtering: 0 images
+[3:12:47 PM] 🎯 Trying site-specific selector for amazon.com: [id*="ivImage"] img
+[3:12:47 PM] 🔍 GATHERING IMAGES with selector: [id*="ivImage"] img
+[3:12:47 PM] 📊 Found 2 elements for selector: [id*="ivImage"] img
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/S/sash//pLB3SkYb3bHZzHQ.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/S/sash//pLB3SkYb3bHZzHQ.svg
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/S/sash//swRPyHOrgnz358_.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/S/sash//swRPyHOrgnz358_.svg
+[3:12:47 PM] 🖼️ Raw enriched URLs collected: 2
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":2}
+[3:12:47 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/S/sash//pLB3SkYb3bHZzHQ.svg
+0
+📋 Copy URL
+[3:12:47 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/S/sash//swRPyHOrgnz358_.svg
+0
+📋 Copy URL
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: []
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":2,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:12:47 PM] 🖼️ FINAL IMAGES: []
+[3:12:47 PM] 🖼️ After hybrid filtering: 0 images
+[3:12:47 PM] 🎯 Trying site-specific selector for amazon.com: .iv-tab img
+[3:12:47 PM] 🔍 GATHERING IMAGES with selector: .iv-tab img
+[3:12:47 PM] 📊 Found 0 elements for selector: .iv-tab img
+[3:12:47 PM] 🖼️ Raw enriched URLs collected: 0
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: []
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:12:47 PM] 🖼️ FINAL IMAGES: []
+[3:12:47 PM] 🖼️ After hybrid filtering: 0 images
+[3:12:47 PM] 🎯 Trying site-specific selector for amazon.com: [id*="altImages"] img
+[3:12:47 PM] 🔍 GATHERING IMAGES with selector: [id*="altImages"] img
+[3:12:47 PM] 📊 Found 7 elements for selector: [id*="altImages"] img
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485971279_SS40_FMpng_RI_.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485971279_SS40_FMpng_RI
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/41VU-8wB8FL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/41VU-8wB8FL._AC_US40_.jpg
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51WpmEjwEeL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51WpmEjwEeL._AC_US40_.jpg
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51666KjkXHL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51666KjkXHL._AC_US40_.jpg
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/511K5JUrSqL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/511K5JUrSqL._AC_US40_.jpg
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51vuxdNK-XL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51vuxdNK-XL._AC_US40_.jpg
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/512NBdn-OeL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/512NBdn-OeL._AC_US40_.jpg
+[3:12:47 PM] 🖼️ Raw enriched URLs collected: 7
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":7}
+[3:12:47 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (25): https://m.media-amazon.com/images/I/41VU-8wB8FL._AC_US40_.jpg
+25
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (25): https://m.media-amazon.com/images/I/51WpmEjwEeL._AC_US40_.jpg
+25
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/51666KjkXHL._AC_US40_.jpg
+5
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/511K5JUrSqL._AC_US40_.jpg
+5
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/51vuxdNK-XL._AC_US40_.jpg
+5
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/512NBdn-OeL._AC_US40_.jpg
+5
+📋 Copy URL
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: []
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":1,"lowScore":6,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:12:47 PM] 🖼️ FINAL IMAGES: []
+[3:12:47 PM] 🖼️ After hybrid filtering: 0 images
+[3:12:47 PM] 🎯 Trying site-specific selector for amazon.com: [class*="imagesThumbnail"] img
+[3:12:47 PM] 🔍 GATHERING IMAGES with selector: [class*="imagesThumbnail"] img
+[3:12:47 PM] 📊 Found 0 elements for selector: [class*="imagesThumbnail"] img
+[3:12:47 PM] 🖼️ Raw enriched URLs collected: 0
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: []
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:12:47 PM] 🖼️ FINAL IMAGES: []
+[3:12:47 PM] 🖼️ After hybrid filtering: 0 images
+[3:12:47 PM] 🎯 Trying site-specific selector for amazon.com: img[src*="images-amazon.com"]
+[3:12:47 PM] 🔍 GATHERING IMAGES with selector: img[src*="images-amazon.com"]
+[3:12:47 PM] 📊 Found 20 elements for selector: img[src*="images-amazon.com"]
+[3:12:47 PM] Image element <IMG.a-dynamic-image>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232_.jpg
+[3:12:47 PM] Image element <IMG.a-dynamic-image>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232_.jpg
+[3:12:47 PM] Image element <IMG.a-lazy-loaded>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/0789963c-9341-443c-b837-8a
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.a-lazy-loaded>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/6f921a49-63bc-4f8f-8ffc-f0
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.a-lazy-loaded>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/e076b7b2-a5fb-4f62-9d74-9e
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.a-lazy-loaded>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/dc402667-6e64-4863-a233-94
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.cr-lightbox-main-image>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+[3:12:47 PM] Image element <IMG.a-lazy-loaded>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG._Y3Itb_media-popover-image-view_1FAQo>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+[3:12:47 PM] Image element <IMG.a-lazy-loaded>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.a-lazy-loaded>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.a-lazy-loaded>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.cr-lightbox-main-image>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+[3:12:47 PM] Image element <IMG.review-image-tile>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/61QuOnIunBL._SY88.jpg","data-image":null,"data-zoom-image":n
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.review-image-tile>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/61oy7GEGmTL._SY88.jpg","data-image":null,"data-zoom-image":n
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.review-image-tile>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/61T+eJpZo-L._SY88.jpg","data-image":null,"data-zoom-image":n
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.review-image-tile>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/71X-IyY02UL._SY88.jpg","data-image":null,"data-zoom-image":n
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.review-image-tile>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/61I0feenY4L._SY88.jpg","data-image":null,"data-zoom-image":n
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG.review-image-tile>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/51sI2S3DzuL._SY88.jpg","data-image":null,"data-zoom-image":n
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[3:12:47 PM] Image element <IMG>
+[3:12:47 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/loading-4x._CB338200758_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[3:12:47 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/loading-4x._CB338200758_.gif
+[3:12:47 PM] 🖼️ Raw enriched URLs collected: 20
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":20}
+[3:12:47 PM] 📉 LOW SCORE REJECTED (5): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+5
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[3:12:47 PM] 🗑️ JUNK IMAGE: https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/loading-4
+0
+📋 Copy URL
+[3:12:47 PM] ✅ SINGLE IMAGE (score: 125): https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232_.jpg
+125
+📋 Copy URL
+[3:12:47 PM] ✅ SINGLE IMAGE (score: 115): https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232_.jpg
+115
+📋 Copy URL
+[3:12:47 PM] ✅ BEST OF 3 (score: 95): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+95
+📋 Copy URL
+[3:12:47 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+95
+📋 Copy URL
+[3:12:47 PM] 🎯 HIGH SCORE + SIZE OK (125): https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232_.jpg
+125
+📋 Copy URL
+[3:12:47 PM] 🎯 HIGH SCORE + SIZE OK (115): https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232_.jpg
+115
+📋 Copy URL
+[3:12:47 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+95
+📋 Copy URL
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: ["71-V-Xo1b9L._AC_UL232_SR232,232_.jpg (score: 125)","61FOUArF3nL._AC_UL232_SR232,232_.jpg (score: 115)","transparent-pixel._V192234675_.gif (score: 95)"]
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":1,"lowScore":14,"smallFile":0,"duplicateGroups":1,"kept":3}
+[3:12:47 PM] 🖼️ FINAL IMAGES: ["https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232","https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232","https://images-na.ssl-images-ama
+[3:12:47 PM] 🖼️ After hybrid filtering: 3 images
+[3:12:47 PM] ✅ Site-specific success: 3 images found
+[3:12:47 PM] 🖼️ GENERIC IMAGES: {"count":3,"images":["https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232_.jpg","https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232_.jpg","ht
+[3:12:47 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":3}
+[3:12:47 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":3}
+[3:12:47 PM] ✅ SINGLE IMAGE (score: 80): https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232_.jpg
+80
+📋 Copy URL
+[3:12:47 PM] ✅ SINGLE IMAGE (score: 70): https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232_.jpg
+70
+📋 Copy URL
+[3:12:47 PM] ✅ SINGLE IMAGE (score: 70): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+70
+📋 Copy URL
+[3:12:47 PM] 🎯 HIGH SCORE + SIZE OK (80): https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232_.jpg
+80
+📋 Copy URL
+[3:12:47 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232_.jpg
+70
+📋 Copy URL
+[3:12:47 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+70
+📋 Copy URL
+[3:12:47 PM] 🏆 TOP SCORED IMAGES: ["71-V-Xo1b9L._AC_UL232_SR232,232_.jpg (score: 80)","61FOUArF3nL._AC_UL232_SR232,232_.jpg (score: 70)","transparent-pixel._V192234675_.gif (score: 70)"]
+[3:12:47 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":3}
+[3:12:47 PM] 🖼️ FINAL IMAGES: ["https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232","https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232","https://images-na.ssl-images-ama
+[3:12:47 PM] 🖼️ FINAL IMAGES: {"count":3,"images":["https://images-na.ssl-images-amazon.com/images/I/71-V-Xo1b9L._AC_UL232_SR232,232_.jpg","https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_UL232_SR232,232_.jpg","ht
+[3:12:47 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"5000mAh Hand Crank Emergency Radio, AM/FM/SW/NOAA ","brand":"Brand Rckskaya","description":"Buy 5000mAh Hand Crank Emergency Radio, AM/FM/SW/N","price":"49.99","imageCount":3,"firstIm
+[3:12:47 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":3}
+[3:12:47 PM] ✅ Debug trace complete

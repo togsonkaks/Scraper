@@ -244,6 +244,10 @@ const AMZ = {
     // This gives Amazon time to load premium images before scraping begins
     debug("Amazon leveraging page-load triggered lazy loading for premium images...");
     
+    // Get thumbnails for additional data extraction
+    const thumbnails = doc.querySelectorAll("[id*='altImages'] img, .iv-thumb img");
+    debug(`Amazon found ${thumbnails.length} thumbnails for data extraction`);
+    
     // Check live document for dynamic ivLargeImage content (might be loaded already)
     if (live !== doc) {
       live.querySelectorAll("img.fullscreen, .ivLargeImage img, #ivLargeImage img, [class*='ivLarge'] img").forEach((img) => {
