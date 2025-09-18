@@ -1504,6 +1504,73 @@ const AE = {
   }
 };
 
+// ---------- ASOS ----------
+const ASOS = {
+  match: (h) => /(^|\.)asos\.com$/i.test(h),
+  
+  price(doc = document) {
+    // Target ASOS main price elements and avoid Klarna installment text
+    const selectors = [
+      '[data-testid="current-price"]',
+      '.price-current',
+      '[class*="current-price"]',
+      '.price .current',
+      '[data-testid*="price"]:not([data-testid*="installment"])',
+      '.product-price .current',
+      '.price-wrapper .current',
+      '[data-price]'
+    ];
+    
+    console.log(`[DEBUG] ASOS trying ${selectors.length} price selectors`);
+    
+    for (const sel of selectors) {
+      const el = doc.querySelector(sel);
+      if (el) {
+        let priceText = el.textContent?.trim() || '';
+        
+        // Skip if this contains Klarna/installment text
+        if (/pay in|payments of|installment|klarna|afterpay/i.test(priceText)) {
+          console.log(`[DEBUG] ASOS skipping Klarna text: ${sel} -> ${priceText}`);
+          continue;
+        }
+        
+        // Extract the main price (first $XX.XX pattern)
+        const priceMatch = priceText.match(/\$(\d+(?:\.\d{2})?)/);
+        if (priceMatch) {
+          const price = '$' + priceMatch[1];
+          console.log(`[DEBUG] ASOS price found with selector: ${sel} -> ${price} (from: ${priceText})`);
+          return price;
+        }
+      }
+    }
+    
+    // Improved fallback: look for prices in price-container areas only
+    const priceContainers = doc.querySelectorAll('[class*="price"], [data-testid*="price"], .product-details, .purchase-info');
+    for (const container of priceContainers) {
+      // Skip containers with Klarna/installment indicators
+      if (/pay in|payments of|installment|klarna|afterpay/i.test(container.textContent)) {
+        continue;
+      }
+      
+      const priceElements = container.querySelectorAll('*');
+      for (const el of priceElements) {
+        const text = el.textContent?.trim() || '';
+        
+        // Look for standalone price pattern in non-installment contexts
+        const priceMatch = text.match(/^\$(\d+(?:\.\d{2})?)$/);
+        if (priceMatch && !el.closest('[class*="klarna"], [class*="afterpay"], [class*="installment"], [data-testid*="installment"]')) {
+          const price = '$' + priceMatch[1];
+          console.log(`[DEBUG] ASOS fallback price found: ${price} (from: ${text})`);
+          return price;
+        }
+      }
+    }
+    
+    console.log(`[DEBUG] ASOS no price found with any selector`);
+    return null;
+  }
+};
+
 const REGISTRY = [
   AMZ,
   NIKE,
@@ -1536,6 +1603,7 @@ const REGISTRY = [
   MESHKI,
   ALIEXPRESS,
   AE,
+  ASOS,
 
 
 ];
