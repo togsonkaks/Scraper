@@ -78,146 +78,66 @@ function __scene7CollectUpsized(doc = document) {
 
 //////////////////// site modules ////////////////////
 
-// ---------- Amazon (under custom, as required) ----------
+// ---------- Amazon (simple, targeted approach based on DOM screenshots) ----------
 const AMZ = {
   match: (h) => /(^|\.)amazon\./i.test(h),
 
-  title() {
-    const t = T(document.querySelector("#productTitle")?.textContent) ||
-              T(document.querySelector("h1#title")?.textContent);
-    return t || null;
+  title(doc = document) {
+    const titleEl = doc.querySelector("#productTitle") || doc.querySelector("h1#title");
+    return titleEl?.textContent?.trim() || null;
   },
 
-  brand() {
-    const byline = T(document.querySelector("#bylineInfo, a#bylineInfo")?.textContent);
-    if (byline) {
-      const m = byline.match(/visit the\s+(.+?)\s+store/i);
-      if (m) return m[1].trim();
-      return byline.replace(/store$/i, "").trim() || null;
+  price(doc = document) {
+    // TARGET EXACT DOM STRUCTURE FROM SCREENSHOTS:
+    // <span class="a-price-whole">32</span>
+    // <span class="a-price-fraction">88</span>
+    const whole = doc.querySelector(".a-price-whole")?.textContent?.replace(/[^\d]/g, '');
+    const fraction = doc.querySelector(".a-price-fraction")?.textContent?.replace(/[^\d]/g, '');
+    
+    if (whole) {
+      return fraction ? `${whole}.${fraction}` : whole;
     }
+    
+    // Fallback for older Amazon layouts
+    const offscreen = doc.querySelector(".a-price .a-offscreen");
+    if (offscreen?.textContent) {
+      const price = offscreen.textContent.replace(/[^\d.]/g, '');
+      if (price && /\d/.test(price)) return price;
+    }
+    
     return null;
   },
 
-  price() {
-    const sels = [
-      "#corePrice_feature_div .a-price .a-offscreen",
-      "#apex_desktop .a-price .a-offscreen",
-      "#corePriceDisplay_desktop_feature_div .a-price .a-offscreen",
-      "#priceblock_ourprice",
-      "#priceblock_dealprice",
-      "#sns-base-price .a-offscreen",
-      ".a-price .a-offscreen",
-    ];
-    for (const s of sels) {
-      const v = T(document.querySelector(s)?.textContent);
-      if (v && /\d/.test(v)) return v;
-    }
-    const btn = document.querySelector("input[data-asin-price]")?.getAttribute("data-asin-price");
-    if (btn) return btn;
-
-    const j = __pickJSONLDProductPrice(document);
-    if (j) return j;
-    return null;
-  },
-
-  specs() {
-    const out = [];
-    const techTbl = document.querySelector("#productDetails_techSpec_section_1, #productDetails_detailBullets_sections1");
-    if (techTbl) {
-      techTbl.querySelectorAll("tr").forEach((tr) => {
-        const k = T(tr.querySelector("th,td:nth-child(1)")?.textContent);
-        const v = T(tr.querySelector("td:nth-child(2)")?.textContent);
-        if (k && v) out.push(`${k}: ${v}`);
-      });
-    }
-    document.querySelectorAll("#detailBullets_feature_div li").forEach((li) => {
-      const s = T(li.textContent);
-      if (s) out.push(s);
-    });
-    return __uniq(out).slice(0, 20);
-  },
-
-  async images(doc = document) {
-    console.log("[DEBUG] Amazon custom image logic running...");
+  images(doc = document) {
     const urls = new Set();
     
-    // 1. Main large product image (based on actual DOM structure)
-    const mainImage = doc.querySelector('#ivLargeImage, #landingImage, .a-dynamic-image, [data-csa-c-component="imageblock"] img');
-    if (mainImage && (mainImage.currentSrc || mainImage.src)) {
-      let url = mainImage.currentSrc || mainImage.src;
-      // Enhanced URL upgrade patterns based on actual Amazon URL structures
-      url = url
-        .replace(/_AC_US\d+_AA\d+_/g, '_AC_SL1500_')      // _AC_US40_AA50_ format
-        .replace(/_AC_SX\d+_SY\d+_/g, '_AC_SL1500_')      // _AC_SX38_SY50_ format  
-        .replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_')    // Original patterns
-        .replace(/_AC_US\d+_/g, '_AC_SL1500_')            // _AC_US40_ format
-        .replace(/\._[A-Z]{2}\d+_/g, '._SL1500_')         // Other size patterns
-        .replace(/_CR,\d+,\d+,\d+,\d+_/g, '')             // Remove crop parameters
-      urls.add(url);
-      console.log("[DEBUG] Amazon main image:", url);
-    }
-    
-    // 2. Thumbnail gallery images (based on ACTUAL DOM structure from screenshots)
-    doc.querySelectorAll(`
-      #ivThumbColumn .ivThumb img, #altImages img, #imageBlockThumbs img,
-      #ivImagesTab img, [id*="ivThumb"] img, .ivThumb img,
-      [data-csa-c-component="imageblock"] img,
-      img[src*="images-amazon.com"], img[src*="ssl-images-amazon.com"], img[src*="m.media-amazon.com"],
-      .a-dynamic-image[data-old-hires]
-    `.replace(/\s+/g, ' ').trim()).forEach(thumb => {
-      const originalSrc = thumb.currentSrc || thumb.src;
-      
-      // Skip junk: tiny thumbnails, UI elements, reviews
-      if (originalSrc && 
-          !/_SR\d{1,2},\d{1,2}_/.test(originalSrc) &&        // Skip 100x100 etc
-          !/_US\d{1,2}_/.test(originalSrc) &&                // Skip _US40_ etc  
-          !/grey-pixel|play-icon|overlay/.test(originalSrc) && // Skip UI
-          !/community-reviews|aicid=/.test(originalSrc) &&   // Skip reviews
-          !/aplus-media/.test(originalSrc) &&                // Skip A+ content
-          originalSrc.includes('media-amazon.com/images/I/')) { // Real product images
-        
-        // Enhanced URL upgrade patterns for thumbnails
-        let hdUrl = originalSrc
-          .replace(/_AC_US\d+_AA\d+_/g, '_AC_SL1500_')      // _AC_US40_AA50_ format
-          .replace(/_AC_SX\d+_SY\d+_/g, '_AC_SL1500_')      // _AC_SX38_SY50_ format  
-          .replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_')    // Original patterns
-          .replace(/_AC_US\d+_/g, '_AC_SL1500_')            // _AC_US40_ format
-          .replace(/\._[A-Z]{2}\d+_/g, '._SL1500_')         // Other size patterns
-          .replace(/_CR,\d+,\d+,\d+,\d+_/g, '')             // Remove crop parameters
-        urls.add(hdUrl);
-        console.log("[DEBUG] Amazon gallery:", hdUrl);
-      } else if (originalSrc) {
-        console.log("[DEBUG] Amazon filtered out:", originalSrc);
+    // Direct scan for Amazon CDN images (most reliable approach)
+    doc.querySelectorAll('img[src*="m.media-amazon.com/images/I/"], img[src*="images-amazon.com"]').forEach(img => {
+      let url = img.currentSrc || img.src;
+      if (url && url.includes('/images/I/')) {
+        // Skip obvious junk
+        if (!/grey-pixel|play-icon|overlay|\.gif$|_SR\d{1,2},\d{1,2}_|aplus-media/.test(url)) {
+          // Upgrade to high resolution
+          const hdUrl = url
+            .replace(/_AC_US\d+_/g, '_AC_SL1500_')
+            .replace(/_AC_SX\d+_SY\d+_/g, '_AC_SL1500_')
+            .replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_')
+            .replace(/\._[A-Z]{2}\d+_/g, '._SL1500_');
+          urls.add(hdUrl);
+        }
       }
     });
     
-    // 3. Check for high-res data attributes (based on actual DOM structure)
-    doc.querySelectorAll(`
-      .ivThumb img[data-old-hires], .ivThumb img[data-a-hires],
-      #ivImagesTab img[data-old-hires], #ivImagesTab img[data-a-hires],
-      [id*="ivThumb"] img[data-old-hires], [id*="ivThumb"] img[data-a-hires],
-      img[data-old-hires], img[data-a-hires]
-    `.replace(/\s+/g, ' ').trim()).forEach(img => {
+    // Check data attributes for high-res versions
+    doc.querySelectorAll('img[data-old-hires], img[data-a-hires]').forEach(img => {
       const hdUrl = img.getAttribute('data-old-hires') || img.getAttribute('data-a-hires');
       if (hdUrl && hdUrl.includes('media-amazon.com/images/I/')) {
         urls.add(hdUrl);
-        console.log("[DEBUG] Amazon data-hires:", hdUrl);
       }
     });
     
-    // Final cleanup - remove known junk patterns
-    const cleanedImages = [...urls].filter(url => {
-      const isJunk = /community-reviews|grey-pixel|play-icon|overlay|aplus-media|_SR\d{1,3},\d{1,3}_|_UC\d+,\d+_|\.gif$/.test(url);
-      if (isJunk) {
-        console.log("[DEBUG] Amazon final filter removed:", url);
-        return false;
-      }
-      return true;
-    });
-    
-    console.log("[DEBUG] Amazon found", cleanedImages.length, "main HD images (filtered from", urls.size, "total)");
-    return cleanedImages.slice(0, 10);
-  },
+    return [...urls].slice(0, 15);
+  }
 };
 
 // ---------- boohooMAN ----------
