@@ -1077,37 +1077,113 @@ const ALIEXPRESS = {
   match: (h) => /(^|\.)aliexpress\.(com|us)$/i.test(h),
 
   title(doc = document) {
-    // Simplified approach - get the exact element you showed me
+    console.log("[DEBUG] AliExpress title extraction starting...");
+    
+    // Helper to clean and validate title
+    const cleanTitle = (rawTitle) => {
+      if (!rawTitle) return null;
+      
+      // Normalize whitespace
+      let title = rawTitle.trim().replace(/\s+/g, ' ');
+      
+      // Strip AliExpress boilerplate
+      title = title.replace(/(\s*\|\s*)?AliExpress(\.us)?\b.*$/i, '');
+      title = title.replace(/^Buy\s+|\s+on AliExpress.*$/i, '');
+      title = title.trim();
+      
+      // Return if valid
+      return title.length > 3 ? title : null;
+    };
+    
+    // STRATEGY 1: Try multiple h1 selectors (AliExpress variants)
+    const h1Selectors = [
+      'h1[data-pl="product-title"]',
+      'h1#product-title',
+      'h1.product-title',
+      '[data-pl="product-title"] h1',
+      '[data-widget="product-title"] h1',
+      '[data-pl*="product-title"] h1',
+      'h1[itemprop="name"]',
+      '.product-title h1',
+      '.title-wrap h1'
+    ];
+    
+    for (const selector of h1Selectors) {
+      try {
+        const element = doc.querySelector(selector);
+        if (element && element.textContent) {
+          const title = cleanTitle(element.textContent);
+          if (title) {
+            console.log(`[DEBUG] AliExpress title found via h1 selector '${selector}': "${title}"`);
+            return title;
+          }
+        }
+      } catch (e) {
+        // Continue to next selector
+      }
+    }
+    
+    // STRATEGY 2: Try meta tags
+    const metaSelectors = [
+      'meta[property="og:title"]',
+      'meta[name="twitter:title"]',
+      'meta[name="title"]'
+    ];
+    
+    for (const selector of metaSelectors) {
+      try {
+        const meta = doc.querySelector(selector);
+        if (meta && meta.getAttribute('content')) {
+          const title = cleanTitle(meta.getAttribute('content'));
+          if (title) {
+            console.log(`[DEBUG] AliExpress title found via meta '${selector}': "${title}"`);
+            return title;
+          }
+        }
+      } catch (e) {
+        // Continue
+      }
+    }
+    
+    // STRATEGY 3: Try JSON-LD structured data
     try {
-      const titleElement = doc.querySelector('h1[data-pl="product-title"]');
-      if (titleElement && titleElement.textContent) {
-        const title = titleElement.textContent.trim();
-        if (title && title.toLowerCase() !== 'aliexpress') {
+      const jsonLdScripts = doc.querySelectorAll('script[type="application/ld+json"]');
+      for (const script of jsonLdScripts) {
+        try {
+          const data = JSON.parse(script.textContent);
+          const products = Array.isArray(data) ? data : [data];
+          
+          for (const item of products) {
+            if (item['@type'] === 'Product' && item.name) {
+              const title = cleanTitle(item.name);
+              if (title) {
+                console.log(`[DEBUG] AliExpress title found via JSON-LD: "${title}"`);
+                return title;
+              }
+            }
+          }
+        } catch (jsonError) {
+          // Continue to next script
+        }
+      }
+    } catch (e) {
+      // Continue
+    }
+    
+    // STRATEGY 4: Last resort - document title
+    try {
+      if (doc.title) {
+        const title = cleanTitle(doc.title);
+        if (title) {
+          console.log(`[DEBUG] AliExpress title found via document.title: "${title}"`);
           return title;
         }
       }
     } catch (e) {
-      // Silent fallback
+      // Continue
     }
     
-    // Fallback: try any h1 with substantial content
-    try {
-      const h1Elements = doc.querySelectorAll('h1');
-      for (const h1 of h1Elements) {
-        if (h1.textContent) {
-          const title = h1.textContent.trim();
-          if (title && 
-              title.length > 10 && 
-              title.toLowerCase() !== 'aliexpress' &&
-              !title.toLowerCase().includes('sign in')) {
-            return title;
-          }
-        }
-      }
-    } catch (e) {
-      // Silent fallback
-    }
-    
+    console.log("[DEBUG] AliExpress title extraction failed - no valid title found anywhere");
     return null;
   },
 
