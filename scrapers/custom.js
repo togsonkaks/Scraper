@@ -109,85 +109,197 @@ const AMZ = {
   },
 
   images(doc = document) {
-    const out = new Set();
+    const out = new Map(); // baseKey -> url for deduplication
+    let debugStats = {
+      dynamicImage: 0,
+      hiResAttrs: 0,
+      zoomContainers: 0,
+      aStateScripts: 0,
+      fallbackImages: 0,
+      totalProcessed: 0,
+      duplicatesSkipped: 0
+    };
     
-    // SIMPLE HELPERS
-    const isAmz = u => typeof u === "string" && /\/images\/I\//.test(u) &&
-      /(m\.media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(u);
+    // HELPERS (from working a-state approach)
+    const SIZE = /_(SL|SX|SY|SR|SS|UX|UY|FM)\d+_/g;
+    const AMZ_IMG = /(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|images-amazon\.com)\/images\/I\//;
     
-    const upgradeToHiRes = u => {
-      // Strip query params and normalize encoding
-      u = u.split("?")[0].replace(/%2B/g, "+");
-      
-      // Remove ALL size/crop tokens and force SL1500
-      u = u.replace(/_(SL|SX|SY|SR|SS|UX|UY|FM|UL|CR|AC)\d+(_\d+,\d+,\d+)?(_\d+)?_/g, "_");
-      u = u.replace(/\._.*?_/, "._AC_SL1500_");
-      
-      // Ensure we have a size token
-      if (!/_SL\d+_/.test(u)) {
-        u = u.replace(/(\.[^.]+)$/, "_AC_SL1500$1");
+    const isAmz = u => typeof u === "string" && AMZ_IMG.test(u);
+    const clean = u => (u||"").split("?")[0].replace(/%2B/gi, "+");
+    const normalize = u => clean(u)
+      .replace(/_CR\d+,\d+,\d+,\d+_/g, "_")   // drop crops
+      .replace(SIZE, "_SL1500_");            // force large
+    
+    const baseKey = u => clean(u).replace(/^.*\/I\//, "").replace(/\._.*$/, "");
+    
+    const add = (u, source = 'unknown') => {
+      debugStats.totalProcessed++;
+      if (!isAmz(u)) {
+        console.log(`[DEBUG] Amazon SKIP non-AMZ: ${u.slice(0, 60)}`);
+        return;
       }
-      
-      console.log(`[DEBUG] Amazon upgraded: ${u}`);
-      return u;
-    };
-    
-    const baseKey = u => {
-      const match = u.match(/\/I\/([^._]+)/);
-      return match ? match[1] : u;
-    };
-    
-    const seenKeys = new Set();
-    const add = u => {
-      if (!isAmz(u)) return;
-      const upgraded = upgradeToHiRes(u);
-      const key = baseKey(upgraded);
-      if (seenKeys.has(key)) return;
-      seenKeys.add(key);
-      out.add(upgraded);
-    };
-    
-    // 1. ZOOM CONTAINERS - What you showed me!
-    doc.querySelectorAll('#ivLargeImage img, .ivLargeImage img, img.fullscreen').forEach(img => {
-      const src = img.currentSrc || img.src;
-      if (src) add(src);
-    });
-    
-    // 2. MAIN PRODUCT IMAGE
-    doc.querySelectorAll('#landingImage, #imgBlkFront img').forEach(img => {
-      const src = img.currentSrc || img.src;
-      if (src) add(src);
-    });
-    
-    // 3. THUMBNAIL GALLERY - The key source you mentioned!
-    doc.querySelectorAll('img[src*="/images/I/"]').forEach(img => {
-      const src = img.currentSrc || img.src;
-      if (src && !/(sprite|grey-pixel|play-icon|overlay)/.test(src) && !/\.gif$/i.test(src)) {
-        add(src);
+      const n = normalize(u);
+      const k = baseKey(n);
+      if (!out.has(k)) {
+        out.set(k, n);
+        console.log(`[DEBUG] Amazon ADD [${source}]: ${k} -> ${n.slice(-60)}`);
+      } else {
+        debugStats.duplicatesSkipped++;
+        console.log(`[DEBUG] Amazon DUPE [${source}]: ${k} (already have)`);
       }
-    });
+    };
+
+    console.log(`[DEBUG] Amazon starting extraction on: ${doc.location?.href || 'unknown URL'}`);
+
+    // 1. data-a-dynamic-image
+    const dynamicImages = doc.querySelectorAll('img[data-a-dynamic-image]');
+    console.log(`[DEBUG] Amazon found ${dynamicImages.length} data-a-dynamic-image elements`);
     
-    // 4. DATA ATTRIBUTES
-    doc.querySelectorAll('img[data-a-dynamic-image]').forEach(img => {
+    dynamicImages.forEach(img => {
       try {
-        const jsonData = img.getAttribute('data-a-dynamic-image');
-        if (jsonData) {
-          const imageMap = JSON.parse(jsonData);
-          Object.keys(imageMap).forEach(url => add(url));
+        const map = JSON.parse(img.getAttribute('data-a-dynamic-image'));
+        const urls = Object.keys(map);
+        console.log(`[DEBUG] Amazon dynamic-image JSON has ${urls.length} URLs`);
+        urls.forEach(url => {
+          add(url, 'dynamic-image');
+          debugStats.dynamicImage++;
+        });
+      } catch(e) {
+        console.log(`[DEBUG] Amazon dynamic-image JSON parse error: ${e.message}`);
+      }
+    });
+
+    // 2. explicit hi-res attrs
+    const hiResImgs = doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]');
+    console.log(`[DEBUG] Amazon found ${hiResImgs.length} hi-res attribute elements`);
+    
+    hiResImgs.forEach(img => {
+      ['data-old-hires','data-a-hires','data-zoom-image','data-large-image']
+        .forEach(a => { 
+          const u = img.getAttribute(a); 
+          if (u) {
+            add(u, `attr-${a}`);
+            debugStats.hiResAttrs++;
+          }
+        });
+    });
+
+    // 3. immersive viewer/zoom containers
+    const zoomImgs = doc.querySelectorAll('img.fullscreen, .ivLargeImage img, #ivLargeImage img');
+    console.log(`[DEBUG] Amazon found ${zoomImgs.length} zoom container elements`);
+    
+    zoomImgs.forEach(img => {
+      const u = img.currentSrc || img.src;
+      if (u) {
+        add(u, 'zoom-container');
+        debugStats.zoomContainers++;
+      }
+    });
+
+    // 4. THE BIG ONE - Amazon a-state JSON blobs!
+    const aStateScripts = doc.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]');
+    console.log(`[DEBUG] Amazon found ${aStateScripts.length} a-state script elements`);
+    
+    aStateScripts.forEach((s, idx) => {
+      try {
+        const stateAttr = s.getAttribute('data-a-state') || '{}';
+        const key = JSON.parse(stateAttr)?.key || "";
+        console.log(`[DEBUG] Amazon a-state[${idx}] key: "${key}"`);
+        
+        if (!/image-block-state|dpx\-image-state|imageState/i.test(key)) {
+          console.log(`[DEBUG] Amazon a-state[${idx}] SKIP: key doesn't match image patterns`);
+          return;
+        }
+        
+        const payload = JSON.parse(s.textContent || "{}");
+        console.log(`[DEBUG] Amazon a-state[${idx}] SUCCESS: parsing payload with ${Object.keys(payload).length} root keys`);
+        
+        // Extract from imageGalleryData or colorImages
+        const galleryData = payload?.imageGalleryData;
+        const colorData = payload?.colorImages?.initial;
+        
+        if (galleryData && Array.isArray(galleryData)) {
+          console.log(`[DEBUG] Amazon a-state[${idx}] imageGalleryData: ${galleryData.length} items`);
+          galleryData.forEach((o, i) => {
+            ['hiRes','mainUrl','large','zoom','thumb','variant'].forEach(k => {
+              if (o?.[k]) {
+                add(o[k], `gallery[${i}].${k}`);
+                debugStats.aStateScripts++;
+              }
+            });
+          });
+        }
+        
+        if (colorData && Array.isArray(colorData)) {
+          console.log(`[DEBUG] Amazon a-state[${idx}] colorImages.initial: ${colorData.length} items`);
+          colorData.forEach((o, i) => {
+            ['hiRes','large','mainUrl','thumb'].forEach(k => {
+              if (o?.[k]) {
+                add(o[k], `color[${i}].${k}`);
+                debugStats.aStateScripts++;
+              }
+            });
+          });
+        }
+        
+        // Extract from ImageBlockATF
+        if (payload?.ImageBlockATF) {
+          const atf = payload.ImageBlockATF;
+          console.log(`[DEBUG] Amazon a-state[${idx}] ImageBlockATF found`);
+          if (atf.hiRes) {
+            add(atf.hiRes, 'atf.hiRes');
+            debugStats.aStateScripts++;
+          }
+          if (Array.isArray(atf.variant)) {
+            console.log(`[DEBUG] Amazon a-state[${idx}] ImageBlockATF variants: ${atf.variant.length}`);
+            atf.variant.forEach((url, i) => {
+              add(url, `atf.variant[${i}]`);
+              debugStats.aStateScripts++;
+            });
+          }
         }
       } catch(e) {
-        console.log('[DEBUG] Amazon JSON error:', e.message);
+        console.log(`[DEBUG] Amazon a-state[${idx}] parse error: ${e.message}`);
       }
     });
-    
-    console.log(`[DEBUG] Amazon found ${out.size} unique images`);
-    
-    // Return sorted array (prefer JPGs)
-    return Array.from(out).sort((a,b) => {
-      const aJpg = a.endsWith('.jpg') ? 0 : 1;
-      const bJpg = b.endsWith('.jpg') ? 0 : 1;
-      return aJpg - bJpg || a.localeCompare(b);
+
+    // 5. fallback only if nothing found
+    if (out.size === 0) {
+      console.log('[DEBUG] Amazon NO IMAGES FOUND - activating fallback scan');
+      const fallbackImgs = doc.querySelectorAll('img[src*="/images/I/"]');
+      console.log(`[DEBUG] Amazon fallback found ${fallbackImgs.length} potential image elements`);
+      
+      fallbackImgs.forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && !/sprite|grey\-pixel|\.gif$/i.test(u)) {
+          add(u, 'fallback');
+          debugStats.fallbackImages++;
+        }
+      });
+    }
+
+    // Final stats and results
+    console.log(`[DEBUG] Amazon EXTRACTION COMPLETE:`);
+    console.log(`[DEBUG]   - Dynamic image JSONs: ${debugStats.dynamicImage} images`);
+    console.log(`[DEBUG]   - Hi-res attributes: ${debugStats.hiResAttrs} images`);
+    console.log(`[DEBUG]   - Zoom containers: ${debugStats.zoomContainers} images`);
+    console.log(`[DEBUG]   - A-state scripts: ${debugStats.aStateScripts} images`);
+    console.log(`[DEBUG]   - Fallback scan: ${debugStats.fallbackImages} images`);
+    console.log(`[DEBUG]   - Total processed: ${debugStats.totalProcessed} URLs`);
+    console.log(`[DEBUG]   - Duplicates skipped: ${debugStats.duplicatesSkipped} URLs`);
+    console.log(`[DEBUG]   - FINAL UNIQUE: ${out.size} high-res images`);
+
+    const results = Array.from(out.values()).sort((a,b) => {
+      const aj = a.endsWith(".jpg") ? 0 : 1, bj = b.endsWith(".jpg") ? 0 : 1;
+      return aj - bj || a.localeCompare(b);
     }).slice(0, 20);
+
+    console.log(`[DEBUG] Amazon FINAL RESULTS: ${results.length} images returned`);
+    results.forEach((url, i) => {
+      console.log(`[DEBUG]   [${i+1}] ${url}`);
+    });
+
+    return results;
   }
 };
 

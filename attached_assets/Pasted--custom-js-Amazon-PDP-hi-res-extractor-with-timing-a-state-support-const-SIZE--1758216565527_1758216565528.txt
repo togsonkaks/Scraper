@@ -1,0 +1,127 @@
+// custom.js — Amazon PDP hi-res extractor with timing + a-state support
+(() => {
+  const SIZE = /_(SL|SX|SY|SR|SS|UX|UY|FM)\d+_/g;
+  const AMZ_IMG = /(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|images-amazon\.com)\/images\/I\//;
+
+  const isAmz = u => typeof u === "string" && AMZ_IMG.test(u);
+  const clean  = u => (u||"").split("?")[0].replace(/%2B/gi, "+");
+  const normalize = u =>
+    clean(u)
+      .replace(/_CR\d+,\d+,\d+,\d+_/g, "_")   // drop crops
+      .replace(SIZE, "_SL1500_");            // force large
+
+  const baseKey = u => clean(u).replace(/^.*\/I\//, "").replace(/\._.*$/, "");
+
+  function collectOnce(doc = document) {
+    const out = new Map(); // baseKey -> url
+    const add = (u) => {
+      if (!isAmz(u)) return;
+      const n = normalize(u);
+      const k = baseKey(n);
+      if (!out.has(k)) out.set(k, n);
+    };
+
+    // 1) data-a-dynamic-image
+    doc.querySelectorAll('img[data-a-dynamic-image]').forEach(img => {
+      try {
+        const map = JSON.parse(img.getAttribute('data-a-dynamic-image'));
+        Object.keys(map).forEach(add);
+      } catch {}
+    });
+
+    // 2) explicit hi-res attrs
+    doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]')
+      .forEach(img => {
+        ['data-old-hires','data-a-hires','data-zoom-image','data-large-image']
+          .forEach(a => { const u = img.getAttribute(a); if (u) add(u); });
+      });
+
+    // 3) immersive viewer present?
+    doc.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
+      const u = img.currentSrc || img.src;
+      if (u) add(u);
+    });
+
+    // 4) AMAZON a-state JSON blobs (this is the big one)
+    // <script type="a-state" data-a-state='{"key":"image-block-state"}'>{"imageGalleryData":[...]}</script>
+    doc.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]')
+      .forEach(s => {
+        try {
+          const key = JSON.parse(s.getAttribute('data-a-state') || '{}')?.key || "";
+          if (!/image-block-state|dpx\-image-state|imageState/i.test(key)) return;
+          const payload = JSON.parse(s.textContent || "{}");
+          const arr = payload?.imageGalleryData || payload?.colorImages?.initial || [];
+          (arr || []).forEach(o => ['hiRes','mainUrl','large','zoom','thumb','variant']
+            .forEach(k => o?.[k] && add(o[k])));
+          if (payload?.ImageBlockATF) {
+            const atf = payload.ImageBlockATF;
+            if (atf.hiRes) add(atf.hiRes);
+            (atf.variant || []).forEach(add);
+          }
+        } catch {}
+      });
+
+    // 5) fallback only if nothing
+    if (out.size === 0) {
+      doc.querySelectorAll('img[src*="/images/I/"]').forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && !/sprite|grey\-pixel|\.gif$/i.test(u)) add(u);
+      });
+    }
+
+    return Array.from(out.values()).sort((a,b) => {
+      const aj = a.endsWith(".jpg") ? 0 : 1, bj = b.endsWith(".jpg") ? 0 : 1;
+      return aj - bj || a.localeCompare(b);
+    });
+  }
+
+  // Wait for Amazon to inject the a-state/gallery (works in Electron where code runs early)
+  function waitForImages({timeout=8000, min=2} = {}) {
+    return new Promise(resolve => {
+      const start = performance.now();
+      const tryCollect = () => {
+        const urls = collectOnce();
+        if (urls.length >= min) return done(urls);
+        if (performance.now() - start > timeout) return done(urls);
+      };
+      const done = (urls) => { obs.disconnect(); clearInterval(poll); resolve(urls); };
+
+      // Observe mutations (Amazon hydrates after initial HTML)
+      const obs = new MutationObserver(() => tryCollect());
+      obs.observe(document.documentElement, {subtree:true, childList:true});
+
+      // Also poll (some data comes via XHR)
+      const poll = setInterval(tryCollect, 300);
+
+      // First attempt
+      tryCollect();
+    });
+  }
+
+  // Expose API
+  window.AmzHiRes = {
+    listNow: collectOnce,
+    async list() { return await waitForImages({}); },
+    copy: async () => {
+      const u = await waitForImages({});
+      navigator.clipboard?.writeText(u.join("\n"));
+      console.log("Copied", u.length, "URLs");
+      return u;
+    },
+    downloadAll: async (delay=400) => {
+      const urls = await waitForImages({});
+      let i = 0;
+      (function tick(){
+        if (i >= urls.length) return console.log("Downloaded", urls.length);
+        const a = document.createElement("a");
+        a.href = encodeURI(urls[i]);
+        a.download = urls[i].split("/").pop().split("?")[0];
+        document.body.appendChild(a); a.click(); a.remove();
+        i++; setTimeout(tick, delay);
+      })();
+    }
+  };
+
+  // Auto-log once ready
+  waitForImages({}).then(urls => console.log("Amazon hi-res images:", urls));
+})();
