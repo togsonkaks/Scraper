@@ -110,131 +110,129 @@ const AMZ = {
 
   images(doc = document) {
     const out = new Set();
-    
-    // ROBUST HELPERS - Handle all Amazon tokens and edge cases
-    const isAmz = u => typeof u === "string" && 
-      /(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|images-amazon\.com)\/images\/I\//.test(u);
-    
-    const clean = u => {
-      try {
-        const noQ = u.split("?")[0];
-        return noQ.replace(/%2B/g, "+");
-      } catch { return u; }
-    };
-    
-    // Normalize all size/crop tokens to high quality
-    const normalizeSize = u => clean(u)
-      .replace(/_AC_/g, "_AC_") // Keep AC marker
-      .replace(/_(SX|SY|SL|UX|UY)\d+_/g, "_SL1500_") // Scale up all size tokens
-      .replace(/_CR\d+,\d+,\d+,\d+_/g, "_CR0,0,1500,1500_") // Uncrop to large
-      .replace(/_QL\d+_/g, "_QL100_"); // Max quality
-    
-    // Base key for grouping: I/71+Bh0QZZnL._AC_SL1500_.jpg -> 71+Bh0QZZnL
-    const baseKey = u => {
-      try {
-        const p = new URL(u, location.href).pathname;
-        return p.replace(/^.*\/I\//, "").replace(/\._.*$/, "");
-      } catch {
-        return u.replace(/^.*\/I\//, "").replace(/\._.*$/, "");
-      }
-    };
-    
     const seenBase = new Set();
+
+    // ---- helpers
+    const isAmz = u =>
+      typeof u === "string" &&
+      /(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|images-amazon\.com)\/images\/I\//.test(u);
+
+    const clean = u => {
+      const noQ = (u || "").split("?")[0];
+      return noQ.replace(/%2B/gi, "+");
+    };
+
+    // kill crops & density tokens, force a large size
+    const normalize = u => {
+      u = clean(u);
+      // remove crop boxes entirely
+      u = u.replace(/_CR\d+,\d+,\d+,\d+_/g, "_");
+      // unify any size/density tokens to a big SL
+      u = u.replace(/_(SL|SX|SY|SR|SS|UX|UY|FM)\d+_/g, "_SL1500_");
+      // keep _AC_ if present (Amazon expects it in many URLs)
+      if (!/_AC_/.test(u)) {
+        u = u.replace(/\/I\//, "/I/"); // noop to preserve path
+      }
+      return u;
+    };
+
+    // everything before the first ._ token is the unique image id
+    const baseKey = u => clean(u).replace(/^.*\/I\//, "").replace(/\._.*$/, "");
+
     const add = u => {
       if (!isAmz(u)) return;
-      const norm = normalizeSize(u);
+      const norm = normalize(u);
       const key = baseKey(norm);
-      if (seenBase.has(key)) return; // Prevent duplicates of same image
+      if (seenBase.has(key)) return;
       seenBase.add(key);
       out.add(norm);
-      console.log(`[DEBUG] Amazon added: ${key} -> ${norm.slice(-50)}`);
     };
-    
-    // 1. data-a-dynamic-image JSON
+
+    // ---- 1) data-a-dynamic-image
     doc.querySelectorAll('img[data-a-dynamic-image]').forEach(img => {
       try {
         const map = JSON.parse(img.getAttribute('data-a-dynamic-image'));
         Object.keys(map).forEach(add);
-      } catch(e) {
-        console.log('[DEBUG] Amazon JSON parse error:', e.message);
-      }
+      } catch {}
     });
-    
-    // 2. Data attributes
+
+    // ---- 2) explicit hi-res attributes
     doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]')
       .forEach(img => {
         ['data-old-hires','data-a-hires','data-zoom-image','data-large-image']
-          .forEach(attr => { 
-            const u = img.getAttribute(attr); 
-            if (u) add(u); 
-          });
+          .forEach(attr => { const u = img.getAttribute(attr); if (u) add(u); });
       });
-    
-    // 3. Zoom containers
-    doc.querySelectorAll('img.fullscreen, .ivLargeImage img, [data-action="iv-largeimage"] img').forEach(img => {
+
+    // ---- 3) immersive viewer (if mounted)
+    doc.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
       const u = img.currentSrc || img.src;
       if (u) add(u);
     });
-    
-    // 4. HIDDEN JSON GOLD MINES - This is where the real treasure is!
-    const scriptsText = Array.from(doc.scripts).map(s => s.textContent || "");
-    
-    const readArray = (re) => {
-      for (const t of scriptsText) {
-        const m = t.match(re);
-        if (m) { try { return JSON.parse(m[1]); } catch {} }
+
+    // ---- 4) JSON blobs (cover multiple shapes)
+    const scripts = Array.from(doc.scripts).map(s => s.textContent || "");
+
+    const grabArray = (...res) => {
+      for (const t of scripts) {
+        for (const re of res) {
+          const m = t.match(re);
+          if (m) { try { return JSON.parse(m[1]); } catch {} }
+        }
       }
       return null;
     };
-    
-    const readObject = (re) => {
-      for (const t of scriptsText) {
-        const m = t.match(re);
-        if (m) { try { return JSON.parse(m[1]); } catch {} }
+    const grabObject = (...res) => {
+      for (const t of scripts) {
+        for (const re of res) {
+          const m = t.match(re);
+          if (m) { try { return JSON.parse(m[1]); } catch {} }
+        }
       }
       return null;
     };
-    
-    // imageGalleryData array - Main product gallery
-    const gallery = readArray(/"imageGalleryData"\s*:\s*(\[[\s\S]*?\])/);
+
+    // A) imageGalleryData = [...]
+    const gallery = grabArray(
+      /"imageGalleryData"\s*:\s*(\[[\s\S]*?\])/,
+      /imageGalleryData\s*=\s*(\[[\s\S]*?\])/ // assignment style
+    );
     if (Array.isArray(gallery)) {
-      gallery.forEach(obj => ['hiRes','mainUrl','large','zoom','thumb','variant']
-        .forEach(k => obj?.[k] && add(obj[k])));
-      console.log(`[DEBUG] Amazon imageGalleryData found ${gallery.length} items`);
+      gallery.forEach(o => ['hiRes','mainUrl','large','zoom','thumb','variant']
+        .forEach(k => o?.[k] && add(o[k])));
     }
-    
-    // colorImages object - Color variants
-    const colorImages = readObject(/"colorImages"\s*:\s*({[\s\S]*?})/);
+
+    // B) colorImages: { initial: [...] }
+    const colorImages = grabObject(
+      /"colorImages"\s*:\s*({[\s\S]*?})/,
+      /colorImages\s*=\s*({[\s\S]*?})/
+    );
     if (colorImages?.initial) {
-      colorImages.initial.forEach(obj => ['hiRes','large','mainUrl','thumb']
-        .forEach(k => obj?.[k] && add(obj[k])));
-      console.log(`[DEBUG] Amazon colorImages found ${colorImages.initial.length} items`);
+      colorImages.initial.forEach(o => ['hiRes','large','mainUrl','thumb']
+        .forEach(k => o?.[k] && add(o[k])));
     }
-    
-    // ImageBlockATF object - Above-the-fold images
-    const atf = readObject(/"ImageBlockATF"\s*:\s*({[\s\S]*?})/);
+
+    // C) register("ImageBlockATF", … return { ... })
+    // return { ... } capture
+    const atf = grabObject(
+      /register\(\s*["']ImageBlockATF["']\s*,[\s\S]*?return\s*({[\s\S]*?})\s*\)/,
+      /"ImageBlockATF"\s*:\s*({[\s\S]*?})/
+    );
     if (atf?.hiRes) add(atf.hiRes);
     if (Array.isArray(atf?.variant)) atf.variant.forEach(add);
-    if (atf) console.log(`[DEBUG] Amazon ImageBlockATF found`);
-    
-    // 5. Fallback: scan inline images (only if no JSON data found)
+
+    // ---- 5) last-resort inline imgs (only if nothing found)
     if (out.size === 0) {
       doc.querySelectorAll('img[src*="/images/I/"]').forEach(img => {
         const u = img.currentSrc || img.src;
-        if (u && !/grey-pixel|sprite|play-icon|\.gif$/i.test(u)) add(u);
+        if (u && !/sprite|grey-pixel|\.gif$/i.test(u)) add(u);
       });
-      console.log(`[DEBUG] Amazon fallback scan activated`);
     }
-    
-    // Return stable sorted list (prefer JPGs, stable order)
-    const result = Array.from(out).sort((a,b) => {
-      const aj = a.endsWith(".jpg") ? 0 : 1;
-      const bj = b.endsWith(".jpg") ? 0 : 1;
+
+    // stable, jpg-first
+    return Array.from(out).sort((a,b) => {
+      const aj = a.endsWith(".jpg") ? 0 : 1, bj = b.endsWith(".jpg") ? 0 : 1;
       return aj - bj || a.localeCompare(b);
-    });
-    
-    console.log(`[DEBUG] Amazon robust extraction: ${result.length} unique high-res images`);
-    return result.slice(0, 20);
+    }).slice(0, 20);
   }
 };
 

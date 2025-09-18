@@ -1,0 +1,45 @@
+[12:09:31 PM] 🚀 Starting scrape operation for: https://www.amazon.com/dp/B081CHLF46?psc=1&smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp
+[12:09:31 PM] 🚀 SCRAPE START {"host":"amazon.com","href":"https://www.amazon.com/dp/B081CHLF46?smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp&th=1","mode":"normal"}
+[12:09:31 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[12:09:31 PM] 🔄 NORMAL MODE - memory + fallbacks
+[12:09:31 PM] 🧩 TITLE: Trying custom handler...
+[12:09:31 PM] 🧩 CUSTOM TITLE SUCCESS: Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers, Bedroom, with Sunrise Simulation, Sleep Aid, Dual Alarms, FM Radio, Snooze, Nightlight, Daylight, 7 Colors, 7 Natural Sounds, Ideal for Gift
+[12:09:31 PM] 🏷️ BRAND: Falling back to generic...
+[12:09:31 PM] 🏷️ BRAND FROM GENERIC: Brand JALL
+[12:09:31 PM] 📄 DESCRIPTION: Falling back to generic...
+[12:09:31 PM] 📄 DESCRIPTION FROM GENERIC: Buy Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers, Bedroom, with Sunrise Simulation, Sleep Aid, Dual Alarms, FM Radio, Snooze, Nightlight, Daylight, 7 Colors, 7 Natural Sounds, Ideal for Gift: Clock Radios - Amazon.com ✓ FREE DELIVERY possible on eligible purchases
+[12:09:31 PM] 🧩 PRICE: Trying custom handler...
+[12:09:31 PM] 🧩 CUSTOM PRICE SUCCESS: 32.88
+[12:09:31 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:09:31 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:09:31 PM] 🧩 IMAGES: Trying custom handler...
+[12:09:31 PM] 🧩 CUSTOM IMAGES: {"count":3,"images":["https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL116_SR116,116_.jpg","https://m.media-amazon.com/images/I/31tQOppQ+jL.jpg","https://m.media-amazon.com/images/I/
+[12:09:31 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[12:09:31 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":3}
+[12:09:31 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":3}
+[12:09:31 PM] ✅ SINGLE IMAGE (score: 60): https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL116_SR116,116_.jpg
+60
+📋 Copy URL
+[12:09:31 PM] ✅ SINGLE IMAGE (score: 70): https://m.media-amazon.com/images/I/31tQOppQ+jL.jpg
+70
+📋 Copy URL
+[12:09:31 PM] ✅ SINGLE IMAGE (score: 55): https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg
+55
+📋 Copy URL
+[12:09:31 PM] 🎯 HIGH SCORE + SIZE OK (70): https://m.media-amazon.com/images/I/31tQOppQ+jL.jpg
+70
+📋 Copy URL
+[12:09:31 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg
+55
+📋 Copy URL
+[12:09:31 PM] 📏 CHECKING ACTUAL FILE SIZES for 1 borderline images...
+[12:09:31 PM] 📉 TRULY TINY REJECTED (3KB): https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL116_SR116,116_.jpg
+60
+📋 Copy URL
+[12:09:31 PM] 🏆 TOP SCORED IMAGES: ["31tQOppQ+jL.jpg (score: 70)","51q7d1TAcQL._AC_SL1500_.jpg (score: 55)"]
+[12:09:31 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":1,"duplicateGroups":0,"kept":3}
+[12:09:31 PM] 🖼️ FINAL IMAGES: ["https://m.media-amazon.com/images/I/31tQOppQ+jL.jpg","https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg"]
+[12:09:31 PM] 🖼️ FINAL IMAGES: {"count":2,"images":["https://m.media-amazon.com/images/I/31tQOppQ+jL.jpg","https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg"]}
+[12:09:31 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Wake Up Light Sunrise Alarm Clock for Kids, Heavy ","brand":"Brand JALL","description":"Buy Wake Up Light Sunrise Alarm Clock for Kids, He","price":"32.88","imageCount":2,"firstImages
+[12:09:31 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":2}
+[12:09:31 PM] ✅ Debug trace complete
