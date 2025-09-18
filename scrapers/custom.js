@@ -1392,6 +1392,98 @@ const ALIEXPRESS = {
   }
 };
 
+// ---------- American Eagle ----------
+const AE = {
+  match: (h) => /americaneagle\.com$/i.test(h),
+  
+  price(doc = document) {
+    // Target AE's specific price structure from DOM inspection
+    const selectors = [
+      '.sale-price',
+      '.price-promo', 
+      '[data-testid*="sale-price"]',
+      '[data-testid*="price"]',
+      '.extras-price-group_kfr7e8 .sale-price',
+      '.price-options-list_price-on-sale_1bm605',
+      '.product-list-price-on-sale'
+    ];
+    
+    for (const sel of selectors) {
+      const el = doc.querySelector(sel);
+      if (el) {
+        let priceText = el.textContent?.trim() || '';
+        // Clean up the price text
+        priceText = priceText.replace(/\s+/g, ' ').trim();
+        if (priceText && /\$\d+(\.\d{2})?/.test(priceText)) {
+          console.log(`[DEBUG] AE price found with selector: ${sel} -> ${priceText}`);
+          return priceText;
+        }
+      }
+    }
+    
+    // Fallback to any element containing price-like text
+    const allPriceElements = doc.querySelectorAll('[class*="price"], [data-testid*="price"]');
+    for (const el of allPriceElements) {
+      const text = el.textContent?.trim() || '';
+      if (text && /\$\d+(\.\d{2})?/.test(text) && !text.includes('$0') && !text.includes('Free')) {
+        console.log(`[DEBUG] AE price fallback: ${text}`);
+        return text;
+      }
+    }
+    
+    return null;
+  },
+
+  async images(doc = document) {
+    const urls = new Set();
+    
+    // Target AE's high-res responsive image classes from DOM inspection  
+    const selectors = [
+      '.img-responsive_product-image_1b27dg',
+      '[class*="img-responsive_product-image"]',
+      '[class*="product-image-placeholder"]', 
+      '.product-image-placeholder_1b27dg',
+      '[class*="img-responsive"][class*="product"]',
+      '.product-badges_ae-product-badges img',
+      '[data-testid*="product-image"]'
+    ];
+    
+    console.log(`[DEBUG] AE scanning for images with ${selectors.length} selectors`);
+    
+    for (const sel of selectors) {
+      doc.querySelectorAll(sel).forEach(img => {
+        const src = img.currentSrc || img.src || img.getAttribute('data-src') || img.getAttribute('data-original');
+        if (src && !src.includes('data:image') && !src.includes('blank.gif')) {
+          urls.add(src);
+          console.log(`[DEBUG] AE image from ${sel}: ${src.slice(-50)}`);
+        }
+      });
+    }
+    
+    // Convert to array and sort by likely quality/size indicators
+    const results = Array.from(urls).sort((a, b) => {
+      let scoreA = 0, scoreB = 0;
+      
+      // Prefer larger dimensions in URLs
+      const dimA = a.match(/(\d{3,4})x(\d{3,4})|w(\d{3,4})/i);
+      const dimB = b.match(/(\d{3,4})x(\d{3,4})|w(\d{3,4})/i);
+      if (dimA) scoreA += parseInt(dimA[1] || dimA[3] || 0);
+      if (dimB) scoreB += parseInt(dimB[1] || dimB[3] || 0);
+      
+      // Prefer JPG over other formats
+      if (/\.(jpg|jpeg)($|\?)/i.test(a)) scoreA += 50;
+      if (/\.(jpg|jpeg)($|\?)/i.test(b)) scoreB += 50;
+      
+      return scoreB - scoreA;
+    });
+    
+    console.log(`[DEBUG] AE final results: ${results.length} images`);
+    console.log(`[DEBUG] AE top 3:`, results.slice(0, 3));
+    
+    return results.slice(0, 20);
+  }
+};
+
 const REGISTRY = [
   AMZ,
   NIKE,
@@ -1423,6 +1515,7 @@ const REGISTRY = [
   { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
   MESHKI,
   ALIEXPRESS,
+  AE,
 
 
 ];
