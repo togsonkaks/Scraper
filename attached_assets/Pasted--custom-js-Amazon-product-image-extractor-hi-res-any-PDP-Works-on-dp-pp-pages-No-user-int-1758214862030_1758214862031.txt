@@ -1,0 +1,120 @@
+// custom.js — Amazon product image extractor (hi-res, any PDP)
+// Works on dp/pp pages. No user interaction required.
+
+(() => {
+  const SIZE_TOKEN = /_(SL|SX|SY|UX|UY)\d+_/g;           // Amazon size markers
+  const isAmz = u => typeof u === "string" && /m\.media-amazon\.com\/images\/I\//.test(u);
+  const norm = u => u
+    .replace(SIZE_TOKEN, "_SL3000_")                     // bump to large
+    .replace(/%2B/g, "+");                               // normalize plus
+
+  const dedupePush = (set, url) => { if (isAmz(url)) set.add(norm(url)); };
+
+  // --- 1) Collect from #landingImage (data-a-dynamic-image)
+  const collectFromLanding = set => {
+    const img = document.querySelector("#landingImage");
+    if (img?.dataset?.aDynamicImage) {
+      try {
+        const map = JSON.parse(img.dataset.aDynamicImage); // {url:[w,h], ...}
+        Object.keys(map).forEach(u => dedupePush(set, u));
+      } catch {}
+    }
+  };
+
+  // --- 2) Collect from embedded script JSON (imageGalleryData / colorImages / ImageBlockATF)
+  const collectFromScripts = set => {
+    const scripts = [...document.scripts].map(s => s.textContent || "");
+    const grabArray = (re) => {
+      for (const t of scripts) {
+        const m = t.match(re);
+        if (m) {
+          try { return JSON.parse(m[1]); } catch {}
+        }
+      }
+      return null;
+    };
+    const grabObject = (re) => {
+      for (const t of scripts) {
+        const m = t.match(re);
+        if (m) {
+          try { return JSON.parse(m[1]); } catch {}
+        }
+      }
+      return null;
+    };
+
+    // A. imageGalleryData: [{hiRes, mainUrl, large, thumb, ...}]
+    const galleryArr = grabArray(/"imageGalleryData"\s*:\s*(\[[\s\S]*?\])/);
+    if (Array.isArray(galleryArr)) {
+      galleryArr.forEach(o => ["hiRes","mainUrl","large","zoom","thumb","variant"]
+        .forEach(k => o?.[k] && dedupePush(set, o[k])));
+    }
+
+    // B. colorImages: {"initial":[{hiRes, large, ...}], ...}
+    const colorObj = grabObject(/"colorImages"\s*:\s*({[\s\S]*?})/);
+    if (colorObj?.initial) {
+      colorObj.initial.forEach(o => ["hiRes","large","mainUrl","thumb"]
+        .forEach(k => o?.[k] && dedupePush(set, o[k])));
+    }
+
+    // C. ImageBlockATF (older pages)
+    const atfObj = grabObject(/"ImageBlockATF"\s*:\s*({[\s\S]*?})/);
+    if (atfObj?.hiRes) dedupePush(set, atfObj.hiRes);
+    if (Array.isArray(atfObj?.variant)) atfObj.variant.forEach(u => dedupePush(set, u));
+  };
+
+  // --- 3) If immersive viewer is already mounted, grab its current sources
+  const collectFromViewer = set => {
+    document.querySelectorAll("img.fullscreen, .ivLargeImage img").forEach(img => {
+      const src = img.currentSrc || img.src;
+      if (src) dedupePush(set, src);
+    });
+  };
+
+  // --- 4) Fallback: scan any <img> that looks like a gallery asset
+  const collectFallbackImgs = set => {
+    document.querySelectorAll("img").forEach(img => {
+      const src = img.currentSrc || img.src;
+      if (src) dedupePush(set, src);
+    });
+  };
+
+  // --- runner
+  function collectAll() {
+    const out = new Set();
+    collectFromLanding(out);
+    collectFromScripts(out);
+    collectFromViewer(out);
+    // if nothing useful yet (or page is slow), fall back to scanning imgs
+    if (out.size < 2) collectFallbackImgs(out);
+    // prefer JPEGs; keep order stable
+    return [...out].sort((a, b) => a.localeCompare(b));
+  }
+
+  // expose small API
+  window.AmzHiRes = {
+    list: collectAll,                          // returns array of hi-res URLs now
+    copy() {                                   // copies to clipboard
+      const data = collectAll().join("\n");
+      navigator.clipboard?.writeText(data);
+      console.log("Copied", data.split("\n").length, "URLs");
+      return data;
+    },
+    downloadAll(delay = 400) {                 // sequential download
+      const urls = collectAll();
+      let i = 0;
+      const tick = () => {
+        if (i >= urls.length) return console.log("Done downloading", urls.length, "images.");
+        const a = document.createElement("a");
+        a.href = encodeURI(urls[i]);
+        a.download = urls[i].split("/").pop().split("?")[0];
+        document.body.appendChild(a); a.click(); a.remove();
+        i++; setTimeout(tick, delay);
+      };
+      tick();
+    }
+  };
+
+  // optional: auto-log once after DOM settles
+  setTimeout(() => console.log("Amazon hi-res images:", AmzHiRes.list()), 1200);
+})();

@@ -1,0 +1,145 @@
+// Amazon PDP hi-res extractor (robust)
+// Usage: const urls = getAmazonHiRes();  // returns array of SL3000 URLs
+function getAmazonHiRes(doc = document) {
+  const out = new Set();
+
+  // --- Helpers
+  const isAmz = u =>
+    typeof u === "string" &&
+    /(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|images-amazon\.com)\/images\/I\//.test(u);
+
+  // Strip query & normalize encoding (Amazon sometimes leaves raw + in path)
+  const clean = u => {
+    try {
+      // drop query
+      const noQ = u.split("?")[0];
+      // normalize + that are sometimes %2B or raw
+      return noQ.replace(/%2B/g, "+");
+    } catch { return u; }
+  };
+
+  // Normalize all size/crop tokens to a large size
+  // Examples we handle: _AC_, _SL1500_, _SX999_, _SY999_, _UX999_, _UY999_, _CR0,0,1500,1500_
+  const normalizeSize = u =>
+    clean(u)
+      .replace(/_AC_/g, "_AC_") // keep AC marker (required by some CDNs) but we’ll control size next
+      .replace(/_(SX|SY|SL|UX|UY)\d+_/g, "_SL3000_") // scale up
+      .replace(/_CR\d+,\d+,\d+,\d+_/g, "_CR0,0,3000,3000_") // uncrop-ish (forces large crop box)
+      .replace(/_QL\d+_/g, "_QL100_"); // quality token
+
+  // “Base key” for grouping: everything before ._ token
+  // I/71+Bh0QZZnL._AC_SL3000_.jpg  -> 71+Bh0QZZnL
+  const baseKey = u => {
+    try {
+      const p = new URL(u, location.href).pathname;
+      const key = p.replace(/^.*\/I\//, "").replace(/\._.*$/, "");
+      return key;
+    } catch {
+      return u.replace(/^.*\/I\//, "").replace(/\._.*$/, "");
+    }
+  };
+
+  // Add with normalization & grouping by base key
+  const seenBase = new Set();
+  const add = u => {
+    if (!isAmz(u)) return;
+    const norm = normalizeSize(u);
+    const key = baseKey(norm);
+    if (seenBase.has(key)) return; // keep one best per image
+    seenBase.add(key);
+    out.add(norm);
+    // console.debug("[AMZ] +", norm);
+  };
+
+  // --- 1) data-a-dynamic-image
+  doc.querySelectorAll('img[data-a-dynamic-image]').forEach(img => {
+    try {
+      const map = JSON.parse(img.getAttribute('data-a-dynamic-image'));
+      Object.keys(map).forEach(add);
+    } catch {}
+  });
+
+  // --- 2) explicit hi-res data attributes
+  doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]')
+    .forEach(img => {
+      ['data-old-hires','data-a-hires','data-zoom-image','data-large-image']
+        .forEach(attr => { const u = img.getAttribute(attr); if (u) add(u); });
+    });
+
+  // --- 3) immersive viewer (if mounted)
+  doc.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
+    const u = img.currentSrc || img.src;
+    if (u) add(u);
+  });
+
+  // --- 4) embedded JSON blobs (imageGalleryData, colorImages, ImageBlockATF)
+  const scriptsText = Array.from(doc.scripts).map(s => s.textContent || "");
+  const readArray = (re) => {
+    for (const t of scriptsText) {
+      const m = t.match(re);
+      if (m) { try { return JSON.parse(m[1]); } catch {} }
+    }
+    return null;
+  };
+  const readObject = (re) => {
+    for (const t of scriptsText) {
+      const m = t.match(re);
+      if (m) { try { return JSON.parse(m[1]); } catch {} }
+    }
+    return null;
+  };
+
+  const gallery = readArray(/"imageGalleryData"\s*:\s*(\[[\s\S]*?\])/);
+  if (Array.isArray(gallery)) {
+    gallery.forEach(obj => ['hiRes','mainUrl','large','zoom','thumb','variant']
+      .forEach(k => obj?.[k] && add(obj[k])));
+  }
+
+  const colorImages = readObject(/"colorImages"\s*:\s*({[\s\S]*?})/);
+  if (colorImages?.initial) {
+    colorImages.initial.forEach(obj => ['hiRes','large','mainUrl','thumb']
+      .forEach(k => obj?.[k] && add(obj[k])));
+  }
+
+  const atf = readObject(/"ImageBlockATF"\s*:\s*({[\s\S]*?})/);
+  if (atf?.hiRes) add(atf.hiRes);
+  if (Array.isArray(atf?.variant)) atf.variant.forEach(add);
+
+  // --- 5) fallback: any inline <img> that looks like a product asset
+  if (out.size === 0) {
+    doc.querySelectorAll('img[src*="/images/I/"]').forEach(img => {
+      const u = img.currentSrc || img.src;
+      if (u && !/grey-pixel|sprite|play-icon|\.gif$/i.test(u)) add(u);
+    });
+  }
+
+  // return a stable list (prefer jpgs first)
+  return Array.from(out).sort((a,b) => {
+    const aj = a.endsWith(".jpg") ? 0 : 1;
+    const bj = b.endsWith(".jpg") ? 0 : 1;
+    return aj - bj || a.localeCompare(b);
+  });
+}
+
+// Optional helpers:
+window.AmzHiRes = {
+  list: () => getAmazonHiRes(),
+  copy: () => {
+    const data = getAmazonHiRes().join("\n");
+    navigator.clipboard?.writeText(data);
+    console.log("Copied", (data && data.split("\n").length) || 0, "URLs");
+    return data;
+  },
+  downloadAll: (delay=400) => {
+    const urls = getAmazonHiRes();
+    let i = 0;
+    (function tick(){
+      if (i >= urls.length) return console.log("Done downloading", urls.length);
+      const a = document.createElement("a");
+      a.href = encodeURI(urls[i]);
+      a.download = urls[i].split("/").pop().split("?")[0];
+      document.body.appendChild(a); a.click(); a.remove();
+      i++; setTimeout(tick, delay);
+    })();
+  }
+};

@@ -109,124 +109,132 @@ const AMZ = {
   },
 
   images(doc = document) {
-    const rawUrls = new Set();
+    const out = new Set();
     
-    // HELPER: Extract base image ID from Amazon URL (e.g., "51qfFDQNniL" from any variant)
-    const getBaseImageId = (url) => {
-      const match = url.match(/\/images\/I\/([A-Za-z0-9+\-]+)/);
-      return match ? match[1] : null;
+    // ROBUST HELPERS - Handle all Amazon tokens and edge cases
+    const isAmz = u => typeof u === "string" && 
+      /(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|images-amazon\.com)\/images\/I\//.test(u);
+    
+    const clean = u => {
+      try {
+        const noQ = u.split("?")[0];
+        return noQ.replace(/%2B/g, "+");
+      } catch { return u; }
     };
     
-    // HELPER: Upgrade small thumbnails to high quality
-    const upgradeToHighQuality = (url) => {
-      if (/images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
-        // Remove existing size parameters and add high-quality ones
-        return url
-          .replace(/_AC_[SU][SXYL]\d+_/g, '')
-          .replace(/\._[A-Z]{2}\d+_/g, '')
-          .replace(/(\.[^.]+)$/, '._AC_SL1500_$1');
+    // Normalize all size/crop tokens to high quality
+    const normalizeSize = u => clean(u)
+      .replace(/_AC_/g, "_AC_") // Keep AC marker
+      .replace(/_(SX|SY|SL|UX|UY)\d+_/g, "_SL1500_") // Scale up all size tokens
+      .replace(/_CR\d+,\d+,\d+,\d+_/g, "_CR0,0,1500,1500_") // Uncrop to large
+      .replace(/_QL\d+_/g, "_QL100_"); // Max quality
+    
+    // Base key for grouping: I/71+Bh0QZZnL._AC_SL1500_.jpg -> 71+Bh0QZZnL
+    const baseKey = u => {
+      try {
+        const p = new URL(u, location.href).pathname;
+        return p.replace(/^.*\/I\//, "").replace(/\._.*$/, "");
+      } catch {
+        return u.replace(/^.*\/I\//, "").replace(/\._.*$/, "");
       }
-      return url;
     };
     
-    // 1. ZOOM DATA PARSING: Extract from data-a-dynamic-image JSON
+    const seenBase = new Set();
+    const add = u => {
+      if (!isAmz(u)) return;
+      const norm = normalizeSize(u);
+      const key = baseKey(norm);
+      if (seenBase.has(key)) return; // Prevent duplicates of same image
+      seenBase.add(key);
+      out.add(norm);
+      console.log(`[DEBUG] Amazon added: ${key} -> ${norm.slice(-50)}`);
+    };
+    
+    // 1. data-a-dynamic-image JSON
     doc.querySelectorAll('img[data-a-dynamic-image]').forEach(img => {
       try {
-        const jsonData = img.getAttribute('data-a-dynamic-image');
-        if (jsonData) {
-          const imageMap = JSON.parse(jsonData);
-          Object.entries(imageMap).forEach(([url, dimensions]) => {
-            const [width, height] = dimensions;
-            const maxDimension = Math.max(width, height);
-            
-            // Accept high-resolution Amazon images
-            if (maxDimension >= 400 && /images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
-              rawUrls.add(url);
-              console.log(`[DEBUG] Amazon JSON image: ${maxDimension}px - ${url}`);
-            }
+        const map = JSON.parse(img.getAttribute('data-a-dynamic-image'));
+        Object.keys(map).forEach(add);
+      } catch(e) {
+        console.log('[DEBUG] Amazon JSON parse error:', e.message);
+      }
+    });
+    
+    // 2. Data attributes
+    doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]')
+      .forEach(img => {
+        ['data-old-hires','data-a-hires','data-zoom-image','data-large-image']
+          .forEach(attr => { 
+            const u = img.getAttribute(attr); 
+            if (u) add(u); 
           });
-        }
-      } catch (e) {
-        console.log('[DEBUG] Amazon data-a-dynamic-image parse error:', e.message);
-      }
-    });
-    
-    // 2. ZOOM CONTAINER DETECTION
-    doc.querySelectorAll('[data-action="iv-largeimage"], #ivLargeImage, .iv-large-image').forEach(container => {
-      const img = container.querySelector('img') || container;
-      if (img.src || img.currentSrc) {
-        let zoomUrl = img.currentSrc || img.src;
-        if (/images\/I\//.test(zoomUrl) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(zoomUrl)) {
-          rawUrls.add(zoomUrl);
-          console.log(`[DEBUG] Amazon zoom container: ${zoomUrl}`);
-        }
-      }
-    });
-    
-    // 3. DATA ATTRIBUTE EXTRACTION
-    doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]').forEach(img => {
-      const hdUrl = img.getAttribute('data-old-hires') || 
-                    img.getAttribute('data-a-hires') ||
-                    img.getAttribute('data-zoom-image') ||
-                    img.getAttribute('data-large-image');
-      if (hdUrl && /images\/I\//.test(hdUrl) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(hdUrl)) {
-        rawUrls.add(hdUrl);
-        console.log(`[DEBUG] Amazon data attribute: ${hdUrl}`);
-      }
-    });
-    
-    // 4. GALLERY IMAGES FALLBACK
-    if (rawUrls.size < 3) {
-      doc.querySelectorAll('img[src*="images/I/"]').forEach(img => {
-        let url = img.currentSrc || img.src;
-        if (url && /images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
-          // Skip obvious junk
-          if (!/grey-pixel|play-icon|overlay|\.gif$|_SR\d{1,2},\d{1,2}_|aplus-media/.test(url)) {
-            rawUrls.add(url);
-            console.log(`[DEBUG] Amazon gallery image: ${url}`);
-          }
-        }
       });
-    }
     
-    // INTELLIGENT DEDUPLICATION: Group by base image ID, keep best quality of each
-    const imageGroups = new Map();
+    // 3. Zoom containers
+    doc.querySelectorAll('img.fullscreen, .ivLargeImage img, [data-action="iv-largeimage"] img').forEach(img => {
+      const u = img.currentSrc || img.src;
+      if (u) add(u);
+    });
     
-    for (const url of rawUrls) {
-      const baseId = getBaseImageId(url);
-      if (baseId) {
-        if (!imageGroups.has(baseId)) {
-          imageGroups.set(baseId, []);
-        }
-        imageGroups.get(baseId).push(url);
+    // 4. HIDDEN JSON GOLD MINES - This is where the real treasure is!
+    const scriptsText = Array.from(doc.scripts).map(s => s.textContent || "");
+    
+    const readArray = (re) => {
+      for (const t of scriptsText) {
+        const m = t.match(re);
+        if (m) { try { return JSON.parse(m[1]); } catch {} }
       }
+      return null;
+    };
+    
+    const readObject = (re) => {
+      for (const t of scriptsText) {
+        const m = t.match(re);
+        if (m) { try { return JSON.parse(m[1]); } catch {} }
+      }
+      return null;
+    };
+    
+    // imageGalleryData array - Main product gallery
+    const gallery = readArray(/"imageGalleryData"\s*:\s*(\[[\s\S]*?\])/);
+    if (Array.isArray(gallery)) {
+      gallery.forEach(obj => ['hiRes','mainUrl','large','zoom','thumb','variant']
+        .forEach(k => obj?.[k] && add(obj[k])));
+      console.log(`[DEBUG] Amazon imageGalleryData found ${gallery.length} items`);
     }
     
-    const finalUrls = [];
+    // colorImages object - Color variants
+    const colorImages = readObject(/"colorImages"\s*:\s*({[\s\S]*?})/);
+    if (colorImages?.initial) {
+      colorImages.initial.forEach(obj => ['hiRes','large','mainUrl','thumb']
+        .forEach(k => obj?.[k] && add(obj[k])));
+      console.log(`[DEBUG] Amazon colorImages found ${colorImages.initial.length} items`);
+    }
     
-    for (const [baseId, urls] of imageGroups) {
-      // Sort by quality preference: SL1500 > SL1200 > SL800 > others
-      const sorted = urls.sort((a, b) => {
-        const aSize = a.match(/_SL(\d+)_/) ? parseInt(a.match(/_SL(\d+)_/)[1]) : 0;
-        const bSize = b.match(/_SL(\d+)_/) ? parseInt(b.match(/_SL(\d+)_/)[1]) : 0;
-        return bSize - aSize; // Higher size first
+    // ImageBlockATF object - Above-the-fold images
+    const atf = readObject(/"ImageBlockATF"\s*:\s*({[\s\S]*?})/);
+    if (atf?.hiRes) add(atf.hiRes);
+    if (Array.isArray(atf?.variant)) atf.variant.forEach(add);
+    if (atf) console.log(`[DEBUG] Amazon ImageBlockATF found`);
+    
+    // 5. Fallback: scan inline images (only if no JSON data found)
+    if (out.size === 0) {
+      doc.querySelectorAll('img[src*="/images/I/"]').forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && !/grey-pixel|sprite|play-icon|\.gif$/i.test(u)) add(u);
       });
-      
-      let bestUrl = sorted[0];
-      
-      // If the best we found is still a small thumbnail, upgrade it
-      if (/_US\d{2}_|_SS\d{2,3}_|_UL\d{2,3}_/.test(bestUrl)) {
-        bestUrl = upgradeToHighQuality(bestUrl);
-        console.log(`[DEBUG] Amazon upgraded thumbnail: ${baseId} -> ${bestUrl}`);
-      } else {
-        console.log(`[DEBUG] Amazon kept best quality: ${baseId} -> ${bestUrl}`);
-      }
-      
-      finalUrls.push(bestUrl);
+      console.log(`[DEBUG] Amazon fallback scan activated`);
     }
     
-    console.log(`[DEBUG] Amazon deduplication: ${rawUrls.size} raw → ${finalUrls.length} unique`);
-    return finalUrls.slice(0, 20);
+    // Return stable sorted list (prefer JPGs, stable order)
+    const result = Array.from(out).sort((a,b) => {
+      const aj = a.endsWith(".jpg") ? 0 : 1;
+      const bj = b.endsWith(".jpg") ? 0 : 1;
+      return aj - bj || a.localeCompare(b);
+    });
+    
+    console.log(`[DEBUG] Amazon robust extraction: ${result.length} unique high-res images`);
+    return result.slice(0, 20);
   }
 };
 
