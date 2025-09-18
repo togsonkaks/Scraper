@@ -1388,8 +1388,24 @@
     return v || null;
   }
   function getBrand() {
-    // First try JSON-LD structured data
-    for (const b of document.querySelectorAll('script[type="application/ld+json"]')) {
+    // First try JSON-LD structured data - FOCUSED ON MAIN PRODUCT AREA
+    const productContainers = ['#ivImageBlock', '#iv-tab-view-container', '.iv-box'];
+    const jsonLdScripts = [];
+    
+    // Try focused containers first
+    for (const container of productContainers) {
+      const containerEl = document.querySelector(container);
+      if (containerEl) {
+        jsonLdScripts.push(...containerEl.querySelectorAll('script[type="application/ld+json"]'));
+      }
+    }
+    
+    // Fallback to page-wide if nothing found in containers
+    if (jsonLdScripts.length === 0) {
+      jsonLdScripts.push(...document.querySelectorAll('script[type="application/ld+json"]'));
+    }
+    
+    for (const b of jsonLdScripts) {
       try {
         const data = JSON.parse(b.textContent.trim());
         const arr = Array.isArray(data) ? data : [data];
@@ -1421,7 +1437,20 @@
     ];
     
     for (const sel of brandSelectors) {
-      const el = document.querySelector(sel);
+      // Try focused containers first
+      let el = null;
+      for (const container of productContainers) {
+        const containerEl = document.querySelector(container);
+        if (containerEl) {
+          el = containerEl.querySelector(sel);
+          if (el) break;
+        }
+      }
+      
+      // Fallback to page-wide if nothing found in containers
+      if (!el) {
+        el = document.querySelector(sel);
+      }
       if (el) {
         let brandText = "";
         if (sel.includes('data-brand')) {
@@ -1436,8 +1465,22 @@
       }
     }
     
-    // Try to extract brand from breadcrumbs
-    const breadcrumb = document.querySelector('.breadcrumb, nav[aria-label*="breadcrumb"], [class*="breadcrumb"]');
+    // Try to extract brand from breadcrumbs - FOCUSED ON MAIN PRODUCT AREA
+    let breadcrumb = null;
+    
+    // Try focused containers first
+    for (const container of productContainers) {
+      const containerEl = document.querySelector(container);
+      if (containerEl) {
+        breadcrumb = containerEl.querySelector('.breadcrumb, nav[aria-label*="breadcrumb"], [class*="breadcrumb"]');
+        if (breadcrumb) break;
+      }
+    }
+    
+    // Fallback to page-wide if nothing found in containers
+    if (!breadcrumb) {
+      breadcrumb = document.querySelector('.breadcrumb, nav[aria-label*="breadcrumb"], [class*="breadcrumb"]');
+    }
     if (breadcrumb) {
       const links = breadcrumb.querySelectorAll('a');
       // Look for brand in second or third breadcrumb item (often: Home > Brand > Category > Product)
