@@ -295,7 +295,7 @@ const AMZ = {
     });
 
     // 5) last resort: any inline product-looking <img> (sanitized doc)
-    if (out.size === 0) {
+    if (qualityImages.size === 0) {
       doc.querySelectorAll('img[src*="/images/I/"]').forEach((img) => {
         const u = img.currentSrc || img.src;
         if (u && !/sprite|grey\-pixel|\.gif$/i.test(u)) add(u);
