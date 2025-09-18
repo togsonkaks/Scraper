@@ -52,3 +52,4 @@ outputType = "vnc"
 
 [nix]
 channel = "stable-25_05"
+packages = ["glib", "gtk3", "cairo", "pango", "gdk-pixbuf", "atk", "libdrm", "xorg.libxcb", "xorg.libX11", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXext", "xorg.libXfixes", "xorg.libXrandr", "xorg.libXrender", "xorg.libXtst", "xorg.libXScrnSaver", "nss", "nspr", "alsa-lib", "cups", "dbus", "expat", "fontconfig", "freetype", "libxkbcommon", "libxslt", "systemd", "mesa", "libGL", "vulkan-loader", "vulkan-tools", "xorg.xorgserver", "xvfb-run"]

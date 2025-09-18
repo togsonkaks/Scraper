@@ -1077,53 +1077,37 @@ const ALIEXPRESS = {
   match: (h) => /(^|\.)aliexpress\.(com|us)$/i.test(h),
 
   title(doc = document) {
-    console.log("[DEBUG] AliExpress title extraction starting...");
-    
-    // Helper function to clean text (in case T() is not available)
-    const cleanText = (text) => {
-      if (!text) return null;
-      return text.trim().replace(/\s+/g, ' ').replace(/[\r\n]+/g, ' ').trim();
-    };
-    
-    // Try product title selectors in order of preference
-    const titleSelectors = [
-      'h1[data-pl="product-title"]',
-      '.product-title h1', 
-      '.title-wrap h1',
-      'h1.product-title',
-      '.pdp-product-title h1',
-      'h1.title',
-      '[data-spm-anchor-id*="product_title"] h1',
-      '.product-info h1',
-      'h1'
-    ];
-    
-    for (const selector of titleSelectors) {
-      try {
-        const elements = doc.querySelectorAll(selector);
-        console.log(`[DEBUG] AliExpress trying selector '${selector}', found ${elements.length} elements`);
-        
-        for (const el of elements) {
-          if (el && el.textContent) {
-            const title = cleanText(el.textContent);
-            console.log(`[DEBUG] AliExpress found text: '${title}'`);
-            
-            if (title && 
-                title.toLowerCase() !== 'aliexpress' && 
-                title.length > 5 &&
-                !title.toLowerCase().includes('sign in') &&
-                !title.toLowerCase().includes('register')) {
-              console.log("[DEBUG] AliExpress title ACCEPTED:", title);
-              return title;
-            }
-          }
+    // Simplified approach - get the exact element you showed me
+    try {
+      const titleElement = doc.querySelector('h1[data-pl="product-title"]');
+      if (titleElement && titleElement.textContent) {
+        const title = titleElement.textContent.trim();
+        if (title && title.toLowerCase() !== 'aliexpress') {
+          return title;
         }
-      } catch (e) {
-        console.log(`[DEBUG] AliExpress title selector '${selector}' failed:`, e.message);
       }
+    } catch (e) {
+      // Silent fallback
     }
     
-    console.log("[DEBUG] AliExpress title extraction failed - no valid title found");
+    // Fallback: try any h1 with substantial content
+    try {
+      const h1Elements = doc.querySelectorAll('h1');
+      for (const h1 of h1Elements) {
+        if (h1.textContent) {
+          const title = h1.textContent.trim();
+          if (title && 
+              title.length > 10 && 
+              title.toLowerCase() !== 'aliexpress' &&
+              !title.toLowerCase().includes('sign in')) {
+            return title;
+          }
+        }
+      }
+    } catch (e) {
+      // Silent fallback
+    }
+    
     return null;
   },
 
@@ -1133,10 +1117,20 @@ const ALIEXPRESS = {
     
     // STEP 1: Cast a wide net - collect ALL images first
     doc.querySelectorAll('img').forEach(img => {
-      const url = img.currentSrc || img.src;
+      let url = img.currentSrc || img.src;
       if (url) {
         // Only require basic URL validity - be permissive at collection stage
         if (url.startsWith('http') || url.startsWith('//')) {
+          
+          // STEP 1.5: UPGRADE AliExpress thumbnails to high-res BEFORE adding
+          const originalUrl = url;
+          url = url.replace(/_220x220q75\.jpg_\.avif/i, '_960x960q75.jpg_.avif');
+          url = url.replace(/_220x220\.jpg_\.webp/i, '_960x960.jpg_.webp');
+          
+          if (url !== originalUrl) {
+            console.log("[DEBUG] AliExpress UPGRADED:", originalUrl.substring(originalUrl.lastIndexOf('/') + 1), "→", url.substring(url.lastIndexOf('/') + 1));
+          }
+          
           urls.add(url);
           console.log("[DEBUG] AliExpress collected:", url.substring(url.lastIndexOf('/') + 1));
         }
