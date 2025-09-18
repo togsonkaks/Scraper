@@ -109,251 +109,108 @@ const AMZ = {
   },
 
   images(doc = document) {
-    const out = new Map(); // baseKey -> url for deduplication
-    let debugStats = {
-      dynamicImage: 0,
-      hiResAttrs: 0,
-      zoomContainers: 0,
-      aStateScripts: 0,
-      fallbackImages: 0,
-      totalProcessed: 0,
-      duplicatesSkipped: 0
-    };
-    
-    // ARCHITECT'S FIX 1: Route debug to orchestrator sink
-    const debug = msg => {
-      if (typeof window !== 'undefined' && window.__tg_debugLog) {
-        window.__tg_debugLog(msg);
-      } else {
-        console.log(msg);
-      }
-    };
-    
-    // ARCHITECT'S FIX 3: Handle comma dimensions in size tokens  
+    // route logs to orchestrator if present
+    const debug = (msg) => (window.__tg_debugLog ? window.__tg_debugLog(msg) : console.log(msg));
+
+    // Use BOTH: sanitized doc (selectors) + live doc (a-state scripts)
+    const live = window.document || doc;
+
+    // tokens: _AC_UL116_SR116,116_, _SL1500_, _UX999_, _CRx,y,w,h_, etc.
     const SIZE = /_(AC|SL|SX|SY|SR|SS|UX|UY|FM|UL|US)\d+(?:,\d+)*_/g;
-    const AMZ_IMG = /(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|images-amazon\.com)\/images\/I\//;
-    
-    const isAmz = u => typeof u === "string" && AMZ_IMG.test(u);
-    const clean = u => (u||"").split("?")[0].replace(/%2B/gi, "+");
-    const normalize = u => clean(u)
-      .replace(/_CR\d+,\d+,\d+,\d+_/g, "_")   // drop crops
-      .replace(SIZE, "_SL1500_");            // force large with fixed regex
-    
-    const baseKey = u => clean(u).replace(/^.*\/I\//, "").replace(/\._.*$/, "");
-    
-    const add = (u, source = 'unknown') => {
-      debugStats.totalProcessed++;
-      if (!isAmz(u)) {
-        debug(`[DEBUG] Amazon SKIP non-AMZ: ${u.slice(0, 60)}`);
-        return;
-      }
+    const AMZ_HOST = /(m\.media-amazon\.com|images-na\.ssl-images-amazon\.com|images-amazon\.com)\/images\/I\//;
+
+    const isAmz = (u) => typeof u === "string" && AMZ_HOST.test(u);
+    const clean = (u) => (u || "").split("?")[0].replace(/%2B/gi, "+");
+
+    // normalize: drop crops, upsize, keep _AC_ if present
+    const normalize = (u) =>
+      clean(u)
+        .replace(/_CR\d+,\d+,\d+,\d+_/g, "_")      // remove crop box
+        .replace(SIZE, "_SL1500_");               // force large size
+
+    const baseKey = (u) => clean(u).replace(/^.*\/I\//, "").replace(/\._.*$/, "");
+    const out = new Map(); // baseKey -> url
+    const add = (u) => {
+      if (!isAmz(u)) return;
       const n = normalize(u);
       const k = baseKey(n);
-      if (!out.has(k)) {
-        out.set(k, n);
-        debug(`[DEBUG] Amazon ADD [${source}]: ${k} -> ${n.slice(-60)}`);
-      } else {
-        debugStats.duplicatesSkipped++;
-        debug(`[DEBUG] Amazon DUPE [${source}]: ${k} (already have)`);
-      }
+      if (!out.has(k)) out.set(k, n);
     };
 
-    debug(`[DEBUG] Amazon starting extraction on: ${doc.location?.href || window?.location?.href || 'unknown URL'}`);
-
-    // ARCHITECT'S FIX 2: Check both sanitized doc AND live window.document for scripts
-    const liveScripts = (typeof window !== 'undefined' && window.document) 
-      ? window.document.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]')
-      : [];
-    const docScripts = doc.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]');
-    
-    debug(`[DEBUG] Amazon scripts: live=${liveScripts.length}, sanitized=${docScripts.length}`);
-    
-    // Use live document for script extraction if available
-    const targetDoc = (typeof window !== 'undefined' && window.document) ? window.document : doc;
-    const useScripts = liveScripts.length > 0 ? liveScripts : docScripts;
-
-    // 1. data-a-dynamic-image
-    const dynamicImages = doc.querySelectorAll('img[data-a-dynamic-image]');
-    debug(`[DEBUG] Amazon found ${dynamicImages.length} data-a-dynamic-image elements`);
-    
-    dynamicImages.forEach(img => {
+    // 1) data-a-dynamic-image (sanitized DOM still has attributes)
+    doc.querySelectorAll('img[data-a-dynamic-image]').forEach((img) => {
       try {
-        const map = JSON.parse(img.getAttribute('data-a-dynamic-image'));
-        const urls = Object.keys(map);
-        debug(`[DEBUG] Amazon dynamic-image JSON has ${urls.length} URLs`);
-        urls.forEach(url => {
-          add(url, 'dynamic-image');
-          debugStats.dynamicImage++;
+        const map = JSON.parse(img.getAttribute("data-a-dynamic-image"));
+        Object.keys(map).forEach(add);
+      } catch {}
+    });
+
+    // 2) explicit hi-res attributes
+    doc
+      .querySelectorAll(
+        'img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]'
+      )
+      .forEach((img) => {
+        ["data-old-hires", "data-a-hires", "data-zoom-image", "data-large-image"].forEach((a) => {
+          const u = img.getAttribute(a);
+          if (u) add(u);
         });
-      } catch(e) {
-        debug(`[DEBUG] Amazon dynamic-image JSON parse error: ${e.message}`);
-      }
-    });
-
-    // 2. explicit hi-res attrs
-    const hiResImgs = doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]');
-    debug(`[DEBUG] Amazon found ${hiResImgs.length} hi-res attribute elements`);
-    
-    hiResImgs.forEach(img => {
-      ['data-old-hires','data-a-hires','data-zoom-image','data-large-image']
-        .forEach(a => { 
-          const u = img.getAttribute(a); 
-          if (u) {
-            add(u, `attr-${a}`);
-            debugStats.hiResAttrs++;
-          }
-        });
-    });
-
-    // 3. immersive viewer/zoom containers
-    const zoomImgs = doc.querySelectorAll('img.fullscreen, .ivLargeImage img, #ivLargeImage img');
-    debug(`[DEBUG] Amazon found ${zoomImgs.length} zoom container elements`);
-    
-    zoomImgs.forEach(img => {
-      const u = img.currentSrc || img.src;
-      if (u) {
-        add(u, 'zoom-container');
-        debugStats.zoomContainers++;
-      }
-    });
-
-    // 4. THE BIG ONE - Amazon a-state JSON blobs! (using live document)
-    debug(`[DEBUG] Amazon processing ${useScripts.length} a-state script elements`);
-    
-    useScripts.forEach((s, idx) => {
-      try {
-        const stateAttr = s.getAttribute('data-a-state') || '{}';
-        const key = JSON.parse(stateAttr)?.key || "";
-        debug(`[DEBUG] Amazon a-state[${idx}] key: "${key}"`);
-        
-        if (!/image-block-state|dpx\-image-state|imageState/i.test(key)) {
-          debug(`[DEBUG] Amazon a-state[${idx}] SKIP: key doesn't match image patterns`);
-          return;
-        }
-        
-        const payload = JSON.parse(s.textContent || "{}");
-        debug(`[DEBUG] Amazon a-state[${idx}] SUCCESS: parsing payload with ${Object.keys(payload).length} root keys`);
-        
-        // Extract from imageGalleryData or colorImages
-        const galleryData = payload?.imageGalleryData;
-        const colorData = payload?.colorImages?.initial;
-        
-        if (galleryData && Array.isArray(galleryData)) {
-          debug(`[DEBUG] Amazon a-state[${idx}] imageGalleryData: ${galleryData.length} items`);
-          galleryData.forEach((o, i) => {
-            ['hiRes','mainUrl','large','zoom','thumb','variant'].forEach(k => {
-              if (o?.[k]) {
-                add(o[k], `gallery[${i}].${k}`);
-                debugStats.aStateScripts++;
-              }
-            });
-          });
-        }
-        
-        if (colorData && Array.isArray(colorData)) {
-          debug(`[DEBUG] Amazon a-state[${idx}] colorImages.initial: ${colorData.length} items`);
-          colorData.forEach((o, i) => {
-            ['hiRes','large','mainUrl','thumb'].forEach(k => {
-              if (o?.[k]) {
-                add(o[k], `color[${i}].${k}`);
-                debugStats.aStateScripts++;
-              }
-            });
-          });
-        }
-        
-        // Extract from ImageBlockATF
-        if (payload?.ImageBlockATF) {
-          const atf = payload.ImageBlockATF;
-          debug(`[DEBUG] Amazon a-state[${idx}] ImageBlockATF found`);
-          if (atf.hiRes) {
-            add(atf.hiRes, 'atf.hiRes');
-            debugStats.aStateScripts++;
-          }
-          if (Array.isArray(atf.variant)) {
-            debug(`[DEBUG] Amazon a-state[${idx}] ImageBlockATF variants: ${atf.variant.length}`);
-            atf.variant.forEach((url, i) => {
-              add(url, `atf.variant[${i}]`);
-              debugStats.aStateScripts++;
-            });
-          }
-        }
-      } catch(e) {
-        debug(`[DEBUG] Amazon a-state[${idx}] parse error: ${e.message}`);
-      }
-    });
-
-    // ARCHITECT'S FIX 4: Brief retry if no a-state scripts found (Amazon hydration)
-    if (useScripts.length === 0 && typeof window !== 'undefined') {
-      debug(`[DEBUG] Amazon NO a-state scripts - checking if page still loading...`);
-      // Quick retry - Amazon sometimes loads scripts async
-      const retryScripts = window.document.querySelectorAll('script[type="a-state"][data-a-state]');
-      debug(`[DEBUG] Amazon retry found ${retryScripts.length} a-state scripts`);
-      if (retryScripts.length > 0) {
-        debug(`[DEBUG] Amazon RETRY SUCCESS - processing delayed scripts`);
-        // Process the retry scripts with same logic as above
-        retryScripts.forEach((s, idx) => {
-          try {
-            const stateAttr = s.getAttribute('data-a-state') || '{}';
-            const key = JSON.parse(stateAttr)?.key || "";
-            if (!/image-block-state|dpx\-image-state|imageState/i.test(key)) return;
-            
-            const payload = JSON.parse(s.textContent || "{}");
-            const galleryData = payload?.imageGalleryData;
-            if (galleryData && Array.isArray(galleryData)) {
-              galleryData.forEach((o, i) => {
-                ['hiRes','mainUrl','large','zoom','thumb'].forEach(k => {
-                  if (o?.[k]) {
-                    add(o[k], `retry-gallery[${i}].${k}`);
-                    debugStats.aStateScripts++;
-                  }
-                });
-              });
-            }
-          } catch(e) {
-            debug(`[DEBUG] Amazon retry a-state[${idx}] error: ${e.message}`);
-          }
-        });
-      }
-    }
-
-    // 5. fallback only if nothing found
-    if (out.size === 0) {
-      debug('[DEBUG] Amazon NO IMAGES FOUND - activating fallback scan');
-      const fallbackImgs = doc.querySelectorAll('img[src*="/images/I/"]');
-      debug(`[DEBUG] Amazon fallback found ${fallbackImgs.length} potential image elements`);
-      
-      fallbackImgs.forEach(img => {
-        const u = img.currentSrc || img.src;
-        if (u && !/sprite|grey\-pixel|\.gif$/i.test(u)) {
-          add(u, 'fallback');
-          debugStats.fallbackImages++;
-        }
       });
-    }
 
-    // Final stats and results
-    debug(`[DEBUG] Amazon EXTRACTION COMPLETE:`);
-    debug(`[DEBUG]   - Dynamic image JSONs: ${debugStats.dynamicImage} images`);
-    debug(`[DEBUG]   - Hi-res attributes: ${debugStats.hiResAttrs} images`);
-    debug(`[DEBUG]   - Zoom containers: ${debugStats.zoomContainers} images`);
-    debug(`[DEBUG]   - A-state scripts: ${debugStats.aStateScripts} images`);
-    debug(`[DEBUG]   - Fallback scan: ${debugStats.fallbackImages} images`);
-    debug(`[DEBUG]   - Total processed: ${debugStats.totalProcessed} URLs`);
-    debug(`[DEBUG]   - Duplicates skipped: ${debugStats.duplicatesSkipped} URLs`);
-    debug(`[DEBUG]   - FINAL UNIQUE: ${out.size} high-res images`);
-
-    const results = Array.from(out.values()).sort((a,b) => {
-      const aj = a.endsWith(".jpg") ? 0 : 1, bj = b.endsWith(".jpg") ? 0 : 1;
-      return aj - bj || a.localeCompare(b);
-    }).slice(0, 20);
-
-    debug(`[DEBUG] Amazon FINAL RESULTS: ${results.length} images returned`);
-    results.forEach((url, i) => {
-      debug(`[DEBUG]   [${i+1}] ${url}`);
+    // 3) immersive viewer (if open)
+    doc.querySelectorAll("img.fullscreen, .ivLargeImage img").forEach((img) => {
+      const u = img.currentSrc || img.src;
+      if (u) add(u);
     });
 
-    return results;
+    // 4) a-state / application json — MUST read from LIVE DOM (sanitized doc strips scripts)
+    const aStateScripts =
+      live.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]') || [];
+    debug(`Amazon a-state scripts: live=${aStateScripts.length}`);
+
+    aStateScripts.forEach((s) => {
+      try {
+        const keyAttr = s.getAttribute("data-a-state");
+        const key = keyAttr ? JSON.parse(keyAttr).key || "" : "";
+        if (!/image\-block\-state|dpx\-image\-state|imageState/i.test(key)) return;
+
+        const payload = JSON.parse(s.textContent || "{}");
+
+        const gallery =
+          payload?.imageGalleryData ||
+          payload?.colorImages?.initial ||
+          payload?.imageBlock?.imageGalleryData ||
+          [];
+
+        (gallery || []).forEach((o) =>
+          ["hiRes", "mainUrl", "large", "zoom", "thumb", "variant"].forEach((k) => o?.[k] && add(o[k]))
+        );
+
+        const atf = payload?.ImageBlockATF || payload?.imageBlock?.ImageBlockATF;
+        if (atf?.hiRes) add(atf.hiRes);
+        (atf?.variant || []).forEach(add);
+      } catch (e) {
+        debug(`Amazon a-state parse error: ${e.message}`);
+      }
+    });
+
+    // 5) last resort: any inline product-looking <img> (sanitized doc)
+    if (out.size === 0) {
+      doc.querySelectorAll('img[src*="/images/I/"]').forEach((img) => {
+        const u = img.currentSrc || img.src;
+        if (u && !/sprite|grey\-pixel|\.gif$/i.test(u)) add(u);
+      });
+      debug("Amazon fallback <img> scan used (no a-state yet)");
+    }
+
+    const result = Array.from(out.values()).sort((a, b) => {
+      const aj = a.endsWith(".jpg") ? 0 : 1;
+      const bj = b.endsWith(".jpg") ? 0 : 1;
+      return aj - bj || a.localeCompare(b);
+    });
+
+    debug(`Amazon hi-res result count: ${result.length}`);
+    return result.slice(0, 20);
   }
 };
 
