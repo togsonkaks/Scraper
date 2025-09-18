@@ -1,0 +1,450 @@
+[12:55:22 PM] 🚀 Starting scrape operation for: https://www.amazon.com/dp/B081CHLF46?smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp&th=1
+[12:55:23 PM] 🚀 SCRAPE START {"host":"amazon.com","href":"https://www.amazon.com/dp/B081CHLF46?smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp&th=1","mode":"normal"}
+[12:55:23 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[12:55:23 PM] 🔄 NORMAL MODE - memory + fallbacks
+[12:55:23 PM] 🧩 TITLE: Trying custom handler...
+[12:55:23 PM] 🧩 CUSTOM TITLE SUCCESS: Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers, Bedroom, with Sunrise Simulation, Sleep Aid, Dual Alarms, FM Radio, Snooze, Nightlight, Daylight, 7 Colors, 7 Natural Sounds, Ideal for Gift
+[12:55:23 PM] 🏷️ BRAND: Falling back to generic...
+[12:55:23 PM] 🏷️ BRAND FROM GENERIC: Brand JALL
+[12:55:23 PM] 📄 DESCRIPTION: Falling back to generic...
+[12:55:23 PM] 📄 DESCRIPTION FROM GENERIC: Buy Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers, Bedroom, with Sunrise Simulation, Sleep Aid, Dual Alarms, FM Radio, Snooze, Nightlight, Daylight, 7 Colors, 7 Natural Sounds, Ideal for Gift: Clock Radios - Amazon.com ✓ FREE DELIVERY possible on eligible purchases
+[12:55:23 PM] 🧩 PRICE: Trying custom handler...
+[12:55:23 PM] 🧩 CUSTOM PRICE SUCCESS: 32.88
+[12:55:23 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:55:23 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:55:23 PM] 🧩 IMAGES: Trying custom handler...
+[12:55:23 PM] ❌ Custom image handler error: window.__tg_debugLog is not a function
+[12:55:23 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: []
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:55:23 PM] 🖼️ FINAL IMAGES: []
+[12:55:23 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:55:23 PM] 🖼️ Getting generic images for hostname: amazon.com
+[12:55:23 PM] 🎯 Trying site-specific selector for amazon.com: [data-csa-c-element-id*="image"] img
+[12:55:23 PM] 🔍 GATHERING IMAGES with selector: [data-csa-c-element-id*="image"] img
+[12:55:23 PM] 📊 Found 0 elements for selector: [data-csa-c-element-id*="image"] img
+[12:55:23 PM] 🖼️ Raw enriched URLs collected: 0
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: []
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:55:23 PM] 🖼️ FINAL IMAGES: []
+[12:55:23 PM] 🖼️ After hybrid filtering: 0 images
+[12:55:23 PM] 🎯 Trying site-specific selector for amazon.com: [class*="ivImages"] img
+[12:55:23 PM] 🔍 GATHERING IMAGES with selector: [class*="ivImages"] img
+[12:55:23 PM] 📊 Found 0 elements for selector: [class*="ivImages"] img
+[12:55:23 PM] 🖼️ Raw enriched URLs collected: 0
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: []
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:55:23 PM] 🖼️ FINAL IMAGES: []
+[12:55:23 PM] 🖼️ After hybrid filtering: 0 images
+[12:55:23 PM] 🎯 Trying site-specific selector for amazon.com: [id*="ivImage"] img
+[12:55:23 PM] 🔍 GATHERING IMAGES with selector: [id*="ivImage"] img
+[12:55:23 PM] 📊 Found 2 elements for selector: [id*="ivImage"] img
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/S/sash//pLB3SkYb3bHZzHQ.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/S/sash//pLB3SkYb3bHZzHQ.svg
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/S/sash//swRPyHOrgnz358_.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/S/sash//swRPyHOrgnz358_.svg
+[12:55:23 PM] 🖼️ Raw enriched URLs collected: 2
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":2}
+[12:55:23 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/S/sash//pLB3SkYb3bHZzHQ.svg
+0
+📋 Copy URL
+[12:55:23 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/S/sash//swRPyHOrgnz358_.svg
+0
+📋 Copy URL
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: []
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":2,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:55:23 PM] 🖼️ FINAL IMAGES: []
+[12:55:23 PM] 🖼️ After hybrid filtering: 0 images
+[12:55:23 PM] 🎯 Trying site-specific selector for amazon.com: .iv-tab img
+[12:55:23 PM] 🔍 GATHERING IMAGES with selector: .iv-tab img
+[12:55:23 PM] 📊 Found 0 elements for selector: .iv-tab img
+[12:55:23 PM] 🖼️ Raw enriched URLs collected: 0
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: []
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:55:23 PM] 🖼️ FINAL IMAGES: []
+[12:55:23 PM] 🖼️ After hybrid filtering: 0 images
+[12:55:23 PM] 🎯 Trying site-specific selector for amazon.com: [id*="altImages"] img
+[12:55:23 PM] 🔍 GATHERING IMAGES with selector: [id*="altImages"] img
+[12:55:23 PM] 📊 Found 8 elements for selector: [id*="altImages"] img
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485971279_SS40_FMpng_RI_.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":n
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485971279_SS40_FMpng_RI
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/318fiQgZpbL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/318fiQgZpbL._AC_US40_.jpg
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/41kHsVheHkL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/41kHsVheHkL._AC_US40_.jpg
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51g+NvLG9tL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51g+NvLG9tL._AC_US40_.jpg
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51GxMcNAIgL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51GxMcNAIgL._AC_US40_.jpg
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51aO+eQEirL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51aO+eQEirL._AC_US40_.jpg
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/41n3aRq0BgL._AC_US40_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/41n3aRq0BgL._AC_US40_.jpg
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://m.media-amazon.com/images/I/51PfBsPefYL.SS40_BG85,85,85_BR-120_PKdp-play-icon-overlay__.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://m.media-amazon.com/images/I/51PfBsPefYL.SS40_BG85,85,85_BR-120_PKdp-play-icon-overlay__.jpg
+[12:55:23 PM] 🖼️ Raw enriched URLs collected: 8
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[12:55:23 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/G/01/HomeCustomProduct/360_icon_73x73v2._CB485
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (25): https://m.media-amazon.com/images/I/318fiQgZpbL._AC_US40_.jpg
+25
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (25): https://m.media-amazon.com/images/I/41kHsVheHkL._AC_US40_.jpg
+25
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/51g+NvLG9tL._AC_US40_.jpg
+5
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/51GxMcNAIgL._AC_US40_.jpg
+5
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (5): https://m.media-amazon.com/images/I/51aO+eQEirL._AC_US40_.jpg
+5
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://m.media-amazon.com/images/I/41n3aRq0BgL._AC_US40_.jpg
+0
+📋 Copy URL
+[12:55:23 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/I/51PfBsPefYL.SS40_BG85,85,85_BR-120_PKdp-play
+0
+📋 Copy URL
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: []
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":2,"lowScore":6,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:55:23 PM] 🖼️ FINAL IMAGES: []
+[12:55:23 PM] 🖼️ After hybrid filtering: 0 images
+[12:55:23 PM] 🎯 Trying site-specific selector for amazon.com: [class*="imagesThumbnail"] img
+[12:55:23 PM] 🔍 GATHERING IMAGES with selector: [class*="imagesThumbnail"] img
+[12:55:23 PM] 📊 Found 0 elements for selector: [class*="imagesThumbnail"] img
+[12:55:23 PM] 🖼️ Raw enriched URLs collected: 0
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: []
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:55:23 PM] 🖼️ FINAL IMAGES: []
+[12:55:23 PM] 🖼️ After hybrid filtering: 0 images
+[12:55:23 PM] 🎯 Trying site-specific selector for amazon.com: img[src*="images-amazon.com"]
+[12:55:23 PM] 🔍 GATHERING IMAGES with selector: img[src*="images-amazon.com"]
+[12:55:23 PM] 📊 Found 46 elements for selector: img[src*="images-amazon.com"]
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.bundles-drawer-added-item-image>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+[12:55:23 PM] Image element <IMG.a-dynamic-image>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_UL232_SR232,232_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_UL232_SR232,232_.jpg
+[12:55:23 PM] Image element <IMG.a-dynamic-image>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232_.jpg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232_.jpg
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/5cb2d120-9bfd-46be-a4db-9e
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/b4756efb-88ab-4ff4-91d4-e6
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.apm-brand-story-image-img>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/27dba124-5ccb-4c3c-8eaf-0c
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.apm-brand-story-image-img>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/e4521590-333d-4a28-bd9b-71
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.apm-brand-story-image-img>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/cf0d920a-40fa-4beb-a7a8-ce
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.apm-brand-story-image-img>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/b4c291d9-a1b9-40d2-9aa6-0b
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/2b9bd3ce-a71b-4034-bf00-29
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/3fff3781-a1e2-4b07-b7f0-bb
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/28c129b2-cd10-4ce9-aacb-ff
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/5b5db47b-9222-4c12-b933-d3
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/9233b8a9-fd51-4848-91e3-5e
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/d92e537f-c5b8-4afd-b5b3-ba
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/186df34b-71f3-49a0-bf57-e5
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/4e524b5b-d4e4-4942-a629-ee
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/616cace5-d85b-4d64-a7bc-67
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/55ee9e25-d08c-41cd-9cbd-19
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/f61956df-c864-47ea-9d52-ae
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/10054082-6487-4065-bfcd-9b
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/aplus-media-library-service-media/a03ce114-423c-48ef-82a9-1f
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/71Rt2+JtVPL._CR0,0,1336,1336_._FMjpg_._SL34_.jpg","data-imag
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.cr-lightbox-main-image>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG._Y3Itb_media-popover-image-view_1FAQo>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.cr-lightbox-main-image>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+[12:55:23 PM] Image element <IMG.review-image-tile>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/51nm5lZ3jFL._SY88.jpg","data-image":null,"data-zoom-image":n
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/201838c3-85e7-4198-95eb-20d21cbf6398._
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.cr-lightbox-main-image>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+[12:55:23 PM] Image element <IMG.linkless-review-image-tile>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/618U1pYKj3L._SY88.jpg","data-image":null,"data-zoom-image":n
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.linkless-review-image-tile>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/51a3DkJ8A-L._SY88.jpg","data-image":null,"data-zoom-image":n
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.linkless-review-image-tile>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/61mPzegxNoL._SY88.jpg","data-image":null,"data-zoom-image":n
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.linkless-review-image-tile>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/I/51ddFXGLPmL._SY88.jpg","data-image":null,"data-zoom-image":n
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG.a-lazy-loaded>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif","data-src":"https://m.media-amazon.com/images/S/amazon-avatars-global/default.png","data-image":null,"data-z
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+[12:55:23 PM] Image element <IMG>
+[12:55:23 PM] 📋 Image attributes: {"src":"https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/loading-4x._CB338200758_.gif","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[12:55:23 PM] ✅ Found image URL from attributes: https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/loading-4x._CB338200758_.gif
+[12:55:23 PM] 🖼️ Raw enriched URLs collected: 46
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":46}
+[12:55:23 PM] 📉 LOW SCORE REJECTED (15): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+15
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 📉 LOW SCORE REJECTED (0): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/grey-pixel.gif
+0
+📋 Copy URL
+[12:55:23 PM] 🗑️ JUNK IMAGE: https://images-na.ssl-images-amazon.com/images/G/01/payments-portal/r1/loading-4
+0
+📋 Copy URL
+[12:55:23 PM] ✅ BEST OF 5 (score: 95): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+95
+📋 Copy URL
+[12:55:23 PM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+95
+📋 Copy URL
+[12:55:23 PM] ✅ SINGLE IMAGE (score: 100): https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_UL232_SR232,232_.jpg
+100
+📋 Copy URL
+[12:55:23 PM] ✅ SINGLE IMAGE (score: 95): https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232_.jpg
+95
+📋 Copy URL
+[12:55:23 PM] 🎯 HIGH SCORE + SIZE OK (100): https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_UL232_SR232,232_.jpg
+100
+📋 Copy URL
+[12:55:23 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232_.jpg
+95
+📋 Copy URL
+[12:55:23 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+95
+📋 Copy URL
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: ["51q7d1TAcQL._AC_UL232_SR232,232_.jpg (score: 100)","61j17FjPhtL._AC_UL232_SR232,232_.jpg (score: 95)","transparent-pixel._V192234675_.gif (score: 95)"]
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":1,"lowScore":38,"smallFile":0,"duplicateGroups":1,"kept":3}
+[12:55:23 PM] 🖼️ FINAL IMAGES: ["https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_UL232_SR232,232","https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232","https://images-na.ssl-images-ama
+[12:55:23 PM] 🖼️ After hybrid filtering: 3 images
+[12:55:23 PM] ✅ Site-specific success: 3 images found
+[12:55:23 PM] 🖼️ GENERIC IMAGES: {"count":3,"images":["https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_UL232_SR232,232_.jpg","https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232_.jpg","ht
+[12:55:23 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":3}
+[12:55:23 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":3}
+[12:55:23 PM] ✅ SINGLE IMAGE (score: 65): https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_UL232_SR232,232_.jpg
+65
+📋 Copy URL
+[12:55:23 PM] ✅ SINGLE IMAGE (score: 70): https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232_.jpg
+70
+📋 Copy URL
+[12:55:23 PM] ✅ SINGLE IMAGE (score: 70): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+70
+📋 Copy URL
+[12:55:23 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images-na.ssl-images-amazon.com/images/I/51q7d1TAcQL._AC_UL232_SR232,232_.jpg
+65
+📋 Copy URL
+[12:55:23 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232_.jpg
+70
+📋 Copy URL
+[12:55:23 PM] 🎯 HIGH SCORE + SIZE OK (70): https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V192234675_.g
+70
+📋 Copy URL
+[12:55:23 PM] 🏆 TOP SCORED IMAGES: ["61j17FjPhtL._AC_UL232_SR232,232_.jpg (score: 70)","transparent-pixel._V192234675_.gif (score: 70)","51q7d1TAcQL._AC_UL232_SR232,232_.jpg (score: 65)"]
+[12:55:23 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":3}
+[12:55:23 PM] 🖼️ FINAL IMAGES: ["https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232","https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-","https://images-na.ssl-images-ama
+[12:55:23 PM] 🖼️ FINAL IMAGES: {"count":3,"images":["https://images-na.ssl-images-amazon.com/images/I/61j17FjPhtL._AC_UL232_SR232,232_.jpg","https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V19
+[12:55:23 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Wake Up Light Sunrise Alarm Clock for Kids, Heavy ","brand":"Brand JALL","description":"Buy Wake Up Light Sunrise Alarm Clock for Kids, He","price":"32.88","imageCount":3,"firstImages
+[12:55:23 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":3}

@@ -109,8 +109,24 @@ const AMZ = {
   },
 
   images(doc = document) {
-    // route logs to orchestrator if present
-    const debug = (msg) => (window.__tg_debugLog ? window.__tg_debugLog(msg) : console.log(msg));
+    // route logs to orchestrator if present - be robust about the type
+    const debug = (msg) => {
+      try {
+        if (typeof window !== 'undefined' && window.__tg_debugLog) {
+          if (typeof window.__tg_debugLog === 'function') {
+            window.__tg_debugLog(msg);
+          } else if (Array.isArray(window.__tg_debugLog)) {
+            window.__tg_debugLog.push(msg);
+          } else {
+            console.log(msg);
+          }
+        } else {
+          console.log(msg);
+        }
+      } catch(e) {
+        console.log(msg); // fallback if anything fails
+      }
+    };
 
     // Use BOTH: sanitized doc (selectors) + live doc (a-state scripts)
     const live = window.document || doc;
