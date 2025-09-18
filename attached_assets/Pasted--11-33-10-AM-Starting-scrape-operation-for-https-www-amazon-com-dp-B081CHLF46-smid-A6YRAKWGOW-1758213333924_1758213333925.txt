@@ -1,0 +1,122 @@
+[11:33:10 AM] 🚀 Starting scrape operation for: https://www.amazon.com/dp/B081CHLF46?smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp&th=1
+[11:33:10 AM] 🚀 SCRAPE START {"host":"amazon.com","href":"https://www.amazon.com/dp/B0DP4JPW1F?ref=emc_p_m_5_i_atc","mode":"normal"}
+[11:33:10 AM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[11:33:10 AM] 🔄 NORMAL MODE - memory + fallbacks
+[11:33:10 AM] 🧩 TITLE: Trying custom handler...
+[11:33:10 AM] 🧩 CUSTOM TITLE SUCCESS: Sunrise Alarm Clock White Noise Sound Machine with 25 Soothing Sounds, 17 Night Lights, Bluetooth Speaker, Wake Up Light Alarm Clock for Bedrooms, Heavy Sleepers, Ideal Gift for Baby, Kids, Seniors
+[11:33:10 AM] 🏷️ BRAND: Falling back to generic...
+[11:33:10 AM] 🏷️ BRAND FROM GENERIC: Brand JALL
+[11:33:10 AM] 📄 DESCRIPTION: Falling back to generic...
+[11:33:10 AM] 📄 DESCRIPTION FROM GENERIC: Amazon.com: Sunrise Alarm Clock White Noise Sound Machine with 25 Soothing Sounds, 17 Night Lights, Bluetooth Speaker, Wake Up Light Alarm Clock for Bedrooms, Heavy Sleepers, Ideal Gift for Baby, Kids, Seniors : Health & Household
+[11:33:10 AM] 🧩 PRICE: Trying custom handler...
+[11:33:10 AM] 🧩 CUSTOM PRICE SUCCESS: 28.96
+[11:33:10 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:33:10 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:33:10 AM] 🧩 IMAGES: Trying custom handler...
+[11:33:10 AM] 🧩 CUSTOM IMAGES: {"count":20,"images":["https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/31W1AZrETKL._AC_US40_.jpg","https://m.media-amazon.com/images/I/51hgltaftbL
+[11:33:10 AM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[11:33:10 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":20}
+[11:33:10 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":20}
+[11:33:10 AM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/31W1AZrETKL._AC_US40_.jpg
+10
+📋 Copy URL
+[11:33:10 AM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/51hgltaftbL._AC_US40_.jpg
+10
+📋 Copy URL
+[11:33:10 AM] 📉 LOW SCORE REJECTED (0): https://m.media-amazon.com/images/I/411c53gWlcL._AC_US40_.jpg
+0
+📋 Copy URL
+[11:33:10 AM] 📉 LOW SCORE REJECTED (0): https://m.media-amazon.com/images/I/51DKA91SFaL._AC_US40_.jpg
+0
+📋 Copy URL
+[11:33:10 AM] 📉 LOW SCORE REJECTED (0): https://m.media-amazon.com/images/I/511mdJP7E1L._AC_US40_.jpg
+0
+📋 Copy URL
+[11:33:10 AM] 📉 LOW SCORE REJECTED (0): https://m.media-amazon.com/images/I/41CZZ4vwplL._AC_US40_.jpg
+0
+📋 Copy URL
+[11:33:10 AM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61AUYmxWb0L._SS100_.jpg
+10
+📋 Copy URL
+[11:33:10 AM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/I/01GK70BG4uL.svg
+0
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 80): https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SL1500_.jpg
+80
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SX425_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/51qfFDQNniL._AC_UL232_SR232,232_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://images-na.ssl-images-amazon.com/images/I/81PuR5AvkKL._AC_UL232_SR232,232_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/710wus59zuL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/71LTxWasTwL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/216-OX9rBaL.png
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/517nVqma--L._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/71pxo1yLmNL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/81dcpUyjtHL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/81e9yIX74AL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/718pJ0ioI6L._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 🎯 HIGH SCORE + SIZE OK (80): https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SL1500_.jpg
+80
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SX425_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/51qfFDQNniL._AC_UL232_SR232,232_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://images-na.ssl-images-amazon.com/images/I/81PuR5AvkKL._AC_UL232_SR232,232_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/710wus59zuL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/71LTxWasTwL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 100KB): https://m.media-amazon.com/images/I/216-OX9rBaL.png
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/517nVqma--L._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/71pxo1yLmNL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/81dcpUyjtHL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/81e9yIX74AL._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/718pJ0ioI6L._AC_UF480,480_SR480,480_.jpg
+50
+📋 Copy URL
+[11:33:10 AM] 🏆 TOP SCORED IMAGES: ["51qfFDQNniL._AC_SL1500_.jpg (score: 80)","216-OX9rBaL.png (score: 50)","51qfFDQNniL._AC_SX425_.jpg (score: 50)","51qfFDQNniL._AC_UL232_SR232,232_.jpg (score: 50)","81PuR5AvkKL._AC_UL232_SR232,232_.j
+[11:33:10 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":1,"lowScore":7,"smallFile":0,"duplicateGroups":0,"kept":12}
+[11:33:10 AM] 🖼️ FINAL IMAGES: ["https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/216-OX9rBaL.png","https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SX425_.jpg","https://image
+[11:33:10 AM] 🖼️ FINAL IMAGES: {"count":12,"images":["https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/216-OX9rBaL.png","https://m.media-amazon.com/images/I/51qfFDQNniL._AC_SX425
+[11:33:10 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Sunrise Alarm Clock White Noise Sound Machine with","brand":"Brand JALL","description":"Amazon.com: Sunrise Alarm Clock White Noise Sound ","price":"28.96","imageCount":12,"firstImage
+[11:33:10 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":12}
+[11:33:10 AM] ✅ Debug trace complete

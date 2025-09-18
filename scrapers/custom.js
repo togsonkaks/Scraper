@@ -109,9 +109,27 @@ const AMZ = {
   },
 
   images(doc = document) {
-    const urls = new Set();
+    const rawUrls = new Set();
     
-    // 1. ZOOM DATA PARSING: Extract highest resolution images from data-a-dynamic-image JSON
+    // HELPER: Extract base image ID from Amazon URL (e.g., "51qfFDQNniL" from any variant)
+    const getBaseImageId = (url) => {
+      const match = url.match(/\/images\/I\/([A-Za-z0-9+\-]+)/);
+      return match ? match[1] : null;
+    };
+    
+    // HELPER: Upgrade small thumbnails to high quality
+    const upgradeToHighQuality = (url) => {
+      if (/images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
+        // Remove existing size parameters and add high-quality ones
+        return url
+          .replace(/_AC_[SU][SXYL]\d+_/g, '')
+          .replace(/\._[A-Z]{2}\d+_/g, '')
+          .replace(/(\.[^.]+)$/, '._AC_SL1500_$1');
+      }
+      return url;
+    };
+    
+    // 1. ZOOM DATA PARSING: Extract from data-a-dynamic-image JSON
     doc.querySelectorAll('img[data-a-dynamic-image]').forEach(img => {
       try {
         const jsonData = img.getAttribute('data-a-dynamic-image');
@@ -121,11 +139,10 @@ const AMZ = {
             const [width, height] = dimensions;
             const maxDimension = Math.max(width, height);
             
-            // ZOOM THRESHOLD: Images ≥1600px = true zoom images (the "gold"!)
-            // FIXED: Accept ALL Amazon CDN variants (not just media-amazon.com)
-            if (maxDimension >= 1600 && /images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
-              urls.add(url);
-              console.log(`[DEBUG] Amazon ZOOM image found: ${maxDimension}px - ${url}`);
+            // Accept high-resolution Amazon images
+            if (maxDimension >= 400 && /images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
+              rawUrls.add(url);
+              console.log(`[DEBUG] Amazon JSON image: ${maxDimension}px - ${url}`);
             }
           });
         }
@@ -134,48 +151,82 @@ const AMZ = {
       }
     });
     
-    // 2. ZOOM TRIGGER DETECTION: Use zoom container images exactly as-is
+    // 2. ZOOM CONTAINER DETECTION
     doc.querySelectorAll('[data-action="iv-largeimage"], #ivLargeImage, .iv-large-image').forEach(container => {
       const img = container.querySelector('img') || container;
       if (img.src || img.currentSrc) {
         let zoomUrl = img.currentSrc || img.src;
         if (/images\/I\//.test(zoomUrl) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(zoomUrl)) {
-          // USE ZOOM URLS EXACTLY AS AMAZON PROVIDES THEM
-          urls.add(zoomUrl);
-          console.log(`[DEBUG] Amazon zoom container image: ${zoomUrl}`);
+          rawUrls.add(zoomUrl);
+          console.log(`[DEBUG] Amazon zoom container: ${zoomUrl}`);
         }
       }
     });
     
-    // 3. ENHANCED DATA ATTRIBUTES: High-res versions from various attributes
+    // 3. DATA ATTRIBUTE EXTRACTION
     doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]').forEach(img => {
       const hdUrl = img.getAttribute('data-old-hires') || 
                     img.getAttribute('data-a-hires') ||
                     img.getAttribute('data-zoom-image') ||
                     img.getAttribute('data-large-image');
       if (hdUrl && /images\/I\//.test(hdUrl) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(hdUrl)) {
-        urls.add(hdUrl);
-        console.log(`[DEBUG] Amazon data attribute HD: ${hdUrl}`);
+        rawUrls.add(hdUrl);
+        console.log(`[DEBUG] Amazon data attribute: ${hdUrl}`);
       }
     });
     
-    // 4. FALLBACK: Use gallery images as-is (if zoom data missing)
-    if (urls.size < 3) {
+    // 4. GALLERY IMAGES FALLBACK
+    if (rawUrls.size < 3) {
       doc.querySelectorAll('img[src*="images/I/"]').forEach(img => {
         let url = img.currentSrc || img.src;
         if (url && /images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
           // Skip obvious junk
           if (!/grey-pixel|play-icon|overlay|\.gif$|_SR\d{1,2},\d{1,2}_|aplus-media/.test(url)) {
-            // USE IMAGES EXACTLY AS FOUND - NO SIZE MODIFICATIONS
-            urls.add(url);
-            console.log(`[DEBUG] Amazon fallback image: ${url}`);
+            rawUrls.add(url);
+            console.log(`[DEBUG] Amazon gallery image: ${url}`);
           }
         }
       });
     }
     
-    console.log(`[DEBUG] Amazon found ${urls.size} total images (including zoom variants)`);
-    return [...urls].slice(0, 20);
+    // INTELLIGENT DEDUPLICATION: Group by base image ID, keep best quality of each
+    const imageGroups = new Map();
+    
+    for (const url of rawUrls) {
+      const baseId = getBaseImageId(url);
+      if (baseId) {
+        if (!imageGroups.has(baseId)) {
+          imageGroups.set(baseId, []);
+        }
+        imageGroups.get(baseId).push(url);
+      }
+    }
+    
+    const finalUrls = [];
+    
+    for (const [baseId, urls] of imageGroups) {
+      // Sort by quality preference: SL1500 > SL1200 > SL800 > others
+      const sorted = urls.sort((a, b) => {
+        const aSize = a.match(/_SL(\d+)_/) ? parseInt(a.match(/_SL(\d+)_/)[1]) : 0;
+        const bSize = b.match(/_SL(\d+)_/) ? parseInt(b.match(/_SL(\d+)_/)[1]) : 0;
+        return bSize - aSize; // Higher size first
+      });
+      
+      let bestUrl = sorted[0];
+      
+      // If the best we found is still a small thumbnail, upgrade it
+      if (/_US\d{2}_|_SS\d{2,3}_|_UL\d{2,3}_/.test(bestUrl)) {
+        bestUrl = upgradeToHighQuality(bestUrl);
+        console.log(`[DEBUG] Amazon upgraded thumbnail: ${baseId} -> ${bestUrl}`);
+      } else {
+        console.log(`[DEBUG] Amazon kept best quality: ${baseId} -> ${bestUrl}`);
+      }
+      
+      finalUrls.push(bestUrl);
+    }
+    
+    console.log(`[DEBUG] Amazon deduplication: ${rawUrls.size} raw → ${finalUrls.length} unique`);
+    return finalUrls.slice(0, 20);
   }
 };
 
