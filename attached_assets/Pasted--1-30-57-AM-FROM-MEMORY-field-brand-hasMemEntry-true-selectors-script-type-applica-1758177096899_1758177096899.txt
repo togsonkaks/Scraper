@@ -1,0 +1,105 @@
+[1:30:57 AM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":true,"selectors":["script[type=\"application/ld+json\"]"],"attr":"text"}
+[1:30:57 AM] 🔍 TRYING JSON-LD for field: brand
+[1:30:57 AM] ✅ JSON-LD PRODUCT DATA: ["@context","@type","aggregateRating","name","image","offers"]
+[1:30:57 AM] 🏷️ BRAND FROM MEMORY: null
+[1:30:57 AM] 🏷️ BRAND: Falling back to generic...
+[1:30:57 AM] 🏷️ BRAND FROM GENERIC: Allbirds
+[1:30:57 AM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":true,"selectors":["[property=\"og:description\"]"],"attr":"text"}
+[1:30:57 AM] 🔍 TRYING CSS SELECTORS: ["[property=\"og:description\"]"]
+[1:30:57 AM] 🎯 TRYING SELECTOR [description]: [property="og:description"]
+[1:30:57 AM] ✅ SELECTOR SUCCESS [Memory description]: [property="og:description"] found: 1 elements
+[1:30:57 AM] Single element <META>
+[1:30:57 AM] 📋 RAW VALUE: {"selector":"[property=\"og:description\"]","attr":"text","rawValue":null,"element":"META"}
+[1:30:57 AM] 💰 AFTER NORMALIZATION: null
+[1:30:57 AM] ❌ NO VALUE after processing for [description]
+[1:30:57 AM] 📄 DESCRIPTION FROM MEMORY: null
+[1:30:57 AM] 📄 DESCRIPTION: Falling back to generic...
+[1:30:57 AM] 📄 DESCRIPTION FROM GENERIC: Whether it’s workouts or hangouts, the Tree Glider has every phase of your day covered. Inspired by effortless ease, this elevated active style brings flow everywhere you go.
+[1:30:57 AM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":true,"selectors":["meta[property=\"og:price:amount\"]"],"attr":"text"}
+[1:30:57 AM] 🔍 TRYING CSS SELECTORS: ["meta[property=\"og:price:amount\"]"]
+[1:30:57 AM] 🎯 TRYING SELECTOR [price]: meta[property="og:price:amount"]
+[1:30:57 AM] ✅ SELECTOR SUCCESS [Memory price]: meta[property="og:price:amount"] found: 1 elements
+[1:30:57 AM] Single element <META>
+[1:30:57 AM] 📋 RAW VALUE: {"selector":"meta[property=\"og:price:amount\"]","attr":"text","rawValue":null,"element":"META"}
+[1:30:57 AM] 💰 AFTER NORMALIZATION: null
+[1:30:57 AM] 🎯 REFINING PRICE: {"baseVal":null,"fromMemory":true,"hasElement":true,"elementTag":"META"}
+[1:30:57 AM] Price element <META>
+[1:30:57 AM] 📋 CHECKING ATTRIBUTES: {"content":"135.00","data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":"135.00"}
+[1:30:57 AM] 🔍 PRICE PARSING: {"input":"135.00","inputType":"string","inputLength":6}
+[1:30:57 AM] 🧹 CLEANED INPUT: {"original":"135.00","cleaned":"135.00"}
+[1:30:57 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"135.00","reconstructed":"135.00"}
+[1:30:57 AM] 💰 MONETARY TOKENS: []
+[1:30:57 AM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[135]}
+[1:30:57 AM] ✅ FINAL PRICE RESULT: {"result":135,"method":"MIN_FALLBACK","allNumbers":[135]}
+[1:30:57 AM] ✅ PRICE FROM ATTRIBUTES: 135
+[1:30:57 AM] 💰 AFTER CONTEXT REFINEMENT: 135
+[1:30:57 AM] ✅ MEMORY SUCCESS [price]: 135
+[1:30:57 AM] 💰 PRICE FROM MEMORY: 135
+[1:30:57 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[1:30:57 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:30:57 AM] 🧩 IMAGES: Trying custom handler...
+[1:30:57 AM] 🧩 CUSTOM IMAGES: {"count":9,"images":["https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-1000x1000.png?v=1751323586&width=1024","https://www.allbirds.com/cdn/shop/file
+[1:30:57 AM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[1:30:57 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":9}
+[1:30:57 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":9}
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 95): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-
+95
+📋 Copy URL
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 85): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_TD-10
+85
+📋 Copy URL
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 85): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_SOLE-
+85
+📋 Copy URL
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 75): https://www.allbirds.com/cdn/shop/files/A11082_24Q4_Tree_Glider_Stony_Beige_Stony_Cream_PDP_TD-2000x
+75
+📋 Copy URL
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 75): https://www.allbirds.com/cdn/shop/files/A11082_24Q4_Tree_Glider_Stony_Beige_Stony_Cream_PDP_LEFT-200
+75
+📋 Copy URL
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Desktop_16x9-1
+75
+📋 Copy URL
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 65): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Mobile_2x3-315
+65
+📋 Copy URL
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 65): https://www.allbirds.com/cdn/shop/files/A11082_24Q4_Tree_Glider_Stony_Beige_Stony_Cream_PDP_TD-1000x
+65
+📋 Copy URL
+[1:30:57 AM] ✅ SINGLE IMAGE (score: 65): https://www.allbirds.com/cdn/shop/files/A11082_24Q4_Tree_Glider_Stony_Beige_Stony_Cream_PDP_BACK-100
+65
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (95): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-
+95
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (85): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_TD-10
+85
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (85): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_SOLE-
+85
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (75): https://www.allbirds.com/cdn/shop/files/A11082_24Q4_Tree_Glider_Stony_Beige_Stony_Cream_PDP_TD-2000x
+75
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (75): https://www.allbirds.com/cdn/shop/files/A11082_24Q4_Tree_Glider_Stony_Beige_Stony_Cream_PDP_LEFT-200
+75
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (75): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Desktop_16x9-1
+75
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (65): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Mobile_2x3-315
+65
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (65): https://www.allbirds.com/cdn/shop/files/A11082_24Q4_Tree_Glider_Stony_Beige_Stony_Cream_PDP_TD-1000x
+65
+📋 Copy URL
+[1:30:57 AM] 🎯 HIGH SCORE + SIZE OK (65): https://www.allbirds.com/cdn/shop/files/A11082_24Q4_Tree_Glider_Stony_Beige_Stony_Cream_PDP_BACK-100
+65
+📋 Copy URL
+[1:30:57 AM] 🏆 TOP SCORED IMAGES: ["A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-1000x1000.png?v=1751323586&width=1024 (score: 95)","A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_TD-1000x1000.png?v=1751323586&w
+[1:30:57 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":9}
+[1:30:57 AM] 🖼️ FINAL IMAGES: ["https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Ru","https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Ru","https://www.allbirds.com/cdn/sho
+[1:30:57 AM] 🖼️ FINAL IMAGES: {"count":9,"images":["https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-1000x1000.png?v=1751323586&width=1024","https://www.allbirds.com/cdn/shop/file
+[1:30:57 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Men's Tree Glider","brand":"Allbirds","description":"Whether it’s workouts or hangouts, the Tree Glider","price":"135","imageCount":9,"firstImages":["https://www.allbirds.com/cdn/shop/files/
+[1:30:57 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":9}
+[1:30:57 AM] ✅ Debug trace complete

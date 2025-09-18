@@ -546,57 +546,73 @@ const ACE_HARDWARE = {
   }
 };
 
-// ---------- Allbirds (target product gallery, avoid navigation tiles) ----------
+// ---------- Allbirds (target swiper carousel structure) ----------
 const ALLBIRDS = {
   match: (h) => /allbirds\.com$/i.test(h),
   images(doc = document) {
     console.log("[DEBUG] Allbirds custom image logic running...");
     const out = new Set();
     
-    // Target product-specific image containers first
+    // Target the ACTUAL swiper carousel structure from DOM inspection
     const productContainers = [
-      '.product-gallery',
-      '.product-images', 
-      '.pdp-gallery',
-      '.pdp-images',
-      '[data-testid*="gallery"]',
-      '[data-testid*="product-images"]',
-      '.carousel[class*="product"]',
-      '.slider[class*="product"]'
+      '[data-product-hero-carousel]',  // Main product carousel container
+      '.swiper-container',             // Swiper main container
+      '.swiper-slide',                 // Individual slides contain images
+      '.product-hero-carousel',        // Product hero carousel
+      '[data-product-hero]',           // Product hero variants
+      '[data-section-type="product-hero"]' // Shopify section type
     ];
     
+    // STRATEGY 1: Target swiper carousel directly
     productContainers.forEach(selector => {
-      const container = doc.querySelector(selector);
-      if (container) {
-        console.log("[DEBUG] Allbirds found product container:", selector);
-        container.querySelectorAll('img').forEach(img => {
-          const u = img.currentSrc || img.src;
-          // Skip navigation, menu, and tile images
-          if (u && !/(nav|menu|tile|navigation|header|footer|logo|icon)/i.test(u) && 
-              !img.closest('.navigation, .nav, .menu, .header, .footer')) {
-            out.add(u);
-            console.log("[DEBUG] Allbirds adding product image:", u);
-          }
+      const containers = doc.querySelectorAll(selector);
+      if (containers.length > 0) {
+        console.log("[DEBUG] Allbirds found", containers.length, "containers for:", selector);
+        containers.forEach((container, i) => {
+          container.querySelectorAll('img').forEach(img => {
+            const u = img.currentSrc || img.src;
+            // Accept high-quality product images, skip obvious junk
+            if (u && !/\/(nav|menu|tile|navigation|header|footer|logo|icon|favicon|sprite)/i.test(u) && 
+                !img.closest('.navigation, .nav, .menu, .header, .footer') &&
+                !/(logo|icon|sprite|favicon|nav|menu|header|footer)\./.test(u)) {
+              out.add(u);
+              console.log("[DEBUG] Allbirds adding image from", selector + `[${i}]:`, u.substring(u.lastIndexOf('/') + 1));
+            }
+          });
         });
       }
     });
     
-    // Fallback: Look for high-quality product images in main content area
-    if (out.size < 3) {
-      const mainContent = doc.querySelector('main, .main, .content, .pdp, .product-detail');
-      if (mainContent) {
-        mainContent.querySelectorAll('img').forEach(img => {
+    // STRATEGY 2: Scan all swiper slides if main containers missed
+    if (out.size < 5) {
+      console.log("[DEBUG] Allbirds fallback: scanning all swiper slides...");
+      doc.querySelectorAll('.swiper-slide').forEach((slide, i) => {
+        slide.querySelectorAll('img').forEach(img => {
           const u = img.currentSrc || img.src;
-          if (u && /\d{3,}x\d{3,}/.test(u) && // Must have decent dimensions
-              !/(nav|menu|tile|navigation|header|footer|logo|icon|thumb)/i.test(u) &&
-              !img.closest('.navigation, .nav, .menu, .header, .footer, .breadcrumb')) {
+          if (u && /allbirds\.com\/cdn\/shop\/files/i.test(u) && // Allbirds CDN only
+              /\d{3,}x\d{3,}/.test(u) && // Must have decent dimensions
+              !/\/(nav|menu|tile|header|footer|logo|icon|sprite|favicon)/i.test(u)) {
             out.add(u);
+            console.log("[DEBUG] Allbirds slide", i, "image:", u.substring(u.lastIndexOf('/') + 1));
           }
         });
-      }
+      });
     }
     
-    console.log("[DEBUG] Allbirds found", out.size, "product images");
+    // STRATEGY 3: Direct image scan with Allbirds CDN filter
+    if (out.size < 3) {
+      console.log("[DEBUG] Allbirds final fallback: direct CDN scan...");
+      doc.querySelectorAll('img[src*="allbirds.com/cdn/shop/files"], img[src*="allbirds.com/cdn/shop/products"]').forEach(img => {
+        const u = img.currentSrc || img.src;
+        if (u && /\d{3,}x\d{3,}/.test(u) && // High-res only
+            !/(logo|icon|sprite|favicon|nav|menu|header|footer|tile)\./.test(u)) {
+          out.add(u);
+          console.log("[DEBUG] Allbirds CDN direct:", u.substring(u.lastIndexOf('/') + 1));
+        }
+      });
+    }
+    
+    console.log("[DEBUG] Allbirds found", out.size, "total product images");
     return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0, 20);
   }
 };

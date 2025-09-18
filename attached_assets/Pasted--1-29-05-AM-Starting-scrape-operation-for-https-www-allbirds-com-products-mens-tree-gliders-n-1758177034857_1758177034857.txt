@@ -1,0 +1,80 @@
+[1:29:05 AM] 🚀 Starting scrape operation for: https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki
+[1:29:05 AM] 🚀 SCRAPE START {"host":"allbirds.com","href":"https://www.allbirds.com/products/womens-tree-dashers-blizzard-hazy-cobalt?size=5&variant=40234104717392","mode":"normal"}
+[1:29:05 AM] 🧠 LOADED MEMORY: {"host":"allbirds.com","hasMemory":true,"fields":["title","price","images","brand","description","tags"],"memoryData":{"title":{"selectors":["[property=\"og:title\"]"],"attr":"text"},"price":{"selecto
+[1:29:05 AM] 🔄 NORMAL MODE - memory + fallbacks
+[1:29:05 AM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":true,"selectors":["[property=\"og:title\"]"],"attr":"text"}
+[1:29:05 AM] 🔍 TRYING CSS SELECTORS: ["[property=\"og:title\"]"]
+[1:29:05 AM] 🎯 TRYING SELECTOR [title]: [property="og:title"]
+[1:29:05 AM] ✅ SELECTOR SUCCESS [Memory title]: [property="og:title"] found: 1 elements
+[1:29:05 AM] Single element <META>
+[1:29:05 AM] 📋 RAW VALUE: {"selector":"[property=\"og:title\"]","attr":"text","rawValue":null,"element":"META"}
+[1:29:05 AM] 💰 AFTER NORMALIZATION: null
+[1:29:05 AM] ❌ NO VALUE after processing for [title]
+[1:29:05 AM] 📝 TITLE FROM MEMORY: null
+[1:29:05 AM] 🧩 TITLE: Trying custom handler...
+[1:29:05 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[1:29:05 AM] 📝 TITLE: Falling back to generic...
+[1:29:05 AM] 📝 TITLE FROM GENERIC: Women's Tree Dasher 2
+[1:29:05 AM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":true,"selectors":["script[type=\"application/ld+json\"]"],"attr":"text"}
+[1:29:05 AM] 🔍 TRYING JSON-LD for field: brand
+[1:29:05 AM] ✅ JSON-LD PRODUCT DATA: ["@context","@type","aggregateRating","name","image","offers"]
+[1:29:05 AM] 🏷️ BRAND FROM MEMORY: null
+[1:29:05 AM] 🏷️ BRAND: Falling back to generic...
+[1:29:05 AM] 🏷️ BRAND FROM GENERIC: Allbirds
+[1:29:05 AM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":true,"selectors":["[property=\"og:description\"]"],"attr":"text"}
+[1:29:05 AM] 🔍 TRYING CSS SELECTORS: ["[property=\"og:description\"]"]
+[1:29:05 AM] 🎯 TRYING SELECTOR [description]: [property="og:description"]
+[1:29:05 AM] ✅ SELECTOR SUCCESS [Memory description]: [property="og:description"] found: 1 elements
+[1:29:05 AM] Single element <META>
+[1:29:05 AM] 📋 RAW VALUE: {"selector":"[property=\"og:description\"]","attr":"text","rawValue":null,"element":"META"}
+[1:29:05 AM] 💰 AFTER NORMALIZATION: null
+[1:29:05 AM] ❌ NO VALUE after processing for [description]
+[1:29:05 AM] 📄 DESCRIPTION FROM MEMORY: null
+[1:29:05 AM] 📄 DESCRIPTION: Falling back to generic...
+[1:29:05 AM] 📄 DESCRIPTION FROM GENERIC: The Tree Dasher 2 is the next evolution of our everyday active shoe with more responsive foam, extra grip, and an improved fit to keep you moving, and nature winning.
+[1:29:05 AM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":true,"selectors":["meta[property=\"og:price:amount\"]"],"attr":"text"}
+[1:29:05 AM] 🔍 TRYING CSS SELECTORS: ["meta[property=\"og:price:amount\"]"]
+[1:29:05 AM] 🎯 TRYING SELECTOR [price]: meta[property="og:price:amount"]
+[1:29:05 AM] ✅ SELECTOR SUCCESS [Memory price]: meta[property="og:price:amount"] found: 1 elements
+[1:29:05 AM] Single element <META>
+[1:29:05 AM] 📋 RAW VALUE: {"selector":"meta[property=\"og:price:amount\"]","attr":"text","rawValue":null,"element":"META"}
+[1:29:05 AM] 💰 AFTER NORMALIZATION: null
+[1:29:05 AM] 🎯 REFINING PRICE: {"baseVal":null,"fromMemory":true,"hasElement":true,"elementTag":"META"}
+[1:29:05 AM] Price element <META>
+[1:29:05 AM] 📋 CHECKING ATTRIBUTES: {"content":"135.00","data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":"135.00"}
+[1:29:05 AM] 🔍 PRICE PARSING: {"input":"135.00","inputType":"string","inputLength":6}
+[1:29:05 AM] 🧹 CLEANED INPUT: {"original":"135.00","cleaned":"135.00"}
+[1:29:05 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"135.00","reconstructed":"135.00"}
+[1:29:05 AM] 💰 MONETARY TOKENS: []
+[1:29:05 AM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[135]}
+[1:29:05 AM] ✅ FINAL PRICE RESULT: {"result":135,"method":"MIN_FALLBACK","allNumbers":[135]}
+[1:29:05 AM] ✅ PRICE FROM ATTRIBUTES: 135
+[1:29:05 AM] 💰 AFTER CONTEXT REFINEMENT: 135
+[1:29:05 AM] ✅ MEMORY SUCCESS [price]: 135
+[1:29:05 AM] 💰 PRICE FROM MEMORY: 135
+[1:29:05 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[1:29:05 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:29:05 AM] 🧩 IMAGES: Trying custom handler...
+[1:29:05 AM] 🧩 CUSTOM IMAGES: {"count":2,"images":["https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Desktop_16x9-1280x500.jpg?v=1751420592&width=1920","https://www.allbirds.com/cdn/shop/files/
+[1:29:05 AM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[1:29:05 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":2}
+[1:29:05 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":2}
+[1:29:05 AM] ✅ SINGLE IMAGE (score: 105): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Desktop_16x9-1
+105
+📋 Copy URL
+[1:29:05 AM] ✅ SINGLE IMAGE (score: 85): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Mobile_2x3-315
+85
+📋 Copy URL
+[1:29:05 AM] 🎯 HIGH SCORE + SIZE OK (105): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Desktop_16x9-1
+105
+📋 Copy URL
+[1:29:05 AM] 🎯 HIGH SCORE + SIZE OK (85): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Mobile_2x3-315
+85
+📋 Copy URL
+[1:29:05 AM] 🏆 TOP SCORED IMAGES: ["25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Desktop_16x9-1280x500.jpg?v=1751420592&width=1920 (score: 105)","25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Mobile_2x3-315x500.jpg?v=1751420591&width
+[1:29:05 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":2}
+[1:29:05 AM] 🖼️ FINAL IMAGES: ["https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Life","https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Life"]
+[1:29:05 AM] 🖼️ FINAL IMAGES: {"count":2,"images":["https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_Moonshot_BrandMessage_Lifestyle_Desktop_16x9-1280x500.jpg?v=1751420592&width=1920","https://www.allbirds.com/cdn/shop/files/
+[1:29:05 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Women's Tree Dasher 2","brand":"Allbirds","description":"The Tree Dasher 2 is the next evolution of our eve","price":"135","imageCount":2,"firstImages":["https://www.allbirds.com/cdn/shop/fi
+[1:29:05 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":2}
+[1:29:05 AM] ✅ Debug trace complete
