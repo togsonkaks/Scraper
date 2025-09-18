@@ -173,40 +173,42 @@ const AMZ = {
         });
       });
 
-    // 3) immersive viewer (if open)
-    doc.querySelectorAll("img.fullscreen, .ivLargeImage img").forEach((img) => {
+    // 3) Amazon image containers - the ones you've been showing me!
+    debug("Amazon scanning image containers...");
+    
+    // Main product image
+    doc.querySelectorAll("#landingImage").forEach((img) => {
       const u = img.currentSrc || img.src;
-      if (u) add(u);
+      if (u) {
+        debug(`Amazon landingImage: ${u.slice(-50)}`);
+        add(u);
+      }
     });
-
-    // 4) a-state / application json — MUST read from LIVE DOM (sanitized doc strips scripts)
-    const aStateScripts =
-      live.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]') || [];
-    debug(`Amazon a-state scripts: live=${aStateScripts.length}`);
-
-    aStateScripts.forEach((s) => {
-      try {
-        const keyAttr = s.getAttribute("data-a-state");
-        const key = keyAttr ? JSON.parse(keyAttr).key || "" : "";
-        if (!/image\-block\-state|dpx\-image\-state|imageState/i.test(key)) return;
-
-        const payload = JSON.parse(s.textContent || "{}");
-
-        const gallery =
-          payload?.imageGalleryData ||
-          payload?.colorImages?.initial ||
-          payload?.imageBlock?.imageGalleryData ||
-          [];
-
-        (gallery || []).forEach((o) =>
-          ["hiRes", "mainUrl", "large", "zoom", "thumb", "variant"].forEach((k) => o?.[k] && add(o[k]))
-        );
-
-        const atf = payload?.ImageBlockATF || payload?.imageBlock?.ImageBlockATF;
-        if (atf?.hiRes) add(atf.hiRes);
-        (atf?.variant || []).forEach(add);
-      } catch (e) {
-        debug(`Amazon a-state parse error: ${e.message}`);
+    
+    // iv-box containers (what you've been pointing me to!)
+    doc.querySelectorAll(".iv-box-inner img, .iv-box img").forEach((img) => {
+      const u = img.currentSrc || img.src;
+      if (u) {
+        debug(`Amazon iv-box: ${u.slice(-50)}`);
+        add(u);
+      }
+    });
+    
+    // Thumbnail gallery 
+    doc.querySelectorAll("[id*='altImages'] img").forEach((img) => {
+      const u = img.currentSrc || img.src;
+      if (u) {
+        debug(`Amazon thumbnail: ${u.slice(-50)}`);
+        add(u);
+      }
+    });
+    
+    // Immersive viewer (if open)
+    doc.querySelectorAll("img.fullscreen, .ivLargeImage img, #ivLargeImage img").forEach((img) => {
+      const u = img.currentSrc || img.src;
+      if (u) {
+        debug(`Amazon immersive: ${u.slice(-50)}`);
+        add(u);
       }
     });
 
