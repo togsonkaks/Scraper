@@ -134,19 +134,15 @@ const AMZ = {
       }
     });
     
-    // 2. ZOOM TRIGGER DETECTION: Look for zoom container elements
+    // 2. ZOOM TRIGGER DETECTION: Use zoom container images exactly as-is
     doc.querySelectorAll('[data-action="iv-largeimage"], #ivLargeImage, .iv-large-image').forEach(container => {
       const img = container.querySelector('img') || container;
       if (img.src || img.currentSrc) {
         let zoomUrl = img.currentSrc || img.src;
         if (/images\/I\//.test(zoomUrl) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(zoomUrl)) {
-          // CORRECTED: Proper zoom URL upgrades with dot notation
-          let zoomHdUrl = zoomUrl
-            .replace(/_AC_[SU][SXYL]\d+_/g, '')
-            .replace(/\._[A-Z]{2}\d+_/g, '')
-            .replace(/(\.[^.]+)$/, '._AC_SL2400_$1');  // More conservative than _SL3000_
-          urls.add(zoomHdUrl);
-          console.log(`[DEBUG] Amazon zoom trigger upgrade: ${zoomHdUrl}`);
+          // USE ZOOM URLS EXACTLY AS AMAZON PROVIDES THEM
+          urls.add(zoomUrl);
+          console.log(`[DEBUG] Amazon zoom container image: ${zoomUrl}`);
         }
       }
     });
@@ -163,32 +159,16 @@ const AMZ = {
       }
     });
     
-    // 4. FALLBACK: Direct scan with intelligent upgrades (if zoom data missing)
+    // 4. FALLBACK: Use gallery images as-is (if zoom data missing)
     if (urls.size < 3) {
       doc.querySelectorAll('img[src*="images/I/"]').forEach(img => {
         let url = img.currentSrc || img.src;
         if (url && /images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
           // Skip obvious junk
           if (!/grey-pixel|play-icon|overlay|\.gif$|_SR\d{1,2},\d{1,2}_|aplus-media/.test(url)) {
-            // FIXED: Smart URL upgrade with proper dot notation
-            const upgradeAmazonUrl = (originalUrl, sizes = [2400, 2000, 1500]) => {
-              const results = [];
-              
-              // Remove existing size tokens first
-              let baseUrl = originalUrl.replace(/_AC_[SU][SXYL]\d+_/g, '').replace(/\._[A-Z]{2}\d+_/g, '');
-              
-              sizes.forEach(size => {
-                // CORRECTED: Insert with leading DOT for valid Amazon format
-                const hdUrl = baseUrl.replace(/(\.[^.]+)$/, `._AC_SL${size}_$1`);
-                results.push(hdUrl);
-              });
-              
-              return results;
-            };
-            
-            const hdUrls = upgradeAmazonUrl(url);
-            hdUrls.forEach(hdUrl => urls.add(hdUrl));
-            console.log(`[DEBUG] Amazon fallback upgrades:`, hdUrls.slice(0, 2));
+            // USE IMAGES EXACTLY AS FOUND - NO SIZE MODIFICATIONS
+            urls.add(url);
+            console.log(`[DEBUG] Amazon fallback image: ${url}`);
           }
         }
       });

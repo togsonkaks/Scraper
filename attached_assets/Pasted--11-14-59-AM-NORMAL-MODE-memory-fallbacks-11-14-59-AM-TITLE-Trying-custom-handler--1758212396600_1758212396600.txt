@@ -1,0 +1,131 @@
+[11:14:59 AM] 🔄 NORMAL MODE - memory + fallbacks
+[11:14:59 AM] 🧩 TITLE: Trying custom handler...
+[11:14:59 AM] 🧩 CUSTOM TITLE SUCCESS: Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers, Bedroom, with Sunrise Simulation, Sleep Aid, Dual Alarms, FM Radio, Snooze, Nightlight, Daylight, 7 Colors, 7 Natural Sounds, Ideal for Gift
+[11:14:59 AM] 🏷️ BRAND: Falling back to generic...
+[11:14:59 AM] 🏷️ BRAND FROM GENERIC: Brand JALL
+[11:14:59 AM] 📄 DESCRIPTION: Falling back to generic...
+[11:14:59 AM] 📄 DESCRIPTION FROM GENERIC: Buy Wake Up Light Sunrise Alarm Clock for Kids, Heavy Sleepers, Bedroom, with Sunrise Simulation, Sleep Aid, Dual Alarms, FM Radio, Snooze, Nightlight, Daylight, 7 Colors, 7 Natural Sounds, Ideal for Gift: Clock Radios - Amazon.com ✓ FREE DELIVERY possible on eligible purchases
+[11:14:59 AM] 🧩 PRICE: Trying custom handler...
+[11:14:59 AM] 🧩 CUSTOM PRICE SUCCESS: 32.88
+[11:14:59 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:14:59 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:14:59 AM] 🧩 IMAGES: Trying custom handler...
+[11:14:59 AM] 🧩 CUSTOM IMAGES: {"count":20,"images":["https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2400_.jpg","https://m.media-amazon.com/images/I/318fiQgZ
+[11:14:59 AM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[11:14:59 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":20}
+[11:14:59 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":20}
+[11:14:59 AM] 📉 LOW SCORE REJECTED (35): https://m.media-amazon.com/images/I/41n3aRq0BgL.._AC_SL2400_.jpg
+35
+📋 Copy URL
+[11:14:59 AM] 📉 LOW SCORE REJECTED (35): https://m.media-amazon.com/images/I/41n3aRq0BgL.._AC_SL2000_.jpg
+35
+📋 Copy URL
+[11:14:59 AM] 📉 LOW SCORE REJECTED (35): https://m.media-amazon.com/images/I/41n3aRq0BgL.._AC_SL1500_.jpg
+35
+📋 Copy URL
+[11:14:59 AM] 📉 LOW SCORE REJECTED (35): https://m.media-amazon.com/images/I/51q7d1TAcQL.._AC_SL2400_.jpg
+35
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 65): https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg
+65
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 70): https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2400_.jpg
+70
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 70): https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2000_.jpg
+70
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/41kHsVheHkL.._AC_SL2400_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/41kHsVheHkL.._AC_SL2000_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/41kHsVheHkL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51g+NvLG9tL.._AC_SL2400_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51g+NvLG9tL.._AC_SL2000_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51g+NvLG9tL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51GxMcNAIgL.._AC_SL2400_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51GxMcNAIgL.._AC_SL2000_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51GxMcNAIgL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51aO+eQEirL.._AC_SL2400_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51aO+eQEirL.._AC_SL2000_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51aO+eQEirL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 🎯 HIGH SCORE + SIZE OK (65): https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg
+65
+📋 Copy URL
+[11:14:59 AM] 🎯 HIGH SCORE + SIZE OK (70): https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2400_.jpg
+70
+📋 Copy URL
+[11:14:59 AM] 🎯 HIGH SCORE + SIZE OK (70): https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2000_.jpg
+70
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/41kHsVheHkL.._AC_SL2400_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/41kHsVheHkL.._AC_SL2000_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/41kHsVheHkL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51g+NvLG9tL.._AC_SL2400_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51g+NvLG9tL.._AC_SL2000_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51g+NvLG9tL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51GxMcNAIgL.._AC_SL2400_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51GxMcNAIgL.._AC_SL2000_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51GxMcNAIgL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51aO+eQEirL.._AC_SL2400_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51aO+eQEirL.._AC_SL2000_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51aO+eQEirL.._AC_SL1500_.jpg
+50
+📋 Copy URL
+[11:14:59 AM] 🏆 TOP SCORED IMAGES: ["318fiQgZpbL.._AC_SL2400_.jpg (score: 70)","318fiQgZpbL.._AC_SL2000_.jpg (score: 70)","51q7d1TAcQL._AC_SL1500_.jpg (score: 65)","318fiQgZpbL.._AC_SL1500_.jpg (score: 50)","41kHsVheHkL.._AC_SL2400_.jp
+[11:14:59 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":4,"smallFile":0,"duplicateGroups":0,"kept":16}
+[11:14:59 AM] 🖼️ FINAL IMAGES: ["https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2400_.jpg","https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2000_.jpg","https://m.media-amazon.com/images/I/51q7d1TAcQL._AC_SL1500_.jpg"
+[11:14:59 AM] 🖼️ FINAL IMAGES: {"count":16,"images":["https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2400_.jpg","https://m.media-amazon.com/images/I/318fiQgZpbL.._AC_SL2000_.jpg","https://m.media-amazon.com/images/I/51q7d1T
+[11:14:59 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Wake Up Light Sunrise Alarm Clock for Kids, Heavy ","brand":"Brand JALL","description":"Buy Wake Up Light Sunrise Alarm Clock for Kids, He","price":"32.88","imageCount":16,"firstImage
+[11:14:59 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":16}
+[11:14:59 AM] ✅ Debug trace complete
