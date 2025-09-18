@@ -635,6 +635,43 @@
       }
     }
     
+    // ALIEXPRESS: Aggressive quality scoring for better image ranking
+    if (/aliexpress.*\.com|ae01\.alicdn\.com/i.test(url)) {
+      // Heavily favor ae01.alicdn.com (full-size CDN) over thumbnail CDN
+      if (/ae01\.alicdn\.com/i.test(url)) {
+        debug(`🎯 ALIEXPRESS HIGH-QUALITY CDN: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        return 95; // Highest score for full-size CDN
+      }
+      
+      // Detect dimensions in filename patterns
+      const aliDimMatch = url.match(/(\d{3,4})x(\d{3,4})/i);
+      if (aliDimMatch) {
+        const width = parseInt(aliDimMatch[1]);
+        const height = parseInt(aliDimMatch[2]);
+        const area = width * height;
+        
+        if (area >= 8000000) { // 3000x3000+
+          debug(`🎯 ALIEXPRESS ULTRA-HIGH-RES: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 90;
+        } else if (area >= 900000) { // 960x960+  
+          debug(`✅ ALIEXPRESS HIGH-RES: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 75;
+        } else if (area <= 50000) { // 220x220
+          debug(`🚫 ALIEXPRESS LOW-RES: ${width}x${height} in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 25; // Low score for thumbnails
+        }
+      }
+      
+      // Penalty for quality parameters (q75, etc.)
+      if (/q\d+/i.test(url)) {
+        const qMatch = url.match(/q(\d+)/i);
+        if (qMatch && parseInt(qMatch[1]) < 90) {
+          debug(`⚠️ ALIEXPRESS QUALITY PENALTY: q${qMatch[1]} in ${url.substring(url.lastIndexOf('/') + 1)}`);
+          return 35; // Penalty for low quality
+        }
+      }
+    }
+    
     let score = 50; // Base score
     
     // Aggressive dimension penalties for thumbnails
