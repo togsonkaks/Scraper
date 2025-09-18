@@ -43,13 +43,17 @@ outputType = "console"
 name = "Tagglo Test"
 author = "agent"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run electron"
-
 [workflows.workflow.metadata]
 outputType = "vnc"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./start-electron.sh"
 
 [nix]
 channel = "stable-25_05"
 packages = ["glib", "gtk3", "cairo", "pango", "gdk-pixbuf", "atk", "libdrm", "xorg.libxcb", "xorg.libX11", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXext", "xorg.libXfixes", "xorg.libXrandr", "xorg.libXrender", "xorg.libXtst", "xorg.libXScrnSaver", "nss", "nspr", "alsa-lib", "cups", "dbus", "expat", "fontconfig", "freetype", "libxkbcommon", "libxslt", "systemd", "mesa", "libGL", "vulkan-loader", "vulkan-tools", "xorg.xorgserver", "xvfb-run"]
+
+[[ports]]
+localPort = 33239
+externalPort = 80
