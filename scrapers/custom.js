@@ -111,32 +111,91 @@ const AMZ = {
   images(doc = document) {
     const urls = new Set();
     
-    // Direct scan for Amazon CDN images (most reliable approach)
-    doc.querySelectorAll('img[src*="m.media-amazon.com/images/I/"], img[src*="images-amazon.com"]').forEach(img => {
-      let url = img.currentSrc || img.src;
-      if (url && url.includes('/images/I/')) {
-        // Skip obvious junk
-        if (!/grey-pixel|play-icon|overlay|\.gif$|_SR\d{1,2},\d{1,2}_|aplus-media/.test(url)) {
-          // Upgrade to high resolution
-          const hdUrl = url
-            .replace(/_AC_US\d+_/g, '_AC_SL1500_')
-            .replace(/_AC_SX\d+_SY\d+_/g, '_AC_SL1500_')
-            .replace(/_AC_[SU][SXYL]\d+_/g, '_AC_SL1500_')
-            .replace(/\._[A-Z]{2}\d+_/g, '._SL1500_');
-          urls.add(hdUrl);
+    // 1. ZOOM DATA PARSING: Extract highest resolution images from data-a-dynamic-image JSON
+    doc.querySelectorAll('img[data-a-dynamic-image]').forEach(img => {
+      try {
+        const jsonData = img.getAttribute('data-a-dynamic-image');
+        if (jsonData) {
+          const imageMap = JSON.parse(jsonData);
+          Object.entries(imageMap).forEach(([url, dimensions]) => {
+            const [width, height] = dimensions;
+            const maxDimension = Math.max(width, height);
+            
+            // ZOOM THRESHOLD: Images ≥1600px = true zoom images (the "gold"!)
+            // FIXED: Accept ALL Amazon CDN variants (not just media-amazon.com)
+            if (maxDimension >= 1600 && /images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
+              urls.add(url);
+              console.log(`[DEBUG] Amazon ZOOM image found: ${maxDimension}px - ${url}`);
+            }
+          });
+        }
+      } catch (e) {
+        console.log('[DEBUG] Amazon data-a-dynamic-image parse error:', e.message);
+      }
+    });
+    
+    // 2. ZOOM TRIGGER DETECTION: Look for zoom container elements
+    doc.querySelectorAll('[data-action="iv-largeimage"], #ivLargeImage, .iv-large-image').forEach(container => {
+      const img = container.querySelector('img') || container;
+      if (img.src || img.currentSrc) {
+        let zoomUrl = img.currentSrc || img.src;
+        if (/images\/I\//.test(zoomUrl) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(zoomUrl)) {
+          // CORRECTED: Proper zoom URL upgrades with dot notation
+          let zoomHdUrl = zoomUrl
+            .replace(/_AC_[SU][SXYL]\d+_/g, '')
+            .replace(/\._[A-Z]{2}\d+_/g, '')
+            .replace(/(\.[^.]+)$/, '._AC_SL2400_$1');  // More conservative than _SL3000_
+          urls.add(zoomHdUrl);
+          console.log(`[DEBUG] Amazon zoom trigger upgrade: ${zoomHdUrl}`);
         }
       }
     });
     
-    // Check data attributes for high-res versions
-    doc.querySelectorAll('img[data-old-hires], img[data-a-hires]').forEach(img => {
-      const hdUrl = img.getAttribute('data-old-hires') || img.getAttribute('data-a-hires');
-      if (hdUrl && hdUrl.includes('media-amazon.com/images/I/')) {
+    // 3. ENHANCED DATA ATTRIBUTES: High-res versions from various attributes
+    doc.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image]').forEach(img => {
+      const hdUrl = img.getAttribute('data-old-hires') || 
+                    img.getAttribute('data-a-hires') ||
+                    img.getAttribute('data-zoom-image') ||
+                    img.getAttribute('data-large-image');
+      if (hdUrl && /images\/I\//.test(hdUrl) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(hdUrl)) {
         urls.add(hdUrl);
+        console.log(`[DEBUG] Amazon data attribute HD: ${hdUrl}`);
       }
     });
     
-    return [...urls].slice(0, 15);
+    // 4. FALLBACK: Direct scan with intelligent upgrades (if zoom data missing)
+    if (urls.size < 3) {
+      doc.querySelectorAll('img[src*="images/I/"]').forEach(img => {
+        let url = img.currentSrc || img.src;
+        if (url && /images\/I\//.test(url) && /(media-amazon\.com|ssl-images-amazon\.com|images-amazon\.com)/.test(url)) {
+          // Skip obvious junk
+          if (!/grey-pixel|play-icon|overlay|\.gif$|_SR\d{1,2},\d{1,2}_|aplus-media/.test(url)) {
+            // FIXED: Smart URL upgrade with proper dot notation
+            const upgradeAmazonUrl = (originalUrl, sizes = [2400, 2000, 1500]) => {
+              const results = [];
+              
+              // Remove existing size tokens first
+              let baseUrl = originalUrl.replace(/_AC_[SU][SXYL]\d+_/g, '').replace(/\._[A-Z]{2}\d+_/g, '');
+              
+              sizes.forEach(size => {
+                // CORRECTED: Insert with leading DOT for valid Amazon format
+                const hdUrl = baseUrl.replace(/(\.[^.]+)$/, `._AC_SL${size}_$1`);
+                results.push(hdUrl);
+              });
+              
+              return results;
+            };
+            
+            const hdUrls = upgradeAmazonUrl(url);
+            hdUrls.forEach(hdUrl => urls.add(hdUrl));
+            console.log(`[DEBUG] Amazon fallback upgrades:`, hdUrls.slice(0, 2));
+          }
+        }
+      });
+    }
+    
+    console.log(`[DEBUG] Amazon found ${urls.size} total images (including zoom variants)`);
+    return [...urls].slice(0, 20);
   }
 };
 
