@@ -1,0 +1,126 @@
+[2:29:44 PM] 🏷️ BRAND: Falling back to generic...
+[2:29:44 PM] 🏷️ BRAND FROM GENERIC: Brand Rckskaya
+[2:29:44 PM] 📄 DESCRIPTION: Falling back to generic...
+[2:29:44 PM] 📄 DESCRIPTION FROM GENERIC: Buy 5000mAh Hand Crank Emergency Radio, AM/FM/SW/NOAA Weather Alert Radio Solar Powered, Crank Radios with Flashlight, USB-C Charging, Sleep Timer Clock Alarm, Headphone Jack, SOS Alarm for Home/Outdoors: Weather Radios - Amazon.com ✓ FREE DELIVERY possible on eligible purchases
+[2:29:44 PM] 🧩 PRICE: Trying custom handler...
+[2:29:44 PM] 🧩 CUSTOM PRICE SUCCESS: 49.99
+[2:29:44 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[2:29:44 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[2:29:44 PM] 🧩 IMAGES: Trying custom handler...
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] undefined
+[2:29:44 PM] 🧩 CUSTOM IMAGES: {"count":14,"images":["https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/41VU-8wB8FL._AC_SL1500_.jpg","https://m.media-amazon.com/image
+[2:29:44 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[2:29:44 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":14}
+[2:29:44 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":14}
+[2:29:44 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/51sI2S3DzuL._SY88.jpg
+10
+📋 Copy URL
+[2:29:44 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61I0feenY4L._SY88.jpg
+10
+📋 Copy URL
+[2:29:44 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61oy7GEGmTL._SY88.jpg
+10
+📋 Copy URL
+[2:29:44 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61QuOnIunBL._SY88.jpg
+10
+📋 Copy URL
+[2:29:44 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61T+eJpZo-L._SY88.jpg
+10
+📋 Copy URL
+[2:29:44 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71X-IyY02UL._SY88.jpg
+10
+📋 Copy URL
+[2:29:44 PM] ✅ SINGLE IMAGE (score: 80): https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_SL1500_.jpg
+80
+📋 Copy URL
+[2:29:44 PM] ✅ SINGLE IMAGE (score: 70): https://m.media-amazon.com/images/I/41VU-8wB8FL._AC_SL1500_.jpg
+70
+📋 Copy URL
+[2:29:44 PM] ✅ SINGLE IMAGE (score: 70): https://m.media-amazon.com/images/I/511K5JUrSqL._AC_SL1500_.jpg
+70
+📋 Copy URL
+[2:29:44 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/512NBdn-OeL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51666KjkXHL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51vuxdNK-XL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/51WpmEjwEeL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] ✅ SINGLE IMAGE (score: 50): https://m.media-amazon.com/images/I/71-V-Xo1b9L._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] 🎯 HIGH SCORE + SIZE OK (80): https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_SL1500_.jpg
+80
+📋 Copy URL
+[2:29:44 PM] 🎯 HIGH SCORE + SIZE OK (70): https://m.media-amazon.com/images/I/41VU-8wB8FL._AC_SL1500_.jpg
+70
+📋 Copy URL
+[2:29:44 PM] 🎯 HIGH SCORE + SIZE OK (70): https://m.media-amazon.com/images/I/511K5JUrSqL._AC_SL1500_.jpg
+70
+📋 Copy URL
+[2:29:44 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/512NBdn-OeL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51666KjkXHL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51vuxdNK-XL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/51WpmEjwEeL._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] 📏 SIZE OK (est: 80KB): https://m.media-amazon.com/images/I/71-V-Xo1b9L._AC_SL1500_.jpg
+50
+📋 Copy URL
+[2:29:44 PM] 🏆 TOP SCORED IMAGES: ["61FOUArF3nL._AC_SL1500_.jpg (score: 80)","41VU-8wB8FL._AC_SL1500_.jpg (score: 70)","511K5JUrSqL._AC_SL1500_.jpg (score: 70)","512NBdn-OeL._AC_SL1500_.jpg (score: 50)","51666KjkXHL._AC_SL1500_.jpg (s
+[2:29:44 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":6,"smallFile":0,"duplicateGroups":0,"kept":8}
+[2:29:44 PM] 🖼️ FINAL IMAGES: ["https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/41VU-8wB8FL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/511K5JUrSqL._AC_S
+[2:29:44 PM] 🖼️ FINAL IMAGES: {"count":8,"images":["https://images-na.ssl-images-amazon.com/images/I/61FOUArF3nL._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/41VU-8wB8FL._AC_SL1500_.jpg","https://m.media-amazon.com/images
+[2:29:44 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"5000mAh Hand Crank Emergency Radio, AM/FM/SW/NOAA ","brand":"Brand Rckskaya","description":"Buy 5000mAh Hand Crank Emergency Radio, AM/FM/SW/N","price":"49.99","imageCount":8,"firstIm
+[2:29:44 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":8}

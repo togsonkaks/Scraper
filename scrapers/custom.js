@@ -146,12 +146,32 @@ const AMZ = {
         .replace(SIZE, "_SL1500_");               // force large size
 
     const baseKey = (u) => clean(u).replace(/^.*\/I\//, "").replace(/\._.*$/, "");
-    const out = new Map(); // baseKey -> url
+    
+    // Amazon quality scoring - your brilliant discovery!
+    const getQualityScore = (u) => {
+      const match = u.match(/\/I\/(\d{2})/);
+      if (!match) return 0;
+      const prefix = parseInt(match[1]);
+      if (prefix >= 81) return 90; // Premium quality ⭐⭐⭐⭐⭐
+      if (prefix >= 71) return 80; // High quality ⭐⭐⭐⭐  
+      if (prefix >= 61) return 60; // Medium quality ⭐⭐⭐
+      if (prefix >= 51) return 40; // Low quality ⭐⭐
+      if (prefix >= 41) return 20; // Thumbnail quality ⭐
+      return 10; // Unknown/very low
+    };
+    
+    const qualityImages = new Map(); // baseKey -> {url, score}
     const add = (u) => {
       if (!isAmz(u)) return;
       const n = normalize(u);
       const k = baseKey(n);
-      if (!out.has(k)) out.set(k, n);
+      const score = getQualityScore(n);
+      
+      // Only keep if this is higher quality than what we have
+      if (!qualityImages.has(k) || qualityImages.get(k).score < score) {
+        qualityImages.set(k, {url: n, score: score});
+        debug(`Amazon quality[${score}]: ${k.slice(0,12)} -> ${n.slice(-50)}`);
+      }
     };
 
     // 1) data-a-dynamic-image (the gold mine for high-res!)
@@ -283,13 +303,25 @@ const AMZ = {
       debug("Amazon fallback <img> scan used (no a-state yet)");
     }
 
-    const result = Array.from(out.values()).sort((a, b) => {
-      const aj = a.endsWith(".jpg") ? 0 : 1;
-      const bj = b.endsWith(".jpg") ? 0 : 1;
-      return aj - bj || a.localeCompare(b);
-    });
+    // Sort by quality score (highest first), then by JPG preference
+    const result = Array.from(qualityImages.values())
+      .sort((a, b) => {
+        // First by quality score (higher is better)
+        if (a.score !== b.score) return b.score - a.score;
+        // Then by JPG preference  
+        const aJpg = a.url.endsWith(".jpg") ? 0 : 1;
+        const bJpg = b.url.endsWith(".jpg") ? 0 : 1;
+        return aJpg - bJpg || a.url.localeCompare(b.url);
+      })
+      .map(item => item.url);
 
-    debug(`Amazon hi-res result count: ${result.length}`);
+    debug(`Amazon quality-sorted results: ${result.length} images`);
+    result.forEach((url, i) => {
+      const score = getQualityScore(url);
+      const quality = score >= 90 ? "⭐⭐⭐⭐⭐" : score >= 80 ? "⭐⭐⭐⭐" : score >= 60 ? "⭐⭐⭐" : score >= 40 ? "⭐⭐" : "⭐";
+      debug(`Amazon [${i+1}] ${quality}(${score}): ${url.slice(-60)}`);
+    });
+    
     return result.slice(0, 20);
   }
 };
