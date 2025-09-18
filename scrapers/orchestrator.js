@@ -498,6 +498,29 @@
     return false;
   }
   
+  // Smart Shopify files filtering - allow product images, block theme assets
+  function shouldBlockShopifyFiles(url, element = null) {
+    if (!/\/cdn\/shop\/files\//i.test(url)) return false; // Not a /files/ URL
+    
+    // Always block obvious theme assets
+    if (/(logo|icon|sprite|theme|favicon|nav|header|footer|menu|swatch)\./i.test(url)) {
+      return true;
+    }
+    
+    // Allow if URL has product-scale size tokens or progressive format
+    if (/_\d{3,4}x[\d.]*\.progressive\./i.test(url) || /_\d{3,4}x\d{3,4}/i.test(url)) {
+      return false; // Allow - has size tokens indicating product image
+    }
+    
+    // Allow if filename suggests product content (vs theme assets)
+    if (!/^(theme|logo|icon|nav|menu|header|footer|sprite|favicon)/i.test(url.split('/').pop())) {
+      return false; // Allow - doesn't start with theme asset names
+    }
+    
+    // Default: block if no positive signals
+    return true;
+  }
+  
   // Universal CDN URL upgrade function
   function upgradeCDNUrl(url) {
     let upgraded = url;
@@ -1076,10 +1099,13 @@
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
         
-        // DIRECT JUNK BLOCKING - NO BULLSHIT
-        if (/\/cdn\/shop\/files\//.test(s1)) {
-          debug('❌ BLOCKED: Shopify files path:', s1.substring(s1.lastIndexOf('/') + 1));
+        // Smart Shopify files filtering
+        if (shouldBlockShopifyFiles(s1, el)) {
+          debug('❌ BLOCKED: Shopify files path (theme asset):', s1.substring(s1.lastIndexOf('/') + 1));
           continue;
+        }
+        if (/\/cdn\/shop\/files\//i.test(s1)) {
+          debug('✅ ALLOWED: Shopify files path (product image):', s1.substring(s1.lastIndexOf('/') + 1));
         }
         if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(s1)) {
           debug('❌ BLOCKED: Junk pattern:', s1.substring(s1.lastIndexOf('/') + 1));
@@ -1124,10 +1150,13 @@
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
         
-        // DIRECT JUNK BLOCKING - NO BULLSHIT
-        if (/\/cdn\/shop\/files\//.test(best)) {
-          debug('❌ BLOCKED: Shopify files path:', best.substring(best.lastIndexOf('/') + 1));
+        // Smart Shopify files filtering
+        if (shouldBlockShopifyFiles(best, el)) {
+          debug('❌ BLOCKED: Shopify files path (theme asset):', best.substring(best.lastIndexOf('/') + 1));
           continue;
+        }
+        if (/\/cdn\/shop\/files\//i.test(best)) {
+          debug('✅ ALLOWED: Shopify files path (product image):', best.substring(best.lastIndexOf('/') + 1));
         }
         if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(best)) {
           debug('❌ BLOCKED: Junk pattern:', best.substring(best.lastIndexOf('/') + 1));
@@ -1175,10 +1204,13 @@
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
             
-            // DIRECT JUNK BLOCKING - NO BULLSHIT
-            if (/\/cdn\/shop\/files\//.test(b)) {
-              debug('❌ BLOCKED: Shopify files path:', b.substring(b.lastIndexOf('/') + 1));
+            // Smart Shopify files filtering
+            if (shouldBlockShopifyFiles(b, src)) {
+              debug('❌ BLOCKED: Shopify files path (theme asset):', b.substring(b.lastIndexOf('/') + 1));
               continue;
+            }
+            if (/\/cdn\/shop\/files\//i.test(b)) {
+              debug('✅ ALLOWED: Shopify files path (product image):', b.substring(b.lastIndexOf('/') + 1));
             }
             if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(b)) {
               debug('❌ BLOCKED: Junk pattern:', b.substring(b.lastIndexOf('/') + 1));

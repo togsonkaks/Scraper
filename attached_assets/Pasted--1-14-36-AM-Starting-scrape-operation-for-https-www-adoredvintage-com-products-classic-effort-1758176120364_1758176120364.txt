@@ -1,0 +1,333 @@
+[1:14:36 AM] 🚀 Starting scrape operation for: https://www.adoredvintage.com/products/classic-effortless-blue-natural-striped-linen-shorts
+[1:14:36 AM] 🚀 SCRAPE START {"host":"adoredvintage.com","href":"https://www.adoredvintage.com/products/classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts","mode":"normal"}
+[1:14:36 AM] 🧠 LOADED MEMORY: {"host":"adoredvintage.com","hasMemory":false,"fields":[],"memoryData":{}}
+[1:14:36 AM] 🔄 NORMAL MODE - memory + fallbacks
+[1:14:36 AM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":false}
+[1:14:36 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: title
+[1:14:36 AM] 📝 TITLE FROM MEMORY: null
+[1:14:36 AM] 🧩 TITLE: Trying custom handler...
+[1:14:36 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[1:14:36 AM] 📝 TITLE: Falling back to generic...
+[1:14:36 AM] 📝 TITLE FROM GENERIC: Frankie Shorts
+[1:14:36 AM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":false}
+[1:14:36 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: brand
+[1:14:36 AM] 🏷️ BRAND FROM MEMORY: null
+[1:14:36 AM] 🏷️ BRAND: Falling back to generic...
+[1:14:36 AM] 🏷️ BRAND FROM GENERIC: Modern
+[1:14:36 AM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":false}
+[1:14:36 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: description
+[1:14:36 AM] 📄 DESCRIPTION FROM MEMORY: null
+[1:14:36 AM] 📄 DESCRIPTION: Falling back to generic...
+[1:14:36 AM] 📄 DESCRIPTION FROM GENERIC: These playful little deep olive cutoff denim shorts feature a nice, high waist, raw hem, and gold hardware. The unique color paired with the classic cut will allow you to elevate your casual summer looks with ease. 95% Cotton, 5% Polyester Hand Wash Cold / Line Dry Imported Fit Notes &amp; Measurements Size 4/6 dress (
+[1:14:36 AM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":false}
+[1:14:36 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: price
+[1:14:36 AM] 💰 PRICE FROM MEMORY: null
+[1:14:36 AM] 💰 PRICE: Falling back to generic...
+[1:14:36 AM] 🔍 PRICE PARSING: {"input":"$72.00$58.00","inputType":"string","inputLength":12}
+[1:14:36 AM] 🧹 CLEANED INPUT: {"original":"$72.00$58.00","cleaned":"$72.00$58.00"}
+[1:14:36 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$72.00$58.00","reconstructed":"$72.00$58.00"}
+[1:14:36 AM] 💰 MONETARY TOKENS: [72,58]
+[1:14:36 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[72,58],"preferDecimals":false}
+[1:14:36 AM] ✅ PRICE FROM MONETARY: {"result":58,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[72,58]}
+[1:14:36 AM] 🎯 REFINING PRICE: {"baseVal":"58","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[1:14:36 AM] Price element <SPAN.price>
+[1:14:36 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[1:14:36 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[1:14:36 AM] 📍 ANCESTOR 0: <SPAN.price>
+[1:14:36 AM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$72.00$58.00","cleaned":"$72.00$58.00","reconstructed":"$72.00$58.00"}
+[1:14:36 AM] 💰 ANCESTOR 0 SMART PRICE: 58 from tokens: [72,58]
+[1:14:36 AM] 📍 ANCESTOR 1: <DIV.product-page-info__price>
+[1:14:36 AM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$72.00$58.00","cleaned":"$72.00$58.00","reconstructed":"$72.00$58.00"}
+[1:14:36 AM] 💰 ANCESTOR 1 SMART PRICE: 58 from tokens: [72,58]
+[1:14:36 AM] 📍 ANCESTOR 2: <DIV.product-page-info>
+[1:14:36 AM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Vintage\nPreloved\nFrankie Shorts\n $72.00$58.00\n \n ","cleaned":"Vintage\nPreloved\nFrankie Shorts\n $72.00$58.00\n
+[1:14:36 AM] 💰 ANCESTOR 2 SMART PRICE: 58 from tokens: [72,58,100]
+[1:14:36 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"58","originalBase":"58"}
+[1:14:36 AM] 💰 PRICE FROM GENERIC: 58
+[1:14:36 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[1:14:36 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:14:36 AM] 🧩 IMAGES: Trying custom handler...
+[1:14:36 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[1:14:36 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:14:36 AM] 🏆 TOP SCORED IMAGES: []
+[1:14:36 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:14:36 AM] 🖼️ FINAL IMAGES: []
+[1:14:36 AM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[1:14:36 AM] 🖼️ Getting generic images for hostname: adoredvintage.com
+[1:14:36 AM] 🎯 Trying site-specific selector for adoredvintage.com: .product-gallery img
+[1:14:36 AM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[1:14:36 AM] 📊 Found 24 elements for selector: .product-gallery img
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/fi
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[1:14:36 AM] ❌ BLOCKED: Shopify files path: frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/fi
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_523x.progressive.jpg?v=1709051080
+[1:14:36 AM] ❌ BLOCKED: Shopify files path: frankie-shorts-C1718R-2_523x.progressive.jpg?v=1709051080
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/fi
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-1_523x.progressive.jpg?v=1709051080
+[1:14:36 AM] ❌ BLOCKED: Shopify files path: frankie-shorts-C1718R-1_523x.progressive.jpg?v=1709051080
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/fi
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R_523x.progressive.jpg?v=1698370473
+[1:14:36 AM] ❌ BLOCKED: Shopify files path: frankie-shorts-C1718R_523x.progressive.jpg?v=1698370473
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/pr
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/C1718R_Front_523x.progressive.jpg?v=1698370473
+[1:14:36 AM] ✨ UPGRADED Shopify URL: C1718R_Front_523x.progressive.jpg?v=1698370473 -> C1718R_Front_1020x.progressive.jpg?v=1698370473
+[1:14:36 AM] ✨ UPGRADED CDN URL: C1718R_Front_523x.progressive.jpg?v=1698370473 -> C1718R_Front_1020x.progressive.jpg?v=1698370473
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/pr
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/C1718R_back_523x.progressive.jpg?v=1698370473
+[1:14:36 AM] ✨ UPGRADED Shopify URL: C1718R_back_523x.progressive.jpg?v=1698370473 -> C1718R_back_1020x.progressive.jpg?v=1698370473
+[1:14:36 AM] ✨ UPGRADED CDN URL: C1718R_back_523x.progressive.jpg?v=1698370473 -> C1718R_back_1020x.progressive.jpg?v=1698370473
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/pr
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-hem-sho
+[1:14:36 AM] ✨ UPGRADED Shopify URL: Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_2_523x.progressive.jpg?v=1698370473 -> Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_2_1020x.progressive.jpg?v=1698370473
+[1:14:36 AM] ✨ UPGRADED CDN URL: Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_2_523x.progressive.jpg?v=1698370473 -> Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_2_1020x.progressive.jpg?v=1698370473
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/pr
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-hem-sho
+[1:14:36 AM] ✨ UPGRADED Shopify URL: Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_3_523x.progressive.jpg?v=1698370473 -> Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_3_1020x.progressive.jpg?v=1698370473
+[1:14:36 AM] ✨ UPGRADED CDN URL: Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_3_523x.progressive.jpg?v=1698370473 -> Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_3_1020x.progressive.jpg?v=1698370473
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/fi
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_97x.progressive.jpg?v=1709051080
+[1:14:36 AM] ❌ BLOCKED: Shopify files path: frankie-shorts-C1718R-2_97x.progressive.jpg?v=1709051080
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/fi
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-1_97x.progressive.jpg?v=1709051080
+[1:14:36 AM] ❌ BLOCKED: Shopify files path: frankie-shorts-C1718R-1_97x.progressive.jpg?v=1709051080
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/fi
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R_97x.progressive.jpg?v=1698370473
+[1:14:36 AM] ❌ BLOCKED: Shopify files path: frankie-shorts-C1718R_97x.progressive.jpg?v=1698370473
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/pr
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/C1718R_Front_97x.progressive.jpg?v=1698370473
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/pr
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/C1718R_back_97x.progressive.jpg?v=1698370473
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/pr
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-hem-sho
+[1:14:36 AM] Image element <IMG.rimage__img>
+[1:14:36 AM] 📋 Image attributes: {"src":"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":"//www.adoredvintage.com/cdn/shop/pr
+[1:14:36 AM] ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+[1:14:36 AM] ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-hem-sho
+[1:14:36 AM] 🖼️ Raw enriched URLs collected: 32
+[1:14:36 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":32}
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 115): https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_1020x.progressive.jpg?v=1698370473
+115
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 115): https://www.adoredvintage.com/cdn/shop/products/C1718R_back_1020x.progressive.jpg?v=1698370473
+115
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 115): https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+115
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 115): https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+115
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 60): https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_97x.progressive.jpg?v=1698370473
+60
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 60): https://www.adoredvintage.com/cdn/shop/products/C1718R_back_97x.progressive.jpg?v=1698370473
+60
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 60): https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+60
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 60): https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+60
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_1020x.progressive.jpg?v=1698370473
+115
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/C1718R_back_1020x.progressive.jpg?v=1698370473
+115
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+115
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+115
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_97x.progressive.jpg?v=1698370473
+60
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/C1718R_back_97x.progressive.jpg?v=1698370473
+60
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+60
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+60
+📋 Copy URL
+[1:14:36 AM] 🏆 TOP SCORED IMAGES: ["C1718R_Front_1020x.progressive.jpg?v=1698370473 (score: 115)","C1718R_back_1020x.progressive.jpg?v=1698370473 (score: 115)","Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_2_10
+[1:14:36 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":24,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":8}
+[1:14:36 AM] 🖼️ FINAL IMAGES: ["https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_1020x.progressive.j","https://www.adoredvintage.com/cdn/shop/products/C1718R_back_1020x.progressive.jp","https://www.adoredvintage.com/cd
+[1:14:36 AM] 🖼️ After hybrid filtering: 8 images
+[1:14:36 AM] ✅ Site-specific success: 8 images found
+[1:14:36 AM] 🖼️ GENERIC IMAGES: {"count":8,"images":["https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_1020x.progressive.jpg?v=1698370473","https://www.adoredvintage.com/cdn/shop/products/C1718R_back_1020x.progressive.jp
+[1:14:36 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":8}
+[1:14:36 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[1:14:36 AM] 📉 LOW SCORE REJECTED (45): https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_97x.progressive.jpg?v=1698370473
+45
+📋 Copy URL
+[1:14:36 AM] 📉 LOW SCORE REJECTED (45): https://www.adoredvintage.com/cdn/shop/products/C1718R_back_97x.progressive.jpg?v=1698370473
+45
+📋 Copy URL
+[1:14:36 AM] 📉 LOW SCORE REJECTED (45): https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+45
+📋 Copy URL
+[1:14:36 AM] 📉 LOW SCORE REJECTED (45): https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+45
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 145): https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_1020x.progressive.jpg?v=1698370473
+145
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 135): https://www.adoredvintage.com/cdn/shop/products/C1718R_back_1020x.progressive.jpg?v=1698370473
+135
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 135): https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+135
+📋 Copy URL
+[1:14:36 AM] ✅ SINGLE IMAGE (score: 115): https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+115
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_1020x.progressive.jpg?v=1698370473
+145
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/C1718R_back_1020x.progressive.jpg?v=1698370473
+135
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+135
+📋 Copy URL
+[1:14:36 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-h
+115
+📋 Copy URL
+[1:14:36 AM] 🏆 TOP SCORED IMAGES: ["C1718R_Front_1020x.progressive.jpg?v=1698370473 (score: 145)","C1718R_back_1020x.progressive.jpg?v=1698370473 (score: 135)","Classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts-C1718R_2_10
+[1:14:36 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":4,"smallFile":0,"duplicateGroups":0,"kept":4}
+[1:14:36 AM] 🖼️ FINAL IMAGES: ["https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_1020x.progressive.j","https://www.adoredvintage.com/cdn/shop/products/C1718R_back_1020x.progressive.jp","https://www.adoredvintage.com/cd
+[1:14:36 AM] 🖼️ FINAL IMAGES: {"count":4,"images":["https://www.adoredvintage.com/cdn/shop/products/C1718R_Front_1020x.progressive.jpg?v=1698370473","https://www.adoredvintage.com/cdn/shop/products/C1718R_back_1020x.progressive.jp
+[1:14:36 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Frankie Shorts","brand":"Modern","description":"These playful little deep olive cutoff denim short","price":"58","imageCount":4,"firstImages":["https://www.adoredvintage.com/cdn/shop/product
+[1:14:36 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":4}
