@@ -1690,9 +1690,33 @@
         title = await fromMemory('title', mem.title);
         debug('📝 TITLE FROM MEMORY:', title);
         if (!title) {
-          debug('📝 TITLE: Falling back to generic...');
-          title = getTitle();
-          debug('📝 TITLE FROM GENERIC:', title);
+          // Try custom handler before falling back to generic
+          if (typeof getCustomHandlers === 'function') {
+            try {
+              const ch = getCustomHandlers();
+              if (ch?.title && typeof ch.title === 'function') {
+                debug('🧩 TITLE: Trying custom handler...');
+                const customTitle = await Promise.resolve(ch.title(document));
+                if (customTitle && typeof customTitle === 'string') {
+                  title = customTitle.trim();
+                  mark('title', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
+                  debug('🧩 CUSTOM TITLE SUCCESS:', title);
+                } else {
+                  debug('🧩 CUSTOM TITLE MISS: returned', typeof customTitle, customTitle);
+                }
+              } else {
+                debug('🧩 NO CUSTOM TITLE HANDLER AVAILABLE');
+              }
+            } catch (e) { 
+              debug('❌ Custom title handler error:', e.message); 
+            }
+          }
+          
+          if (!title) {
+            debug('📝 TITLE: Falling back to generic...');
+            title = getTitle();
+            debug('📝 TITLE FROM GENERIC:', title);
+          }
         }
         
         brand = await fromMemory('brand', mem.brand);
