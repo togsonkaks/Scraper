@@ -193,10 +193,10 @@ const AMZ = {
       }
     });
 
-    // 2) explicit hi-res attributes (often point to ivLargeImage sources)
+    // 2) explicit hi-res attributes (often point to ivLargeImage sources) - FOCUSED ON MAIN PRODUCT AREA
     debug("Amazon checking hi-res attributes...");
     const hiResSelectors = ['data-old-hires', 'data-a-hires', 'data-zoom-image', 'data-large-image', 'data-src'];
-    live.querySelectorAll('img[data-old-hires], img[data-a-hires], img[data-zoom-image], img[data-large-image], img[data-src]')
+    live.querySelectorAll('#ivImageBlock img[data-old-hires], #ivImageBlock img[data-a-hires], #ivImageBlock img[data-zoom-image], #ivImageBlock img[data-large-image], #ivImageBlock img[data-src], #iv-tab-view-container img[data-old-hires], #iv-tab-view-container img[data-a-hires], #iv-tab-view-container img[data-zoom-image], #iv-tab-view-container img[data-large-image], #iv-tab-view-container img[data-src], .iv-box img[data-old-hires], .iv-box img[data-a-hires], .iv-box img[data-zoom-image], .iv-box img[data-large-image], .iv-box img[data-src]')
       .forEach((img, idx) => {
         hiResSelectors.forEach((attr) => {
           const u = img.getAttribute(attr);

@@ -1380,6 +1380,18 @@
     return null;
   }
 
+  /* ---------- HELPER FUNCTIONS ---------- */
+  function getTextOnly(element) {
+    if (!element) return "";
+    // Clone element to avoid modifying original
+    const clone = element.cloneNode(true);
+    // Remove all images and their content
+    clone.querySelectorAll('img, svg, picture').forEach(img => img.remove());
+    // Remove elements with background images
+    clone.querySelectorAll('[style*="background-image"]').forEach(el => el.remove());
+    return clone.textContent.trim();
+  }
+
   /* ---------- GENERIC EXTRACTORS ---------- */
   function getTitle() {
     const sels = ['h1', '.product-title', '[itemprop="name"]'];
@@ -1456,7 +1468,8 @@
         if (sel.includes('data-brand')) {
           brandText = el.getAttribute('data-brand') || "";
         } else {
-          brandText = el.content || el.getAttribute("content") || el.textContent || "";
+          // Get text only, exclude any image content
+          brandText = el.content || el.getAttribute("content") || getTextOnly(el) || "";
         }
         if (brandText && brandText.trim()) {
           mark('brand', { selectors:[sel], attr: el.content || el.getAttribute("content") ? 'content' : 'text', method:'css' });
