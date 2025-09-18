@@ -163,15 +163,24 @@ function warmupScrollJS(){
       await new Promise(r => window.addEventListener('load', r, { once: true }));
     }
     await new Promise(r => setTimeout(r, 600));
-    const H = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-    let y = 0;
-    while (y < H) {
-      window.scrollTo(0, y);
-      await new Promise(r => setTimeout(r, 120));
-      y += Math.max(600, innerHeight * 0.9);
-    }
-    window.scrollTo(0, 0);
-    await new Promise(r => setTimeout(r, 250));
+    
+    // Light product-area focused scrolling instead of full page
+    const originalY = window.scrollY;
+    console.log('🔄 Light product-area scroll starting...');
+    
+    // Just scroll down 200px to trigger lazy loading
+    window.scrollTo({ top: originalY + 200, behavior: 'smooth' });
+    await new Promise(r => setTimeout(r, 500));
+    
+    // Scroll back up 100px 
+    window.scrollTo({ top: Math.max(0, originalY - 100), behavior: 'smooth' });
+    await new Promise(r => setTimeout(r, 500));
+    
+    // Return to original position
+    window.scrollTo({ top: originalY, behavior: 'smooth' });
+    await new Promise(r => setTimeout(r, 300));
+    
+    console.log('✅ Light scroll complete - lazy loading triggered!');
   })();
   `;
 }
