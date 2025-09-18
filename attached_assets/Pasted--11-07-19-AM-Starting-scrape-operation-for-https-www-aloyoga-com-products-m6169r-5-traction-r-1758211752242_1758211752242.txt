@@ -1,0 +1,96 @@
+[11:07:19 AM] 🚀 Starting scrape operation for: https://www.aloyoga.com/products/m6169r-5-traction-running-short-white
+[11:07:19 AM] 🚀 SCRAPE START {"host":"aloyoga.com","href":"https://www.aloyoga.com/products/m6169r-5-traction-running-short-white","mode":"normal"}
+[11:07:19 AM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[11:07:19 AM] 🔄 NORMAL MODE - memory + fallbacks
+[11:07:19 AM] 🧩 TITLE: Trying custom handler...
+[11:07:19 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[11:07:19 AM] 📝 TITLE: Falling back to generic...
+[11:07:19 AM] 📝 TITLE FROM GENERIC: 5" Traction Running Short
+[11:07:19 AM] 🏷️ BRAND: Falling back to generic...
+[11:07:19 AM] 🏷️ BRAND FROM GENERIC: Alo Yoga
+[11:07:19 AM] 📄 DESCRIPTION: Falling back to generic...
+[11:07:19 AM] 📄 DESCRIPTION FROM GENERIC: The 5” Traction Running Short was designed to keep up. This piece is lightweight and equipped with a secure elastic waistband, delivering comfort without compromise. It’s made of a breathable fabric that keeps you cool, while zippered side pockets are perfect for carrying the essentials. Consider this your go-to style
+[11:07:19 AM] 🧩 PRICE: Trying custom handler...
+[11:07:19 AM] 🧩 CUSTOM PRICE MISS: returned object null
+[11:07:19 AM] 💰 PRICE: Falling back to generic...
+[11:07:19 AM] 🔍 PRICE PARSING: {"input":"$68","inputType":"string","inputLength":3}
+[11:07:19 AM] 🧹 CLEANED INPUT: {"original":"$68","cleaned":"$68"}
+[11:07:19 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$68","reconstructed":"$68"}
+[11:07:19 AM] 💰 MONETARY TOKENS: [68]
+[11:07:19 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[68],"preferDecimals":false}
+[11:07:19 AM] ✅ PRICE FROM MONETARY: {"result":68,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[68]}
+[11:07:19 AM] 🎯 REFINING PRICE: {"baseVal":"68","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[11:07:19 AM] Price element <SPAN.product-price>
+[11:07:19 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[11:07:19 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[11:07:19 AM] 📍 ANCESTOR 0: <SPAN.product-price>
+[11:07:19 AM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$68","cleaned":"$68","reconstructed":"$68"}
+[11:07:19 AM] 💰 ANCESTOR 0 SMART PRICE: 68 from tokens: [68]
+[11:07:19 AM] 📍 ANCESTOR 1: <DIV.product-carousel--wrapper>
+[11:07:19 AM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"9\" Flight Compression Short - White$68","cleaned":"9\" Flight Compression Short - White$68","reconstructed":"9\" Flight Compression Short - White$68"}
+[11:07:19 AM] 💰 ANCESTOR 1 SMART PRICE: 68 from tokens: [68]
+[11:07:19 AM] 📍 ANCESTOR 2: <DIV.row>
+[11:07:19 AM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"9\" Flight Compression Short - White$687\" Unity 2-In-1 Short - White/White$98Accolade Sweatpant - Whi","cleaned":"9\" Flight Compression Short - White$687\" Unity 2-In-1 Short - White/Wh
+[11:07:19 AM] 💰 ANCESTOR 2 SMART PRICE: 13.87 from tokens: [687,98,138,887,168,138,128,188,13.87,98]
+[11:07:19 AM] 🔄 NEW BEST PRICE: 13.87 (was 68)
+[11:07:19 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"13.87","originalBase":"68"}
+[11:07:19 AM] 💰 PRICE FROM GENERIC: 13.87
+[11:07:19 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:07:19 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:07:19 AM] 🧩 IMAGES: Trying custom handler...
+[11:07:19 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[11:07:19 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[11:07:19 AM] 🏆 TOP SCORED IMAGES: []
+[11:07:19 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[11:07:19 AM] 🖼️ FINAL IMAGES: []
+[11:07:19 AM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[11:07:19 AM] 🖼️ Getting generic images for hostname: aloyoga.com
+[11:07:19 AM] 🔍 Trying generic zoom/modal detection...
+[11:07:19 AM] 🔍 Generic srcset zoom found: https://static.afterpay.com/us-popup-medium@2x.png (2000px)
+[11:07:19 AM] 🔍 Generic size heuristic zoom found: https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383fe135308.jpg?v=1739918726
+[11:07:19 AM] 🔍 Generic size heuristic zoom found: https://cdn.shopify.com/s/files/1/2185/2813/files/M5171R_03299_b1_s1_a1_1_m214_aacb4471-a6d9-4b65-8774-016bbf859d1c.jpg?v=1746647525
+[11:07:19 AM] 🔍 Generic size heuristic zoom found: https://bat.bing.com/action/0?ti=23003002&Ver=2&mid=00484307-b2f9-484d-807e-7685515818be&bo=1&sid=283efb70945a11f083c281deb512511d&vid=45dac0c0853e11f0857edf9daea2ede7&vids=0&msclkid=N&uach=pv%3D10.0.0&pi=918639831&lg=en-US&sw=3440&sh=1440&sc=24&tl=5%22%20Traction%20Running%20Short%20-%20White%20%7C%20ALO&p=https%3A%2F%2Fwww.aloyoga.com%2Fproducts%2Fm6169r-5-traction-running-short-white&r=&lt=1950&evt=pageLoad&sv=2&cdb=AQAQ&rn=506664
+[11:07:19 AM] 🔍 Processing 4 raw zoom images through pipeline...
+[11:07:19 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":3}
+[11:07:19 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":3}
+[11:07:19 AM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=23003002&Ver=2&mid=00484307-b2f9-484d-807e-7685515818be&bo=1&sid=28
+0[IMG ERROR]
+📋 Copy URL
+[11:07:19 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383
+120
+📋 Copy URL
+[11:07:19 AM] ✅ SINGLE IMAGE (score: 110): https://cdn.shopify.com/s/files/1/2185/2813/files/M5171R_03299_b1_s1_a1_1_m214_aacb4471-a6d9-4b65-87
+110
+📋 Copy URL
+[11:07:19 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383
+120
+📋 Copy URL
+[11:07:19 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/2185/2813/files/M5171R_03299_b1_s1_a1_1_m214_aacb4471-a6d9-4b65-87
+110
+📋 Copy URL
+[11:07:19 AM] 🏆 TOP SCORED IMAGES: ["A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383fe135308.jpg?v=1739918726 (score: 120)","M5171R_03299_b1_s1_a1_1_m214_aacb4471-a6d9-4b65-8774-016bbf859d1c.jpg?v=1746647525 (score: 110)"]
+[11:07:19 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":1,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":2}
+[11:07:19 AM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e","https://cdn.shopify.com/s/files/1/2185/2813/files/M5171R_03299_b1_s1_a1_1_m214_a"]
+[11:07:19 AM] ✅ Generic zoom success: 2 high-quality zoom images found
+[11:07:19 AM] 🖼️ GENERIC IMAGES: {"count":2,"images":["https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383fe135308.jpg?v=1739918726","https://cdn.shopify.com/s/files/1/2185/2813/files/
+[11:07:19 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":2}
+[11:07:19 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":2}
+[11:07:19 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383
+120
+📋 Copy URL
+[11:07:19 AM] ✅ SINGLE IMAGE (score: 110): https://cdn.shopify.com/s/files/1/2185/2813/files/M5171R_03299_b1_s1_a1_1_m214_aacb4471-a6d9-4b65-87
+110
+📋 Copy URL
+[11:07:19 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383
+120
+📋 Copy URL
+[11:07:19 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/2185/2813/files/M5171R_03299_b1_s1_a1_1_m214_aacb4471-a6d9-4b65-87
+110
+📋 Copy URL
+[11:07:19 AM] 🏆 TOP SCORED IMAGES: ["A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383fe135308.jpg?v=1739918726 (score: 120)","M5171R_03299_b1_s1_a1_1_m214_aacb4471-a6d9-4b65-8774-016bbf859d1c.jpg?v=1746647525 (score: 110)"]
+[11:07:19 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":2}
+[11:07:19 AM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e","https://cdn.shopify.com/s/files/1/2185/2813/files/M5171R_03299_b1_s1_a1_1_m214_a"]
+[11:07:19 AM] 🖼️ FINAL IMAGES: {"count":2,"images":["https://cdn.shopify.com/s/files/1/2185/2813/files/A0590U_00000_b1_s1_a1_47d6356e-8d05-4775-800e-0383fe135308.jpg?v=1739918726","https://cdn.shopify.com/s/files/1/2185/2813/files/
+[11:07:19 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"5\" Traction Running Short","brand":"Alo Yoga","description":"The 5” Traction Running Short was designed to keep","price":"13.87","imageCount":2,"firstImages":["https://cdn.shopify.com/s/fil
+[11:07:19 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":2}
+[11:07:19 AM] ✅ Debug trace complete
