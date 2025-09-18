@@ -1,0 +1,191 @@
+3:03:54 PM] 🧩 TITLE: Trying custom handler...
+[3:03:54 PM] 🧩 CUSTOM TITLE SUCCESS: Emergency Crank Weather Radio: AM/FM/NOAA Weather Radio with 3 Built-in Cable - Hand Crank Radio with 2000mAh, Solar Charge, Hand Crank & Battery Operated, SOS Alarm, Flashlight for Outdoor Emergency
+[3:03:54 PM] 🏷️ BRAND: Falling back to generic...
+[3:03:54 PM] 🏷️ BRAND FROM GENERIC: Brand RunningSnail
+[3:03:54 PM] 📄 DESCRIPTION: Falling back to generic...
+[3:03:54 PM] 📄 DESCRIPTION FROM GENERIC: Amazon.com: Emergency Crank Weather Radio: AM/FM/NOAA Weather Radio with 3 Built-in Cable - Hand Crank Radio with 2000mAh, Solar Charge, Hand Crank & Battery Operated, SOS Alarm, Flashlight for Outdoor Emergency : Electronics
+[3:03:54 PM] 🧩 PRICE: Trying custom handler...
+[3:03:54 PM] 🧩 CUSTOM PRICE SUCCESS: 28.82
+[3:03:54 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[3:03:54 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[3:03:54 PM] 🧩 IMAGES: Trying custom handler...
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] undefined
+[3:03:54 PM] 🧩 CUSTOM IMAGES: {"count":20,"images":["https://m.media-amazon.com/images/I/81Lth+PLzzL._SY88.jpg","https://m.media-amazon.com/images/I/81tBc-P+t8L._AC_SL1500_.jpg","https://m.media-amazon.com/images/I/81VjKSCAa1L._SY
+[3:03:54 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[3:03:54 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":20}
+[3:03:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":20}
+[3:03:54 PM] 📉 LOW SCORE REJECTED (40): https://m.media-amazon.com/images/I/81Lth+PLzzL._SY88.jpg
+40
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (30): https://m.media-amazon.com/images/I/81VjKSCAa1L._SY88.jpg
+30
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/715hQo1lJML._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/717nNMfFhlL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71baRAWh-iL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71bwXVYViiL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71kIKPe4tcL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71l4iqBbJ9L._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71Mpc4m5IfL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71rlIfrkoYL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71rwUIAjZeL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71tgis-p40L._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71vlxDrMwuL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/71YIZmZxCVL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61b0K1UXrIL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61CQIj-8fvL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61ifXV3NLFL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 📉 LOW SCORE REJECTED (10): https://m.media-amazon.com/images/I/61qrE4WHCSL._SY88.jpg
+10
+📋 Copy URL
+[3:03:54 PM] 🗑️ JUNK IMAGE: https://m.media-amazon.com/images/I/61SLk6d0ACL.SS40_BG85,85,85_BR-120_PKdp-play
+0
+📋 Copy URL
+[3:03:54 PM] ✅ SINGLE IMAGE (score: 70): https://m.media-amazon.com/images/I/81tBc-P+t8L._AC_SL1500_.jpg
+70
+📋 Copy URL
+[3:03:54 PM] 🎯 HIGH SCORE + SIZE OK (70): https://m.media-amazon.com/images/I/81tBc-P+t8L._AC_SL1500_.jpg
+70
+📋 Copy URL
+[3:03:54 PM] 🏆 TOP SCORED IMAGES: ["81tBc-P+t8L._AC_SL1500_.jpg (score: 70)"]
+[3:03:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":1,"lowScore":18,"smallFile":0,"duplicateGroups":0,"kept":1}
+[3:03:54 PM] 🖼️ FINAL IMAGES: ["https://m.media-amazon.com/images/I/81tBc-P+t8L._AC_SL1500_.jpg"]
+[3:03:54 PM] 🖼️ FINAL IMAGES: {"count":1,"images":["https://m.media-amazon.com/images/I/81tBc-P+t8L._AC_SL1500_.jpg"]}
+[3:03:54 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Emergency Crank Weather Radio: AM/FM/NOAA Weather ","brand":"Brand RunningSnail","description":"Amazon.com: Emergency Crank Weather Radio: AM/FM/N","price":"28.82","imageCount":1,"fir
+[3:03:54 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":1}
+[3:03:54 PM] ✅ Debug trace complete

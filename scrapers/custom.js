@@ -108,7 +108,7 @@ const AMZ = {
     return null;
   },
 
-  async images(doc = document) {
+  images(doc = document) {
     // route logs to orchestrator if present - be robust about the type
     const debug = (msg) => {
       try {
@@ -240,42 +240,9 @@ const AMZ = {
     // GOLD HUNT: ivLargeImage and immersive viewer content
     debug("Amazon hunting for ivLargeImage (the gold!)...");
     
-    // FOCUSED APPROACH: Scroll around main product area to trigger lazy loading
-    debug("Amazon scrolling main product area to trigger 81-series premium images...");
-    
-    // Find main product containers to scroll around
-    const mainProductAreas = [
-      '#imageBlock',
-      '#dp-image-block', 
-      '[data-action="dp-image-main"]',
-      '.imageBlock_container',
-      '#imageBlockThumbs'
-    ];
-    
-    // Simulate scrolling in main product area to trigger lazy loading
-    for (const selector of mainProductAreas) {
-      const area = live.querySelector(selector);
-      if (area) {
-        debug(`Amazon scrolling area: ${selector}`);
-        area.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // Small delay to let lazy loading kick in
-        await new Promise(resolve => setTimeout(resolve, 200));
-        break;
-      }
-    }
-    
-    // Also trigger thumbnail interactions (keep existing logic)
-    const thumbnails = doc.querySelectorAll("[id*='altImages'] img, .iv-thumb img");
-    debug(`Amazon found ${thumbnails.length} thumbnails to potentially trigger`);
-    
-    thumbnails.forEach((thumb, idx) => {
-      try {
-        thumb.dispatchEvent(new Event('mouseenter', { bubbles: true }));
-        thumb.dispatchEvent(new Event('click', { bubbles: true }));
-      } catch(e) {
-        // Silently continue if events fail
-      }
-    });
+    // Note: Automatic scrolling now happens on page load (main.js) to trigger lazy loading
+    // This gives Amazon time to load premium images before scraping begins
+    debug("Amazon leveraging page-load triggered lazy loading for premium images...");
     
     // Check live document for dynamic ivLargeImage content (might be loaded already)
     if (live !== doc) {

@@ -226,6 +226,72 @@ function ensureProduct(){
       });
     }
   });
+
+  // AUTOMATIC AMAZON LAZY LOADING TRIGGER
+  productWin.webContents.on('dom-ready', async () => {
+    try {
+      const currentURL = await productWin.webContents.executeJavaScript('location.href');
+      if (/(^|\.)amazon\./i.test(currentURL)) {
+        console.log('Amazon page detected - triggering automatic lazy loading...');
+        
+        // Inject automatic scrolling script to trigger Amazon's lazy loading
+        const amazonScrollScript = `
+          (async () => {
+            console.log('🔄 Amazon auto-scroll starting...');
+            
+            // Wait a moment for initial page elements to load
+            await new Promise(r => setTimeout(r, 1000));
+            
+            // Find main product areas to scroll around
+            const mainProductAreas = [
+              '#imageBlock',
+              '#dp-image-block', 
+              '[data-action="dp-image-main"]',
+              '.imageBlock_container',
+              '#imageBlockThumbs',
+              '#imgTagWrapperId',
+              '#main-image-container'
+            ];
+            
+            let scrolledArea = null;
+            for (const selector of mainProductAreas) {
+              const area = document.querySelector(selector);
+              if (area) {
+                console.log('🎯 Auto-scrolling Amazon area:', selector);
+                area.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                scrolledArea = selector;
+                await new Promise(r => setTimeout(r, 500));
+                break;
+              }
+            }
+            
+            // Scroll up and down to trigger more lazy loading
+            const originalY = window.scrollY;
+            console.log('📜 Auto-scrolling to trigger lazy loading...');
+            
+            // Scroll down a bit
+            window.scrollTo({ top: originalY + 300, behavior: 'smooth' });
+            await new Promise(r => setTimeout(r, 800));
+            
+            // Scroll back up
+            window.scrollTo({ top: Math.max(0, originalY - 200), behavior: 'smooth' });
+            await new Promise(r => setTimeout(r, 800));
+            
+            // Return to original position
+            window.scrollTo({ top: originalY, behavior: 'smooth' });
+            await new Promise(r => setTimeout(r, 500));
+            
+            console.log('✅ Amazon auto-scroll complete - lazy loading triggered!');
+            return { scrolledArea, completed: true };
+          })();
+        `;
+        
+        await productWin.webContents.executeJavaScript(amazonScrollScript);
+      }
+    } catch (error) {
+      console.error('Auto-scroll error:', error);
+    }
+  });
   
   productWin.on('closed', () => { productWin = null; });
   return productWin;
