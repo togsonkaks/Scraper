@@ -1,0 +1,181 @@
+
+chatgpt
+[11:04:57 AM] 🚀 Starting scrape operation for: https://www.asos.com/us/nike/nike-shox-r4-sneakers-in-black-and-silver/prd/207494721#colourWayId-207494724
+[11:04:57 AM] 🚀 SCRAPE START {"host":"asos.com","href":"https://www.asos.com/us/nike/nike-shox-r4-sneakers-in-black-and-silver/prd/207494721#colourWayId-207494724","mode":"normal"}
+[11:04:57 AM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[11:04:57 AM] 🔄 NORMAL MODE - memory + fallbacks
+[11:04:57 AM] 🧩 TITLE: Trying custom handler...
+[11:04:57 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[11:04:57 AM] 📝 TITLE: Falling back to generic...
+[11:04:57 AM] 📝 TITLE FROM GENERIC: Nike Shox R4 sneakers in black and silver
+[11:04:57 AM] 🏷️ BRAND: Falling back to generic...
+[11:04:57 AM] 🏷️ BRAND FROM GENERIC: Nike
+[11:04:57 AM] 📄 DESCRIPTION: Falling back to generic...
+[11:04:57 AM] 📄 DESCRIPTION FROM GENERIC: Browse online for the newest Nike Shox R4 sneakers in black and silver styles. Shop easier with ASOS' multiple payments and return options (Ts&Cs apply).
+[11:04:57 AM] 🧩 PRICE: Trying custom handler...
+[11:04:57 AM] 🧩 CUSTOM PRICE SUCCESS: $155.00
+[11:04:57 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:04:57 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:04:57 AM] 🧩 IMAGES: Trying custom handler...
+[11:04:57 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[11:04:57 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[11:04:57 AM] 🏆 TOP SCORED IMAGES: []
+[11:04:57 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[11:04:57 AM] 🖼️ FINAL IMAGES: []
+[11:04:57 AM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[11:04:57 AM] 🖼️ Getting generic images with GenericImageCollector v2...
+[11:04:57 AM] GenericImageCollector: 30 urls
+[11:04:57 AM] ✅ GenericImageCollector v2 found: 30 images
+[11:04:57 AM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w$&wid=513&fit=constrain","https://images.asos-media.com/products/nike-shox-r4
+[11:04:57 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":30}
+[11:04:57 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://cdn.cookielaw.org/logos/static/ot_company_logo.png
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/nike-air-max-95-og-sneakers-in-light-gray
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/asos-design-premium-heavyweight-boxy-over
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/asos-design-off-the-shoulder-flocked-off-
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/asos-design-rubberized-rain-hooded-trench
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/asos-design-slash-neck-flute-sleeve-mini-
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/asos-design-essential-oversized-boxy-swea
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/motel-aleida-wrap-detail-off-shoulder-sli
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/simmi-london-cole-heeled-knee-boots-with-
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/jj-rebel-oversized-t-shirt-with-japanese-
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/nike-training-free-metcon-6-sneakers-in-l
+0
+[11:04:57 AM] 🗑️ JUNK IMAGE: https://images.asos-media.com/products/jack-jones-2-pack-kane-loose-fit-chinos-i
+0
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+160
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w
+150
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w
+150
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w
+130
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/the-north-face-yumiori-quarter-zip-fleece-in-brown/206932480-
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/asos-design-essentials-crew-neck-t-shirt-in-white/204188226-1
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-air-zoom-spiridon-cage-2-sneakers-in-white/207494720-1-w
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-v5-rnr-sneakers-in-silver-and-light-brown/207494815-1-si
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-dunk-low-retro-sneakers-in-black-and-white/205539109-1-b
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-p-6000-sneakers-in-blue-metallic-silver/208021795-1-midb
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/asos-design-baggy-jeans-in-mid-wash-blue/208939713-1-midwashb
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-air-max-90-sneakers-in-white-and-purple/207495074-1-whit
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-air-max-dn8-sneakers-in-white-and-blue/207495108-1-white
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-air-max-90-sneakers-in-black-and-white/203359120-1-black
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-air-max-tl-25-sneakers-in-white-black/208022750-1-white?
+110
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 130): https://images.asos-media.com/products/jack-jones-alex-baggy-jean-in-washed-black/206956133-1-sq734?
+130
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+130
+[11:04:57 AM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-shox-tl-sneakers-in-white-and-silver/206963980-1-white?$
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+160
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w
+150
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w
+150
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w
+130
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/the-north-face-yumiori-quarter-zip-fleece-in-brown/206932480-
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/asos-design-essentials-crew-neck-t-shirt-in-white/204188226-1
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-air-zoom-spiridon-cage-2-sneakers-in-white/207494720-1-w
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-v5-rnr-sneakers-in-silver-and-light-brown/207494815-1-si
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-dunk-low-retro-sneakers-in-black-and-white/205539109-1-b
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-p-6000-sneakers-in-blue-metallic-silver/208021795-1-midb
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/asos-design-baggy-jeans-in-mid-wash-blue/208939713-1-midwashb
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-air-max-90-sneakers-in-white-and-purple/207495074-1-whit
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-air-max-dn8-sneakers-in-white-and-blue/207495108-1-white
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-air-max-90-sneakers-in-black-and-white/203359120-1-black
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-air-max-tl-25-sneakers-in-white-black/208022750-1-white?
+110
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (130): https://images.asos-media.com/products/jack-jones-alex-baggy-jean-in-washed-black/206956133-1-sq734?
+130
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+130
+[11:04:57 AM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-shox-tl-sneakers-in-white-and-silver/206963980-1-white?$
+110
+[11:04:57 AM] 🏆 TOP SCORED IMAGES: ["207494721-5?$n_640w$&wid=513&fit=constrain (score: 160)","207494721-2?$n_640w$&wid=513&fit=constrain (score: 150)","207494721-4?$n_640w$&wid=513&fit=constrain (score: 150)","207494721-3?$n_640w$&wid
+[11:04:57 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":12,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":18}
+[11:04:57 AM] 🖼️ FINAL IMAGES: ["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/pr
+[11:04:57 AM] 🖼️ FINAL IMAGES: {"count":18,"images":["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w$&wid=513&fit=constrain","https://images.asos-media.com/products/nike-shox-r4
+[11:04:57 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Nike Shox R4 sneakers in black and silver","brand":"Nike","description":"Browse online for the newest Nike Shox R4 sneakers","price":"$155.00","imageCount":18,"firstImages":["https://images.
+[11:04:57 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":18}
+[11:04:57 AM] ✅ Debug trace complete
+
+old logic.
+[12:02:39 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:02:39 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:02:39 PM] 🧩 IMAGES: Trying custom handler...
+[12:02:39 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[12:02:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:02:39 PM] 🏆 TOP SCORED IMAGES: []
+[12:02:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:02:39 PM] 🖼️ FINAL IMAGES: []
+[12:02:39 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:02:39 PM] 🖼️ Getting generic images for hostname: asos.com
+[12:02:39 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[12:02:39 PM] 📊 Found 0 elements for selector: .product-media img
+[12:02:39 PM] 🖼️ Raw enriched URLs collected: 0
+[12:02:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:02:39 PM] 🏆 TOP SCORED IMAGES: []
+[12:02:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:02:39 PM] 🖼️ FINAL IMAGES: []
+[12:02:39 PM] 🖼️ After hybrid filtering: 0 images
+[12:02:39 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[12:02:39 PM] 📊 Found 0 elements for selector: .gallery img
+[12:02:39 PM] 🖼️ Raw enriched URLs collected: 0
+[12:02:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:02:39 PM] 🏆 TOP SCORED IMAGES: []
+[12:02:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:02:39 PM] 🖼️ FINAL IMAGES: []
+[12:02:39 PM] 🖼️ After hybrid filtering: 0 images
+[12:02:39 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[12:02:39 PM] 📊 Found 0 elements for selector: .image-gallery img
+[12:02:39 PM] 🖼️ Raw enriched URLs collected: 0
+[12:02:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:02:39 PM] 🏆 TOP SCORED IMAGES: []
+[12:02:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:02:39 PM] 🖼️ FINAL IMAGES: []
+[12:02:39 PM] 🖼️ After hybrid filtering: 0 images
+[12:02:39 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[12:02:39 PM] 📊 Found 0 elements for selector: .product-images img
+[12:02:39 PM] 🖼️ Raw enriched URLs collected: 0
+[12:02:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:02:39 PM] 🏆 TOP SCORED IMAGES: []
+[12:02:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:02:39 PM] 🖼️ FINAL IMAGES: []
+[12:02:39 PM] 🖼️ After hybrid filtering: 0 images
+[12:02:39 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[12:02:39 PM] 📊 Found 17 elements for selector: .product-gallery img
+[12:02:39 PM] Image element <IMG.gallery-image>
