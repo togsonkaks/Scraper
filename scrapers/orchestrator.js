@@ -1153,19 +1153,23 @@
   // Hybrid unique images with score threshold and file size filtering
   async function hybridUniqueImages(enrichedUrls) {
     debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
+    
+    // Apply smart cross-image quality upgrades first
+    const smartUpgradedUrls = smartUpgradeImageGroup(enrichedUrls);
+    debug('🧠 SMART UPGRADE: Applied intelligent quality optimization');
+    
     const groups = new Map(); // canonical URL -> array of enriched URLs
     const seenDebugLogs = new Set();
     const filtered = { empty: 0, invalid: 0, junk: 0, lowScore: 0, smallFile: 0, duplicateGroups: 0, kept: 0 };
     
     // Group enriched URLs by canonical form
-    for (const enriched of enrichedUrls) {
+    for (const enriched of smartUpgradedUrls) {
       if (!enriched.url) {
         filtered.empty++;
         continue;
       }
       
-      // Apply CDN upgrades before scoring and processing
-      enriched.url = upgradeCDNUrl(enriched.url);
+      // URLs are already smart upgraded, no need for individual upgradeCDNUrl calls
       
       const abs = toAbs(enriched.url);
       
