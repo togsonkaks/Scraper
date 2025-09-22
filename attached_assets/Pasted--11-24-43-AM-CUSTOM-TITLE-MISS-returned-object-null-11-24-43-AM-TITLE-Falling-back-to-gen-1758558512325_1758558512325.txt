@@ -1,0 +1,233 @@
+[11:24:43 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[11:24:43 AM] 📝 TITLE: Falling back to generic...
+[11:24:43 AM] 📝 TITLE FROM GENERIC: Finnley Slim-Fit Tapered Jeans
+[11:24:43 AM] 🏷️ BRAND: Falling back to generic...
+[11:24:43 AM] 🏷️ BRAND FROM GENERIC: GUESS
+[11:24:43 AM] 📄 DESCRIPTION: Falling back to generic...
+[11:24:43 AM] 📄 DESCRIPTION FROM GENERIC: Guess US
+[11:24:43 AM] 🧩 PRICE: Trying custom handler...
+[11:24:43 AM] 🧩 CUSTOM PRICE MISS: returned object null
+[11:24:43 AM] 💰 PRICE: Falling back to generic...
+[11:24:43 AM] 🔍 PRICE PARSING: {"input":"$128.00","inputType":"string","inputLength":7}
+[11:24:43 AM] 🧹 CLEANED INPUT: {"original":"$128.00","cleaned":"$128.00"}
+[11:24:43 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$128.00","reconstructed":"$128.00"}
+[11:24:43 AM] 💰 MONETARY TOKENS: [128]
+[11:24:43 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[128],"preferDecimals":false}
+[11:24:43 AM] ✅ PRICE FROM MONETARY: {"result":128,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[128]}
+[11:24:43 AM] 🎯 REFINING PRICE: {"baseVal":"128","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[11:24:43 AM] Price element <DIV.price>
+[11:24:43 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[11:24:43 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[11:24:43 AM] 📍 ANCESTOR 0: <DIV.price>
+[11:24:43 AM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$128.00","cleaned":"$128.00","reconstructed":"$128.00"}
+[11:24:43 AM] 💰 ANCESTOR 0 SMART PRICE: 128 from tokens: [128]
+[11:24:43 AM] 📍 ANCESTOR 1: <DIV.prices>
+[11:24:43 AM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$128.00","cleaned":"$128.00","reconstructed":"$128.00"}
+[11:24:43 AM] 💰 ANCESTOR 1 SMART PRICE: 128 from tokens: [128]
+[11:24:43 AM] 📍 ANCESTOR 2: <DIV.col-12>
+[11:24:43 AM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"$128.00","cleaned":"$128.00","reconstructed":"$128.00"}
+[11:24:43 AM] 💰 ANCESTOR 2 SMART PRICE: 128 from tokens: [128]
+[11:24:43 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"128","originalBase":"128"}
+[11:24:43 AM] 💰 PRICE FROM GENERIC: 128
+[11:24:43 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:24:43 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:24:43 AM] 🧩 IMAGES: Trying custom handler...
+[11:24:43 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[11:24:43 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[11:24:43 AM] 🏆 TOP SCORED IMAGES: []
+[11:24:43 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[11:24:43 AM] 🖼️ FINAL IMAGES: []
+[11:24:43 AM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[11:24:43 AM] 🖼️ Getting generic images with GenericImageCollector v2...
+[11:24:43 AM] GenericImageCollector: 30 urls
+[11:24:43 AM] ✅ GenericImageCollector v2 found: 30 images
+[11:24:43 AM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3YAS2D4QQ1-JBCT-ALT1.jpg","https://img.guess.com/image/upload/f_auto,q_auto:bes
+[11:24:43 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":30}
+[11:24:43 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 98): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+98
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 88): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+88
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 88): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+88
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 68): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+68
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 68): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+68
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 68): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+68
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 68): https://img.guess.com/image/upload/f_auto,q_auto,fl_strip_profile,w_800,c_scale/v1/NA/Style/ECOMM/M3
+68
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 68): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+68
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 68): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+68
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] ✅ SINGLE IMAGE (score: 83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (98): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+98
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (88): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+88
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (88): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+88
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (68): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+68
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (68): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+68
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (68): https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3Y
+68
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (68): https://img.guess.com/image/upload/f_auto,q_auto,fl_strip_profile,w_800,c_scale/v1/NA/Style/ECOMM/M3
+68
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (68): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+68
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (68): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+68
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🎯 HIGH SCORE + SIZE OK (83): https://img.guess.com/image/upload/f_auto,q_auto:eco,fl_strip_profile,dpr_1.5,fl_advanced_resize,fl_
+83
+📋 Copy URL
+[11:24:43 AM] 🏆 TOP SCORED IMAGES: ["M3YAS2D4QQ1-JBCT-ALT1.jpg (score: 98)","M3YAS2D4QQ1-JBCT-ALT2.jpg (score: 88)","M3YAS2D4QQ1-JBCT-ALT3.jpg (score: 88)","M5RN09WGUP2-JBLK-ALT1 (score: 83)","M5YP00KCWM2-JBLK-ALT1 (score: 83)"]
+[11:24:43 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":30}
+[11:24:43 AM] 🖼️ FINAL IMAGES: ["https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v","https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v","https://img.guess.com/image/uplo
+[11:24:43 AM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pad,w_600/v1/NA/Style/ECOMM/M3YAS2D4QQ1-JBCT-ALT1.jpg","https://img.guess.com/image/upload/f_auto,q_auto:bes
+[11:24:43 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Finnley Slim-Fit Tapered Jeans","brand":"GUESS","description":"Guess US","price":"128","imageCount":30,"firstImages":["https://img.guess.com/image/upload/f_auto,q_auto:best,dpr_2,b_auto,c_pa
+[11:24:43 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":30}
+[11:24:43 AM] ✅ Debug trace complete
