@@ -867,6 +867,134 @@
     }
   }
 
+  // Purpose: discover big images that appear only after click/zoom/lazy hydration
+  // Safe-by-default: scoped to gallery containers; no normalization/dedupe here.
+  async function collectHiResAugment({
+    doc = document,
+    observeMs = 1200,           // brief watch to catch lazy hydration / zoom swaps
+    max = 40,                   // soft cap; your filter will trim further
+    scopeSelectors = [
+      // Common product galleries (Amazon/Shopify/generic)
+      '#imageBlock', '#altImages', '[data-a-dynamic-image]',
+      '.product-gallery', '.product-images', '.product-media',
+      '.product-single__photo', '.flickity-viewport',
+      'main figure', 'main .gallery', 'article figure'
+    ]
+  } = {}) {
+    const live = window.document || doc;
+    const urls = [];
+    const seen = new Set();
+
+    const add = (u) => {
+      if (!u) return;
+      // No normalization here — your existing filtration/upgrade pipeline will handle it.
+      try { u = new URL(u, location.href).toString(); } catch {}
+      if (!/^https?:\/\//i.test(u)) return;
+      if (seen.has(u)) return;
+      seen.add(u);
+      urls.push(u);
+    };
+
+    const pickSrcsetLargest = (ss) => {
+      return (ss || "")
+        .split(",")
+        .map(s => s.trim())
+        .map(s => {
+          const [u, d] = s.split(/\s+/);
+          const w = d?.endsWith("w") ? parseInt(d) : 0;
+          const x = d?.endsWith("x") ? parseFloat(d) : 0;
+          return { u, score: w || x * 1000 || 0 };
+        })
+        .filter(x => x.u)
+        .sort((a,b) => b.score - a.score)[0]?.u;
+    };
+
+    // 1) Find a gallery scope; if none, fall back to doc (but we prefer scope)
+    let scope = null;
+    for (const sel of scopeSelectors) {
+      const n = doc.querySelector(sel);
+      if (n) { scope = n; break; }
+    }
+    if (!scope) scope = doc;
+
+    // 2) One-shot pass inside scope
+    const scanScopeOnce = () => {
+      // Full-size/zoom swaps (Amazon immersive, generic zoomers)
+      scope.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
+        add(img.currentSrc || img.src);
+      });
+
+      // Regular imgs + lazy attrs + <picture><source>
+      const LAZY = [
+        'data-src','data-srcset','data-lazy','data-lazy-src','data-original',
+        'data-zoom-image','data-large_image','data-hires','data-defer-src',
+        'data-defer-srcset','data-flickity-lazyload'
+      ];
+
+      scope.querySelectorAll('img').forEach(img => {
+        const best = img.currentSrc || pickSrcsetLargest(img.getAttribute('srcset')) || img.getAttribute('src');
+        if (best) add(best);
+        LAZY.forEach(a => {
+          const v = img.getAttribute(a);
+          if (!v) return;
+          if (a.endsWith('srcset')) {
+            const u = pickSrcsetLargest(v); if (u) add(u);
+          } else add(v);
+        });
+      });
+
+      scope.querySelectorAll('picture source[srcset]').forEach(s => {
+        const u = pickSrcsetLargest(s.getAttribute('srcset')); if (u) add(u);
+      });
+
+      // Background images inside scope (hero/product cards)
+      const urlRe = /url\((['"]?)(.*?)\1\)/i;
+      scope.querySelectorAll('[style]').forEach(el => {
+        const m = urlRe.exec(el.getAttribute('style') || ''); if (m?.[2]) add(m[2]);
+      });
+    };
+
+    // 3) Amazon a-state (read from live document; sanitized clones strip <script>)
+    const grabAState = () => {
+      const states = live.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]');
+      states.forEach(s => {
+        try {
+          const keyAttr = s.getAttribute('data-a-state');
+          const key = keyAttr ? JSON.parse(keyAttr).key || '' : '';
+          if (!/image\-block\-state|imageState|dpx\-image\-state/i.test(key)) return;
+          const payload = JSON.parse(s.textContent || '{}');
+          const gallery = payload?.imageGalleryData
+            || payload?.imageBlock?.imageGalleryData
+            || payload?.colorImages?.initial
+            || [];
+          (gallery || []).forEach(o => {
+            ['hiRes','mainUrl','large','zoom','thumb','variant'].forEach(k => o?.[k] && add(o[k]));
+          });
+          const atf = payload?.ImageBlockATF || payload?.imageBlock?.ImageBlockATF;
+          if (atf?.hiRes) add(atf.hiRes);
+          (atf?.variant || []).forEach(add);
+        } catch {}
+      });
+    };
+
+    // 4) Observe briefly to catch lazy/zoom swaps (you or the site can click; we just listen)
+    scanScopeOnce();
+    grabAState();
+
+    await new Promise(resolve => {
+      const obs = new MutationObserver(() => {
+        scanScopeOnce();
+      });
+      try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
+      obs.observe(scope, { subtree: true, childList: true, attributes: true });
+      setTimeout(() => { obs.disconnect(); resolve(); }, observeMs);
+    });
+
+    // 5) Soft cap; your existing filtration pipeline will finalize ranking
+    debug(`🔍 Hi-res augment collected: ${urls.length} URLs`);
+    return urls.slice(0, max);
+  }
+
   // Hybrid unique images with score threshold and file size filtering
   async function hybridUniqueImages(enrichedUrls) {
     debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
@@ -1610,8 +1738,14 @@
       const urls = await gatherImagesBySelector(sel);
       if (urls.length >= 1) {
         debug(`✅ Site-specific success: ${urls.length} images found`);
-        mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
-        return urls.slice(0,30); 
+        
+        // Add hi-res augmentation (click/zoom/lazy images)
+        const hiResUrls = await collectHiResAugment({ doc: document });
+        const enrichedUrls = urls.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
+        const final = await hybridUniqueImages(enrichedUrls);
+        
+        mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: final.slice(0,30) }); 
+        return final.slice(0,30); 
       }
     }
     
@@ -1621,13 +1755,27 @@
     ];
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel);
-      if (urls.length >= 3) { mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); return urls.slice(0,30); }
+      if (urls.length >= 3) {
+        // Add hi-res augmentation (click/zoom/lazy images)
+        const hiResUrls = await collectHiResAugment({ doc: document });
+        const enrichedUrls = urls.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
+        const final = await hybridUniqueImages(enrichedUrls);
+        
+        mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: final.slice(0,30) }); 
+        return final.slice(0,30); 
+      }
     }
     const og = q('meta[property="og:image"]')?.content;
     const all = await gatherImagesBySelector('img');
-    const combined = (og ? [og] : []).concat(all);
+    
+    // Add hi-res augmentation (click/zoom/lazy images) even in fallback
+    const hiResUrls = await collectHiResAugment({ doc: document });
+    const enrichedUrls = all.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
+    const final = await hybridUniqueImages(enrichedUrls);
+    
+    const combined = (og ? [og] : []).concat(final);
     const uniq = await uniqueImages(combined);
-    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: uniq.slice(0,30) });
     return uniq.slice(0,30);
   }
 
