@@ -582,6 +582,156 @@
     return upgraded;
   }
 
+  // Family deduplication for CDN variants (keeps only best per asset)
+  function deduplicateImageFamilies(enrichedImages) {
+    const families = new Map();
+    
+    // Group images by CDN provider and public ID
+    for (const img of enrichedImages) {
+      const meta = analyzeImageMetadata(img.url, img.element);
+      let familyKey = img.url; // Default: treat as unique
+      
+      if (meta.isCloudinary && meta.publicId) {
+        // Group Cloudinary images by public ID
+        familyKey = `cloudinary:${meta.publicId}`;
+      } else {
+        // Group other CDN variants by base URL patterns
+        const baseUrl = img.url
+          .replace(/[?&]w(idth)?=\d+/gi, '')
+          .replace(/[?&]h(eight)?=\d+/gi, '')
+          .replace(/[?&]dpr=[\d.]+/gi, '')
+          .replace(/[?&]q(uality)?=\d+/gi, '')
+          .replace(/[?&]q_auto:\w+/gi, '')
+          .replace(/[_](\d+)x\d*/gi, '')
+          .replace(/(\d+)x\d+/gi, '');
+        familyKey = baseUrl;
+      }
+      
+      if (!families.has(familyKey)) {
+        families.set(familyKey, []);
+      }
+      families.get(familyKey).push({ ...img, meta });
+    }
+    
+    // Keep only the best image from each family
+    const deduplicated = [];
+    for (const [familyKey, variants] of families) {
+      if (variants.length === 1) {
+        deduplicated.push(variants[0]);
+      } else {
+        // Score all variants and keep the best
+        let bestVariant = variants[0];
+        let bestScore = scoreImageURL(bestVariant.url, bestVariant.element, bestVariant.index);
+        
+        for (let i = 1; i < variants.length; i++) {
+          const score = scoreImageURL(variants[i].url, variants[i].element, variants[i].index);
+          if (score > bestScore) {
+            bestScore = score;
+            bestVariant = variants[i];
+          }
+        }
+        
+        debug(`👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: ${bestScore}) from ${variants.length} siblings for ${familyKey.substring(0, 50)}...`);
+        deduplicated.push(bestVariant);
+      }
+    }
+    
+    return deduplicated;
+  }
+
+  // Enhanced CDN and quality metadata analysis
+  function analyzeImageMetadata(url, element) {
+    const metadata = {
+      urlWidth: 0,
+      urlHeight: 0,
+      dpr: 1,
+      quality: null,
+      cdnProvider: null,
+      isCloudinary: false,
+      publicId: null,
+      effectiveWidth: 0,
+      transformParams: {}
+    };
+    
+    // Detect Cloudinary CDN
+    if (url.includes('/image/upload/') || url.includes('res.cloudinary.com')) {
+      metadata.isCloudinary = true;
+      metadata.cdnProvider = 'cloudinary';
+      
+      // Extract transformation parameters from Cloudinary URL
+      const transformMatch = url.match(/\/image\/upload\/([^\/]+)/);
+      if (transformMatch) {
+        const transforms = transformMatch[1];
+        
+        // Parse w_, h_, dpr_, q_auto, q_, f_auto, c_ parameters
+        const params = {
+          w: transforms.match(/w_(\d+)/)?.[1],
+          h: transforms.match(/h_(\d+)/)?.[1],
+          dpr: transforms.match(/dpr_(\d+(?:\.\d+)?)/)?.[1],
+          q_auto: transforms.match(/q_auto:(\w+)/)?.[1],
+          q: transforms.match(/q_(\d+)/)?.[1],
+          f_auto: transforms.includes('f_auto'),
+          c: transforms.match(/c_(\w+)/)?.[1]
+        };
+        
+        metadata.transformParams = params;
+        if (params.w) metadata.urlWidth = parseInt(params.w);
+        if (params.h) metadata.urlHeight = parseInt(params.h);
+        if (params.dpr) metadata.dpr = parseFloat(params.dpr);
+        if (params.q_auto) metadata.quality = params.q_auto;
+        if (params.q) metadata.quality = parseInt(params.q);
+        
+        // Extract public ID for deduplication
+        const publicIdMatch = url.match(/\/v\d+\/(.+?)(?:\.|$)/);
+        if (publicIdMatch) metadata.publicId = publicIdMatch[1];
+      }
+    }
+    
+    // Enhanced size detection for non-Cloudinary URLs
+    if (!metadata.urlWidth) {
+      const sizePatterns = [
+        /(?:max|w|width|h|height|imwidth|imageWidth|imheight)=([0-9]+)/i,
+        /[\/]([wh])\/([0-9]+)/i,           // w/640, h/1920
+        /[_]([wh])_([0-9]+)/i,             // w_1500, h_900
+        /_(\d+)x\d*(?:_|\.|$)/i,           // _750x, _1024x1024
+        /(\d+)x\d+(?:_|\.|$)/i,            // 750x750
+        /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
+        /[?&]\$n_(\d+)w?\b/i               // ASOS patterns
+      ];
+      
+      for (const pattern of sizePatterns) {
+        const match = url.match(pattern);
+        if (match) {
+          let size = 0;
+          if (pattern.source.includes('[\/]([wh])\/') || pattern.source.includes('[_]([wh])_')) {
+            size = parseInt(match[2]);
+          } else {
+            size = parseInt(match[1]);
+          }
+          if (!isNaN(size)) {
+            metadata.urlWidth = Math.max(metadata.urlWidth, size);
+          }
+        }
+      }
+    }
+    
+    // Calculate effective resolution (width × DPR)
+    let maxWidth = metadata.urlWidth;
+    
+    // Check element dimensions if available
+    if (element) {
+      const rect = element.getBoundingClientRect();
+      if (rect.width > 0) maxWidth = Math.max(maxWidth, rect.width);
+      
+      // Check natural dimensions if available
+      if (element.naturalWidth) maxWidth = Math.max(maxWidth, element.naturalWidth);
+    }
+    
+    metadata.effectiveWidth = maxWidth * metadata.dpr;
+    
+    return metadata;
+  }
+
   // Enhanced image quality scoring function with aggressive filtering  
   function scoreImageURL(url, element = null, elementIndex = 0) {
     if (!url) return 0;
@@ -660,6 +810,9 @@
     }
     
     
+    // SMART CDN AND QUALITY ANALYSIS
+    const meta = analyzeImageMetadata(url, element);
+    
     let score = 50; // Base score
     
     // Aggressive dimension penalties for thumbnails
@@ -674,54 +827,86 @@
       else if (size >= 400) score += 15; // Decent size
     }
     
-    // Enhanced size detection (multiple patterns)
-    const sizePatterns = [
-      /(?:max|w|width|h|height|imwidth|imageWidth|imheight)=([0-9]+)/i, // w=640, h=1920, height=1200
-      /[\/]([wh])\/([0-9]+)/i,           // w/640, h/1920 (capture group 2 for size)
-      /[_]([wh])_([0-9]+)/i,             // w_1500, h_900 (capture group 2 for size)
-      /_(\d+)x\d*(?:_|\.|$)/i, // _750x, _1024x1024
-      /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
-      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
-      /[?&]\$n_(\d+)w?\b/i  // ASOS patterns: ?$n_640w, ?$n_1920
-    ];
-    
-    let detectedSize = 0;
-    for (const pattern of sizePatterns) {
-      const match = url.match(pattern);
-      if (match) {
-        // Handle different capture group patterns
-        let size = 0;
-        if (pattern.source.includes('[\/]([wh])\/') || pattern.source.includes('[_]([wh])_')) {
-          // w/640, h/1920, w_1500, h_900 - size is in capture group 2
-          size = parseInt(match[2]);
-        } else {
-          // All other patterns - size is in capture group 1
-          size = parseInt(match[1]);
+    // EFFECTIVE RESOLUTION SCORING (replaces old size detection)
+    if (meta.effectiveWidth > 0) {
+      const resolutionScore = Math.min(100, 20 * Math.log2(meta.effectiveWidth / 300));
+      score += resolutionScore;
+      debug(`🔍 EFFECTIVE RESOLUTION: ${meta.effectiveWidth}px (${meta.urlWidth}×${meta.dpr}) = +${resolutionScore.toFixed(1)} points`);
+    } else {
+      // Fallback size detection for non-CDN URLs
+      const sizePatterns = [
+        /(?:max|w|width|h|height|imwidth|imageWidth|imheight)=([0-9]+)/i,
+        /[\/]([wh])\/([0-9]+)/i,
+        /[_]([wh])_([0-9]+)/i,
+        /_(\d+)x\d*(?:_|\.|$)/i,
+        /(\d+)x\d+(?:_|\.|$)/i,
+        /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i,
+        /[?&]\$n_(\d+)w?\b/i
+      ];
+      
+      let detectedSize = 0;
+      for (const pattern of sizePatterns) {
+        const match = url.match(pattern);
+        if (match) {
+          let size = 0;
+          if (pattern.source.includes('[\/]([wh])\/') || pattern.source.includes('[_]([wh])_')) {
+            size = parseInt(match[2]);
+          } else {
+            size = parseInt(match[1]);
+          }
+          if (!isNaN(size)) {
+            detectedSize = Math.max(detectedSize, size);
+          }
         }
-        if (!isNaN(size)) {
-          detectedSize = Math.max(detectedSize, size);
+      }
+      
+      if (detectedSize > 0) {
+        if (detectedSize >= 1200) score += 40;
+        else if (detectedSize >= 800) score += 30;
+        else if (detectedSize >= 600) score += 20;
+        else if (detectedSize >= 400) score += 10;
+        else if (detectedSize < 200) score -= 40;
+      }
+    }
+    
+    // CLOUDINARY QUALITY SCORING
+    if (meta.isCloudinary && meta.quality) {
+      if (meta.quality === 'best') {
+        score += 30;
+        debug(`✨ CLOUDINARY QUALITY: q_auto:best = +30 points`);
+      } else if (meta.quality === 'good') {
+        score += 10;
+        debug(`🟡 CLOUDINARY QUALITY: q_auto:good = +10 points`);
+      } else if (meta.quality === 'eco') {
+        score -= 20;
+        debug(`📉 CLOUDINARY QUALITY: q_auto:eco = -20 points`);
+      } else if (typeof meta.quality === 'number') {
+        if (meta.quality >= 85) {
+          score += 20;
+          debug(`💎 CLOUDINARY QUALITY: q_${meta.quality} = +20 points`);
+        } else if (meta.quality <= 60) {
+          score -= 15;
+          debug(`📉 CLOUDINARY QUALITY: q_${meta.quality} = -15 points`);
         }
       }
     }
     
-    if (detectedSize > 0) {
-      if (detectedSize >= 1200) score += 40;
-      else if (detectedSize >= 800) score += 30; 
-      else if (detectedSize >= 600) score += 20;
-      else if (detectedSize >= 400) score += 10;
-      else if (detectedSize < 200) score -= 40; // Strong penalty for tiny images
+    // CDN TRUST SCORING
+    if (meta.cdnProvider === 'cloudinary') {
+      score += 10;
+      debug(`☁️ CDN TRUST: Cloudinary = +10 points`);
     }
     
-    // ASOS hi-res bonus: Ensure ?$n_1920w$ always beats ?$n_640w$ regardless of element context
+    // Legacy ASOS bonus (keeping for backward compatibility, but reduced)
     if (/\$n_(\d+)w.*wid=(\d+)/i.test(url)) {
       const matches = url.match(/\$n_(\d+)w.*wid=(\d+)/i);
       const nSize = parseInt(matches[1]);
       const widSize = parseInt(matches[2]);
       const maxSize = Math.max(nSize, widSize);
       
-      if (maxSize >= 1200) score += 60; // Massive bonus for 1920w+ images  
-      else if (maxSize >= 800) score += 40; // Good bonus for 640w+ images
-      debug(`🎯 ASOS HI-RES BONUS: ${maxSize}px gets +${maxSize >= 1200 ? 60 : 40} points`);
+      if (maxSize >= 1200) score += 30; // Reduced since effective resolution handles this
+      else if (maxSize >= 800) score += 20;
+      debug(`🎯 ASOS LEGACY BONUS: ${maxSize}px gets +${maxSize >= 1200 ? 30 : 20} points`);
     }
     
     // Quality bonuses (enhanced patterns)
@@ -1082,9 +1267,29 @@
       });
     }
     
+    // FAMILY DEDUPLICATION: Group CDN variants before selecting best images
+    const allCandidates = [];
+    for (const [canonical, candidates] of groups) {
+      allCandidates.push(...candidates);
+    }
+    
+    debug(`🔄 HYBRID UNIQUE: Applying family deduplication to ${allCandidates.length} candidates`);
+    const familyDeduplicated = deduplicateImageFamilies(allCandidates);
+    debug(`👨‍👩‍👧‍👦 HYBRID UNIQUE: ${familyDeduplicated.length} images after family deduplication`);
+    
+    // Regroup deduplicated images by canonical key
+    const deduplicatedGroups = new Map();
+    for (const img of familyDeduplicated) {
+      const canonical = canonicalKey(img.url);
+      if (!deduplicatedGroups.has(canonical)) {
+        deduplicatedGroups.set(canonical, []);
+      }
+      deduplicatedGroups.get(canonical).push(img);
+    }
+    
     // Select best scoring image from each group, maintain DOM order
     const bestImages = [];
-    for (const [canonical, candidates] of groups) {
+    for (const [canonical, candidates] of deduplicatedGroups) {
       if (candidates.length === 1) {
         // Only one candidate, use it
         const candidate = candidates[0];
