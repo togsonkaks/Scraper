@@ -1,0 +1,450 @@
+[3:11:13 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[3:11:13 AM] 📝 TITLE: Falling back to generic...
+[3:11:13 AM] 📝 TITLE FROM GENERIC: Montgomery Wide Leg Jeans
+[3:11:13 AM] 🏷️ BRAND: Falling back to generic...
+[3:11:13 AM] 🏷️ BRAND FROM GENERIC: Modern
+[3:11:13 AM] 📄 DESCRIPTION: Falling back to generic...
+[3:11:13 AM] 📄 DESCRIPTION FROM GENERIC: Classic and timeless vintage inspired medium wash high rise wide leg jeans with a decidedly 70s inspired fit. Features contrast stitch design on front to mimic a "barrel jean" look without the silhouette of a barrel jean. High waist fit will make your legs look so long and we love the stretch in these! 70% Cotton 27% P
+[3:11:13 AM] 🧩 PRICE: Trying custom handler...
+[3:11:13 AM] 🧩 CUSTOM PRICE MISS: returned object null
+[3:11:13 AM] 💰 PRICE: Falling back to generic...
+[3:11:13 AM] 🔍 PRICE PARSING: {"input":"$95.00","inputType":"string","inputLength":6}
+[3:11:13 AM] 🧹 CLEANED INPUT: {"original":"$95.00","cleaned":"$95.00"}
+[3:11:13 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$95.00","reconstructed":"$95.00"}
+[3:11:13 AM] 💰 MONETARY TOKENS: [95]
+[3:11:13 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[95],"preferDecimals":false}
+[3:11:13 AM] ✅ PRICE FROM MONETARY: {"result":95,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[95]}
+[3:11:13 AM] 🎯 REFINING PRICE: {"baseVal":"95","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[3:11:13 AM] Price element <SPAN.price>
+[3:11:13 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[3:11:13 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[3:11:13 AM] 📍 ANCESTOR 0: <SPAN.price>
+[3:11:13 AM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$95.00","cleaned":"$95.00","reconstructed":"$95.00"}
+[3:11:13 AM] 💰 ANCESTOR 0 SMART PRICE: 95 from tokens: [95]
+[3:11:13 AM] 📍 ANCESTOR 1: <DIV.product-page-info__price>
+[3:11:13 AM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$95.00","cleaned":"$95.00","reconstructed":"$95.00"}
+[3:11:13 AM] 💰 ANCESTOR 1 SMART PRICE: 95 from tokens: [95]
+[3:11:13 AM] 📍 ANCESTOR 2: <DIV.product-page-info>
+[3:11:13 AM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"25% Off Taken at Checkout!\nPreloved\nMontgomery Wide Leg Jeans\n $95.00\n \n ","cleaned":"25% Off Taken at Checkout!\nPreloved\nMontgomery Wide Leg Jeans\n
+[3:11:13 AM] 💰 ANCESTOR 2 SMART PRICE: 95 from tokens: [95,100]
+[3:11:13 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"95","originalBase":"95"}
+[3:11:13 AM] 💰 PRICE FROM GENERIC: 95
+[3:11:13 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[3:11:13 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[3:11:13 AM] 🧩 IMAGES: Trying custom handler...
+[3:11:13 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[3:11:13 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[3:11:13 AM] 🎯 PATTERN GROUPING: 0 groups identified, sorted by relevance
+[3:11:13 AM] 🏆 TOP SCORED IMAGES: []
+[3:11:13 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:11:13 AM] 🖼️ FINAL IMAGES: []
+[3:11:13 AM] 🖼️ IMAGES: Custom insufficient, activating dual-engine system...
+[3:11:13 AM] 🚀 DUAL-ENGINE: Starting parallel image collection...
+[3:11:13 AM] 🔍 ENGINE A (Original): Starting targeted scanning...
+[3:11:13 AM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_1_523x.progressive.jpg?v=1756917037 -> ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_1_1020x.progressive.jpg?v=1756917037
+[3:11:13 AM] ✨ UPGRADED CDN URL: ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_1_523x.progressive.jpg?v=1756917037 -> ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_1_1020x.progressive.jpg?v=1756917037
+[3:11:13 AM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_3_523x.progressive.jpg?v=1756917037 -> ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_3_1020x.progressive.jpg?v=1756917037
+[3:11:13 AM] ✨ UPGRADED CDN URL: ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_3_523x.progressive.jpg?v=1756917037 -> ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_3_1020x.progressive.jpg?v=1756917037
+[3:11:13 AM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_4_523x.progressive.jpg?v=1756917037 -> ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_4_1020x.progressive.jpg?v=1756917037
+[3:11:13 AM] ✨ UPGRADED CDN URL: ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_4_523x.progressive.jpg?v=1756917037 -> ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_4_1020x.progressive.jpg?v=1756917037
+[3:11:13 AM] ✨ UPGRADED Shopify URL: ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_277x.progressive.jpg?v=1740781081 -> ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_1020x.progressive.jpg?v=1740781081
+[3:11:13 AM] ✨ UPGRADED CDN URL: ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_277x.progressive.jpg?v=1740781081 -> ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_1020x.progressive.jpg?v=1740781081
+[3:11:13 AM] ✨ UPGRADED Shopify URL: Classic-feminine-medium-wash-denim-button-down-midi-skirt-C2771K_1_277x.progressive.jpg?v=1728070798 -> Classic-feminine-medium-wash-denim-button-down-midi-skirt-C2771K_1_1020x.progressive.jpg?v=1728070798
+[3:11:13 AM] ✨ UPGRADED CDN URL: Classic-feminine-medium-wash-denim-button-down-midi-skirt-C2771K_1_277x.progressive.jpg?v=1728070798 -> Classic-feminine-medium-wash-denim-button-down-midi-skirt-C2771K_1_1020x.progressive.jpg?v=1728070798
+[3:11:13 AM] 🔍 ENGINE A (Original): Found 10 targeted images
+[3:11:13 AM] 🔍 ENGINE B (ChatGPT): Found 11 comprehensive images
+[3:11:13 AM] ✨ UPGRADED Shopify URL: IvorybrownscallopededgesocksA311O_3_355x355.jpg?v=1754344027 -> IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?v=1754344027
+[3:11:13 AM] ✨ UPGRADED CDN URL: IvorybrownscallopededgesocksA311O_3_355x355.jpg?v=1754344027 -> IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?v=1754344027
+[3:11:13 AM] ✨ UPGRADED Shopify URL: Etienne-Spring-25-New_355x355.jpg?v=1750086338 -> Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+[3:11:13 AM] ✨ UPGRADED CDN URL: Etienne-Spring-25-New_355x355.jpg?v=1750086338 -> Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+[3:11:13 AM] ✨ UPGRADED Shopify URL: Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_355x355.jpg?v=1757120940 -> Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg?v=1757120940
+[3:11:13 AM] ✨ UPGRADED CDN URL: Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_355x355.jpg?v=1757120940 -> Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg?v=1757120940
+[3:11:13 AM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredbrowncorduroycroppedjacketC509O_1_355x355.jpg?v=1757343222 -> ClassicvintageinspiredbrowncorduroycroppedjacketC509O_1_1020x1020.jpg?v=1757343222
+[3:11:13 AM] ✨ UPGRADED CDN URL: ClassicvintageinspiredbrowncorduroycroppedjacketC509O_1_355x355.jpg?v=1757343222 -> ClassicvintageinspiredbrowncorduroycroppedjacketC509O_1_1020x1020.jpg?v=1757343222
+[3:11:13 AM] ✨ UPGRADED Shopify URL: FeminineandtimelessmauvepinkfloralprintedmididressC499D_1_355x355.jpg?v=1755895890 -> FeminineandtimelessmauvepinkfloralprintedmididressC499D_1_1020x1020.jpg?v=1755895890
+[3:11:13 AM] ✨ UPGRADED CDN URL: FeminineandtimelessmauvepinkfloralprintedmididressC499D_1_355x355.jpg?v=1755895890 -> FeminineandtimelessmauvepinkfloralprintedmididressC499D_1_1020x1020.jpg?v=1755895890
+[3:11:13 AM] ✨ UPGRADED Shopify URL: EffortlessclassicoffwhitelinenblendbuttondowntopC454T_1_355x355.jpg?v=1752622395 -> EffortlessclassicoffwhitelinenblendbuttondowntopC454T_1_1020x1020.jpg?v=1752622395
+[3:11:13 AM] ✨ UPGRADED CDN URL: EffortlessclassicoffwhitelinenblendbuttondowntopC454T_1_355x355.jpg?v=1752622395 -> EffortlessclassicoffwhitelinenblendbuttondowntopC454T_1_1020x1020.jpg?v=1752622395
+[3:11:13 AM] ✨ UPGRADED Shopify URL: atelette-toussaint-top-20_355x355.jpg?v=1750086579 -> atelette-toussaint-top-20_1020x1020.jpg?v=1750086579
+[3:11:13 AM] ✨ UPGRADED CDN URL: atelette-toussaint-top-20_355x355.jpg?v=1750086579 -> atelette-toussaint-top-20_1020x1020.jpg?v=1750086579
+[3:11:13 AM] 🔍 ENGINE A (Original): 10 images [fulfilled]
+[3:11:13 AM] 🔍 ENGINE B (ChatGPT): 11 images [fulfilled]
+[3:11:13 AM] ⏱️ DUAL-ENGINE: Completed in 1217ms
+[3:11:13 AM] 🔄 DUAL-ENGINE: Merging 21 total images...
+[3:11:13 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":21}
+[3:11:13 AM] 📉 LOW SCORE REJECTED (25): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+25
+📋 Copy URL
+[3:11:13 AM] 📉 LOW SCORE REJECTED (25): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+25
+📋 Copy URL
+[3:11:13 AM] 📉 LOW SCORE REJECTED (25): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+25
+📋 Copy URL
+[3:11:13 AM] 📉 LOW SCORE REJECTED (25): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+25
+📋 Copy URL
+[3:11:13 AM] ✅ BEST OF 2 (score: 95): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+95
+📋 Copy URL
+[3:11:13 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+95
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 95): https://www.adoredvintage.com/cdn/shop/files/ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_
+95
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 95): https://www.adoredvintage.com/cdn/shop/files/Classic-feminine-medium-wash-denim-button-down-midi-ski
+95
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 110): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 110): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 155): https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-
+155
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/ClassicvintageinspiredbrowncorduroycroppedjacketC5
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/Feminineandtimelessmauvepinkfloralprintedmididress
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/EffortlessclassicoffwhitelinenblendbuttondowntopC4
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/atelette-toussaint-top-20_1020x1020.jpg?v=17500865
+120
+📋 Copy URL
+[3:11:13 AM] 🎯 PATTERN GROUP: hhighrisewidelegjeansC505P_1_1020x.progressive.jpg | Count: 1 | Avg Score: 95.0
+[3:11:13 AM] 🎯 PATTERN GROUP: hhighrisewidelegjeansC505P_3_1020x.progressive.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🎯 PATTERN GROUP: hhighrisewidelegjeansC505P_4_1020x.progressive.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🎯 PATTERN GROUP: isewideboyfriendjeansC314P_1_1020x.progressive.jpg | Count: 1 | Avg Score: 95.0
+[3:11:13 AM] 🎯 PATTERN GROUP: ton-down-midi-skirt-C2771K_1_1020x.progressive.jpg | Count: 1 | Avg Score: 95.0
+[3:11:13 AM] 🎯 PATTERN GROUP: ediumwashhighrisewidelegjeansC505P_1_1200x1200.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: ediumwashhighrisewidelegjeansC505P_3_1200x1200.jpg | Count: 1 | Avg Score: 110.0
+[3:11:13 AM] 🎯 PATTERN GROUP: ediumwashhighrisewidelegjeansC505P_2_1200x1200.jpg | Count: 1 | Avg Score: 110.0
+[3:11:13 AM] 🎯 PATTERN GROUP: redmediumwashhighrisewidelegjeansC505P_1_1000x.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🎯 PATTERN GROUP: /IvorybrownscallopededgesocksA311O_3_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: /{NUMID}/files/Etienne-Spring-25-New_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg | Count: 1 | Avg Score: 155.0
+[3:11:13 AM] 🎯 PATTERN GROUP: redbrowncorduroycroppedjacketC509O_1_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: uvepinkfloralprintedmididressC499D_1_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: fwhitelinenblendbuttondowntopC454T_1_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: MID}/files/atelette-toussaint-top-20_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🏆 GROUP LEADER (155.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-
+155
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/ClassicvintageinspiredbrowncorduroycroppedjacketC5
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/Feminineandtimelessmauvepinkfloralprintedmididress
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/EffortlessclassicoffwhitelinenblendbuttondowntopC4
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/atelette-toussaint-top-20_1020x1020.jpg?v=17500865
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (110.0 avg): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (110.0 avg): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (95.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+95
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (95.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_
+95
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (95.0 avg): https://www.adoredvintage.com/cdn/shop/files/Classic-feminine-medium-wash-denim-button-down-midi-ski
+95
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🎯 PATTERN GROUPING: 16 groups identified, sorted by relevance
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-
+155
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/ClassicvintageinspiredbrowncorduroycroppedjacketC5
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/Feminineandtimelessmauvepinkfloralprintedmididress
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/EffortlessclassicoffwhitelinenblendbuttondowntopC4
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/atelette-toussaint-top-20_1020x1020.jpg?v=17500865
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+95
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_
+95
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/Classic-feminine-medium-wash-denim-button-down-midi-ski
+95
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 TOP SCORED IMAGES: ["Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg?v=1757120940 (score: 155)","ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_1_1200x1200.jpg?v=175691703
+[3:11:13 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":4,"smallFile":0,"duplicateGroups":1,"kept":16}
+[3:11:13 AM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-in","http://www.adoredvintage.com/cdn/shop/files/Classicvintageinspiredmediumwashhigh","https://cdn.shopify.com/s/files/
+[3:11:13 AM] ✅ DUAL-ENGINE: Final result: 16 images
+[3:11:13 AM] 🖼️ DUAL-ENGINE IMAGES: {"count":16,"images":["https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg?v=1757120940","http://www.adoredvintage
+[3:11:13 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":16}
+[3:11:13 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":16}
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 185): https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-
+185
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 110): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 140): https://cdn.shopify.com/s/files/1/1442/9764/files/IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?
+140
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/ClassicvintageinspiredbrowncorduroycroppedjacketC5
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/Feminineandtimelessmauvepinkfloralprintedmididress
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/EffortlessclassicoffwhitelinenblendbuttondowntopC4
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/1442/9764/files/atelette-toussaint-top-20_1020x1020.jpg?v=17500865
+120
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 90): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+90
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 90): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+90
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_
+80
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/Classic-feminine-medium-wash-denim-button-down-midi-ski
+80
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] ✅ SINGLE IMAGE (score: 80): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🎯 PATTERN GROUP: red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg | Count: 1 | Avg Score: 185.0
+[3:11:13 AM] 🎯 PATTERN GROUP: ediumwashhighrisewidelegjeansC505P_1_1200x1200.jpg | Count: 1 | Avg Score: 110.0
+[3:11:13 AM] 🎯 PATTERN GROUP: /IvorybrownscallopededgesocksA311O_3_1020x1020.jpg | Count: 1 | Avg Score: 140.0
+[3:11:13 AM] 🎯 PATTERN GROUP: /{NUMID}/files/Etienne-Spring-25-New_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: redbrowncorduroycroppedjacketC509O_1_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: uvepinkfloralprintedmididressC499D_1_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: fwhitelinenblendbuttondowntopC454T_1_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: MID}/files/atelette-toussaint-top-20_1020x1020.jpg | Count: 1 | Avg Score: 120.0
+[3:11:13 AM] 🎯 PATTERN GROUP: ediumwashhighrisewidelegjeansC505P_3_1200x1200.jpg | Count: 1 | Avg Score: 90.0
+[3:11:13 AM] 🎯 PATTERN GROUP: ediumwashhighrisewidelegjeansC505P_2_1200x1200.jpg | Count: 1 | Avg Score: 90.0
+[3:11:13 AM] 🎯 PATTERN GROUP: hhighrisewidelegjeansC505P_1_1020x.progressive.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🎯 PATTERN GROUP: isewideboyfriendjeansC314P_1_1020x.progressive.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🎯 PATTERN GROUP: ton-down-midi-skirt-C2771K_1_1020x.progressive.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🎯 PATTERN GROUP: redmediumwashhighrisewidelegjeansC505P_1_1000x.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🎯 PATTERN GROUP: hhighrisewidelegjeansC505P_3_1020x.progressive.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🎯 PATTERN GROUP: hhighrisewidelegjeansC505P_4_1020x.progressive.jpg | Count: 1 | Avg Score: 80.0
+[3:11:13 AM] 🏆 GROUP LEADER (185.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-
+185
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (140.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?
+140
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/ClassicvintageinspiredbrowncorduroycroppedjacketC5
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/Feminineandtimelessmauvepinkfloralprintedmididress
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/EffortlessclassicoffwhitelinenblendbuttondowntopC4
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/1442/9764/files/atelette-toussaint-top-20_1020x1020.jpg?v=17500865
+120
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (110.0 avg): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (90.0 avg): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+90
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (90.0 avg): http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+90
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/Classic-feminine-medium-wash-denim-button-down-midi-ski
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 GROUP LEADER (80.0 avg): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🎯 PATTERN GROUPING: 16 groups identified, sorted by relevance
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-
+185
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?
+140
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/ClassicvintageinspiredbrowncorduroycroppedjacketC5
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/Feminineandtimelessmauvepinkfloralprintedmididress
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/EffortlessclassicoffwhitelinenblendbuttondowntopC4
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1442/9764/files/atelette-toussaint-top-20_1020x1020.jpg?v=17500865
+120
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+110
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+90
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505
+90
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_
+80
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/Classic-feminine-medium-wash-denim-button-down-midi-ski
+80
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🔒 TRUSTED CDN BYPASS: https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC50
+80
+📋 Copy URL
+[3:11:13 AM] 🏆 TOP SCORED IMAGES: ["Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg?v=1757120940 (score: 185)","IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?v=1754344027 (score: 140)","Etienne
+[3:11:13 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":16}
+[3:11:13 AM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-in","https://cdn.shopify.com/s/files/1/1442/9764/files/IvorybrownscallopededgesocksA3","https://cdn.shopify.com/s/files/
+[3:11:13 AM] 🖼️ FINAL IMAGES: {"count":16,"images":["https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg?v=1757120940","https://cdn.shopify.com/
+[3:11:13 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Montgomery Wide Leg Jeans","brand":"Modern","description":"Classic and timeless vintage inspired medium wash ","price":"95","imageCount":16,"firstImages":["https://cdn.shopify.com/s/files/1/
+[3:11:13 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":16}
+[3:11:13 AM] ✅ Debug trace complete
+Clear Debug
+Image URLs (top 20)
+📋 https://cdn.shopify.com/s/files/1/1442/9764/products/Classic-timeless-vintage-inspired-red-blue-tan-floral-bandana-A255C__3_1020x1020.jpg?v=1757120940
+Copy
+📋 https://cdn.shopify.com/s/files/1/1442/9764/files/IvorybrownscallopededgesocksA311O_3_1020x1020.jpg?v=1754344027
+Copy
+📋 https://cdn.shopify.com/s/files/1/1442/9764/files/Etienne-Spring-25-New_1020x1020.jpg?v=1750086338
+Copy
+📋 https://cdn.shopify.com/s/files/1/1442/9764/files/ClassicvintageinspiredbrowncorduroycroppedjacketC509O_1_1020x1020.jpg?v=1757343222
+Copy
+📋 https://cdn.shopify.com/s/files/1/1442/9764/files/FeminineandtimelessmauvepinkfloralprintedmididressC499D_1_1020x1020.jpg?v=1755895890
+Copy
+📋 https://cdn.shopify.com/s/files/1/1442/9764/files/EffortlessclassicoffwhitelinenblendbuttondowntopC454T_1_1020x1020.jpg?v=1752622395
+Copy
+📋 https://cdn.shopify.com/s/files/1/1442/9764/files/atelette-toussaint-top-20_1020x1020.jpg?v=1750086579
+Copy
+📋 http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_1_1200x1200.jpg?v=1756917037
+Copy
+📋 http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_3_1200x1200.jpg?v=1756917037
+Copy
+📋 http://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_2_1200x1200.jpg?v=1756917037
+Copy
+📋 https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredmediumwashhighrisewidelegjeansC505P_1_1020x.progressive.jpg?v=1756917037
+Copy
+📋 https://www.adoredvintage.com/cdn/shop/files/ClassiclightwashdenimhighrisewideboyfriendjeansC314P_1_1020x.progressive.jpg?v=1740781081

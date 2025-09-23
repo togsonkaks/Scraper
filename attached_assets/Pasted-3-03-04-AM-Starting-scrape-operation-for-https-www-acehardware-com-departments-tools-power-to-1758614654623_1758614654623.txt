@@ -1,0 +1,429 @@
+3:03:04 AM] 🚀 Starting scrape operation for: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359
+[3:03:05 AM] 🚀 SCRAPE START {"host":"acehardware.com","href":"https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359","mode":"normal"}
+[3:03:05 AM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[3:03:05 AM] 🔄 NORMAL MODE - memory + fallbacks
+[3:03:05 AM] 🧩 TITLE: Trying custom handler...
+[3:03:05 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[3:03:05 AM] 📝 TITLE: Falling back to generic...
+[3:03:05 AM] 📝 TITLE FROM GENERIC: STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless Cut-Off Saw Tool Only
+[3:03:05 AM] 🏷️ BRAND: Falling back to generic...
+[3:03:05 AM] 🏷️ BRAND FROM GENERIC: STIHL
+[3:03:05 AM] 📄 DESCRIPTION: Falling back to generic...
+[3:03:05 AM] 📄 DESCRIPTION FROM GENERIC: STIHL introduces another worlds first a cutoff machine powered by 36 volt Lithium Ion battery technology. The TSA 230 STIHL Cutquik cutoff machine starts instantly and changes the game for the jobsite, delivering maneuverability and solid cutting performance in a lightweight, compact package that can be used indoors. Its onboard water control helps suppress dust while a toolless wheel lock prevents wheel rotation when removing the wheel attachment bolt. And because it is battery powered, there is no air filter to maintain. The TSA 230 even provides great value priced below its gasoline powered counterpart. Groundbreaking innovation, grounded in quality engineering.Find the TSA 230 CUT OFF SAW 9D at Ace.
+[3:03:05 AM] 🧩 PRICE: Trying custom handler...
+[3:03:05 AM] 🧩 CUSTOM PRICE MISS: returned object null
+[3:03:05 AM] 💰 PRICE: Falling back to generic...
+[3:03:05 AM] 🔍 PRICE PARSING: {"input":"$539.99","inputType":"string","inputLength":7}
+[3:03:05 AM] 🧹 CLEANED INPUT: {"original":"$539.99","cleaned":"$539.99"}
+[3:03:05 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$539.99","reconstructed":"$539.99"}
+[3:03:05 AM] 💰 MONETARY TOKENS: [539.99]
+[3:03:05 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[539.99],"integerTokens":[],"preferDecimals":true}
+[3:03:05 AM] ✅ PRICE FROM MONETARY: {"result":539.99,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[539.99]}
+[3:03:05 AM] 🎯 REFINING PRICE: {"baseVal":"539.99","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[3:03:05 AM] Price element <DIV.price>
+[3:03:05 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[3:03:05 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[3:03:05 AM] 📍 ANCESTOR 0: <DIV.price>
+[3:03:05 AM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$539.99","cleaned":"$539.99","reconstructed":"$539.99"}
+[3:03:05 AM] 💰 ANCESTOR 0 SMART PRICE: 539.99 from tokens: [539.99]
+[3:03:05 AM] 📍 ANCESTOR 1: <DIV.price-value-wrapper>
+[3:03:05 AM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$539.99","cleaned":"$539.99","reconstructed":"$539.99"}
+[3:03:05 AM] 💰 ANCESTOR 1 SMART PRICE: 539.99 from tokens: [539.99]
+[3:03:05 AM] 📍 ANCESTOR 2: <DIV>
+[3:03:05 AM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Price$539.99Get up to in Rebates for 75234","cleaned":"Price$539.99Get up to in Rebates for 75234","reconstructed":"Price$539.99Get up to in Rebates for 75234"}
+[3:03:05 AM] 💰 ANCESTOR 2 SMART PRICE: 539.99 from tokens: [539.99]
+[3:03:05 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"539.99","originalBase":"539.99"}
+[3:03:05 AM] 💰 PRICE FROM GENERIC: 539.99
+[3:03:05 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[3:03:05 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[3:03:05 AM] 🧩 IMAGES: Trying custom handler...
+[3:03:05 AM] 🧩 CUSTOM IMAGES: {"count":0,"images":[]}
+[3:03:05 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[3:03:05 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[3:03:05 AM] 🎯 PATTERN GROUPING: 0 groups identified, sorted by relevance
+[3:03:05 AM] 🏆 TOP SCORED IMAGES: []
+[3:03:05 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:03:05 AM] 🖼️ FINAL IMAGES: []
+[3:03:05 AM] 🖼️ IMAGES: Custom insufficient, activating dual-engine system...
+[3:03:05 AM] 🚀 DUAL-ENGINE: Starting parallel image collection...
+[3:03:05 AM] 🔍 ENGINE A (Original): Starting targeted scanning...
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=150&quality=80 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=150&quality=80 -> fb79dbec-c972-4659-9b86-b5ddc41e3851
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100 -> fb79dbec-c972-4659-9b86-b5ddc41e3851
+[3:03:05 AM] 🔍 ENGINE A (Original): Found 13 targeted images
+[3:03:05 AM] 🔍 ENGINE B (ChatGPT): Found 22 comprehensive images
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:05 AM] ✨ UPGRADED CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5
+[3:03:05 AM] ✨ UPGRADED MOZU CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:06 AM] ✨ UPGRADED CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b
+[3:03:06 AM] ✨ UPGRADED MOZU CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:06 AM] ✨ UPGRADED CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1
+[3:03:06 AM] ✨ UPGRADED MOZU CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:06 AM] ✨ UPGRADED CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b
+[3:03:06 AM] ✨ UPGRADED MOZU CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:06 AM] ✨ UPGRADED CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920
+[3:03:06 AM] ✨ UPGRADED MOZU CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925 -> High-quality image
+[3:03:06 AM] ✨ UPGRADED CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c
+[3:03:06 AM] ✨ UPGRADED MOZU CDN URL: 3d5c3aff-5d62-4b9e-8547-7a84c809e30c?max=600 -> High-quality image
+[3:03:06 AM] ✨ UPGRADED CDN URL: 3d5c3aff-5d62-4b9e-8547-7a84c809e30c?max=600 -> 3d5c3aff-5d62-4b9e-8547-7a84c809e30c
+[3:03:06 AM] 🔍 ENGINE A (Original): 13 images [fulfilled]
+[3:03:06 AM] 🔍 ENGINE B (ChatGPT): 22 images [fulfilled]
+[3:03:06 AM] ⏱️ DUAL-ENGINE: Completed in 831ms
+[3:03:06 AM] 🔄 DUAL-ENGINE: Merging 35 total images...
+[3:03:06 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":35}
+[3:03:06 AM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/7a1baa5b-50bc-442b-9df1-850
+10
+📋 Copy URL
+[3:03:06 AM] ❌ NOT IMAGE URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359#bv_rating_summary_st
+0[IMG ERROR]
+📋 Copy URL
+[3:03:06 AM] ❌ NOT IMAGE URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359#bv_rating_summary_st
+0[IMG ERROR]
+📋 Copy URL
+[3:03:06 AM] ❌ NOT IMAGE URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359#bv_rating_summary_st
+0[IMG ERROR]
+📋 Copy URL
+[3:03:06 AM] ❌ NOT IMAGE URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359#bv_rating_summary_st
+0[IMG ERROR]
+📋 Copy URL
+[3:03:06 AM] ❌ NOT IMAGE URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359#bv_rating_summary_st
+0[IMG ERROR]
+📋 Copy URL
+[3:03:06 AM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/ot_close.svg
+0
+📋 Copy URL
+[3:03:06 AM] ✅ BEST OF 7 (score: 95): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851
+95
+📋 Copy URL
+[3:03:06 AM] 🔄 DUPLICATE GROUP: 6 lower-scored versions rejected
+95
+📋 Copy URL
+[3:03:06 AM] ✅ BEST OF 2 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b
+80
+📋 Copy URL
+[3:03:06 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+80
+📋 Copy URL
+[3:03:06 AM] ✅ BEST OF 2 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5
+80
+📋 Copy URL
+[3:03:06 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+80
+📋 Copy URL
+[3:03:06 AM] ✅ BEST OF 2 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b
+80
+📋 Copy URL
+[3:03:06 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+80
+📋 Copy URL
+[3:03:06 AM] ✅ BEST OF 2 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1
+80
+📋 Copy URL
+[3:03:06 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+80
+📋 Copy URL
+[3:03:06 AM] ✅ BEST OF 2 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b
+80
+📋 Copy URL
+[3:03:06 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+80
+📋 Copy URL
+[3:03:06 AM] ✅ BEST OF 2 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920
+80
+📋 Copy URL
+[3:03:06 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+80
+📋 Copy URL
+[3:03:06 AM] ✅ BEST OF 2 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c
+80
+📋 Copy URL
+[3:03:06 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+80
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://www.acehardware.com/_mzblank.gif?r=ewlCMxO1skuwNg9cd5v88w
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 70): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/607afa52-0c62-5d96-ac7c-38eb650c5dc9
+70
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/5c0911f5-7d6b-5299-b32f-0022d32f49bc
+50
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-m1/cms/files/3d5c3aff-5d62-4b9e-8547-7a84c809e30c
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/fullstar.png
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/halfstar.png
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/emptystar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🎯 PATTERN GROUP: .mozu.com/{NUMID}-{NUMID}/cms/{NUMID}/files/{UUID} | Count: 8 | Avg Score: 81.9
+[3:03:06 AM] 🎯 PATTERN GROUP: www.acehardware.com/_mzblank.gif | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🎯 PATTERN GROUP: -us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/{UUID} | Count: 2 | Avg Score: 60.0
+[3:03:06 AM] 🎯 PATTERN GROUP: cdn-tp3.mozu.com/{NUMID}-m1/cms/files/{UUID} | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🎯 PATTERN GROUP: /resources/images/star_ratings/{SIZE}/fullstar.png | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🎯 PATTERN GROUP: /resources/images/star_ratings/{SIZE}/halfstar.png | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🎯 PATTERN GROUP: resources/images/star_ratings/{SIZE}/emptystar.png | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🏆 GROUP LEADER (81.9 avg): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851
+95
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://www.acehardware.com/_mzblank.gif?r=ewlCMxO1skuwNg9cd5v88w
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://cdn-tp3.mozu.com/24645-m1/cms/files/3d5c3aff-5d62-4b9e-8547-7a84c809e30c
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/fullstar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/halfstar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/emptystar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (60.0 avg): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/607afa52-0c62-5d96-ac7c-38eb650c5dc9
+70
+📋 Copy URL
+[3:03:06 AM] 🎯 PATTERN GROUPING: 7 groups identified, sorted by relevance
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851
+95
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b
+80
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5
+80
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b
+80
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1
+80
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b
+80
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920
+80
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c
+80
+📋 Copy URL
+[3:03:06 AM] 🎯 HIGH SCORE + SIZE OK (65): https://www.acehardware.com/_mzblank.gif?r=ewlCMxO1skuwNg9cd5v88w
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-m1/cms/files/3d5c3aff-5d62-4b9e-8547-7a84c809e30c
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/fullstar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/halfstar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/emptystar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🎯 HIGH SCORE + SIZE OK (70): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/607afa52-0c62-5d96-ac7c-38eb650c5dc9
+70
+📋 Copy URL
+[3:03:06 AM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/5c0911f5-7d6b-5299-b32f-0022d32f49bc
+50
+📋 Copy URL
+[3:03:06 AM] 🏆 TOP SCORED IMAGES: ["fb79dbec-c972-4659-9b86-b5ddc41e3851 (score: 95)","e857fdb1-6878-4357-812c-400b886c482b (score: 80)","ffd28359-099f-4ba1-a364-fafc222c2db5 (score: 80)","4a0f5a7e-5014-40b3-8b86-1a4dba8d564b (score:
+[3:03:06 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":6,"junk":0,"lowScore":1,"smallFile":0,"duplicateGroups":8,"kept":15}
+[3:03:06 AM] 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[3:03:06 AM] ✅ DUAL-ENGINE: Final result: 15 images
+[3:03:06 AM] 🖼️ DUAL-ENGINE IMAGES: {"count":15,"images":["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c
+[3:03:06 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":15}
+[3:03:06 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":15}
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 95): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851
+95
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 85): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b
+85
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 85): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5
+85
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/607afa52-0c62-5d96-ac7c-38eb650c5dc9
+50
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/fullstar.png
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/halfstar.png
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/emptystar.png
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-m1/cms/files/3d5c3aff-5d62-4b9e-8547-7a84c809e30c
+65
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 50): https://www.acehardware.com/_mzblank.gif?r=ewlCMxO1skuwNg9cd5v88w
+50
+📋 Copy URL
+[3:03:06 AM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/5c0911f5-7d6b-5299-b32f-0022d32f49bc
+50
+📋 Copy URL
+[3:03:06 AM] 🎯 PATTERN GROUP: .mozu.com/{NUMID}-{NUMID}/cms/{NUMID}/files/{UUID} | Count: 8 | Avg Score: 73.8
+[3:03:06 AM] 🎯 PATTERN GROUP: -us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/{UUID} | Count: 2 | Avg Score: 50.0
+[3:03:06 AM] 🎯 PATTERN GROUP: /resources/images/star_ratings/{SIZE}/fullstar.png | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🎯 PATTERN GROUP: /resources/images/star_ratings/{SIZE}/halfstar.png | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🎯 PATTERN GROUP: resources/images/star_ratings/{SIZE}/emptystar.png | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🎯 PATTERN GROUP: cdn-tp3.mozu.com/{NUMID}-m1/cms/files/{UUID} | Count: 1 | Avg Score: 65.0
+[3:03:06 AM] 🎯 PATTERN GROUP: www.acehardware.com/_mzblank.gif | Count: 1 | Avg Score: 50.0
+[3:03:06 AM] 🏆 GROUP LEADER (73.8 avg): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851
+95
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/fullstar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/halfstar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/emptystar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (65.0 avg): https://cdn-tp3.mozu.com/24645-m1/cms/files/3d5c3aff-5d62-4b9e-8547-7a84c809e30c
+65
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (50.0 avg): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/607afa52-0c62-5d96-ac7c-38eb650c5dc9
+50
+📋 Copy URL
+[3:03:06 AM] 🏆 GROUP LEADER (50.0 avg): https://www.acehardware.com/_mzblank.gif?r=ewlCMxO1skuwNg9cd5v88w
+50
+📋 Copy URL
+[3:03:06 AM] 🎯 PATTERN GROUPING: 7 groups identified, sorted by relevance
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851
+95
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b
+85
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5
+85
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/fullstar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/halfstar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/emptystar.png
+65
+📋 Copy URL
+[3:03:06 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-m1/cms/files/3d5c3aff-5d62-4b9e-8547-7a84c809e30c
+65
+📋 Copy URL
+[3:03:06 AM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/607afa52-0c62-5d96-ac7c-38eb650c5dc9
+50
+📋 Copy URL
+[3:03:06 AM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/5c0911f5-7d6b-5299-b32f-0022d32f49bc
+50
+📋 Copy URL
+[3:03:06 AM] 📏 CHECKING ACTUAL FILE SIZES for 1 borderline images...
+[3:03:06 AM] 📊 BORDERLINE KEPT (?KB): https://www.acehardware.com/_mzblank.gif?r=ewlCMxO1skuwNg9cd5v88w
+50
+📋 Copy URL
+[3:03:06 AM] 🏆 TOP SCORED IMAGES: ["fb79dbec-c972-4659-9b86-b5ddc41e3851 (score: 95)","e857fdb1-6878-4357-812c-400b886c482b (score: 85)","ffd28359-099f-4ba1-a364-fafc222c2db5 (score: 85)","fullstar.png (score: 65)","halfstar.png (scor
+[3:03:06 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":15}
+[3:03:06 AM] 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[3:03:06 AM] 🖼️ FINAL IMAGES: {"count":15,"images":["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c
+[3:03:06 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless","brand":"STIHL","description":"STIHL introduces another worlds first a cutoff mac","price":"539.99","imageCount":15,"firstImages":["https:
+[3:03:06 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":15}
+[3:03:06 AM] ✅ Debug trace complete
+Clear Debug
+Image URLs (top 20)
+📋 https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/fullstar.png
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/halfstar.png
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/resources/images/star_ratings/14px/emptystar.png
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920
+Copy
+📋 https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c
+Copy
+📋 https://cdn-tp3.mozu.com/24645-m1/cms/files/3d5c3aff-5d62-4b9e-8547-7a84c809e30c
+Copy
+📋 https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/607afa52-0c62-5d96-ac7c-38eb650c5dc9
+Copy
+📋 https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/5c0911f5-7d6b-5299-b32f-0022d32f49bc
+Copy
+📋 https://www.acehardware.com/_mzblank.gif?r=ewlCMxO1skuwNg9cd5v88w
