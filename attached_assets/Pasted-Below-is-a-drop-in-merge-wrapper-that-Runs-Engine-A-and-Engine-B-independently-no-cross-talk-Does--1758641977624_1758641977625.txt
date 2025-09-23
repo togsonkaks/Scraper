@@ -1,0 +1,71 @@
+Below is a drop-in merge wrapper that:Runs Engine A and Engine B independently (no cross-talk).Does not let either engine dedupe/normalize during collection.After both finish, it normalizes → scores → dedupes once.Returns a single high-quality list.1) Paste this wrapper (near your orchestrator merge point) // --------- Unified merge wrapper: collect-then-coordinate ----------
+async function getImagesUnified({ doc = document, max = 24 } = {}) {
+  // 1) Run both collectors WITHOUT sharedContext dedupe during collection
+  //    IMPORTANT: Temporarily disable/ignore any sharedContext.seenUrls checks inside engines.
+  const [rawA, rawB] = await Promise.all([
+    Promise.resolve(EngineA_collectRaw(doc)), // wrap of your Engine A without early dedupe
+    Promise.resolve(EngineB_collectRaw(doc)), // wrap of your Engine B without early dedupe
+  ]);
+
+  // 2) Merge raw candidates
+  const merged = [].concat(rawA || [], rawB || []);
+
+  // 3) Normalize once, globally (consistent across engines)
+  const normalized = merged
+    .filter(Boolean)
+    .map(u => normalizeUrl(u));
+
+  // 4) Score once, globally
+  const candidates = new Map(); // url -> { url, score }
+  for (const u of normalized) {
+    const score = scoreUrl(u);
+    const prev = candidates.get(u);
+    if (!prev || score > prev.score) {
+      candidates.set(u, { url: u, score });
+    }
+  }
+
+  // 5) Sort + limit
+  const ranked = Array.from(candidates.values())
+    .sort((a, b) => b.score - a.score || b.url.length - a.url.length)
+    .map(x => x.url)
+    .slice(0, max);
+
+  return ranked;
+}
+
+// ---- Global normalizer (single source of truth) ----
+// Keep this conservative: upsize common CDN tokens, remove crops, strip query.
+function normalizeUrl(u) {
+  try { u = new URL(u, location.href).toString(); } catch {}
+  u = u.split("?")[0].replace(/%2B/gi, "+");
+  // Drop crop boxes
+  u = u.replace(/_CR\d+,\d+,\d+,\d+_/g, "_");
+  // Unify common size/density tokens to a large size (non-destructive)
+  u = u
+    .replace(/_(SX|SY|SR|SS|UX|UY)\d+_/g, "_SL1500_")
+    .replace(/_SL\d+_/g, "_SL1500_");
+  return u;
+}
+
+// ---- Global scorer (single source of truth) ----
+// Heuristic: prefer likely product assets + larger filenames.
+function scoreUrl(u) {
+  let s = 0;
+  if (/\/images\/I\//.test(u)) s += 800;          // Amazon-style product assets
+  if (/\.(jpe?g|webp|png|avif)$/i.test(u)) s += 150;
+  if (/sprite|icon|thumb|placeholder|1x1/i.test(u)) s -= 500;
+  if (/_SL(\d+)_/.test(u)) s += Math.min( +RegExp.$1, 3000 ) / 2; // reward bigger SL
+  s += Math.min(u.length, 300) / 10;               // weak tie-breaker
+  return s;
+}
+If those engines can’t be called without dedupe today, mirror their internal logic into these wrappers minus the seenUrls checks and minus the per-engine upgradeCDNUrl() calls. That’s the whole bug.3) Call the wrapper instead of the old merge// Old:
+// let images = engineAThenEngineBWithSharedContext(...);
+
+// New:
+const images = await getImagesUnified({ doc, max: 24 });
+4) Kill these three anti-patterns in your code Per-engine seenUrls checks during collection
+Delete or bypass them. They caused the “A saw thumb first, B’s hi-res skipped” bug. Per-engine normalization/upgrade before merge
+Remove them. Normalize once with normalizeUrl() after merging. Per-engine filtering (tiny/unknown) before merge
+Move filtering into the global scorer step.5) Quick regression test (copy/paste)Case 1 where Engine A wins alone → combined should now equal A or A+.Case 2 where Engine B wins alone → combined should now equal B or B+.Case 3 mixed site (carousel/lazy) → combined should contain the union of A & B (minus true dupes), with the highest-res version surviving.Why this works (no hand-waving)You convert a coordination-during-collection system (bug-prone) into collect-then-coordinate (deterministic).You make normalization/scoring a single source of truth, eliminating “A normalized one way, B another way.”You dedupe after upgrade, so hi-res survives and thumbs die.
+

@@ -1985,95 +1985,245 @@
     return enrichedUrls;
   }
 
-  // Unified merger function - collect then coordinate
-  async function mergeEngineResults(engineAResults, engineBResults) {
-    debug(`🔄 UNIFIED MERGER: Processing ${engineAResults.length + engineBResults.length} total images...`);
-    
-    // Combine all raw results 
-    const allRawResults = [...engineAResults, ...engineBResults];
-    
-    // Apply CDN upgrades to all URLs uniformly
-    const upgradedResults = allRawResults.map(item => ({
-      ...item,
-      url: upgradeCDNUrl(item.url),
-      originalUrl: item.url // Keep original for debugging
-    }));
-    
-    // Apply unified filtering and scoring - this is where the magic happens
-    const filtered = await hybridUniqueImages(upgradedResults);
-    debug(`✅ UNIFIED MERGER: Final result: ${filtered.length} images after merge`);
-    
-    return filtered;
+  // --------- Superior collect-then-coordinate architecture ----------
+  
+  // Global normalizer (single source of truth)
+  function normalizeUrl(u) {
+    try { u = new URL(u, location.href).toString(); } catch {}
+    u = u.split("?")[0].replace(/%2B/gi, "+");
+    // Drop crop boxes
+    u = u.replace(/_CR\d+,\d+,\d+,\d+_/g, "_");
+    // Unify common size/density tokens to a large size (non-destructive)
+    u = u
+      .replace(/_(SX|SY|SR|SS|UX|UY)\d+_/g, "_SL1500_")
+      .replace(/_SL\d+_/g, "_SL1500_");
+    return u;
   }
 
-  // Dual-engine orchestrator function with collect-then-coordinate
-  async function getImagesUnified() {
-    debug('🚀 DUAL-ENGINE: Starting independent parallel image collection...');
+  // Global scorer (single source of truth) - Enhanced with comprehensive patterns
+  function scoreUrl(u) {
+    if (!u) return 0;
     
+    let s = 50; // Base score
+    
+    // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns and prioritize high-res
+    if (/images\.urbndata\.com\/is\/image/i.test(u)) {
+      if (/_swatch\//i.test(u) || /swatch\?/i.test(u)) return 0; // Block swatches
+      if (/\$a15-category\$/i.test(u)) return 0; // Block category images
+      if (/\$redesign-zoom-5x\$/i.test(u)) return 95; // High score for zoom
+      
+      // Check small dimensions
+      const smallDimMatch = u.match(/[?&](?:wid|hei|w|h)=([0-9]+)/i);
+      if (smallDimMatch && parseInt(smallDimMatch[1]) <= 800) return 0;
+    }
+    
+    // BBQ GUYS/SHOCHO CDN: Strict product-only filtering
+    if (/cdn\.shocho\.co/i.test(u)) {
+      if (!/\/sc-image\//i.test(u)) return 0; // Only allow product images
+      if (!/\?i10c=img\.resize/i.test(u)) return 90; // Full-size product images
+      
+      const shochoMatch = u.match(/\?i10c=img\.resize\(width:([0-9]+),height:([0-9]+)\)/i);
+      if (shochoMatch) {
+        const width = parseInt(shochoMatch[1]);
+        const height = parseInt(shochoMatch[2]);
+        if (width <= 800 || height <= 800) return 0;
+        if (width > 800 || height > 800) return 75;
+      }
+    }
+    
+    // Amazon product assets bonus
+    if (/\/images\/I\//.test(u)) s += 800;
+    
+    // File format bonuses
+    if (/\.(jpe?g|webp|png|avif)$/i.test(u)) s += 150;
+    if (/\.webp$/i.test(u)) s += 20; // Extra bonus for WebP
+    if (/\.avif$/i.test(u)) s += 25; // Extra bonus for AVIF
+    
+    // Aggressive junk filtering
+    if (/sprite|icon|thumb|placeholder|1x1|swatch|logo|banner|ad|promo|nav|menu|modal|review|community|payment|shipping|cookie/i.test(u)) s -= 500;
+    
+    // Amazon dimension patterns
+    const amazonThumbMatch = u.match(/_(?:AC_)?(?:US|SS|SY|SR|UL)(\d+)(?:_|\.)/i);
+    if (amazonThumbMatch) {
+      const size = parseInt(amazonThumbMatch[1]);
+      if (size <= 40) s -= 60;
+      else if (size <= 64) s -= 50;
+      else if (size <= 100) s -= 40;
+      else if (size <= 200) s -= 20;
+      else if (size >= 800) s += 25;
+      else if (size >= 400) s += 15;
+    }
+    
+    // Amazon SL patterns
+    if (/_SL(\d+)_/.test(u)) s += Math.min( +RegExp.$1, 3000 ) / 2;
+    
+    // Enhanced size detection (multiple patterns)
+    const sizePatterns = [
+      /(?:max|w|width|imwidth|imageWidth)=([0-9]+)/i,
+      /_(\d+)x\d*(?:_|\.|$)/i, // _750x, _1024x1024
+      /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
+      /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
+      /[?&]\$n_(\d+)w?\b/i  // ASOS patterns
+    ];
+    
+    let detectedSize = 0;
+    for (const pattern of sizePatterns) {
+      const match = u.match(pattern);
+      if (match) {
+        detectedSize = Math.max(detectedSize, parseInt(match[1]));
+      }
+    }
+    
+    if (detectedSize > 0) {
+      if (detectedSize >= 1200) s += 40;
+      else if (detectedSize >= 800) s += 30; 
+      else if (detectedSize >= 600) s += 20;
+      else if (detectedSize >= 400) s += 10;
+      else if (detectedSize < 200) s -= 40;
+    }
+    
+    // Quality bonuses
+    const qualityPatterns = [
+      /quality=([0-9]+)/i,
+      /q_([0-9]+)/i, // Cloudinary
+      /q([0-9]+)/i   // Some CDNs
+    ];
+    
+    for (const pattern of qualityPatterns) {
+      const match = u.match(pattern);
+      if (match) {
+        const quality = parseInt(match[1]);
+        if (quality >= 90) s += 20;
+        else if (quality >= 80) s += 15;
+        else if (quality >= 70) s += 10;
+        else if (quality < 50) s -= 10;
+      }
+    }
+    
+    // CDN bonuses
+    if (/\.cloudinary\.com|\.imgix\.net|\.fastly\.com|\.scene7\.com|\.edgecastcdn\.net/i.test(u)) s += 10;
+    if (/shopifycdn\.com|shopify\.com\/s\/files/i.test(u)) s += 15;
+    
+    // URL length tie-breaker
+    s += Math.min(u.length, 300) / 10;
+    
+    return Math.max(s, 0); // Never return negative scores
+  }
+
+  // Engine A raw collector (no coordination)
+  async function EngineA_collectRaw(doc = document) {
+    const rawUrls = [];
+    const images = doc.querySelectorAll('img');
+    
+    for (let i = 0; i < images.length; i++) {
+      const el = images[i];
+      let s1 = el.src || el.getAttribute('data-src') || el.getAttribute('data-lazy-src');
+      
+      // Handle srcset
+      if (!s1 && el.srcset) {
+        const candidates = el.srcset.split(',').map(c => c.trim().split(/\s+/)[0]);
+        s1 = candidates[candidates.length - 1] || '';
+      }
+      
+      if (!s1) continue;
+
+      const abs = toAbs(s1);
+      if (!abs || !looksLikeImageURL(abs)) continue;
+      
+      // Basic filtering only - no coordination
+      if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) continue;
+      if (shouldBlockShopifyFiles(abs, el)) continue;
+      
+      rawUrls.push(abs);
+    }
+    
+    debug(`🔍 ENGINE A (Raw): Found ${rawUrls.length} images`);
+    return rawUrls;
+  }
+
+  // Engine B raw collector (no coordination)
+  async function EngineB_collectRaw(doc = document) {
+    const rawUrls = [];
+    
+    try {
+      const result = await GenericImageCollectorV2.collect({ 
+        doc: doc, 
+        minW: 500, 
+        max: 50,  // Allow more during collection, filter later
+        observeMs: 800
+      });
+      
+      // Extract just URLs from result objects
+      for (const item of result) {
+        if (typeof item === 'string') {
+          rawUrls.push(item);
+        } else if (item && item.url) {
+          rawUrls.push(item.url);
+        }
+      }
+    } catch (error) {
+      debug('⚠️ ENGINE B collection error:', error.message);
+    }
+    
+    debug(`🔍 ENGINE B (Raw): Found ${rawUrls.length} images`);
+    return rawUrls;
+  }
+
+  // Superior unified orchestrator with true collect-then-coordinate
+  async function getImagesUnified({ doc = document, max = 24 } = {}) {
+    debug('🚀 SUPERIOR DUAL-ENGINE: Starting independent collection...');
     const startTime = Date.now();
 
     try {
-      // Run both engines independently in parallel
-      const enginePromises = await Promise.allSettled([
-        // Engine A: Original targeted logic (no coordination)
-        Promise.race([
-          gatherImagesBySelector_independent('img'),
-          new Promise((_, reject) => setTimeout(() => reject(new Error('Engine A timeout')), 5000))
-        ]),
-        // Engine B: Comprehensive scanning (no coordination)
-        Promise.race([
-          GenericImageCollectorV2.collect({ 
-            doc: document, 
-            minW: 500, 
-            max: 30,
-            observeMs: 800
-          }),
-          new Promise((_, reject) => setTimeout(() => reject(new Error('Engine B timeout')), 8000))
-        ])
+      // 1) Run both collectors WITHOUT coordination during collection
+      const [rawA, rawB] = await Promise.all([
+        Promise.resolve(EngineA_collectRaw(doc)),
+        Promise.resolve(EngineB_collectRaw(doc)),
       ]);
 
-      // Extract results from settled promises
-      const engineAResults = enginePromises[0].status === 'fulfilled' ? enginePromises[0].value : [];
-      const engineBResults = enginePromises[1].status === 'fulfilled' ? enginePromises[1].value : [];
+      // 2) Merge raw candidates
+      const merged = [].concat(rawA || [], rawB || []);
+      debug(`🔄 MERGER: Processing ${rawA.length} + ${rawB.length} = ${merged.length} raw images`);
 
-      // Log engine performance
+      // 3) Normalize once, globally (consistent across engines)
+      const normalized = merged
+        .filter(Boolean)
+        .map(u => normalizeUrl(u));
+
+      // 4) Score once, globally with explicit max logic
+      const candidates = new Map(); // url -> { url, score }
+      for (const u of normalized) {
+        const score = scoreUrl(u);
+        const prev = candidates.get(u);
+        if (!prev || score > prev.score) {
+          candidates.set(u, { url: u, score });
+        }
+      }
+
+      // 5) Sort + limit
+      const ranked = Array.from(candidates.values())
+        .sort((a, b) => b.score - a.score || b.url.length - a.url.length)
+        .map(x => x.url)
+        .slice(0, max);
+
       const timing = Date.now() - startTime;
-      debug(`🔍 ENGINE A (Original): ${engineAResults.length} images [${enginePromises[0].status}]`);
-      debug(`🔍 ENGINE B (ChatGPT): ${engineBResults.length} images [${enginePromises[1].status}]`);
-      debug(`⏱️ DUAL-ENGINE: Completed in ${timing}ms`);
-
-      if (enginePromises[0].status === 'rejected') {
-        debug('⚠️ ENGINE A failed:', enginePromises[0].reason?.message);
-      }
-      if (enginePromises[1].status === 'rejected') {
-        debug('⚠️ ENGINE B failed:', enginePromises[1].reason?.message);
-      }
-
-      if (engineAResults.length === 0 && engineBResults.length === 0) {
-        debug('❌ DUAL-ENGINE: No images found from either engine, falling back...');
-        return await getImagesGeneric_Legacy();
-      }
-
-      // COLLECT-THEN-COORDINATE: Merge results after both engines complete
-      const filtered = await mergeEngineResults(engineAResults, engineBResults);
+      debug(`✅ SUPERIOR DUAL-ENGINE: ${ranked.length} final images in ${timing}ms`);
 
       mark('images', { 
-        selectors: ['dual-engine'], 
+        selectors: ['superior-dual-engine'], 
         attr: 'unified', 
-        method: 'dual-engine-v2', 
-        urls: filtered.slice(0, 30),
+        method: 'collect-then-coordinate', 
+        urls: ranked,
         timing: timing,
-        engineA: { count: engineAResults.length, status: enginePromises[0].status },
-        engineB: { count: engineBResults.length, status: enginePromises[1].status }
+        engineA: { count: rawA.length },
+        engineB: { count: rawB.length },
+        uniqueAfterMerge: candidates.size
       });
 
-      return filtered.slice(0, 30);
+      return ranked;
 
     } catch (error) {
-      debug('❌ DUAL-ENGINE CRITICAL ERROR:', error.message);
-      
-      // Fallback to legacy generic approach
-      debug('🔄 DUAL-ENGINE: Falling back to legacy approach...');
+      debug('❌ SUPERIOR DUAL-ENGINE ERROR:', error.message);
       return await getImagesGeneric_Legacy();
     }
   }
