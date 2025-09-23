@@ -2110,47 +2110,182 @@
     return Math.max(s, 0); // Never return negative scores
   }
 
-  // Engine A raw collector (no coordination)
+  // Engine A raw collector - Smart product-focused targeting
   async function EngineA_collectRaw(doc = document) {
     const rawUrls = [];
-    const images = doc.querySelectorAll('img');
+    const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
     
-    for (let i = 0; i < images.length; i++) {
-      const el = images[i];
-      let s1 = el.src || el.getAttribute('data-src') || el.getAttribute('data-lazy-src');
+    // Gallery wrapper selectors (container-first approach)
+    const galleryWrappers = [
+      // Amazon wrappers
+      '#altImages', '#imageBlock', '[data-a-dynamic-image]',
+      // Shopify wrappers  
+      '.product-single__photo', '.product-gallery', '.flickity-viewport',
+      // Generic wrappers
+      'main figure', 'main [class*="gallery"]', 'main [class*="product"]', 'main [class*="image"]'
+    ];
+    
+    // Site-specific selectors (enhanced with gallery wrappers)
+    const siteSpecificSelectors = {
+      'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
+      'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
+      'amazon.com': [
+        // Gallery wrappers first
+        '#altImages img', '#imageBlock img', '[data-a-dynamic-image]',
+        // New 2024+ Amazon gallery selectors
+        '[data-csa-c-element-id*="image"] img',
+        '[class*="ivImages"] img', '[id*="ivImage"] img', '.iv-tab img',
+        '[id*="altImages"] img', '[class*="imagesThumbnail"] img',
+        // Broader Amazon patterns
+        'img[src*="images-amazon.com"]', 'img[src*="ssl-images-amazon.com"]', 'img[src*="m.media-amazon.com"]',
+        // Legacy selectors
+        '.a-dynamic-image', '#imageBlockContainer img'
+      ],
+      'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
+      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+    };
+    
+    // Try gallery wrappers first (scope targeting) - iterate all matches
+    const seenUrls = new Set();
+    
+    wrapperLoop: for (const wrapper of galleryWrappers) {
+      if (rawUrls.length >= 8) break; // Stop if we already have enough
       
-      // Handle srcset
-      if (!s1 && el.srcset) {
-        const candidates = el.srcset.split(',').map(c => c.trim().split(/\s+/)[0]);
-        s1 = candidates[candidates.length - 1] || '';
+      const containers = doc.querySelectorAll(wrapper); // Use querySelectorAll to avoid thumbnail-only early exits
+      for (const container of containers) {
+        debug(`🎯 ENGINE A: Found gallery wrapper: ${wrapper}`);
+        
+        // Handle case where wrapper selector matches an IMG directly
+        if (container.tagName === 'IMG') {
+          const url = extractImageUrl(container);
+          if (url && !seenUrls.has(url)) {
+            seenUrls.add(url);
+            rawUrls.push(url);
+          }
+        } else {
+          // Container found, look for images inside it
+          const images = container.querySelectorAll('img');
+          for (const el of images) {
+            const url = extractImageUrl(el);
+            if (url && !seenUrls.has(url)) {
+              seenUrls.add(url);
+              rawUrls.push(url);
+            }
+          }
+        }
+        
+        // Early stop when we have enough - break outer loop
+        if (rawUrls.length >= 8) break wrapperLoop;
       }
-      
-      if (!s1) continue;
-
-      const abs = toAbs(s1);
-      if (!abs || !looksLikeImageURL(abs)) continue;
-      
-      // Basic filtering only - no coordination
-      if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) continue;
-      if (shouldBlockShopifyFiles(abs, el)) continue;
-      
-      rawUrls.push(abs);
     }
     
-    debug(`🔍 ENGINE A (Raw): Found ${rawUrls.length} images`);
+    debug(`🔍 ENGINE A (Wrapper Phase): Found ${rawUrls.length} images total`);
+    
+    // Try site-specific selectors
+    const siteSelectors = siteSpecificSelectors[hostname] || [];
+    for (const sel of siteSelectors) {
+      debug(`🎯 ENGINE A: Trying site selector for ${hostname}: ${sel}`);
+      const images = doc.querySelectorAll(sel);
+      for (const el of images) {
+        const url = extractImageUrl(el);
+        if (url && !seenUrls.has(url)) {
+          seenUrls.add(url);
+          rawUrls.push(url);
+        }
+      }
+      if (rawUrls.length >= 10) break; // Stop if we have enough
+    }
+    
+    // Generic product area selectors (if still need more)
+    if (rawUrls.length < 5) {
+      const genericSelectors = [
+        '.product-media img', '.product-images img', '.product-gallery img',
+        '[class*="product-image"] img', '.carousel img', '.slider img',
+        '[class*="gallery"] img', '.thumbnails img', '[data-testid*="image"] img'
+      ];
+      
+      for (const sel of genericSelectors) {
+        const images = doc.querySelectorAll(sel);
+        for (const el of images) {
+          const url = extractImageUrl(el);
+          if (url && !seenUrls.has(url)) {
+            seenUrls.add(url);
+            rawUrls.push(url);
+          }
+        }
+        if (rawUrls.length >= 15) break;
+      }
+    }
+    
+    debug(`🔍 ENGINE A (Smart): Found ${rawUrls.length} product-focused images`);
     return rawUrls;
   }
+  
+  // Helper function to extract image URL from element
+  function extractImageUrl(el) {
+    let s1 = el.src || el.getAttribute('data-src') || el.getAttribute('data-lazy-src');
+    
+    // Handle srcset
+    if (!s1 && el.srcset) {
+      const candidates = el.srcset.split(',').map(c => c.trim().split(/\s+/)[0]);
+      s1 = candidates[candidates.length - 1] || '';
+    }
+    
+    if (!s1) return null;
 
-  // Engine B raw collector (no coordination)
+    const abs = toAbs(s1);
+    if (!abs || !looksLikeImageURL(abs)) return null;
+    
+    // Basic filtering only - no coordination
+    if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) return null;
+    if (shouldBlockShopifyFiles(abs, el)) return null;
+    
+    return abs;
+  }
+
+  // Engine B raw collector - Product-scoped comprehensive scanning
   async function EngineB_collectRaw(doc = document) {
     const rawUrls = [];
     
+    // Find product area container first to scope the comprehensive scan
+    const productContainers = [
+      // Gallery wrappers
+      '#altImages', '#imageBlock', '[data-a-dynamic-image]',
+      '.product-single__photo', '.product-gallery', '.flickity-viewport',
+      // Product areas
+      '#product', '.product-detail', '.product-container', '.product-wrapper',
+      '.product-media', '.product-images', 'main [class*="product"]',
+      // Generic content areas  
+      'main', '[role="main"]', '.content', '.main-content'
+    ];
+    
+    let scopedDoc = doc;
+    let containerFound = false;
+    
+    // Try to find a product container to scope the scan
+    for (const containerSel of productContainers) {
+      const container = doc.querySelector(containerSel);
+      if (container) {
+        scopedDoc = container;
+        containerFound = true;
+        debug(`🎯 ENGINE B: Scoped to container: ${containerSel}`);
+        break;
+      }
+    }
+    
+    if (!containerFound) {
+      debug(`⚠️ ENGINE B: No product container found, using main area`);
+      const main = doc.querySelector('main') || doc.querySelector('[role="main"]') || doc;
+      scopedDoc = main;
+    }
+    
     try {
+      // Run comprehensive scan within the scoped container
       const result = await GenericImageCollectorV2.collect({ 
-        doc: doc, 
-        minW: 500, 
-        max: 50,  // Allow more during collection, filter later
-        observeMs: 800
+        doc: scopedDoc,  // Use scoped container instead of full document
+        minW: 400,       // Lower threshold for more coverage within product area
+        max: 30,         // Reduced limit since we're being more targeted
+        observeMs: 600   // Shorter observation since smaller scope
       });
       
       // Extract just URLs from result objects
@@ -2161,11 +2296,49 @@
           rawUrls.push(item.url);
         }
       }
+      
+      // If scoped scan didn't find much, try broader selectors within main
+      const seenUrls = new Set(rawUrls); // Initialize with existing URLs
+      
+      if (rawUrls.length < 5 && containerFound) {
+        debug(`🔄 ENGINE B: Expanding search within main area...`);
+        const main = doc.querySelector('main') || doc;
+        const additionalImages = main.querySelectorAll('img[src*="product"], img[src*="image"], img[alt*="product"]');
+        
+        for (const el of additionalImages) {
+          const url = extractImageUrl(el);
+          if (url && !seenUrls.has(url)) {
+            seenUrls.add(url);
+            rawUrls.push(url);
+          }
+          if (rawUrls.length >= 20) break; // Earlier stopping for efficiency
+        }
+      }
+      
     } catch (error) {
       debug('⚠️ ENGINE B collection error:', error.message);
+      
+      // Fallback: direct product image targeting with proper deduplication
+      const seenUrls = new Set(rawUrls);
+      const fallbackSelectors = [
+        'img[src*="product"]', 'img[alt*="product"]', 'img[class*="product"]',
+        'img[src*="image"]', '[class*="gallery"] img', '.carousel img'
+      ];
+      
+      for (const sel of fallbackSelectors) {
+        const images = scopedDoc.querySelectorAll(sel);
+        for (const el of images) {
+          const url = extractImageUrl(el);
+          if (url && !seenUrls.has(url)) {
+            seenUrls.add(url);
+            rawUrls.push(url);
+          }
+        }
+        if (rawUrls.length >= 15) break; // Earlier stopping
+      }
     }
     
-    debug(`🔍 ENGINE B (Raw): Found ${rawUrls.length} images`);
+    debug(`🔍 ENGINE B (Product-Scoped): Found ${rawUrls.length} images`);
     return rawUrls;
   }
 
