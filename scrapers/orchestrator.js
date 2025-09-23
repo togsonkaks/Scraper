@@ -991,14 +991,102 @@
       }
     }
     
-    // Sort by DOM order (index)
-    bestImages.sort((a, b) => a.index - b.index);
+    // === PATTERN SIMILARITY DETECTION AND GROUP SCORING ===
+    
+    // Extract URL pattern for grouping similar images  
+    function extractUrlPattern(url) {
+      try {
+        const urlObj = new URL(url);
+        let pathname = urlObj.pathname;
+        let hostname = urlObj.hostname;
+        
+        // Replace variable parts with tokens
+        // UUIDs: 8-4-4-4-12 character patterns
+        pathname = pathname.replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi, '{UUID}');
+        
+        // Long hex strings (40+ chars)
+        pathname = pathname.replace(/[0-9a-f]{40,}/gi, '{HEXID}');
+        
+        // Numbers (file IDs, dimensions, etc.)
+        pathname = pathname.replace(/\b\d{4,}\b/g, '{NUMID}');
+        pathname = pathname.replace(/\b\d{2,3}px?\b/g, '{SIZE}');
+        
+        // Common variable filename patterns
+        pathname = pathname.replace(/\b[0-9a-f]{6,}\b/gi, '{ID}');
+        
+        // Create pattern: hostname + path template
+        return hostname + pathname;
+      } catch {
+        // Fallback for invalid URLs
+        return url.replace(/[0-9a-f]{8,}/gi, '{ID}').replace(/\d{4,}/g, '{NUM}');
+      }
+    }
+    
+    // Group images by URL patterns
+    const patternGroups = new Map();
+    
+    for (const img of bestImages) {
+      const pattern = extractUrlPattern(img.url);
+      
+      if (!patternGroups.has(pattern)) {
+        patternGroups.set(pattern, []);
+      }
+      
+      patternGroups.get(pattern).push({
+        ...img,
+        pattern: pattern
+      });
+    }
+    
+    // Calculate group scores (average of images in group)
+    const groupScores = new Map();
+    for (const [pattern, images] of patternGroups) {
+      const totalScore = images.reduce((sum, img) => sum + img.score, 0);
+      const averageScore = totalScore / images.length;
+      groupScores.set(pattern, {
+        average: averageScore,
+        count: images.length,
+        images: images
+      });
+      
+      debug(`🎯 PATTERN GROUP: ${pattern.slice(-50)} | Count: ${images.length} | Avg Score: ${averageScore.toFixed(1)}`);
+    }
+    
+    // Sort images by group average first, then individual score within group
+    const patternSortedImages = [];
+    
+    // Sort groups by average score (highest first)
+    const sortedGroups = Array.from(groupScores.entries()).sort((a, b) => b[1].average - a[1].average);
+    
+    for (const [pattern, groupData] of sortedGroups) {
+      // Within each group, sort by individual score (highest first), then DOM order
+      const sortedGroupImages = groupData.images.sort((a, b) => {
+        // Primary: Individual score (highest first)
+        const scoreDiff = b.score - a.score;
+        if (scoreDiff !== 0) return scoreDiff;
+        
+        // Secondary: DOM order (earlier first) 
+        return a.index - b.index;
+      });
+      
+      // First image in group gets hierarchy bonus
+      if (sortedGroupImages.length > 0) {
+        addImageDebugLog('debug', `🏆 GROUP LEADER (${groupData.average.toFixed(1)} avg): ${sortedGroupImages[0].url.slice(0, 100)}`, sortedGroupImages[0].url, sortedGroupImages[0].score, true);
+      }
+      
+      patternSortedImages.push(...sortedGroupImages);
+    }
+    
+    debug(`🎯 PATTERN GROUPING: ${patternGroups.size} groups identified, sorted by relevance`);
+    
+    // Use pattern-sorted images instead of DOM-sorted
+    const sortedImages = patternSortedImages;
     
     // Apply file size filtering (100KB minimum)
     const sizeFilteredImages = [];
     const fileSizeCheckPromises = [];
     
-    for (const img of bestImages) {
+    for (const img of sortedImages) {
       // Trusted CDNs bypass ALL size checks - HIGHEST PRIORITY  
       if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
         sizeFilteredImages.push(img);
