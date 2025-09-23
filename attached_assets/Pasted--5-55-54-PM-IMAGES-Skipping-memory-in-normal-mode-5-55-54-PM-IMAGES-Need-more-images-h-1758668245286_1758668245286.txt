@@ -1,0 +1,605 @@
+[5:55:54 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[5:55:54 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[5:55:54 PM] 🧩 IMAGES: Trying custom handler...
+[5:55:54 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[5:55:54 PM] 🖼️ Getting generic images for hostname: urbanoutfitters.com
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[5:55:54 PM] 📊 Found 0 elements for selector: .product-media img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[5:55:54 PM] 📊 Found 0 elements for selector: .gallery img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[5:55:54 PM] 📊 Found 0 elements for selector: .image-gallery img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[5:55:54 PM] 📊 Found 0 elements for selector: .product-images img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[5:55:54 PM] 📊 Found 0 elements for selector: .product-gallery img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+[5:55:54 PM] 📊 Found 0 elements for selector: [class*=gallery] img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .slider img
+[5:55:54 PM] 📊 Found 0 elements for selector: .slider img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .thumbnails img
+[5:55:54 PM] 📊 Found 0 elements for selector: .thumbnails img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+[5:55:54 PM] 📊 Found 0 elements for selector: .pdp-gallery img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+[5:55:54 PM] 📊 Found 0 elements for selector: [data-testid*=image] img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .pwa-slider img
+[5:55:54 PM] 📊 Found 0 elements for selector: .pwa-slider img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .pwa-slider__item img
+[5:55:54 PM] 📊 Found 0 elements for selector: .pwa-slider__item img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .product-carousel img
+[5:55:54 PM] 📊 Found 0 elements for selector: .product-carousel img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .hero-image img
+[5:55:54 PM] 📊 Found 0 elements for selector: .hero-image img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: [data-photoswipe-src] img
+[5:55:54 PM] 📊 Found 0 elements for selector: [data-photoswipe-src] img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .product-main-slide img
+[5:55:54 PM] 📊 Found 0 elements for selector: .product-main-slide img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: .swiper-slide img
+[5:55:54 PM] 📊 Found 0 elements for selector: .swiper-slide img
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 0
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: []
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:55:54 PM] 🖼️ FINAL IMAGES: []
+[5:55:54 PM] 🖼️ After hybrid filtering: 0 images
+[5:55:54 PM] 🔍 GATHERING IMAGES with selector: img
+[5:55:54 PM] 📊 Found 12 elements for selector: img
+[5:55:54 PM] Image element <IMG.c-pwa-site-header-logo__img>
+[5:55:54 PM] 📋 Image attributes: {"src":"//images.ctfassets.net/q602vtcuu3w3/5Kn3hosoikXHaQhOx4GikS/85a65a5048a108b332ae5aac4c44c009/SITE_LOGO_2025.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcs
+[5:55:54 PM] ✅ Found image URL from attributes: //images.ctfassets.net/q602vtcuu3w3/5Kn3hosoikXHaQhOx4GikS/85a65a5048a108b332ae5aac4c44c009/SITE_LOG
+[5:55:54 PM] 📸 Checking picture parent for sources...
+[5:55:54 PM] ✅ Found image URL from picture source: //images.ctfassets.net/q602vtcuu3w3/5Kn3hosoikXHaQhOx4GikS/85a65a5048a108b332ae5aac4c44c009/SITE_LOG
+[5:55:54 PM] Image element <IMG.o-pwa-image__img>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":
+[5:55:54 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$&fit=constrain&qlt=80&w
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b?$xlarge$&fit=constrain&qlt=80&wid=640 -> 103474995_020_b?$xlarge$
+[5:55:54 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$&fit=constrain&qlt=80&w
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b?$xlarge$&fit=constrain&qlt=80&wid=360 -> 103474995_020_b?$xlarge$
+[5:55:54 PM] 📸 Checking picture parent for sources...
+[5:55:54 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$&fit=constrain&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=360 -> 103474995_020_b?$xlarge$&fmt=webp
+[5:55:54 PM] Image element <IMG.o-pwa-image__img>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset"
+[5:55:54 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$&fit=constrain&qlt=80&
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b2?$xlarge$&fit=constrain&qlt=80&wid=640 -> 103474995_020_b2?$xlarge$
+[5:55:54 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$&fit=constrain&qlt=80&
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b2?$xlarge$&fit=constrain&qlt=80&wid=360 -> 103474995_020_b2?$xlarge$
+[5:55:54 PM] 📸 Checking picture parent for sources...
+[5:55:54 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$&fit=constrain&fmt=web
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b2?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=360 -> 103474995_020_b2?$xlarge$&fmt=webp
+[5:55:54 PM] Image element <IMG.o-pwa-image__img>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset"
+[5:55:54 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$&fit=constrain&qlt=80&
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b3?$xlarge$&fit=constrain&qlt=80&wid=640 -> 103474995_020_b3?$xlarge$
+[5:55:54 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$&fit=constrain&qlt=80&
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b3?$xlarge$&fit=constrain&qlt=80&wid=360 -> 103474995_020_b3?$xlarge$
+[5:55:54 PM] 📸 Checking picture parent for sources...
+[5:55:54 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$&fit=constrain&fmt=web
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b3?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=360 -> 103474995_020_b3?$xlarge$&fmt=webp
+[5:55:54 PM] Image element <IMG.o-pwa-image__img>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset"
+[5:55:54 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$&fit=constrain&qlt=80&
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b4?$xlarge$&fit=constrain&qlt=80&wid=640 -> 103474995_020_b4?$xlarge$
+[5:55:54 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$&fit=constrain&qlt=80&
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b4?$xlarge$&fit=constrain&qlt=80&wid=360 -> 103474995_020_b4?$xlarge$
+[5:55:54 PM] 📸 Checking picture parent for sources...
+[5:55:54 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$&fit=constrain&fmt=web
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b4?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=360 -> 103474995_020_b4?$xlarge$&fmt=webp
+[5:55:54 PM] Image element <IMG.o-pwa-image__img>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$&fit=constrain&qlt=80&wid=640","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset"
+[5:55:54 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$&fit=constrain&qlt=80&
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b5?$xlarge$&fit=constrain&qlt=80&wid=640 -> 103474995_020_b5?$xlarge$
+[5:55:54 PM] ✅ Found image URL from srcset: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$&fit=constrain&qlt=80&
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b5?$xlarge$&fit=constrain&qlt=80&wid=360 -> 103474995_020_b5?$xlarge$
+[5:55:54 PM] 📸 Checking picture parent for sources...
+[5:55:54 PM] ✅ Found image URL from picture source: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$&fit=constrain&fmt=web
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b5?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=360 -> 103474995_020_b5?$xlarge$&fmt=webp
+[5:55:54 PM] Image element <IMG.o-pwa-color-swatch>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s?fit=constrain&hei=56&qlt=75","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:55:54 PM] ✅ Found image URL from attributes: https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s?fit=constrain&hei=56&qlt=75
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_s?fit=constrain&hei=56&qlt=75 -> 103474995_020_s
+[5:55:54 PM] Image element <IMG.c-pwa-icon>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://static.urbanoutfitters.com/static/v3/assets/klarna-logo-black-CdKAKn0h.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:55:54 PM] ✅ Found image URL from attributes: https://static.urbanoutfitters.com/static/v3/assets/klarna-logo-black-CdKAKn0h.svg
+[5:55:54 PM] Image element <IMG.c-pwa-icon>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://static.urbanoutfitters.com/static/v3/assets/afterpay-logo-black-CvYC8Sxt.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:55:54 PM] ✅ Found image URL from attributes: https://static.urbanoutfitters.com/static/v3/assets/afterpay-logo-black-CvYC8Sxt.svg
+[5:55:54 PM] Image element <IMG.c-pwa-chat-invitation__avatar>
+[5:55:54 PM] 📋 Image attributes: {"src":"//images.ctfassets.net/q602vtcuu3w3/2RZ4ZxT17PmXmkOzgB0J7J/074e41f86d5f12114680a32f8fa91f51/UO_Avatar_40x40.png","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"src
+[5:55:54 PM] ✅ Found image URL from attributes: //images.ctfassets.net/q602vtcuu3w3/2RZ4ZxT17PmXmkOzgB0J7J/074e41f86d5f12114680a32f8fa91f51/UO_Avata
+[5:55:54 PM] Image element <IMG>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://cdn.cookielaw.org/logos/a9d3dc19-0c91-478e-9e19-de0cc524c81c/34720c71-210e-4d45-bf4f-27197e9a267f/5e1531bc-7512-40a7-88a9-482959e15a67/Screen_Shot_2020-12-22_at_1.18.02_PM.png","data-s
+[5:55:54 PM] ✅ Found image URL from attributes: https://cdn.cookielaw.org/logos/a9d3dc19-0c91-478e-9e19-de0cc524c81c/34720c71-210e-4d45-bf4f-27197e9
+[5:55:54 PM] Image element <IMG>
+[5:55:54 PM] 📋 Image attributes: {"src":"https://cdn.cookielaw.org/logos/static/powered_by_logo.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[5:55:54 PM] ✅ Found image URL from attributes: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+[5:55:54 PM] 🖼️ Raw enriched URLs collected: 23
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":23}
+[5:55:54 PM] ❌ NOT IMAGE URL: https://images.ctfassets.net/q602vtcuu3w3/5Kn3hosoikXHaQhOx4GikS/85a65a5048a108b332ae5aac4c44c009/SI
+0
+📋 Copy URL
+[5:55:54 PM] ❌ NOT IMAGE URL: https://images.ctfassets.net/q602vtcuu3w3/5Kn3hosoikXHaQhOx4GikS/85a65a5048a108b332ae5aac4c44c009/SI
+0
+📋 Copy URL
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_s
+[5:55:54 PM] 🗑️ JUNK IMAGE: https://static.urbanoutfitters.com/static/v3/assets/klarna-logo-black-CdKAKn0h.s
+0
+📋 Copy URL
+[5:55:54 PM] 🗑️ JUNK IMAGE: https://static.urbanoutfitters.com/static/v3/assets/afterpay-logo-black-CvYC8Sxt
+0
+📋 Copy URL
+[5:55:54 PM] 🔍 EFFECTIVE RESOLUTION: 80px (40×1) = +-38.1 points
+[5:55:54 PM] 📉 SMALL WIDTH PENALTY: 80px gets -100 points (under 500px threshold)
+[5:55:54 PM] 📍 CONTAINER INFO: "uo_avatar_40x40.png" from "img" (not primary gallery)
+[5:55:54 PM] 📉 LOW SCORE REJECTED (0): https://images.ctfassets.net/q602vtcuu3w3/2RZ4ZxT17PmXmkOzgB0J7J/074e41f86d5f12114680a32f8fa91f51/UO
+0
+📋 Copy URL
+[5:55:54 PM] 🗑️ JUNK IMAGE: https://cdn.cookielaw.org/logos/a9d3dc19-0c91-478e-9e19-de0cc524c81c/34720c71-21
+0
+📋 Copy URL
+[5:55:54 PM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+0
+📋 Copy URL
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 16 candidates
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 11 images after family deduplication
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s
+55
+📋 Copy URL
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: ["103474995_020_b?$xlarge$ (score: 55)","103474995_020_b2?$xlarge$ (score: 55)","103474995_020_b3?$xlarge$ (score: 55)","103474995_020_b4?$xlarge$ (score: 55)","103474995_020_b5?$xlarge$ (score: 55)"]
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":3,"lowScore":1,"smallFile":0,"duplicateGroups":5,"kept":6}
+[5:55:54 PM] 🖼️ FINAL IMAGES: ["https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$","https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$","https://images.urbndata.com/is/image/
+[5:55:54 PM] 🖼️ After hybrid filtering: 6 images
+[5:55:54 PM] 🎯 CALLING HI-RES AUGMENTATION (fallback path)
+[5:55:54 PM] 🚀 HI-RES AUGMENT STARTING on www.urbanoutfitters.com
+[5:55:54 PM] 🔍 Hi-res augment collected: 18 URLs
+[5:55:54 PM] ✅ HI-RES AUGMENTATION COMPLETE: 18 URLs
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":24}
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_s
+[5:55:54 PM] ❌ NOT IMAGE URL: https://images.ctfassets.net/q602vtcuu3w3/5Kn3hosoikXHaQhOx4GikS/85a65a5048a108b332ae5aac4c44c009/SI
+0
+📋 Copy URL
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=540 -> 103474995_020_b?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b2?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=540 -> 103474995_020_b2?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b3?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=540 -> 103474995_020_b3?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b4?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=540 -> 103474995_020_b4?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b5?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=540 -> 103474995_020_b5?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_s?fit=constrain&hei=56&qlt=75 -> 103474995_020_s
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_s
+[5:55:54 PM] 🗑️ JUNK IMAGE: https://static.urbanoutfitters.com/static/v3/assets/klarna-logo-black-CdKAKn0h.s
+0
+📋 Copy URL
+[5:55:54 PM] 🗑️ JUNK IMAGE: https://static.urbanoutfitters.com/static/v3/assets/afterpay-logo-black-CvYC8Sxt
+0
+📋 Copy URL
+[5:55:54 PM] 🔍 EFFECTIVE RESOLUTION: 40px (40×1) = +-58.1 points
+[5:55:54 PM] 📉 SMALL WIDTH PENALTY: 40px gets -100 points (under 500px threshold)
+[5:55:54 PM] 📍 CONTAINER INFO: "uo_avatar_40x40.png" from "hi-res-augment" (not primary gallery)
+[5:55:54 PM] 📉 LOW SCORE REJECTED (0): https://images.ctfassets.net/q602vtcuu3w3/2RZ4ZxT17PmXmkOzgB0J7J/074e41f86d5f12114680a32f8fa91f51/UO
+0
+📋 Copy URL
+[5:55:54 PM] 🗑️ JUNK IMAGE: https://cdn.cookielaw.org/logos/a9d3dc19-0c91-478e-9e19-de0cc524c81c/34720c71-21
+0
+📋 Copy URL
+[5:55:54 PM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+0
+📋 Copy URL
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=1314 -> 103474995_020_b?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b2?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=1314 -> 103474995_020_b2?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b3?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=1314 -> 103474995_020_b3?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b4?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=1314 -> 103474995_020_b4?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$&fmt=webp
+[5:55:54 PM] ✨ UPGRADED CDN URL: 103474995_020_b5?$xlarge$&fit=constrain&fmt=webp&qlt=80&wid=1314 -> 103474995_020_b5?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$&fmt=webp
+[5:55:54 PM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/ot_close.svg
+0
+📋 Copy URL
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 17 candidates
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$&fmt=webp
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$&fmt=webp
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$&fmt=webp
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$&fmt=webp
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$&fmt=webp
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$&fmt=webp
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_s
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_s
+[5:55:54 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 55) from 2 siblings for https://images.urbndata.com/is/image/UrbanOutfitte...
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 11 images after family deduplication
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s
+55
+📋 Copy URL
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: ["103474995_020_b?$xlarge$ (score: 55)","103474995_020_b2?$xlarge$ (score: 55)","103474995_020_b3?$xlarge$ (score: 55)","103474995_020_b4?$xlarge$ (score: 55)","103474995_020_b5?$xlarge$ (score: 55)"]
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":3,"lowScore":1,"smallFile":0,"duplicateGroups":5,"kept":6}
+[5:55:54 PM] 🖼️ FINAL IMAGES: ["https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b?$xlarge$","https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$","https://images.urbndata.com/is/image/
+[5:55:54 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":7}
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":7}
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_s
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 7 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 7 images after family deduplication
+[5:55:54 PM] ✅ BEST OF 2 (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b
+55
+📋 Copy URL
+[5:55:54 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s
+55
+📋 Copy URL
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: ["103474995_020_b (score: 55)","103474995_020_b2?$xlarge$ (score: 55)","103474995_020_b3?$xlarge$ (score: 55)","103474995_020_b4?$xlarge$ (score: 55)","103474995_020_b5?$xlarge$ (score: 55)"]
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":1,"kept":6}
+[5:55:54 PM] 🖼️ FINAL IMAGES: ["https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b","https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$","https://images.urbndata.com/is/image/UrbanOutf
+[5:55:54 PM] 🖼️ GENERIC IMAGES: {"count":6,"images":["https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b","https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$","https://images.urbndata.co
+[5:55:54 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":6}
+[5:55:54 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":6}
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b2?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b3?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b4?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_b5?$xlarge$
+[5:55:54 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 103474995_020_s
+[5:55:54 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 6 candidates
+[5:55:54 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 6 images after family deduplication
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b3?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b4?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b5?$xlarge$
+55
+📋 Copy URL
+[5:55:54 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_s
+55
+📋 Copy URL
+[5:55:54 PM] 🏆 TOP SCORED IMAGES: ["103474995_020_b (score: 55)","103474995_020_b2?$xlarge$ (score: 55)","103474995_020_b3?$xlarge$ (score: 55)","103474995_020_b4?$xlarge$ (score: 55)","103474995_020_b5?$xlarge$ (score: 55)"]
+[5:55:54 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":6}
+[5:55:54 PM] 🖼️ FINAL IMAGES: ["https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b","https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$","https://images.urbndata.com/is/image/UrbanOutf
+[5:55:54 PM] 🖼️ FINAL IMAGES: {"count":6,"images":["https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b","https://images.urbndata.com/is/image/UrbanOutfitters/103474995_020_b2?$xlarge$","https://images.urbndata.co
+[5:55:54 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Kiss The Sky Delmar Leopard & Lace Strapless Slit ","brand":"Kiss The Sky","description":"Shop Kiss The Sky Delmar Leopard & Lace Strapless ","price":"75","imageCount":6,"firstImages":["http
+[5:55:54 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":6}
+[5:55:54 PM] ✅ Debug trace complete

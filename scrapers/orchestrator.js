@@ -1029,8 +1029,8 @@
         '.pdp-images img',
         '.swiper-slide img',
         '.swiper-container img',
-        '.pwa-slider img',              // Urban Outfitters + PWA sites
-        '.pwa-slider__item img',        // PWA slider items
+        '[class*="pwa-slider"] img',    // All PWA slider variants (c-pwa, o-pwa, etc)
+        '[class*="pwa-image"] img',     // All PWA image containers
         '[data-testid*="image"] img',   // Adidas, American Eagle
         '.product-carousel img',        // Nike, multiple sites
         '.hero-image img',              // Nike hero containers
@@ -2174,7 +2174,7 @@
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
       '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img',
-      '.pwa-slider img','.pwa-slider__item img','.product-carousel img','.hero-image img',
+      '[class*="pwa-slider"] img','[class*="pwa-image"] img','.product-carousel img','.hero-image img',
       '[data-photoswipe-src] img','.product-main-slide img','.swiper-slide img'
     ];
     for (const sel of gallerySels) {
