@@ -963,6 +963,41 @@
       debug(`☁️ CDN TRUST: Cloudinary = +10 points`);
     }
     
+    // DOMAIN PREFERENCE SCORING - boost same-domain images
+    const currentDomain = globalThis.location?.hostname?.replace(/^www\./, '') || '';
+    try {
+      const imgDomain = new URL(url).hostname.replace(/^www\./, '');
+      if (currentDomain && imgDomain === currentDomain) {
+        score += 30;
+        debug(`🏠 SAME DOMAIN BONUS: +30 points (${currentDomain})`);
+      } else if (currentDomain && url.includes(currentDomain)) {
+        score += 20;
+        debug(`🏠 DOMAIN REFERENCE BONUS: +20 points`);
+      }
+    } catch (e) {
+      // Invalid URL, skip domain check
+    }
+    
+    // UTILITY IMAGE PENALTIES - sink UI/utility images to bottom
+    const fileName = url.substring(url.lastIndexOf('/') + 1).toLowerCase();
+    
+    if (/(frame|mockup|ui-|banner)/i.test(fileName)) {
+      score -= 60;
+      debug(`📉 FRAME/UI PENALTY: "${fileName}" gets -60 points`);
+    }
+    if (/(size-?chart|chart|guide)/i.test(fileName)) {
+      score -= 50;
+      debug(`📉 SIZE CHART PENALTY: "${fileName}" gets -50 points`);
+    }
+    if (/^0+\d*\.(jpg|jpeg|png|webp)$/i.test(fileName)) {
+      score -= 40;
+      debug(`📉 GENERIC NUMBER PENALTY: "${fileName}" gets -40 points`);
+    }
+    if (/(nav|menu|dropdown|header|footer)/i.test(fileName)) {
+      score -= 30;
+      debug(`📉 NAVIGATION PENALTY: "${fileName}" gets -30 points`);
+    }
+    
     // Legacy ASOS bonus (keeping for backward compatibility, but reduced)
     if (/\$n_(\d+)w.*wid=(\d+)/i.test(url)) {
       const matches = url.match(/\$n_(\d+)w.*wid=(\d+)/i);
