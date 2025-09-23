@@ -1,0 +1,495 @@
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 1420px (0×1) = +44.9 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 1420px (0×1) = +44.9 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 124.85713047792328) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/MDV1-...
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 1420px (0×1) = +44.9 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 1420px (0×1) = +44.9 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 124.85713047792328) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/MDV4_...
+[5:14:38 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 7 images after family deduplication
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 254.85713047792328): https://www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=174239382
+254.85713047792328
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 244.85713047792328): https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828
+244.85713047792328
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 244.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393
+244.85713047792328
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 224.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393
+224.85713047792328
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 224.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393
+224.85713047792328
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 224.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV1-2.jpg?v=1742393828
+224.85713047792328
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 224.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393
+224.85713047792328
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (254.85713047792328): https://www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=174239382
+254.85713047792328
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (244.85713047792328): https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828
+244.85713047792328
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (244.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393
+244.85713047792328
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (224.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393
+224.85713047792328
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (224.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393
+224.85713047792328
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (224.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV1-2.jpg?v=1742393828
+224.85713047792328
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (224.85713047792328): https://www.manieredevoir.com/cdn/shop/files/MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393
+224.85713047792328
+📋 Copy URL
+[5:14:38 PM] 🏆 TOP SCORED IMAGES: ["11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828 (score: 254.85713047792328)","06.jpg?v=1742393828 (score: 244.85713047792328)","MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828 (s
+[5:14:38 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":7}
+[5:14:38 PM] 🖼️ FINAL IMAGES: ["https://www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6","https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828","https://www.manieredevoir.com/cdn/shop/files/MDV
+[5:14:38 PM] 🖼️ After hybrid filtering: 7 images
+[5:14:38 PM] 🎯 CALLING HI-RES AUGMENTATION (gallery path)
+[5:14:38 PM] 🚀 HI-RES AUGMENT STARTING on www.manieredevoir.com
+[5:14:38 PM] 🔍 Hi-res augment collected: 94 URLs
+[5:14:38 PM] ✅ HI-RES AUGMENTATION COMPLETE: 40 URLs
+[5:14:38 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":47}
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🏆 PRIMARY GALLERY BONUS: "11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828" from "[class*=gallery] img" gets +100 points
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🏆 PRIMARY GALLERY BONUS: "06.jpg?v=1742393828" from "[class*=gallery] img" gets +100 points
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🏆 PRIMARY GALLERY BONUS: "mdv5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828" from "[class*=gallery] img" gets +100 points
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🏆 PRIMARY GALLERY BONUS: "mdv1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393828" from "[class*=gallery] img" gets +100 points
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🏆 PRIMARY GALLERY BONUS: "mdv3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393828" from "[class*=gallery] img" gets +100 points
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🏆 PRIMARY GALLERY BONUS: "mdv1-2.jpg?v=1742393828" from "[class*=gallery] img" gets +100 points
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🏆 PRIMARY GALLERY BONUS: "mdv4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393828" from "[class*=gallery] img" gets +100 points
+[5:14:38 PM] 🗑️ JUNK IMAGE: https://cdn.shopify.com/s/files/1/0282/6678/files/Eiffel_Logo_1.png?v=1731653733
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📉 FRAME/UI PENALTY: "frame_1.png?v=1729847581" gets -60 points
+[5:14:38 PM] 📍 CONTAINER INFO: "frame_1.png?v=1729847581" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📉 FRAME/UI PENALTY: "frame_1171274989.png?v=1711532508" gets -60 points
+[5:14:38 PM] 📍 CONTAINER INFO: "frame_1171274989.png?v=1711532508" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 50px (50×1) = +-51.7 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 50px gets -100 points (under 500px threshold)
+[5:14:38 PM] 📍 CONTAINER INFO: "110-united_kingdom.png?v=1621320141&width=50" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/1604/7647/files/110-united_kingdom.png?v=1621320141&width=50
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 50px (50×1) = +-51.7 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 50px gets -100 points (under 500px threshold)
+[5:14:38 PM] 📍 CONTAINER INFO: "saudi_arabia.webp?v=1734340288&width=50" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0282/6678/files/Saudi_Arabia.webp?v=1734340288&width=50
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 50px (50×1) = +-51.7 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 50px gets -100 points (under 500px threshold)
+[5:14:38 PM] 📍 CONTAINER INFO: "uae.webp?v=1734340288&width=50" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0282/6678/files/UAE.webp?v=1734340288&width=50
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 50px (50×1) = +-51.7 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 50px gets -100 points (under 500px threshold)
+[5:14:38 PM] 📍 CONTAINER INFO: "kuwait.webp?v=1734340288&width=50" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0282/6678/files/Kuwait.webp?v=1734340288&width=50
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 50px (50×1) = +-51.7 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 50px gets -100 points (under 500px threshold)
+[5:14:38 PM] 📍 CONTAINER INFO: "qatar.webp?v=1734340288&width=50" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0282/6678/files/Qatar.webp?v=1734340288&width=50
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "effiel_new-ezgif.com-resize.png?v=1731488456" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "06.jpg?v=1742393828" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "09.jpg?v=1742393749" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "double-breasted-tailored-cropped-blazer-black13_a95c4ec4-6ba5-4dc3-8f96-f99926c605d1.jpg?v=1742290727" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "acc1336-010.jpg?v=1751489870" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "mens_e-com_april_2__0001_mdv4.jpg?v=1745423550" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "20240515-part-1__0009s_0003_mdv4.jpg?v=1752781875" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "06.jpg?v=1742393828" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393828" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393828" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv1-2.jpg?v=1742393828" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393828" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 150px (150×1) = +-20.0 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 150px gets -100 points (under 500px threshold)
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "06.jpg?v=1742393828&width=150" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828&width=150
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 150px (150×1) = +-20.0 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 150px gets -100 points (under 500px threshold)
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828&width=150" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://www.manieredevoir.com/cdn/shop/files/MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 150px (150×1) = +-20.0 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 150px gets -100 points (under 500px threshold)
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393828&width=150" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://www.manieredevoir.com/cdn/shop/files/MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 150px (150×1) = +-20.0 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 150px gets -100 points (under 500px threshold)
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393828&width=150" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://www.manieredevoir.com/cdn/shop/files/MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 150px (150×1) = +-20.0 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 150px gets -100 points (under 500px threshold)
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv1-2.jpg?v=1742393828&width=150" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://www.manieredevoir.com/cdn/shop/files/MDV1-2.jpg?v=1742393828&width=150
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 150px (150×1) = +-20.0 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 150px gets -100 points (under 500px threshold)
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393828&width=150" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://www.manieredevoir.com/cdn/shop/files/MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 150px (150×1) = +-20.0 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 150px gets -100 points (under 500px threshold)
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828&width=150" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=174239382
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 210px (210×1) = +-10.3 points
+[5:14:38 PM] 📉 SMALL WIDTH PENALTY: 210px gets -100 points (under 500px threshold)
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "06.jpg?v=1742393828&width=210" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 📉 LOW SCORE REJECTED (0): https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828&width=210
+0
+📋 Copy URL
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (600×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv3_c7a115ac-46ee-4d1c-ba87-500ccaa9d01f.jpg?v=1743439496&width=600" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (600×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "palais-aviator-sunglasses-gold2.jpg?v=1755610894&width=600" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "0034_mdv5_jpg_cf82b0a4-2ce0-4f44-a66e-a648b70bbba9.jpg?v=1749209043" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "0011_mdv1_jpg.jpg?v=1751054108" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "textured-belted-tailored-trousers-stone15.jpg?v=1717001306" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "0047_mdv4-fixdraglines_jpg.jpg?v=1749208692" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "regular-fit-pinstripe-tailored-trousers-grey3.jpg?v=1749188665" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "relaxed-fit-vegan-leather-pleated-trouser-black15_jpg.jpg?v=1725456022" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mens_e-com_april_2__0124_mdv4.jpg?v=1745423496" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mens_e-com_april__0053_mdv4.jpg?v=1745423336" from "hi-res-augment" (not primary gallery)
+[5:14:38 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 33 candidates
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/11_72...
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/06.jp...
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/MDV5_...
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/MDV1_...
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/MDV3_...
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/MDV1-...
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://www.manieredevoir.com/cdn/shop/files/MDV4_...
+[5:14:38 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 26 images after family deduplication
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 230): https://www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=174239382
+230
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 230): https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828
+230
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 230): https://www.manieredevoir.com/cdn/shop/files/MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393
+230
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 230): https://www.manieredevoir.com/cdn/shop/files/MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393
+230
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 230): https://www.manieredevoir.com/cdn/shop/files/MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393
+230
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 230): https://www.manieredevoir.com/cdn/shop/files/MDV1-2.jpg?v=1742393828
+230
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 230): https://www.manieredevoir.com/cdn/shop/files/MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393
+230
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 70): https://www.manieredevoir.com/cdn/shop/files/Frame_1.png?v=1729847581
+70
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 80): https://cdn.shopify.com/s/files/1/0610/9642/7715/files/Frame_1171274989.png?v=1711532508
+80
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 140): https://cdn.shopify.com/s/files/1/0282/6678/files/effiel_new-ezgif.com-resize.png?v=1731488456
+140
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 140): https://cdn.shopify.com/s/files/1/0282/6678/files/06.jpg?v=1742393828
+140
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 140): https://cdn.shopify.com/s/files/1/0282/6678/files/09.jpg?v=1742393749
+140
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 140): https://cdn.shopify.com/s/files/1/0282/6678/files/double-breasted-tailored-cropped-blazer-black13_a9
+140
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 140): https://cdn.shopify.com/s/files/1/0282/6678/files/ACC1336-010.jpg?v=1751489870
+140
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 140): https://cdn.shopify.com/s/files/1/0282/6678/files/Mens_E-com_April_2__0001_MDV4.jpg?v=1745423550
+140
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 140): https://cdn.shopify.com/s/files/1/0282/6678/files/20240515-PART-1__0009s_0003_MDV4.jpg?v=1752781875
+140
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/MDV3_c7a115ac-46ee-4d1c-ba87-500ccaa9d01f.jpg?v=1743439
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/palais-aviator-sunglasses-gold2.jpg?v=1755610894&width=
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/0034_MDV5_jpg_cf82b0a4-2ce0-4f44-a66e-a648b70bbba9.jpg?
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/0011_MDV1_jpg.jpg?v=1751054108
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/textured-belted-tailored-trousers-stone15.jpg?v=1717001
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/0047_MDV4-FixDraglines_jpg.jpg?v=1749208692
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/regular-fit-pinstripe-tailored-trousers-grey3.jpg?v=174
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/relaxed-fit-vegan-leather-pleated-trouser-black15_jpg.j
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/Mens_E-com_April_2__0124_MDV4.jpg?v=1745423496
+130
+📋 Copy URL
+[5:14:38 PM] ✅ SINGLE IMAGE (score: 130): https://www.manieredevoir.com/cdn/shop/files/Mens_E-com_April__0053_MDV4.jpg?v=1745423336
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (230): https://www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=174239382
+230
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (230): https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828
+230
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (230): https://www.manieredevoir.com/cdn/shop/files/MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393
+230
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (230): https://www.manieredevoir.com/cdn/shop/files/MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393
+230
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (230): https://www.manieredevoir.com/cdn/shop/files/MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393
+230
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (230): https://www.manieredevoir.com/cdn/shop/files/MDV1-2.jpg?v=1742393828
+230
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (230): https://www.manieredevoir.com/cdn/shop/files/MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393
+230
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (70): https://www.manieredevoir.com/cdn/shop/files/Frame_1.png?v=1729847581
+70
+📋 Copy URL
+[5:14:38 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0610/9642/7715/files/Frame_1171274989.png?v=1711532508
+80
+📋 Copy URL
+[5:14:38 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0282/6678/files/effiel_new-ezgif.com-resize.png?v=1731488456
+140
+📋 Copy URL
+[5:14:38 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0282/6678/files/06.jpg?v=1742393828
+140
+📋 Copy URL
+[5:14:38 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0282/6678/files/09.jpg?v=1742393749
+140
+📋 Copy URL
+[5:14:38 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0282/6678/files/double-breasted-tailored-cropped-blazer-black13_a9
+140
+📋 Copy URL
+[5:14:38 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0282/6678/files/ACC1336-010.jpg?v=1751489870
+140
+📋 Copy URL
+[5:14:38 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0282/6678/files/Mens_E-com_April_2__0001_MDV4.jpg?v=1745423550
+140
+📋 Copy URL
+[5:14:38 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0282/6678/files/20240515-PART-1__0009s_0003_MDV4.jpg?v=1752781875
+140
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/MDV3_c7a115ac-46ee-4d1c-ba87-500ccaa9d01f.jpg?v=1743439
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/palais-aviator-sunglasses-gold2.jpg?v=1755610894&width=
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/0034_MDV5_jpg_cf82b0a4-2ce0-4f44-a66e-a648b70bbba9.jpg?
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/0011_MDV1_jpg.jpg?v=1751054108
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/textured-belted-tailored-trousers-stone15.jpg?v=1717001
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/0047_MDV4-FixDraglines_jpg.jpg?v=1749208692
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/regular-fit-pinstripe-tailored-trousers-grey3.jpg?v=174
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/relaxed-fit-vegan-leather-pleated-trouser-black15_jpg.j
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/Mens_E-com_April_2__0124_MDV4.jpg?v=1745423496
+130
+📋 Copy URL
+[5:14:38 PM] 🎯 HIGH SCORE + SIZE OK (130): https://www.manieredevoir.com/cdn/shop/files/Mens_E-com_April__0053_MDV4.jpg?v=1745423336
+130
+📋 Copy URL
+[5:14:38 PM] 🏆 TOP SCORED IMAGES: ["11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828 (score: 230)","06.jpg?v=1742393828 (score: 230)","MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828 (score: 230)","MDV1_48d8f2c7-6de
+[5:14:38 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":1,"lowScore":13,"smallFile":0,"duplicateGroups":0,"kept":26}
+[5:14:38 PM] 🖼️ FINAL IMAGES: ["https://www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6","https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828","https://www.manieredevoir.com/cdn/shop/files/MDV
+[5:14:38 PM] 🖼️ GENERIC IMAGES: {"count":26,"images":["https://www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828","https://www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828","https:
+[5:14:38 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":26}
+[5:14:38 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":26}
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "06.jpg?v=1742393828" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393828" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393828" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv1-2.jpg?v=1742393828" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "mdv4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393828" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "effiel_new-ezgif.com-resize.png?v=1731488456" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "06.jpg?v=1742393828" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "09.jpg?v=1742393749" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "double-breasted-tailored-cropped-blazer-black13_a95c4ec4-6ba5-4dc3-8f96-f99926c605d1.jpg?v=1742290727" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "acc1336-010.jpg?v=1751489870" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "mens_e-com_april_2__0001_mdv4.jpg?v=1745423550" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 📍 CONTAINER INFO: "20240515-part-1__0009s_0003_mdv4.jpg?v=1752781875" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "0034_mdv5_jpg_cf82b0a4-2ce0-4f44-a66e-a648b70bbba9.jpg?v=1749209043" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "0011_mdv1_jpg.jpg?v=1751054108" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "textured-belted-tailored-trousers-stone15.jpg?v=1717001306" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "0047_mdv4-fixdraglines_jpg.jpg?v=1749208692" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)
+[5:14:38 PM] 📍 CONTAINER INFO: "regular-fit-pinstripe-tailored-trousers-grey3.jpg?v=1749188665" from "legacy" (not primary gallery)
+[5:14:38 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[5:14:38 PM] 🏠 SAME DOMAIN BONUS: +30 points (manieredevoir.com)

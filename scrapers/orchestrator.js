@@ -1471,9 +1471,6 @@
       }
     }
     
-    // Sort by DOM order (index)
-    bestImages.sort((a, b) => a.index - b.index);
-    
     // Apply file size filtering (100KB minimum)
     const sizeFilteredImages = [];
     const fileSizeCheckPromises = [];
