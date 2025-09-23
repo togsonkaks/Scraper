@@ -621,10 +621,10 @@
       } else {
         // Score all variants and keep the best
         let bestVariant = variants[0];
-        let bestScore = scoreImageURL(bestVariant.url, bestVariant.element, bestVariant.index);
+        let bestScore = scoreImageURL(bestVariant.url, bestVariant, bestVariant.index);
         
         for (let i = 1; i < variants.length; i++) {
-          const score = scoreImageURL(variants[i].url, variants[i].element, variants[i].index);
+          const score = scoreImageURL(variants[i].url, variants[i], variants[i].index);
           if (score > bestScore) {
             bestScore = score;
             bestVariant = variants[i];
@@ -793,7 +793,9 @@
   }
 
   // Enhanced image quality scoring function with aggressive filtering  
-  function scoreImageURL(url, element = null, elementIndex = 0) {
+  function scoreImageURL(url, enrichedData = null, elementIndex = 0) {
+    // Handle both old and new calling conventions
+    const element = enrichedData?.element || enrichedData;
     if (!url) return 0;
     
     // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns and prioritize high-res
@@ -996,6 +998,45 @@
     if (/(nav|menu|dropdown|header|footer)/i.test(fileName)) {
       score -= 30;
       debug(`📉 NAVIGATION PENALTY: "${fileName}" gets -30 points`);
+    }
+    
+    // CONTAINER BONUS SYSTEM - +100 points for primary product gallery images
+    if (enrichedData && enrichedData.containerSelector) {
+      const containerSel = enrichedData.containerSelector;
+      
+      // Define primary product gallery selectors (highest priority containers)
+      const primaryGallerySelectors = [
+        '[class*=gallery] img',
+        '.product-media img',
+        '.product-gallery img',
+        '.product-images img',
+        '.gallery img',
+        '.image-gallery img',
+        '.pdp-gallery img',
+        '.pdp-images img',
+        '.swiper-slide img',
+        '.swiper-container img'
+      ];
+      
+      // Check if this image came from a primary gallery container
+      const isFromPrimaryGallery = primaryGallerySelectors.some(sel => 
+        containerSel === sel || containerSel.includes(sel.replace(' img', ''))
+      );
+      
+      if (isFromPrimaryGallery) {
+        // Apply guards - don't give bonus to obvious utility images
+        const isUtilityImage = /(frame|mockup|ui-|banner|size-?chart|chart|guide|nav|menu|dropdown|header|footer|ezgif|resize)/i.test(fileName);
+        const isSmallImage = meta.effectiveWidth > 0 && meta.effectiveWidth < 250;
+        
+        if (!isUtilityImage && !isSmallImage) {
+          score += 100;
+          debug(`🏆 PRIMARY GALLERY BONUS: "${fileName}" from "${containerSel}" gets +100 points`);
+        } else {
+          debug(`🚫 PRIMARY GALLERY BONUS BLOCKED: "${fileName}" failed guards (utility: ${isUtilityImage}, small: ${isSmallImage})`);
+        }
+      } else {
+        debug(`📍 CONTAINER INFO: "${fileName}" from "${containerSel}" (not primary gallery)`);
+      }
     }
     
     // Legacy ASOS bonus (keeping for backward compatibility, but reduced)
@@ -1346,7 +1387,7 @@
       }
       
       // Apply score threshold (minimum 50 points)
-      const score = scoreImageURL(abs, enriched.element, enriched.index);
+      const score = scoreImageURL(abs, enriched, enriched.index);
       if (score < 50) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
@@ -1533,7 +1574,12 @@
   async function uniqueImages(urls) {
     debug('🖼️ LEGACY FILTERING IMAGES (converting to enriched):', { inputCount: urls.length });
     // Convert simple URLs to enriched format for hybrid processing
-    const enriched = urls.map((url, index) => ({ url, element: null, index }));
+    const enriched = urls.map((url, index) => ({ 
+      url, 
+      element: null, 
+      index,
+      containerSelector: 'legacy' // Mark legacy/fallback URLs
+    }));
     return await hybridUniqueImages(enriched);
   }
   async function gatherImagesBySelector(sel) {
@@ -1608,7 +1654,12 @@
         }
         
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
-        enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
+        enrichedUrls.push({ 
+          url: upgradedUrl, 
+          element: el, 
+          index: i,
+          containerSelector: sel // Track which selector found this image
+        });
       }
       
       const ss = attrs.srcset;
@@ -1659,7 +1710,12 @@
         }
         
         const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
-        enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
+        enrichedUrls.push({ 
+          url: upgradedUrl, 
+          element: el, 
+          index: i,
+          containerSelector: sel // Track which selector found this image
+        });
       }
       
       // Check picture parent
@@ -1713,7 +1769,12 @@
             }
             
             const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades
-            enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
+            enrichedUrls.push({ 
+              url: upgradedUrl, 
+              element: el, 
+              index: i,
+              containerSelector: sel // Track which selector found this image
+            });
           }
         }
       }
@@ -2083,8 +2144,8 @@
         debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
         
         // Convert existing URLs to enriched format, then add hi-res URLs
-        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0 }));
-        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0 }));
+        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
         const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
         const final = await hybridUniqueImages(enrichedUrls);
         
@@ -2106,8 +2167,8 @@
         debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
         
         // Convert existing URLs to enriched format, then add hi-res URLs
-        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0 }));
-        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0 }));
+        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
         const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
         const final = await hybridUniqueImages(enrichedUrls);
         
@@ -2124,8 +2185,8 @@
     debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
     
     // Convert existing URLs to enriched format, then add hi-res URLs
-    const enrichedExisting = all.map(url => ({ url, element: null, index: 0 }));
-    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0 }));
+    const enrichedExisting = all.map(url => ({ url, element: null, index: 0, containerSelector: 'img' }));
+    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
     const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
     const final = await hybridUniqueImages(enrichedUrls);
     
