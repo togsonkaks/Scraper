@@ -1917,7 +1917,9 @@
           found.add(u);
         });
       });
-      obs.observe(doc.documentElement, { subtree: true, childList: true, attributes: true });
+      // Handle both Document (has documentElement) and Element (observe directly)
+      const observeTarget = doc.documentElement || doc;
+      obs.observe(observeTarget, { subtree: true, childList: true, attributes: true });
 
       // Micro-scroll (helps lazy galleries)
       try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
