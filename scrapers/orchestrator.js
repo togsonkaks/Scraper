@@ -676,7 +676,9 @@
     
     // Enhanced size detection (multiple patterns)
     const sizePatterns = [
-      /(?:max|w|width|imwidth|imageWidth)=([0-9]+)/i,
+      /(?:max|w|width|h|height|imwidth|imageWidth|imheight)=([0-9]+)/i, // w=640, h=1920, height=1200
+      /[\/]([wh])\/([0-9]+)/i,           // w/640, h/1920 (capture group 2 for size)
+      /[_]([wh])_([0-9]+)/i,             // w_1500, h_900 (capture group 2 for size)
       /_(\d+)x\d*(?:_|\.|$)/i, // _750x, _1024x1024
       /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
       /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
@@ -687,7 +689,18 @@
     for (const pattern of sizePatterns) {
       const match = url.match(pattern);
       if (match) {
-        detectedSize = Math.max(detectedSize, parseInt(match[1]));
+        // Handle different capture group patterns
+        let size = 0;
+        if (pattern.source.includes('[\/]([wh])\/') || pattern.source.includes('[_]([wh])_')) {
+          // w/640, h/1920, w_1500, h_900 - size is in capture group 2
+          size = parseInt(match[2]);
+        } else {
+          // All other patterns - size is in capture group 1
+          size = parseInt(match[1]);
+        }
+        if (!isNaN(size)) {
+          detectedSize = Math.max(detectedSize, size);
+        }
       }
     }
     
@@ -697,6 +710,18 @@
       else if (detectedSize >= 600) score += 20;
       else if (detectedSize >= 400) score += 10;
       else if (detectedSize < 200) score -= 40; // Strong penalty for tiny images
+    }
+    
+    // ASOS hi-res bonus: Ensure ?$n_1920w$ always beats ?$n_640w$ regardless of element context
+    if (/\$n_(\d+)w.*wid=(\d+)/i.test(url)) {
+      const matches = url.match(/\$n_(\d+)w.*wid=(\d+)/i);
+      const nSize = parseInt(matches[1]);
+      const widSize = parseInt(matches[2]);
+      const maxSize = Math.max(nSize, widSize);
+      
+      if (maxSize >= 1200) score += 60; // Massive bonus for 1920w+ images  
+      else if (maxSize >= 800) score += 40; // Good bonus for 640w+ images
+      debug(`🎯 ASOS HI-RES BONUS: ${maxSize}px gets +${maxSize >= 1200 ? 60 : 40} points`);
     }
     
     // Quality bonuses (enhanced patterns)
@@ -1750,7 +1775,11 @@
         debug(`🎯 CALLING HI-RES AUGMENTATION (site-specific path)`);
         const hiResUrls = await collectHiResAugment({ doc: document });
         debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
-        const enrichedUrls = urls.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
+        
+        // Convert existing URLs to enriched format, then add hi-res URLs
+        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0 }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0 }));
+        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
         const final = await hybridUniqueImages(enrichedUrls);
         
         mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: final.slice(0,30) }); 
@@ -1769,7 +1798,11 @@
         debug(`🎯 CALLING HI-RES AUGMENTATION (gallery path)`);
         const hiResUrls = await collectHiResAugment({ doc: document });
         debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
-        const enrichedUrls = urls.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
+        
+        // Convert existing URLs to enriched format, then add hi-res URLs
+        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0 }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0 }));
+        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
         const final = await hybridUniqueImages(enrichedUrls);
         
         mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: final.slice(0,30) }); 
@@ -1783,7 +1816,11 @@
     debug(`🎯 CALLING HI-RES AUGMENTATION (fallback path)`);
     const hiResUrls = await collectHiResAugment({ doc: document });
     debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
-    const enrichedUrls = all.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
+    
+    // Convert existing URLs to enriched format, then add hi-res URLs
+    const enrichedExisting = all.map(url => ({ url, element: null, index: 0 }));
+    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0 }));
+    const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
     const final = await hybridUniqueImages(enrichedUrls);
     
     const combined = (og ? [og] : []).concat(final);

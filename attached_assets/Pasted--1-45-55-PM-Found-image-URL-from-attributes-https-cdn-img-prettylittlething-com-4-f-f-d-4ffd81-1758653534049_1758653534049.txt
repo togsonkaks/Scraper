@@ -1,0 +1,174 @@
+[1:45:55 PM] ✅ Found image URL from attributes: https://cdn-img.prettylittlething.com/4/f/f/d/4ffd81bc2ed3fdf5031567237c9ade9349d2fcdc_CNM5037_1_whi
+[1:45:55 PM] ✅ Found image URL from srcset: https://cdn-img.prettylittlething.com/4/f/f/d/4ffd81bc2ed3fdf5031567237c9ade9349d2fcdc_CNM5037_1_whi
+[1:45:55 PM] Image element <IMG.analytics-tracking>
+[1:45:55 PM] 📋 Image attributes: {"src":"https://cdn-img.prettylittlething.com/9/d/6/4/9d649dffae4dcde4b63654b6ed01872130e1832c_CNM5035_1_green_printed_halterneck_puffball_mini_dress.jpg?imwidth=600","data-src":null,"data-image":null
+[1:45:55 PM] ✅ Found image URL from attributes: https://cdn-img.prettylittlething.com/9/d/6/4/9d649dffae4dcde4b63654b6ed01872130e1832c_CNM5035_1_gre
+[1:45:55 PM] ✅ Found image URL from srcset: https://cdn-img.prettylittlething.com/9/d/6/4/9d649dffae4dcde4b63654b6ed01872130e1832c_CNM5035_1_gre
+[1:45:55 PM] Image element <IMG.analytics-tracking>
+[1:45:55 PM] 📋 Image attributes: {"src":"https://cdn-img.prettylittlething.com/b/0/e/e/b0ee603afc40feea13fe5e5d0467ce25defa65b8_CNN6285_1_cream_chiffon_halterneck_puffball_mini_dress.jpg?imwidth=600","data-src":null,"data-image":null
+[1:45:55 PM] ✅ Found image URL from attributes: https://cdn-img.prettylittlething.com/b/0/e/e/b0ee603afc40feea13fe5e5d0467ce25defa65b8_CNN6285_1_cre
+[1:45:55 PM] ✅ Found image URL from srcset: https://cdn-img.prettylittlething.com/b/0/e/e/b0ee603afc40feea13fe5e5d0467ce25defa65b8_CNN6285_1_cre
+[1:45:55 PM] Image element <IMG#batBeacon949628213279>
+[1:45:55 PM] 📋 Image attributes: {"src":"https://bat.bing.com/action/0?ti=5637176&Ver=2&mid=ad44b591-191d-4dc2-aca9-29207595208e&bo=1&sid=2a3f362097d711f0aae5d3d1f6b8ef03&vid=72f8b480854511f081ae85e2e63f8e19&vids=0&msclkid=N&uach=pv%
+[1:45:55 PM] ✅ Found image URL from attributes: https://bat.bing.com/action/0?ti=5637176&Ver=2&mid=ad44b591-191d-4dc2-aca9-29207595208e&bo=1&sid=2a3
+[1:45:55 PM] Image element <IMG>
+[1:45:55 PM] 📋 Image attributes: {"src":"https://lantern.roeye.com/track.php?fingerprint=&referrer=&landingpage=https%3A%2F%2Fwww.prettylittlething.us%2Fcream-abstract-printed-halterneck-puffball-mini-dress.html&useragent=Mozilla%2F5
+[1:45:55 PM] ✅ Found image URL from attributes: https://lantern.roeye.com/track.php?fingerprint=&referrer=&landingpage=https%3A%2F%2Fwww.prettylittl
+[1:45:55 PM] 🖼️ Raw enriched URLs collected: 26
+[1:45:55 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":26}
+[1:45:55 PM] ❌ NOT IMAGE URL: https://cdn-skin.prettylittlething.com/was-img/paymenticons/paypal.svg?imwidth=160
+0
+📋 Copy URL
+[1:45:55 PM] ❌ NOT IMAGE URL: https://cdn-skin.prettylittlething.com/was-img/paymenticons/paypal.svg?imwidth=160
+0
+📋 Copy URL
+[1:45:55 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=5637176&Ver=2&mid=ad44b591-191d-4dc2-aca9-29207595208e&bo=1&sid=2a3
+0[IMG ERROR]
+📋 Copy URL
+[1:45:55 PM] ❌ NOT IMAGE URL: https://lantern.roeye.com/track.php?fingerprint=&referrer=&landingpage=https%3A%2F%2Fwww.prettylittl
+0[IMG ERROR]
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 145): https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cre
+145
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+145
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 135): https://cdn-img.prettylittlething.com/c/b/6/d/cb6d2baffc1fe2ab7a99df2f15d1e52820abb9c0_CNN5359_2_cre
+135
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+135
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 135): https://cdn-img.prettylittlething.com/5/5/a/c/55acdf20d870c27ca681a8e606e4c0bb5948fb9d_CNN5359_3_cre
+135
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+135
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 115): https://cdn-img.prettylittlething.com/3/5/9/3/359336a8779d09490105d7a3ab24fec272e1c83d_CNN5359_4_cre
+115
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+115
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 115): https://cdn-img.prettylittlething.com/d/c/1/3/dc13171d256ac118cb4c640765cf4a6799020172_CNN5359_5_cre
+115
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+115
+📋 Copy URL
+[1:45:55 PM] ✅ SINGLE IMAGE (score: 90): https://cdn-media.prettylittlething.com/swatches/cream.jpg
+90
+📋 Copy URL
+[1:45:55 PM] ✅ SINGLE IMAGE (score: 90): https://cdn-media.prettylittlething.com/swatches/chocolate.jpg
+90
+📋 Copy URL
+[1:45:55 PM] ✅ SINGLE IMAGE (score: 90): https://cdn-media.prettylittlething.com/swatches/white.jpg
+90
+📋 Copy URL
+[1:45:55 PM] ✅ SINGLE IMAGE (score: 90): https://cdn-media.prettylittlething.com/swatches/green.jpg
+90
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 95): https://cdn-img.prettylittlething.com/5/3/5/e/535eda9f507b76e6ffdc9bc325621fe84fd28af2_CNN4646_1_cho
+95
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+95
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 95): https://cdn-img.prettylittlething.com/4/f/f/d/4ffd81bc2ed3fdf5031567237c9ade9349d2fcdc_CNM5037_1_whi
+95
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+95
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 95): https://cdn-img.prettylittlething.com/9/d/6/4/9d649dffae4dcde4b63654b6ed01872130e1832c_CNM5035_1_gre
+95
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+95
+📋 Copy URL
+[1:45:55 PM] ✅ BEST OF 2 (score: 95): https://cdn-img.prettylittlething.com/b/0/e/e/b0ee603afc40feea13fe5e5d0467ce25defa65b8_CNN6285_1_cre
+95
+📋 Copy URL
+[1:45:55 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+95
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (145): https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cre
+145
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (135): https://cdn-img.prettylittlething.com/c/b/6/d/cb6d2baffc1fe2ab7a99df2f15d1e52820abb9c0_CNN5359_2_cre
+135
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (135): https://cdn-img.prettylittlething.com/5/5/a/c/55acdf20d870c27ca681a8e606e4c0bb5948fb9d_CNN5359_3_cre
+135
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (115): https://cdn-img.prettylittlething.com/3/5/9/3/359336a8779d09490105d7a3ab24fec272e1c83d_CNN5359_4_cre
+115
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (115): https://cdn-img.prettylittlething.com/d/c/1/3/dc13171d256ac118cb4c640765cf4a6799020172_CNN5359_5_cre
+115
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn-media.prettylittlething.com/swatches/cream.jpg
+90
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn-media.prettylittlething.com/swatches/chocolate.jpg
+90
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn-media.prettylittlething.com/swatches/white.jpg
+90
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (90): https://cdn-media.prettylittlething.com/swatches/green.jpg
+90
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (95): https://cdn-img.prettylittlething.com/5/3/5/e/535eda9f507b76e6ffdc9bc325621fe84fd28af2_CNN4646_1_cho
+95
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (95): https://cdn-img.prettylittlething.com/4/f/f/d/4ffd81bc2ed3fdf5031567237c9ade9349d2fcdc_CNM5037_1_whi
+95
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (95): https://cdn-img.prettylittlething.com/9/d/6/4/9d649dffae4dcde4b63654b6ed01872130e1832c_CNM5035_1_gre
+95
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (95): https://cdn-img.prettylittlething.com/b/0/e/e/b0ee603afc40feea13fe5e5d0467ce25defa65b8_CNN6285_1_cre
+95
+📋 Copy URL
+[1:45:55 PM] 🏆 TOP SCORED IMAGES: ["eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cream_abstract_printed_halterneck_puffball_mini_dress.jpg?imwidth=2048 (score: 145)","cb6d2baffc1fe2ab7a99df2f15d1e52820abb9c0_CNN5359_2_cream_abst
+[1:45:55 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":4,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":9,"kept":13}
+[1:45:55 PM] 🖼️ FINAL IMAGES: ["https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b","https://cdn-img.prettylittlething.com/c/b/6/d/cb6d2baffc1fe2ab7a99df2f15d1e52820","https://cdn-img.prettylittlethin
+[1:45:55 PM] 🖼️ After hybrid filtering: 13 images
+[1:45:55 PM] 🎯 CALLING HI-RES AUGMENTATION (fallback path)
+[1:45:55 PM] 🚀 HI-RES AUGMENT STARTING on www.prettylittlething.us
+[1:45:55 PM] 🔍 Hi-res augment collected: 0 URLs
+[1:45:55 PM] ✅ HI-RES AUGMENTATION COMPLETE: 0 URLs
+[1:45:55 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":13}
+[1:45:55 PM] 🏆 TOP SCORED IMAGES: []
+[1:45:55 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":13,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:45:55 PM] 🖼️ FINAL IMAGES: []
+[1:45:55 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[1:45:55 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[1:45:55 PM] ✅ SINGLE IMAGE (score: 105): https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cre
+105
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (105): https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cre
+105
+📋 Copy URL
+[1:45:55 PM] 🏆 TOP SCORED IMAGES: ["eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cream_abstract_printed_halterneck_puffball_mini_dress.jpg (score: 105)"]
+[1:45:55 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[1:45:55 PM] 🖼️ FINAL IMAGES: ["https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b"]
+[1:45:55 PM] 🖼️ GENERIC IMAGES: {"count":1,"images":["https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cream_abstract_printed_halterneck_puffball_mini_dress.jpg"]}
+[1:45:55 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[1:45:55 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[1:45:55 PM] ✅ SINGLE IMAGE (score: 105): https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cre
+105
+📋 Copy URL
+[1:45:55 PM] 🎯 HIGH SCORE + SIZE OK (105): https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cre
+105
+📋 Copy URL
+[1:45:55 PM] 🏆 TOP SCORED IMAGES: ["eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cream_abstract_printed_halterneck_puffball_mini_dress.jpg (score: 105)"]
+[1:45:55 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[1:45:55 PM] 🖼️ FINAL IMAGES: ["https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b"]
+[1:45:55 PM] 🖼️ FINAL IMAGES: {"count":1,"images":["https://cdn-img.prettylittlething.com/e/b/3/0/eb3079377a721030db1c34274d3354604b4e0580_CNN5359_1_cream_abstract_printed_halterneck_puffball_mini_dress.jpg"]}
+[1:45:55 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Cream Abstract Printed Halterneck Puffball Mini Dr","brand":"PrettyLittleThing.com","description":"The Cream Abstract Halterneck Puffball Mini Dress ","price":"16.75","imageCount":1,"firstIm
+[1:45:55 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":1}
+[1:45:55 PM] ✅ Debug trace complete

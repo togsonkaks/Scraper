@@ -1,0 +1,264 @@
+1:34:22 PM] 📝 TITLE: Falling back to generic...
+[1:34:22 PM] 📝 TITLE FROM GENERIC: Nike Shox R4 sneakers in black and silver
+[1:34:22 PM] 🏷️ BRAND: Falling back to generic...
+[1:34:22 PM] 🏷️ BRAND FROM GENERIC: Nike
+[1:34:22 PM] 📄 DESCRIPTION: Falling back to generic...
+[1:34:22 PM] 📄 DESCRIPTION FROM GENERIC: Shop the latest Nike Shox R4 sneakers in black and silver trends with ASOS! Free delivery and returns (Ts&Cs apply), order today!
+[1:34:22 PM] 🧩 PRICE: Trying custom handler...
+[1:34:22 PM] 🧩 CUSTOM PRICE SUCCESS: $155.00
+[1:34:22 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[1:34:22 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:34:22 PM] 🧩 IMAGES: Trying custom handler...
+[1:34:22 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[1:34:22 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:34:22 PM] 🏆 TOP SCORED IMAGES: []
+[1:34:22 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:34:22 PM] 🖼️ FINAL IMAGES: []
+[1:34:22 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[1:34:22 PM] 🖼️ Getting generic images for hostname: asos.com
+[1:34:22 PM] 🔍 GATHERING IMAGES with selector: .product-media img
+[1:34:22 PM] 📊 Found 0 elements for selector: .product-media img
+[1:34:22 PM] 🖼️ Raw enriched URLs collected: 0
+[1:34:22 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:34:22 PM] 🏆 TOP SCORED IMAGES: []
+[1:34:22 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:34:22 PM] 🖼️ FINAL IMAGES: []
+[1:34:22 PM] 🖼️ After hybrid filtering: 0 images
+[1:34:22 PM] 🔍 GATHERING IMAGES with selector: .gallery img
+[1:34:22 PM] 📊 Found 0 elements for selector: .gallery img
+[1:34:22 PM] 🖼️ Raw enriched URLs collected: 0
+[1:34:22 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:34:22 PM] 🏆 TOP SCORED IMAGES: []
+[1:34:22 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:34:22 PM] 🖼️ FINAL IMAGES: []
+[1:34:22 PM] 🖼️ After hybrid filtering: 0 images
+[1:34:22 PM] 🔍 GATHERING IMAGES with selector: .image-gallery img
+[1:34:22 PM] 📊 Found 0 elements for selector: .image-gallery img
+[1:34:22 PM] 🖼️ Raw enriched URLs collected: 0
+[1:34:22 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:34:22 PM] 🏆 TOP SCORED IMAGES: []
+[1:34:22 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:34:22 PM] 🖼️ FINAL IMAGES: []
+[1:34:22 PM] 🖼️ After hybrid filtering: 0 images
+[1:34:22 PM] 🔍 GATHERING IMAGES with selector: .product-images img
+[1:34:22 PM] 📊 Found 0 elements for selector: .product-images img
+[1:34:22 PM] 🖼️ Raw enriched URLs collected: 0
+[1:34:22 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[1:34:22 PM] 🏆 TOP SCORED IMAGES: []
+[1:34:22 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:34:22 PM] 🖼️ FINAL IMAGES: []
+[1:34:22 PM] 🖼️ After hybrid filtering: 0 images
+[1:34:22 PM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[1:34:22 PM] 📊 Found 17 elements for selector: .product-gallery img
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$n_240w$&wid=40&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_240w$&wid=40&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-large
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_240w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_320w
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_240w$&wid=40&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-large
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_240w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_320w
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_240w$&wid=40&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-large
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_240w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_320w
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_240w$&wid=40&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-large
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_240w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_320w
+[1:34:22 PM] Image element <IMG.img>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_1920
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_1920
+[1:34:22 PM] Image element <IMG.img>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"dat
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"dat
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+[1:34:22 PM] Image element <IMG.img>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_1920
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_1920
+[1:34:22 PM] Image element <IMG.img>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_1920
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_1920
+[1:34:22 PM] Image element <IMG.img>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_1920
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_1920
+[1:34:22 PM] Image element <IMG.img>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_1920
+[1:34:22 PM] Image element <IMG.gallery-image>
+[1:34:22 PM] 📋 Image attributes: {"src":"https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w$&wid=513&fit=constrain","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[1:34:22 PM] ✅ Found image URL from attributes: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+[1:34:22 PM] ✅ Found image URL from srcset: https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_1920
+[1:34:22 PM] 🖼️ Raw enriched URLs collected: 34
+[1:34:22 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":34}
+[1:34:22 PM] ✅ BEST OF 6 (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+150
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 5 lower-scored versions rejected
+150
+📋 Copy URL
+[1:34:22 PM] ✅ BEST OF 6 (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_1920
+150
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 5 lower-scored versions rejected
+150
+📋 Copy URL
+[1:34:22 PM] ✅ BEST OF 6 (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_1920
+150
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 5 lower-scored versions rejected
+150
+📋 Copy URL
+[1:34:22 PM] ✅ BEST OF 6 (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_1920
+150
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 5 lower-scored versions rejected
+150
+📋 Copy URL
+[1:34:22 PM] ✅ BEST OF 10 (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_1920
+150
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 9 lower-scored versions rejected
+150
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_1920
+150
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+150
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_1920
+150
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_1920
+150
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_1920
+150
+📋 Copy URL
+[1:34:22 PM] 🏆 TOP SCORED IMAGES: ["207494721-5?$n_1920w$&wid=1926&fit=constrain (score: 150)","207494721-1-black?$n_1920w$&wid=1926&fit=constrain (score: 150)","207494721-2?$n_1920w$&wid=1926&fit=constrain (score: 150)","207494721-3?
+[1:34:22 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":5,"kept":5}
+[1:34:22 PM] 🖼️ FINAL IMAGES: ["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/pr
+[1:34:22 PM] 🖼️ After hybrid filtering: 5 images
+[1:34:22 PM] 🎯 CALLING HI-RES AUGMENTATION (gallery path)
+[1:34:22 PM] 🚀 HI-RES AUGMENT STARTING on www.asos.com
+[1:34:22 PM] 🔍 Hi-res augment collected: 10 URLs
+[1:34:22 PM] ✅ HI-RES AUGMENTATION COMPLETE: 10 URLs
+[1:34:22 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":15}
+[1:34:22 PM] ✅ BEST OF 2 (score: 160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+160
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+160
+📋 Copy URL
+[1:34:22 PM] ✅ BEST OF 2 (score: 160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w
+160
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+160
+📋 Copy URL
+[1:34:22 PM] ✅ BEST OF 2 (score: 160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w
+160
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+160
+📋 Copy URL
+[1:34:22 PM] ✅ BEST OF 2 (score: 160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w
+160
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+160
+📋 Copy URL
+[1:34:22 PM] ✅ BEST OF 2 (score: 160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+160
+📋 Copy URL
+[1:34:22 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+160
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+160
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w
+160
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w
+160
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w
+160
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+160
+📋 Copy URL
+[1:34:22 PM] 🏆 TOP SCORED IMAGES: ["207494721-1-black?$n_640w$&wid=513&fit=constrain (score: 160)","207494721-2?$n_640w$&wid=513&fit=constrain (score: 160)","207494721-3?$n_640w$&wid=513&fit=constrain (score: 160)","207494721-4?$n_640
+[1:34:22 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":5,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":5,"kept":5}
+[1:34:22 PM] 🖼️ FINAL IMAGES: ["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/pr
+[1:34:22 PM] 🖼️ GENERIC IMAGES: {"count":5,"images":["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$n_640w$&wid=513&fit=constrain","https://images.asos-media.com/products/nike-sh
+[1:34:22 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":5}
+[1:34:22 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":5}
+[1:34:22 PM] ✅ SINGLE IMAGE (score: 160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+160
+📋 Copy URL
+[1:34:22 PM] ✅ SINGLE IMAGE (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w
+150
+📋 Copy URL
+[1:34:22 PM] ✅ SINGLE IMAGE (score: 150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w
+150
+📋 Copy URL
+[1:34:22 PM] ✅ SINGLE IMAGE (score: 130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w
+130
+📋 Copy URL
+[1:34:22 PM] ✅ SINGLE IMAGE (score: 130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+130
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (160): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$
+160
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_640w
+150
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (150): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_640w
+150
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_640w
+130
+📋 Copy URL
+[1:34:22 PM] 🎯 HIGH SCORE + SIZE OK (130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_640w
+130
+📋 Copy URL
+[1:34:22 PM] 🏆 TOP SCORED IMAGES: ["207494721-1-black?$n_640w$&wid=513&fit=constrain (score: 160)","207494721-2?$n_640w$&wid=513&fit=constrain (score: 150)","207494721-3?$n_640w$&wid=513&fit=constrain (score: 150)","207494721-4?$n_640
+[1:34:22 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":5}
+[1:34:22 PM] 🖼️ FINAL IMAGES: ["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/pr
+[1:34:22 PM] 🖼️ FINAL IMAGES: {"count":5,"images":["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$n_640w$&wid=513&fit=constrain","https://images.asos-media.com/products/nike-sh
+[1:34:22 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Nike Shox R4 sneakers in black and silver","brand":"Nike","description":"Shop the latest Nike Shox R4 sneakers in black and","price":"$155.00","imageCount":5,"firstImages":["https://images.a
+[1:34:22 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":5}
+[1:34:22 PM] ✅ Debug trace complete
