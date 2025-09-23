@@ -1028,7 +1028,14 @@
         '.pdp-gallery img',
         '.pdp-images img',
         '.swiper-slide img',
-        '.swiper-container img'
+        '.swiper-container img',
+        '.pwa-slider img',              // Urban Outfitters + PWA sites
+        '.pwa-slider__item img',        // PWA slider items
+        '[data-testid*="image"] img',   // Adidas, American Eagle
+        '.product-carousel img',        // Nike, multiple sites
+        '.hero-image img',              // Nike hero containers
+        '[data-photoswipe-src] img',    // PhotoSwipe zoom galleries
+        '.product-main-slide img'       // Cuyana, high-res slides
       ];
       
       // Check if this image came from a primary gallery container
@@ -2166,7 +2173,9 @@
     
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
-      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img',
+      '.pwa-slider img','.pwa-slider__item img','.product-carousel img','.hero-image img',
+      '[data-photoswipe-src] img','.product-main-slide img','.swiper-slide img'
     ];
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel);
