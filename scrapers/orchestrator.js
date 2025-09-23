@@ -2360,6 +2360,18 @@
       const merged = [].concat(rawA || [], rawB || []);
       debug(`🔄 MERGER: Processing ${rawA.length} + ${rawB.length} = ${merged.length} raw images`);
       
+      // 📋 DETAILED COLLECTION LOGS - Show exactly what was collected
+      debug('\n🔍 === RAW COLLECTION DETAILS ===');
+      debug(`📥 ENGINE A (${rawA.length} images):`);
+      rawA.forEach((url, i) => debug(`  ${i+1}. ${url}`));
+      
+      debug(`📥 ENGINE B (${rawB.length} images):`);
+      rawB.forEach((url, i) => debug(`  ${i+1}. ${url}`));
+      
+      debug(`📦 MERGED RAW LIST (${merged.length} total images):`);
+      merged.forEach((url, i) => debug(`  ${i+1}. ${url}`));
+      debug('🔍 === END RAW COLLECTION DETAILS ===\n');
+      
       // 2.5) Apply proven junk pattern filtering BEFORE normalization
       const filteredMerged = [];
       for (const url of merged) {

@@ -1,0 +1,98 @@
+12:41:50 PM] 🚀 Starting scrape operation for: https://www.asos.com/us/nike/nike-shox-r4-sneakers-in-black-and-silver/prd/207494721#colourWayId-207494724
+[12:41:50 PM] 🚀 SCRAPE START {"host":"asos.com","href":"https://www.asos.com/us/nike/nike-shox-r4-sneakers-in-black-and-silver/prd/207494721#colourWayId-207494724","mode":"normal"}
+[12:41:50 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[12:41:50 PM] 🔄 NORMAL MODE - memory + fallbacks
+[12:41:50 PM] 🧩 TITLE: Trying custom handler...
+[12:41:50 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[12:41:50 PM] 📝 TITLE: Falling back to generic...
+[12:41:50 PM] 📝 TITLE FROM GENERIC: Nike Shox R4 sneakers in black and silver
+[12:41:50 PM] 🏷️ BRAND: Falling back to generic...
+[12:41:50 PM] 🏷️ BRAND FROM GENERIC: Nike
+[12:41:50 PM] 📄 DESCRIPTION: Falling back to generic...
+[12:41:50 PM] 📄 DESCRIPTION FROM GENERIC: Browse online for the newest Nike Shox R4 sneakers in black and silver styles. Shop easier with ASOS' multiple payments and return options (Ts&Cs apply).
+[12:41:50 PM] 🧩 PRICE: Trying custom handler...
+[12:41:50 PM] 🧩 CUSTOM PRICE SUCCESS: $155.00
+[12:41:50 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:41:50 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:41:50 PM] 🧩 IMAGES: Trying custom handler...
+[12:41:50 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[12:41:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[12:41:50 PM] 🎯 PATTERN GROUPING: 0 groups identified, sorted by relevance
+[12:41:50 PM] 🏆 TOP SCORED IMAGES: []
+[12:41:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[12:41:50 PM] 🖼️ FINAL IMAGES: []
+[12:41:50 PM] 🖼️ IMAGES: Custom insufficient, activating dual-engine system...
+[12:41:50 PM] 🚀 SUPERIOR DUAL-ENGINE: Starting independent collection...
+[12:41:50 PM] 🎯 ENGINE A: Found gallery wrapper: .product-gallery
+[12:41:50 PM] 🔍 ENGINE A (Wrapper Phase): Found 10 images total
+[12:41:50 PM] 🔍 ENGINE A (Smart): Found 10 product-focused images
+[12:41:50 PM] 🎯 ENGINE B: Scoped to container: .product-gallery
+[12:41:50 PM] 🔍 ENGINE B (ChatGPT): Found 12 comprehensive images
+[12:41:50 PM] 🔍 ENGINE B (Product-Scoped): Found 12 images
+[12:41:50 PM] 🔄 MERGER: Processing 10 + 12 = 22 raw images
+[12:41:50 PM] 🔄 JUNK FILTERING: 22 raw → 22 clean images
+[12:41:50 PM] ✅ SUPERIOR DUAL-ENGINE: 6 final images in 622ms
+[12:41:50 PM] 🖼️ DUAL-ENGINE IMAGES: {"count":6,"images":["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black","https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-sil
+[12:41:50 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":6}
+[12:41:50 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":6}
+[12:41:50 PM] ❌ NOT IMAGE URL: https://www.asos.com/us/nike/nike-shox-r4-sneakers-in-black-and-silver/prd/207494721
+0[IMG ERROR]
+📋 Copy URL
+[12:41:50 PM] ✅ SINGLE IMAGE (score: 140): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black
+140
+📋 Copy URL
+[12:41:50 PM] ✅ SINGLE IMAGE (score: 130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2
+130
+📋 Copy URL
+[12:41:50 PM] ✅ SINGLE IMAGE (score: 130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3
+130
+📋 Copy URL
+[12:41:50 PM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4
+110
+📋 Copy URL
+[12:41:50 PM] ✅ SINGLE IMAGE (score: 110): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5
+110
+📋 Copy URL
+[12:41:50 PM] 🎯 PATTERN GROUP: ox-r4-sneakers-in-black-and-silver/{NUMID}-1-black | Count: 1 | Avg Score: 140.0
+[12:41:50 PM] 🎯 PATTERN GROUP: ike-shox-r4-sneakers-in-black-and-silver/{NUMID}-2 | Count: 1 | Avg Score: 130.0
+[12:41:50 PM] 🎯 PATTERN GROUP: ike-shox-r4-sneakers-in-black-and-silver/{NUMID}-3 | Count: 1 | Avg Score: 130.0
+[12:41:50 PM] 🎯 PATTERN GROUP: ike-shox-r4-sneakers-in-black-and-silver/{NUMID}-4 | Count: 1 | Avg Score: 110.0
+[12:41:50 PM] 🎯 PATTERN GROUP: ike-shox-r4-sneakers-in-black-and-silver/{NUMID}-5 | Count: 1 | Avg Score: 110.0
+[12:41:50 PM] 🏆 GROUP LEADER (140.0 avg): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black
+140
+📋 Copy URL
+[12:41:50 PM] 🏆 GROUP LEADER (130.0 avg): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2
+130
+📋 Copy URL
+[12:41:50 PM] 🏆 GROUP LEADER (130.0 avg): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3
+130
+📋 Copy URL
+[12:41:50 PM] 🏆 GROUP LEADER (110.0 avg): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4
+110
+📋 Copy URL
+[12:41:50 PM] 🏆 GROUP LEADER (110.0 avg): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5
+110
+📋 Copy URL
+[12:41:50 PM] 🎯 PATTERN GROUPING: 5 groups identified, sorted by relevance
+[12:41:50 PM] 🎯 HIGH SCORE + SIZE OK (140): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black
+140
+📋 Copy URL
+[12:41:50 PM] 🎯 HIGH SCORE + SIZE OK (130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-2
+130
+📋 Copy URL
+[12:41:50 PM] 🎯 HIGH SCORE + SIZE OK (130): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-3
+130
+📋 Copy URL
+[12:41:50 PM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-4
+110
+📋 Copy URL
+[12:41:50 PM] 🎯 HIGH SCORE + SIZE OK (110): https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-5
+110
+📋 Copy URL
+[12:41:50 PM] 🏆 TOP SCORED IMAGES: ["207494721-1-black (score: 140)","207494721-2 (score: 130)","207494721-3 (score: 130)","207494721-4 (score: 110)","207494721-5 (score: 110)"]
+[12:41:50 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":1,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":5}
+[12:41:50 PM] 🖼️ FINAL IMAGES: ["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver","https://images.asos-media.com/pr
+[12:41:50 PM] 🖼️ FINAL IMAGES: {"count":5,"images":["https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black","https://images.asos-media.com/products/nike-shox-r4-sneakers-in-black-and-sil
+[12:41:50 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Nike Shox R4 sneakers in black and silver","brand":"Nike","description":"Browse online for the newest Nike Shox R4 sneakers","price":"$155.00","imageCount":5,"firstImages":["https://images.a
+[12:41:50 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":5}
+[12:41:50 PM] ✅ Debug trace complete
