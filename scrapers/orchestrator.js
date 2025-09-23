@@ -571,6 +571,44 @@
       }
     }
     
+    // ACE HARDWARE/MOZU CDN: Remove low-quality constraints
+    if (/cdn-tp3\.mozu\.com/i.test(url)) {
+      // Remove quality and max size constraints for high-quality images
+      upgraded = upgraded.replace(/[?&]quality=\d+/gi, '');
+      upgraded = upgraded.replace(/[?&]max=\d+/gi, '');
+      upgraded = upgraded.replace(/[?&]_mzcb=_\d+/gi, ''); // Remove cache busting
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED MOZU CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> High-quality image`);
+      }
+    }
+    
+    // CLOUDINARY CDN: Upgrade to high-quality versions
+    if (/res\.cloudinary\.com/i.test(url)) {
+      // Remove small dimension constraints and low quality settings
+      upgraded = upgraded.replace(/[,\/]w_\d{1,3}[,\/]/gi, '/w_1200/');
+      upgraded = upgraded.replace(/[,\/]h_\d{1,3}[,\/]/gi, '/h_1200/');
+      upgraded = upgraded.replace(/[,\/]q_\d{1,2}[,\/]/gi, '/q_90/');
+      upgraded = upgraded.replace(/[,\/]c_thumb[,\/]/gi, '/c_scale/');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Cloudinary URL: ${url.substring(url.lastIndexOf('/') + 1)} -> High-quality image`);
+      }
+    }
+    
+    // IMGIX CDN: Upgrade to high-quality versions  
+    if (/\.imgix\.net/i.test(url)) {
+      // Remove small dimension constraints and boost quality
+      upgraded = upgraded.replace(/[?&]w=\d{1,3}([^0-9]|$)/gi, '?w=1200$1');
+      upgraded = upgraded.replace(/[?&]h=\d{1,3}([^0-9]|$)/gi, '&h=1200$1');
+      upgraded = upgraded.replace(/[?&]q=\d{1,2}([^0-9]|$)/gi, '&q=90$1');
+      upgraded = upgraded.replace(/[?&]fit=crop/gi, '&fit=scale');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Imgix URL: ${url.substring(url.lastIndexOf('/') + 1)} -> High-quality image`);
+      }
+    }
+    
     
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
@@ -1085,94 +1123,8 @@
     }
   }
 
-  // Main hybrid filtering function that combines your proven quality logic with comprehensive coverage
-  async function hybridUniqueImages(enrichedImages) {
-    debug('🔄 HYBRID FILTERING:', { inputCount: enrichedImages.length });
-    
-    if (!enrichedImages || enrichedImages.length === 0) return [];
-    
-    const candidates = new Map();
-    
-    // Phase 1: Collect and normalize all candidates
-    for (const { url, element, index } of enrichedImages) {
-      if (!url || !looksLikeImageURL(url)) continue;
-      
-      // Apply your proven filtering rules
-      if (JUNK_IMG.test(url) || BASE64ISH_SEG.test(url)) continue;
-      if (shouldBlockShopifyFiles(url, element)) continue;
-      
-      // Upgrade CDN URLs using your proven logic
-      const upgradedUrl = upgradeCDNUrl(url);
-      const canonicalKey = toCanonicalUrl(upgradedUrl);
-      
-      if (!candidates.has(canonicalKey)) {
-        candidates.set(canonicalKey, {
-          url: upgradedUrl,
-          element,
-          index,
-          score: 0,
-          sources: new Set()
-        });
-      }
-      
-      const candidate = candidates.get(canonicalKey);
-      candidate.sources.add(element ? 'dom' : 'meta');
-      
-      // Use your proven scoring system
-      const quality = scoreImageURL(upgradedUrl, element);
-      if (quality > candidate.score) {
-        candidate.score = quality;
-        candidate.url = upgradedUrl; // Keep highest quality version
-      }
-    }
-    
-    // Phase 2: Apply scoring and filtering
-    const filteredCandidates = Array.from(candidates.values())
-      .filter(candidate => {
-        // Apply minimum quality threshold
-        if (candidate.score < 10) return false;
-        
-        // Additional product relevance checks
-        const url = candidate.url;
-        const isProductContext = candidate.element && 
-          candidate.element.closest('.product, .pdp, [class*="Product"], [data-testid*="product"]');
-        
-        // Be more lenient for images in product context
-        if (isProductContext) return true;
-        
-        // Stricter filtering for images found via meta/JSON-LD
-        if (candidate.sources.has('meta') && !candidate.sources.has('dom')) {
-          return candidate.score >= 50; // Higher threshold for meta-only images
-        }
-        
-        return true;
-      })
-      .sort((a, b) => {
-        // Primary sort: Quality score (highest first)
-        const scoreDiff = b.score - a.score;
-        if (scoreDiff !== 0) return scoreDiff;
-        
-        // Secondary sort: Multiple sources (DOM + meta > DOM only > meta only)
-        const aSourceCount = a.sources.size;
-        const bSourceCount = b.sources.size;
-        if (aSourceCount !== bSourceCount) return bSourceCount - aSourceCount;
-        
-        // Tertiary sort: DOM order (earlier first)
-        return a.index - b.index;
-      });
-    
-    const finalUrls = filteredCandidates.slice(0, 30).map(candidate => candidate.url);
-    
-    debug('🏆 HYBRID FILTERING COMPLETE:', {
-      inputCount: enrichedImages.length,
-      candidatesFound: candidates.size,
-      afterFiltering: filteredCandidates.length,
-      finalCount: finalUrls.length,
-      topScores: filteredCandidates.slice(0, 3).map(c => c.score)
-    });
-    
-    return finalUrls;
-  }
+  // DUAL-ENGINE: Use the original proven hybridUniqueImages function (defined further down)
+  // This ensures all detailed logging and quality filtering is preserved
 
   // Legacy function for compatibility with existing code
   async function uniqueImages(urls) {
@@ -1916,8 +1868,12 @@
 
       debug(`🔍 ENGINE B (ChatGPT): Found ${urls.length} comprehensive images`);
       
-      // Convert to enriched format for unified processing
-      return urls.map((url, index) => ({ url, element: null, index }));
+      // Convert to enriched format with CDN upgrades (CRITICAL FIX!)
+      return urls.map((url, index) => ({ 
+        url: upgradeCDNUrl(url), // Apply CDN upgrades to Engine B results!
+        element: null, 
+        index 
+      }));
     }
 
     return { collect };
