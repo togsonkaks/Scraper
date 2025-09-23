@@ -1,0 +1,146 @@
+[1:25:42 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[1:25:42 PM] 🔄 NORMAL MODE - memory + fallbacks
+[1:25:42 PM] 🧩 TITLE: Trying custom handler...
+[1:25:42 PM] 🧩 CUSTOM TITLE SUCCESS: 700ml Cocktail Shaker Whiskey Glass Cup Professional Cocktail Stirring Cup Wine Bar mixing cups Bartender Mixing Bar Tool
+[1:25:42 PM] 🏷️ BRAND: Falling back to generic...
+[1:25:42 PM] 🏷️ BRAND FROM GENERIC: null
+[1:25:42 PM] 📄 DESCRIPTION: Falling back to generic...
+[1:25:42 PM] 📄 DESCRIPTION FROM GENERIC: Buy 700ml Cocktail Shaker Whiskey Glass Cup Professional Cocktail Stirring Cup Wine Bar mixing cups Bartender Mixing Bar Tool at Aliexpress for . Find more 15, 100003056 and products. Enjoy ✓Free Shipping Worldwide! ✓Limited Time Sale ✓Easy Return.
+[1:25:42 PM] 🧩 PRICE: Trying custom handler...
+[1:25:42 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[1:25:42 PM] 💰 PRICE: Falling back to generic...
+[1:25:42 PM] 🔍 PRICE PARSING: {"input":"4.25","inputType":"string","inputLength":4}
+[1:25:42 PM] 🧹 CLEANED INPUT: {"original":"4.25","cleaned":"4.25"}
+[1:25:42 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"4.25","reconstructed":"4.25"}
+[1:25:42 PM] 💰 MONETARY TOKENS: []
+[1:25:42 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[4.25]}
+[1:25:42 PM] ✅ FINAL PRICE RESULT: {"result":4.25,"method":"MIN_FALLBACK","allNumbers":[4.25]}
+[1:25:42 PM] 💰 PRICE FROM GENERIC: 4.25
+[1:25:42 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[1:25:42 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:25:42 PM] 🧩 IMAGES: Trying custom handler...
+[1:25:42 PM] 🧩 CUSTOM IMAGES: {"count":20,"images":["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avif","https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e15334
+[1:25:42 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[1:25:42 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":20}
+[1:25:42 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":20}
+[1:25:42 PM] 📉 LOW SCORE REJECTED (45): https://ae-pic-a1.aliexpress-media.com/kf/S47ea903b3b7a441087bea451695cc7a2x/144x144.png_.webp
+45
+📋 Copy URL
+[1:25:42 PM] 📉 LOW SCORE REJECTED (35): https://ae-pic-a1.aliexpress-media.com/kf/Se90fceedf9d34ad1a8979283c98a1e45I/144x144.png
+35
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 125): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+125
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 115): https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_960x960q75.jpg_.avi
+115
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 115): https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_960x960q75.jpg_.avi
+115
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 95): https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 75): https://ae-pic-a1.aliexpress-media.com/kf/Sa976459fb7724bf1bca6e153a425a8ebg.png
+75
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+50
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+50
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+50
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+50
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+50
+📋 Copy URL
+[1:25:42 PM] ✅ SINGLE IMAGE (score: 50): https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+50
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (125): https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avi
+125
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (115): https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg_960x960q75.jpg_.avi
+115
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (115): https://ae-pic-a1.aliexpress-media.com/kf/S5fb241563ee044f0bb4b5931653410eeo.jpg_960x960q75.jpg_.avi
+115
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S1cf6ee5121284a42b9c33f9985cb6102M.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/Sfcae9b14e13945a9a4524df784e3cdfbN.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S91d8182e7040415fa2653825fb8bf50c3.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/See5b8431c72b41ef96444710b43006d20.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S09bbf28dc7f74b7fa2ae47cd838fde61C.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S49db1ccf99bb44bdb2e6f7e94714ea61Y.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/S698ffe4e888c4e55a7e26ab15527c576D.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (95): https://ae-pic-a1.aliexpress-media.com/kf/Se9f4f8b8d59141cbbfdc0a943f6434398.jpg_960x960q75.jpg_.avi
+95
+📋 Copy URL
+[1:25:42 PM] 🎯 HIGH SCORE + SIZE OK (75): https://ae-pic-a1.aliexpress-media.com/kf/Sa976459fb7724bf1bca6e153a425a8ebg.png
+75
+📋 Copy URL
+[1:25:42 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S3947bdbad7274f24bebf7c1435e673dbR.jpg
+50
+📋 Copy URL
+[1:25:42 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S76c5827438354e2d93484f2d5a762738G.jpg
+50
+📋 Copy URL
+[1:25:42 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+50
+📋 Copy URL
+[1:25:42 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S08c37fc597e5475a8bb325db59ddb895t.jpg
+50
+📋 Copy URL
+[1:25:42 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+50
+📋 Copy URL
+[1:25:42 PM] 📏 SIZE OK (est: 150KB): https://ae01.alicdn.com/kf/S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+50
+📋 Copy URL
+[1:25:42 PM] 🏆 TOP SCORED IMAGES: ["Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avif (score: 125)","S1b155ae5183849588f4e2f29e153346eA.jpg_960x960q75.jpg_.avif (score: 115)","S5fb241563ee044f0bb4b5931653410eeo.jpg_960x960q7
+[1:25:42 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":2,"smallFile":0,"duplicateGroups":0,"kept":18}
+[1:25:42 PM] 🖼️ FINAL IMAGES: ["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg","https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e153346eA.jpg","https://ae-pic-a1.aliexpress-med
+[1:25:42 PM] 🖼️ FINAL IMAGES: {"count":18,"images":["https://ae-pic-a1.aliexpress-media.com/kf/Sf6f2e26719a449598db9ff704b5161a15.jpg_960x960q75.jpg_.avif","https://ae-pic-a1.aliexpress-media.com/kf/S1b155ae5183849588f4e2f29e15334
+[1:25:42 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"700ml Cocktail Shaker Whiskey Glass Cup Profession","brand":null,"description":"Buy 700ml Cocktail Shaker Whiskey Glass Cup Profes","price":"4.25","imageCount":18,"firstImages":["https://ae-
+[1:25:42 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":false,"description":true,"price":true,"images":18}
+[1:25:42 PM] ✅ Debug trace complete

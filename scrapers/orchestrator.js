@@ -881,6 +881,8 @@
       'main figure', 'main .gallery', 'article figure'
     ]
   } = {}) {
+    debug(`🚀 HI-RES AUGMENT STARTING on ${window.location.hostname}`);
+    
     const live = window.document || doc;
     const urls = [];
     const seen = new Set();
@@ -978,21 +980,26 @@
     };
 
     // 4) Observe briefly to catch lazy/zoom swaps (you or the site can click; we just listen)
-    scanScopeOnce();
-    grabAState();
+    try {
+      scanScopeOnce();
+      grabAState();
 
-    await new Promise(resolve => {
-      const obs = new MutationObserver(() => {
-        scanScopeOnce();
+      await new Promise(resolve => {
+        const obs = new MutationObserver(() => {
+          scanScopeOnce();
+        });
+        try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
+        obs.observe(scope, { subtree: true, childList: true, attributes: true });
+        setTimeout(() => { obs.disconnect(); resolve(); }, observeMs);
       });
-      try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
-      obs.observe(scope, { subtree: true, childList: true, attributes: true });
-      setTimeout(() => { obs.disconnect(); resolve(); }, observeMs);
-    });
 
-    // 5) Soft cap; your existing filtration pipeline will finalize ranking
-    debug(`🔍 Hi-res augment collected: ${urls.length} URLs`);
-    return urls.slice(0, max);
+      // 5) Soft cap; your existing filtration pipeline will finalize ranking
+      debug(`🔍 Hi-res augment collected: ${urls.length} URLs`);
+      return urls.slice(0, max);
+    } catch (error) {
+      debug(`❌ HI-RES AUGMENT ERROR:`, error.message);
+      return [];
+    }
   }
 
   // Hybrid unique images with score threshold and file size filtering
@@ -1740,7 +1747,9 @@
         debug(`✅ Site-specific success: ${urls.length} images found`);
         
         // Add hi-res augmentation (click/zoom/lazy images)
+        debug(`🎯 CALLING HI-RES AUGMENTATION (site-specific path)`);
         const hiResUrls = await collectHiResAugment({ doc: document });
+        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
         const enrichedUrls = urls.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
         const final = await hybridUniqueImages(enrichedUrls);
         
@@ -1757,7 +1766,9 @@
       const urls = await gatherImagesBySelector(sel);
       if (urls.length >= 3) {
         // Add hi-res augmentation (click/zoom/lazy images)
+        debug(`🎯 CALLING HI-RES AUGMENTATION (gallery path)`);
         const hiResUrls = await collectHiResAugment({ doc: document });
+        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
         const enrichedUrls = urls.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
         const final = await hybridUniqueImages(enrichedUrls);
         
@@ -1769,7 +1780,9 @@
     const all = await gatherImagesBySelector('img');
     
     // Add hi-res augmentation (click/zoom/lazy images) even in fallback
+    debug(`🎯 CALLING HI-RES AUGMENTATION (fallback path)`);
     const hiResUrls = await collectHiResAugment({ doc: document });
+    debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
     const enrichedUrls = all.concat(hiResUrls.map(url => ({ url, element: null, index: 0 })));
     const final = await hybridUniqueImages(enrichedUrls);
     
