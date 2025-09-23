@@ -1778,21 +1778,16 @@
 
     const looksTiny = (u) => /sprite|icon|thumb|placeholder|transparent|1x1/i.test(u);
 
-    // ---- extractors with shared context coordination
-    function scanDOM(doc, sharedContext) {
+    // ---- extractors - independent collection (no coordination)
+    function scanDOM(doc) {
       const urls = [];
 
       // IMG + lazy attrs
       doc.querySelectorAll("img").forEach(img => {
-        // Skip if already scanned by Engine A
-        if (sharedContext?.seenElements?.has(img)) return;
-        sharedContext?.seenElements?.add(img);
-
         // prefer currentSrc > srcset > src
         const best = img.currentSrc || fromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
-        if (best && !sharedContext?.seenUrls?.has(best)) {
+        if (best) {
           urls.push(best);
-          sharedContext?.seenUrls?.add(best);
         }
 
         // lazy attrs
@@ -1800,64 +1795,46 @@
           const v = img.getAttribute(a);
           if (a.endsWith("srcset")) {
             const u = fromSrcset(v);
-            if (u && !sharedContext?.seenUrls?.has(u)) {
+            if (u) {
               urls.push(u);
-              sharedContext?.seenUrls?.add(u);
             }
-          } else if (v && !sharedContext?.seenUrls?.has(v)) {
+          } else if (v) {
             urls.push(v);
-            sharedContext?.seenUrls?.add(v);
           }
         });
       });
 
       // <picture><source>
       doc.querySelectorAll("picture source[srcset]").forEach(s => {
-        if (sharedContext?.seenElements?.has(s)) return;
-        sharedContext?.seenElements?.add(s);
-        
         const u = fromSrcset(s.getAttribute("srcset"));
-        if (u && !sharedContext?.seenUrls?.has(u)) {
+        if (u) {
           urls.push(u);
-          sharedContext?.seenUrls?.add(u);
         }
       });
 
       // Links that point directly at images
       doc.querySelectorAll('a[href]').forEach(a => {
-        if (sharedContext?.seenElements?.has(a)) return;
-        sharedContext?.seenElements?.add(a);
-        
         const href = a.getAttribute("href") || "";
-        if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href) && !sharedContext?.seenUrls?.has(href)) {
+        if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href)) {
           urls.push(href);
-          sharedContext?.seenUrls?.add(href);
         }
       });
 
       // Background images (inline + computed)
       doc.querySelectorAll("[style]").forEach(el => {
-        if (sharedContext?.seenElements?.has(el)) return;
-        sharedContext?.seenElements?.add(el);
-        
         const m = URL_RE.exec(el.getAttribute("style") || "");
-        if (m && m[2] && !sharedContext?.seenUrls?.has(m[2])) {
+        if (m && m[2]) {
           urls.push(m[2]);
-          sharedContext?.seenUrls?.add(m[2]);
         }
       });
 
       // Common hero/card elements — computed style (costly but bounded)
       doc.querySelectorAll("div, section, article, figure").forEach(el => {
-        if (sharedContext?.seenElements?.has(el)) return;
-        sharedContext?.seenElements?.add(el);
-        
         try {
           const bg = getComputedStyle(el).getPropertyValue("background-image");
           const m = URL_RE.exec(bg || "");
-          if (m && m[2] && !sharedContext?.seenUrls?.has(m[2])) {
+          if (m && m[2]) {
             urls.push(m[2]);
-            sharedContext?.seenUrls?.add(m[2]);
           }
         } catch(e) {
           // Skip if getComputedStyle fails
@@ -1867,16 +1844,15 @@
       return urls.map(absolutize);
     }
 
-    function scanMetaJSON(doc, live, sharedContext) {
+    function scanMetaJSON(doc, live) {
       const urls = [];
 
       // OpenGraph / Twitter
       doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
         .forEach(m => { 
           const c = m.getAttribute("content"); 
-          if (c && !sharedContext?.seenUrls?.has(c)) {
+          if (c) {
             urls.push(c);
-            sharedContext?.seenUrls?.add(c);
           }
         });
 
@@ -1884,9 +1860,8 @@
       doc.querySelectorAll('link[rel="image_src"], link[rel="preload"][as="image"]')
         .forEach(l => { 
           const h = l.getAttribute("href"); 
-          if (h && !sharedContext?.seenUrls?.has(h)) {
+          if (h) {
             urls.push(h);
-            sharedContext?.seenUrls?.add(h);
           }
         });
 
@@ -1901,24 +1876,20 @@
             if (!node || typeof node !== "object") return;
             if (Array.isArray(node)) return node.forEach(collect);
             if (node.image) {
-              if (typeof node.image === "string" && !sharedContext?.seenUrls?.has(node.image)) {
+              if (typeof node.image === "string") {
                 urls.push(node.image);
-                sharedContext?.seenUrls?.add(node.image);
               } else if (Array.isArray(node.image)) {
                 node.image.forEach(img => {
-                  if (typeof img === "string" && !sharedContext?.seenUrls?.has(img)) {
+                  if (typeof img === "string") {
                     urls.push(img);
-                    sharedContext?.seenUrls?.add(img);
                   }
                 });
-              } else if (node.image.url && !sharedContext?.seenUrls?.has(node.image.url)) {
+              } else if (node.image.url) {
                 urls.push(node.image.url);
-                sharedContext?.seenUrls?.add(node.image.url);
               }
             }
-            if (node.logo?.url && !sharedContext?.seenUrls?.has(node.logo.url)) {
+            if (node.logo?.url) {
               urls.push(node.logo.url);
-              sharedContext?.seenUrls?.add(node.logo.url);
             }
             Object.values(node).forEach(collect);
           };
@@ -1929,24 +1900,21 @@
       return urls.map(absolutize);
     }
 
-    // ---- main collect function with shared context
-    async function collect({ doc = document, minW = 500, max = 20, observeMs = 800, sharedContext = null } = {}) {
+    // ---- main collect function - independent collection
+    async function collect({ doc = document, minW = 500, max = 20, observeMs = 800 } = {}) {
       const live = window?.document || doc;
 
       // First pass
       let urls = [
-        ...scanMetaJSON(doc, live, sharedContext),
-        ...scanDOM(doc, sharedContext),
+        ...scanMetaJSON(doc, live),
+        ...scanDOM(doc),
       ];
 
       // Observe briefly to catch lazy content/carousels rendering
       const found = new Set(urls);
       const obs = new MutationObserver(() => {
-        scanDOM(doc, sharedContext).forEach(u => {
-          if (!sharedContext?.seenUrls?.has(u)) {
-            found.add(u);
-            sharedContext?.seenUrls?.add(u);
-          }
+        scanDOM(doc).forEach(u => {
+          found.add(u);
         });
       });
       obs.observe(doc.documentElement, { subtree: true, childList: true, attributes: true });
@@ -1958,7 +1926,7 @@
       obs.disconnect();
 
       // Final pass inc. live doc JSON-LD (some sanitizers strip script tags)
-      urls = uniq([...found, ...scanMetaJSON(doc, live, sharedContext)]).filter(Boolean);
+      urls = uniq([...found, ...scanMetaJSON(doc, live)]).filter(Boolean);
 
       // quality filter + ranking
       // keep only http(s)
@@ -1968,30 +1936,27 @@
 
       debug(`🔍 ENGINE B (ChatGPT): Found ${urls.length} comprehensive images`);
       
-      // Convert to enriched format with CDN upgrades (CRITICAL FIX!)
+      // Store raw URLs - CDN upgrades happen during merge phase
       return urls.map((url, index) => ({ 
-        url: upgradeCDNUrl(url), // Apply CDN upgrades to Engine B results!
+        url: url, // Store raw URL, upgrade during merge
         element: null, 
-        index 
+        index, 
+        source: 'engineB'
       }));
     }
 
     return { collect };
   })();
 
-  // Engine A with context coordination (Enhanced original logic)
-  async function gatherImagesBySelector_withContext(sel, sharedContext) {
-    debug('🔍 ENGINE A (Original): Starting targeted scanning...');
+  // Engine A - Independent collection (no coordination)
+  async function gatherImagesBySelector_independent(sel) {
+    debug('🔍 ENGINE A (Original): Starting independent targeted scanning...');
     
     const elements = qa(sel);
     const enrichedUrls = [];
     
     for (let i = 0; i < elements.length; i++) {
       const el = elements[i];
-      
-      // Skip if already processed by Engine B
-      if (sharedContext?.seenElements?.has(el)) continue;
-      sharedContext?.seenElements?.add(el);
 
       // Your original logic for src extraction
       let s1 = el.currentSrc || el.getAttribute('src') || '';
@@ -2004,10 +1969,6 @@
       }
       
       if (!s1) continue;
-      
-      // Skip if URL already seen
-      if (sharedContext?.seenUrls?.has(s1)) continue;
-      sharedContext?.seenUrls?.add(s1);
 
       const abs = toAbs(s1);
       if (!abs || !looksLikeImageURL(abs)) continue;
@@ -2016,44 +1977,56 @@
       if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) continue;
       if (shouldBlockShopifyFiles(abs, el)) continue;
       
-      const upgradedUrl = upgradeCDNUrl(abs);
-      enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
+      // Store raw URL - CDN upgrades happen during merge phase
+      enrichedUrls.push({ url: abs, element: el, index: i, source: 'engineA' });
     }
     
     debug(`🔍 ENGINE A (Original): Found ${enrichedUrls.length} targeted images`);
     return enrichedUrls;
   }
 
-  // Dual-engine orchestrator function with robust parallel execution
-  async function getImagesUnified() {
-    debug('🚀 DUAL-ENGINE: Starting parallel image collection...');
+  // Unified merger function - collect then coordinate
+  async function mergeEngineResults(engineAResults, engineBResults) {
+    debug(`🔄 UNIFIED MERGER: Processing ${engineAResults.length + engineBResults.length} total images...`);
     
-    // Shared context for coordination
-    const sharedContext = {
-      seenUrls: new Set(),
-      seenElements: new Set(),
-      document: document,
-      debug: debug
-    };
+    // Combine all raw results 
+    const allRawResults = [...engineAResults, ...engineBResults];
+    
+    // Apply CDN upgrades to all URLs uniformly
+    const upgradedResults = allRawResults.map(item => ({
+      ...item,
+      url: upgradeCDNUrl(item.url),
+      originalUrl: item.url // Keep original for debugging
+    }));
+    
+    // Apply unified filtering and scoring - this is where the magic happens
+    const filtered = await hybridUniqueImages(upgradedResults);
+    debug(`✅ UNIFIED MERGER: Final result: ${filtered.length} images after merge`);
+    
+    return filtered;
+  }
 
+  // Dual-engine orchestrator function with collect-then-coordinate
+  async function getImagesUnified() {
+    debug('🚀 DUAL-ENGINE: Starting independent parallel image collection...');
+    
     const startTime = Date.now();
 
     try {
-      // Run both engines in parallel with robust error handling
+      // Run both engines independently in parallel
       const enginePromises = await Promise.allSettled([
-        // Engine A: Your original logic (targeted, high-quality)
+        // Engine A: Original targeted logic (no coordination)
         Promise.race([
-          gatherImagesBySelector_withContext('img', sharedContext),
+          gatherImagesBySelector_independent('img'),
           new Promise((_, reject) => setTimeout(() => reject(new Error('Engine A timeout')), 5000))
         ]),
-        // Engine B: ChatGPT's comprehensive scanning
+        // Engine B: Comprehensive scanning (no coordination)
         Promise.race([
           GenericImageCollectorV2.collect({ 
             doc: document, 
             minW: 500, 
             max: 30,
-            observeMs: 800,
-            sharedContext: sharedContext
+            observeMs: 800
           }),
           new Promise((_, reject) => setTimeout(() => reject(new Error('Engine B timeout')), 8000))
         ])
@@ -2076,23 +2049,18 @@
         debug('⚠️ ENGINE B failed:', enginePromises[1].reason?.message);
       }
 
-      // Merge results even if one engine failed
-      const allResults = engineAResults.concat(engineBResults);
-      debug(`🔄 DUAL-ENGINE: Merging ${allResults.length} total images...`);
-
-      if (allResults.length === 0) {
+      if (engineAResults.length === 0 && engineBResults.length === 0) {
         debug('❌ DUAL-ENGINE: No images found from either engine, falling back...');
         return await getImagesGeneric_Legacy();
       }
 
-      // Apply your proven filtering and scoring system
-      const filtered = await hybridUniqueImages(allResults);
-      debug(`✅ DUAL-ENGINE: Final result: ${filtered.length} images`);
+      // COLLECT-THEN-COORDINATE: Merge results after both engines complete
+      const filtered = await mergeEngineResults(engineAResults, engineBResults);
 
       mark('images', { 
         selectors: ['dual-engine'], 
         attr: 'unified', 
-        method: 'dual-engine', 
+        method: 'dual-engine-v2', 
         urls: filtered.slice(0, 30),
         timing: timing,
         engineA: { count: engineAResults.length, status: enginePromises[0].status },
