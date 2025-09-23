@@ -1063,6 +1063,117 @@
     return finalUrls;
   }
 
+  // URL canonicalization for deduplication - normalizes URLs to remove query params, fragments, and protocol differences
+  function toCanonicalUrl(url) {
+    try {
+      const parsed = new URL(url);
+      // Remove query parameters and fragments that don't affect image content
+      parsed.search = '';
+      parsed.hash = '';
+      // Normalize protocol to https for deduplication
+      if (parsed.protocol === 'http:') {
+        parsed.protocol = 'https:';
+      }
+      // Remove trailing slash from pathname
+      if (parsed.pathname.endsWith('/') && parsed.pathname.length > 1) {
+        parsed.pathname = parsed.pathname.slice(0, -1);
+      }
+      return parsed.toString();
+    } catch {
+      // Fallback for invalid URLs
+      return url.split('?')[0].split('#')[0];
+    }
+  }
+
+  // Main hybrid filtering function that combines your proven quality logic with comprehensive coverage
+  async function hybridUniqueImages(enrichedImages) {
+    debug('🔄 HYBRID FILTERING:', { inputCount: enrichedImages.length });
+    
+    if (!enrichedImages || enrichedImages.length === 0) return [];
+    
+    const candidates = new Map();
+    
+    // Phase 1: Collect and normalize all candidates
+    for (const { url, element, index } of enrichedImages) {
+      if (!url || !looksLikeImageURL(url)) continue;
+      
+      // Apply your proven filtering rules
+      if (JUNK_IMG.test(url) || BASE64ISH_SEG.test(url)) continue;
+      if (shouldBlockShopifyFiles(url, element)) continue;
+      
+      // Upgrade CDN URLs using your proven logic
+      const upgradedUrl = upgradeCDNUrl(url);
+      const canonicalKey = toCanonicalUrl(upgradedUrl);
+      
+      if (!candidates.has(canonicalKey)) {
+        candidates.set(canonicalKey, {
+          url: upgradedUrl,
+          element,
+          index,
+          score: 0,
+          sources: new Set()
+        });
+      }
+      
+      const candidate = candidates.get(canonicalKey);
+      candidate.sources.add(element ? 'dom' : 'meta');
+      
+      // Use your proven scoring system
+      const quality = scoreImageURL(upgradedUrl, element);
+      if (quality > candidate.score) {
+        candidate.score = quality;
+        candidate.url = upgradedUrl; // Keep highest quality version
+      }
+    }
+    
+    // Phase 2: Apply scoring and filtering
+    const filteredCandidates = Array.from(candidates.values())
+      .filter(candidate => {
+        // Apply minimum quality threshold
+        if (candidate.score < 10) return false;
+        
+        // Additional product relevance checks
+        const url = candidate.url;
+        const isProductContext = candidate.element && 
+          candidate.element.closest('.product, .pdp, [class*="Product"], [data-testid*="product"]');
+        
+        // Be more lenient for images in product context
+        if (isProductContext) return true;
+        
+        // Stricter filtering for images found via meta/JSON-LD
+        if (candidate.sources.has('meta') && !candidate.sources.has('dom')) {
+          return candidate.score >= 50; // Higher threshold for meta-only images
+        }
+        
+        return true;
+      })
+      .sort((a, b) => {
+        // Primary sort: Quality score (highest first)
+        const scoreDiff = b.score - a.score;
+        if (scoreDiff !== 0) return scoreDiff;
+        
+        // Secondary sort: Multiple sources (DOM + meta > DOM only > meta only)
+        const aSourceCount = a.sources.size;
+        const bSourceCount = b.sources.size;
+        if (aSourceCount !== bSourceCount) return bSourceCount - aSourceCount;
+        
+        // Tertiary sort: DOM order (earlier first)
+        return a.index - b.index;
+      });
+    
+    const finalUrls = filteredCandidates.slice(0, 30).map(candidate => candidate.url);
+    
+    debug('🏆 HYBRID FILTERING COMPLETE:', {
+      inputCount: enrichedImages.length,
+      candidatesFound: candidates.size,
+      afterFiltering: filteredCandidates.length,
+      finalCount: finalUrls.length,
+      topScores: filteredCandidates.slice(0, 3).map(c => c.score)
+    });
+    
+    return finalUrls;
+  }
+
   // Legacy function for compatibility with existing code
   async function uniqueImages(urls) {
     debug('🖼️ LEGACY FILTERING IMAGES (converting to enriched):', { inputCount: urls.length });
@@ -1857,7 +1968,7 @@
     return enrichedUrls;
   }
 
-  // Dual-engine orchestrator function
+  // Dual-engine orchestrator function with robust parallel execution
   async function getImagesUnified() {
     debug('🚀 DUAL-ENGINE: Starting parallel image collection...');
     
@@ -1869,27 +1980,54 @@
       debug: debug
     };
 
+    const startTime = Date.now();
+
     try {
-      // Run both engines in parallel with shared context
-      const [engineAResults, engineBResults] = await Promise.all([
+      // Run both engines in parallel with robust error handling
+      const enginePromises = await Promise.allSettled([
         // Engine A: Your original logic (targeted, high-quality)
-        gatherImagesBySelector_withContext('img', sharedContext),
+        Promise.race([
+          gatherImagesBySelector_withContext('img', sharedContext),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Engine A timeout')), 5000))
+        ]),
         // Engine B: ChatGPT's comprehensive scanning
-        GenericImageCollectorV2.collect({ 
-          doc: document, 
-          minW: 500, 
-          max: 30,
-          observeMs: 800,
-          sharedContext: sharedContext
-        })
+        Promise.race([
+          GenericImageCollectorV2.collect({ 
+            doc: document, 
+            minW: 500, 
+            max: 30,
+            observeMs: 800,
+            sharedContext: sharedContext
+          }),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Engine B timeout')), 8000))
+        ])
       ]);
 
-      debug(`🔍 ENGINE A (Original): ${engineAResults.length} images`);
-      debug(`🔍 ENGINE B (ChatGPT): ${engineBResults.length} images`);
+      // Extract results from settled promises
+      const engineAResults = enginePromises[0].status === 'fulfilled' ? enginePromises[0].value : [];
+      const engineBResults = enginePromises[1].status === 'fulfilled' ? enginePromises[1].value : [];
 
-      // Merge results and apply unified filtering
+      // Log engine performance
+      const timing = Date.now() - startTime;
+      debug(`🔍 ENGINE A (Original): ${engineAResults.length} images [${enginePromises[0].status}]`);
+      debug(`🔍 ENGINE B (ChatGPT): ${engineBResults.length} images [${enginePromises[1].status}]`);
+      debug(`⏱️ DUAL-ENGINE: Completed in ${timing}ms`);
+
+      if (enginePromises[0].status === 'rejected') {
+        debug('⚠️ ENGINE A failed:', enginePromises[0].reason?.message);
+      }
+      if (enginePromises[1].status === 'rejected') {
+        debug('⚠️ ENGINE B failed:', enginePromises[1].reason?.message);
+      }
+
+      // Merge results even if one engine failed
       const allResults = engineAResults.concat(engineBResults);
       debug(`🔄 DUAL-ENGINE: Merging ${allResults.length} total images...`);
+
+      if (allResults.length === 0) {
+        debug('❌ DUAL-ENGINE: No images found from either engine, falling back...');
+        return await getImagesGeneric_Legacy();
+      }
 
       // Apply your proven filtering and scoring system
       const filtered = await hybridUniqueImages(allResults);
@@ -1899,13 +2037,16 @@
         selectors: ['dual-engine'], 
         attr: 'unified', 
         method: 'dual-engine', 
-        urls: filtered.slice(0, 30) 
+        urls: filtered.slice(0, 30),
+        timing: timing,
+        engineA: { count: engineAResults.length, status: enginePromises[0].status },
+        engineB: { count: engineBResults.length, status: enginePromises[1].status }
       });
 
       return filtered.slice(0, 30);
 
     } catch (error) {
-      debug('❌ DUAL-ENGINE ERROR:', error.message);
+      debug('❌ DUAL-ENGINE CRITICAL ERROR:', error.message);
       
       // Fallback to legacy generic approach
       debug('🔄 DUAL-ENGINE: Falling back to legacy approach...');
