@@ -468,212 +468,6 @@
     return [];
   };
 
-  /* ---------- GENERIC IMAGE COLLECTOR V2 ---------- */
-  const GenericImageCollector = (() => {
-    // ---- config
-    const LAZY_ATTRS = [
-      "data-src", "data-srcset", "data-lazy", "data-lazy-src", "data-original",
-      "data-zoom-image", "data-large_image", "data-image", "data-hires",
-      "data-defer-src", "data-defer-srcset", "data-flickity-lazyload"
-    ];
-    const URL_RE = /url\((['"]?)(.*?)\1\)/i;
-
-    // route logs to orchestrator if present (won't crash elsewhere)
-    const debug = (msg) => {
-      if (typeof window !== 'undefined' && window.__tg_debugLog) {
-        if (typeof window.__tg_debugLog === 'function') {
-          window.__tg_debugLog(msg);
-        } else if (Array.isArray(window.__tg_debugLog)) {
-          window.__tg_debugLog.push({
-            timestamp: new Date().toLocaleTimeString(),
-            level: 'info',
-            message: msg
-          });
-        }
-      }
-    };
-
-    // ---- helpers
-    const absolutize = (u) => {
-      try { return new URL(u, location.href).toString(); } catch { return u; }
-    };
-
-    const fromSrcset = (ss) => {
-      // choose the largest width/density candidate
-      return (ss || "")
-        .split(",")
-        .map(s => s.trim())
-        .map(s => {
-          const [url, d] = s.split(/\s+/);
-          const mW = d && d.endsWith("w") ? parseInt(d) : 0;
-          const mX = d && d.endsWith("x") ? parseFloat(d) : 0;
-          return { url: absolutize(url), score: mW || (mX * 1000) || 0 };
-        })
-        .filter(x => x.url)
-        .sort((a,b) => b.score - a.score)
-        .map(x => x.url)[0];
-    };
-
-    const uniq = (arr) => Array.from(new Set(arr.filter(Boolean)));
-
-    const getDimScore = (img) => {
-      const w = img.naturalWidth || img.width || 0;
-      const h = img.naturalHeight || img.height || 0;
-      return Math.max(w, h);
-    };
-
-    const looksTiny = (u) => /sprite|icon|thumb|placeholder|transparent|1x1/i.test(u);
-
-    // ---- extractors
-    function scanDOM(doc) {
-      const urls = [];
-
-      // IMG + lazy attrs
-      doc.querySelectorAll("img").forEach(img => {
-        // prefer currentSrc > srcset > src
-        const best = img.currentSrc || fromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
-        if (best) urls.push(best);
-
-        // lazy attrs
-        LAZY_ATTRS.forEach(a => {
-          const v = img.getAttribute(a);
-          if (a.endsWith("srcset")) {
-            const u = fromSrcset(v);
-            if (u) urls.push(u);
-          } else if (v) {
-            urls.push(v);
-          }
-        });
-      });
-
-      // <picture><source>
-      doc.querySelectorAll("picture source[srcset]").forEach(s => {
-        const u = fromSrcset(s.getAttribute("srcset"));
-        if (u) urls.push(u);
-      });
-
-      // Links that point directly at images
-      doc.querySelectorAll('a[href]').forEach(a => {
-        const href = a.getAttribute("href") || "";
-        if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href)) urls.push(href);
-      });
-
-      // Background images (inline + computed)
-      doc.querySelectorAll("[style]").forEach(el => {
-        const m = URL_RE.exec(el.getAttribute("style") || "");
-        if (m && m[2]) urls.push(m[2]);
-      });
-      // Common hero/card elements — computed style (costly but bounded)
-      doc.querySelectorAll("div, section, article, figure").forEach(el => {
-        try {
-          const bg = getComputedStyle(el).getPropertyValue("background-image");
-          const m = URL_RE.exec(bg || "");
-          if (m && m[2]) urls.push(m[2]);
-        } catch(e) {
-          // Skip if getComputedStyle fails
-        }
-      });
-
-      return urls.map(absolutize);
-    }
-
-    function scanMetaJSON(doc, live) {
-      const urls = [];
-
-      // OpenGraph / Twitter
-      doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
-        .forEach(m => { const c = m.getAttribute("content"); if (c) urls.push(c); });
-
-      // link rel=image_src
-      doc.querySelectorAll('link[rel="image_src"], link[rel="preload"][as="image"]')
-        .forEach(l => { const h = l.getAttribute("href"); if (h) urls.push(h); });
-
-      // JSON-LD (Product, Article, ImageObject)
-      const roots = [];
-      roots.push(...doc.querySelectorAll('script[type="application/ld+json"]'));
-      if (live && live !== doc) roots.push(...live.querySelectorAll('script[type="application/ld+json"]'));
-      roots.forEach(s => {
-        try {
-          const data = JSON.parse(s.textContent || "{}");
-          const collect = (node) => {
-            if (!node || typeof node !== "object") return;
-            if (Array.isArray(node)) return node.forEach(collect);
-            if (node.image) {
-              if (typeof node.image === "string") urls.push(node.image);
-              else if (Array.isArray(node.image)) urls.push(...node.image);
-              else if (node.image.url) urls.push(node.image.url);
-            }
-            if (node.logo?.url) urls.push(node.logo.url);
-            Object.values(node).forEach(collect);
-          };
-          collect(data);
-        } catch {}
-      });
-
-      return urls.map(absolutize);
-    }
-
-    // ---- main
-    async function collect({ doc = document, minW = 500, max = 20, observeMs = 800 } = {}) {
-      const live = window?.document || doc;
-
-      // First pass
-      let urls = [
-        ...scanMetaJSON(doc, live),
-        ...scanDOM(doc),
-      ];
-
-      // Observe briefly to catch lazy content/carousels rendering
-      const found = new Set(urls);
-      const obs = new MutationObserver(() => {
-        scanDOM(doc).forEach(u => found.add(u));
-      });
-      obs.observe(doc.documentElement, { subtree: true, childList: true, attributes: true });
-
-      // Micro-scroll (helps lazy galleries)
-      try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
-
-      await new Promise(r => setTimeout(r, observeMs));
-      obs.disconnect();
-
-      // Final pass inc. live doc JSON-LD (some sanitizers strip script tags)
-      urls = uniq([...found, ...scanMetaJSON(doc, live)]).filter(Boolean);
-
-      // quality filter + ranking
-      // keep only http(s)
-      urls = urls.filter(u => /^https?:\/\//i.test(u));
-      // de-noise
-      urls = urls.filter(u => !looksTiny(u));
-
-      // prefer bigger from srcset where we can inspect <img> dims
-      const scored = [];
-      doc.querySelectorAll("img").forEach(img => {
-        const best = img.currentSrc || fromSrcset(img.getAttribute("srcset"));
-        if (best) scored.push({ url: absolutize(best), score: getDimScore(img) });
-      });
-      const scoreMap = new Map(scored.map(x => [x.url, x.score]));
-      urls = urls
-        .map(u => ({ url: absolutize(u), score: scoreMap.get(absolutize(u)) || 0 }))
-        .sort((a,b) => b.score - a.score || b.url.length - a.url.length)
-        .map(x => x.url);
-
-      // final unique + min width filter if we know dimensions
-      const byUrl = new Set();
-      const final = [];
-      for (const u of urls) {
-        if (byUrl.has(u)) continue;
-        byUrl.add(u);
-        final.push(u);
-        if (final.length >= max) break;
-      }
-
-      debug(`GenericImageCollector: ${final.length} urls`);
-      return final;
-    }
-
-    return { collect };
-  })();
-
   /* ---------- IMAGES ---------- */
   const JUNK_IMG = /(\.svg($|\?))|sprite|logo|icon|badge|placeholder|thumb|spinner|loading|prime|favicon|video\.jpg|\b(visa|mastercard|paypal|amex|discover|apple-?pay|google-?pay|klarna|afterpay|jcb|unionpay|maestro|diners-?club)\b|(payment|credit-?card|pay-?method|checkout|billing)[-_]?(icon|logo|img|image)/i;
   const BASE64ISH_SEG = /\/[A-Za-z0-9+/_-]{80,}($|\?)/;
@@ -1779,59 +1573,62 @@
     return null;
   }
   async function getImagesGeneric() {
-    debug('🖼️ Getting generic images with GenericImageCollector v2...');
+    const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
+    debug('🖼️ Getting generic images for hostname:', hostname);
     
-    try {
-      // Use GenericImageCollector v2 for robust image collection
-      const images = await GenericImageCollector.collect({ 
-        doc: document, 
-        minW: 500, 
-        max: 30,
-        observeMs: 800 
-      });
-      
-      debug(`✅ GenericImageCollector v2 found: ${images.length} images`);
-      
-      if (images.length > 0) {
-        mark('images', { 
-          selectors: ['GenericImageCollector v2'], 
-          attr: 'comprehensive', 
-          method: 'generic-v2', 
-          urls: images.slice(0, 30) 
-        });
-        return images.slice(0, 30);
+    // Site-specific selectors for problematic sites
+    const siteSpecificSelectors = {
+      'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
+      'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
+      'amazon.com': [
+        // New 2024+ Amazon gallery selectors (thumbnails + main)
+        '[data-csa-c-element-id*="image"] img',
+        '[class*="ivImages"] img', 
+        '[id*="ivImage"] img',
+        '.iv-tab img',
+        '[id*="altImages"] img',
+        '[class*="imagesThumbnail"] img',
+        
+        // Broader Amazon image patterns
+        'img[src*="images-amazon.com"]',
+        'img[src*="ssl-images-amazon.com"]',
+        'img[src*="m.media-amazon.com"]',
+        
+        // Legacy selectors (fallback)
+        '.a-dynamic-image',
+        '#imageBlockContainer img', 
+        '#imageBlock img'
+      ],
+      'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
+      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+    };
+    
+    // Try site-specific selectors first
+    const siteSelectors = siteSpecificSelectors[hostname] || [];
+    for (const sel of siteSelectors) {
+      debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
+      const urls = await gatherImagesBySelector(sel);
+      if (urls.length >= 1) {
+        debug(`✅ Site-specific success: ${urls.length} images found`);
+        mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
+        return urls.slice(0,30); 
       }
-      
-      // Fallback to OpenGraph if no images found
-      const og = q('meta[property="og:image"]')?.content;
-      if (og) {
-        debug('🔄 Fallback to OpenGraph image');
-        mark('images', { 
-          selectors: ['meta[property="og:image"]'], 
-          attr: 'content', 
-          method: 'og-fallback', 
-          urls: [og] 
-        });
-        return [og];
-      }
-      
-      debug('⚠️ No images found via any method');
-      return [];
-      
-    } catch (error) {
-      debug('❌ GenericImageCollector v2 error:', error.message);
-      
-      // Emergency fallback to basic img scanning
-      const all = await gatherImagesBySelector('img');
-      const uniq = await uniqueImages(all);
-      mark('images', { 
-        selectors: ['img'], 
-        attr: 'src', 
-        method: 'emergency-fallback', 
-        urls: uniq.slice(0, 30) 
-      });
-      return uniq.slice(0, 30);
     }
+    
+    const gallerySels = [
+      '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
+      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+    ];
+    for (const sel of gallerySels) {
+      const urls = await gatherImagesBySelector(sel);
+      if (urls.length >= 3) { mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); return urls.slice(0,30); }
+    }
+    const og = q('meta[property="og:image"]')?.content;
+    const all = await gatherImagesBySelector('img');
+    const combined = (og ? [og] : []).concat(all);
+    const uniq = await uniqueImages(combined);
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
+    return uniq.slice(0,30);
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
