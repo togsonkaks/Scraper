@@ -1572,7 +1572,349 @@
     }
     return null;
   }
-  async function getImagesGeneric() {
+  /* ---------- DUAL-ENGINE IMAGE COLLECTION SYSTEM ---------- */
+  
+  // GenericImageCollectorV2 — ChatGPT's comprehensive scanning engine with shared context
+  const GenericImageCollectorV2 = (() => {
+    // ---- config
+    const LAZY_ATTRS = [
+      "data-src", "data-srcset", "data-lazy", "data-lazy-src", "data-original",
+      "data-zoom-image", "data-large_image", "data-image", "data-hires",
+      "data-defer-src", "data-defer-srcset", "data-flickity-lazyload"
+    ];
+    const URL_RE = /url\((['"]?)(.*?)\1\)/i;
+
+    // ---- helpers
+    const absolutize = (u) => {
+      try { return new URL(u, location.href).toString(); } catch { return u; }
+    };
+
+    const fromSrcset = (ss) => {
+      // choose the largest width/density candidate
+      return (ss || "")
+        .split(",")
+        .map(s => s.trim())
+        .map(s => {
+          const [url, d] = s.split(/\s+/);
+          const mW = d && d.endsWith("w") ? parseInt(d) : 0;
+          const mX = d && d.endsWith("x") ? parseFloat(d) : 0;
+          return { url: absolutize(url), score: mW || (mX * 1000) || 0 };
+        })
+        .filter(x => x.url)
+        .sort((a,b) => b.score - a.score)
+        .map(x => x.url)[0];
+    };
+
+    const uniq = (arr) => Array.from(new Set(arr.filter(Boolean)));
+
+    const getDimScore = (img) => {
+      const w = img.naturalWidth || img.width || 0;
+      const h = img.naturalHeight || img.height || 0;
+      return Math.max(w, h);
+    };
+
+    const looksTiny = (u) => /sprite|icon|thumb|placeholder|transparent|1x1/i.test(u);
+
+    // ---- extractors with shared context coordination
+    function scanDOM(doc, sharedContext) {
+      const urls = [];
+
+      // IMG + lazy attrs
+      doc.querySelectorAll("img").forEach(img => {
+        // Skip if already scanned by Engine A
+        if (sharedContext?.seenElements?.has(img)) return;
+        sharedContext?.seenElements?.add(img);
+
+        // prefer currentSrc > srcset > src
+        const best = img.currentSrc || fromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
+        if (best && !sharedContext?.seenUrls?.has(best)) {
+          urls.push(best);
+          sharedContext?.seenUrls?.add(best);
+        }
+
+        // lazy attrs
+        LAZY_ATTRS.forEach(a => {
+          const v = img.getAttribute(a);
+          if (a.endsWith("srcset")) {
+            const u = fromSrcset(v);
+            if (u && !sharedContext?.seenUrls?.has(u)) {
+              urls.push(u);
+              sharedContext?.seenUrls?.add(u);
+            }
+          } else if (v && !sharedContext?.seenUrls?.has(v)) {
+            urls.push(v);
+            sharedContext?.seenUrls?.add(v);
+          }
+        });
+      });
+
+      // <picture><source>
+      doc.querySelectorAll("picture source[srcset]").forEach(s => {
+        if (sharedContext?.seenElements?.has(s)) return;
+        sharedContext?.seenElements?.add(s);
+        
+        const u = fromSrcset(s.getAttribute("srcset"));
+        if (u && !sharedContext?.seenUrls?.has(u)) {
+          urls.push(u);
+          sharedContext?.seenUrls?.add(u);
+        }
+      });
+
+      // Links that point directly at images
+      doc.querySelectorAll('a[href]').forEach(a => {
+        if (sharedContext?.seenElements?.has(a)) return;
+        sharedContext?.seenElements?.add(a);
+        
+        const href = a.getAttribute("href") || "";
+        if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href) && !sharedContext?.seenUrls?.has(href)) {
+          urls.push(href);
+          sharedContext?.seenUrls?.add(href);
+        }
+      });
+
+      // Background images (inline + computed)
+      doc.querySelectorAll("[style]").forEach(el => {
+        if (sharedContext?.seenElements?.has(el)) return;
+        sharedContext?.seenElements?.add(el);
+        
+        const m = URL_RE.exec(el.getAttribute("style") || "");
+        if (m && m[2] && !sharedContext?.seenUrls?.has(m[2])) {
+          urls.push(m[2]);
+          sharedContext?.seenUrls?.add(m[2]);
+        }
+      });
+
+      // Common hero/card elements — computed style (costly but bounded)
+      doc.querySelectorAll("div, section, article, figure").forEach(el => {
+        if (sharedContext?.seenElements?.has(el)) return;
+        sharedContext?.seenElements?.add(el);
+        
+        try {
+          const bg = getComputedStyle(el).getPropertyValue("background-image");
+          const m = URL_RE.exec(bg || "");
+          if (m && m[2] && !sharedContext?.seenUrls?.has(m[2])) {
+            urls.push(m[2]);
+            sharedContext?.seenUrls?.add(m[2]);
+          }
+        } catch(e) {
+          // Skip if getComputedStyle fails
+        }
+      });
+
+      return urls.map(absolutize);
+    }
+
+    function scanMetaJSON(doc, live, sharedContext) {
+      const urls = [];
+
+      // OpenGraph / Twitter
+      doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
+        .forEach(m => { 
+          const c = m.getAttribute("content"); 
+          if (c && !sharedContext?.seenUrls?.has(c)) {
+            urls.push(c);
+            sharedContext?.seenUrls?.add(c);
+          }
+        });
+
+      // link rel=image_src
+      doc.querySelectorAll('link[rel="image_src"], link[rel="preload"][as="image"]')
+        .forEach(l => { 
+          const h = l.getAttribute("href"); 
+          if (h && !sharedContext?.seenUrls?.has(h)) {
+            urls.push(h);
+            sharedContext?.seenUrls?.add(h);
+          }
+        });
+
+      // JSON-LD (Product, Article, ImageObject)
+      const roots = [];
+      roots.push(...doc.querySelectorAll('script[type="application/ld+json"]'));
+      if (live && live !== doc) roots.push(...live.querySelectorAll('script[type="application/ld+json"]'));
+      roots.forEach(s => {
+        try {
+          const data = JSON.parse(s.textContent || "{}");
+          const collect = (node) => {
+            if (!node || typeof node !== "object") return;
+            if (Array.isArray(node)) return node.forEach(collect);
+            if (node.image) {
+              if (typeof node.image === "string" && !sharedContext?.seenUrls?.has(node.image)) {
+                urls.push(node.image);
+                sharedContext?.seenUrls?.add(node.image);
+              } else if (Array.isArray(node.image)) {
+                node.image.forEach(img => {
+                  if (typeof img === "string" && !sharedContext?.seenUrls?.has(img)) {
+                    urls.push(img);
+                    sharedContext?.seenUrls?.add(img);
+                  }
+                });
+              } else if (node.image.url && !sharedContext?.seenUrls?.has(node.image.url)) {
+                urls.push(node.image.url);
+                sharedContext?.seenUrls?.add(node.image.url);
+              }
+            }
+            if (node.logo?.url && !sharedContext?.seenUrls?.has(node.logo.url)) {
+              urls.push(node.logo.url);
+              sharedContext?.seenUrls?.add(node.logo.url);
+            }
+            Object.values(node).forEach(collect);
+          };
+          collect(data);
+        } catch {}
+      });
+
+      return urls.map(absolutize);
+    }
+
+    // ---- main collect function with shared context
+    async function collect({ doc = document, minW = 500, max = 20, observeMs = 800, sharedContext = null } = {}) {
+      const live = window?.document || doc;
+
+      // First pass
+      let urls = [
+        ...scanMetaJSON(doc, live, sharedContext),
+        ...scanDOM(doc, sharedContext),
+      ];
+
+      // Observe briefly to catch lazy content/carousels rendering
+      const found = new Set(urls);
+      const obs = new MutationObserver(() => {
+        scanDOM(doc, sharedContext).forEach(u => {
+          if (!sharedContext?.seenUrls?.has(u)) {
+            found.add(u);
+            sharedContext?.seenUrls?.add(u);
+          }
+        });
+      });
+      obs.observe(doc.documentElement, { subtree: true, childList: true, attributes: true });
+
+      // Micro-scroll (helps lazy galleries)
+      try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
+
+      await new Promise(r => setTimeout(r, observeMs));
+      obs.disconnect();
+
+      // Final pass inc. live doc JSON-LD (some sanitizers strip script tags)
+      urls = uniq([...found, ...scanMetaJSON(doc, live, sharedContext)]).filter(Boolean);
+
+      // quality filter + ranking
+      // keep only http(s)
+      urls = urls.filter(u => /^https?:\/\//i.test(u));
+      // de-noise
+      urls = urls.filter(u => !looksTiny(u));
+
+      debug(`🔍 ENGINE B (ChatGPT): Found ${urls.length} comprehensive images`);
+      
+      // Convert to enriched format for unified processing
+      return urls.map((url, index) => ({ url, element: null, index }));
+    }
+
+    return { collect };
+  })();
+
+  // Engine A with context coordination (Enhanced original logic)
+  async function gatherImagesBySelector_withContext(sel, sharedContext) {
+    debug('🔍 ENGINE A (Original): Starting targeted scanning...');
+    
+    const elements = qa(sel);
+    const enrichedUrls = [];
+    
+    for (let i = 0; i < elements.length; i++) {
+      const el = elements[i];
+      
+      // Skip if already processed by Engine B
+      if (sharedContext?.seenElements?.has(el)) continue;
+      sharedContext?.seenElements?.add(el);
+
+      // Your original logic for src extraction
+      let s1 = el.currentSrc || el.getAttribute('src') || '';
+      if (!s1) {
+        const srcset = el.getAttribute('srcset');
+        if (srcset) {
+          const candidates = srcset.split(',').map(c => c.trim().split(/\s+/)[0]);
+          s1 = candidates[candidates.length - 1] || '';
+        }
+      }
+      
+      if (!s1) continue;
+      
+      // Skip if URL already seen
+      if (sharedContext?.seenUrls?.has(s1)) continue;
+      sharedContext?.seenUrls?.add(s1);
+
+      const abs = toAbs(s1);
+      if (!abs || !looksLikeImageURL(abs)) continue;
+      
+      // Apply your smart filtering
+      if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) continue;
+      if (shouldBlockShopifyFiles(abs, el)) continue;
+      
+      const upgradedUrl = upgradeCDNUrl(abs);
+      enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
+    }
+    
+    debug(`🔍 ENGINE A (Original): Found ${enrichedUrls.length} targeted images`);
+    return enrichedUrls;
+  }
+
+  // Dual-engine orchestrator function
+  async function getImagesUnified() {
+    debug('🚀 DUAL-ENGINE: Starting parallel image collection...');
+    
+    // Shared context for coordination
+    const sharedContext = {
+      seenUrls: new Set(),
+      seenElements: new Set(),
+      document: document,
+      debug: debug
+    };
+
+    try {
+      // Run both engines in parallel with shared context
+      const [engineAResults, engineBResults] = await Promise.all([
+        // Engine A: Your original logic (targeted, high-quality)
+        gatherImagesBySelector_withContext('img', sharedContext),
+        // Engine B: ChatGPT's comprehensive scanning
+        GenericImageCollectorV2.collect({ 
+          doc: document, 
+          minW: 500, 
+          max: 30,
+          observeMs: 800,
+          sharedContext: sharedContext
+        })
+      ]);
+
+      debug(`🔍 ENGINE A (Original): ${engineAResults.length} images`);
+      debug(`🔍 ENGINE B (ChatGPT): ${engineBResults.length} images`);
+
+      // Merge results and apply unified filtering
+      const allResults = engineAResults.concat(engineBResults);
+      debug(`🔄 DUAL-ENGINE: Merging ${allResults.length} total images...`);
+
+      // Apply your proven filtering and scoring system
+      const filtered = await hybridUniqueImages(allResults);
+      debug(`✅ DUAL-ENGINE: Final result: ${filtered.length} images`);
+
+      mark('images', { 
+        selectors: ['dual-engine'], 
+        attr: 'unified', 
+        method: 'dual-engine', 
+        urls: filtered.slice(0, 30) 
+      });
+
+      return filtered.slice(0, 30);
+
+    } catch (error) {
+      debug('❌ DUAL-ENGINE ERROR:', error.message);
+      
+      // Fallback to legacy generic approach
+      debug('🔄 DUAL-ENGINE: Falling back to legacy approach...');
+      return await getImagesGeneric_Legacy();
+    }
+  }
+
+  // Legacy single-engine approach (preserved as fallback)
+  async function getImagesGeneric_Legacy() {
     const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
     debug('🖼️ Getting generic images for hostname:', hostname);
     
@@ -1907,12 +2249,12 @@
             // Merge and dedupe memory + custom
             let combinedImages = await uniqueImages(memoryImages.concat(customImages));
             
-            // Fall back to generic only if still insufficient
+            // Fall back to dual-engine approach if still insufficient
             if (combinedImages.length < 3) {
-              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
-              const genericImages = await getImagesGeneric();
-              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+              debug('🖼️ IMAGES: Custom insufficient, activating dual-engine system...');
+              const dualEngineImages = await getImagesUnified();
+              debug('🖼️ DUAL-ENGINE IMAGES:', { count: dualEngineImages.length, images: dualEngineImages.slice(0, 3) });
+              combinedImages = await uniqueImages(combinedImages.concat(dualEngineImages));
             }
           
             images = combinedImages.slice(0, 30);
