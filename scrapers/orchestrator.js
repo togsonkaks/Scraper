@@ -571,11 +571,13 @@
       }
     }
     
-    // ACE HARDWARE/MOZU CDN: Remove low-quality constraints
-    if (/cdn-tp3\.mozu\.com/i.test(url)) {
+    // ACE HARDWARE/MOZU CDN: Remove low-quality constraints (generalized pattern)
+    if (/cdn-tp\d+\.mozu\.com/i.test(url)) {
       // Remove quality and max size constraints for high-quality images
       upgraded = upgraded.replace(/[?&]quality=\d+/gi, '');
       upgraded = upgraded.replace(/[?&]max=\d+/gi, '');
+      upgraded = upgraded.replace(/[?&]w=\d+/gi, '');
+      upgraded = upgraded.replace(/[?&]h=\d+/gi, '');
       upgraded = upgraded.replace(/[?&]_mzcb=_\d+/gi, ''); // Remove cache busting
       
       if (upgraded !== url) {
@@ -583,26 +585,26 @@
       }
     }
     
-    // CLOUDINARY CDN: Upgrade to high-quality versions
+    // CLOUDINARY CDN: Upgrade to high-quality versions (preserve delimiters)
     if (/res\.cloudinary\.com/i.test(url)) {
-      // Remove small dimension constraints and low quality settings
-      upgraded = upgraded.replace(/[,\/]w_\d{1,3}[,\/]/gi, '/w_1200/');
-      upgraded = upgraded.replace(/[,\/]h_\d{1,3}[,\/]/gi, '/h_1200/');
-      upgraded = upgraded.replace(/[,\/]q_\d{1,2}[,\/]/gi, '/q_90/');
-      upgraded = upgraded.replace(/[,\/]c_thumb[,\/]/gi, '/c_scale/');
+      // Preserve comma/slash delimiters when upgrading dimensions
+      upgraded = upgraded.replace(/([,\/])w_\d{1,3}([,\/])/gi, '$1w_1200$2');
+      upgraded = upgraded.replace(/([,\/])h_\d{1,3}([,\/])/gi, '$1h_1200$2');
+      upgraded = upgraded.replace(/([,\/])q_\d{1,2}([,\/])/gi, '$1q_90$2');
+      upgraded = upgraded.replace(/([,\/])c_thumb([,\/])/gi, '$1c_scale$2');
       
       if (upgraded !== url) {
         debug(`✨ UPGRADED Cloudinary URL: ${url.substring(url.lastIndexOf('/') + 1)} -> High-quality image`);
       }
     }
     
-    // IMGIX CDN: Upgrade to high-quality versions  
+    // IMGIX CDN: Upgrade to high-quality versions (preserve query structure)
     if (/\.imgix\.net/i.test(url)) {
-      // Remove small dimension constraints and boost quality
-      upgraded = upgraded.replace(/[?&]w=\d{1,3}([^0-9]|$)/gi, '?w=1200$1');
-      upgraded = upgraded.replace(/[?&]h=\d{1,3}([^0-9]|$)/gi, '&h=1200$1');
-      upgraded = upgraded.replace(/[?&]q=\d{1,2}([^0-9]|$)/gi, '&q=90$1');
-      upgraded = upgraded.replace(/[?&]fit=crop/gi, '&fit=scale');
+      // Preserve query parameter structure when upgrading
+      upgraded = upgraded.replace(/([?&])w=\d{1,3}\b/gi, '$1w=1200');
+      upgraded = upgraded.replace(/([?&])h=\d{1,3}\b/gi, '$1h=1200');
+      upgraded = upgraded.replace(/([?&])q=\d{1,2}\b/gi, '$1q=90');
+      upgraded = upgraded.replace(/([?&])fit=crop\b/gi, '$1fit=scale');
       
       if (upgraded !== url) {
         debug(`✨ UPGRADED Imgix URL: ${url.substring(url.lastIndexOf('/') + 1)} -> High-quality image`);
