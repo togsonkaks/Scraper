@@ -1250,7 +1250,14 @@
       '#imageBlock', '#altImages', '[data-a-dynamic-image]',
       '.product-gallery', '.product-images', '.product-media',
       '.product-single__photo', '.flickity-viewport',
-      'main figure', 'main .gallery', 'article figure'
+      'main figure', 'main .gallery', 'article figure',
+      // PWA patterns (Urban Outfitters + all PWA sites)
+      '[class*="pwa-slider"]', '[class*="pwa-image"]', '[class*="pwa-zoom"]',
+      // Battle-tested patterns from custom handlers
+      '.product-carousel', '.hero-image', '.product-main-slide',
+      '.swiper-slide', '.swiper-container', '.pdp-gallery', '.pdp-images',
+      '[data-testid*="image"]', '[data-photoswipe-src]', '.slider', '.thumbnails',
+      '[class*=gallery]', '.image-gallery'
     ]
   } = {}) {
     debug(`🚀 HI-RES AUGMENT STARTING on ${window.location.hostname}`);
