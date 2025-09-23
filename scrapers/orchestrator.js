@@ -727,6 +727,66 @@
       if (element.naturalWidth) maxWidth = Math.max(maxWidth, element.naturalWidth);
     }
     
+    // FALLBACK QUALITY DETECTION for images without size info
+    if (maxWidth === 0) {
+      // Use DOM context clues
+      if (element) {
+        const classList = element.className.toLowerCase();
+        const parent = element.parentElement;
+        const parentClass = parent ? parent.className.toLowerCase() : '';
+        
+        // High-quality context indicators
+        if (/hero|main|primary|large|zoom|detail|full/.test(classList + ' ' + parentClass)) {
+          maxWidth = 1200; // Assume high quality
+          metadata.quality = 'inferred-high';
+        }
+        // Medium-quality context indicators  
+        else if (/gallery|product|image/.test(classList + ' ' + parentClass)) {
+          maxWidth = 800; // Assume medium quality
+          metadata.quality = 'inferred-medium';
+        }
+        // Low-quality context indicators
+        else if (/thumb|small|mini|icon|preview/.test(classList + ' ' + parentClass)) {
+          maxWidth = 200; // Assume low quality
+          metadata.quality = 'inferred-low';
+        }
+      }
+      
+      // File path quality indicators
+      if (maxWidth === 0) {
+        if (/\/(hd|uhd|4k|full|original|master|hero)/i.test(url)) {
+          maxWidth = 1920;
+          metadata.quality = 'path-hd';
+        } else if (/\/(large|big|zoom|detail)/i.test(url)) {
+          maxWidth = 1200;
+          metadata.quality = 'path-large';
+        } else if (/\/(medium|med|standard)/i.test(url)) {
+          maxWidth = 600;
+          metadata.quality = 'path-medium';
+        } else if (/\/(small|thumb|mini|icon)/i.test(url)) {
+          maxWidth = 200;
+          metadata.quality = 'path-small';
+        }
+      }
+      
+      // Format quality indicators
+      if (maxWidth === 0) {
+        if (/\.(webp|avif)($|\?)/i.test(url)) {
+          maxWidth = 800; // Modern formats usually higher quality
+          metadata.quality = 'format-modern';
+        } else if (/\.(jpg|jpeg|png)($|\?)/i.test(url)) {
+          maxWidth = 600; // Standard formats
+          metadata.quality = 'format-standard';
+        }
+      }
+      
+      // Final fallback
+      if (maxWidth === 0) {
+        maxWidth = 400; // Conservative default
+        metadata.quality = 'fallback-default';
+      }
+    }
+    
     metadata.effectiveWidth = maxWidth * metadata.dpr;
     
     return metadata;
