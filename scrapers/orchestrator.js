@@ -2357,9 +2357,53 @@
       // 2) Merge raw candidates
       const merged = [].concat(rawA || [], rawB || []);
       debug(`🔄 MERGER: Processing ${rawA.length} + ${rawB.length} = ${merged.length} raw images`);
+      
+      // 2.5) Apply proven junk pattern filtering BEFORE normalization
+      const filteredMerged = [];
+      for (const url of merged) {
+        if (!url) continue;
+        
+        // Apply the same junk pattern filtering as gatherImagesBySelector
+        if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(url)) {
+          debug('❌ BLOCKED: Junk pattern:', url.substring(url.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/_web\.png/i.test(url)) {
+          debug('❌ BLOCKED: Feature icon:', url.substring(url.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/_modal_/i.test(url)) {
+          debug('❌ BLOCKED: Material swatch:', url.substring(url.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/yotpo\.com/i.test(url)) {
+          debug('❌ BLOCKED: Review image:', url.substring(url.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/-\d{3}\.png/i.test(url)) {
+          debug('❌ BLOCKED: Technical sample:', url.substring(url.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/(boucle|basketweave|velvet)/i.test(url)) {
+          debug('❌ BLOCKED: Fabric pattern:', url.substring(url.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/cushion-image/i.test(url)) {
+          debug('❌ BLOCKED: Component image:', url.substring(url.lastIndexOf('/') + 1));
+          continue;
+        }
+        if (/cld\.accentuate\.io/i.test(url)) {
+          debug('❌ BLOCKED: Accentuate CDN junk:', url.substring(url.lastIndexOf('/') + 1));
+          continue;
+        }
+        
+        filteredMerged.push(url);
+      }
+      
+      debug(`🔄 JUNK FILTERING: ${merged.length} raw → ${filteredMerged.length} clean images`);
 
       // 3) Normalize once, globally (consistent across engines)
-      const normalized = merged
+      const normalized = filteredMerged
         .filter(Boolean)
         .map(u => normalizeUrl(u));
 

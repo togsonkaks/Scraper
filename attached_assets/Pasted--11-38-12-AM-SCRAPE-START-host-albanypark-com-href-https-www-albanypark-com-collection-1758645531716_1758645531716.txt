@@ -1,0 +1,320 @@
+[11:38:12 AM] 🚀 SCRAPE START {"host":"albanypark.com","href":"https://www.albanypark.com/collections/barton/products/barton-sofa?variant=41412605607987","mode":"normal"}
+[11:38:12 AM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[11:38:12 AM] 🔄 NORMAL MODE - memory + fallbacks
+[11:38:12 AM] 🧩 TITLE: Trying custom handler...
+[11:38:12 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[11:38:12 AM] 📝 TITLE: Falling back to generic...
+[11:38:12 AM] 📝 TITLE FROM GENERIC: Barton Sofa
+[11:38:12 AM] 🏷️ BRAND: Falling back to generic...
+[11:38:12 AM] 🏷️ BRAND FROM GENERIC: Albany Park
+[11:38:12 AM] 📄 DESCRIPTION: Falling back to generic...
+[11:38:12 AM] 📄 DESCRIPTION FROM GENERIC: Experience the bliss of boundless comfort and exquisite design. The Barton Collection balances deep, ultra-plush seats and cushions with a modern low-profile silhouette to give you an on-trend blend ideal for larger spaces.
+[11:38:12 AM] 🧩 PRICE: Trying custom handler...
+[11:38:12 AM] 🧩 CUSTOM PRICE MISS: returned object null
+[11:38:12 AM] 💰 PRICE: Falling back to generic...
+[11:38:12 AM] 🔍 PRICE PARSING: {"input":"1549.0","inputType":"string","inputLength":6}
+[11:38:12 AM] 🧹 CLEANED INPUT: {"original":"1549.0","cleaned":"1549.0"}
+[11:38:12 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"1549.0","reconstructed":"1549.0"}
+[11:38:12 AM] 💰 MONETARY TOKENS: []
+[11:38:12 AM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[1549]}
+[11:38:12 AM] ✅ FINAL PRICE RESULT: {"result":1549,"method":"MIN_FALLBACK","allNumbers":[1549]}
+[11:38:12 AM] 🎯 REFINING PRICE: {"baseVal":"1549","fromMemory":false,"hasElement":true,"elementTag":"META"}
+[11:38:12 AM] Price element <META>
+[11:38:12 AM] 📋 CHECKING ATTRIBUTES: {"content":"1549.0","data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":"1549.0"}
+[11:38:12 AM] 🔍 PRICE PARSING: {"input":"1549.0","inputType":"string","inputLength":6}
+[11:38:12 AM] 🧹 CLEANED INPUT: {"original":"1549.0","cleaned":"1549.0"}
+[11:38:12 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"1549.0","reconstructed":"1549.0"}
+[11:38:12 AM] 💰 MONETARY TOKENS: []
+[11:38:12 AM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[1549]}
+[11:38:12 AM] ✅ FINAL PRICE RESULT: {"result":1549,"method":"MIN_FALLBACK","allNumbers":[1549]}
+[11:38:12 AM] ✅ PRICE FROM ATTRIBUTES: 1549
+[11:38:12 AM] 💰 PRICE FROM GENERIC: 1549
+[11:38:12 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:38:12 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:38:12 AM] 🧩 IMAGES: Trying custom handler...
+[11:38:12 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[11:38:12 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[11:38:12 AM] 🎯 PATTERN GROUPING: 0 groups identified, sorted by relevance
+[11:38:12 AM] 🏆 TOP SCORED IMAGES: []
+[11:38:12 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[11:38:12 AM] 🖼️ FINAL IMAGES: []
+[11:38:12 AM] 🖼️ IMAGES: Custom insufficient, activating dual-engine system...
+[11:38:12 AM] 🚀 SUPERIOR DUAL-ENGINE: Starting independent collection...
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main figure
+[11:38:12 AM] 🎯 ENGINE A: Found gallery wrapper: main [class*="product"]
+[11:38:12 AM] 🔍 ENGINE A (Wrapper Phase): Found 124 images total
+[11:38:12 AM] 🔍 ENGINE A (Smart): Found 124 product-focused images
+[11:38:12 AM] 🎯 ENGINE B: Scoped to container: main [class*="product"]
+[11:38:12 AM] ⚠️ ENGINE B collection error: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[11:38:12 AM] 🔍 ENGINE B (Product-Scoped): Found 0 images
+[11:38:12 AM] 🔄 MERGER: Processing 124 + 0 = 124 raw images
+[11:38:12 AM] ✅ SUPERIOR DUAL-ENGINE: 24 final images in 21ms
+[11:38:12 AM] 🖼️ DUAL-ENGINE IMAGES: {"count":24,"images":["https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oyster-white-chenille-new.png","https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_birch-brushed-canvas-new.
+[11:38:12 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":24}
+[11:38:12 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":24}
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 120): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oyster-white-chenille-new.png
+120
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 110): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_birch-brushed-canvas-new.png
+110
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 110): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_denim-brushed-canvas-new.png
+110
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_cognac-vegan-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_fog-brushed-canvas-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_licorice-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_tan-vegan-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_dark-teal-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_sand-basketweave-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oatmeal-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_alabaster-boucle-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_pearl-grey-linen-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_spruce-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_hazelnut-boucle-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_champagne-linen-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_white-sunbrella-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_black-sunbrella-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_canyon-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_BS_Wood_NaturalOak.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_almond-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_bone-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_chalk-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_camel-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_olive-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🎯 PATTERN GROUP: 7077/6371/files/cust_oyster-white-chenille-new.png | Count: 1 | Avg Score: 120.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /7077/6371/files/cust_birch-brushed-canvas-new.png | Count: 1 | Avg Score: 110.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /7077/6371/files/cust_denim-brushed-canvas-new.png | Count: 1 | Avg Score: 110.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /7077/6371/files/cust_cognac-vegan-leather-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 74/7077/6371/files/cust_fog-brushed-canvas-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 074/7077/6371/files/cust_licorice-chenille-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 074/7077/6371/files/cust_tan-vegan-leather-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 0074/7077/6371/files/cust_dark-teal-velvet-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 0074/7077/6371/files/cust_sand-basketweave-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 0074/7077/6371/files/cust_oatmeal-chenille-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 0074/7077/6371/files/cust_alabaster-boucle-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 0074/7077/6371/files/cust_pearl-grey-linen-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /0074/7077/6371/files/cust_spruce-chenille-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /0074/7077/6371/files/cust_hazelnut-boucle-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /0074/7077/6371/files/cust_champagne-linen-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /0074/7077/6371/files/cust_white-sunbrella-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /0074/7077/6371/files/cust_black-sunbrella-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 1/0074/7077/6371/files/cust_canyon-leather-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: 1/0074/7077/6371/files/cust_BS_Wood_NaturalOak.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /1/0074/7077/6371/files/cust_almond-velvet-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: /1/0074/7077/6371/files/cust_bone-chenille-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: s/1/0074/7077/6371/files/cust_chalk-velvet-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: s/1/0074/7077/6371/files/cust_camel-velvet-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🎯 PATTERN GROUP: s/1/0074/7077/6371/files/cust_olive-velvet-new.png | Count: 1 | Avg Score: 90.0
+[11:38:12 AM] 🏆 GROUP LEADER (120.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oyster-white-chenille-new.png
+120
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (110.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_birch-brushed-canvas-new.png
+110
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (110.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_denim-brushed-canvas-new.png
+110
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_cognac-vegan-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_fog-brushed-canvas-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_licorice-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_tan-vegan-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_dark-teal-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_sand-basketweave-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oatmeal-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_alabaster-boucle-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_pearl-grey-linen-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_spruce-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_hazelnut-boucle-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_champagne-linen-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_white-sunbrella-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_black-sunbrella-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_canyon-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_BS_Wood_NaturalOak.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_almond-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_bone-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_chalk-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_camel-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 GROUP LEADER (90.0 avg): https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_olive-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🎯 PATTERN GROUPING: 24 groups identified, sorted by relevance
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oyster-white-chenille-new.png
+120
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_birch-brushed-canvas-new.png
+110
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_denim-brushed-canvas-new.png
+110
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_cognac-vegan-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_fog-brushed-canvas-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_licorice-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_tan-vegan-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_dark-teal-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_sand-basketweave-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oatmeal-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_alabaster-boucle-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_pearl-grey-linen-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_spruce-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_hazelnut-boucle-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_champagne-linen-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_white-sunbrella-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_black-sunbrella-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_canyon-leather-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_BS_Wood_NaturalOak.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_almond-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_bone-chenille-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_chalk-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_camel-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_olive-velvet-new.png
+90
+📋 Copy URL
+[11:38:12 AM] 🏆 TOP SCORED IMAGES: ["cust_oyster-white-chenille-new.png (score: 120)","cust_birch-brushed-canvas-new.png (score: 110)","cust_denim-brushed-canvas-new.png (score: 110)","cust_cognac-vegan-leather-new.png (score: 90)","cu
+[11:38:12 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":24}
+[11:38:12 AM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oyster-white-chenill","https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_birch-brushed-canvas","https://cdn.shopify.com/s/files/
+[11:38:12 AM] 🖼️ FINAL IMAGES: {"count":24,"images":["https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oyster-white-chenille-new.png","https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_birch-brushed-canvas-new.
+[11:38:12 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Barton Sofa","brand":"Albany Park","description":"Experience the bliss of boundless comfort and exqu","price":"1549","imageCount":24,"firstImages":["https://cdn.shopify.com/s/files/1/0074/70
+[11:38:12 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":24}
+[11:38:12 AM] ✅ Debug trace complete
+Clear Debug
+Image URLs (top 20)
+📋 https://cdn.shopify.com/s/files/1/0074/7077/6371/files/cust_oyster-white-chenille-new.png
