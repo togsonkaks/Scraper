@@ -1594,6 +1594,51 @@ const ASOS = {
   }
 };
 
+// ---------- Urban Outfitters (PWA containers + $redesign-zoom-5x$ upgrades) ----------
+const URBAN_OUTFITTERS = {
+  match: (h) => /urbanoutfitters\.com$/i.test(h),
+  
+  images(doc = document) {
+    console.log("[DEBUG] Urban Outfitters custom image logic running...");
+    const out = new Set();
+    
+    // Target PWA image containers specifically
+    const pwaDealSelectors = [
+      '.o-pwa-image__img',           // Main PWA image class
+      '.c-pwa-slider img',           // PWA slider images
+      '.c-pwa-slider__item img',     // PWA slider item images
+      '.c-pwa-image-zoom-modal img', // PWA zoom modal images
+      '[class*="pwa-image"] img',    // Any PWA image variants
+      '[class*="pwa-slider"] img'    // Any PWA slider variants
+    ];
+    
+    // Collect images from PWA containers
+    pwaDealSelectors.forEach(selector => {
+      doc.querySelectorAll(selector).forEach(img => {
+        let url = img.currentSrc || img.src;
+        if (url && /images\.urbndata\.com\/is\/image/i.test(url)) {
+          // Upgrade to highest quality zoom images
+          url = url.replace(/\$xlarge\$/g, '$redesign-zoom-5x$');
+          url = url.replace(/\$large\$/g, '$redesign-zoom-5x$');
+          url = url.replace(/\$medium\$/g, '$redesign-zoom-5x$');
+          
+          // Remove size constraints to allow full resolution
+          url = url.replace(/[?&]wid=\d+/gi, '');
+          url = url.replace(/[?&]hei=\d+/gi, '');
+          url = url.replace(/[?&]fit=constrain/gi, '');
+          url = url.replace(/[?&]qlt=\d+/gi, '');
+          
+          console.log(`[DEBUG] UO upgraded: ${url.substring(url.lastIndexOf('/') + 1)}`);
+          out.add(url);
+        }
+      });
+    });
+    
+    console.log(`[DEBUG] Urban Outfitters found ${out.size} high-quality PWA images`);
+    return [...out].filter(Boolean).slice(0, 20);
+  }
+};
+
 const REGISTRY = [
   AMZ,
   NIKE,
@@ -1627,6 +1672,7 @@ const REGISTRY = [
   ALIEXPRESS,
   AE,
   ASOS,
+  URBAN_OUTFITTERS,
 
 
 ];

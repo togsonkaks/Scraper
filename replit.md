@@ -36,6 +36,10 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
 
 ## Recent Changes
+- **Urban Outfitters Custom Handler**: Created dedicated custom handler for Urban Outfitters with PWA container targeting and $redesign-zoom-5x$ quality upgrades
+- **PWA Pattern Recognition**: Added comprehensive wildcard pattern support for Progressive Web App containers across multiple ecommerce sites
+- **Container Bonus System**: Enhanced gallery detection with +100 point bonuses for primary product containers from proven custom handlers
+- **Hi-Res Augmentation Expansion**: Extended scope selectors to include battle-tested patterns from Nike, Adidas, American Eagle, and other major retailers
 - **LQIP Detection System**: Implemented comprehensive Low Quality Image Placeholder detection with automatic high-resolution upgrades
 - **Enhanced Brand Detection**: Replaced simple brand logic with comprehensive detection including JSON-LD, meta tags, breadcrumbs, URL patterns, and title analysis
 - **CDN Pattern Recognition**: Added support for 12+ major CDNs including Cloudinary, Imgix, ImageKit, Fastly, and e-commerce platforms
