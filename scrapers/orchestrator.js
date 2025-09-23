@@ -1000,19 +1000,29 @@
         let pathname = urlObj.pathname;
         let hostname = urlObj.hostname;
         
-        // Replace variable parts with tokens
+        // Replace variable parts with tokens - ORDER MATTERS (most specific first)
+        
         // UUIDs: 8-4-4-4-12 character patterns
         pathname = pathname.replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi, '{UUID}');
         
         // Long hex strings (40+ chars)
         pathname = pathname.replace(/[0-9a-f]{40,}/gi, '{HEXID}');
         
-        // Numbers (file IDs, dimensions, etc.)
-        pathname = pathname.replace(/\b\d{4,}\b/g, '{NUMID}');
+        // Image sequence numbers: _1_, _2_, _3_, etc.
+        pathname = pathname.replace(/_\d{1,2}_/g, '_{NUM}_');
+        
+        // Shopify image dimensions: _1020x, -523x, /355x355, etc. (preserve delimiter)
+        pathname = pathname.replace(/([\/_-])\d{3,4}x\d{0,4}(?=[^A-Za-z0-9]|$)/gi, '$1{SIZE}');
         pathname = pathname.replace(/\b\d{2,3}px?\b/g, '{SIZE}');
         
-        // Common variable filename patterns
-        pathname = pathname.replace(/\b[0-9a-f]{6,}\b/gi, '{ID}');
+        // File size/quality parameters in filename: -w200, -h300, etc.
+        pathname = pathname.replace(/[-_](w|h)\d{2,4}/g, '-{DIM}');
+        
+        // Large numeric IDs (file IDs, etc.) but preserve small numbers
+        pathname = pathname.replace(/\b\d{5,}\b/g, '{NUMID}');
+        
+        // Medium hex IDs (6-39 chars) - after UUIDs to avoid conflicts
+        pathname = pathname.replace(/\b[0-9a-f]{6,39}\b/gi, '{ID}');
         
         // Create pattern: hostname + path template
         return hostname + pathname;
