@@ -963,7 +963,30 @@ const MESHKI = {
   match: (h) => /\bmeshki\.(us|com)\b/i.test(h),
   images(doc = document) {
     const seen = new Map();
-    doc.querySelectorAll('img').forEach(img=>{
+    
+    // Target product-specific containers instead of all images
+    const productSelectors = [
+      '.product__media-wrapper img',
+      '.product_media_item img', 
+      '[data-media-id] img',
+      '.slide-template- img',
+      '.product-media img'
+    ];
+    
+    const productImages = [];
+    for (const selector of productSelectors) {
+      productImages.push(...doc.querySelectorAll(selector));
+    }
+    
+    // Fallback to all images if no product containers found
+    if (productImages.length === 0) {
+      console.log('[MESHKI DEBUG] No product containers found, falling back to all images');
+      productImages.push(...doc.querySelectorAll('img'));
+    } else {
+      console.log(`[MESHKI DEBUG] Found ${productImages.length} images in product containers`);
+    }
+    
+    productImages.forEach(img=>{
       const raw = img.currentSrc || img.src || img.getAttribute('data-src');
       if (!raw) return;
       const base = (raw.split('?')[0] || '').replace(/(_\d+x\d+)\.(jpe?g|png|webp|avif)$/i, '.$2');

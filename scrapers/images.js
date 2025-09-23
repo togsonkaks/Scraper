@@ -23,6 +23,19 @@ window.__TAGGLO_IMAGES_ALREADY_RAN__ = true;
   function scoreImageRelevance(imgUrl, imgElement) {
     let score = 0;
     
+    // PRODUCT TITLE KEYWORD MATCHING - +10 points per match
+    const urlLower = imgUrl.toLowerCase();
+    let keywordMatches = 0;
+    for (const keyword of titleTokens) {
+      if (urlLower.includes(keyword.toLowerCase())) {
+        keywordMatches++;
+        score += 10;
+      }
+    }
+    if (keywordMatches > 0) {
+      console.log(`🎯 KEYWORD MATCH: "${imgUrl.substring(imgUrl.lastIndexOf('/') + 1)}" matches ${keywordMatches} keywords from "${title}" = +${keywordMatches * 10} points`);
+    }
+    
     // Higher score for larger images (main product images are usually larger)
     const imgRect = imgElement.getBoundingClientRect();
     if (imgRect.width > 400) score += 20;

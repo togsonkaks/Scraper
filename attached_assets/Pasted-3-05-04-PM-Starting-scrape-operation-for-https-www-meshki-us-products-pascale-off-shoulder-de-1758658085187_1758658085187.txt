@@ -1,0 +1,232 @@
+3:05:04 PM] 🚀 Starting scrape operation for: https://www.meshki.us/products/pascale-off-shoulder-denim-mini-dress-washed-dark-blue
+[3:05:04 PM] 🚀 SCRAPE START {"host":"meshki.us","href":"https://www.meshki.us/products/pascale-off-shoulder-denim-mini-dress-washed-dark-blue","mode":"normal"}
+[3:05:04 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[3:05:04 PM] 🔄 NORMAL MODE - memory + fallbacks
+[3:05:04 PM] 🧩 TITLE: Trying custom handler...
+[3:05:04 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[3:05:04 PM] 📝 TITLE: Falling back to generic...
+[3:05:04 PM] 📝 TITLE FROM GENERIC: Pascale Off Shoulder Denim Mini Dress - Washed Dark Blue
+[3:05:04 PM] 🏷️ BRAND: Falling back to generic...
+[3:05:04 PM] 🏷️ BRAND FROM GENERIC: FSM
+[3:05:04 PM] 📄 DESCRIPTION: Falling back to generic...
+[3:05:04 PM] 📄 DESCRIPTION FROM GENERIC: Shop Pascale Off Shoulder Denim Mini Dress - Washed Dark Blue online at MESHKI. Elevate your wardrobe with the latest fashion trends. Shop now.
+[3:05:04 PM] 🧩 PRICE: Trying custom handler...
+[3:05:04 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[3:05:04 PM] 💰 PRICE: Falling back to generic...
+[3:05:04 PM] 🔍 PRICE PARSING: {"input":"Regular price\n $105\n\n \n Sale price\n \n $105\n \n Regular price\n \n \n \n $175\n \n \n
+[3:05:04 PM] 🧹 CLEANED INPUT: {"original":"Regular price\n $105\n\n \n Sale price\n \n $105\n \n Regular price\n \n \n \n $175\n \n
+[3:05:04 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"Regular price\n $105\n\n \n Sale price\n \n $105\n \n Regular price\n \n \n \n $175\n \n
+[3:05:04 PM] 💰 MONETARY TOKENS: [105,105,175]
+[3:05:04 PM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[105,105,175],"preferDecimals":false}
+[3:05:04 PM] ✅ PRICE FROM MONETARY: {"result":105,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[105,105,175]}
+[3:05:04 PM] 🎯 REFINING PRICE: {"baseVal":"105","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[3:05:04 PM] Price element <DIV.price>
+[3:05:04 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[3:05:04 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[3:05:04 PM] 📍 ANCESTOR 0: <DIV.price>
+[3:05:04 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"Regular price\n $105\n\n \n Sale price\n \n $105\n \n Regular price\n ","cleaned":"Regular price\n $105\n\n \n Sale price\n \n
+[3:05:04 PM] 💰 ANCESTOR 0 SMART PRICE: 105 from tokens: [105,105,175]
+[3:05:04 PM] 📍 ANCESTOR 1: <DIV#price-template--15676391522400__main.product__price>
+[3:05:04 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"Regular price\n $105\n\n \n Sale price\n \n $105\n \n Regular price\n ","cleaned":"Regular price\n $105\n\n \n Sale price\n \n
+[3:05:04 PM] 💰 ANCESTOR 1 SMART PRICE: 105 from tokens: [105,105,175]
+[3:05:04 PM] 📍 ANCESTOR 2: <PRODUCT-INFO#ProductInfo-template--15676391522400__main.product__info-container>
+[3:05:04 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Pascale\n \n \n \n \n ","cleaned":"Pascale\n \n \n
+[3:05:04 PM] 💰 ANCESTOR 2 SMART PRICE: 50 from tokens: [105,105,175,105,105,105,105,105,105,105,105,50,50,50,100,100,100,65,65]
+[3:05:04 PM] 🔄 NEW BEST PRICE: 50 (was 105)
+[3:05:04 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"50","originalBase":"105"}
+[3:05:04 PM] 💰 PRICE FROM GENERIC: 50
+[3:05:04 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[3:05:04 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[3:05:04 PM] 🧩 IMAGES: Trying custom handler...
+[3:05:04 PM] 🧩 CUSTOM IMAGES: {"count":20,"images":["https://www.meshki.us/cdn/shop/files/DROP_DOWNS_DENIMSHOP_DENIM_US_UK_444x.jpg?v=1757987111","https://www.meshki.us/cdn/shop/files/NEW_DRESSES_US_UK_444x.jpg?v=1756712761","http
+[3:05:04 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[3:05:04 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":20}
+[3:05:04 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":20}
+[3:05:04 PM] ✨ UPGRADED Shopify URL: DROP_DOWNS_DENIMSHOP_DENIM_US_UK_444x.jpg?v=1757987111 -> DROP_DOWNS_DENIMSHOP_DENIM_US_UK_1020x.jpg?v=1757987111
+[3:05:04 PM] ✨ UPGRADED CDN URL: DROP_DOWNS_DENIMSHOP_DENIM_US_UK_444x.jpg?v=1757987111 -> DROP_DOWNS_DENIMSHOP_DENIM_US_UK_1020x.jpg?v=1757987111
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: NEW_DRESSES_US_UK_444x.jpg?v=1756712761 -> NEW_DRESSES_US_UK_1020x.jpg?v=1756712761
+[3:05:04 PM] ✨ UPGRADED CDN URL: NEW_DRESSES_US_UK_444x.jpg?v=1756712761 -> NEW_DRESSES_US_UK_1020x.jpg?v=1756712761
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: BACK_IN_STOCK_US_UK_769203cb-ac4a-474e-959a-5685a9343654_444x.jpg?v=1756777824 -> BACK_IN_STOCK_US_UK_769203cb-ac4a-474e-959a-5685a9343654_1020x.jpg?v=1756777824
+[3:05:04 PM] ✨ UPGRADED CDN URL: BACK_IN_STOCK_US_UK_769203cb-ac4a-474e-959a-5685a9343654_444x.jpg?v=1756777824 -> BACK_IN_STOCK_US_UK_769203cb-ac4a-474e-959a-5685a9343654_1020x.jpg?v=1756777824
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: WHITE_DRESSES_US_UK_9506464a-7a10-4e47-9698-b9abcba1507b_444x.jpg?v=1756712845 -> WHITE_DRESSES_US_UK_9506464a-7a10-4e47-9698-b9abcba1507b_1020x.jpg?v=1756712845
+[3:05:04 PM] ✨ UPGRADED CDN URL: WHITE_DRESSES_US_UK_9506464a-7a10-4e47-9698-b9abcba1507b_444x.jpg?v=1756712845 -> WHITE_DRESSES_US_UK_9506464a-7a10-4e47-9698-b9abcba1507b_1020x.jpg?v=1756712845
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: CASUAL_DRESSES_US_UK_444x.jpg?v=1756712845 -> CASUAL_DRESSES_US_UK_1020x.jpg?v=1756712845
+[3:05:04 PM] ✨ UPGRADED CDN URL: CASUAL_DRESSES_US_UK_444x.jpg?v=1756712845 -> CASUAL_DRESSES_US_UK_1020x.jpg?v=1756712845
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: WEDDING_GUESTS_US_UK_8dd5efd1-af73-4584-b44a-948591c9c39a_444x.jpg?v=1756712845 -> WEDDING_GUESTS_US_UK_8dd5efd1-af73-4584-b44a-948591c9c39a_1020x.jpg?v=1756712845
+[3:05:04 PM] ✨ UPGRADED CDN URL: WEDDING_GUESTS_US_UK_8dd5efd1-af73-4584-b44a-948591c9c39a_444x.jpg?v=1756712845 -> WEDDING_GUESTS_US_UK_8dd5efd1-af73-4584-b44a-948591c9c39a_1020x.jpg?v=1756712845
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: KNITWEAR_US_UK_4c9cc4b1-4a4e-405b-b198-24ae93e7edc5_444x.jpg?v=1756712900 -> KNITWEAR_US_UK_4c9cc4b1-4a4e-405b-b198-24ae93e7edc5_1020x.jpg?v=1756712900
+[3:05:04 PM] ✨ UPGRADED CDN URL: KNITWEAR_US_UK_4c9cc4b1-4a4e-405b-b198-24ae93e7edc5_444x.jpg?v=1756712900 -> KNITWEAR_US_UK_4c9cc4b1-4a4e-405b-b198-24ae93e7edc5_1020x.jpg?v=1756712900
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: SHOP_DENIM_US_UK_444x.jpg?v=1756712900 -> SHOP_DENIM_US_UK_1020x.jpg?v=1756712900
+[3:05:04 PM] ✨ UPGRADED CDN URL: SHOP_DENIM_US_UK_444x.jpg?v=1756712900 -> SHOP_DENIM_US_UK_1020x.jpg?v=1756712900
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: SETS_US_UK_27ac6782-9d5b-4c8b-8adb-861397a4e9ce_444x.jpg?v=1756712900 -> SETS_US_UK_27ac6782-9d5b-4c8b-8adb-861397a4e9ce_1020x.jpg?v=1756712900
+[3:05:04 PM] ✨ UPGRADED CDN URL: SETS_US_UK_27ac6782-9d5b-4c8b-8adb-861397a4e9ce_444x.jpg?v=1756712900 -> SETS_US_UK_27ac6782-9d5b-4c8b-8adb-861397a4e9ce_1020x.jpg?v=1756712900
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: DESK_TO_DINNER_US_UK_444x.jpg?v=1756712953 -> DESK_TO_DINNER_US_UK_1020x.jpg?v=1756712953
+[3:05:04 PM] ✨ UPGRADED CDN URL: DESK_TO_DINNER_US_UK_444x.jpg?v=1756712953 -> DESK_TO_DINNER_US_UK_1020x.jpg?v=1756712953
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: DROP_DOWNS_RJASMINE_444x.jpg?v=1756859240 -> DROP_DOWNS_RJASMINE_1020x.jpg?v=1756859240
+[3:05:04 PM] ✨ UPGRADED CDN URL: DROP_DOWNS_RJASMINE_444x.jpg?v=1756859240 -> DROP_DOWNS_RJASMINE_1020x.jpg?v=1756859240
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: DROP_DOWNS_DENIMSHOP_DENIM_AU_444x.jpg?v=1757987145 -> DROP_DOWNS_DENIMSHOP_DENIM_AU_1020x.jpg?v=1757987145
+[3:05:04 PM] ✨ UPGRADED CDN URL: DROP_DOWNS_DENIMSHOP_DENIM_AU_444x.jpg?v=1757987145 -> DROP_DOWNS_DENIMSHOP_DENIM_AU_1020x.jpg?v=1757987145
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: THE_ARCHITECT_US_UK_0b596c32-22df-47e4-bacd-453648283bb6_444x.jpg?v=1756713513 -> THE_ARCHITECT_US_UK_0b596c32-22df-47e4-bacd-453648283bb6_1020x.jpg?v=1756713513
+[3:05:04 PM] ✨ UPGRADED CDN URL: THE_ARCHITECT_US_UK_0b596c32-22df-47e4-bacd-453648283bb6_444x.jpg?v=1756713513 -> THE_ARCHITECT_US_UK_0b596c32-22df-47e4-bacd-453648283bb6_1020x.jpg?v=1756713513
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: ROAM_CAMPAIGN_444x.jpg?v=1756713067 -> ROAM_CAMPAIGN_1020x.jpg?v=1756713067
+[3:05:04 PM] ✨ UPGRADED CDN URL: ROAM_CAMPAIGN_444x.jpg?v=1756713067 -> ROAM_CAMPAIGN_1020x.jpg?v=1756713067
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: ASM_CAMPAIGN_12cbbecd-f553-4d5a-91a2-aafda36adbca_444x.jpg?v=1752544388 -> ASM_CAMPAIGN_12cbbecd-f553-4d5a-91a2-aafda36adbca_1020x.jpg?v=1752544388
+[3:05:04 PM] ✨ UPGRADED CDN URL: ASM_CAMPAIGN_12cbbecd-f553-4d5a-91a2-aafda36adbca_444x.jpg?v=1752544388 -> ASM_CAMPAIGN_12cbbecd-f553-4d5a-91a2-aafda36adbca_1020x.jpg?v=1752544388
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: VIVA_CAMPAIGN_1caf0b61-97ed-4d91-ab29-a2844f27c16b_444x.jpg?v=1752544363 -> VIVA_CAMPAIGN_1caf0b61-97ed-4d91-ab29-a2844f27c16b_1020x.jpg?v=1752544363
+[3:05:04 PM] ✨ UPGRADED CDN URL: VIVA_CAMPAIGN_1caf0b61-97ed-4d91-ab29-a2844f27c16b_444x.jpg?v=1752544363 -> VIVA_CAMPAIGN_1caf0b61-97ed-4d91-ab29-a2844f27c16b_1020x.jpg?v=1752544363
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: WILD_OASIS_CAMPAIGN_NH_9af29929-7f91-4b24-802e-25e6159c113b_444x.jpg?v=1752544347 -> WILD_OASIS_CAMPAIGN_NH_9af29929-7f91-4b24-802e-25e6159c113b_1020x.jpg?v=1752544347
+[3:05:04 PM] ✨ UPGRADED CDN URL: WILD_OASIS_CAMPAIGN_NH_9af29929-7f91-4b24-802e-25e6159c113b_444x.jpg?v=1752544347 -> WILD_OASIS_CAMPAIGN_NH_9af29929-7f91-4b24-802e-25e6159c113b_1020x.jpg?v=1752544347
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: SALE_1_444x.jpg?v=1756249957 -> SALE_1_1020x.jpg?v=1756249957
+[3:05:04 PM] ✨ UPGRADED CDN URL: SALE_1_444x.jpg?v=1756249957 -> SALE_1_1020x.jpg?v=1756249957
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: OUTLET_DROPDOWN_444x.jpg?v=1756249979 -> OUTLET_DROPDOWN_1020x.jpg?v=1756249979
+[3:05:04 PM] ✨ UPGRADED CDN URL: OUTLET_DROPDOWN_444x.jpg?v=1756249979 -> OUTLET_DROPDOWN_1020x.jpg?v=1756249979
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] ✨ UPGRADED Shopify URL: SALE_3_444x.jpg?v=1756250019 -> SALE_3_1020x.jpg?v=1756250019
+[3:05:04 PM] ✨ UPGRADED CDN URL: SALE_3_444x.jpg?v=1756250019 -> SALE_3_1020x.jpg?v=1756250019
+[3:05:04 PM] 🔍 EFFECTIVE RESOLUTION: 1020px (1020×1) = +35.3 points
+[3:05:04 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 20 candidates
+[3:05:04 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 20 images after family deduplication
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 115.31069492725953): https://www.meshki.us/cdn/shop/files/DROP_DOWNS_DENIMSHOP_DENIM_US_UK_1020x.jpg?v=1757987111
+115.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 105.31069492725953): https://www.meshki.us/cdn/shop/files/NEW_DRESSES_US_UK_1020x.jpg?v=1756712761
+105.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 105.31069492725953): https://www.meshki.us/cdn/shop/files/BACK_IN_STOCK_US_UK_769203cb-ac4a-474e-959a-5685a9343654_1020x.
+105.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/WHITE_DRESSES_US_UK_9506464a-7a10-4e47-9698-b9abcba1507b_1020x.
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/CASUAL_DRESSES_US_UK_1020x.jpg?v=1756712845
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/WEDDING_GUESTS_US_UK_8dd5efd1-af73-4584-b44a-948591c9c39a_1020x
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/KNITWEAR_US_UK_4c9cc4b1-4a4e-405b-b198-24ae93e7edc5_1020x.jpg?v
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/SHOP_DENIM_US_UK_1020x.jpg?v=1756712900
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/SETS_US_UK_27ac6782-9d5b-4c8b-8adb-861397a4e9ce_1020x.jpg?v=175
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/DESK_TO_DINNER_US_UK_1020x.jpg?v=1756712953
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/DROP_DOWNS_RJASMINE_1020x.jpg?v=1756859240
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/DROP_DOWNS_DENIMSHOP_DENIM_AU_1020x.jpg?v=1757987145
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/THE_ARCHITECT_US_UK_0b596c32-22df-47e4-bacd-453648283bb6_1020x.
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/ROAM_CAMPAIGN_1020x.jpg?v=1756713067
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/ASM_CAMPAIGN_12cbbecd-f553-4d5a-91a2-aafda36adbca_1020x.jpg?v=1
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/VIVA_CAMPAIGN_1caf0b61-97ed-4d91-ab29-a2844f27c16b_1020x.jpg?v=
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/WILD_OASIS_CAMPAIGN_NH_9af29929-7f91-4b24-802e-25e6159c113b_102
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/SALE_1_1020x.jpg?v=1756249957
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/OUTLET_DROPDOWN_1020x.jpg?v=1756249979
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] ✅ SINGLE IMAGE (score: 85.31069492725953): https://www.meshki.us/cdn/shop/files/SALE_3_1020x.jpg?v=1756250019
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (115.31069492725953): https://www.meshki.us/cdn/shop/files/DROP_DOWNS_DENIMSHOP_DENIM_US_UK_1020x.jpg?v=1757987111
+115.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (105.31069492725953): https://www.meshki.us/cdn/shop/files/NEW_DRESSES_US_UK_1020x.jpg?v=1756712761
+105.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (105.31069492725953): https://www.meshki.us/cdn/shop/files/BACK_IN_STOCK_US_UK_769203cb-ac4a-474e-959a-5685a9343654_1020x.
+105.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/WHITE_DRESSES_US_UK_9506464a-7a10-4e47-9698-b9abcba1507b_1020x.
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/CASUAL_DRESSES_US_UK_1020x.jpg?v=1756712845
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/WEDDING_GUESTS_US_UK_8dd5efd1-af73-4584-b44a-948591c9c39a_1020x
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/KNITWEAR_US_UK_4c9cc4b1-4a4e-405b-b198-24ae93e7edc5_1020x.jpg?v
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/SHOP_DENIM_US_UK_1020x.jpg?v=1756712900
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/SETS_US_UK_27ac6782-9d5b-4c8b-8adb-861397a4e9ce_1020x.jpg?v=175
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/DESK_TO_DINNER_US_UK_1020x.jpg?v=1756712953
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/DROP_DOWNS_RJASMINE_1020x.jpg?v=1756859240
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/DROP_DOWNS_DENIMSHOP_DENIM_AU_1020x.jpg?v=1757987145
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/THE_ARCHITECT_US_UK_0b596c32-22df-47e4-bacd-453648283bb6_1020x.
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/ROAM_CAMPAIGN_1020x.jpg?v=1756713067
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/ASM_CAMPAIGN_12cbbecd-f553-4d5a-91a2-aafda36adbca_1020x.jpg?v=1
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/VIVA_CAMPAIGN_1caf0b61-97ed-4d91-ab29-a2844f27c16b_1020x.jpg?v=
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/WILD_OASIS_CAMPAIGN_NH_9af29929-7f91-4b24-802e-25e6159c113b_102
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/SALE_1_1020x.jpg?v=1756249957
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/OUTLET_DROPDOWN_1020x.jpg?v=1756249979
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🎯 HIGH SCORE + SIZE OK (85.31069492725953): https://www.meshki.us/cdn/shop/files/SALE_3_1020x.jpg?v=1756250019
+85.31069492725953
+📋 Copy URL
+[3:05:04 PM] 🏆 TOP SCORED IMAGES: ["DROP_DOWNS_DENIMSHOP_DENIM_US_UK_1020x.jpg?v=1757987111 (score: 115.31069492725953)","NEW_DRESSES_US_UK_1020x.jpg?v=1756712761 (score: 105.31069492725953)","BACK_IN_STOCK_US_UK_769203cb-ac4a-474e-95
+[3:05:04 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":20}
+[3:05:04 PM] 🖼️ FINAL IMAGES: ["https://www.meshki.us/cdn/shop/files/DROP_DOWNS_DENIMSHOP_DENIM_US_UK_1020x.jpg?","https://www.meshki.us/cdn/shop/files/NEW_DRESSES_US_UK_1020x.jpg?v=1756712761","https://www.meshki.us/cdn/shop/file
+[3:05:04 PM] 🖼️ FINAL IMAGES: {"count":20,"images":["https://www.meshki.us/cdn/shop/files/DROP_DOWNS_DENIMSHOP_DENIM_US_UK_1020x.jpg?v=1757987111","https://www.meshki.us/cdn/shop/files/NEW_DRESSES_US_UK_1020x.jpg?v=1756712761","ht
+[3:05:04 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Pascale\n \n \n","brand":"FSM","description":"Shop Pascale Off Shoulder Denim Mini Dress - Washe","price":"50","imageCount":20,"firstImages":["https://w
+[3:05:04 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"de
