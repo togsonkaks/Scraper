@@ -794,9 +794,22 @@
 
   // Enhanced image quality scoring function with aggressive filtering  
   function scoreImageURL(url, enrichedData = null, elementIndex = 0) {
-    // Handle both old and new calling conventions
-    const element = enrichedData?.element || enrichedData;
     if (!url) return 0;
+    
+    // Handle both old and new calling conventions
+    let element = null;
+    let containerSelector = null;
+    
+    if (enrichedData) {
+      if (enrichedData.element !== undefined) {
+        // New format: enriched object with { url, element, index, containerSelector }
+        element = enrichedData.element;
+        containerSelector = enrichedData.containerSelector;
+      } else {
+        // Old format: element passed directly
+        element = enrichedData;
+      }
+    }
     
     // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns and prioritize high-res
     if (/images\.urbndata\.com\/is\/image/i.test(url)) {
@@ -1001,8 +1014,8 @@
     }
     
     // CONTAINER BONUS SYSTEM - +100 points for primary product gallery images
-    if (enrichedData && enrichedData.containerSelector) {
-      const containerSel = enrichedData.containerSelector;
+    if (containerSelector) {
+      const containerSel = containerSelector;
       
       // Define primary product gallery selectors (highest priority containers)
       const primaryGallerySelectors = [
