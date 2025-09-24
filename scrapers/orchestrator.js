@@ -1268,11 +1268,19 @@
     observeMs = 1200,           // brief watch to catch lazy hydration / zoom swaps
     max = 40,                   // soft cap; your filter will trim further
     scopeSelectors = [
-      // Common product galleries (Amazon/Shopify/generic)
+      // UNIFIED GALLERY SELECTORS (A1 + collectHiResAugment proven patterns)
+      // A1 proven gallery patterns
+      '.product-media', '.gallery', '.image-gallery', '.product-images', '.product-gallery',
+      '[class*=gallery]', '.slider', '.thumbnails', '.pdp-gallery', '[data-testid*=image]',
+      
+      // collectHiResAugment proven patterns  
       '#imageBlock', '#altImages', '[data-a-dynamic-image]',
-      '.product-gallery', '.product-images', '.product-media',
       '.product-single__photo', '.flickity-viewport',
-      'main figure', 'main .gallery', 'article figure'
+      'main figure', 'main .gallery', 'article figure',
+      
+      // Additional proven patterns
+      '.carousel', '.swiper-container', '.product__media', '.pdp-media',
+      '.media-gallery', '.main-image', '[data-product-gallery]', '[data-gallery]'
     ]
   } = {}) {
     debug(`🚀 HI-RES AUGMENT STARTING on ${window.location.hostname}`);
@@ -2242,31 +2250,28 @@
         "data-defer-srcset", "data-flickity-lazyload"
       ];
       
-      // Product container selectors (ordered by specificity)
-      const GALLERY_SELECTORS = [
-        '.product-gallery', '.product__media', '.product-media', '.pdp-gallery', '.pdp-media',
-        '.media-gallery', '.image-gallery', '.product-images', '.product-image', '.main-image',
-        '.carousel', '.slider', '[data-product-gallery]', '[data-gallery]', '[data-test*="gallery"]'
-      ];
-      
-      const PRODUCT_ROOT_SELECTORS = [
-        '[itemtype*="schema.org/Product"]', '#product', '.product', '[id*="product"]', '[class*="product"]'
+      // UNIFIED GALLERY SELECTORS (A1 + collectHiResAugment proven patterns)
+      const UNIFIED_GALLERY_SELECTORS = [
+        // A1 proven gallery patterns
+        '.product-media', '.gallery', '.image-gallery', '.product-images', '.product-gallery',
+        '[class*=gallery]', '.slider', '.thumbnails', '.pdp-gallery', '[data-testid*=image]',
+        
+        // collectHiResAugment proven patterns  
+        '#imageBlock', '#altImages', '[data-a-dynamic-image]',
+        '.product-single__photo', '.flickity-viewport',
+        'main figure', 'main .gallery', 'article figure',
+        
+        // Additional proven patterns
+        '.carousel', '.swiper-container', '.product__media', '.pdp-media',
+        '.media-gallery', '.main-image', '[data-product-gallery]', '[data-gallery]'
       ];
       
       // Exclude obvious non-product areas
       const EXCLUDE_AREAS = 'header, nav, footer, aside, [role="banner"], [role="navigation"], *[class*="breadcrumb"], *[class*="promo"], *[class*="newsletter"], *[class*="cookie"]';
       
-      // Find product containers
+      // Find unified gallery containers (no broad product root selectors)
       const containers = [];
-      GALLERY_SELECTORS.forEach(sel => {
-        doc.querySelectorAll(sel).forEach(container => {
-          if (!container.closest(EXCLUDE_AREAS)) {
-            containers.push(container);
-          }
-        });
-      });
-      
-      PRODUCT_ROOT_SELECTORS.forEach(sel => {
+      UNIFIED_GALLERY_SELECTORS.forEach(sel => {
         doc.querySelectorAll(sel).forEach(container => {
           if (!container.closest(EXCLUDE_AREAS)) {
             containers.push(container);
@@ -2310,29 +2315,14 @@
       // Scan all product containers
       containers.forEach(scanContainer);
       
-      // Guarded fallback: if insufficient images found, expand scope
-      if (urls.size < 4) {
-        // Fallback 1: main/article product areas
-        doc.querySelectorAll('main [class*="product"], article [class*="product"]').forEach(area => {
+      // Focused fallback: only add semantic areas if insufficient
+      if (urls.size < 2) {
+        // Target only main semantic areas with image-specific classes
+        doc.querySelectorAll('main .images, main .photos, article .images, article .photos').forEach(area => {
           if (!area.closest(EXCLUDE_AREAS) && !containers.includes(area)) {
             scanContainer(area);
           }
         });
-        
-        // Fallback 2: capped global scan with quality filters (last resort)
-        if (urls.size < 2) {
-          let globalCount = 0;
-          doc.querySelectorAll("img").forEach(img => {
-            if (globalCount >= 12) return; // Hard cap
-            if (img.closest(EXCLUDE_AREAS)) return; // Skip excluded areas
-            
-            const best = img.currentSrc || img.getAttribute("src");
-            if (best && (best.includes('product') || best.includes('media') || best.includes('gallery'))) {
-              add(best);
-              globalCount++;
-            }
-          });
-        }
       }
     };
 
@@ -2412,8 +2402,19 @@
     }
     
     const gallerySels = [
-      '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
-      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+      // UNIFIED GALLERY SELECTORS (A1 + collectHiResAugment proven patterns) + img
+      // A1 proven gallery patterns
+      '.product-media img', '.gallery img', '.image-gallery img', '.product-images img', '.product-gallery img',
+      '[class*=gallery] img', '.slider img', '.thumbnails img', '.pdp-gallery img', '[data-testid*=image] img',
+      
+      // collectHiResAugment proven patterns  
+      '#imageBlock img', '#altImages img', '[data-a-dynamic-image]',
+      '.product-single__photo img', '.flickity-viewport img',
+      'main figure img', 'main .gallery img', 'article figure img',
+      
+      // Additional proven patterns
+      '.carousel img', '.swiper-container img', '.product__media img', '.pdp-media img',
+      '.media-gallery img', '.main-image img', '[data-product-gallery] img', '[data-gallery] img'
     ];
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel);
