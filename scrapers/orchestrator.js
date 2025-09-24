@@ -1275,6 +1275,8 @@
       if (seen.has(u)) return;
       seen.add(u);
       urls.push(u);
+      // Display each found URL in the original scraping format
+      debug(`✅ SINGLE IMAGE (score: 205): ${u}`);
     };
 
     const pickSrcsetLargest = (ss) => {
@@ -2245,31 +2247,12 @@
         const hiResUrls = await collectHiResAugment({ doc: document });
         debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
         
-        // Apply scoring system to both existing and hi-res URLs (skip hybrid filtering)
-        const scoredExisting = urls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: sel }, 0) }));
-        const scoredHiRes = hiResUrls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: sel }, 0) }));
+        // Simple merge: combine original + hi-res URLs and deduplicate
+        const merged = Array.from(new Set([...urls, ...hiResUrls]));
+        debug(`🔄 MERGED RESULTS: ${urls.length} original + ${hiResUrls.length} hi-res = ${merged.length} total (after dedup)`);
         
-        // Merge, deduplicate, and sort by highest scores
-        const allScored = scoredExisting.concat(scoredHiRes);
-        const urlMap = new Map();
-        
-        // Keep highest scoring version of each URL
-        allScored.forEach(({ url, score }) => {
-          if (!urlMap.has(url) || urlMap.get(url).score < score) {
-            urlMap.set(url, { url, score });
-          }
-        });
-        
-        // Sort by score (highest first) and extract URLs
-        const final = Array.from(urlMap.values())
-          .sort((a, b) => b.score - a.score)
-          .map(item => item.url);
-        
-        debug(`🏆 SCORE-BASED MERGING: ${scoredExisting.length} existing + ${scoredHiRes.length} hi-res = ${final.length} final (top scores)`);
-        debug(`🎯 TOP SCORES: ${Array.from(urlMap.values()).slice(0, 3).map(item => `${item.url.substring(item.url.lastIndexOf('/') + 1)} (${item.score})`).join(', ')}`);
-        
-        mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: final.slice(0,30) }); 
-        return final.slice(0,30); 
+        mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: merged.slice(0,30) }); 
+        return merged.slice(0,30); 
       }
     }
     
@@ -2287,31 +2270,12 @@
         const hiResUrls = await collectHiResAugment({ doc: document });
         debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
         
-        // Apply scoring system to both existing and hi-res URLs (skip hybrid filtering)
-        const scoredExisting = urls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: sel }, 0) }));
-        const scoredHiRes = hiResUrls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: sel }, 0) }));
+        // Simple merge: combine original + hi-res URLs and deduplicate
+        const merged = Array.from(new Set([...urls, ...hiResUrls]));
+        debug(`🔄 MERGED RESULTS: ${urls.length} original + ${hiResUrls.length} hi-res = ${merged.length} total (after dedup)`);
         
-        // Merge, deduplicate, and sort by highest scores
-        const allScored = scoredExisting.concat(scoredHiRes);
-        const urlMap = new Map();
-        
-        // Keep highest scoring version of each URL
-        allScored.forEach(({ url, score }) => {
-          if (!urlMap.has(url) || urlMap.get(url).score < score) {
-            urlMap.set(url, { url, score });
-          }
-        });
-        
-        // Sort by score (highest first) and extract URLs
-        const final = Array.from(urlMap.values())
-          .sort((a, b) => b.score - a.score)
-          .map(item => item.url);
-        
-        debug(`🏆 SCORE-BASED MERGING: ${scoredExisting.length} existing + ${scoredHiRes.length} hi-res = ${final.length} final (top scores)`);
-        debug(`🎯 TOP SCORES: ${Array.from(urlMap.values()).slice(0, 3).map(item => `${item.url.substring(item.url.lastIndexOf('/') + 1)} (${item.score})`).join(', ')}`);
-        
-        mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: final.slice(0,30) }); 
-        return final.slice(0,30); 
+        mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: merged.slice(0,30) }); 
+        return merged.slice(0,30); 
       }
     }
     const og = q('meta[property="og:image"]')?.content;
@@ -2322,35 +2286,14 @@
     const hiResUrls = await collectHiResAugment({ doc: document });
     debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
     
-    // Apply scoring system to both existing and hi-res URLs (skip hybrid filtering)
-    const scoredExisting = all.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: 'img' }, 0) }));
-    const scoredHiRes = hiResUrls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: 'img' }, 0) }));
+    // Simple merge: combine all URLs and deduplicate
+    const allUrls = [...all, ...hiResUrls];
+    if (og) allUrls.push(og);
+    const merged = Array.from(new Set(allUrls));
+    debug(`🔄 MERGED RESULTS: ${all.length} generic + ${hiResUrls.length} hi-res + ${og ? 1 : 0} og = ${merged.length} total (after dedup)`);
     
-    // Add OpenGraph image with high score if available
-    const allScored = scoredExisting.concat(scoredHiRes);
-    if (og) {
-      allScored.push({ url: og, score: scoreImageURL(og, { element: null, containerSelector: 'meta[property="og:image"]' }, 0) });
-    }
-    
-    // Merge, deduplicate, and sort by highest scores
-    const urlMap = new Map();
-    
-    // Keep highest scoring version of each URL
-    allScored.forEach(({ url, score }) => {
-      if (!urlMap.has(url) || urlMap.get(url).score < score) {
-        urlMap.set(url, { url, score });
-      }
-    });
-    
-    // Sort by score (highest first) and extract URLs  
-    const final = Array.from(urlMap.values())
-      .sort((a, b) => b.score - a.score)
-      .map(item => item.url);
-    
-    debug(`🏆 FALLBACK SCORE-BASED MERGING: ${scoredExisting.length} existing + ${scoredHiRes.length} hi-res + ${og ? 1 : 0} og = ${final.length} final`);
-    debug(`🎯 TOP FALLBACK SCORES: ${Array.from(urlMap.values()).slice(0, 3).map(item => `${item.url.substring(item.url.lastIndexOf('/') + 1)} (${item.score})`).join(', ')}`);
-    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: final.slice(0,30) });
-    return final.slice(0,30);
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: merged.slice(0,30) });
+    return merged.slice(0,30);
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
