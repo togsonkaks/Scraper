@@ -36,6 +36,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
 
 ## Recent Changes
+- **Container Tracking Bug Fix**: Fixed critical hi-res augmentation bug that was causing high-quality images to lose gallery bonuses and get rejected (scores dropped from 205 to 8)
 - **Urban Outfitters Custom Handler**: Created dedicated custom handler for Urban Outfitters with PWA container targeting and $redesign-zoom-5x$ quality upgrades
 - **PWA Pattern Recognition**: Added comprehensive wildcard pattern support for Progressive Web App containers across multiple ecommerce sites
 - **Container Bonus System**: Enhanced gallery detection with +100 point bonuses for primary product containers from proven custom handlers

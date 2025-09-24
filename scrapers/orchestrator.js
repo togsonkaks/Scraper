@@ -2169,7 +2169,7 @@
         
         // Convert existing URLs to enriched format, then add hi-res URLs
         const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
-        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: sel })); // Preserve original selector
         const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
         const final = await hybridUniqueImages(enrichedUrls);
         
@@ -2194,7 +2194,7 @@
         
         // Convert existing URLs to enriched format, then add hi-res URLs
         const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
-        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: sel })); // Preserve original selector
         const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
         const final = await hybridUniqueImages(enrichedUrls);
         
@@ -2212,7 +2212,7 @@
     
     // Convert existing URLs to enriched format, then add hi-res URLs
     const enrichedExisting = all.map(url => ({ url, element: null, index: 0, containerSelector: 'img' }));
-    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'img' })); // Preserve original selector
     const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
     const final = await hybridUniqueImages(enrichedUrls);
     
