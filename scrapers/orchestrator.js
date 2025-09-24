@@ -2586,7 +2586,16 @@
           // If we have custom images, use them (custom overrides memory)
           if (customImages.length > 0) {
             debug('🎯 USING CUSTOM IMAGES (overriding memory)');
-            images = (await uniqueImages(customImages)).slice(0, 30);
+            if (window.__tg_orchestratorProcessed && window.__tg_processedImageUrls) {
+              debug('🚫 BYPASSING LEGACY FILTERING: Using orchestrator pre-processed images');
+              images = window.__tg_processedImageUrls.slice(0, 30);
+              // Clean up bypass flags after use
+              debug('🧹 CLEANING UP: Resetting orchestrator bypass flags');
+              window.__tg_orchestratorProcessed = false;
+              window.__tg_processedImageUrls = null;
+            } else {
+              images = (await uniqueImages(customImages)).slice(0, 30);
+            }
           } else {
             let combinedImages;
             
