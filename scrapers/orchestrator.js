@@ -2649,9 +2649,38 @@
             // Fall back to generic only if still insufficient
             if (combinedImages.length < 3) {
               debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+              
+              // A1 PATH: Original working system
               const genericImages = await getImagesGeneric();
-              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+              debug('🖼️ A1 GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+              
+              // B1 PATH: Combined collectors feeding to house scoring system
+              debug('🖼️ B1: Running combined collectors...');
+              const hiResUrls = await collectHiResAugment({ doc: document, observeMs: 1000 });
+              const genericUrls = await runGenericImageCollectorV2({ doc: document, observeMs: 1000 });
+              const combinedRawUrls = [...new Set([...hiResUrls, ...genericUrls])];
+              debug(`🖼️ B1 RAW COLLECTION: ${hiResUrls.length} + ${genericUrls.length} = ${combinedRawUrls.length} URLs (after dedup)`);
+              
+              // Feed B1 raw URLs to house scoring system
+              const enrichedB1 = combinedRawUrls.map((url, index) => ({ 
+                url, 
+                element: null, 
+                index, 
+                containerSelector: 'b1-combined-collectors' 
+              }));
+              const b1Images = await hybridUniqueImages(enrichedB1);
+              debug('🖼️ B1 HOUSE FILTERED:', { count: b1Images.length, images: b1Images.slice(0, 3) });
+              
+              // Merge A1 + B1 results and sort by score
+              const allImages = [...genericImages, ...b1Images];
+              const sortedImages = allImages.sort((a, b) => {
+                const scoreA = typeof a === 'string' ? 0 : (a.score || 0);
+                const scoreB = typeof b === 'string' ? 0 : (b.score || 0);
+                return scoreB - scoreA;
+              });
+              debug(`🖼️ MERGED A1+B1: ${genericImages.length} + ${b1Images.length} = ${sortedImages.length} total`);
+              
+              combinedImages = await uniqueImages(combinedImages.concat(sortedImages));
             }
           
             images = combinedImages.slice(0, 30);
