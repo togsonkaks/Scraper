@@ -1821,6 +1821,7 @@
     } catch(e) {
       console.warn('[DEBUG] gatherImagesBySelector error:', e.message);
       debug('❌ Image gathering failed, returning empty array');
+      return [];
     }
     
     debug(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
