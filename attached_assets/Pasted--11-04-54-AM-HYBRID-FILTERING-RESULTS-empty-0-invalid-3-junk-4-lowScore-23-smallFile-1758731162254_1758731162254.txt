@@ -1,0 +1,279 @@
+[11:04:54 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":4,"lowScore":23,"smallFile":0,"duplicateGroups":1,"kept":8}
+[11:04:54 AM] 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[11:04:54 AM] 🖼️ After hybrid filtering: 8 images
+[11:04:54 AM] ✅ Site-specific success: 8 images found
+[11:04:54 AM] 🎯 CALLING HI-RES AUGMENTATION (site-specific path)
+[11:04:54 AM] 🚀 HI-RES AUGMENT STARTING on www.acehardware.com
+[11:04:54 AM] 🔍 Hi-res augment collected: 20 URLs
+[11:04:54 AM] ✅ HI-RES AUGMENTATION COMPLETE: 20 URLs
+[11:04:54 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":28}
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 480px (480×1) = +13.6 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 480px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[11:04:54 AM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[11:04:54 AM] 🗑️ JUNK IMAGE: https://cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🏆 PRIMARY GALLERY BONUS: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🚫 PRIMARY GALLERY BONUS BLOCKED: "fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_m
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🚫 PRIMARY GALLERY BONUS BLOCKED: "e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_m
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🚫 PRIMARY GALLERY BONUS BLOCKED: "ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_m
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🚫 PRIMARY GALLERY BONUS BLOCKED: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_m
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🚫 PRIMARY GALLERY BONUS BLOCKED: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_m
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🚫 PRIMARY GALLERY BONUS BLOCKED: "91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_m
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🚫 PRIMARY GALLERY BONUS BLOCKED: "d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_m
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🚫 PRIMARY GALLERY BONUS BLOCKED: "721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_m
+0
+📋 Copy URL
+[11:04:54 AM] 🔄 HYBRID UNIQUE: Applying family deduplication to 17 candidates
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 3.3007499855768714) from 2 siblings for https://cdn-tp3.mozu.com/24645-37138/cms/37138/fil...
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 3.3007499855768714) from 2 siblings for https://cdn-tp3.mozu.com/24645-37138/cms/37138/fil...
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 3.3007499855768714) from 2 siblings for https://cdn-tp3.mozu.com/24645-37138/cms/37138/fil...
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 3.3007499855768714) from 2 siblings for https://cdn-tp3.mozu.com/24645-37138/cms/37138/fil...
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 3.3007499855768714) from 2 siblings for https://cdn-tp3.mozu.com/24645-37138/cms/37138/fil...
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 3.3007499855768714) from 2 siblings for https://cdn-tp3.mozu.com/24645-37138/cms/37138/fil...
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 3.3007499855768714) from 2 siblings for https://cdn-tp3.mozu.com/24645-37138/cms/37138/fil...
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 3.3007499855768714) from 2 siblings for https://cdn-tp3.mozu.com/24645-37138/cms/37138/fil...
+[11:04:54 AM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 9 images after family deduplication
+[11:04:54 AM] ✅ BEST OF 2 (score: 108.56143810225275): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+108.56143810225275
+📋 Copy URL
+[11:04:54 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+108.56143810225275
+📋 Copy URL
+[11:04:54 AM] ✅ SINGLE IMAGE (score: 103.30074998557687): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] ✅ SINGLE IMAGE (score: 103.30074998557687): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] ✅ SINGLE IMAGE (score: 103.30074998557687): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] ✅ SINGLE IMAGE (score: 103.30074998557687): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] ✅ SINGLE IMAGE (score: 103.30074998557687): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] ✅ SINGLE IMAGE (score: 103.30074998557687): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] ✅ SINGLE IMAGE (score: 103.30074998557687): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+108.56143810225275
+📋 Copy URL
+[11:04:54 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+103.30074998557687
+📋 Copy URL
+[11:04:54 AM] 🏆 TOP SCORED IMAGES: ["fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 (score: 108.56143810225275)","e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925 (score: 103.3007499855
+[11:04:54 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":1,"junk":2,"lowScore":8,"smallFile":0,"duplicateGroups":1,"kept":8}
+[11:04:54 AM] 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[11:04:54 AM] 🖼️ GENERIC IMAGES: {"count":8,"images":["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925","https://cdn-tp3.mozu.com/24645-37138/cms/37138
+[11:04:54 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":8}
+[11:04:54 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 480px (480×1) = +13.6 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 480px gets -100 points (under 500px threshold)
+[11:04:54 AM] 📍 CONTAINER INFO: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (8.561438102252751): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+8.561438102252751
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 📍 CONTAINER INFO: "e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 📍 CONTAINER INFO: "ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 📍 CONTAINER INFO: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 📍 CONTAINER INFO: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 📍 CONTAINER INFO: "91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 📍 CONTAINER INFO: "d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+0
+📋 Copy URL
+[11:04:54 AM] 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[11:04:54 AM] 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[11:04:54 AM] 📍 CONTAINER INFO: "721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[11:04:54 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+0
+📋 Copy URL
+[11:04:54 AM] 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[11:04:54 AM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[11:04:54 AM] 🏆 TOP SCORED IMAGES: []
+[11:04:54 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":8,"smallFile":0,"duplicateGroups":0,"kept":0}
+[11:04:54 AM] 🖼️ FINAL IMAGES: []
+[11:04:54 AM] 🖼️ FINAL IMAGES: {"count":0,"images":[]}
+[11:04:54 AM] 🤖 IMAGES: Zero images found, activating LLM fallback...
+[11:04:54 AM] 🤖 LLM FALLBACK: Starting AI-powered image selector discovery...
+[11:04:54 AM] 🤖 LLM FALLBACK: Sending request to LLM agent {"htmlLength":120000,"url":"https://www.acehardware.com/departments/tools/powe"}
+[11:04:54 AM] 🤖 LLM FALLBACK: Critical error: IPC not available
+[11:04:54 AM] 🤖 LLM FALLBACK: No additional images found
+[11:04:54 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless","brand":"STIHL","description":"STIHL introduces another worlds first a cutoff mac","price":"539.99","imageCount":0,"firstImages":[],"selec
+[11:04:54 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":0}
+[11:04:54 AM] ✅ Debug trace complete
+Clear Debug

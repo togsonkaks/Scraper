@@ -2167,11 +2167,28 @@
         const hiResUrls = await collectHiResAugment({ doc: document });
         debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
         
-        // Convert existing URLs to enriched format, then add hi-res URLs
-        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
-        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: sel })); // Preserve original selector
-        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
-        const final = await hybridUniqueImages(enrichedUrls);
+        // Apply scoring system to both existing and hi-res URLs (skip hybrid filtering)
+        const scoredExisting = urls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: sel }, 0) }));
+        const scoredHiRes = hiResUrls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: sel }, 0) }));
+        
+        // Merge, deduplicate, and sort by highest scores
+        const allScored = scoredExisting.concat(scoredHiRes);
+        const urlMap = new Map();
+        
+        // Keep highest scoring version of each URL
+        allScored.forEach(({ url, score }) => {
+          if (!urlMap.has(url) || urlMap.get(url).score < score) {
+            urlMap.set(url, { url, score });
+          }
+        });
+        
+        // Sort by score (highest first) and extract URLs
+        const final = Array.from(urlMap.values())
+          .sort((a, b) => b.score - a.score)
+          .map(item => item.url);
+        
+        debug(`🏆 SCORE-BASED MERGING: ${scoredExisting.length} existing + ${scoredHiRes.length} hi-res = ${final.length} final (top scores)`);
+        debug(`🎯 TOP SCORES: ${Array.from(urlMap.values()).slice(0, 3).map(item => `${item.url.substring(item.url.lastIndexOf('/') + 1)} (${item.score})`).join(', ')}`);
         
         mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: final.slice(0,30) }); 
         return final.slice(0,30); 
@@ -2192,11 +2209,28 @@
         const hiResUrls = await collectHiResAugment({ doc: document });
         debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
         
-        // Convert existing URLs to enriched format, then add hi-res URLs
-        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
-        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: sel })); // Preserve original selector
-        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
-        const final = await hybridUniqueImages(enrichedUrls);
+        // Apply scoring system to both existing and hi-res URLs (skip hybrid filtering)
+        const scoredExisting = urls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: sel }, 0) }));
+        const scoredHiRes = hiResUrls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: sel }, 0) }));
+        
+        // Merge, deduplicate, and sort by highest scores
+        const allScored = scoredExisting.concat(scoredHiRes);
+        const urlMap = new Map();
+        
+        // Keep highest scoring version of each URL
+        allScored.forEach(({ url, score }) => {
+          if (!urlMap.has(url) || urlMap.get(url).score < score) {
+            urlMap.set(url, { url, score });
+          }
+        });
+        
+        // Sort by score (highest first) and extract URLs
+        const final = Array.from(urlMap.values())
+          .sort((a, b) => b.score - a.score)
+          .map(item => item.url);
+        
+        debug(`🏆 SCORE-BASED MERGING: ${scoredExisting.length} existing + ${scoredHiRes.length} hi-res = ${final.length} final (top scores)`);
+        debug(`🎯 TOP SCORES: ${Array.from(urlMap.values()).slice(0, 3).map(item => `${item.url.substring(item.url.lastIndexOf('/') + 1)} (${item.score})`).join(', ')}`);
         
         mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: final.slice(0,30) }); 
         return final.slice(0,30); 
@@ -2210,16 +2244,35 @@
     const hiResUrls = await collectHiResAugment({ doc: document });
     debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
     
-    // Convert existing URLs to enriched format, then add hi-res URLs
-    const enrichedExisting = all.map(url => ({ url, element: null, index: 0, containerSelector: 'img' }));
-    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'img' })); // Preserve original selector
-    const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
-    const final = await hybridUniqueImages(enrichedUrls);
+    // Apply scoring system to both existing and hi-res URLs (skip hybrid filtering)
+    const scoredExisting = all.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: 'img' }, 0) }));
+    const scoredHiRes = hiResUrls.map(url => ({ url, score: scoreImageURL(url, { element: null, containerSelector: 'img' }, 0) }));
     
-    const combined = (og ? [og] : []).concat(final);
-    const uniq = await uniqueImages(combined);
-    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: uniq.slice(0,30) });
-    return uniq.slice(0,30);
+    // Add OpenGraph image with high score if available
+    const allScored = scoredExisting.concat(scoredHiRes);
+    if (og) {
+      allScored.push({ url: og, score: scoreImageURL(og, { element: null, containerSelector: 'meta[property="og:image"]' }, 0) });
+    }
+    
+    // Merge, deduplicate, and sort by highest scores
+    const urlMap = new Map();
+    
+    // Keep highest scoring version of each URL
+    allScored.forEach(({ url, score }) => {
+      if (!urlMap.has(url) || urlMap.get(url).score < score) {
+        urlMap.set(url, { url, score });
+      }
+    });
+    
+    // Sort by score (highest first) and extract URLs  
+    const final = Array.from(urlMap.values())
+      .sort((a, b) => b.score - a.score)
+      .map(item => item.url);
+    
+    debug(`🏆 FALLBACK SCORE-BASED MERGING: ${scoredExisting.length} existing + ${scoredHiRes.length} hi-res + ${og ? 1 : 0} og = ${final.length} final`);
+    debug(`🎯 TOP FALLBACK SCORES: ${Array.from(urlMap.values()).slice(0, 3).map(item => `${item.url.substring(item.url.lastIndexOf('/') + 1)} (${item.score})`).join(', ')}`);
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: final.slice(0,30) });
+    return final.slice(0,30);
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  

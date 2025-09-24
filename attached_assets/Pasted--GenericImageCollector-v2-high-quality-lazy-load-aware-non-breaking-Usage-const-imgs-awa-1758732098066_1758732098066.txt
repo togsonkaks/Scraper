@@ -1,0 +1,191 @@
+// GenericImageCollector v2 — high-quality, lazy-load aware, non-breaking
+// Usage: const imgs = await GenericImageCollector.collect({ doc, minW: 500, max: 20 });
+
+const GenericImageCollector = (() => {
+  // ---- config
+  const LAZY_ATTRS = [
+    "data-src", "data-srcset", "data-lazy", "data-lazy-src", "data-original",
+    "data-zoom-image", "data-large_image", "data-image", "data-hires",
+    "data-defer-src", "data-defer-srcset", "data-flickity-lazyload"
+  ];
+  const URL_RE = /url\((['"]?)(.*?)\1\)/i;
+
+  // route logs to orchestrator if present (won’t crash elsewhere)
+  const debug = (msg) => (window.__tg_debugLog ? window.__tg_debugLog(msg) : void 0);
+
+  // ---- helpers
+  const absolutize = (u) => {
+    try { return new URL(u, location.href).toString(); } catch { return u; }
+  };
+
+  const fromSrcset = (ss) => {
+    // choose the largest width/density candidate
+    return (ss || "")
+      .split(",")
+      .map(s => s.trim())
+      .map(s => {
+        const [url, d] = s.split(/\s+/);
+        const mW = d && d.endsWith("w") ? parseInt(d) : 0;
+        const mX = d && d.endsWith("x") ? parseFloat(d) : 0;
+        return { url: absolutize(url), score: mW || (mX * 1000) || 0 };
+      })
+      .filter(x => x.url)
+      .sort((a,b) => b.score - a.score)
+      .map(x => x.url)[0];
+  };
+
+  const uniq = (arr) => Array.from(new Set(arr.filter(Boolean)));
+
+  const getDimScore = (img) => {
+    const w = img.naturalWidth || img.width || 0;
+    const h = img.naturalHeight || img.height || 0;
+    return Math.max(w, h);
+  };
+
+  const looksTiny = (u) => /sprite|icon|thumb|placeholder|transparent|1x1/i.test(u);
+
+  // ---- extractors
+  function scanDOM(doc) {
+    const urls = [];
+
+    // IMG + lazy attrs
+    doc.querySelectorAll("img").forEach(img => {
+      // prefer currentSrc > srcset > src
+      const best = img.currentSrc || fromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
+      if (best) urls.push(best);
+
+      // lazy attrs
+      LAZY_ATTRS.forEach(a => {
+        const v = img.getAttribute(a);
+        if (a.endsWith("srcset")) {
+          const u = fromSrcset(v);
+          if (u) urls.push(u);
+        } else if (v) {
+          urls.push(v);
+        }
+      });
+    });
+
+    // <picture><source>
+    doc.querySelectorAll("picture source[srcset]").forEach(s => {
+      const u = fromSrcset(s.getAttribute("srcset"));
+      if (u) urls.push(u);
+    });
+
+    // Links that point directly at images
+    doc.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute("href") || "";
+      if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href)) urls.push(href);
+    });
+
+    // Background images (inline + computed)
+    doc.querySelectorAll("[style]").forEach(el => {
+      const m = URL_RE.exec(el.getAttribute("style") || "");
+      if (m && m[2]) urls.push(m[2]);
+    });
+    // Common hero/card elements — computed style (costly but bounded)
+    doc.querySelectorAll("div, section, article, figure").forEach(el => {
+      const bg = getComputedStyle(el).getPropertyValue("background-image");
+      const m = URL_RE.exec(bg || "");
+      if (m && m[2]) urls.push(m[2]);
+    });
+
+    return urls.map(absolutize);
+  }
+
+  function scanMetaJSON(doc, live) {
+    const urls = [];
+
+    // OpenGraph / Twitter
+    doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
+      .forEach(m => { const c = m.getAttribute("content"); if (c) urls.push(c); });
+
+    // link rel=image_src
+    doc.querySelectorAll('link[rel="image_src"], link[rel="preload"][as="image"]')
+      .forEach(l => { const h = l.getAttribute("href"); if (h) urls.push(h); });
+
+    // JSON-LD (Product, Article, ImageObject)
+    const roots = [];
+    roots.push(...doc.querySelectorAll('script[type="application/ld+json"]'));
+    if (live && live !== doc) roots.push(...live.querySelectorAll('script[type="application/ld+json"]'));
+    roots.forEach(s => {
+      try {
+        const data = JSON.parse(s.textContent || "{}");
+        const collect = (node) => {
+          if (!node || typeof node !== "object") return;
+          if (Array.isArray(node)) return node.forEach(collect);
+          if (node.image) {
+            if (typeof node.image === "string") urls.push(node.image);
+            else if (Array.isArray(node.image)) urls.push(...node.image);
+            else if (node.image.url) urls.push(node.image.url);
+          }
+          if (node.logo?.url) urls.push(node.logo.url);
+          Object.values(node).forEach(collect);
+        };
+        collect(data);
+      } catch {}
+    });
+
+    return urls.map(absolutize);
+  }
+
+  // ---- main
+  async function collect({ doc = document, minW = 500, max = 20, observeMs = 800 } = {}) {
+    const live = window?.document || doc;
+
+    // First pass
+    let urls = [
+      ...scanMetaJSON(doc, live),
+      ...scanDOM(doc),
+    ];
+
+    // Observe briefly to catch lazy content/carousels rendering
+    const found = new Set(urls);
+    const obs = new MutationObserver(() => {
+      scanDOM(doc).forEach(u => found.add(u));
+    });
+    obs.observe(doc.documentElement, { subtree: true, childList: true, attributes: true });
+
+    // Micro-scroll (helps lazy galleries)
+    try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
+
+    await new Promise(r => setTimeout(r, observeMs));
+    obs.disconnect();
+
+    // Final pass inc. live doc JSON-LD (some sanitizers strip script tags)
+    urls = uniq([...found, ...scanMetaJSON(doc, live)]).filter(Boolean);
+
+    // quality filter + ranking
+    // keep only http(s)
+    urls = urls.filter(u => /^https?:\/\//i.test(u));
+    // de-noise
+    urls = urls.filter(u => !looksTiny(u));
+
+    // prefer bigger from srcset where we can inspect <img> dims
+    const scored = [];
+    doc.querySelectorAll("img").forEach(img => {
+      const best = img.currentSrc || fromSrcset(img.getAttribute("srcset"));
+      if (best) scored.push({ url: absolutize(best), score: getDimScore(img) });
+    });
+    const scoreMap = new Map(scored.map(x => [x.url, x.score]));
+    urls = urls
+      .map(u => ({ url: absolutize(u), score: scoreMap.get(absolutize(u)) || 0 }))
+      .sort((a,b) => b.score - a.score || b.url.length - a.url.length)
+      .map(x => x.url);
+
+    // final unique + min width filter if we know dimensions
+    const byUrl = new Set();
+    const final = [];
+    for (const u of urls) {
+      if (byUrl.has(u)) continue;
+      byUrl.add(u);
+      final.push(u);
+      if (final.length >= max) break;
+    }
+
+    debug(`GenericImageCollector: ${final.length} urls`);
+    return final;
+  }
+
+  return { collect };
+})();
