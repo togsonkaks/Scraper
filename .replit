@@ -2,9 +2,9 @@ modules = ["nodejs-20", "web"]
 expertMode = true
 
 [env]
-# put any keys you want, or leave empty
+RUN_ELECTRON = "0"          # <— master switch (0 = off)
 
-run = "npm run replit"
+run = "npm run replit"      # <— must NOT start electron
 
 [deployment]
 deploymentTarget = "vm"
@@ -13,20 +13,7 @@ deploymentTarget = "vm"
 expertMode = true
 
 [workflows]
-runButton = "Project"
-
-[[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Tagglo Lightweight"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Tagglo Test"
+runButton = "Tagglo Lightweight"
 
 [[workflows.workflow]]
 name = "Tagglo Lightweight"
@@ -38,18 +25,3 @@ args = "npm run replit"
 
 [workflows.workflow.metadata]
 outputType = "console"
-
-[[workflows.workflow]]
-name = "Tagglo Test"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "vnc"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "./start-electron.sh"
-
-[nix]
-channel = "stable-25_05"
-packages = ["glib", "gtk3", "cairo", "pango", "gdk-pixbuf", "atk", "libdrm", "xorg.libxcb", "xorg.libX11", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXext", "xorg.libXfixes", "xorg.libXrandr", "xorg.libXrender", "xorg.libXtst", "xorg.libXScrnSaver", "nss", "nspr", "alsa-lib", "cups", "dbus", "expat", "fontconfig", "freetype", "libxkbcommon", "libxslt", "systemd", "mesa", "libGL", "vulkan-loader", "vulkan-tools", "xorg.xorgserver", "xvfb-run", "libgbm"]
