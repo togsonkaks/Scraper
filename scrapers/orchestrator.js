@@ -1239,11 +1239,11 @@
     }
   }
 
-  // Purpose: discover big images that appear only after click/zoom/lazy hydration
-  // Safe-by-default: scoped to gallery containers; no normalization/dedupe here.
+  // Enhanced Combined Image Collector: gallery activation + comprehensive scanning + lazy-load aware
+  // Replaces old hi-res augmentation with best-of-both approach
   async function collectHiResAugment({
     doc = document,
-    observeMs = 1200,           // brief watch to catch lazy hydration / zoom swaps
+    observeMs = 1000,           // optimized wait time for lazy loading
     max = 40,                   // soft cap; your filter will trim further
     scopeSelectors = [
       // Common product galleries (Amazon/Shopify/generic)
@@ -1268,9 +1268,10 @@
 
     const add = (u) => {
       if (!u) return;
-      // No normalization here — your existing filtration/upgrade pipeline will handle it.
       try { u = new URL(u, location.href).toString(); } catch {}
       if (!/^https?:\/\//i.test(u)) return;
+      // Enhanced junk filtering at collection level
+      if (/sprite|icon|thumb|placeholder|transparent|1x1|loading|pixel|beacon|logo|nav|badge/i.test(u)) return;
       if (seen.has(u)) return;
       seen.add(u);
       urls.push(u);
@@ -1298,18 +1299,51 @@
     }
     if (!scope) scope = doc;
 
-    // 2) One-shot pass inside scope
-    const scanScopeOnce = () => {
-      // Full-size/zoom swaps (Amazon immersive, generic zoomers)
+    // 2) ENHANCED: Interactive gallery activation (click zoom buttons, modals)
+    const activateGalleries = () => {
+      const galleryTriggers = [
+        // PhotoSwipe triggers
+        '[data-modal], [data-zoom], .js-photoswipe__zoom',
+        // Specific site patterns  
+        '[data-testid="image-magnify"]', '.product__photo-zoom',
+        // Image zoom patterns
+        '[class*="image-zoom"], [role="button"][class*="zoom"]',
+        // Button patterns for enlarge/zoom
+        'button[title*="zoom" i], button[title*="enlarge" i], button[title*="gallery" i]',
+        // Swiper navigation
+        '.swiper-button-next, .swiper-button-prev'
+      ];
+      
+      let totalClicked = 0;
+      galleryTriggers.forEach(selector => {
+        try {
+          const buttons = scope.querySelectorAll(selector);
+          buttons.forEach(btn => { 
+            try { 
+              btn.click(); 
+              totalClicked++;
+            } catch {} 
+          });
+        } catch {}
+      });
+      
+      if (totalClicked > 0) {
+        debug(`🎯 Activated ${totalClicked} gallery triggers`);
+      }
+    };
+
+    // 3) ENHANCED: Comprehensive DOM scanning (includes meta, JSON-LD)
+    const scanComprehensive = () => {
+      // Original scope-based scanning
       scope.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
         add(img.currentSrc || img.src);
       });
 
-      // Regular imgs + lazy attrs + <picture><source>
+      // Enhanced lazy attributes
       const LAZY = [
         'data-src','data-srcset','data-lazy','data-lazy-src','data-original',
         'data-zoom-image','data-large_image','data-hires','data-defer-src',
-        'data-defer-srcset','data-flickity-lazyload'
+        'data-defer-srcset','data-flickity-lazyload','data-image','data-large'
       ];
 
       scope.querySelectorAll('img').forEach(img => {
@@ -1328,14 +1362,45 @@
         const u = pickSrcsetLargest(s.getAttribute('srcset')); if (u) add(u);
       });
 
-      // Background images inside scope (hero/product cards)
+      // Background images (enhanced)
       const urlRe = /url\((['"]?)(.*?)\1\)/i;
       scope.querySelectorAll('[style]').forEach(el => {
         const m = urlRe.exec(el.getAttribute('style') || ''); if (m?.[2]) add(m[2]);
       });
+      
+      // NEW: Links that point directly at images
+      scope.querySelectorAll('a[href]').forEach(a => {
+        const href = a.getAttribute('href') || '';
+        if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href)) add(href);
+      });
+
+      // NEW: Meta tags and JSON-LD (from document root, not scope)
+      if (scope === doc) {
+        // OpenGraph / Twitter images
+        doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"]')
+          .forEach(m => { const c = m.getAttribute('content'); if (c) add(c); });
+        
+        // JSON-LD structured data
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(s => {
+          try {
+            const data = JSON.parse(s.textContent || '{}');
+            const collect = (node) => {
+              if (!node || typeof node !== 'object') return;
+              if (Array.isArray(node)) return node.forEach(collect);
+              if (node.image) {
+                if (typeof node.image === 'string') add(node.image);
+                else if (Array.isArray(node.image)) node.image.forEach(add);
+                else if (node.image.url) add(node.image.url);
+              }
+              Object.values(node).forEach(collect);
+            };
+            collect(data);
+          } catch {}
+        });
+      }
     };
 
-    // 3) Amazon a-state (read from live document; sanitized clones strip <script>)
+    // 4) Amazon a-state (unchanged, works well)
     const grabAState = () => {
       const states = live.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]');
       states.forEach(s => {
@@ -1358,21 +1423,34 @@
       });
     };
 
-    // 4) Observe briefly to catch lazy/zoom swaps (you or the site can click; we just listen)
+    // 5) ENHANCED: Better observation with gallery activation
     try {
-      scanScopeOnce();
+      // First: activate galleries (click buttons, open modals)
+      activateGalleries();
+      
+      // Initial comprehensive scan
+      scanComprehensive();
       grabAState();
 
+      // Enhanced observation period
       await new Promise(resolve => {
         const obs = new MutationObserver(() => {
-          scanScopeOnce();
+          scanComprehensive();
         });
-        try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
+        
+        // Enhanced micro-scrolling
+        try { 
+          window.scrollBy(0, 2); 
+          window.scrollBy(0, -2); 
+        } catch {}
+        
         obs.observe(scope, { subtree: true, childList: true, attributes: true });
         setTimeout(() => { obs.disconnect(); resolve(); }, observeMs);
       });
 
-      // 5) Soft cap; your existing filtration pipeline will finalize ranking
+      // Final scan after waiting
+      scanComprehensive();
+
       debug(`🔍 Hi-res augment collected: ${urls.length} URLs`);
       return urls.slice(0, max);
     } catch (error) {

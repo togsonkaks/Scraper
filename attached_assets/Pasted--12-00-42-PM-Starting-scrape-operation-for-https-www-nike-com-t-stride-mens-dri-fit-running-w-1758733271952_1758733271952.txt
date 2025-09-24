@@ -1,0 +1,142 @@
+[12:00:42 PM] 🚀 Starting scrape operation for: https://www.nike.com/t/stride-mens-dri-fit-running-waffle-crew-3pllNN/HV2705-010
+[12:00:42 PM] 🚀 SCRAPE START {"host":"nike.com","href":"https://www.nike.com/t/stride-mens-dri-fit-running-waffle-crew-3pllNN/HV2705-010","mode":"normal"}
+[12:00:42 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[12:00:42 PM] 🔄 NORMAL MODE - memory + fallbacks
+[12:00:42 PM] 🧩 TITLE: Trying custom handler...
+[12:00:42 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[12:00:42 PM] 📝 TITLE: Falling back to generic...
+[12:00:42 PM] 📝 TITLE FROM GENERIC: Nike Stride
+[12:00:42 PM] 🏷️ BRAND: Falling back to generic...
+[12:00:42 PM] 🏷️ BRAND FROM GENERIC: Nike
+[12:00:42 PM] 📄 DESCRIPTION: Falling back to generic...
+[12:00:42 PM] 📄 DESCRIPTION FROM GENERIC: Find the Nike Stride Men's Dri-FIT Running Waffle Crew at Nike.com. Free delivery and returns.
+[12:00:42 PM] 🧩 PRICE: Trying custom handler...
+[12:00:42 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[12:00:42 PM] 💰 PRICE: Falling back to generic...
+[12:00:42 PM] 🔍 PRICE PARSING: {"input":"$80Select SizeSize Guide XS S M L XL XXL 3XL 4XLAdd to BagFavoritenon-filledShippingYou'll see our shipping options at checkout.Free PickupFind a StoreUsing insights from runners like you, w
+[12:00:42 PM] 🧹 CLEANED INPUT: {"original":"$80Select SizeSize Guide XS S M L XL XXL 3XL 4XLAdd to BagFavoritenon-filledShippingYou'll see our shipping options at checkout.Free PickupFind a StoreUsing insights from runners like you
+[12:00:42 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$80Select SizeSize Guide XS S M L XL XXL 3XL 4XLAdd to BagFavoritenon-filledShippingYou'll see our shipping options at checkout.Free PickupFind a StoreUsing insights from runners like you,
+[12:00:42 PM] 💰 MONETARY TOKENS: [80,80,50,80]
+[12:00:42 PM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[80,80,50,80],"preferDecimals":false}
+[12:00:42 PM] ✅ PRICE FROM MONETARY: {"result":50,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[80,80,50,80]}
+[12:00:42 PM] 🎯 REFINING PRICE: {"baseVal":"50","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[12:00:42 PM] Price element <DIV.grid-item>
+[12:00:42 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[12:00:42 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[12:00:42 PM] 📍 ANCESTOR 0: <DIV.grid-item>
+[12:00:42 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$80Select SizeSize Guide XS S M L XL XXL 3XL 4XLAdd to BagFavoritenon-filledShippingYou'll see our s","cleaned":"$80Select SizeSize Guide XS S M L XL XXL 3XL 4XLAdd to BagFavoritenon-fill
+[12:00:42 PM] 💰 ANCESTOR 0 SMART PRICE: 50 from tokens: [80,80,50,80]
+[12:00:42 PM] 📍 ANCESTOR 1: <DIV.nds-grid>
+[12:00:42 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"PauseSustainable MaterialsNike StrideMen's Dri-FIT Running Waffle Crew$80Select SizeSize Guide XS S ","cleaned":"PauseSustainable MaterialsNike StrideMen's Dri-FIT Running Waffle Crew$80S
+[12:00:42 PM] 💰 ANCESTOR 1 SMART PRICE: 50 from tokens: [80,80,50,80]
+[12:00:42 PM] 📍 ANCESTOR 2: <MAIN.d-sm-flx>
+[12:00:42 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"New Markdowns: Up to 40% Off—Shop NowGet a Nike Gift CardMembers: Free Shipping on Orders $50+Look f","cleaned":"New Markdowns: Up to 40% Off—Shop NowGet a Nike Gift CardMembers: Free Shi
+[12:00:42 PM] 💰 ANCESTOR 2 SMART PRICE: 50 from tokens: [50,80,80,50,80]
+[12:00:42 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"50","originalBase":"50"}
+[12:00:42 PM] 💰 PRICE FROM GENERIC: 50
+[12:00:42 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:00:42 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:00:42 PM] 🧩 IMAGES: Trying custom handler...
+[12:00:42 PM] 🧩 CUSTOM IMAGES: {"count":10,"images":["https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_936_v1/f_auto,q_auto:eco/286958f6-c322-434f-8e21-9aef1c9cb172/M+NK+DF+STRIDE+WAFFLE+CREW.png","https://static.nike.com/a/ima
+[12:00:42 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[12:00:42 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":10}
+[12:00:42 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":10}
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "m+nk+df+stride+waffle+crew.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔍 EFFECTIVE RESOLUTION: 600px (0×1) = +20.0 points
+[12:00:42 PM] 🏠 DOMAIN REFERENCE BONUS: +20 points
+[12:00:42 PM] 📍 CONTAINER INFO: "image.png" from "legacy" (not primary gallery)
+[12:00:42 PM] 🔄 HYBRID UNIQUE: Applying family deduplication to 10 candidates
+[12:00:42 PM] 👨‍👩‍👧‍👦 HYBRID UNIQUE: 10 images after family deduplication
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 153): https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_936_v1/f_auto,q_auto:eco/286958f6-c322-434f-8e2
+153
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 135): https://static.nike.com/a/images/t_PDP_1728_v1/19be4296-31a2-47ee-be47-5e63503fe799/M+NK+DF+STRIDE+W
+135
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 135): https://static.nike.com/a/images/t_PDP_1728_v1/43bdcf2d-c189-4561-9f55-814052f88bb0/M+NK+DF+STRIDE+W
+135
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 115): https://static.nike.com/a/images/t_PDP_1728_v1/3f50832e-acd9-4cea-9d8a-9f3b32e0b94b/M+NK+DF+STRIDE+W
+115
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 115): https://static.nike.com/a/images/t_PDP_1728_v1/6dcceeab-e47d-460c-8a18-77734bd31a62/M+NK+DF+STRIDE+W
+115
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 115): https://static.nike.com/a/images/t_PDP_1728_v1/9063a65b-62e6-4cf7-9a80-1dde95cf5777/M+NK+DF+STRIDE+W
+115
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 123): https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/286958f6-c322-434f-8e21-9aef1c9cb17
+123
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 123): https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_144_v1/f_auto,q_auto:eco/19be4296-31a2-47ee-be4
+123
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 123): https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_144_v1/f_auto,q_auto:eco/377541aa-00cc-43fe-819
+123
+📋 Copy URL
+[12:00:42 PM] ✅ SINGLE IMAGE (score: 115): https://static.nike.com/a/images/t_PDP_1728_v1/w_960,c_limit/3732c58b-d0ad-4c3c-898c-c4b90193312b/im
+115
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (153): https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_936_v1/f_auto,q_auto:eco/286958f6-c322-434f-8e2
+153
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (135): https://static.nike.com/a/images/t_PDP_1728_v1/19be4296-31a2-47ee-be47-5e63503fe799/M+NK+DF+STRIDE+W
+135
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (135): https://static.nike.com/a/images/t_PDP_1728_v1/43bdcf2d-c189-4561-9f55-814052f88bb0/M+NK+DF+STRIDE+W
+135
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (115): https://static.nike.com/a/images/t_PDP_1728_v1/3f50832e-acd9-4cea-9d8a-9f3b32e0b94b/M+NK+DF+STRIDE+W
+115
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (115): https://static.nike.com/a/images/t_PDP_1728_v1/6dcceeab-e47d-460c-8a18-77734bd31a62/M+NK+DF+STRIDE+W
+115
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (115): https://static.nike.com/a/images/t_PDP_1728_v1/9063a65b-62e6-4cf7-9a80-1dde95cf5777/M+NK+DF+STRIDE+W
+115
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (123): https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/286958f6-c322-434f-8e21-9aef1c9cb17
+123
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (123): https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_144_v1/f_auto,q_auto:eco/19be4296-31a2-47ee-be4
+123
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (123): https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_144_v1/f_auto,q_auto:eco/377541aa-00cc-43fe-819
+123
+📋 Copy URL
+[12:00:42 PM] 🎯 HIGH SCORE + SIZE OK (115): https://static.nike.com/a/images/t_PDP_1728_v1/w_960,c_limit/3732c58b-d0ad-4c3c-898c-c4b90193312b/im
+115
+📋 Copy URL
+[12:00:42 PM] 🏆 TOP SCORED IMAGES: ["M+NK+DF+STRIDE+WAFFLE+CREW.png (score: 153)","M+NK+DF+STRIDE+WAFFLE+CREW.png (score: 135)","M+NK+DF+STRIDE+WAFFLE+CREW.png (score: 135)","M+NK+DF+STRIDE+WAFFLE+CREW.png (score: 123)","M+NK+DF+STRIDE
+[12:00:42 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":10}
+[12:00:42 PM] 🖼️ FINAL IMAGES: ["https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_936_v1/f_auto,q_auto:eco/28","https://static.nike.com/a/images/t_PDP_1728_v1/19be4296-31a2-47ee-be47-5e63503fe","https://static.nike.com/a/images
+[12:00:42 PM] 🖼️ FINAL IMAGES: {"count":10,"images":["https://static.nike.com/a/images/t_PDP_1728_v1/t_PDP_936_v1/f_auto,q_auto:eco/286958f6-c322-434f-8e21-9aef1c9cb172/M+NK+DF+STRIDE+WAFFLE+CREW.png","https://static.nike.com/a/ima
+[12:00:42 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Nike Stride","brand":"Nike","description":"Find the Nike Stride Men's Dri-FIT Running Waffle ","price":"50","imageCount":10,"firstImages":["https://static.nike.com/a/images/t_PDP_1728_v1/t_P
+[12:00:42 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":10}
+[12:00:42 PM] ✅ Debug trace complete
