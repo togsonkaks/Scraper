@@ -13,6 +13,7 @@
   // Collect debug logs to send back to UI
   if (typeof window !== 'undefined') {
     window.__tg_debugLog = window.__tg_debugLog || [];
+    window.__tg_debugLineCounter = window.__tg_debugLineCounter || 0;
   }
   
   const safeStringify = (obj) => {
@@ -68,32 +69,60 @@
   const log = (...a) => { 
     if (DEBUG) {
       try { 
-        console.log(TAG, ...a);
-        addToDebugLog('info', ...a);
+        if (typeof window !== 'undefined') {
+          window.__tg_debugLineCounter = (window.__tg_debugLineCounter || 0) + 1;
+          const lineNum = String(window.__tg_debugLineCounter).padStart(3, ' ');
+          console.log(`${lineNum}${TAG}`, ...a);
+          addToDebugLog('info', `${lineNum}`, ...a);
+        } else {
+          console.log(TAG, ...a);
+          addToDebugLog('info', ...a);
+        }
       } catch(_){} 
     }
   };
   const warn = (...a) => { 
     if (DEBUG) {
       try { 
-        console.warn(TAG, ...a);
-        addToDebugLog('warning', ...a);
+        if (typeof window !== 'undefined') {
+          window.__tg_debugLineCounter = (window.__tg_debugLineCounter || 0) + 1;
+          const lineNum = String(window.__tg_debugLineCounter).padStart(3, ' ');
+          console.warn(`${lineNum}${TAG}[WARN]`, ...a);
+          addToDebugLog('warning', `${lineNum}`, ...a);
+        } else {
+          console.warn(TAG, ...a);
+          addToDebugLog('warning', ...a);
+        }
       } catch(_){} 
     }
   };
   const debug = (...a) => { 
     if (DEBUG) {
       try { 
-        console.debug(TAG + '[DEBUG]', ...a);
-        addToDebugLog('debug', ...a);
+        if (typeof window !== 'undefined') {
+          window.__tg_debugLineCounter = (window.__tg_debugLineCounter || 0) + 1;
+          const lineNum = String(window.__tg_debugLineCounter).padStart(3, ' ');
+          console.debug(`${lineNum}${TAG}[DEBUG]`, ...a);
+          addToDebugLog('debug', `${lineNum}`, ...a);
+        } else {
+          console.debug(TAG + '[DEBUG]', ...a);
+          addToDebugLog('debug', ...a);
+        }
       } catch(_){} 
     }
   };
   const error = (...a) => { 
     if (DEBUG) {
       try { 
-        console.error(TAG + '[ERROR]', ...a);
-        addToDebugLog('error', ...a);
+        if (typeof window !== 'undefined') {
+          window.__tg_debugLineCounter = (window.__tg_debugLineCounter || 0) + 1;
+          const lineNum = String(window.__tg_debugLineCounter).padStart(3, ' ');
+          console.error(`${lineNum}${TAG}[ERROR]`, ...a);
+          addToDebugLog('error', `${lineNum}`, ...a);
+        } else {
+          console.error(TAG + '[ERROR]', ...a);
+          addToDebugLog('error', ...a);
+        }
       } catch(_){} 
     }
   };
@@ -2472,6 +2501,12 @@
     try {
       const host = location.hostname.replace(/^www\./,'');
       const mode = (opts && opts.mode) || 'normal';
+      
+      // Reset line counter for each scrape operation
+      if (typeof window !== 'undefined') {
+        window.__tg_debugLineCounter = 0;
+      }
+      
       log('🚀 SCRAPE START', { host, href: location.href, mode });
 
       // GLOBAL FLAG: Disable memory completely (custom handlers take priority)
