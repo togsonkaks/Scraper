@@ -2312,18 +2312,11 @@
       if (urls.length >= 1) {
         debug(`✅ Site-specific success: ${urls.length} images found`);
         
-        // Add hi-res augmentation (click/zoom/lazy images)
-        debug(`🎯 CALLING HI-RES AUGMENTATION (site-specific path)`);
-        const hiResUrls = await collectHiResAugment({ doc: document });
-        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
-        
-        // Convert existing URLs to enriched format, then add hi-res URLs
-        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
-        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
-        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+        // Convert URLs to enriched format for house filtering
+        const enrichedUrls = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
         const final = await hybridUniqueImages(enrichedUrls);
         
-        mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: final.slice(0,30) }); 
+        mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: final.slice(0,30) }); 
         return final.slice(0,30); 
       }
     }
@@ -2335,38 +2328,24 @@
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel);
       if (urls.length >= 3) {
-        // Add hi-res augmentation (click/zoom/lazy images)
-        debug(`🎯 CALLING HI-RES AUGMENTATION (gallery path)`);
-        const hiResUrls = await collectHiResAugment({ doc: document });
-        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
-        
-        // Convert existing URLs to enriched format, then add hi-res URLs
-        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
-        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
-        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+        // Convert URLs to enriched format for house filtering
+        const enrichedUrls = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
         const final = await hybridUniqueImages(enrichedUrls);
         
-        mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: final.slice(0,30) }); 
+        mark('images', { selectors:[sel], attr:'src', method:'generic-gallery', urls: final.slice(0,30) }); 
         return final.slice(0,30); 
       }
     }
     const og = q('meta[property="og:image"]')?.content;
     const all = await gatherImagesBySelector('img');
     
-    // Add hi-res augmentation (click/zoom/lazy images) even in fallback
-    debug(`🎯 CALLING HI-RES AUGMENTATION (fallback path)`);
-    const hiResUrls = await collectHiResAugment({ doc: document });
-    debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
-    
-    // Convert existing URLs to enriched format, then add hi-res URLs
-    const enrichedExisting = all.map(url => ({ url, element: null, index: 0, containerSelector: 'img' }));
-    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
-    const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+    // Convert URLs to enriched format for house filtering
+    const enrichedUrls = all.map(url => ({ url, element: null, index: 0, containerSelector: 'img' }));
     const final = await hybridUniqueImages(enrichedUrls);
     
     const combined = (og ? [og] : []).concat(final);
     const uniq = await uniqueImages(combined);
-    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: uniq.slice(0,30) });
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
     return uniq.slice(0,30);
   }
 
