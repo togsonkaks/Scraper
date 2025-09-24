@@ -1028,14 +1028,7 @@
         '.pdp-gallery img',
         '.pdp-images img',
         '.swiper-slide img',
-        '.swiper-container img',
-        '[class*="pwa-slider"] img',    // All PWA slider variants (c-pwa, o-pwa, etc)
-        '[class*="pwa-image"] img',     // All PWA image containers
-        '[data-testid*="image"] img',   // Adidas, American Eagle
-        '.product-carousel img',        // Nike, multiple sites
-        '.hero-image img',              // Nike hero containers
-        '[data-photoswipe-src] img',    // PhotoSwipe zoom galleries
-        '.product-main-slide img'       // Cuyana, high-res slides
+        '.swiper-container img'
       ];
       
       // Check if this image came from a primary gallery container
@@ -1239,25 +1232,18 @@
     }
   }
 
-  // Enhanced Combined Image Collector: gallery activation + comprehensive scanning + lazy-load aware
-  // Replaces old hi-res augmentation with best-of-both approach
+  // Purpose: discover big images that appear only after click/zoom/lazy hydration
+  // Safe-by-default: scoped to gallery containers; no normalization/dedupe here.
   async function collectHiResAugment({
     doc = document,
-    observeMs = 1000,           // optimized wait time for lazy loading
+    observeMs = 1200,           // brief watch to catch lazy hydration / zoom swaps
     max = 40,                   // soft cap; your filter will trim further
     scopeSelectors = [
       // Common product galleries (Amazon/Shopify/generic)
       '#imageBlock', '#altImages', '[data-a-dynamic-image]',
       '.product-gallery', '.product-images', '.product-media',
       '.product-single__photo', '.flickity-viewport',
-      'main figure', 'main .gallery', 'article figure',
-      // PWA patterns (Urban Outfitters + all PWA sites)
-      '[class*="pwa-slider"]', '[class*="pwa-image"]', '[class*="pwa-zoom"]',
-      // Battle-tested patterns from custom handlers
-      '.product-carousel', '.hero-image', '.product-main-slide',
-      '.swiper-slide', '.swiper-container', '.pdp-gallery', '.pdp-images',
-      '[data-testid*="image"]', '[data-photoswipe-src]', '.slider', '.thumbnails',
-      '[class*=gallery]', '.image-gallery'
+      'main figure', 'main .gallery', 'article figure'
     ]
   } = {}) {
     debug(`🚀 HI-RES AUGMENT STARTING on ${window.location.hostname}`);
@@ -1266,21 +1252,14 @@
     const urls = [];
     const seen = new Set();
 
-    const add = (u, element = null, containerHint = 'hi-res-augment') => {
+    const add = (u) => {
       if (!u) return;
+      // No normalization here — your existing filtration/upgrade pipeline will handle it.
       try { u = new URL(u, location.href).toString(); } catch {}
       if (!/^https?:\/\//i.test(u)) return;
-      // Enhanced junk filtering at collection level
-      if (/sprite|icon|thumb|placeholder|transparent|1x1|loading|pixel|beacon|logo|nav|badge/i.test(u)) return;
       if (seen.has(u)) return;
       seen.add(u);
-      
-      // Use actual scoring system instead of fake 205
-      const score = scoreImageURL(u, { element, containerSelector: containerHint }, 0);
-      urls.push({ url: u, score, source: 'hi-res-augment' });
-      
-      // Display each found URL in the original scraping format with real score
-      debug(`✅ SINGLE IMAGE (score: ${score}): ${u}`);
+      urls.push(u);
     };
 
     const pickSrcsetLargest = (ss) => {
@@ -1305,108 +1284,44 @@
     }
     if (!scope) scope = doc;
 
-    // 2) ENHANCED: Interactive gallery activation (click zoom buttons, modals)
-    const activateGalleries = () => {
-      const galleryTriggers = [
-        // PhotoSwipe triggers
-        '[data-modal], [data-zoom], .js-photoswipe__zoom',
-        // Specific site patterns  
-        '[data-testid="image-magnify"]', '.product__photo-zoom',
-        // Image zoom patterns
-        '[class*="image-zoom"], [role="button"][class*="zoom"]',
-        // Button patterns for enlarge/zoom
-        'button[title*="zoom" i], button[title*="enlarge" i], button[title*="gallery" i]',
-        // Swiper navigation
-        '.swiper-button-next, .swiper-button-prev'
-      ];
-      
-      let totalClicked = 0;
-      galleryTriggers.forEach(selector => {
-        try {
-          const buttons = scope.querySelectorAll(selector);
-          buttons.forEach(btn => { 
-            try { 
-              btn.click(); 
-              totalClicked++;
-            } catch {} 
-          });
-        } catch {}
-      });
-      
-      if (totalClicked > 0) {
-        debug(`🎯 Activated ${totalClicked} gallery triggers`);
-      }
-    };
-
-    // 3) ENHANCED: Comprehensive DOM scanning (includes meta, JSON-LD)
-    const scanComprehensive = () => {
-      // Original scope-based scanning
+    // 2) One-shot pass inside scope
+    const scanScopeOnce = () => {
+      // Full-size/zoom swaps (Amazon immersive, generic zoomers)
       scope.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
-        add(img.currentSrc || img.src, img, 'fullscreen-gallery');
+        add(img.currentSrc || img.src);
       });
 
-      // Enhanced lazy attributes
+      // Regular imgs + lazy attrs + <picture><source>
       const LAZY = [
         'data-src','data-srcset','data-lazy','data-lazy-src','data-original',
         'data-zoom-image','data-large_image','data-hires','data-defer-src',
-        'data-defer-srcset','data-flickity-lazyload','data-image','data-large'
+        'data-defer-srcset','data-flickity-lazyload'
       ];
 
       scope.querySelectorAll('img').forEach(img => {
         const best = img.currentSrc || pickSrcsetLargest(img.getAttribute('srcset')) || img.getAttribute('src');
-        if (best) add(best, img, 'product-img');
+        if (best) add(best);
         LAZY.forEach(a => {
           const v = img.getAttribute(a);
           if (!v) return;
           if (a.endsWith('srcset')) {
-            const u = pickSrcsetLargest(v); if (u) add(u, img, 'lazy-srcset');
-          } else add(v, img, 'lazy-attr');
+            const u = pickSrcsetLargest(v); if (u) add(u);
+          } else add(v);
         });
       });
 
       scope.querySelectorAll('picture source[srcset]').forEach(s => {
-        const u = pickSrcsetLargest(s.getAttribute('srcset')); if (u) add(u, null, 'picture-source');
+        const u = pickSrcsetLargest(s.getAttribute('srcset')); if (u) add(u);
       });
 
-      // Background images (enhanced)
+      // Background images inside scope (hero/product cards)
       const urlRe = /url\((['"]?)(.*?)\1\)/i;
       scope.querySelectorAll('[style]').forEach(el => {
-        const m = urlRe.exec(el.getAttribute('style') || ''); if (m?.[2]) add(m[2], el, 'background-img');
+        const m = urlRe.exec(el.getAttribute('style') || ''); if (m?.[2]) add(m[2]);
       });
-      
-      // NEW: Links that point directly at images
-      scope.querySelectorAll('a[href]').forEach(a => {
-        const href = a.getAttribute('href') || '';
-        if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href)) add(href, a, 'image-link');
-      });
-
-      // NEW: Meta tags and JSON-LD (from document root, not scope)
-      if (scope === doc) {
-        // OpenGraph / Twitter images
-        doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"]')
-          .forEach(m => { const c = m.getAttribute('content'); if (c) add(c, m, 'meta-image'); });
-        
-        // JSON-LD structured data
-        doc.querySelectorAll('script[type="application/ld+json"]').forEach(s => {
-          try {
-            const data = JSON.parse(s.textContent || '{}');
-            const collect = (node) => {
-              if (!node || typeof node !== 'object') return;
-              if (Array.isArray(node)) return node.forEach(collect);
-              if (node.image) {
-                if (typeof node.image === 'string') add(node.image, null, 'jsonld-image');
-                else if (Array.isArray(node.image)) node.image.forEach(u => add(u, null, 'jsonld-array'));
-                else if (node.image.url) add(node.image.url, null, 'jsonld-url');
-              }
-              Object.values(node).forEach(collect);
-            };
-            collect(data);
-          } catch {}
-        });
-      }
     };
 
-    // 4) Amazon a-state (unchanged, works well)
+    // 3) Amazon a-state (read from live document; sanitized clones strip <script>)
     const grabAState = () => {
       const states = live.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]');
       states.forEach(s => {
@@ -1420,50 +1335,32 @@
             || payload?.colorImages?.initial
             || [];
           (gallery || []).forEach(o => {
-            ['hiRes','mainUrl','large','zoom','thumb','variant'].forEach(k => o?.[k] && add(o[k], null, 'amazon-' + k));
+            ['hiRes','mainUrl','large','zoom','thumb','variant'].forEach(k => o?.[k] && add(o[k]));
           });
           const atf = payload?.ImageBlockATF || payload?.imageBlock?.ImageBlockATF;
-          if (atf?.hiRes) add(atf.hiRes, null, 'amazon-atf');
-          (atf?.variant || []).forEach(u => add(u, null, 'amazon-variant'));
+          if (atf?.hiRes) add(atf.hiRes);
+          (atf?.variant || []).forEach(add);
         } catch {}
       });
     };
 
-    // 5) ENHANCED: Better observation with gallery activation
+    // 4) Observe briefly to catch lazy/zoom swaps (you or the site can click; we just listen)
     try {
-      // First: activate galleries (click buttons, open modals)
-      activateGalleries();
-      
-      // Initial comprehensive scan
-      scanComprehensive();
+      scanScopeOnce();
       grabAState();
 
-      // Enhanced observation period
       await new Promise(resolve => {
         const obs = new MutationObserver(() => {
-          scanComprehensive();
+          scanScopeOnce();
         });
-        
-        // Enhanced micro-scrolling
-        try { 
-          window.scrollBy(0, 2); 
-          window.scrollBy(0, -2); 
-        } catch {}
-        
+        try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
         obs.observe(scope, { subtree: true, childList: true, attributes: true });
         setTimeout(() => { obs.disconnect(); resolve(); }, observeMs);
       });
 
-      // Final scan after waiting
-      scanComprehensive();
-
-      debug(`🔍 Hi-res augment collected: ${urls.length} scored URLs`);
-      // Return URLs from scored objects, sorted by score (highest first)
-      const sortedUrls = urls
-        .sort((a, b) => b.score - a.score)
-        .slice(0, max)
-        .map(item => item.url);
-      return sortedUrls;
+      // 5) Soft cap; your existing filtration pipeline will finalize ranking
+      debug(`🔍 Hi-res augment collected: ${urls.length} URLs`);
+      return urls.slice(0, max);
     } catch (error) {
       debug(`❌ HI-RES AUGMENT ERROR:`, error.message);
       return [];
@@ -2213,18 +2110,100 @@
     return null;
   }
   async function getImagesGeneric() {
-    debug('🖼️ Getting simple fallback images');
+    const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
+    debug('🖼️ Getting generic images for hostname:', hostname);
     
-    // Simple fallback: just get basic img elements without orchestrator complexity
-    const basic = await gatherImagesBySelector('img');
+    // Site-specific selectors for problematic sites
+    const siteSpecificSelectors = {
+      'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
+      'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
+      'amazon.com': [
+        // New 2024+ Amazon gallery selectors (thumbnails + main)
+        '[data-csa-c-element-id*="image"] img',
+        '[class*="ivImages"] img', 
+        '[id*="ivImage"] img',
+        '.iv-tab img',
+        '[id*="altImages"] img',
+        '[class*="imagesThumbnail"] img',
+        
+        // Broader Amazon image patterns
+        'img[src*="images-amazon.com"]',
+        'img[src*="ssl-images-amazon.com"]',
+        'img[src*="m.media-amazon.com"]',
+        
+        // Legacy selectors (fallback)
+        '.a-dynamic-image',
+        '#imageBlockContainer img', 
+        '#imageBlock img'
+      ],
+      'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
+      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+    };
+    
+    // Try site-specific selectors first
+    const siteSelectors = siteSpecificSelectors[hostname] || [];
+    for (const sel of siteSelectors) {
+      debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
+      const urls = await gatherImagesBySelector(sel);
+      if (urls.length >= 1) {
+        debug(`✅ Site-specific success: ${urls.length} images found`);
+        
+        // Add hi-res augmentation (click/zoom/lazy images)
+        debug(`🎯 CALLING HI-RES AUGMENTATION (site-specific path)`);
+        const hiResUrls = await collectHiResAugment({ doc: document });
+        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
+        
+        // Convert existing URLs to enriched format, then add hi-res URLs
+        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+        const final = await hybridUniqueImages(enrichedUrls);
+        
+        mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: final.slice(0,30) }); 
+        return final.slice(0,30); 
+      }
+    }
+    
+    const gallerySels = [
+      '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
+      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+    ];
+    for (const sel of gallerySels) {
+      const urls = await gatherImagesBySelector(sel);
+      if (urls.length >= 3) {
+        // Add hi-res augmentation (click/zoom/lazy images)
+        debug(`🎯 CALLING HI-RES AUGMENTATION (gallery path)`);
+        const hiResUrls = await collectHiResAugment({ doc: document });
+        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
+        
+        // Convert existing URLs to enriched format, then add hi-res URLs
+        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+        const final = await hybridUniqueImages(enrichedUrls);
+        
+        mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: final.slice(0,30) }); 
+        return final.slice(0,30); 
+      }
+    }
     const og = q('meta[property="og:image"]')?.content;
+    const all = await gatherImagesBySelector('img');
     
-    const combined = [...basic];
-    if (og) combined.push(og);
-    const deduped = Array.from(new Set(combined));
+    // Add hi-res augmentation (click/zoom/lazy images) even in fallback
+    debug(`🎯 CALLING HI-RES AUGMENTATION (fallback path)`);
+    const hiResUrls = await collectHiResAugment({ doc: document });
+    debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
     
-    debug(`🔄 SIMPLE FALLBACK: ${basic.length} img + ${og ? 1 : 0} og = ${deduped.length} total`);
-    return deduped.slice(0, 30);
+    // Convert existing URLs to enriched format, then add hi-res URLs
+    const enrichedExisting = all.map(url => ({ url, element: null, index: 0, containerSelector: 'img' }));
+    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+    const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+    const final = await hybridUniqueImages(enrichedUrls);
+    
+    const combined = (og ? [og] : []).concat(final);
+    const uniq = await uniqueImages(combined);
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: uniq.slice(0,30) });
+    return uniq.slice(0,30);
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
@@ -2498,44 +2477,20 @@
           // If we have custom images, use them (custom overrides memory)
           if (customImages.length > 0) {
             debug('🎯 USING CUSTOM IMAGES (overriding memory)');
-            if (window.__tg_orchestratorProcessed && window.__tg_processedImageUrls) {
-              debug('🚫 BYPASSING LEGACY FILTERING: Using orchestrator pre-processed images');
-              images = window.__tg_processedImageUrls.slice(0, 30);
-              // Clean up bypass flags after use
-              debug('🧹 CLEANING UP: Resetting orchestrator bypass flags');
-              window.__tg_orchestratorProcessed = false;
-              window.__tg_processedImageUrls = null;
-            } else {
-              images = (await uniqueImages(customImages)).slice(0, 30);
-            }
+            images = (await uniqueImages(customImages)).slice(0, 30);
           } else {
-            let combinedImages;
+            // Merge and dedupe memory + custom
+            let combinedImages = await uniqueImages(memoryImages.concat(customImages));
             
-            // Check if orchestrator already processed results with hi-res augmentation
-            if (window.__tg_orchestratorProcessed && window.__tg_processedImageUrls) {
-              debug('🚫 BYPASSING LEGACY FILTERING: Using orchestrator pre-processed images');
-              combinedImages = window.__tg_processedImageUrls;
-            } else {
-              // Merge and dedupe memory + custom
-              combinedImages = await uniqueImages(memoryImages.concat(customImages));
-              
-              // Fall back to generic only if still insufficient
-              if (combinedImages.length < 3) {
-                debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
-                const genericImages = await getImagesGeneric();
-                debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-                combinedImages = await uniqueImages(combinedImages.concat(genericImages));
-              }
+            // Fall back to generic only if still insufficient
+            if (combinedImages.length < 3) {
+              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+              const genericImages = await getImagesGeneric();
+              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
             }
           
             images = combinedImages.slice(0, 30);
-            
-            // Clean up bypass flags after use
-            if (window.__tg_orchestratorProcessed) {
-              debug('🧹 CLEANING UP: Resetting orchestrator bypass flags');
-              window.__tg_orchestratorProcessed = false;
-              window.__tg_processedImageUrls = null;
-            }
           }
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
           
@@ -2594,4 +2549,3 @@
 
   Object.assign(globalThis, { scrapeProduct });
 })();
-
