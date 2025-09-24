@@ -2213,106 +2213,18 @@
     return null;
   }
   async function getImagesGeneric() {
-    const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
-    debug('🖼️ Getting generic images for hostname:', hostname);
+    debug('🖼️ Getting simple fallback images');
     
-    // Site-specific selectors for problematic sites
-    const siteSpecificSelectors = {
-      'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
-      'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
-      'amazon.com': [
-        // New 2024+ Amazon gallery selectors (thumbnails + main)
-        '[data-csa-c-element-id*="image"] img',
-        '[class*="ivImages"] img', 
-        '[id*="ivImage"] img',
-        '.iv-tab img',
-        '[id*="altImages"] img',
-        '[class*="imagesThumbnail"] img',
-        
-        // Broader Amazon image patterns
-        'img[src*="images-amazon.com"]',
-        'img[src*="ssl-images-amazon.com"]',
-        'img[src*="m.media-amazon.com"]',
-        
-        // Legacy selectors (fallback)
-        '.a-dynamic-image',
-        '#imageBlockContainer img', 
-        '#imageBlock img'
-      ],
-      'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
-      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
-    };
-    
-    // Try site-specific selectors first
-    const siteSelectors = siteSpecificSelectors[hostname] || [];
-    for (const sel of siteSelectors) {
-      debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
-      const urls = await gatherImagesBySelector(sel);
-      if (urls.length >= 1) {
-        debug(`✅ Site-specific success: ${urls.length} images found`);
-        
-        // Add hi-res augmentation (click/zoom/lazy images)
-        debug(`🎯 CALLING HI-RES AUGMENTATION (site-specific path)`);
-        const hiResUrls = await collectHiResAugment({ doc: document });
-        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
-        
-        // Simple merge: combine original + hi-res URLs and deduplicate
-        const merged = Array.from(new Set([...urls, ...hiResUrls]));
-        debug(`🔄 MERGED RESULTS: ${urls.length} original + ${hiResUrls.length} hi-res = ${merged.length} total (after dedup)`);
-        
-        // Set bypass flag to skip legacy uniqueImages filtering (results already processed)
-        window.__tg_orchestratorProcessed = true;
-        window.__tg_processedImageUrls = merged.slice(0,30);
-        debug(`🚫 BYPASS SET: Legacy uniqueImages filtering will be skipped for ${merged.length} pre-processed images`);
-        
-        mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: merged.slice(0,30) }); 
-        return merged.slice(0,30); 
-      }
-    }
-    
-    const gallerySels = [
-      '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
-      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img',
-      '[class*="pwa-slider"] img','[class*="pwa-image"] img','.product-carousel img','.hero-image img',
-      '[data-photoswipe-src] img','.product-main-slide img','.swiper-slide img'
-    ];
-    for (const sel of gallerySels) {
-      const urls = await gatherImagesBySelector(sel);
-      if (urls.length >= 3) {
-        // Add hi-res augmentation (click/zoom/lazy images)
-        debug(`🎯 CALLING HI-RES AUGMENTATION (gallery path)`);
-        const hiResUrls = await collectHiResAugment({ doc: document });
-        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
-        
-        // Simple merge: combine original + hi-res URLs and deduplicate
-        const merged = Array.from(new Set([...urls, ...hiResUrls]));
-        debug(`🔄 MERGED RESULTS: ${urls.length} original + ${hiResUrls.length} hi-res = ${merged.length} total (after dedup)`);
-        
-        // Set bypass flag to skip legacy uniqueImages filtering (results already processed)
-        window.__tg_orchestratorProcessed = true;
-        window.__tg_processedImageUrls = merged.slice(0,30);
-        debug(`🚫 BYPASS SET: Legacy uniqueImages filtering will be skipped for ${merged.length} pre-processed images`);
-        
-        mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: merged.slice(0,30) }); 
-        return merged.slice(0,30); 
-      }
-    }
+    // Simple fallback: just get basic img elements without orchestrator complexity
+    const basic = await gatherImagesBySelector('img');
     const og = q('meta[property="og:image"]')?.content;
-    const all = await gatherImagesBySelector('img');
     
-    // Add hi-res augmentation (click/zoom/lazy images) even in fallback
-    debug(`🎯 CALLING HI-RES AUGMENTATION (fallback path)`);
-    const hiResUrls = await collectHiResAugment({ doc: document });
-    debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
+    const combined = [...basic];
+    if (og) combined.push(og);
+    const deduped = Array.from(new Set(combined));
     
-    // Simple merge: combine all URLs and deduplicate
-    const allUrls = [...all, ...hiResUrls];
-    if (og) allUrls.push(og);
-    const merged = Array.from(new Set(allUrls));
-    debug(`🔄 MERGED RESULTS: ${all.length} generic + ${hiResUrls.length} hi-res + ${og ? 1 : 0} og = ${merged.length} total (after dedup)`);
-    
-    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: merged.slice(0,30) });
-    return merged.slice(0,30);
+    debug(`🔄 SIMPLE FALLBACK: ${basic.length} img + ${og ? 1 : 0} og = ${deduped.length} total`);
+    return deduped.slice(0, 30);
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
