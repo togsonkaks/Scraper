@@ -2342,12 +2342,9 @@
       if (urls.length >= 1) {
         debug(`✅ Site-specific success: ${urls.length} images found`);
         
-        // Convert URLs to enriched format for house filtering
-        const enrichedUrls = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
-        const final = await hybridUniqueImages(enrichedUrls);
-        
-        mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: final.slice(0,30) }); 
-        return final.slice(0,30); 
+        // URLs already filtered by gatherImagesBySelector() -> hybridUniqueImages()
+        mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
+        return urls.slice(0,30); 
       }
     }
     
@@ -2358,22 +2355,16 @@
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel);
       if (urls.length >= 3) {
-        // Convert URLs to enriched format for house filtering
-        const enrichedUrls = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
-        const final = await hybridUniqueImages(enrichedUrls);
-        
-        mark('images', { selectors:[sel], attr:'src', method:'generic-gallery', urls: final.slice(0,30) }); 
-        return final.slice(0,30); 
+        // URLs already filtered by gatherImagesBySelector() -> hybridUniqueImages()
+        mark('images', { selectors:[sel], attr:'src', method:'generic-gallery', urls: urls.slice(0,30) }); 
+        return urls.slice(0,30); 
       }
     }
     const og = q('meta[property="og:image"]')?.content;
     const all = await gatherImagesBySelector('img');
     
-    // Convert URLs to enriched format for house filtering
-    const enrichedUrls = all.map(url => ({ url, element: null, index: 0, containerSelector: 'img' }));
-    const final = await hybridUniqueImages(enrichedUrls);
-    
-    const combined = (og ? [og] : []).concat(final);
+    // URLs already filtered by gatherImagesBySelector() -> hybridUniqueImages()
+    const combined = (og ? [og] : []).concat(all);
     const uniq = await uniqueImages(combined);
     mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
     return uniq.slice(0,30);
