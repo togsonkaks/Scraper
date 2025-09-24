@@ -2273,9 +2273,101 @@
     return Array.from(urls);
   }
 
-  // Legacy wrapper for backward compatibility
   async function getImagesGeneric() {
-    return await getImagesUnified();
+    const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
+    debug('🖼️ Getting generic images for hostname:', hostname);
+    
+    // Site-specific selectors for problematic sites
+    const siteSpecificSelectors = {
+      'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
+      'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
+      'amazon.com': [
+        // New 2024+ Amazon gallery selectors (thumbnails + main)
+        '[data-csa-c-element-id*="image"] img',
+        '[class*="ivImages"] img', 
+        '[id*="ivImage"] img',
+        '.iv-tab img',
+        '[id*="altImages"] img',
+        '[class*="imagesThumbnail"] img',
+        
+        // Broader Amazon image patterns
+        'img[src*="images-amazon.com"]',
+        'img[src*="ssl-images-amazon.com"]',
+        'img[src*="m.media-amazon.com"]',
+        
+        // Legacy selectors (fallback)
+        '.a-dynamic-image',
+        '#imageBlockContainer img', 
+        '#imageBlock img'
+      ],
+      'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
+      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+    };
+    
+    // Try site-specific selectors first
+    const siteSelectors = siteSpecificSelectors[hostname] || [];
+    for (const sel of siteSelectors) {
+      debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
+      const urls = await gatherImagesBySelector(sel);
+      if (urls.length >= 1) {
+        debug(`✅ Site-specific success: ${urls.length} images found`);
+        
+        // Add hi-res augmentation (click/zoom/lazy images)
+        debug(`🎯 CALLING HI-RES AUGMENTATION (site-specific path)`);
+        const hiResUrls = await collectHiResAugment({ doc: document });
+        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
+        
+        // Convert existing URLs to enriched format, then add hi-res URLs
+        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+        const final = await hybridUniqueImages(enrichedUrls);
+        
+        mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: final.slice(0,30) }); 
+        return final.slice(0,30); 
+      }
+    }
+    
+    const gallerySels = [
+      '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
+      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+    ];
+    for (const sel of gallerySels) {
+      const urls = await gatherImagesBySelector(sel);
+      if (urls.length >= 3) {
+        // Add hi-res augmentation (click/zoom/lazy images)
+        debug(`🎯 CALLING HI-RES AUGMENTATION (gallery path)`);
+        const hiResUrls = await collectHiResAugment({ doc: document });
+        debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
+        
+        // Convert existing URLs to enriched format, then add hi-res URLs
+        const enrichedExisting = urls.map(url => ({ url, element: null, index: 0, containerSelector: sel }));
+        const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+        const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+        const final = await hybridUniqueImages(enrichedUrls);
+        
+        mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: final.slice(0,30) }); 
+        return final.slice(0,30); 
+      }
+    }
+    const og = q('meta[property="og:image"]')?.content;
+    const all = await gatherImagesBySelector('img');
+    
+    // Add hi-res augmentation (click/zoom/lazy images) even in fallback
+    debug(`🎯 CALLING HI-RES AUGMENTATION (fallback path)`);
+    const hiResUrls = await collectHiResAugment({ doc: document });
+    debug(`✅ HI-RES AUGMENTATION COMPLETE: ${hiResUrls.length} URLs`);
+    
+    // Convert existing URLs to enriched format, then add hi-res URLs
+    const enrichedExisting = all.map(url => ({ url, element: null, index: 0, containerSelector: 'img' }));
+    const enrichedHiRes = hiResUrls.map(url => ({ url, element: null, index: 0, containerSelector: 'hi-res-augment' }));
+    const enrichedUrls = enrichedExisting.concat(enrichedHiRes);
+    const final = await hybridUniqueImages(enrichedUrls);
+    
+    const combined = (og ? [og] : []).concat(final);
+    const uniq = await uniqueImages(combined);
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback-augmented', urls: uniq.slice(0,30) });
+    return uniq.slice(0,30);
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
