@@ -2235,42 +2235,105 @@
         } catch {}
       }
 
-      // IMG elements + lazy attributes
+      // TARGETED PRODUCT CONTAINER SCANNING (replaces global img scan)
       const LAZY_ATTRS = [
         "data-src", "data-srcset", "data-lazy", "data-lazy-src", "data-original",
         "data-zoom-image", "data-large_image", "data-hires", "data-defer-src",
         "data-defer-srcset", "data-flickity-lazyload"
       ];
-
-      doc.querySelectorAll("img").forEach(img => {
-        // Current/primary sources
-        const best = img.currentSrc || urlFromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
-        if (best) add(best);
-        
-        // Lazy loading attributes
-        for (const attr of LAZY_ATTRS) {
-          const value = img.getAttribute(attr);
-          if (!value) continue;
-          if (attr.endsWith("srcset")) {
-            const url = urlFromSrcset(value);
-            if (url) add(url);
-          } else {
-            add(value);
+      
+      // Product container selectors (ordered by specificity)
+      const GALLERY_SELECTORS = [
+        '.product-gallery', '.product__media', '.product-media', '.pdp-gallery', '.pdp-media',
+        '.media-gallery', '.image-gallery', '.product-images', '.product-image', '.main-image',
+        '.carousel', '.slider', '[data-product-gallery]', '[data-gallery]', '[data-test*="gallery"]'
+      ];
+      
+      const PRODUCT_ROOT_SELECTORS = [
+        '[itemtype*="schema.org/Product"]', '#product', '.product', '[id*="product"]', '[class*="product"]'
+      ];
+      
+      // Exclude obvious non-product areas
+      const EXCLUDE_AREAS = 'header, nav, footer, aside, [role="banner"], [role="navigation"], *[class*="breadcrumb"], *[class*="promo"], *[class*="newsletter"], *[class*="cookie"]';
+      
+      // Find product containers
+      const containers = [];
+      GALLERY_SELECTORS.forEach(sel => {
+        doc.querySelectorAll(sel).forEach(container => {
+          if (!container.closest(EXCLUDE_AREAS)) {
+            containers.push(container);
           }
+        });
+      });
+      
+      PRODUCT_ROOT_SELECTORS.forEach(sel => {
+        doc.querySelectorAll(sel).forEach(container => {
+          if (!container.closest(EXCLUDE_AREAS)) {
+            containers.push(container);
+          }
+        });
+      });
+      
+      const scanContainer = (container) => {
+        // IMG elements within container
+        container.querySelectorAll("img").forEach(img => {
+          // Current/primary sources
+          const best = img.currentSrc || urlFromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
+          if (best) add(best);
+          
+          // Lazy loading attributes
+          for (const attr of LAZY_ATTRS) {
+            const value = img.getAttribute(attr);
+            if (!value) continue;
+            if (attr.endsWith("srcset")) {
+              const url = urlFromSrcset(value);
+              if (url) add(url);
+            } else {
+              add(value);
+            }
+          }
+        });
+        
+        // Picture elements within container
+        container.querySelectorAll("picture source[srcset]").forEach(source => {
+          const url = urlFromSrcset(source.getAttribute("srcset"));
+          if (url) add(url);
+        });
+        
+        // Background images within container
+        container.querySelectorAll("[style]").forEach(el => {
+          const url = bgUrl(el.getAttribute("style"));
+          if (url) add(url);
+        });
+      };
+      
+      // Scan all product containers
+      containers.forEach(scanContainer);
+      
+      // Guarded fallback: if insufficient images found, expand scope
+      if (urls.size < 4) {
+        // Fallback 1: main/article product areas
+        doc.querySelectorAll('main [class*="product"], article [class*="product"]').forEach(area => {
+          if (!area.closest(EXCLUDE_AREAS) && !containers.includes(area)) {
+            scanContainer(area);
+          }
+        });
+        
+        // Fallback 2: capped global scan with quality filters (last resort)
+        if (urls.size < 2) {
+          let globalCount = 0;
+          doc.querySelectorAll("img").forEach(img => {
+            if (globalCount >= 12) return; // Hard cap
+            if (img.closest(EXCLUDE_AREAS)) return; // Skip excluded areas
+            
+            const best = img.currentSrc || img.getAttribute("src");
+            if (best && (best.includes('product') || best.includes('media') || best.includes('gallery'))) {
+              add(best);
+              globalCount++;
+            }
+          });
         }
-      });
-
-      // Picture elements
-      doc.querySelectorAll("picture source[srcset]").forEach(source => {
-        const url = urlFromSrcset(source.getAttribute("srcset"));
-        if (url) add(url);
-      });
-
-      // Background images (inline styles only for performance)
-      doc.querySelectorAll("[style]").forEach(el => {
-        const url = bgUrl(el.getAttribute("style"));
-        if (url) add(url);
-      });
+      }
     };
 
     // Initial scan
