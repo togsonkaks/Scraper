@@ -2260,6 +2260,11 @@
         const merged = Array.from(new Set([...urls, ...hiResUrls]));
         debug(`🔄 MERGED RESULTS: ${urls.length} original + ${hiResUrls.length} hi-res = ${merged.length} total (after dedup)`);
         
+        // Set bypass flag to skip legacy uniqueImages filtering (results already processed)
+        window.__tg_orchestratorProcessed = true;
+        window.__tg_processedImageUrls = merged.slice(0,30);
+        debug(`🚫 BYPASS SET: Legacy uniqueImages filtering will be skipped for ${merged.length} pre-processed images`);
+        
         mark('images', { selectors:[sel], attr:'src', method:'site-specific-augmented', urls: merged.slice(0,30) }); 
         return merged.slice(0,30); 
       }
@@ -2282,6 +2287,11 @@
         // Simple merge: combine original + hi-res URLs and deduplicate
         const merged = Array.from(new Set([...urls, ...hiResUrls]));
         debug(`🔄 MERGED RESULTS: ${urls.length} original + ${hiResUrls.length} hi-res = ${merged.length} total (after dedup)`);
+        
+        // Set bypass flag to skip legacy uniqueImages filtering (results already processed)
+        window.__tg_orchestratorProcessed = true;
+        window.__tg_processedImageUrls = merged.slice(0,30);
+        debug(`🚫 BYPASS SET: Legacy uniqueImages filtering will be skipped for ${merged.length} pre-processed images`);
         
         mark('images', { selectors:[sel], attr:'src', method:'generic-augmented', urls: merged.slice(0,30) }); 
         return merged.slice(0,30); 
@@ -2578,18 +2588,33 @@
             debug('🎯 USING CUSTOM IMAGES (overriding memory)');
             images = (await uniqueImages(customImages)).slice(0, 30);
           } else {
-            // Merge and dedupe memory + custom
-            let combinedImages = await uniqueImages(memoryImages.concat(customImages));
+            let combinedImages;
             
-            // Fall back to generic only if still insufficient
-            if (combinedImages.length < 3) {
-              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
-              const genericImages = await getImagesGeneric();
-              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+            // Check if orchestrator already processed results with hi-res augmentation
+            if (window.__tg_orchestratorProcessed && window.__tg_processedImageUrls) {
+              debug('🚫 BYPASSING LEGACY FILTERING: Using orchestrator pre-processed images');
+              combinedImages = window.__tg_processedImageUrls;
+            } else {
+              // Merge and dedupe memory + custom
+              combinedImages = await uniqueImages(memoryImages.concat(customImages));
+              
+              // Fall back to generic only if still insufficient
+              if (combinedImages.length < 3) {
+                debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+                const genericImages = await getImagesGeneric();
+                debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+                combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+              }
             }
           
             images = combinedImages.slice(0, 30);
+            
+            // Clean up bypass flags after use
+            if (window.__tg_orchestratorProcessed) {
+              debug('🧹 CLEANING UP: Resetting orchestrator bypass flags');
+              window.__tg_orchestratorProcessed = false;
+              window.__tg_processedImageUrls = null;
+            }
           }
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
           
