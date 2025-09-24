@@ -1266,7 +1266,7 @@
     const urls = [];
     const seen = new Set();
 
-    const add = (u) => {
+    const add = (u, element = null, containerHint = 'hi-res-augment') => {
       if (!u) return;
       try { u = new URL(u, location.href).toString(); } catch {}
       if (!/^https?:\/\//i.test(u)) return;
@@ -1274,9 +1274,13 @@
       if (/sprite|icon|thumb|placeholder|transparent|1x1|loading|pixel|beacon|logo|nav|badge/i.test(u)) return;
       if (seen.has(u)) return;
       seen.add(u);
-      urls.push(u);
-      // Display each found URL in the original scraping format
-      debug(`✅ SINGLE IMAGE (score: 205): ${u}`);
+      
+      // Use actual scoring system instead of fake 205
+      const score = scoreImageURL(u, { element, containerSelector: containerHint }, 0);
+      urls.push({ url: u, score, source: 'hi-res-augment' });
+      
+      // Display each found URL in the original scraping format with real score
+      debug(`✅ SINGLE IMAGE (score: ${score}): ${u}`);
     };
 
     const pickSrcsetLargest = (ss) => {
@@ -1338,7 +1342,7 @@
     const scanComprehensive = () => {
       // Original scope-based scanning
       scope.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
-        add(img.currentSrc || img.src);
+        add(img.currentSrc || img.src, img, 'fullscreen-gallery');
       });
 
       // Enhanced lazy attributes
@@ -1350,37 +1354,37 @@
 
       scope.querySelectorAll('img').forEach(img => {
         const best = img.currentSrc || pickSrcsetLargest(img.getAttribute('srcset')) || img.getAttribute('src');
-        if (best) add(best);
+        if (best) add(best, img, 'product-img');
         LAZY.forEach(a => {
           const v = img.getAttribute(a);
           if (!v) return;
           if (a.endsWith('srcset')) {
-            const u = pickSrcsetLargest(v); if (u) add(u);
-          } else add(v);
+            const u = pickSrcsetLargest(v); if (u) add(u, img, 'lazy-srcset');
+          } else add(v, img, 'lazy-attr');
         });
       });
 
       scope.querySelectorAll('picture source[srcset]').forEach(s => {
-        const u = pickSrcsetLargest(s.getAttribute('srcset')); if (u) add(u);
+        const u = pickSrcsetLargest(s.getAttribute('srcset')); if (u) add(u, null, 'picture-source');
       });
 
       // Background images (enhanced)
       const urlRe = /url\((['"]?)(.*?)\1\)/i;
       scope.querySelectorAll('[style]').forEach(el => {
-        const m = urlRe.exec(el.getAttribute('style') || ''); if (m?.[2]) add(m[2]);
+        const m = urlRe.exec(el.getAttribute('style') || ''); if (m?.[2]) add(m[2], el, 'background-img');
       });
       
       // NEW: Links that point directly at images
       scope.querySelectorAll('a[href]').forEach(a => {
         const href = a.getAttribute('href') || '';
-        if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href)) add(href);
+        if (/\.(jpe?g|png|webp|avif)(\?|$)/i.test(href)) add(href, a, 'image-link');
       });
 
       // NEW: Meta tags and JSON-LD (from document root, not scope)
       if (scope === doc) {
         // OpenGraph / Twitter images
         doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"]')
-          .forEach(m => { const c = m.getAttribute('content'); if (c) add(c); });
+          .forEach(m => { const c = m.getAttribute('content'); if (c) add(c, m, 'meta-image'); });
         
         // JSON-LD structured data
         doc.querySelectorAll('script[type="application/ld+json"]').forEach(s => {
@@ -1390,9 +1394,9 @@
               if (!node || typeof node !== 'object') return;
               if (Array.isArray(node)) return node.forEach(collect);
               if (node.image) {
-                if (typeof node.image === 'string') add(node.image);
-                else if (Array.isArray(node.image)) node.image.forEach(add);
-                else if (node.image.url) add(node.image.url);
+                if (typeof node.image === 'string') add(node.image, null, 'jsonld-image');
+                else if (Array.isArray(node.image)) node.image.forEach(u => add(u, null, 'jsonld-array'));
+                else if (node.image.url) add(node.image.url, null, 'jsonld-url');
               }
               Object.values(node).forEach(collect);
             };
@@ -1416,11 +1420,11 @@
             || payload?.colorImages?.initial
             || [];
           (gallery || []).forEach(o => {
-            ['hiRes','mainUrl','large','zoom','thumb','variant'].forEach(k => o?.[k] && add(o[k]));
+            ['hiRes','mainUrl','large','zoom','thumb','variant'].forEach(k => o?.[k] && add(o[k], null, 'amazon-' + k));
           });
           const atf = payload?.ImageBlockATF || payload?.imageBlock?.ImageBlockATF;
-          if (atf?.hiRes) add(atf.hiRes);
-          (atf?.variant || []).forEach(add);
+          if (atf?.hiRes) add(atf.hiRes, null, 'amazon-atf');
+          (atf?.variant || []).forEach(u => add(u, null, 'amazon-variant'));
         } catch {}
       });
     };
@@ -1453,8 +1457,13 @@
       // Final scan after waiting
       scanComprehensive();
 
-      debug(`🔍 Hi-res augment collected: ${urls.length} URLs`);
-      return urls.slice(0, max);
+      debug(`🔍 Hi-res augment collected: ${urls.length} scored URLs`);
+      // Return URLs from scored objects, sorted by score (highest first)
+      const sortedUrls = urls
+        .sort((a, b) => b.score - a.score)
+        .slice(0, max)
+        .map(item => item.url);
+      return sortedUrls;
     } catch (error) {
       debug(`❌ HI-RES AUGMENT ERROR:`, error.message);
       return [];
