@@ -1,0 +1,113 @@
+// Unified images – run both collectors safely and merge
+// getImagesUnified({ doc, max, minW }) returns a ranked, deduped array
+async function getImagesUnified({ doc = document, max = 24, minW = 500, observeMs = 800 } = {}) {
+  // ---------- shared context ----------
+  const ctx = {
+    doc,
+    live: window.document || doc,
+    seenUrl: new Set(),        // cross-collector dedupe
+    candidates: new Map(),     // url -> { url, source, score }
+    log: (m) => window.__tg_debugLog ? window.__tg_debugLog(m) : void 0
+  };
+
+  const add = (url, source, score = 0) => {
+    if (!url || !/^https?:/i.test(url)) return;
+    // normalize once here so both collectors compare apples-to-apples
+    const u = normalizeUrl(url);
+    if (ctx.seenUrl.has(u)) {
+      // keep the higher-scoring version if we already have it
+      const prev = ctx.candidates.get(u);
+      if (prev && score > prev.score) ctx.candidates.set(u, { url: u, source, score });
+      return;
+    }
+    ctx.seenUrl.add(u);
+    ctx.candidates.set(u, { url: u, source, score });
+  };
+
+  // ----- normalization helpers (generic, non-destructive) -----
+  function normalizeUrl(u) {
+    try { u = new URL(u, location.href).toString(); } catch {}
+    // Strip query; keep path stable
+    u = u.split("?")[0].replace(/%2B/gi, "+");
+    // Common cdn size tokens → bump to larger without breaking hosts
+    // (don’t be aggressive: avoid inventing tokens that 404)
+    u = u
+      .replace(/_(SX|SY|SR|SS|UX|UY)\d+_/g, "_SL1500_")
+      .replace(/_SL\d+_/g, "_SL1500_")
+      // drop crop boxes if present
+      .replace(/_CR\d+,\d+,\d+,\d+_/g, "_");
+    return u;
+  }
+
+  // ---------- Collector A: YOUR existing generic ----------
+  async function runYourGeneric() {
+    try {
+      if (typeof gatherImagesBySelector === "function") {
+        const urls = await Promise.resolve(gatherImagesBySelector(ctx.doc)) || [];
+        for (const u of urls) add(u, "your-generic", 500);
+      }
+    } catch (e) { ctx.log(`YourGeneric error: ${e?.message||e}`); }
+  }
+
+  // ---------- Collector B: Generic v2 (lazy/JSON-LD/meta/bg aware) ----------
+  async function runGenericV2() {
+    const LAZY = ["data-src","data-srcset","data-lazy","data-lazy-src","data-original","data-zoom-image","data-large_image","data-hires","data-defer-src","data-defer-srcset","data-flickity-lazyload"];
+    const urlFromSrcset = (ss) => {
+      return (ss||"").split(",").map(s => s.trim()).map(s => {
+        const [url, d] = s.split(/\s+/);
+        const w = d?.endsWith("w") ? parseInt(d) : 0;
+        const x = d?.endsWith("x") ? parseFloat(d) : 0;
+        return { url, score: w || x*1000 || 0 };
+      }).filter(x => x.url).sort((a,b) => b.score - a.score)[0]?.url;
+    };
+    const bgUrl = (s) => {
+      const m = /url\((['"]?)(.*?)\1\)/i.exec(s||""); return m?.[2];
+    };
+
+    // Meta/Twitter/OG
+    ctx.doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
+      .forEach(m => m.content && add(m.content, "og/twitter", 700));
+
+    // JSON-LD (in sanitized doc and/or live doc)
+    const ldRoots = [
+      ...ctx.doc.querySelectorAll('script[type="application/ld+json"]'),
+      ...(ctx.live !== ctx.doc ? ctx.live.querySelectorAll('script[type="application/ld+json"]') : [])
+    ];
+    for (const s of ldRoots) {
+      try {
+        const data = JSON.parse(s.textContent || "{}");
+        (function walk(n){
+          if (!n || typeof n !== "object") return;
+          if (Array.isArray(n)) return n.forEach(walk);
+          if (typeof n.image === "string") add(n.image, "jsonld", 800);
+          else if (Array.isArray(n.image)) n.image.forEach(u => add(u, "jsonld", 800));
+          else if (n.image?.url) add(n.image.url, "jsonld", 800);
+          if (n.logo?.url) add(n.logo.url, "jsonld", 600);
+          Object.values(n).forEach(walk);
+        })(data);
+      } catch {}
+    }
+
+    // IMG + srcset + lazy attrs
+    ctx.doc.querySelectorAll("img").forEach(img => {
+      const best = img.currentSrc || urlFromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
+      if (best) add(best, "img", (img.naturalWidth||0)+(img.naturalHeight||0));
+      for (const a of LAZY) {
+        const v = img.getAttribute(a);
+        if (!v) continue;
+        if (a.endsWith("srcset")) {
+          const u = urlFromSrcset(v); if (u) add(u, "lazy-srcset", 560);
+        } else add(v, "lazy-src", 540);
+      }
+    });
+
+    // <picture><source>
+    ctx.doc.querySelectorAll("picture source[srcset]").forEach(s => {
+      const u = urlFromSrcset(s.getAttribute("srcset")); if (u) add(u, "picture", 650);
+    });
+
+    // Backgrounds (inline + computed)
+    ctx.doc.querySelectorAll("[style]").forEach(el => {
+      const u = bgUrl(el.getAttribute("style")); if (u) add(u, "bg-inline", 520);
+    });
+    ctx.doc.querySelectorAll("div,section
