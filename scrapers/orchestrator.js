@@ -1591,7 +1591,8 @@
         );
         
         bestImages.push({ ...bestCandidate, canonical });
-        addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestCandidate.score}): ${bestCandidate.url.slice(0, 100)}`, bestCandidate.url, bestCandidate.score, true);
+        const selectorInfo = bestCandidate.containerSelector ? ` via [${bestCandidate.containerSelector}]` : '';
+        addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestCandidate.score})${selectorInfo}: ${bestCandidate.url.slice(0, 100)}`, bestCandidate.url, bestCandidate.score, true);
         filtered.duplicateGroups++;
         filtered.kept++;
         
@@ -1612,18 +1613,21 @@
       // Trusted CDNs bypass ALL size checks - HIGHEST PRIORITY  
       if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
         sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        const selectorInfo = img.containerSelector ? ` via [${img.containerSelector}]` : '';
+        addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS${selectorInfo}: ${img.url.slice(0, 100)}`, img.url, img.score, true);
         continue;
       }
       // Trust high scores over file size limits (modern CDN optimization) - EARLY CHECK
       if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {  // High score + minimum size check
         sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        const selectorInfo = img.containerSelector ? ` via [${img.containerSelector}]` : '';
+        addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score})${selectorInfo}: ${img.url.slice(0, 100)}`, img.url, img.score, true);
         continue;
       } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {  // LOWERED FROM 85 TO 50
         // Good score + modern CDN optimization = keep it
         sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        const selectorInfo = img.containerSelector ? ` via [${img.containerSelector}]` : '';
+        addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score})${selectorInfo}: ${img.url.slice(0, 100)}`, img.url, img.score, true);
         continue;
       }
       
@@ -1632,7 +1636,8 @@
       if (estimatedSize >= 50000) {  // LOWERED FROM 100KB TO 50KB
         // Estimated size is good, keep it
         sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `📏 SIZE OK (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        const selectorInfo = img.containerSelector ? ` via [${img.containerSelector}]` : '';
+        addImageDebugLog('debug', `📏 SIZE OK (est: ${Math.round(estimatedSize/1000)}KB)${selectorInfo}: ${img.url.slice(0, 100)}`, img.url, img.score, true);
       } else if (estimatedSize >= 20000 && img.score >= 40) {  // MUCH MORE GENEROUS - was 60KB & score 50
         // Borderline case with decent score, check actual size
         fileSizeCheckPromises.push(
@@ -1658,11 +1663,13 @@
         // Trust high scores over file size limits (modern CDN optimization)
         if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {  // High score + minimum size check
           sizeFilteredImages.push(img);
-          addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+          const selectorInfo = img.containerSelector ? ` via [${img.containerSelector}]` : '';
+          addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score})${selectorInfo}: ${img.url.slice(0, 100)}`, img.url, img.score, true);
         } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {  // LOWERED FROM 85 TO 50
           // Good score + modern CDN optimization = keep it
           sizeFilteredImages.push(img);
-          addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+          const selectorInfo = img.containerSelector ? ` via [${img.containerSelector}]` : '';
+          addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score})${selectorInfo}: ${img.url.slice(0, 100)}`, img.url, img.score, true);
         } else if (actualSize && actualSize >= 100000) {
           sizeFilteredImages.push(img);
           addImageDebugLog('debug', `📏 SIZE VERIFIED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
