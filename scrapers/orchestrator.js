@@ -1299,6 +1299,128 @@
     return false;
   }
 
+  // Parallel Image Collection: Runs both A1 and B1 simultaneously for comprehensive coverage
+  async function collectImagesCombined({ doc = document, observeMs = 1200 } = {}) {
+    debug('🔄 PARALLEL COLLECTION: Starting A1 + B1 simultaneous collection...');
+    
+    // Run both methods in parallel with error isolation
+    const [a1Result, b1Result] = await Promise.allSettled([
+      Promise.race([
+        getImagesGeneric(),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('A1 timeout')), 2000))
+      ]),
+      Promise.race([
+        getImagesUnified({ doc, observeMs }),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('B1 timeout')), 2000))
+      ])
+    ]);
+
+    // Extract results safely
+    const a1Images = a1Result.status === 'fulfilled' ? (a1Result.value || []) : [];
+    const b1Images = b1Result.status === 'fulfilled' ? (b1Result.value || []) : [];
+    
+    debug(`📊 PARALLEL RESULTS: A1=${a1Images.length} images, B1=${b1Images.length} images`);
+    
+    if (a1Result.status === 'rejected') {
+      debug('❌ A1 COLLECTION ERROR:', a1Result.reason?.message);
+    }
+    if (b1Result.status === 'rejected') {
+      debug('❌ B1 COLLECTION ERROR:', b1Result.reason?.message);
+    }
+
+    // Normalize outputs to common format
+    const normalizedA1 = normalizeA1Images(a1Images);
+    const normalizedB1 = normalizeB1Images(b1Images);
+    
+    // Merge and deduplicate
+    const mergedImages = mergeImageCandidates(normalizedA1, normalizedB1);
+    
+    debug(`🎯 PARALLEL FINAL: ${mergedImages.length} images after merge/dedup (A1: ${normalizedA1.length}, B1: ${normalizedB1.length})`);
+    
+    return mergedImages.slice(0, 30);
+  }
+
+  // Normalize A1 images (already filtered/scored) to ImageCandidate format
+  function normalizeA1Images(images) {
+    return images.map((img, index) => ({
+      url: typeof img === 'string' ? img : img.url,
+      canonicalUrl: canonicalKey(typeof img === 'string' ? img : img.url),
+      origin: 'A1',
+      scoreByA1: typeof img === 'object' && img.score ? img.score : null,
+      scoreByB1: null,
+      scoreFinal: typeof img === 'object' && img.score ? img.score : 0,
+      upgradedUrl: upgradeCDNUrl(typeof img === 'string' ? img : img.url),
+      element: typeof img === 'object' ? img.element : null,
+      index: index,
+      context: { source: 'A1-getImagesGeneric', method: 'site-specific-or-fallback' }
+    }));
+  }
+
+  // Normalize B1 images (raw URLs) to ImageCandidate format  
+  function normalizeB1Images(images) {
+    return images.map((img, index) => {
+      const url = typeof img === 'string' ? img : img.url;
+      const upgradedUrl = upgradeCDNUrl(url);
+      const mockEnriched = { url: upgradedUrl, element: null, index, containerSelector: 'b1-unified' };
+      const scoreByB1 = computeAndScoreImage(mockEnriched);
+      
+      return {
+        url: url,
+        canonicalUrl: canonicalKey(url),
+        origin: 'B1',
+        scoreByA1: null,
+        scoreByB1: scoreByB1,
+        scoreFinal: scoreByB1,
+        upgradedUrl: upgradedUrl,
+        element: typeof img === 'object' ? img.element : null,
+        index: index,
+        context: { source: 'B1-unifiedCollector', method: 'comprehensive-meta-gallery' }
+      };
+    });
+  }
+
+  // Merge and deduplicate ImageCandidates, keeping highest scoring per canonical URL
+  function mergeImageCandidates(a1Candidates, b1Candidates) {
+    const candidateMap = new Map();
+    
+    // Process all candidates
+    [...a1Candidates, ...b1Candidates].forEach(candidate => {
+      const key = candidate.canonicalUrl;
+      const existing = candidateMap.get(key);
+      
+      if (!existing) {
+        candidateMap.set(key, candidate);
+      } else {
+        // Merge origins and keep highest score
+        const mergedCandidate = {
+          ...existing,
+          origin: existing.origin === candidate.origin ? existing.origin : `${existing.origin}+${candidate.origin}`,
+          scoreByA1: existing.scoreByA1 || candidate.scoreByA1,
+          scoreByB1: existing.scoreByB1 || candidate.scoreByB1,
+          scoreFinal: Math.max(existing.scoreFinal || 0, candidate.scoreFinal || 0),
+          context: {
+            ...existing.context,
+            mergedFrom: [existing.origin, candidate.origin]
+          }
+        };
+        candidateMap.set(key, mergedCandidate);
+      }
+    });
+    
+    // Convert to array and sort by final score
+    const merged = Array.from(candidateMap.values())
+      .sort((a, b) => (b.scoreFinal || 0) - (a.scoreFinal || 0));
+    
+    // Add diagnostic info
+    const a1Only = merged.filter(c => c.origin === 'A1').length;
+    const b1Only = merged.filter(c => c.origin === 'B1').length;
+    const both = merged.filter(c => c.origin.includes('+')).length;
+    
+    debug(`🔍 MERGE BREAKDOWN: A1-only=${a1Only}, B1-only=${b1Only}, Both=${both}, Total=${merged.length}`);
+    
+    return merged;
+  }
+
   // B1 Unified Collector: Combines hi-res augment + generic collection
   // Merges gallery-focused approach with comprehensive meta/JSON-LD parsing
   async function runUnifiedImageCollectorV3({ 
