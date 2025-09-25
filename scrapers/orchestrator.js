@@ -2442,7 +2442,7 @@
       '.pdp-gallery img', '.item-gallery img'
     ];
     
-    const UNIFIED_SELECTOR = B1_SELECTORS.join(', ');
+    // Individual selector testing instead of unified selector for precise attribution
 
     // B1 SELECTOR PERFORMANCE TRACKING - Before processing
     debug('📊 B1 SELECTOR PERFORMANCE ANALYSIS:');
@@ -2545,22 +2545,43 @@
       }
     }
     
-    debug('📍 B1: Using single combined A1 gatherImagesBySelector call');
+    debug('📍 B1: Using individual selector testing for precise attribution');
     
     try {
-      // Single A1 call with all selectors combined - runs A1 pipeline ONCE
-      const allImages = await gatherImagesBySelector(UNIFIED_SELECTOR);
-      debug(`🔍 B1 COMPREHENSIVE: Single A1 call found ${allImages.length} images`);
+      // Individual A1 calls with each selector - preserves precise attribution
+      let allImages = [];
+      
+      for (const selector of B1_SELECTORS) {
+        const images = await gatherImagesBySelector(selector);
+        if (images.length > 0) {
+          debug(`✅ B1 SELECTOR "${selector}": found ${images.length} images`);
+          allImages = allImages.concat(images);
+        }
+      }
+      
+      // Remove duplicates while preserving individual selector attribution
+      const uniqueB1Images = [];
+      const seenUrls = new Set();
+      
+      for (const img of allImages) {
+        const url = typeof img === 'string' ? img : img.url;
+        if (!seenUrls.has(url)) {
+          seenUrls.add(url);
+          uniqueB1Images.push(img);
+        }
+      }
+      
+      debug(`🔍 B1 COMPREHENSIVE: Individual selector testing found ${uniqueB1Images.length} unique images`);
       
       // B1 POST-PROCESSING ANALYSIS
-      const overallB1Success = totalB1Found > 0 ? ((allImages.length / totalB1Found) * 100).toFixed(1) : 0;
-      debug(`📊 B1 SUMMARY: ${totalB1Found} total elements found, ${allImages.length} kept (${overallB1Success}% overall success)`);
+      const overallB1Success = totalB1Found > 0 ? ((uniqueB1Images.length / totalB1Found) * 100).toFixed(1) : 0;
+      debug(`📊 B1 SUMMARY: ${totalB1Found} total elements found, ${uniqueB1Images.length} kept (${overallB1Success}% overall success)`);
       
       // Store B1 stats globally for final summary
       globalThis.__tg_b1SelectorStats = {
         selectors: b1SelectorStats.map(s => ({...s, kept: 0, successRate: '0.0'})), // B1 doesn't track individual kept
         totalFound: totalB1Found,
-        totalKept: allImages.length,
+        totalKept: uniqueB1Images.length,
         overallSuccess: overallB1Success
       };
       
@@ -2576,9 +2597,9 @@
         debug(`❌ B1 EMPTY SELECTORS: ${lowVolumeSelectors.length} selectors found no elements`);
       }
       
-      debug(`✅ COMPREHENSIVE FINAL: ${allImages.length} images (processed once by A1 system)`);
+      debug(`✅ COMPREHENSIVE FINAL: ${uniqueB1Images.length} images (individual selector testing)`);
       
-      return allImages.slice(0, 30);
+      return uniqueB1Images.slice(0, 30);
     } catch (e) {
       debug(`⚠️ B1: Error with unified selector:`, e.message);
       return [];
@@ -2710,7 +2731,7 @@
     }
     const og = q('meta[property="og:image"]')?.content;
     
-    // SMART FALLBACK - Never use bare 'img' selector, use targeted fallbacks
+    // INDIVIDUAL SELECTOR TESTING - Test each selector separately for precise attribution
     const fallbackSelectors = [
       '[data-product] img',
       '[class*="product"] img', 
@@ -2720,14 +2741,39 @@
       '[role="main"] img',
       'section img',
       'article img'
-    ].join(', ');
+    ];
     
-    const all = await gatherImagesBySelector(fallbackSelectors);
+    debug('🔍 FALLBACK: Testing individual selectors for precise attribution...');
+    let allImages = [];
+    
+    for (const selector of fallbackSelectors) {
+      const images = await gatherImagesBySelector(selector);
+      if (images.length > 0) {
+        debug(`✅ FALLBACK SELECTOR "${selector}": found ${images.length} images`);
+        allImages = allImages.concat(images);
+      } else {
+        debug(`❌ FALLBACK SELECTOR "${selector}": found 0 images`);
+      }
+    }
+    
+    // Remove duplicates while preserving individual selector attribution
+    const deduplicatedImages = [];
+    const seenUrls = new Set();
+    
+    for (const img of allImages) {
+      const url = typeof img === 'string' ? img : img.url;
+      if (!seenUrls.has(url)) {
+        seenUrls.add(url);
+        deduplicatedImages.push(img);
+      }
+    }
+    
+    debug(`🎯 FALLBACK RESULT: ${deduplicatedImages.length} unique images from ${fallbackSelectors.length} selectors`);
     
     // URLs already filtered by gatherImagesBySelector() -> hybridUniqueImages()
-    const combined = (og ? [og] : []).concat(all);
+    const combined = (og ? [og] : []).concat(deduplicatedImages);
     const uniq = await uniqueImages(combined);
-    mark('images', { selectors:['targeted-fallbacks'], attr:'src', method:'smart-fallback', urls: uniq.slice(0,30) });
+    mark('images', { selectors: fallbackSelectors, attr:'src', method:'individual-selector-testing', urls: uniq.slice(0,30) });
     return uniq.slice(0,30);
   }
 
