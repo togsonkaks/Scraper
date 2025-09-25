@@ -2653,36 +2653,11 @@
             if (combinedImages.length < 3) {
               debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
               
-              // A1 PATH: Original working system
+              // Get additional images using standard method
               const genericImages = await getImagesGeneric();
-              debug('🖼️ A1 GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+              debug('🖼️ ADDITIONAL IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
               
-              // B1 PATH: Unified collector feeding to house scoring system
-              debug('🖼️ B1: Running unified collector...');
-              const unifiedUrls = await runUnifiedImageCollectorV3({ doc: document, observeMs: 1000 });
-              const combinedRawUrls = [...new Set(unifiedUrls)];
-              debug(`🖼️ B1 UNIFIED COLLECTION: ${unifiedUrls.length} URLs collected`);
-              
-              // Feed B1 raw URLs to house scoring system
-              const enrichedB1 = combinedRawUrls.map((url, index) => ({ 
-                url, 
-                element: null, 
-                index, 
-                containerSelector: 'b1-combined-collectors' 
-              }));
-              const b1Images = await hybridUniqueImages(enrichedB1);
-              debug('🖼️ B1 HOUSE FILTERED:', { count: b1Images.length, images: b1Images.slice(0, 3) });
-              
-              // Merge A1 + B1 results and sort by score
-              const allImages = [...genericImages, ...b1Images];
-              const sortedImages = allImages.sort((a, b) => {
-                const scoreA = typeof a === 'string' ? 0 : (a.score || 0);
-                const scoreB = typeof b === 'string' ? 0 : (b.score || 0);
-                return scoreB - scoreA;
-              });
-              debug(`🖼️ MERGED A1+B1: ${genericImages.length} + ${b1Images.length} = ${sortedImages.length} total`);
-              
-              combinedImages = await uniqueImages(combinedImages.concat(sortedImages));
+              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
             }
           
             images = combinedImages.slice(0, 30);
