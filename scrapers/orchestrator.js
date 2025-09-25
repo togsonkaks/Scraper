@@ -2312,9 +2312,9 @@
       '.product-gallery-main img', '.product-gallery-thumb img',
       '.swiper-wrapper img', '.carousel-inner img', '.slider-track img',
 
-      // Flexible pattern matching (catches site variations)
+      // Flexible pattern matching (catches site variations) 
       '[class*="zoom-modal"] img', '[class*="product-media"] img', '[class*="product-slides"] img',
-      '[class*="gallery"] img', '[class*="carousel"] img', '[class*="slider"] img',
+      '[class*="gallery"] img', '[class*="product-carousel"] img', '[class*="product-slider"] img',
 
       // High-quality CDN patterns (product areas only)
       '.product-detail img[src*="shopify"]', '.pdp img[src*="cdn"]',
@@ -2442,9 +2442,9 @@
       '.swiper-wrapper img', '.carousel-inner img', '.slider-container img',
       '.pdp-media img', '.product__media img',
       
-      // Flexible pattern matching (catches site variations)
+      // Flexible pattern matching (catches site variations) 
       '[class*="zoom-modal"] img', '[class*="product-media"] img', '[class*="product-slides"] img',
-      '[class*="gallery"] img', '[class*="carousel"] img', '[class*="slider"] img',
+      '[class*="gallery"] img', '[class*="product-carousel"] img', '[class*="product-slider"] img',
       
       // Specific semantic containers (not all figures/articles)
       '.product-detail figure img', '.main-product figure img', 
