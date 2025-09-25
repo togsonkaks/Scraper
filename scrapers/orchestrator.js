@@ -1823,10 +1823,14 @@
     return await hybridUniqueImages(enriched);
   }
   async function gatherImagesBySelector(sel) {
-    debug('🔍 GATHERING IMAGES with selector:', sel);
+    // Smart logging to avoid truncated mega-selectors
+    const selectorDisplay = sel.length > 100 ? 
+      `${sel.substring(0, 50)}... (${sel.split(',').length} selectors)` : 
+      sel;
+    debug('🔍 GATHERING IMAGES with selector:', selectorDisplay);
     
     const elements = qa(sel);
-    debug(`📊 Found ${elements.length} elements for selector:`, sel);
+    debug(`📊 Found ${elements.length} elements for selector: ${selectorDisplay}`);
     
     const enrichedUrls = []; // Now includes element info
     
@@ -2443,6 +2447,7 @@
     debug('📊 B1 SELECTOR PERFORMANCE ANALYSIS:');
     const b1SelectorStats = [];
     let totalB1Found = 0;
+    const foundSelectors = [];
     
     for (const sel of B1_SELECTORS) {
       const elementCount = document.querySelectorAll(sel).length;
@@ -2451,10 +2456,94 @@
         selector: sel,
         found: elementCount
       });
-      debug(`📊 B1: "${sel}" → found:${elementCount} elements`);
+      // Only log selectors that actually found elements (reduce noise)
+      if (elementCount > 0) {
+        foundSelectors.push(`"${sel}" (${elementCount})`);
+        debug(`📊 B1: "${sel}" → found:${elementCount} elements`);
+      }
+    }
+    
+    // Concise summary instead of spam
+    if (foundSelectors.length > 0) {
+      debug(`✅ B1 ACTIVE SELECTORS: ${foundSelectors.join(', ')}`);
+    } else {
+      debug(`❌ B1 NO MATCHES: All ${B1_SELECTORS.length} selectors found 0 elements`);
     }
     
     debug(`📊 B1 PRE-PROCESSING: ${totalB1Found} total elements from ${B1_SELECTORS.length} selectors`);
+    
+    // SMART FALLBACK DETECTION - When all selectors fail, discover actual page structure
+    if (totalB1Found === 0) {
+      debug('🔍 B1 FAILURE ANALYSIS: All selectors empty, analyzing page structure...');
+      
+      // Discover what images actually exist on the page
+      const allPageImages = document.querySelectorAll('img');
+      debug(`📊 DISCOVERY: Found ${allPageImages.length} total images on page`);
+      
+      if (allPageImages.length > 0) {
+        // Analyze container patterns for actionable recommendations
+        const containerPatterns = new Map();
+        const productHints = [];
+        
+        Array.from(allPageImages).slice(0, 20).forEach(img => { // Sample first 20 images
+          // Find meaningful parent containers
+          let parent = img.parentElement;
+          for (let i = 0; i < 3 && parent; i++) {
+            const classList = parent.classList;
+            const className = parent.className || '';
+            const id = parent.id || '';
+            
+            // Look for product-related patterns in class names
+            if (className && (className.includes('product') || className.includes('pdp') || 
+                             className.includes('gallery') || className.includes('media') ||
+                             className.includes('carousel') || className.includes('slider'))) {
+              const containerKey = classList.length > 0 ? `.${Array.from(classList)[0]} img` : 
+                                 id ? `#${id} img` : parent.tagName.toLowerCase() + ' img';
+              const count = (containerPatterns.get(containerKey) || 0) + 1;
+              containerPatterns.set(containerKey, count);
+              
+              // Track potential product containers
+              if (className.includes('product') || className.includes('pdp')) {
+                productHints.push(containerKey);
+              }
+              break; // Found a meaningful container
+            }
+            parent = parent.parentElement;
+          }
+        });
+        
+        // Provide actionable recommendations
+        if (containerPatterns.size > 0) {
+          debug('💡 RECOMMENDED SELECTORS (based on actual page structure):');
+          const sortedContainers = Array.from(containerPatterns.entries())
+            .sort((a, b) => b[1] - a[1]) // Sort by image count
+            .slice(0, 5);
+            
+          sortedContainers.forEach(([selector, count]) => {
+            const isProbablyProduct = productHints.includes(selector) || 
+                                    selector.includes('product') || selector.includes('pdp');
+            const priority = isProbablyProduct ? '🎯 HIGH PRIORITY' : count > 5 ? '⚠️ HIGH VOLUME' : '💡 CANDIDATE';
+            debug(`   ${priority}: ${selector} (${count} images)`);
+          });
+          
+          if (productHints.length > 0) {
+            debug(`🎯 TOP RECOMMENDATIONS: ${[...new Set(productHints)].join(', ')}`);
+          }
+        } else {
+          debug('📋 PAGE STRUCTURE: No clear container patterns detected');
+          // Show some sample image locations for manual inspection
+          const sampleImages = Array.from(allPageImages).slice(0, 3).map(img => {
+            const src = img.src || img.getAttribute('data-src') || 'no-src';
+            const fileName = src.substring(src.lastIndexOf('/') + 1, src.indexOf('?') > 0 ? src.indexOf('?') : undefined) || 'unknown';
+            return `${fileName} (parent: ${img.parentElement?.tagName || 'unknown'})`;
+          });
+          debug(`📋 SAMPLE IMAGES: ${sampleImages.join(', ')}`);
+        }
+      } else {
+        debug('🚫 DISCOVERY: No images found on page at all');
+      }
+    }
+    
     debug('📍 B1: Using single combined A1 gatherImagesBySelector call');
     
     try {
@@ -2482,7 +2571,8 @@
         debug(`🔍 B1 HIGH VOLUME SELECTORS: ${highVolumeSelectors.map(s => `"${s.selector}" (${s.found})`).join(', ')}`);
       }
       if (lowVolumeSelectors.length > 0) {
-        debug(`❌ B1 EMPTY SELECTORS: ${lowVolumeSelectors.map(s => `"${s.selector}"`).join(', ')}`);
+        // Only show count, not the full list (reduces log noise)
+        debug(`❌ B1 EMPTY SELECTORS: ${lowVolumeSelectors.length} selectors found no elements`);
       }
       
       debug(`✅ COMPREHENSIVE FINAL: ${allImages.length} images (processed once by A1 system)`);
