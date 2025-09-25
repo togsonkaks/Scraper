@@ -2203,14 +2203,24 @@
     genericUrls.forEach(url => rawUrls.add(url));
     debug(`✅ GenericImageCollector v2: ${genericUrls.length} raw URLs`);
     
-    // Convert raw URLs to enriched format for house system
+    // Convert raw URLs to enriched format with proper container context
     const allRawUrls = Array.from(rawUrls);
-    const enrichedUrls = allRawUrls.map((url, index) => ({ 
-      url, 
-      element: null, 
-      index, 
-      containerSelector: 'unified-collection' 
-    }));
+    const enrichedUrls = allRawUrls.map((url, index) => {
+      // Try to determine container context based on URL patterns and source
+      let containerSelector = 'b1-combined-collectors';
+      
+      // If this URL came from hi-res augment (gallery patterns), mark as primary gallery
+      if (hiResUrls.includes(url)) {
+        containerSelector = '.product-gallery img'; // Mark as primary gallery
+      }
+      
+      return { 
+        url, 
+        element: null, 
+        index, 
+        containerSelector 
+      };
+    });
     
     debug(`🔄 UNIFIED COLLECTION: ${allRawUrls.length} total raw URLs from both collectors`);
     
