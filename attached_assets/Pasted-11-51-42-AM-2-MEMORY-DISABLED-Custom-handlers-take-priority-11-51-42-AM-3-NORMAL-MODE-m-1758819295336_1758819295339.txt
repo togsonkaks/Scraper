@@ -1,0 +1,978 @@
+11:51:42 AM] 2 🚫 MEMORY DISABLED - Custom handlers take priority
+[11:51:42 AM] 3 🔄 NORMAL MODE - memory + fallbacks
+[11:51:42 AM] 4 🧩 TITLE: Trying custom handler...
+[11:51:42 AM] 5 🧩 CUSTOM TITLE MISS: returned object null
+[11:51:42 AM] 6 📝 TITLE: Falling back to generic...
+[11:51:42 AM] 7 📝 TITLE FROM GENERIC: Sink Down Lounge Chair
+[11:51:42 AM] 8 🏷️ BRAND: Falling back to generic...
+[11:51:42 AM] 9 🏷️ BRAND FROM GENERIC: KUKA
+[11:51:42 AM] 10 📄 DESCRIPTION: Falling back to generic...
+[11:51:42 AM] 11 📄 DESCRIPTION FROM GENERIC: Insanely comfortable, and incredibly deep, The Sink Down Lounge Chair was designed to make you feel like you’re sinking into a cloud. A combination of premium memory foam and blown fiber cushions create the perfect place to unwind, relax, and put your feet up.     This item is Made to Order.
+[11:51:42 AM] 12 🧩 PRICE: Trying custom handler...
+[11:51:42 AM] 13 🧩 CUSTOM PRICE MISS: returned object null
+[11:51:42 AM] 14 💰 PRICE: Falling back to generic...
+[11:51:42 AM] 15 🔍 PRICE PARSING: {"input":"Starting at\n $1,448 (Member)\n \n \n \n Starting at\n $1,810\n (Regular)","inputType":"string","inputLength":139}
+[11:51:42 AM] 16 🧹 CLEANED INPUT: {"original":"Starting at\n $1,448 (Member)\n \n \n \n Starting at\n $1,810\n (Regular)","cleaned":"Starting at\n $1,
+[11:51:42 AM] 17 🔧 RECONSTRUCTED INPUT: {"cleaned":"Starting at\n $1,448 (Member)\n \n \n \n Starting at\n $1,810\n (Regular)","reconstructed":"Starting at\n
+[11:51:42 AM] 18 💰 MONETARY TOKENS: [1448,1810]
+[11:51:42 AM] 19 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[1448,1810],"preferDecimals":false}
+[11:51:42 AM] 20 ✅ PRICE FROM MONETARY: {"result":1448,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[1448,1810]}
+[11:51:42 AM] 21 🎯 REFINING PRICE: {"baseVal":"1448","fromMemory":false,"hasElement":true,"elementTag":"P"}
+[11:51:42 AM] 22 Price element <P.product-price>
+[11:51:42 AM] 23 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[11:51:42 AM] 24 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[11:51:42 AM] 25 📍 ANCESTOR 0: <P.product-price>
+[11:51:42 AM] 26 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"Starting at\n $1,448 (Member)\n \n \n \n Starting at","cleaned":"Starting at\n $1,448 (Member)\n \n \n
+[11:51:42 AM] 27 💰 ANCESTOR 0 SMART PRICE: 1448 from tokens: [1448,1810]
+[11:51:42 AM] 28 📍 ANCESTOR 1: <DIV#price-template--16366040219810__main.no-js-hidden>
+[11:51:42 AM] 29 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":".product-price {\n \n font-size: 18px;\n\n}\n.members-price {\n \nfont-size: 18px;\n\nmargin: 0;\ncolor: ","cleaned":".product-price {\n \n font-size: 18px;\n\n}\n.members-price
+[11:51:42 AM] 30 💰 ANCESTOR 1 SMART PRICE: 1448 from tokens: [1448,1810]
+[11:51:42 AM] 31 📍 ANCESTOR 2: <DIV#product-info.main-product__info>
+[11:51:42 AM] 32 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Sink Down Lounge Chair\n \n .product-price {\n \n font-size: 18px;\n\n}\n.members-price {\n \nfont","cleaned":"Sink Down Lounge Chair\n \n .product-price {\n \n font-
+[11:51:42 AM] 33 💰 ANCESTOR 2 SMART PRICE: 908 from tokens: [1448,1810,1810,1810,1810,1810,1810,2210,2210,2210,2210,2510,2510,2510,2510,2510,1135,1135,1135,1135,1135,1385,1385,1385,1385,1385,1285,1285,1285,1285,908,1135,1448,1810]
+[11:51:42 AM] 34 🔄 NEW BEST PRICE: 908 (was 1448)
+[11:51:42 AM] 35 ✅ CONTEXT REFINEMENT RESULT: {"result":"908","originalBase":"1448"}
+[11:51:42 AM] 36 💰 PRICE FROM GENERIC: 908
+[11:51:42 AM] 37 🖼️ IMAGES: Skipping memory in normal mode
+[11:51:42 AM] 38 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:51:42 AM] 39 🧩 IMAGES: Trying custom handler...
+[11:51:42 AM] 40 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[11:51:42 AM] 41 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[11:51:42 AM] 42 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[11:51:42 AM] 43 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[11:51:42 AM] 44 🏆 TOP SCORED IMAGES: []
+[11:51:42 AM] 45 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[11:51:42 AM] 46 🖼️ FINAL IMAGES: []
+[11:51:42 AM] 47 🖼️ IMAGES: Custom insufficient, running parallel A1+B1 collection...
+[11:51:42 AM] 48 🔄 PARALLEL COLLECTION: Starting A1 + B1 simultaneous collection...
+[11:51:42 AM] 49 🖼️ Getting generic images for hostname: floydhome.com
+[11:51:42 AM] 50 🔍 GATHERING IMAGES with selector: .product-media img
+[11:51:42 AM] 51 📊 Found 0 elements for selector: .product-media img
+[11:51:42 AM] 52 📊 CONTAINER STATS [.product-media img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[11:51:42 AM] 53 🖼️ Raw enriched URLs collected: 0
+[11:51:42 AM] 54 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[11:51:42 AM] 55 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[11:51:42 AM] 56 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[11:51:42 AM] 57 🏆 TOP SCORED IMAGES: []
+[11:51:42 AM] 58 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[11:51:42 AM] 59 🖼️ FINAL IMAGES: []
+[11:51:42 AM] 60 🚀 B1 COMPREHENSIVE: Starting on floydhome.com - single A1 call
+[11:51:42 AM] 61 📍 B1: Using single combined A1 gatherImagesBySelector call
+[11:51:42 AM] 62 🔍 GATHERING IMAGES with selector: .product-gallery img, .product-photos img, .product-images img, .gallery img, .image-gallery img, .media-gallery img, .product-media img, .product-photo img, [class*="gallery"] img, [class*="product-image"] img, [class*="media"] img, [class*="swiper"] img, [class*="carousel"] img, [class*="slider"] img, main img[src*="cdn"], main img[src*="shopify"], main img[src*="amazonaws"], main img[src*="cloudinary"], main img[src*="imgix"], main figure img, article figure img, section figure img, [role="main"] img, .main-content img, .pdp img, .product-detail img, .item-gallery img, [data-gallery] img, [data-product-gallery] img, [data-image] img
+[11:51:42 AM] 63 📊 Found 67 elements for selector: .product-gallery img, .product-photos img, .product-images img, .gallery img, .image-gallery img, .media-gallery img, .product-media img, .product-photo img, [class*="gallery"] img, [class*="product-image"] img, [class*="media"] img, [class*="swiper"] img, [class*="carousel"] img, [class*="slider"] img, main img[src*="cdn"], main img[src*="shopify"], main img[src*="amazonaws"], main img[src*="cloudinary"], main img[src*="imgix"], main figure img, article figure img, section figure img, [role="main"] img, .main-content img, .pdp img, .product-detail img, .item-gallery img, [data-gallery] img, [data-product-gallery] img, [data-image] img
+[11:51:42 AM] 64 Image element <IMG.flickity-lazyloaded>
+[11:51:42 AM] 65 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/products/FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030ac3218.png?v=1677176689&width=1200","data-src":null,"data-image":null,"data-zoom-image":null
+[11:51:42 AM] 66 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/products/FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030
+[11:51:42 AM] 67 Image element <IMG.flickity-lazyloaded>
+[11:51:42 AM] 68 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=1683123433&width=1002.7855153203343","data-src":null,"data-image":null,"data-zoom-image":null,"
+[11:51:42 AM] 69 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=168
+[11:51:42 AM] 70 ✅ ALLOWED: Shopify files path (product image): ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=1683123433&width=1002.7855153203343
+[11:51:42 AM] 71 Image element <IMG.flickity-lazyloaded>
+[11:51:42 AM] 72 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=1683123433&width=1002.7855153203343","data-src":null,"data-image":null,"data-zoom-image":null,"
+[11:51:42 AM] 73 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=168
+[11:51:42 AM] 74 ✅ ALLOWED: Shopify files path (product image): ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=1683123433&width=1002.7855153203343
+[11:51:42 AM] 75 Image element <IMG>
+[11:51:42 AM] 76 📋 Image attributes: {"src":"","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 77 Image element <IMG.flickity-lazyloaded>
+[11:51:42 AM] 78 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=1683123433&width=1002.7855153203343","data-src":null,"data-image":null,"data-zoom-image":null,"
+[11:51:42 AM] 79 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=168
+[11:51:42 AM] 80 ✅ ALLOWED: Shopify files path (product image): ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=1683123433&width=1002.7855153203343
+[11:51:42 AM] 81 Image element <IMG.flickity-lazyloaded>
+[11:51:42 AM] 82 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697646755&width=1200","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":nul
+[11:51:42 AM] 83 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697
+[11:51:42 AM] 84 ✅ ALLOWED: Shopify files path (product image): sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697646755&width=1200
+[11:51:42 AM] 85 Image element <IMG.product-gallery__thumbnails__item>
+[11:51:42 AM] 86 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/products/FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030ac3218.png?v=1677176689&width=200&height=200&crop=center","data-src":null,"data-image":null,
+[11:51:42 AM] 87 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/products/FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030
+[11:51:42 AM] 88 Image element <IMG.product-gallery__thumbnails__item>
+[11:51:42 AM] 89 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=1683123433&width=200&height=200&crop=center","data-src":null,"data-image":null,"data-zoom-image
+[11:51:42 AM] 90 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=168
+[11:51:42 AM] 91 ✅ ALLOWED: Shopify files path (product image): ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=1683123433&width=200&height=200&crop=center
+[11:51:42 AM] 92 Image element <IMG.product-gallery__thumbnails__item>
+[11:51:42 AM] 93 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=1683123433&width=200&height=200&crop=center","data-src":null,"data-image":null,"data-zoom-image
+[11:51:42 AM] 94 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=168
+[11:51:42 AM] 95 ✅ ALLOWED: Shopify files path (product image): ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=1683123433&width=200&height=200&crop=center
+[11:51:42 AM] 96 Image element <IMG.product-gallery__thumbnails__item>
+[11:51:42 AM] 97 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/ProductSelector3_7cbf5a29-e405-4f64-8977-f40d08a8d1b8.jpg?v=1683123433&width=200&height=200&crop=center","data-src":null,"data-image":null,"data-zoom-image
+[11:51:42 AM] 98 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/ProductSelector3_7cbf5a29-e405-4f64-8977-f40d08a8d1b8.jpg?v=168
+[11:51:42 AM] 99 ✅ ALLOWED: Shopify files path (product image): ProductSelector3_7cbf5a29-e405-4f64-8977-f40d08a8d1b8.jpg?v=1683123433&width=200&height=200&crop=center
+[11:51:42 AM] 100 Image element <IMG.product-gallery__thumbnails__item>
+[11:51:42 AM] 101 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=1683123433&width=200&height=200&crop=center","data-src":null,"data-image":null,"data-zoom-image
+[11:51:42 AM] 102 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=168
+[11:51:42 AM] 103 ✅ ALLOWED: Shopify files path (product image): ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=1683123433&width=200&height=200&crop=center
+[11:51:42 AM] 104 Image element <IMG.product-gallery__thumbnails__item>
+[11:51:42 AM] 105 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/files/sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697646755&width=200&height=200&crop=center","data-src":null,"data-image":null,"data-zoom-image"
+[11:51:42 AM] 106 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/files/sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697
+[11:51:42 AM] 107 ✅ ALLOWED: Shopify files path (product image): sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697646755&width=200&height=200&crop=center
+[11:51:42 AM] 108 Image element <IMG>
+[11:51:42 AM] 109 📋 Image attributes: {"src":"https://cdn.shopify.com/s/files/1/0462/1706/8706/files/F25-ICONS-MTO-01.svg?v=1740180439","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 110 ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0462/1706/8706/files/F25-ICONS-MTO-01.svg?v=1740180439
+[11:51:42 AM] 111 Image element <IMG>
+[11:51:42 AM] 112 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120163150/sink_down_oat.jpg?v=1723465306919","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 113 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120163150/sink_down_oat.jpg?v=1723465306919
+[11:51:42 AM] 114 Image element <IMG>
+[11:51:42 AM] 115 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120151019/sink_down_sand.jpg?v=1723465269149","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 116 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120151019/sink_down_sand.jpg?v=1723465269149
+[11:51:42 AM] 117 Image element <IMG>
+[11:51:42 AM] 118 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120094533/sink_down_ash_gray.jpg?v=1723464902355","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 119 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120094533/sink_down_ash_gray.jpg?v=1723464902355
+[11:51:42 AM] 120 Image element <IMG>
+[11:51:42 AM] 121 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120206347/sink_down_terracotta.jpg?v=1723465392110","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 122 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120206347/sink_down_terracotta.jpg?v=1723465392110
+[11:51:42 AM] 123 Image element <IMG>
+[11:51:42 AM] 124 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120121980/sink_down_fawn_swatch.png?v=1723464978579","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 125 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120121980/sink_down_fawn_swatch.png?v=1723464978579
+[11:51:42 AM] 126 Image element <IMG>
+[11:51:42 AM] 127 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120108686/sink_down_aspen.jpg?v=1723464954998","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 128 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120108686/sink_down_aspen.jpg?v=1723464954998
+[11:51:42 AM] 129 Image element <IMG>
+[11:51:42 AM] 130 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120176895/sink_down_rye.jpg?v=1723465354824","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 131 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120176895/sink_down_rye.jpg?v=1723465354824
+[11:51:42 AM] 132 Image element <IMG>
+[11:51:42 AM] 133 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120137173/sink_down_mineral.jpg?v=1723465247338","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 134 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120137173/sink_down_mineral.jpg?v=1723465247338
+[11:51:42 AM] 135 Image element <IMG>
+[11:51:42 AM] 136 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120188762/sink_down_sienna.jpg?v=1723465372635","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 137 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120188762/sink_down_sienna.jpg?v=1723465372635
+[11:51:42 AM] 138 Image element <IMG>
+[11:51:42 AM] 139 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120265313/sink_down_two_tone_powder.jpg?v=1723465486925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 140 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120265313/sink_down_two_tone_powder.jpg?v=1723465486925
+[11:51:42 AM] 141 Image element <IMG>
+[11:51:42 AM] 142 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120234163/sink_down_two_tone_cascade.jpg?v=1723465445453","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 143 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120234163/sink_down_two_tone_cascade.jpg?v=1723465445453
+[11:51:42 AM] 144 Image element <IMG>
+[11:51:42 AM] 145 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120277557/sink_down_two_tone_trail.jpg?v=1723465510243","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 146 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120277557/sink_down_two_tone_trail.jpg?v=1723465510243
+[11:51:42 AM] 147 Image element <IMG>
+[11:51:42 AM] 148 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120220028/sink_down_two_tone_canyon.jpg?v=1723465418105","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 149 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120220028/sink_down_two_tone_canyon.jpg?v=1723465418105
+[11:51:42 AM] 150 Image element <IMG>
+[11:51:42 AM] 151 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120248141/sink_down_two_tone_deep.jpg?v=1723465466495","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 152 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120248141/sink_down_two_tone_deep.jpg?v=1723465466495
+[11:51:42 AM] 153 Image element <IMG>
+[11:51:42 AM] 154 📋 Image attributes: {"src":"https://floydhome.com/cdn/shop/products/FSD-Ottoman-Oat_1500x1500_f16ecd3c-6e93-432e-8e33-0c2bf562244e.png?v=1677510947&width=236&height=236&crop=center","data-src":null,"data-image":null,"dat
+[11:51:42 AM] 155 ✅ Found image URL from attributes: https://floydhome.com/cdn/shop/products/FSD-Ottoman-Oat_1500x1500_f16ecd3c-6e93-432e-8e33-0c2bf56224
+[11:51:42 AM] 156 Image element <IMG>
+[11:51:42 AM] 157 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120163150/sink_down_oat.jpg?v=1723465306919","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 158 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120163150/sink_down_oat.jpg?v=1723465306919
+[11:51:42 AM] 159 Image element <IMG>
+[11:51:42 AM] 160 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120151019/sink_down_sand.jpg?v=1723465269149","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 161 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120151019/sink_down_sand.jpg?v=1723465269149
+[11:51:42 AM] 162 Image element <IMG>
+[11:51:42 AM] 163 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120094533/sink_down_ash_gray.jpg?v=1723464902355","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 164 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120094533/sink_down_ash_gray.jpg?v=1723464902355
+[11:51:42 AM] 165 Image element <IMG>
+[11:51:42 AM] 166 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120121980/sink_down_fawn_swatch.png?v=1723464978579","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 167 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120121980/sink_down_fawn_swatch.png?v=1723464978579
+[11:51:42 AM] 168 Image element <IMG>
+[11:51:42 AM] 169 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120206347/sink_down_terracotta.jpg?v=1723465392110","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 170 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120206347/sink_down_terracotta.jpg?v=1723465392110
+[11:51:42 AM] 171 Image element <IMG>
+[11:51:42 AM] 172 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120265313/sink_down_two_tone_powder.jpg?v=1723465486925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 173 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120265313/sink_down_two_tone_powder.jpg?v=1723465486925
+[11:51:42 AM] 174 Image element <IMG>
+[11:51:42 AM] 175 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120277557/sink_down_two_tone_trail.jpg?v=1723465510243","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 176 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120277557/sink_down_two_tone_trail.jpg?v=1723465510243
+[11:51:42 AM] 177 Image element <IMG>
+[11:51:42 AM] 178 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120220028/sink_down_two_tone_canyon.jpg?v=1723465418105","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 179 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120220028/sink_down_two_tone_canyon.jpg?v=1723465418105
+[11:51:42 AM] 180 Image element <IMG>
+[11:51:42 AM] 181 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120234163/sink_down_two_tone_cascade.jpg?v=1723465445453","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 182 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120234163/sink_down_two_tone_cascade.jpg?v=1723465445453
+[11:51:42 AM] 183 Image element <IMG>
+[11:51:42 AM] 184 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120248141/sink_down_two_tone_deep.jpg?v=1723465466495","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 185 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120248141/sink_down_two_tone_deep.jpg?v=1723465466495
+[11:51:42 AM] 186 Image element <IMG>
+[11:51:42 AM] 187 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120108686/sink_down_aspen.jpg?v=1723464954998","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 188 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120108686/sink_down_aspen.jpg?v=1723464954998
+[11:51:42 AM] 189 Image element <IMG>
+[11:51:42 AM] 190 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120176895/sink_down_rye.jpg?v=1723465354824","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 191 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120176895/sink_down_rye.jpg?v=1723465354824
+[11:51:42 AM] 192 Image element <IMG>
+[11:51:42 AM] 193 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120137173/sink_down_mineral.jpg?v=1723465247338","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 194 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120137173/sink_down_mineral.jpg?v=1723465247338
+[11:51:42 AM] 195 Image element <IMG>
+[11:51:42 AM] 196 📋 Image attributes: {"src":"https://cdn.accentuate.io/46217068706/1723120188762/sink_down_sienna.jpg?v=1723465372635","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 197 ✅ Found image URL from attributes: https://cdn.accentuate.io/46217068706/1723120188762/sink_down_sienna.jpg?v=1723465372635
+[11:51:42 AM] 198 Image element <IMG.featured-full-bleed__image>
+[11:51:42 AM] 199 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1677513042848/Full-Bleed.jpg?v=1683123623844","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 200 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1677513042848/Full-Bleed.jpg?v=1683123623844
+[11:51:42 AM] 201 📸 Checking picture parent for sources...
+[11:51:42 AM] 202 Image element <IMG>
+[11:51:42 AM] 203 📋 Image attributes: {"src":"//floydhome.com/cdn/shop/t/354/assets/arrow-left-prev.svg?v=90201794734701834701700080795","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 204 ✅ Found image URL from attributes: //floydhome.com/cdn/shop/t/354/assets/arrow-left-prev.svg?v=90201794734701834701700080795
+[11:51:42 AM] 205 Image element <IMG>
+[11:51:42 AM] 206 📋 Image attributes: {"src":"//floydhome.com/cdn/shop/t/354/assets/arrow-right-next.svg?v=66608631681056917091700080795","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 207 ✅ Found image URL from attributes: //floydhome.com/cdn/shop/t/354/assets/arrow-right-next.svg?v=66608631681056917091700080795
+[11:51:42 AM] 208 Image element <IMG.product-storytelling__media--image>
+[11:51:42 AM] 209 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1677512803898/Storytelling-1.jpg?v=1683123486287","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 210 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1677512803898/Storytelling-1.jpg?v=1683123486287
+[11:51:42 AM] 211 📸 Checking picture parent for sources...
+[11:51:42 AM] 212 Image element <IMG.product-storytelling__media--image>
+[11:51:42 AM] 213 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1677512816400/Storytelling-2.jpg?v=1683123504025","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 214 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1677512816400/Storytelling-2.jpg?v=1683123504025
+[11:51:42 AM] 215 📸 Checking picture parent for sources...
+[11:51:42 AM] 216 Image element <IMG.product-storytelling__media--image>
+[11:51:42 AM] 217 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1677512830022/Storytelling-3.jpg?v=1683123520338","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 218 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1677512830022/Storytelling-3.jpg?v=1683123520338
+[11:51:42 AM] 219 📸 Checking picture parent for sources...
+[11:51:42 AM] 220 Image element <IMG.product-details__media--image>
+[11:51:42 AM] 221 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1677512911760/Product-Details.jpg?v=1683123540605","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 222 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1677512911760/Product-Details.jpg?v=1683123540605
+[11:51:42 AM] 223 📸 Checking picture parent for sources...
+[11:51:42 AM] 224 Image element <IMG>
+[11:51:42 AM] 225 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 226 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696
+[11:51:42 AM] 227 Image element <IMG>
+[11:51:42 AM] 228 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 229 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292
+[11:51:42 AM] 230 Image element <IMG>
+[11:51:42 AM] 231 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 232 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+[11:51:42 AM] 233 Image element <IMG>
+[11:51:42 AM] 234 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 235 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853
+[11:51:42 AM] 236 Image element <IMG>
+[11:51:42 AM] 237 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 238 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374
+[11:51:42 AM] 239 Image element <IMG>
+[11:51:42 AM] 240 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 241 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696
+[11:51:42 AM] 242 Image element <IMG>
+[11:51:42 AM] 243 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 244 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292
+[11:51:42 AM] 245 Image element <IMG>
+[11:51:42 AM] 246 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 247 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+[11:51:42 AM] 248 Image element <IMG>
+[11:51:42 AM] 249 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 250 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853
+[11:51:42 AM] 251 Image element <IMG>
+[11:51:42 AM] 252 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 253 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374
+[11:51:42 AM] 254 Image element <IMG>
+[11:51:42 AM] 255 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 256 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696
+[11:51:42 AM] 257 Image element <IMG>
+[11:51:42 AM] 258 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 259 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292
+[11:51:42 AM] 260 Image element <IMG>
+[11:51:42 AM] 261 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 262 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+[11:51:42 AM] 263 Image element <IMG>
+[11:51:42 AM] 264 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 265 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853
+[11:51:42 AM] 266 Image element <IMG>
+[11:51:42 AM] 267 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:42 AM] 268 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374
+[11:51:42 AM] 269 Image element <IMG.product-card__image>
+[11:51:42 AM] 270 📋 Image attributes: {"src":"//floydhome.com/cdn/shop/files/2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=250&v=1750106524&width=250","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null
+[11:51:42 AM] 271 ✅ Found image URL from attributes: //floydhome.com/cdn/shop/files/2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=250&v=1750
+[11:51:42 AM] 272 ✅ ALLOWED: Shopify files path (product image): 2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=250&v=1750106524&width=250
+[11:51:42 AM] 273 ✅ Found image URL from srcset: //floydhome.com/cdn/shop/files/2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=500&v=1750
+[11:51:42 AM] 274 ✅ ALLOWED: Shopify files path (product image): 2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=500&v=1750106524&width=500
+[11:51:42 AM] 275 📸 Checking picture parent for sources...
+[11:51:42 AM] 276 ✅ Found image URL from picture source: //floydhome.com/cdn/shop/files/2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=700&v=1750
+[11:51:42 AM] 277 ✅ ALLOWED: Shopify files path (product image): 2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=700&v=1750106524&width=700
+[11:51:42 AM] 278 Image element <IMG.product-card__image>
+[11:51:42 AM] 279 📋 Image attributes: {"src":"//floydhome.com/cdn/shop/files/3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=250&v=1750107052&width=250","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[11:51:42 AM] 280 ✅ Found image URL from attributes: //floydhome.com/cdn/shop/files/3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=250&v=1750107
+[11:51:42 AM] 281 ✅ ALLOWED: Shopify files path (product image): 3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=250&v=1750107052&width=250
+[11:51:42 AM] 282 ✅ Found image URL from srcset: //floydhome.com/cdn/shop/files/3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=500&v=1750107
+[11:51:42 AM] 283 ✅ ALLOWED: Shopify files path (product image): 3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=500&v=1750107052&width=500
+[11:51:42 AM] 284 📸 Checking picture parent for sources...
+[11:51:42 AM] 285 ✅ Found image URL from picture source: //floydhome.com/cdn/shop/files/3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=700&v=1750107
+[11:51:42 AM] 286 ✅ ALLOWED: Shopify files path (product image): 3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=700&v=1750107052&width=700
+[11:51:42 AM] 287 Image element <IMG.product-card__image>
+[11:51:42 AM] 288 📋 Image attributes: {"src":"//floydhome.com/cdn/shop/files/4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=250&v=1750107500&width=250","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"s
+[11:51:42 AM] 289 ✅ Found image URL from attributes: //floydhome.com/cdn/shop/files/4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=250&v=1750107
+[11:51:42 AM] 290 ✅ ALLOWED: Shopify files path (product image): 4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=250&v=1750107500&width=250
+[11:51:42 AM] 291 ✅ Found image URL from srcset: //floydhome.com/cdn/shop/files/4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=500&v=1750107
+[11:51:42 AM] 292 ✅ ALLOWED: Shopify files path (product image): 4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=500&v=1750107500&width=500
+[11:51:42 AM] 293 📸 Checking picture parent for sources...
+[11:51:42 AM] 294 ✅ Found image URL from picture source: //floydhome.com/cdn/shop/files/4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=700&v=1750107
+[11:51:42 AM] 295 ✅ ALLOWED: Shopify files path (product image): 4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=700&v=1750107500&width=700
+[11:51:42 AM] 296 📊 CONTAINER STATS [.product-gallery img, .product-photos img, .product-images img, .gallery img, .image-gallery img, .media-gallery img, .product-media img, .product-photo img, [class*="gallery"] img, [class*="product-image"] img, [class*="media"] img, [class*="swiper"] img, [class*="carousel"] img, [class*="slider"] img, main img[src*="cdn"], main img[src*="shopify"], main img[src*="amazonaws"], main img[src*="cloudinary"], main img[src*="imgix"], main figure img, article figure img, section figure img, [role="main"] img, .main-content img, .pdp img, .product-detail img, .item-gallery img, [data-gallery] img, [data-product-gallery] img, [data-image] img]: {"found":67,"extracted":69,"types":["gallery","listing","section"],"parents":[".product-gallery__item",".flickity-slider",".main-product__description"]}
+[11:51:42 AM] 297 🖼️ Raw enriched URLs collected: 72
+[11:51:42 AM] 298 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":72}
+[11:51:42 AM] 299 🔍 EFFECTIVE RESOLUTION: 1500px (1500×1) = +27.9 points
+[11:51:42 AM] 300 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 301 🏆 PRIMARY GALLERY BONUS: "fsd-loungechair-oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030ac3218.png?v=1677176689&width=1200" from unified detection gets +35 points
+[11:51:42 AM] 302 🎯 UNIFIED SCORE: 198 for FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a
+[11:51:42 AM] 303 🔍 EFFECTIVE RESOLUTION: 1500px (1002×1) = +27.9 points
+[11:51:42 AM] 304 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 305 🏆 PRIMARY GALLERY BONUS: "productselector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=1683123433&width=1002.7855153203343" from unified detection gets +35 points
+[11:51:42 AM] 306 🎯 UNIFIED SCORE: 188 for ProductSelector1_abd5437d-3977-461b-a865-ac02f9029
+[11:51:42 AM] 307 🔍 EFFECTIVE RESOLUTION: 1500px (1002×1) = +27.9 points
+[11:51:42 AM] 308 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 309 🏆 PRIMARY GALLERY BONUS: "productselector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=1683123433&width=1002.7855153203343" from unified detection gets +35 points
+[11:51:42 AM] 310 🎯 UNIFIED SCORE: 188 for ProductSelector2_98425253-e99e-429c-8b48-5141cc691
+[11:51:42 AM] 311 🔍 EFFECTIVE RESOLUTION: 1500px (1002×1) = +27.9 points
+[11:51:42 AM] 312 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 313 🏆 PRIMARY GALLERY BONUS: "productselector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=1683123433&width=1002.7855153203343" from unified detection gets +35 points
+[11:51:42 AM] 314 🎯 UNIFIED SCORE: 168 for ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1
+[11:51:42 AM] 315 🔍 EFFECTIVE RESOLUTION: 1200px (1200×1) = +24.0 points
+[11:51:42 AM] 316 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 317 🏆 PRIMARY GALLERY BONUS: "sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697646755&width=1200" from unified detection gets +35 points
+[11:51:42 AM] 318 🎯 UNIFIED SCORE: 139 for sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60f
+[11:51:42 AM] 319 🔍 EFFECTIVE RESOLUTION: 1500px (1500×1) = +27.9 points
+[11:51:42 AM] 320 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 321 🏆 PRIMARY GALLERY BONUS: "fsd-loungechair-oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030ac3218.png?v=1677176689&width=200&height=200&crop=center" from unified detection gets +35 points
+[11:51:42 AM] 322 🎯 UNIFIED SCORE: 123 for FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a
+[11:51:42 AM] 323 🔍 EFFECTIVE RESOLUTION: 200px (200×1) = +-7.0 points
+[11:51:42 AM] 324 📉 SMALL WIDTH PENALTY: 200px gets -100 points (under 500px threshold)
+[11:51:42 AM] 325 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 326 🚫 PRIMARY GALLERY BONUS BLOCKED: "productselector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=1683123433&width=200&height=200&crop=center" failed guards (utility: false, small: true)
+[11:51:42 AM] 327 🎯 UNIFIED SCORE: 0 for ProductSelector1_abd5437d-3977-461b-a865-ac02f9029
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://floydhome.com/cdn/shop/files/ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=168
+0
+📋 Copy URL
+[11:51:42 AM] 328 🔍 EFFECTIVE RESOLUTION: 200px (200×1) = +-7.0 points
+[11:51:42 AM] 329 📉 SMALL WIDTH PENALTY: 200px gets -100 points (under 500px threshold)
+[11:51:42 AM] 330 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 331 🚫 PRIMARY GALLERY BONUS BLOCKED: "productselector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=1683123433&width=200&height=200&crop=center" failed guards (utility: false, small: true)
+[11:51:42 AM] 332 🎯 UNIFIED SCORE: 0 for ProductSelector2_98425253-e99e-429c-8b48-5141cc691
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://floydhome.com/cdn/shop/files/ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=168
+0
+📋 Copy URL
+[11:51:42 AM] 333 🔍 EFFECTIVE RESOLUTION: 200px (200×1) = +-7.0 points
+[11:51:42 AM] 334 📉 SMALL WIDTH PENALTY: 200px gets -100 points (under 500px threshold)
+[11:51:42 AM] 335 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 336 🚫 PRIMARY GALLERY BONUS BLOCKED: "productselector3_7cbf5a29-e405-4f64-8977-f40d08a8d1b8.jpg?v=1683123433&width=200&height=200&crop=center" failed guards (utility: false, small: true)
+[11:51:42 AM] 337 🎯 UNIFIED SCORE: 0 for ProductSelector3_7cbf5a29-e405-4f64-8977-f40d08a8d
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://floydhome.com/cdn/shop/files/ProductSelector3_7cbf5a29-e405-4f64-8977-f40d08a8d1b8.jpg?v=168
+0
+📋 Copy URL
+[11:51:42 AM] 338 🔍 EFFECTIVE RESOLUTION: 200px (200×1) = +-7.0 points
+[11:51:42 AM] 339 📉 SMALL WIDTH PENALTY: 200px gets -100 points (under 500px threshold)
+[11:51:42 AM] 340 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 341 🚫 PRIMARY GALLERY BONUS BLOCKED: "productselector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=1683123433&width=200&height=200&crop=center" failed guards (utility: false, small: true)
+[11:51:42 AM] 342 🎯 UNIFIED SCORE: 0 for ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://floydhome.com/cdn/shop/files/ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=168
+0
+📋 Copy URL
+[11:51:42 AM] 343 🔍 EFFECTIVE RESOLUTION: 200px (200×1) = +-7.0 points
+[11:51:42 AM] 344 📉 SMALL WIDTH PENALTY: 200px gets -100 points (under 500px threshold)
+[11:51:42 AM] 345 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 346 🚫 PRIMARY GALLERY BONUS BLOCKED: "sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697646755&width=200&height=200&crop=center" failed guards (utility: false, small: true)
+[11:51:42 AM] 347 🎯 UNIFIED SCORE: 0 for sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60f
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://floydhome.com/cdn/shop/files/sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697
+0
+📋 Copy URL
+[11:51:42 AM] 🗑️ JUNK IMAGE: https://cdn.shopify.com/s/files/1/0462/1706/8706/files/F25-ICONS-MTO-01.svg?v=17
+0
+📋 Copy URL
+[11:51:42 AM] 348 🔍 EFFECTIVE RESOLUTION: 5366px (0×1) = +40.0 points
+[11:51:42 AM] 349 🏆 PRIMARY GALLERY BONUS: "sink_down_oat.jpg?v=1723465306919" from unified detection gets +35 points
+[11:51:42 AM] 350 🎯 UNIFIED SCORE: 165 for sink_down_oat.jpg?v=1723465306919
+[11:51:42 AM] 351 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 352 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 353 🏆 PRIMARY GALLERY BONUS: "sink_down_sand.jpg?v=1723465269149" from unified detection gets +35 points
+[11:51:42 AM] 354 🎯 UNIFIED SCORE: 0 for sink_down_sand.jpg?v=1723465269149
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120151019/sink_down_sand.jpg?v=1723465269149
+0
+📋 Copy URL
+[11:51:42 AM] 355 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 356 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 357 🏆 PRIMARY GALLERY BONUS: "sink_down_ash_gray.jpg?v=1723464902355" from unified detection gets +35 points
+[11:51:42 AM] 358 🎯 UNIFIED SCORE: 0 for sink_down_ash_gray.jpg?v=1723464902355
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120094533/sink_down_ash_gray.jpg?v=1723464902355
+0
+📋 Copy URL
+[11:51:42 AM] 359 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 360 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 361 🏆 PRIMARY GALLERY BONUS: "sink_down_terracotta.jpg?v=1723465392110" from unified detection gets +35 points
+[11:51:42 AM] 362 🎯 UNIFIED SCORE: 0 for sink_down_terracotta.jpg?v=1723465392110
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120206347/sink_down_terracotta.jpg?v=1723465392110
+0
+📋 Copy URL
+[11:51:42 AM] 363 🔍 EFFECTIVE RESOLUTION: 1000px (0×1) = +20.8 points
+[11:51:42 AM] 364 🏆 PRIMARY GALLERY BONUS: "sink_down_fawn_swatch.png?v=1723464978579" from unified detection gets +35 points
+[11:51:42 AM] 365 🎯 UNIFIED SCORE: 146 for sink_down_fawn_swatch.png?v=1723464978579
+[11:51:42 AM] 366 🔍 EFFECTIVE RESOLUTION: 2770px (0×1) = +38.5 points
+[11:51:42 AM] 367 🏆 PRIMARY GALLERY BONUS: "sink_down_aspen.jpg?v=1723464954998" from unified detection gets +35 points
+[11:51:42 AM] 368 🎯 UNIFIED SCORE: 163 for sink_down_aspen.jpg?v=1723464954998
+[11:51:42 AM] 369 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 370 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 371 🏆 PRIMARY GALLERY BONUS: "sink_down_rye.jpg?v=1723465354824" from unified detection gets +35 points
+[11:51:42 AM] 372 🎯 UNIFIED SCORE: 0 for sink_down_rye.jpg?v=1723465354824
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120176895/sink_down_rye.jpg?v=1723465354824
+0
+📋 Copy URL
+[11:51:42 AM] 373 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 374 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 375 🏆 PRIMARY GALLERY BONUS: "sink_down_mineral.jpg?v=1723465247338" from unified detection gets +35 points
+[11:51:42 AM] 376 🎯 UNIFIED SCORE: 0 for sink_down_mineral.jpg?v=1723465247338
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120137173/sink_down_mineral.jpg?v=1723465247338
+0
+📋 Copy URL
+[11:51:42 AM] 377 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 378 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 379 🏆 PRIMARY GALLERY BONUS: "sink_down_sienna.jpg?v=1723465372635" from unified detection gets +35 points
+[11:51:42 AM] 380 🎯 UNIFIED SCORE: 0 for sink_down_sienna.jpg?v=1723465372635
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120188762/sink_down_sienna.jpg?v=1723465372635
+0
+📋 Copy URL
+[11:51:42 AM] 381 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 382 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 383 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_powder.jpg?v=1723465486925" from unified detection gets +35 points
+[11:51:42 AM] 384 🎯 UNIFIED SCORE: 0 for sink_down_two_tone_powder.jpg?v=1723465486925
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120265313/sink_down_two_tone_powder.jpg?v=1723465486925
+0
+📋 Copy URL
+[11:51:42 AM] 385 🔍 EFFECTIVE RESOLUTION: 3000px (0×1) = +39.9 points
+[11:51:42 AM] 386 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_cascade.jpg?v=1723465445453" from unified detection gets +35 points
+[11:51:42 AM] 387 🎯 UNIFIED SCORE: 165 for sink_down_two_tone_cascade.jpg?v=1723465445453
+[11:51:42 AM] 388 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 389 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 390 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_trail.jpg?v=1723465510243" from unified detection gets +35 points
+[11:51:42 AM] 391 🎯 UNIFIED SCORE: 0 for sink_down_two_tone_trail.jpg?v=1723465510243
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120277557/sink_down_two_tone_trail.jpg?v=1723465510243
+0
+📋 Copy URL
+[11:51:42 AM] 392 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 393 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 394 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_canyon.jpg?v=1723465418105" from unified detection gets +35 points
+[11:51:42 AM] 395 🎯 UNIFIED SCORE: 0 for sink_down_two_tone_canyon.jpg?v=1723465418105
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120220028/sink_down_two_tone_canyon.jpg?v=1723465418105
+0
+📋 Copy URL
+[11:51:42 AM] 396 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 397 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 398 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_deep.jpg?v=1723465466495" from unified detection gets +35 points
+[11:51:42 AM] 399 🎯 UNIFIED SCORE: 0 for sink_down_two_tone_deep.jpg?v=1723465466495
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120248141/sink_down_two_tone_deep.jpg?v=1723465466495
+0
+📋 Copy URL
+[11:51:42 AM] 400 🔍 EFFECTIVE RESOLUTION: 1500px (1500×1) = +27.9 points
+[11:51:42 AM] 401 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:42 AM] 402 🏆 PRIMARY GALLERY BONUS: "fsd-ottoman-oat_1500x1500_f16ecd3c-6e93-432e-8e33-0c2bf562244e.png?v=1677510947&width=236&height=236&crop=center" from unified detection gets +35 points
+[11:51:42 AM] 403 🎯 UNIFIED SCORE: 168 for FSD-Ottoman-Oat_1500x1500_f16ecd3c-6e93-432e-8e33-
+[11:51:42 AM] 404 🔍 EFFECTIVE RESOLUTION: 5366px (0×1) = +40.0 points
+[11:51:42 AM] 405 🏆 PRIMARY GALLERY BONUS: "sink_down_oat.jpg?v=1723465306919" from unified detection gets +35 points
+[11:51:42 AM] 406 🎯 UNIFIED SCORE: 165 for sink_down_oat.jpg?v=1723465306919
+[11:51:42 AM] 407 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 408 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 409 🏆 PRIMARY GALLERY BONUS: "sink_down_sand.jpg?v=1723465269149" from unified detection gets +35 points
+[11:51:42 AM] 410 🎯 UNIFIED SCORE: 0 for sink_down_sand.jpg?v=1723465269149
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120151019/sink_down_sand.jpg?v=1723465269149
+0
+📋 Copy URL
+[11:51:42 AM] 411 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 412 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 413 🏆 PRIMARY GALLERY BONUS: "sink_down_ash_gray.jpg?v=1723464902355" from unified detection gets +35 points
+[11:51:42 AM] 414 🎯 UNIFIED SCORE: 0 for sink_down_ash_gray.jpg?v=1723464902355
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120094533/sink_down_ash_gray.jpg?v=1723464902355
+0
+📋 Copy URL
+[11:51:42 AM] 415 🔍 EFFECTIVE RESOLUTION: 1000px (0×1) = +20.8 points
+[11:51:42 AM] 416 🏆 PRIMARY GALLERY BONUS: "sink_down_fawn_swatch.png?v=1723464978579" from unified detection gets +35 points
+[11:51:42 AM] 417 🎯 UNIFIED SCORE: 146 for sink_down_fawn_swatch.png?v=1723464978579
+[11:51:42 AM] 418 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 419 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 420 🏆 PRIMARY GALLERY BONUS: "sink_down_terracotta.jpg?v=1723465392110" from unified detection gets +35 points
+[11:51:42 AM] 421 🎯 UNIFIED SCORE: 0 for sink_down_terracotta.jpg?v=1723465392110
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120206347/sink_down_terracotta.jpg?v=1723465392110
+0
+📋 Copy URL
+[11:51:42 AM] 422 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 423 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 424 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_powder.jpg?v=1723465486925" from unified detection gets +35 points
+[11:51:42 AM] 425 🎯 UNIFIED SCORE: 0 for sink_down_two_tone_powder.jpg?v=1723465486925
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120265313/sink_down_two_tone_powder.jpg?v=1723465486925
+0
+📋 Copy URL
+[11:51:42 AM] 426 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 427 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:42 AM] 428 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_trail.jpg?v=1723465510243" from unified detection gets +35 points
+[11:51:42 AM] 429 🎯 UNIFIED SCORE: 0 for sink_down_two_tone_trail.jpg?v=1723465510243
+[11:51:42 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120277557/sink_down_two_tone_trail.jpg?v=1723465510243
+0
+📋 Copy URL
+[11:51:42 AM] 430 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:42 AM] 431 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:43 AM] 432 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_canyon.jpg?v=1723465418105" from unified detection gets +35 points
+[11:51:43 AM] 433 🎯 UNIFIED SCORE: 0 for sink_down_two_tone_canyon.jpg?v=1723465418105
+[11:51:43 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120220028/sink_down_two_tone_canyon.jpg?v=1723465418105
+0
+📋 Copy URL
+[11:51:43 AM] 434 🔍 EFFECTIVE RESOLUTION: 3000px (0×1) = +39.9 points
+[11:51:43 AM] 435 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_cascade.jpg?v=1723465445453" from unified detection gets +35 points
+[11:51:43 AM] 436 🎯 UNIFIED SCORE: 165 for sink_down_two_tone_cascade.jpg?v=1723465445453
+[11:51:43 AM] 437 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:43 AM] 438 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:43 AM] 439 🏆 PRIMARY GALLERY BONUS: "sink_down_two_tone_deep.jpg?v=1723465466495" from unified detection gets +35 points
+[11:51:43 AM] 440 🎯 UNIFIED SCORE: 0 for sink_down_two_tone_deep.jpg?v=1723465466495
+[11:51:43 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120248141/sink_down_two_tone_deep.jpg?v=1723465466495
+0
+📋 Copy URL
+[11:51:43 AM] 441 🔍 EFFECTIVE RESOLUTION: 2770px (0×1) = +38.5 points
+[11:51:43 AM] 442 🏆 PRIMARY GALLERY BONUS: "sink_down_aspen.jpg?v=1723464954998" from unified detection gets +35 points
+[11:51:43 AM] 443 🎯 UNIFIED SCORE: 163 for sink_down_aspen.jpg?v=1723464954998
+[11:51:43 AM] 444 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:43 AM] 445 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:43 AM] 446 🏆 PRIMARY GALLERY BONUS: "sink_down_rye.jpg?v=1723465354824" from unified detection gets +35 points
+[11:51:43 AM] 447 🎯 UNIFIED SCORE: 0 for sink_down_rye.jpg?v=1723465354824
+[11:51:43 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120176895/sink_down_rye.jpg?v=1723465354824
+0
+📋 Copy URL
+[11:51:43 AM] 448 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:43 AM] 449 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:43 AM] 450 🏆 PRIMARY GALLERY BONUS: "sink_down_mineral.jpg?v=1723465247338" from unified detection gets +35 points
+[11:51:43 AM] 451 🎯 UNIFIED SCORE: 0 for sink_down_mineral.jpg?v=1723465247338
+[11:51:43 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120137173/sink_down_mineral.jpg?v=1723465247338
+0
+📋 Copy URL
+[11:51:43 AM] 452 🔍 EFFECTIVE RESOLUTION: 258px (0×1) = +-2.6 points
+[11:51:43 AM] 453 📉 SMALL WIDTH PENALTY: 258px gets -100 points (under 500px threshold)
+[11:51:43 AM] 454 🏆 PRIMARY GALLERY BONUS: "sink_down_sienna.jpg?v=1723465372635" from unified detection gets +35 points
+[11:51:43 AM] 455 🎯 UNIFIED SCORE: 0 for sink_down_sienna.jpg?v=1723465372635
+[11:51:43 AM] 📉 LOW SCORE REJECTED (0): https://cdn.accentuate.io/46217068706/1723120188762/sink_down_sienna.jpg?v=1723465372635
+0
+📋 Copy URL
+[11:51:43 AM] 456 🔍 EFFECTIVE RESOLUTION: 2800px (0×1) = +38.7 points
+[11:51:43 AM] 457 🏆 PRIMARY GALLERY BONUS: "full-bleed.jpg?v=1683123623844" from unified detection gets +35 points
+[11:51:43 AM] 458 🎯 UNIFIED SCORE: 179 for Full-Bleed.jpg?v=1683123623844
+[11:51:43 AM] 🗑️ JUNK IMAGE: https://floydhome.com/cdn/shop/t/354/assets/arrow-left-prev.svg?v=90201794734701
+0
+📋 Copy URL
+[11:51:43 AM] 🗑️ JUNK IMAGE: https://floydhome.com/cdn/shop/t/354/assets/arrow-right-next.svg?v=6660863168105
+0
+📋 Copy URL
+[11:51:43 AM] 459 🔍 EFFECTIVE RESOLUTION: 393px (0×1) = +4.7 points
+[11:51:43 AM] 460 📉 SMALL WIDTH PENALTY: 393px gets -100 points (under 500px threshold)
+[11:51:43 AM] 461 🏆 PRIMARY GALLERY BONUS: "storytelling-1.jpg?v=1683123486287" from unified detection gets +35 points
+[11:51:43 AM] 462 🎯 UNIFIED SCORE: 30 for Storytelling-1.jpg?v=1683123486287
+[11:51:43 AM] 📉 LOW SCORE REJECTED (30): https://cdn.accentuate.io/7773503291554/1677512803898/Storytelling-1.jpg?v=1683123486287
+30
+📋 Copy URL
+[11:51:43 AM] 463 🔍 EFFECTIVE RESOLUTION: 393px (0×1) = +4.7 points
+[11:51:43 AM] 464 📉 SMALL WIDTH PENALTY: 393px gets -100 points (under 500px threshold)
+[11:51:43 AM] 465 🏆 PRIMARY GALLERY BONUS: "storytelling-2.jpg?v=1683123504025" from unified detection gets +35 points
+[11:51:43 AM] 466 🎯 UNIFIED SCORE: 15 for Storytelling-2.jpg?v=1683123504025
+[11:51:43 AM] 📉 LOW SCORE REJECTED (15): https://cdn.accentuate.io/7773503291554/1677512816400/Storytelling-2.jpg?v=1683123504025
+15
+📋 Copy URL
+[11:51:43 AM] 467 🔍 EFFECTIVE RESOLUTION: 337px (0×1) = +2.0 points
+[11:51:43 AM] 468 📉 SMALL WIDTH PENALTY: 337px gets -100 points (under 500px threshold)
+[11:51:43 AM] 469 🏆 PRIMARY GALLERY BONUS: "storytelling-3.jpg?v=1683123520338" from unified detection gets +35 points
+[11:51:43 AM] 470 🎯 UNIFIED SCORE: 27 for Storytelling-3.jpg?v=1683123520338
+[11:51:43 AM] 📉 LOW SCORE REJECTED (27): https://cdn.accentuate.io/7773503291554/1677512830022/Storytelling-3.jpg?v=1683123520338
+27
+📋 Copy URL
+[11:51:43 AM] 471 🔍 EFFECTIVE RESOLUTION: 577.21875px (0×1) = +11.3 points
+[11:51:43 AM] 472 🏆 PRIMARY GALLERY BONUS: "product-details.jpg?v=1683123540605" from unified detection gets +35 points
+[11:51:43 AM] 473 🎯 UNIFIED SCORE: 161 for Product-Details.jpg?v=1683123540605
+[11:51:43 AM] 474 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 475 🏆 PRIMARY GALLERY BONUS: "photo-gallery-1.jpg?v=1683123592696" from unified detection gets +35 points
+[11:51:43 AM] 476 🎯 UNIFIED SCORE: 139 for Photo-Gallery-1.jpg?v=1683123592696
+[11:51:43 AM] 477 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 478 🏆 PRIMARY GALLERY BONUS: "photo-gallery-2.jpg?v=1683123595292" from unified detection gets +35 points
+[11:51:43 AM] 479 🎯 UNIFIED SCORE: 147 for Photo-Gallery-2.jpg?v=1683123595292
+[11:51:43 AM] 480 🔍 EFFECTIVE RESOLUTION: 2000px (0×1) = +32.8 points
+[11:51:43 AM] 481 🏆 PRIMARY GALLERY BONUS: "photo-gallery-3.jpg?v=1683123597797" from unified detection gets +35 points
+[11:51:43 AM] 482 🎯 UNIFIED SCORE: 158 for Photo-Gallery-3.jpg?v=1683123597797
+[11:51:43 AM] 483 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 484 🏆 PRIMARY GALLERY BONUS: "photo-gallery-4.jpg?v=1683123600853" from unified detection gets +35 points
+[11:51:43 AM] 485 🎯 UNIFIED SCORE: 162 for Photo-Gallery-4.jpg?v=1683123600853
+[11:51:43 AM] 486 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 487 🏆 PRIMARY GALLERY BONUS: "photo-gallery-5.jpg?v=1683123603374" from unified detection gets +35 points
+[11:51:43 AM] 488 🎯 UNIFIED SCORE: 139 for Photo-Gallery-5.jpg?v=1683123603374
+[11:51:43 AM] 489 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 490 🏆 PRIMARY GALLERY BONUS: "photo-gallery-1.jpg?v=1683123592696" from unified detection gets +35 points
+[11:51:43 AM] 491 🎯 UNIFIED SCORE: 139 for Photo-Gallery-1.jpg?v=1683123592696
+[11:51:43 AM] 492 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 493 🏆 PRIMARY GALLERY BONUS: "photo-gallery-2.jpg?v=1683123595292" from unified detection gets +35 points
+[11:51:43 AM] 494 🎯 UNIFIED SCORE: 147 for Photo-Gallery-2.jpg?v=1683123595292
+[11:51:43 AM] 495 🔍 EFFECTIVE RESOLUTION: 2000px (0×1) = +32.8 points
+[11:51:43 AM] 496 🏆 PRIMARY GALLERY BONUS: "photo-gallery-3.jpg?v=1683123597797" from unified detection gets +35 points
+[11:51:43 AM] 497 🎯 UNIFIED SCORE: 158 for Photo-Gallery-3.jpg?v=1683123597797
+[11:51:43 AM] 498 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 499 🏆 PRIMARY GALLERY BONUS: "photo-gallery-4.jpg?v=1683123600853" from unified detection gets +35 points
+[11:51:43 AM] 500 🎯 UNIFIED SCORE: 162 for Photo-Gallery-4.jpg?v=1683123600853
+[11:51:43 AM] 501 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 502 🏆 PRIMARY GALLERY BONUS: "photo-gallery-5.jpg?v=1683123603374" from unified detection gets +35 points
+[11:51:43 AM] 503 🎯 UNIFIED SCORE: 139 for Photo-Gallery-5.jpg?v=1683123603374
+[11:51:43 AM] 504 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 505 🏆 PRIMARY GALLERY BONUS: "photo-gallery-1.jpg?v=1683123592696" from unified detection gets +35 points
+[11:51:43 AM] 506 🎯 UNIFIED SCORE: 139 for Photo-Gallery-1.jpg?v=1683123592696
+[11:51:43 AM] 507 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 508 🏆 PRIMARY GALLERY BONUS: "photo-gallery-2.jpg?v=1683123595292" from unified detection gets +35 points
+[11:51:43 AM] 509 🎯 UNIFIED SCORE: 147 for Photo-Gallery-2.jpg?v=1683123595292
+[11:51:43 AM] 510 🔍 EFFECTIVE RESOLUTION: 2000px (0×1) = +32.8 points
+[11:51:43 AM] 511 🏆 PRIMARY GALLERY BONUS: "photo-gallery-3.jpg?v=1683123597797" from unified detection gets +35 points
+[11:51:43 AM] 512 🎯 UNIFIED SCORE: 158 for Photo-Gallery-3.jpg?v=1683123597797
+[11:51:43 AM] 513 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 514 🏆 PRIMARY GALLERY BONUS: "photo-gallery-4.jpg?v=1683123600853" from unified detection gets +35 points
+[11:51:43 AM] 515 🎯 UNIFIED SCORE: 162 for Photo-Gallery-4.jpg?v=1683123600853
+[11:51:43 AM] 516 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 517 🏆 PRIMARY GALLERY BONUS: "photo-gallery-5.jpg?v=1683123603374" from unified detection gets +35 points
+[11:51:43 AM] 518 🎯 UNIFIED SCORE: 139 for Photo-Gallery-5.jpg?v=1683123603374
+[11:51:43 AM] 519 🔍 EFFECTIVE RESOLUTION: 350px (250×1) = +2.7 points
+[11:51:43 AM] 520 📉 SMALL WIDTH PENALTY: 350px gets -100 points (under 500px threshold)
+[11:51:43 AM] 521 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 522 🏆 PRIMARY GALLERY BONUS: "2_seater_soft_serve_nomad_crema_2s1.png?crop=center&height=250&v=1750106524&width=250" from unified detection gets +35 points
+[11:51:43 AM] 523 🎯 UNIFIED SCORE: 18 for 2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=cente
+[11:51:43 AM] 📉 LOW SCORE REJECTED (18): https://floydhome.com/cdn/shop/files/2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=250&
+18
+📋 Copy URL
+[11:51:43 AM] 524 🔍 EFFECTIVE RESOLUTION: 500px (500×1) = +8.8 points
+[11:51:43 AM] 525 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 526 🏆 PRIMARY GALLERY BONUS: "2_seater_soft_serve_nomad_crema_2s1.png?crop=center&height=500&v=1750106524&width=500" from unified detection gets +35 points
+[11:51:43 AM] 527 🎯 UNIFIED SCORE: 124 for 2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=cente
+[11:51:43 AM] 528 🔍 EFFECTIVE RESOLUTION: 700px (700×1) = +14.7 points
+[11:51:43 AM] 529 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 530 🏆 PRIMARY GALLERY BONUS: "2_seater_soft_serve_nomad_crema_2s1.png?crop=center&height=700&v=1750106524&width=700" from unified detection gets +35 points
+[11:51:43 AM] 531 🎯 UNIFIED SCORE: 130 for 2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=cente
+[11:51:43 AM] 532 🔍 EFFECTIVE RESOLUTION: 350px (250×1) = +2.7 points
+[11:51:43 AM] 533 📉 SMALL WIDTH PENALTY: 350px gets -100 points (under 500px threshold)
+[11:51:43 AM] 534 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 535 🏆 PRIMARY GALLERY BONUS: "3seater_softserve_nomadcrema_3s1.png?crop=center&height=250&v=1750107052&width=250" from unified detection gets +35 points
+[11:51:43 AM] 536 🎯 UNIFIED SCORE: 18 for 3Seater_SoftServe_NomadCrema_3s1.png?crop=center&h
+[11:51:43 AM] 📉 LOW SCORE REJECTED (18): https://floydhome.com/cdn/shop/files/3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=250&v=1
+18
+📋 Copy URL
+[11:51:43 AM] 537 🔍 EFFECTIVE RESOLUTION: 500px (500×1) = +8.8 points
+[11:51:43 AM] 538 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 539 🏆 PRIMARY GALLERY BONUS: "3seater_softserve_nomadcrema_3s1.png?crop=center&height=500&v=1750107052&width=500" from unified detection gets +35 points
+[11:51:43 AM] 540 🎯 UNIFIED SCORE: 124 for 3Seater_SoftServe_NomadCrema_3s1.png?crop=center&h
+[11:51:43 AM] 541 🔍 EFFECTIVE RESOLUTION: 700px (700×1) = +14.7 points
+[11:51:43 AM] 542 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 543 🏆 PRIMARY GALLERY BONUS: "3seater_softserve_nomadcrema_3s1.png?crop=center&height=700&v=1750107052&width=700" from unified detection gets +35 points
+[11:51:43 AM] 544 🎯 UNIFIED SCORE: 130 for 3Seater_SoftServe_NomadCrema_3s1.png?crop=center&h
+[11:51:43 AM] 545 🔍 EFFECTIVE RESOLUTION: 350px (250×1) = +2.7 points
+[11:51:43 AM] 546 📉 SMALL WIDTH PENALTY: 350px gets -100 points (under 500px threshold)
+[11:51:43 AM] 547 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 548 🏆 PRIMARY GALLERY BONUS: "4seater_softserve_nomadcrema_4s1.png?crop=center&height=250&v=1750107500&width=250" from unified detection gets +35 points
+[11:51:43 AM] 549 🎯 UNIFIED SCORE: 18 for 4Seater_SoftServe_NomadCrema_4s1.png?crop=center&h
+[11:51:43 AM] 📉 LOW SCORE REJECTED (18): https://floydhome.com/cdn/shop/files/4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=250&v=1
+18
+📋 Copy URL
+[11:51:43 AM] 550 🔍 EFFECTIVE RESOLUTION: 500px (500×1) = +8.8 points
+[11:51:43 AM] 551 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 552 🏆 PRIMARY GALLERY BONUS: "4seater_softserve_nomadcrema_4s1.png?crop=center&height=500&v=1750107500&width=500" from unified detection gets +35 points
+[11:51:43 AM] 553 🎯 UNIFIED SCORE: 124 for 4Seater_SoftServe_NomadCrema_4s1.png?crop=center&h
+[11:51:43 AM] 554 🔍 EFFECTIVE RESOLUTION: 700px (700×1) = +14.7 points
+[11:51:43 AM] 555 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 556 🏆 PRIMARY GALLERY BONUS: "4seater_softserve_nomadcrema_4s1.png?crop=center&height=700&v=1750107500&width=700" from unified detection gets +35 points
+[11:51:43 AM] 557 🎯 UNIFIED SCORE: 130 for 4Seater_SoftServe_NomadCrema_4s1.png?crop=center&h
+[11:51:43 AM] 558 🔄 HYBRID UNIQUE: Applying family deduplication to 38 candidates
+[11:51:43 AM] 559 🔍 EFFECTIVE RESOLUTION: 5366px (0×1) = +40.0 points
+[11:51:43 AM] 560 📍 CONTAINER INFO: "sink_down_oat.jpg?v=1723465306919" from "unknown" (not primary gallery)
+[11:51:43 AM] 561 🎯 UNIFIED SCORE: 130 for sink_down_oat.jpg?v=1723465306919
+[11:51:43 AM] 562 🔍 EFFECTIVE RESOLUTION: 5366px (0×1) = +40.0 points
+[11:51:43 AM] 563 📍 CONTAINER INFO: "sink_down_oat.jpg?v=1723465306919" from "unknown" (not primary gallery)
+[11:51:43 AM] 564 🎯 UNIFIED SCORE: 130 for sink_down_oat.jpg?v=1723465306919
+[11:51:43 AM] 565 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://cdn.accentuate.io/46217068706/172312016315...
+[11:51:43 AM] 566 🔍 EFFECTIVE RESOLUTION: 1000px (0×1) = +20.8 points
+[11:51:43 AM] 567 📍 CONTAINER INFO: "sink_down_fawn_swatch.png?v=1723464978579" from "unknown" (not primary gallery)
+[11:51:43 AM] 568 🎯 UNIFIED SCORE: 111 for sink_down_fawn_swatch.png?v=1723464978579
+[11:51:43 AM] 569 🔍 EFFECTIVE RESOLUTION: 1000px (0×1) = +20.8 points
+[11:51:43 AM] 570 📍 CONTAINER INFO: "sink_down_fawn_swatch.png?v=1723464978579" from "unknown" (not primary gallery)
+[11:51:43 AM] 571 🎯 UNIFIED SCORE: 111 for sink_down_fawn_swatch.png?v=1723464978579
+[11:51:43 AM] 572 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 111) from 2 siblings for https://cdn.accentuate.io/46217068706/172312012198...
+[11:51:43 AM] 573 🔍 EFFECTIVE RESOLUTION: 2770px (0×1) = +38.5 points
+[11:51:43 AM] 574 📍 CONTAINER INFO: "sink_down_aspen.jpg?v=1723464954998" from "unknown" (not primary gallery)
+[11:51:43 AM] 575 🎯 UNIFIED SCORE: 128 for sink_down_aspen.jpg?v=1723464954998
+[11:51:43 AM] 576 🔍 EFFECTIVE RESOLUTION: 2770px (0×1) = +38.5 points
+[11:51:43 AM] 577 📍 CONTAINER INFO: "sink_down_aspen.jpg?v=1723464954998" from "unknown" (not primary gallery)
+[11:51:43 AM] 578 🎯 UNIFIED SCORE: 128 for sink_down_aspen.jpg?v=1723464954998
+[11:51:43 AM] 579 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 128) from 2 siblings for https://cdn.accentuate.io/46217068706/172312010868...
+[11:51:43 AM] 580 🔍 EFFECTIVE RESOLUTION: 3000px (0×1) = +39.9 points
+[11:51:43 AM] 581 📍 CONTAINER INFO: "sink_down_two_tone_cascade.jpg?v=1723465445453" from "unknown" (not primary gallery)
+[11:51:43 AM] 582 🎯 UNIFIED SCORE: 130 for sink_down_two_tone_cascade.jpg?v=1723465445453
+[11:51:43 AM] 583 🔍 EFFECTIVE RESOLUTION: 3000px (0×1) = +39.9 points
+[11:51:43 AM] 584 📍 CONTAINER INFO: "sink_down_two_tone_cascade.jpg?v=1723465445453" from "unknown" (not primary gallery)
+[11:51:43 AM] 585 🎯 UNIFIED SCORE: 130 for sink_down_two_tone_cascade.jpg?v=1723465445453
+[11:51:43 AM] 586 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 130) from 2 siblings for https://cdn.accentuate.io/46217068706/172312023416...
+[11:51:43 AM] 587 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 588 📍 CONTAINER INFO: "photo-gallery-1.jpg?v=1683123592696" from "unknown" (not primary gallery)
+[11:51:43 AM] 589 🎯 UNIFIED SCORE: 104 for Photo-Gallery-1.jpg?v=1683123592696
+[11:51:43 AM] 590 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 591 📍 CONTAINER INFO: "photo-gallery-1.jpg?v=1683123592696" from "unknown" (not primary gallery)
+[11:51:43 AM] 592 🎯 UNIFIED SCORE: 104 for Photo-Gallery-1.jpg?v=1683123592696
+[11:51:43 AM] 593 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 594 📍 CONTAINER INFO: "photo-gallery-1.jpg?v=1683123592696" from "unknown" (not primary gallery)
+[11:51:43 AM] 595 🎯 UNIFIED SCORE: 104 for Photo-Gallery-1.jpg?v=1683123592696
+[11:51:43 AM] 596 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 104) from 3 siblings for https://cdn.accentuate.io/7773503291554/1683123592...
+[11:51:43 AM] 597 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 598 📍 CONTAINER INFO: "photo-gallery-2.jpg?v=1683123595292" from "unknown" (not primary gallery)
+[11:51:43 AM] 599 🎯 UNIFIED SCORE: 112 for Photo-Gallery-2.jpg?v=1683123595292
+[11:51:43 AM] 600 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 601 📍 CONTAINER INFO: "photo-gallery-2.jpg?v=1683123595292" from "unknown" (not primary gallery)
+[11:51:43 AM] 602 🎯 UNIFIED SCORE: 112 for Photo-Gallery-2.jpg?v=1683123595292
+[11:51:43 AM] 603 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 604 📍 CONTAINER INFO: "photo-gallery-2.jpg?v=1683123595292" from "unknown" (not primary gallery)
+[11:51:43 AM] 605 🎯 UNIFIED SCORE: 112 for Photo-Gallery-2.jpg?v=1683123595292
+[11:51:43 AM] 606 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 112) from 3 siblings for https://cdn.accentuate.io/7773503291554/1683123595...
+[11:51:43 AM] 607 🔍 EFFECTIVE RESOLUTION: 2000px (0×1) = +32.8 points
+[11:51:43 AM] 608 📍 CONTAINER INFO: "photo-gallery-3.jpg?v=1683123597797" from "unknown" (not primary gallery)
+[11:51:43 AM] 609 🎯 UNIFIED SCORE: 123 for Photo-Gallery-3.jpg?v=1683123597797
+[11:51:43 AM] 610 🔍 EFFECTIVE RESOLUTION: 2000px (0×1) = +32.8 points
+[11:51:43 AM] 611 📍 CONTAINER INFO: "photo-gallery-3.jpg?v=1683123597797" from "unknown" (not primary gallery)
+[11:51:43 AM] 612 🎯 UNIFIED SCORE: 123 for Photo-Gallery-3.jpg?v=1683123597797
+[11:51:43 AM] 613 🔍 EFFECTIVE RESOLUTION: 2000px (0×1) = +32.8 points
+[11:51:43 AM] 614 📍 CONTAINER INFO: "photo-gallery-3.jpg?v=1683123597797" from "unknown" (not primary gallery)
+[11:51:43 AM] 615 🎯 UNIFIED SCORE: 123 for Photo-Gallery-3.jpg?v=1683123597797
+[11:51:43 AM] 616 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 123) from 3 siblings for https://cdn.accentuate.io/7773503291554/1683123597...
+[11:51:43 AM] 617 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 618 📍 CONTAINER INFO: "photo-gallery-4.jpg?v=1683123600853" from "unknown" (not primary gallery)
+[11:51:43 AM] 619 🎯 UNIFIED SCORE: 127 for Photo-Gallery-4.jpg?v=1683123600853
+[11:51:43 AM] 620 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 621 📍 CONTAINER INFO: "photo-gallery-4.jpg?v=1683123600853" from "unknown" (not primary gallery)
+[11:51:43 AM] 622 🎯 UNIFIED SCORE: 127 for Photo-Gallery-4.jpg?v=1683123600853
+[11:51:43 AM] 623 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 624 📍 CONTAINER INFO: "photo-gallery-4.jpg?v=1683123600853" from "unknown" (not primary gallery)
+[11:51:43 AM] 625 🎯 UNIFIED SCORE: 127 for Photo-Gallery-4.jpg?v=1683123600853
+[11:51:43 AM] 626 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 127) from 3 siblings for https://cdn.accentuate.io/7773503291554/1683123600...
+[11:51:43 AM] 627 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 628 📍 CONTAINER INFO: "photo-gallery-5.jpg?v=1683123603374" from "unknown" (not primary gallery)
+[11:51:43 AM] 629 🎯 UNIFIED SCORE: 104 for Photo-Gallery-5.jpg?v=1683123603374
+[11:51:43 AM] 630 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 631 📍 CONTAINER INFO: "photo-gallery-5.jpg?v=1683123603374" from "unknown" (not primary gallery)
+[11:51:43 AM] 632 🎯 UNIFIED SCORE: 104 for Photo-Gallery-5.jpg?v=1683123603374
+[11:51:43 AM] 633 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 634 📍 CONTAINER INFO: "photo-gallery-5.jpg?v=1683123603374" from "unknown" (not primary gallery)
+[11:51:43 AM] 635 🎯 UNIFIED SCORE: 104 for Photo-Gallery-5.jpg?v=1683123603374
+[11:51:43 AM] 636 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 104) from 3 siblings for https://cdn.accentuate.io/7773503291554/1683123603...
+[11:51:43 AM] 637 🔍 EFFECTIVE RESOLUTION: 500px (500×1) = +8.8 points
+[11:51:43 AM] 638 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 639 📍 CONTAINER INFO: "2_seater_soft_serve_nomad_crema_2s1.png?crop=center&height=500&v=1750106524&width=500" from "unknown" (not primary gallery)
+[11:51:43 AM] 640 🎯 UNIFIED SCORE: 89 for 2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=cente
+[11:51:43 AM] 641 🔍 EFFECTIVE RESOLUTION: 700px (700×1) = +14.7 points
+[11:51:43 AM] 642 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 643 📍 CONTAINER INFO: "2_seater_soft_serve_nomad_crema_2s1.png?crop=center&height=700&v=1750106524&width=700" from "unknown" (not primary gallery)
+[11:51:43 AM] 644 🎯 UNIFIED SCORE: 95 for 2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=cente
+[11:51:43 AM] 645 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 95) from 2 siblings for https://floydhome.com/cdn/shop/files/2_Seater_Soft...
+[11:51:43 AM] 646 🔍 EFFECTIVE RESOLUTION: 500px (500×1) = +8.8 points
+[11:51:43 AM] 647 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 648 📍 CONTAINER INFO: "3seater_softserve_nomadcrema_3s1.png?crop=center&height=500&v=1750107052&width=500" from "unknown" (not primary gallery)
+[11:51:43 AM] 649 🎯 UNIFIED SCORE: 89 for 3Seater_SoftServe_NomadCrema_3s1.png?crop=center&h
+[11:51:43 AM] 650 🔍 EFFECTIVE RESOLUTION: 700px (700×1) = +14.7 points
+[11:51:43 AM] 651 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 652 📍 CONTAINER INFO: "3seater_softserve_nomadcrema_3s1.png?crop=center&height=700&v=1750107052&width=700" from "unknown" (not primary gallery)
+[11:51:43 AM] 653 🎯 UNIFIED SCORE: 95 for 3Seater_SoftServe_NomadCrema_3s1.png?crop=center&h
+[11:51:43 AM] 654 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 95) from 2 siblings for https://floydhome.com/cdn/shop/files/3Seater_SoftS...
+[11:51:43 AM] 655 🔍 EFFECTIVE RESOLUTION: 500px (500×1) = +8.8 points
+[11:51:43 AM] 656 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 657 📍 CONTAINER INFO: "4seater_softserve_nomadcrema_4s1.png?crop=center&height=500&v=1750107500&width=500" from "unknown" (not primary gallery)
+[11:51:43 AM] 658 🎯 UNIFIED SCORE: 89 for 4Seater_SoftServe_NomadCrema_4s1.png?crop=center&h
+[11:51:43 AM] 659 🔍 EFFECTIVE RESOLUTION: 700px (700×1) = +14.7 points
+[11:51:43 AM] 660 🏠 SAME DOMAIN BONUS: +15 points (floydhome.com)
+[11:51:43 AM] 661 📍 CONTAINER INFO: "4seater_softserve_nomadcrema_4s1.png?crop=center&height=700&v=1750107500&width=700" from "unknown" (not primary gallery)
+[11:51:43 AM] 662 🎯 UNIFIED SCORE: 95 for 4Seater_SoftServe_NomadCrema_4s1.png?crop=center&h
+[11:51:43 AM] 663 👨‍👩‍👧‍👦 FAMILY DEDUP: Kept best variant (score: 95) from 2 siblings for https://floydhome.com/cdn/shop/files/4Seater_SoftS...
+[11:51:43 AM] 664 👨‍👩‍👧‍👦 HYBRID UNIQUE: 21 images after family deduplication
+[11:51:43 AM] ✅ BEST OF 2 (score: 198): https://floydhome.com/cdn/shop/products/FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030
+198
+📋 Copy URL
+[11:51:43 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+198
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 188): https://floydhome.com/cdn/shop/files/ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=168
+188
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 188): https://floydhome.com/cdn/shop/files/ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=168
+188
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 168): https://floydhome.com/cdn/shop/files/ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=168
+168
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 139): https://floydhome.com/cdn/shop/files/sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697
+139
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 165): https://cdn.accentuate.io/46217068706/1723120163150/sink_down_oat.jpg?v=1723465306919
+165
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 146): https://cdn.accentuate.io/46217068706/1723120121980/sink_down_fawn_swatch.png?v=1723464978579
+146
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 163): https://cdn.accentuate.io/46217068706/1723120108686/sink_down_aspen.jpg?v=1723464954998
+163
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 165): https://cdn.accentuate.io/46217068706/1723120234163/sink_down_two_tone_cascade.jpg?v=1723465445453
+165
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 168): https://floydhome.com/cdn/shop/products/FSD-Ottoman-Oat_1500x1500_f16ecd3c-6e93-432e-8e33-0c2bf56224
+168
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 179): https://cdn.accentuate.io/7773503291554/1677513042848/Full-Bleed.jpg?v=1683123623844
+179
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 161): https://cdn.accentuate.io/7773503291554/1677512911760/Product-Details.jpg?v=1683123540605
+161
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 139): https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696
+139
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 147): https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292
+147
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 158): https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+158
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 162): https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853
+162
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 139): https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374
+139
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 130): https://floydhome.com/cdn/shop/files/2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=700&
+130
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 130): https://floydhome.com/cdn/shop/files/3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=700&v=1
+130
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 130): https://floydhome.com/cdn/shop/files/4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=700&v=1
+130
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (198): https://floydhome.com/cdn/shop/products/FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030
+198
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (188): https://floydhome.com/cdn/shop/files/ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=168
+188
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (188): https://floydhome.com/cdn/shop/files/ProductSelector2_98425253-e99e-429c-8b48-5141cc691dc8.jpg?v=168
+188
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (168): https://floydhome.com/cdn/shop/files/ProductSelector4_135c3e55-12bd-400f-bb05-456d5c3a1a53.jpg?v=168
+168
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (139): https://floydhome.com/cdn/shop/files/sink_down_oat_1_fb737487-0d66-4ed1-83ae-09d91af60fa9.jpg?v=1697
+139
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (165): https://cdn.accentuate.io/46217068706/1723120163150/sink_down_oat.jpg?v=1723465306919
+165
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (146): https://cdn.accentuate.io/46217068706/1723120121980/sink_down_fawn_swatch.png?v=1723464978579
+146
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (163): https://cdn.accentuate.io/46217068706/1723120108686/sink_down_aspen.jpg?v=1723464954998
+163
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (165): https://cdn.accentuate.io/46217068706/1723120234163/sink_down_two_tone_cascade.jpg?v=1723465445453
+165
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (168): https://floydhome.com/cdn/shop/products/FSD-Ottoman-Oat_1500x1500_f16ecd3c-6e93-432e-8e33-0c2bf56224
+168
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (179): https://cdn.accentuate.io/7773503291554/1677513042848/Full-Bleed.jpg?v=1683123623844
+179
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (161): https://cdn.accentuate.io/7773503291554/1677512911760/Product-Details.jpg?v=1683123540605
+161
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (139): https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696
+139
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (147): https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292
+147
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (158): https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+158
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (162): https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853
+162
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (139): https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374
+139
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (130): https://floydhome.com/cdn/shop/files/2_Seater_Soft_Serve_Nomad_Crema_2s1.png?crop=center&height=700&
+130
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (130): https://floydhome.com/cdn/shop/files/3Seater_SoftServe_NomadCrema_3s1.png?crop=center&height=700&v=1
+130
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (130): https://floydhome.com/cdn/shop/files/4Seater_SoftServe_NomadCrema_4s1.png?crop=center&height=700&v=1
+130
+📋 Copy URL
+[11:51:43 AM] 665 🏆 TOP SCORED IMAGES: ["FSD-LoungeChair-Oat_1500x1500_3be8077b-8149-4d6a-a0d7-909030ac3218.png?v=1677176689&width=1200 (score: 198)","ProductSelector1_abd5437d-3977-461b-a865-ac02f9029450.jpg?v=1683123433&width=1002.785515
+[11:51:43 AM] 666 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":3,"lowScore":31,"smallFile":0,"duplicateGroups":1,"kept":20}
+[11:51:43 AM] 667 🖼️ FINAL IMAGES: ["https://floydhome.com/cdn/shop/products/FSD-LoungeChair-Oat_1500x1500_3be8077b-8","https://floydhome.com/cdn/shop/files/ProductSelector1_abd5437d-3977-461b-a865-ac","https://floydhome.com/cdn/shop/f
+[11:51:43 AM] 668 🏆 CONTAINER PERFORMANCE ANALYSIS:
+[11:51:43 AM] 669 📊 .product-gallery img, .product-photos img, .product-images img, .gallery img, .image-gallery img, .media-gallery img, .product-media img, .product-photo img, [class*="gallery"] img, [class*="product-image"] img, [class*="media"] img, [class*="swiper"] img, [class*="carousel"] img, [class*="slider"] img, main img[src*="cdn"], main img[src*="shopify"], main img[src*="amazonaws"], main img[src*="cloudinary"], main img[src*="imgix"], main figure img, article figure img, section figure img, [role="main"] img, .main-content img, .pdp img, .product-detail img, .item-gallery img, [data-gallery] img, [data-product-gallery] img, [data-image] img: 69 images, avg score 85.7, high-quality: 38, junk: 31
+[11:51:43 AM] 670 🖼️ After hybrid filtering: 0 images
+[11:51:43 AM] 671 🎯 CONTAINER PERFORMANCE [.product-media img]: 0 final images (0.0% success rate)
+[11:51:43 AM] 672 🖼️ After hybrid filtering: 20 images
+[11:51:43 AM] 673 🎯 CONTAINER PERFORMANCE [.product-gallery img, .product-photos img, .product-images img, .gallery img, .image-gallery img, .media-gallery img, .product-media img, .product-photo img, [class*="gallery"] img, [class*="product-image"] img, [class*="media"] img, [class*="swiper"] img, [class*="carousel"] img, [class*="slider"] img, main img[src*="cdn"], main img[src*="shopify"], main img[src*="amazonaws"], main img[src*="cloudinary"], main img[src*="imgix"], main figure img, article figure img, section figure img, [role="main"] img, .main-content img, .pdp img, .product-detail img, .item-gallery img, [data-gallery] img, [data-product-gallery] img, [data-image] img]: 20 final images (29.9% success rate)
+[11:51:43 AM] 674 🔍 GATHERING IMAGES with selector: .gallery img
+[11:51:43 AM] 675 📊 Found 5 elements for selector: .gallery img
+[11:51:43 AM] 676 Image element <IMG>
+[11:51:43 AM] 677 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:43 AM] 678 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696
+[11:51:43 AM] 679 Image element <IMG>
+[11:51:43 AM] 680 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:43 AM] 681 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292
+[11:51:43 AM] 682 Image element <IMG>
+[11:51:43 AM] 683 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:43 AM] 684 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+[11:51:43 AM] 685 Image element <IMG>
+[11:51:43 AM] 686 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:43 AM] 687 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853
+[11:51:43 AM] 688 Image element <IMG>
+[11:51:43 AM] 689 📋 Image attributes: {"src":"https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[11:51:43 AM] 690 ✅ Found image URL from attributes: https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374
+[11:51:43 AM] 691 📊 CONTAINER STATS [.gallery img]: {"found":5,"extracted":5,"types":["gallery"],"parents":[".swiper-zoom-container"]}
+[11:51:43 AM] 692 🖼️ Raw enriched URLs collected: 5
+[11:51:43 AM] 693 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":5}
+[11:51:43 AM] 694 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 695 📍 CONTAINER INFO: "photo-gallery-1.jpg?v=1683123592696" from ".gallery img" (not primary gallery)
+[11:51:43 AM] 696 🎯 UNIFIED SCORE: 134 for Photo-Gallery-1.jpg?v=1683123592696
+[11:51:43 AM] 697 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 698 📍 CONTAINER INFO: "photo-gallery-2.jpg?v=1683123595292" from ".gallery img" (not primary gallery)
+[11:51:43 AM] 699 🎯 UNIFIED SCORE: 132 for Photo-Gallery-2.jpg?v=1683123595292
+[11:51:43 AM] 700 🔍 EFFECTIVE RESOLUTION: 2000px (0×1) = +32.8 points
+[11:51:43 AM] 701 📍 CONTAINER INFO: "photo-gallery-3.jpg?v=1683123597797" from ".gallery img" (not primary gallery)
+[11:51:43 AM] 702 🎯 UNIFIED SCORE: 143 for Photo-Gallery-3.jpg?v=1683123597797
+[11:51:43 AM] 703 🔍 EFFECTIVE RESOLUTION: 2500px (0×1) = +36.7 points
+[11:51:43 AM] 704 📍 CONTAINER INFO: "photo-gallery-4.jpg?v=1683123600853" from ".gallery img" (not primary gallery)
+[11:51:43 AM] 705 🎯 UNIFIED SCORE: 127 for Photo-Gallery-4.jpg?v=1683123600853
+[11:51:43 AM] 706 🔍 EFFECTIVE RESOLUTION: 1600px (0×1) = +29.0 points
+[11:51:43 AM] 707 📍 CONTAINER INFO: "photo-gallery-5.jpg?v=1683123603374" from ".gallery img" (not primary gallery)
+[11:51:43 AM] 708 🎯 UNIFIED SCORE: 104 for Photo-Gallery-5.jpg?v=1683123603374
+[11:51:43 AM] 709 🔄 HYBRID UNIQUE: Applying family deduplication to 5 candidates
+[11:51:43 AM] 710 👨‍👩‍👧‍👦 HYBRID UNIQUE: 5 images after family deduplication
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 134): https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696
+134
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 132): https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292
+132
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 143): https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+143
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 127): https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853
+127
+📋 Copy URL
+[11:51:43 AM] ✅ SINGLE IMAGE (score: 104): https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374
+104
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (134): https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683123592696
+134
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (132): https://cdn.accentuate.io/7773503291554/1683123595291/Photo-Gallery-2.jpg?v=1683123595292
+132
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (143): https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+143
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (127): https://cdn.accentuate.io/7773503291554/1683123600853/Photo-Gallery-4.jpg?v=1683123600853
+127
+📋 Copy URL
+[11:51:43 AM] 🎯 HIGH SCORE + SIZE OK (104): https://cdn.accentuate.io/7773503291554/1683123603374/Photo-Gallery-5.jpg?v=1683123603374
+104
+📋 Copy URL
+[11:51:43 AM] 711 🏆 TOP SCORED IMAGES: ["Photo-Gallery-3.jpg?v=1683123597797 (score: 143)","Photo-Gallery-1.jpg?v=1683123592696 (score: 134)","Photo-Gallery-2.jpg?v=1683123595292 (score: 132)","Photo-Gallery-4.jpg?v=1683123600853 (score: 1
+[11:51:43 AM] 712 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":5}
+[11:51:43 AM] 713 🖼️ FINAL IMAGES: ["https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683","https://cdn.accentuate.io/7773503291554/1683123592696/Photo-Gallery-1.jpg?v=1683","https://cdn.accentuate.io/777350
+[11:51:43 AM] 714 🏆 CONTAINER PERFORMANCE ANALYSIS:
+[11:51:43 AM] 715 📊 .gallery img: 5 images, avg score 128.0, high-quality: 5, junk: 0
+[11:51:43 AM] 716 🔍 B1 COMPREHENSIVE: Single A1 call found 20 images
+[11:51:43 AM] 717 ✅ COMPREHENSIVE FINAL: 20 images (processed once by A1 system)
+[11:51:43 AM] 718 🖼️ After hybrid filtering: 5 images
+[11:51:43 AM] 719 🎯 CONTAINER PERFORMANCE [.gallery img]: 5 final images (100.0% success rate)
+[11:51:43 AM] 720 📊 PARALLEL RESULTS: A1=5 images, B1=20 images
+[11:51:43 AM] 721 🎯 COLLECTION PERFORMANCE: A1 SUCCESS (5 images), B1 SUCCESS (20 images)
+[11:51:43 AM] 722 🔍 MERGE BREAKDOWN: A1-only=0, B1-only=15, Both=5, Total=20
+[11:51:43 AM] 723 🎯 PARALLEL FINAL: 20 images after merge/dedup (A1: 5, B1: 20)
+[11:51:43 AM] 724 🖼️ PARALLEL IMAGES: {"count":20,"breakdown":[{"url":"https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797","canonicalUrl":"https://cdn.accentuate.io/7773503291554/1683123597797/Photo-

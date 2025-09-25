@@ -2301,28 +2301,28 @@
   async function getImagesUnified({ doc = document, observeMs = 1200 } = {}) {
     debug(`🚀 B1 COMPREHENSIVE: Starting on ${window.location.hostname} - single A1 call`);
     
-    // Combine all comprehensive selectors into ONE selector string
+    // TARGETED COMPREHENSIVE SELECTORS - Effective + Focused
     const UNIFIED_SELECTOR = [
-      // Primary product galleries (most e-commerce sites) 
+      // Primary product galleries (specific containers)
       '.product-gallery img', '.product-photos img', '.product-images img',
       '.gallery img', '.image-gallery img', '.media-gallery img',
       '.product-media img', '.product-photo img',
 
-      // PWA and modern frameworks  
-      '[class*="gallery"] img', '[class*="product-image"] img', '[class*="media"] img',
-      '[class*="swiper"] img', '[class*="carousel"] img', '[class*="slider"] img',
+      // Proven e-commerce patterns (specific, not broad)
+      '.product-gallery-main img', '.product-gallery-thumb img',
+      '.swiper-wrapper img', '.carousel-inner img', '.slider-track img',
 
-      // Proven high-quality patterns  
-      'main img[src*="cdn"]', 'main img[src*="shopify"]', 'main img[src*="amazonaws"]',
-      'main img[src*="cloudinary"]', 'main img[src*="imgix"]',
+      // High-quality CDN patterns (product areas only)
+      '.product-detail img[src*="shopify"]', '.pdp img[src*="cdn"]',
+      '[data-product] img[src*="amazonaws"]', '[data-gallery] img[src*="cloudinary"]',
 
-      // Generic high-value containers
-      'main figure img', 'article figure img', 'section figure img',
-      '[role="main"] img', '.main-content img',
+      // Targeted semantic containers (not all main/article content)
+      '.product-detail figure img', '.main-product figure img', 
+      '[role="main"] .product-images img', '.content-product img',
 
-      // Additional patterns from successful implementations
-      '.pdp img', '.product-detail img', '.item-gallery img', 
-      '[data-gallery] img', '[data-product-gallery] img', '[data-image] img'
+      // Proven gallery data attributes
+      '[data-gallery] img', '[data-product-gallery] img', '[data-product-image] img',
+      '.pdp-gallery img', '.item-gallery img'
     ].join(', ');
 
     debug('📍 B1: Using single combined A1 gatherImagesBySelector call');
@@ -2387,19 +2387,26 @@
     }
     
     const gallerySels = [
-      // UNIFIED GALLERY SELECTORS (A1 + collectHiResAugment proven patterns) + img
-      // A1 proven gallery patterns
-      '.product-media img', '.gallery img', '.image-gallery img', '.product-images img', '.product-gallery img',
-      '[class*=gallery] img', '.slider img', '.thumbnails img', '.pdp-gallery img', '[data-testid*=image] img',
+      // TARGETED GALLERY SELECTORS - Specific but comprehensive
+      // Primary product galleries (direct targeting)
+      '.product-gallery img', '.product-images img', '.product-media img', '.product-photo img',
+      '.image-gallery img', '.media-gallery img', '.gallery img',
       
-      // collectHiResAugment proven patterns  
+      // Proven e-commerce gallery containers  
+      '.pdp-gallery img', '.main-image img', '.hero-image img',
+      '[data-product-gallery] img', '[data-gallery] img', '[data-product-image] img',
+      
+      // Amazon + major retailers (proven patterns)
       '#imageBlock img', '#altImages img', '[data-a-dynamic-image]',
       '.product-single__photo img', '.flickity-viewport img',
-      'main figure img', 'main .gallery img', 'article figure img',
       
-      // Additional proven patterns
-      '.carousel img', '.swiper-container img', '.product__media img', '.pdp-media img',
-      '.media-gallery img', '.main-image img', '[data-product-gallery] img', '[data-gallery] img'
+      // Modern carousel/slider frameworks (targeted)
+      '.swiper-wrapper img', '.carousel-inner img', '.slider-container img',
+      '.pdp-media img', '.product__media img',
+      
+      // Specific semantic containers (not all figures/articles)
+      '.product-detail figure img', '.main-product figure img', 
+      '[role="main"] .gallery img', '.content-product .gallery img'
     ];
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel);
