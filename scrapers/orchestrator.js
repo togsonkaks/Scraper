@@ -2361,41 +2361,46 @@
     }
     return null;
   }
-  // Unified image collection - NOW USES A1'S PROVEN METHOD
+  // Unified image collection - COMPREHENSIVE COLLECTION + INTEGER SCORING
   async function getImagesUnified({ doc = document, observeMs = 1000 } = {}) {
-    debug('🔄 B1 UNIFIED COLLECTION: Using A1 proven method (score during collection)');
+    debug('🔄 B1 UNIFIED COLLECTION: Comprehensive collection with integer scoring');
     
-    // Use A1's proven approach: selector-based collection with scoring during collection
-    const UNIFIED_GALLERY_SELECTORS = [
-      // A1 proven gallery patterns
-      '.product-media img', '.gallery img', '.image-gallery img', '.product-images img', '.product-gallery img',
-      '[class*=gallery] img', '.slider img', '.thumbnails img', '.pdp-gallery img', '[data-testid*=image] img',
-      
-      // collectHiResAugment proven patterns  
-      '#imageBlock img', '#altImages img', '[data-a-dynamic-image]',
-      '.product-single__photo img', '.flickity-viewport img',
-      'main figure img', 'main .gallery img', 'article figure img',
-      
-      // Additional proven patterns
-      '.carousel img', '.swiper-container img', '.product__media img', '.pdp-media img',
-      '.media-gallery img', '.main-image img', '[data-product-gallery] img', '[data-gallery] img'
-    ];
+    const rawUrls = new Set(); // Dedupe URLs from both collectors
     
-    // Try each selector until we find sufficient images (like A1 does)
-    for (const sel of UNIFIED_GALLERY_SELECTORS) {
-      debug(`🎯 B1 trying selector: ${sel}`);
-      const urls = await gatherImagesBySelector(sel);  // ← Score during collection (A1 method)
-      if (urls.length >= 3) {
-        debug(`✅ B1 selector success: ${urls.length} images found with ${sel}`);
-        return urls.slice(0, 30); 
+    // B1: Unified collector (comprehensive coverage with all advanced features)
+    debug('🎯 Running B1 Unified Collector for comprehensive coverage...');
+    const unifiedUrls = await runUnifiedImageCollectorV3({ doc, observeMs });
+    const hiResUrls = unifiedUrls; // Maintain compatibility for container context logic
+    unifiedUrls.forEach(url => rawUrls.add(url));
+    debug(`✅ B1 Unified Collector: ${unifiedUrls.length} raw URLs`);
+    
+    // Convert raw URLs to enriched format with proper container context
+    const allRawUrls = Array.from(rawUrls);
+    const enrichedUrls = allRawUrls.map((url, index) => {
+      // Try to determine container context based on URL patterns and source
+      let containerSelector = 'b1-combined-collectors';
+      
+      // If this URL came from hi-res augment (gallery patterns), mark as primary gallery
+      if (hiResUrls.includes(url)) {
+        containerSelector = '.product-gallery img'; // Mark as primary gallery
       }
-    }
+      
+      return { 
+        url, 
+        element: null, 
+        index, 
+        containerSelector 
+      };
+    });
     
-    // Fallback: try generic img selector
-    debug('🎯 B1 fallback: trying generic img selector');
-    const fallback = await gatherImagesBySelector('img');
-    debug(`✅ B1 fallback: ${fallback.length} images found`);
-    return fallback.slice(0, 30);
+    debug(`🔄 UNIFIED COLLECTION: ${allRawUrls.length} total raw URLs from comprehensive collector`);
+    
+    // Apply house filtering/scoring system (same as A1 for integer scores)
+    debug('🏠 Applying house filtering/scoring system...');
+    const finalImages = await hybridUniqueImages(enrichedUrls);
+    
+    debug(`✅ UNIFIED FINAL: ${finalImages.length} images after house processing`);
+    return finalImages.slice(0, 30);
   }
 
 
