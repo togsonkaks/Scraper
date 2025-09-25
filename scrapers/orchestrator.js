@@ -2693,6 +2693,103 @@
       }
     }
     
+    // SMART DISCOVERY SYSTEM - Try to discover actual page structure FIRST
+    debug('🔍 A1 DISCOVERY: Analyzing page structure before generic selector spam...');
+    const allPageImages = document.querySelectorAll('img');
+    
+    if (allPageImages.length > 0) {
+      debug(`📊 A1 DISCOVERY: Found ${allPageImages.length} total images on page`);
+      
+      // Analyze container patterns for actionable recommendations
+      const containerPatterns = new Map();
+      const productHints = [];
+      
+      Array.from(allPageImages).slice(0, 20).forEach(img => { // Sample first 20 images
+        // Find meaningful parent containers
+        let parent = img.parentElement;
+        for (let i = 0; i < 3 && parent; i++) {
+          const classList = parent.classList;
+          const className = parent.className || '';
+          const id = parent.id || '';
+          
+          // Look for product-related patterns in class names
+          if (className && (className.includes('product') || className.includes('pdp') || 
+                           className.includes('gallery') || className.includes('media') ||
+                           className.includes('carousel') || className.includes('slider'))) {
+            const containerKey = classList.length > 0 ? `.${Array.from(classList)[0]} img` : 
+                               id ? `#${id} img` : parent.tagName.toLowerCase() + ' img';
+            const count = (containerPatterns.get(containerKey) || 0) + 1;
+            containerPatterns.set(containerKey, count);
+            
+            // Track potential product containers
+            if (className.includes('product') || className.includes('pdp')) {
+              productHints.push(containerKey);
+            }
+            break; // Found a meaningful container
+          }
+          parent = parent.parentElement;
+        }
+      });
+      
+      // Include ALL HIGH PRIORITY selectors (not just product hints)
+      const allHighPrioritySelectors = [];
+      if (containerPatterns.size > 0) {
+        debug('💡 A1 RECOMMENDED SELECTORS (based on actual page structure):');
+        const sortedContainers = Array.from(containerPatterns.entries())
+          .sort((a, b) => b[1] - a[1]) // Sort by image count
+          .slice(0, 5);
+          
+        sortedContainers.forEach(([selector, count]) => {
+          const isProbablyProduct = productHints.includes(selector) || 
+                                  selector.includes('product') || selector.includes('pdp');
+          const priority = isProbablyProduct ? '🎯 HIGH PRIORITY' : count > 5 ? '⚠️ HIGH VOLUME' : '💡 CANDIDATE';
+          debug(`   ${priority}: ${selector} (${count} images)`);
+          
+          if (isProbablyProduct || count >= 3) { // Product-related OR 3+ images
+            allHighPrioritySelectors.push(selector);
+          }
+        });
+        
+        if (allHighPrioritySelectors.length > 0) {
+          debug(`🎯 A1 TOP RECOMMENDATIONS: ${[...new Set(allHighPrioritySelectors)].join(', ')}`);
+          
+          // USE DISCOVERED SELECTORS IMMEDIATELY instead of ignoring them!
+          debug('🎯 A1 TESTING DISCOVERED SELECTORS (high-priority first)...');
+          const discoveredSelectors = [...new Set(allHighPrioritySelectors)];
+          
+          let discoveredImages = [];
+          for (const selector of discoveredSelectors) {
+            const images = await gatherImagesBySelector(selector);
+            if (images.length > 0) {
+              debug(`✅ A1 DISCOVERED "${selector}": found ${images.length} images`);
+              discoveredImages = discoveredImages.concat(images);
+            }
+          }
+          
+          // Remove duplicates from discovered images
+          const uniqueDiscovered = [];
+          const seenUrls = new Set();
+          for (const img of discoveredImages) {
+            const url = typeof img === 'string' ? img : img.url;
+            if (!seenUrls.has(url)) {
+              seenUrls.add(url);
+              uniqueDiscovered.push(img);
+            }
+          }
+          
+          if (uniqueDiscovered.length >= 3) {
+            debug(`🚀 A1 DISCOVERY SUCCESS: Found ${uniqueDiscovered.length} images using discovered selectors - SKIPPING generic selector spam`);
+            mark('images', { selectors: discoveredSelectors, attr:'src', method:'smart-discovery', urls: uniqueDiscovered.slice(0,30) }); 
+            return uniqueDiscovered.slice(0, 30);
+          } else {
+            debug(`🔄 A1 DISCOVERY INSUFFICIENT: Only ${uniqueDiscovered.length} images, falling back to generic selectors...`);
+          }
+        }
+      }
+    }
+    
+    debug('📍 A1: Discovery failed, falling back to generic selector testing...');
+    
     const gallerySels = [
       // TARGETED GALLERY SELECTORS - Specific but comprehensive
       // Primary product galleries (direct targeting)
