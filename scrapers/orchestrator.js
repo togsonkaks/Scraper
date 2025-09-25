@@ -2358,6 +2358,14 @@
       const overallB1Success = totalB1Found > 0 ? ((allImages.length / totalB1Found) * 100).toFixed(1) : 0;
       debug(`📊 B1 SUMMARY: ${totalB1Found} total elements found, ${allImages.length} kept (${overallB1Success}% overall success)`);
       
+      // Store B1 stats globally for final summary
+      globalThis.__tg_b1SelectorStats = {
+        selectors: b1SelectorStats.map(s => ({...s, kept: 0, successRate: '0.0'})), // B1 doesn't track individual kept
+        totalFound: totalB1Found,
+        totalKept: allImages.length,
+        overallSuccess: overallB1Success
+      };
+      
       // Identify problem selectors (finding many elements but contributing to low overall success)
       const highVolumeSelectors = b1SelectorStats.filter(s => s.found > 10);
       const lowVolumeSelectors = b1SelectorStats.filter(s => s.found === 0);
@@ -2482,6 +2490,14 @@
     const totalKept = selectorStats.reduce((sum, stat) => sum + stat.kept, 0);
     const overallSuccess = totalFound > 0 ? ((totalKept / totalFound) * 100).toFixed(1) : 0;
     debug(`📊 A1 SUMMARY: ${totalFound} total elements found, ${totalKept} kept (${overallSuccess}% overall success)`);
+    
+    // Store A1 stats globally for final summary
+    globalThis.__tg_a1SelectorStats = {
+      selectors: selectorStats,
+      totalFound: totalFound,
+      totalKept: totalKept,
+      overallSuccess: overallSuccess
+    };
     
     // Identify best and worst performers
     const goodSelectors = selectorStats.filter(s => s.found > 0 && parseFloat(s.successRate) > 50);
@@ -2626,6 +2642,10 @@
     try {
       const host = location.hostname.replace(/^www\./,'');
       const mode = (opts && opts.mode) || 'normal';
+      
+      // Clear previous selector performance stats for clean tracking
+      globalThis.__tg_a1SelectorStats = null;
+      globalThis.__tg_b1SelectorStats = null;
       
       // Reset line counter for each scrape operation
       if (typeof window !== 'undefined') {
@@ -2839,14 +2859,36 @@
       debug(`📊 FINAL IMAGES KEPT: ${images?.length || 0}`);
       debug(`📊 MODE: ${mode}`);
       
-      // Log selectors that were actually used (from __used tracking)
-      if (__used && Object.keys(__used).length > 0) {
-        debug('📊 SELECTORS THAT CONTRIBUTED TO FINAL RESULTS:');
-        Object.entries(__used).forEach(([field, data]) => {
-          if (field === 'images' && data.selectors) {
-            debug(`📊   ${field}: ${data.selectors.join(', ')} (method: ${data.method})`);
-          }
-        });
+      // DETAILED SELECTOR BREAKDOWN  
+      if (globalThis.__tg_a1SelectorStats || globalThis.__tg_b1SelectorStats) {
+        debug('📊 SELECTOR BREAKDOWN SUMMARY:');
+        
+        // Show A1 detailed results
+        if (globalThis.__tg_a1SelectorStats) {
+          const a1Stats = globalThis.__tg_a1SelectorStats;
+          debug(`📊 A1 GENERIC SELECTORS:`);
+          a1Stats.selectors.forEach(stat => {
+            const status = stat.kept > 0 ? '✅ WINNER!' : stat.found > 5 ? '❌ JUNK!' : stat.found > 0 ? '⚠️ LOW' : '❌ EMPTY';
+            debug(`📊   ${stat.selector}: ${stat.found} found, ${stat.kept} kept (${stat.successRate}% - ${status})`);
+          });
+          debug(`📊 A1 TOTAL: ${a1Stats.totalFound} found, ${a1Stats.totalKept} kept (${a1Stats.overallSuccess}% success)`);
+        }
+        
+        // Show B1 detailed results  
+        if (globalThis.__tg_b1SelectorStats) {
+          const b1Stats = globalThis.__tg_b1SelectorStats;
+          debug(`📊 B1 COMPREHENSIVE SELECTORS:`);
+          b1Stats.selectors.forEach(stat => {
+            const status = stat.found > 10 ? '🔍 HIGH VOL' : stat.found > 0 ? '⚠️ LOW VOL' : '❌ EMPTY';
+            debug(`📊   ${stat.selector}: ${stat.found} found (${status})`);
+          });
+          debug(`📊 B1 TOTAL: ${b1Stats.totalFound} found, ${b1Stats.totalKept} kept (${b1Stats.overallSuccess}% success)`);
+        }
+      }
+      
+      // Show final winning selector
+      if (__used && __used.images) {
+        debug(`📊 WINNING METHOD: ${__used.images.selectors.join(', ')} (${__used.images.method})`);
       }
       
       debug('📊 ═══════════════════════════════════════════════════════════════');

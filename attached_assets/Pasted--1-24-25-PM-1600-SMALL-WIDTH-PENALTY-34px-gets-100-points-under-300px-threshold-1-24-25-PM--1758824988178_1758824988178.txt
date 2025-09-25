@@ -1,0 +1,453 @@
+[1:24:25 PM] 1600 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1601 📍 CONTAINER INFO: "0001" from "img" (not primary gallery)
+[1:24:25 PM] 1602 🎯 UNIFIED SCORE: 0 for 0001
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/0001
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1603 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1604 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1605 📍 CONTAINER INFO: "0002" from "img" (not primary gallery)
+[1:24:25 PM] 1606 🎯 UNIFIED SCORE: 0 for 0002
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/0002
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1607 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1608 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1609 📍 CONTAINER INFO: "35486" from "img" (not primary gallery)
+[1:24:25 PM] 1610 🎯 UNIFIED SCORE: 0 for 35486
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/35486
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: data:,
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: data:,
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1611 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1612 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1613 📍 CONTAINER INFO: "41179" from "img" (not primary gallery)
+[1:24:25 PM] 1614 🎯 UNIFIED SCORE: 0 for 41179
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/41179
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1615 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1616 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1617 📍 CONTAINER INFO: "71150" from "img" (not primary gallery)
+[1:24:25 PM] 1618 🎯 UNIFIED SCORE: 0 for 71150
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/71150
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1619 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1620 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1621 📍 CONTAINER INFO: "35486" from "img" (not primary gallery)
+[1:24:25 PM] 1622 🎯 UNIFIED SCORE: 0 for 35486
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/35486
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1623 🔍 EFFECTIVE RESOLUTION: 16px (0×1) = +-50.7 points
+[1:24:25 PM] 1624 📉 SMALL WIDTH PENALTY: 16px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1625 📍 CONTAINER INFO: "49106" from "img" (not primary gallery)
+[1:24:25 PM] 1626 🎯 UNIFIED SCORE: 0 for 49106
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/49106
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1627 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1628 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1629 📍 CONTAINER INFO: "0001" from "img" (not primary gallery)
+[1:24:25 PM] 1630 🎯 UNIFIED SCORE: 0 for 0001
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/0001
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1631 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1632 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1633 📍 CONTAINER INFO: "0002" from "img" (not primary gallery)
+[1:24:25 PM] 1634 🎯 UNIFIED SCORE: 0 for 0002
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/0002
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1635 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1636 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1637 📍 CONTAINER INFO: "31382" from "img" (not primary gallery)
+[1:24:25 PM] 1638 🎯 UNIFIED SCORE: 0 for 31382
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/31382
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: data:,
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: data:,
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1639 🔍 EFFECTIVE RESOLUTION: 16px (0×1) = +-50.7 points
+[1:24:25 PM] 1640 📉 SMALL WIDTH PENALTY: 16px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1641 📍 CONTAINER INFO: "71152" from "img" (not primary gallery)
+[1:24:25 PM] 1642 🎯 UNIFIED SCORE: 0 for 71152
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/71152
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1643 🔍 EFFECTIVE RESOLUTION: 16px (0×1) = +-50.7 points
+[1:24:25 PM] 1644 📉 SMALL WIDTH PENALTY: 16px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1645 📍 CONTAINER INFO: "49106" from "img" (not primary gallery)
+[1:24:25 PM] 1646 🎯 UNIFIED SCORE: 0 for 49106
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/49106
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1647 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1648 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1649 📍 CONTAINER INFO: "41179" from "img" (not primary gallery)
+[1:24:25 PM] 1650 🎯 UNIFIED SCORE: 0 for 41179
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/41179
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1651 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1652 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1653 📍 CONTAINER INFO: "71150" from "img" (not primary gallery)
+[1:24:25 PM] 1654 🎯 UNIFIED SCORE: 0 for 71150
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/71150
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1655 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1656 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1657 📍 CONTAINER INFO: "31382" from "img" (not primary gallery)
+[1:24:25 PM] 1658 🎯 UNIFIED SCORE: 0 for 31382
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/31382
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1659 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1660 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1661 📍 CONTAINER INFO: "0001" from "img" (not primary gallery)
+[1:24:25 PM] 1662 🎯 UNIFIED SCORE: 0 for 0001
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/0001
+0
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:25 PM] 1663 🔍 EFFECTIVE RESOLUTION: 34px (0×1) = +-37.7 points
+[1:24:25 PM] 1664 📉 SMALL WIDTH PENALTY: 34px gets -100 points (under 300px threshold)
+[1:24:25 PM] 1665 📍 CONTAINER INFO: "0002" from "img" (not primary gallery)
+[1:24:25 PM] 1666 🎯 UNIFIED SCORE: 0 for 0002
+[1:24:25 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/0002
+0
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] 1667 🔍 EFFECTIVE RESOLUTION: 16px (0×1) = +-50.7 points
+[1:24:26 PM] 1668 📉 SMALL WIDTH PENALTY: 16px gets -100 points (under 300px threshold)
+[1:24:26 PM] 1669 📍 CONTAINER INFO: "71226" from "img" (not primary gallery)
+[1:24:26 PM] 1670 🎯 UNIFIED SCORE: 0 for 71226
+[1:24:26 PM] 📉 LOW SCORE REJECTED (0): https://images.lululemon.com/is/image/lululemon/71226
+0
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/1&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: data:,
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: data:,
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: data:,
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: data:,
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/0&op_sh
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] 🗑️ JUNK IMAGE: https://cdn.cookielaw.org/logos/b5ce4b51-ea0c-47e5-b855-c12d511f57c9/0191fd07-6c
+0
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+0
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=4070037&Ver=2&mid=43f4c908-cfb8-44d0-86ce-c725677f99d1&bo=1&sid=1fa
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=4070037&Ver=2&mid=43f4c908-cfb8-44d0-86ce-c725677f99d1&bo=2&sid=1fa
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] ❌ NOT IMAGE URL: https://lantern.roeye.com/track.php?fingerprint=fbf7b289-0fab-4208-ba15-ce41050f57a5&referrer=&landi
+0[IMG ERROR]
+📋 Copy URL
+[1:24:26 PM] 1671 🔍 EFFECTIVE RESOLUTION: 26px (0×1) = +-42.3 points
+[1:24:26 PM] 1672 📉 SMALL WIDTH PENALTY: 26px gets -100 points (under 300px threshold)
+[1:24:26 PM] 1673 📍 CONTAINER INFO: "1606143979979_feedback-updated.jpg" from "img" (not primary gallery)
+[1:24:26 PM] 1674 🎯 UNIFIED SCORE: 0 for 1606143979979_Feedback-Updated.jpg
+[1:24:26 PM] 📉 LOW SCORE REJECTED (0): https://resources.digital-cloud.medallia.com/wdcus/55284/resources/image/1606143979979_Feedback-Upda
+0
+📋 Copy URL
+[1:24:26 PM] 1675 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[1:24:26 PM] 1676 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[1:24:26 PM] 1677 🏆 TOP SCORED IMAGES: []
+[1:24:26 PM] 1678 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":315,"junk":1,"lowScore":54,"smallFile":0,"duplicateGroups":0,"kept":0}
+[1:24:26 PM] 1679 🖼️ FINAL IMAGES: []
+[1:24:26 PM] 1680 🏆 CONTAINER PERFORMANCE ANALYSIS:
+[1:24:26 PM] 1681 📊 img: 54 images, avg score 0.0, high-quality: 0, junk: 54
+[1:24:26 PM] 1682 🖼️ After hybrid filtering: 0 images
+[1:24:26 PM] 1683 🎯 CONTAINER PERFORMANCE [img]: 0 final images (0.0% success rate)
+[1:24:26 PM] 1684 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[1:24:26 PM] 1685 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[1:24:26 PM] 1686 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[1:24:26 PM] 1687 📍 CONTAINER INFO: "lw2eils_062220_1" from "legacy" (not primary gallery)
+[1:24:26 PM] 1688 🎯 UNIFIED SCORE: 85 for LW2EILS_062220_1
+[1:24:26 PM] 1689 🔄 HYBRID UNIQUE: Applying family deduplication to 1 candidates
+[1:24:26 PM] 1690 👨‍👩‍👧‍👦 HYBRID UNIQUE: 1 images after family deduplication
+[1:24:26 PM] ✅ SINGLE IMAGE (score: 85): https://images.lululemon.com/is/image/lululemon/LW2EILS_062220_1
+85
+📋 Copy URL
+[1:24:26 PM] 🎯 HIGH SCORE + SIZE OK (85): https://images.lululemon.com/is/image/lululemon/LW2EILS_062220_1
+85
+📋 Copy URL
+[1:24:26 PM] 1691 🏆 TOP SCORED IMAGES: ["LW2EILS_062220_1 (score: 85)"]
+[1:24:26 PM] 1692 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[1:24:26 PM] 1693 🖼️ FINAL IMAGES: ["https://images.lululemon.com/is/image/lululemon/LW2EILS_062220_1"]
+[1:24:26 PM] 1694 🏆 CONTAINER PERFORMANCE ANALYSIS:
+[1:24:26 PM] 1695 📊 legacy: 1 images, avg score 85.0, high-quality: 0, junk: 0
+[1:24:26 PM] 1696 📊 PARALLEL RESULTS: A1=1 images, B1=0 images
+[1:24:26 PM] 1697 🎯 COLLECTION PERFORMANCE: A1 SUCCESS (1 images), B1 SUCCESS (0 images)
+[1:24:26 PM] 1698 🔍 MERGE BREAKDOWN: A1-only=1, B1-only=0, Both=0, Total=1
+[1:24:26 PM] 1699 🎯 PARALLEL FINAL: 1 images after merge/dedup (A1: 1, B1: 0)
+[1:24:26 PM] 1700 🖼️ PARALLEL IMAGES: {"count":1,"breakdown":[{"url":"https://images.lululemon.com/is/image/lululemon/LW2EILS_062220_1","canonicalUrl":"https://images.lululemon.com/is/image/lululemon/LW2EILS_062220_1","origin":"A1","score
+[1:24:26 PM] 1701 ✅ PARALLEL SUCCESS: Using processed ImageCandidates directly - skipping legacy filtering
+[1:24:26 PM] 1702 🖼️ FINAL IMAGES: {"count":1,"images":["https://images.lululemon.com/is/image/lululemon/LW2EILS_062220_1"]}
+[1:24:26 PM] 1703 📊 ═══════════════════════════════════════════════════════════════
+[1:24:26 PM] 1704 📊 COMPREHENSIVE SELECTOR PERFORMANCE FINAL SUMMARY
+[1:24:26 PM] 1705 📊 ═══════════════════════════════════════════════════════════════
+[1:24:26 PM] 1706 📊 SITE: shop.lululemon.com
+[1:24:26 PM] 1707 📊 FINAL IMAGES KEPT: 1
+[1:24:26 PM] 1708 📊 MODE: normal
+[1:24:26 PM] 1709 📊 SELECTORS THAT CONTRIBUTED TO FINAL RESULTS:
+[1:24:26 PM] 1710 📊 images: img (method: generic-fallback)
+[1:24:26 PM] 1711 📊 ═══════════════════════════════════════════════════════════════
+[1:24:26 PM] 1712 📊 END SELECTOR PERFORMANCE SUMMARY
+[1:24:26 PM] 1713 📊 ═══════════════════════════════════════════════════════════════
+[1:24:26 PM] 1714 ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"FlexyFlex Strappy Yoga Bra Light Support, A-C Cups","brand":"lululemon","description":"Shop the FlexyFlex Strappy Yoga Bra *Light Support","price":"39","imageCount":1,"firstImages":["https:/
+[1:24:26 PM] 1715 ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":1}
+[1:24:26 PM] ✅ Debug trace complete
