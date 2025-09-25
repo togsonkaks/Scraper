@@ -2297,12 +2297,12 @@
     }
     return null;
   }
-  // B1 Comprehensive Collection - Uses A1's proven functions directly
+  // B1 Comprehensive Collection - Single unified A1 call
   async function getImagesUnified({ doc = document, observeMs = 1200 } = {}) {
-    debug(`🚀 B1 COMPREHENSIVE: Starting on ${window.location.hostname} - using A1 functions`);
+    debug(`🚀 B1 COMPREHENSIVE: Starting on ${window.location.hostname} - single A1 call`);
     
-    // Use A1's proven comprehensive selectors
-    const COMPREHENSIVE_SELECTORS = [
+    // Combine all comprehensive selectors into ONE selector string
+    const UNIFIED_SELECTOR = [
       // Primary product galleries (most e-commerce sites) 
       '.product-gallery img', '.product-photos img', '.product-images img',
       '.gallery img', '.image-gallery img', '.media-gallery img',
@@ -2323,32 +2323,21 @@
       // Additional patterns from successful implementations
       '.pdp img', '.product-detail img', '.item-gallery img', 
       '[data-gallery] img', '[data-product-gallery] img', '[data-image] img'
-    ];
+    ].join(', ');
 
-    let allImages = [];
+    debug('📍 B1: Using single combined A1 gatherImagesBySelector call');
     
-    // Use A1's gatherImagesBySelector for each comprehensive selector
-    debug('📍 B1: Using A1 gatherImagesBySelector functions for comprehensive collection');
-    
-    for (const selector of COMPREHENSIVE_SELECTORS) {
-      try {
-        // Call A1's proven function directly - gets proper DOM elements + container selectors
-        const selectorImages = await gatherImagesBySelector(selector);
-        if (selectorImages.length > 0) {
-          debug(`✅ B1: ${selector} found ${selectorImages.length} images`);
-          allImages.push(...selectorImages);
-        }
-      } catch (e) {
-        debug(`⚠️ B1: Error with selector ${selector}:`, e.message);
-      }
+    try {
+      // Single A1 call with all selectors combined - runs A1 pipeline ONCE
+      const allImages = await gatherImagesBySelector(UNIFIED_SELECTOR);
+      debug(`🔍 B1 COMPREHENSIVE: Single A1 call found ${allImages.length} images`);
+      debug(`✅ COMPREHENSIVE FINAL: ${allImages.length} images (processed once by A1 system)`);
+      
+      return allImages.slice(0, 30);
+    } catch (e) {
+      debug(`⚠️ B1: Error with unified selector:`, e.message);
+      return [];
     }
-
-    debug(`🔍 B1 COMPREHENSIVE: Collected ${allImages.length} total images using A1 functions`);
-    debug(`✅ COMPREHENSIVE FINAL: ${allImages.length} images (already processed by A1 system)`);
-    
-    // A1's gatherImagesBySelector already applies hybridUniqueImages() filtering
-    // So return results directly without double-processing
-    return allImages.slice(0, 30);
   }
 
 
