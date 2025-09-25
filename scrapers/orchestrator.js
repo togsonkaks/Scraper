@@ -1426,8 +1426,7 @@
   // Merges gallery-focused approach with comprehensive meta/JSON-LD parsing
   async function runUnifiedImageCollectorV3({ 
     doc = document, 
-    observeMs = 1200,
-    max = 40 
+    observeMs = 1200
   } = {}) {
     debug(`🚀 B1 UNIFIED COLLECTOR STARTING on ${window.location.hostname}`);
     
@@ -1623,7 +1622,7 @@
 
     const finalUrls = Array.from(urls);
     debug(`🔍 B1 Unified Collector: ${finalUrls.length} total URLs collected`);
-    return finalUrls.slice(0, max);
+    return finalUrls; // Return all URLs for house filtering to rank
   }
 
   // Hybrid unique images with score threshold and file size filtering
