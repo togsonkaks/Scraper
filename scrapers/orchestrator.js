@@ -1483,6 +1483,9 @@
     const seenDebugLogs = new Set();
     const filtered = { empty: 0, invalid: 0, junk: 0, lowScore: 0, smallFile: 0, duplicateGroups: 0, kept: 0 };
     
+    // Container performance tracking
+    const containerScoreStats = new Map(); // containerSelector -> { scores: [], count: 0, avgScore: 0 }
+    
     // Group enriched URLs by canonical form
     for (const enriched of enrichedUrls) {
       if (!enriched.url) {
@@ -1510,6 +1513,18 @@
       
       // Apply score threshold using unified scoring (minimum 50 points)
       const score = computeAndScoreImage(enriched);
+      
+      // Track container score performance
+      const containerKey = enriched.containerSelector || 'unknown';
+      if (!containerScoreStats.has(containerKey)) {
+        containerScoreStats.set(containerKey, { scores: [], count: 0, avgScore: 0, highCount: 0, lowCount: 0 });
+      }
+      const stats = containerScoreStats.get(containerKey);
+      stats.scores.push(score);
+      stats.count++;
+      if (score >= 100) stats.highCount++;
+      if (score < 50) stats.lowCount++;
+      
       if (score < 50) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
@@ -1685,6 +1700,21 @@
     
     debug('🖼️ HYBRID FILTERING RESULTS:', filtered);
     debug('🖼️ FINAL IMAGES:', finalUrls.slice(0, 5).map(url => url.slice(0, 80)));
+    
+    // Report container performance statistics
+    if (containerScoreStats.size > 0) {
+      debug('🏆 CONTAINER PERFORMANCE ANALYSIS:');
+      const sortedContainers = Array.from(containerScoreStats.entries())
+        .map(([selector, stats]) => {
+          stats.avgScore = stats.scores.length > 0 ? (stats.scores.reduce((a, b) => a + b, 0) / stats.scores.length).toFixed(1) : '0.0';
+          return [selector, stats];
+        })
+        .sort((a, b) => parseFloat(b[1].avgScore) - parseFloat(a[1].avgScore));
+      
+      sortedContainers.slice(0, 5).forEach(([selector, stats]) => {
+        debug(`📊 ${selector}: ${stats.count} images, avg score ${stats.avgScore}, high-quality: ${stats.highCount}, junk: ${stats.lowCount}`);
+      });
+    }
     
     return finalUrls;
   }
