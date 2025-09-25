@@ -998,10 +998,10 @@
       score += resolutionScore;
       debug(`🔍 EFFECTIVE RESOLUTION: ${meta.effectiveWidth}px (${meta.urlWidth}×${meta.dpr}) = +${resolutionScore.toFixed(1)} points`);
       
-      // SMALL WIDTH PENALTY - anything under 500px drops to bottom
-      if (meta.effectiveWidth < 500) {
+      // SMALL WIDTH PENALTY - anything under 300px drops to bottom
+      if (meta.effectiveWidth < 300) {
         score -= 100; // Massive penalty to sink small images
-        debug(`📉 SMALL WIDTH PENALTY: ${meta.effectiveWidth}px gets -100 points (under 500px threshold)`);
+        debug(`📉 SMALL WIDTH PENALTY: ${meta.effectiveWidth}px gets -100 points (under 300px threshold)`);
       }
     } else {
       // Fallback size detection for non-CDN URLs

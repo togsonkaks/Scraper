@@ -36,6 +36,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
 
 ## Recent Changes
+- **Scoring Threshold Adjustment**: Lowered small width penalty from 500px to 300px threshold to accept quality product images (320px-480px range now passes scoring)
 - **Flexible Pattern Matching**: Added CSS attribute selectors `[class*="pattern"]` to catch gallery variations across sites (e.g., lululemon's `product-media-slides_slide_image`)
 - **Selector Optimization**: Replaced overly broad selectors with targeted patterns while maintaining comprehensive coverage - improved performance from 60+ to 8-15 images
 - **Container Tracking Bug Fix**: Fixed critical hi-res augmentation bug that was causing high-quality images to lose gallery bonuses and get rejected (scores dropped from 205 to 8)
