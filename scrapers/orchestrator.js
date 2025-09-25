@@ -1376,9 +1376,11 @@
       ])
     ]);
 
-    // Extract results safely
+    // Extract results safely with performance tracking
     const a1Images = a1Result.status === 'fulfilled' ? (a1Result.value || []) : [];
+    const a1Error = a1Result.status === 'rejected' ? a1Result.reason.message : null;
     const b1Images = b1Result.status === 'fulfilled' ? (b1Result.value || []) : [];
+    const b1Error = b1Result.status === 'rejected' ? b1Result.reason.message : null;
     
     debug(`📊 PARALLEL RESULTS: A1=${a1Images.length} images, B1=${b1Images.length} images`);
     
@@ -1387,6 +1389,13 @@
     }
     if (b1Result.status === 'rejected') {
       debug('❌ B1 COLLECTION ERROR:', b1Result.reason?.message);
+    }
+    
+    // Collection method performance summary
+    debug(`🎯 COLLECTION PERFORMANCE: A1 ${a1Error ? 'FAILED' : 'SUCCESS'} (${a1Images.length} images), B1 ${b1Error ? 'FAILED' : 'SUCCESS'} (${b1Images.length} images)`);
+    
+    if (a1Images.length === 0 && b1Images.length === 0) {
+      debug('⚠️ BOTH COLLECTIONS FAILED: No images found by A1 or B1');
     }
 
     // Normalize outputs to common format
@@ -2293,7 +2302,7 @@
     debug(`🚀 B1 COMPREHENSIVE COLLECTION: Starting on ${window.location.hostname}`);
     
     const live = window.document || doc;
-    const urls = new Set();
+    const enrichedImages = new Map(); // canonical key -> enriched image data
     
     const add = (url) => {
       if (!url) return;
@@ -2490,7 +2499,8 @@
       url, 
       element: null, 
       index, 
-      containerSelector: 'b1-comprehensive'
+      containerSelector: 'b1-comprehensive',
+      sourceMethod: 'B1' // Tag as B1 collection method
     }));
     
     debug(`🔄 COMPREHENSIVE COLLECTION: ${finalUrls.length} total raw URLs collected`);
