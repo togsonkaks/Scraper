@@ -2304,12 +2304,35 @@
     const live = window.document || doc;
     const enrichedImages = new Map(); // canonical key -> enriched image data
     
-    const add = (url) => {
+    const addEnriched = (url, element = null, selector = 'unknown', source = 'B1') => {
       if (!url) return;
       try { url = new URL(url, location.href).toString(); } catch {}
       if (!/^https?:\/\//i.test(url)) return;
-      urls.add(url);
+      
+      const canonical = canonicalKey(url);
+      if (!enrichedImages.has(canonical)) {
+        // Capture container context for this element
+        const containerContext = element ? captureContainerContext(element) : {
+          containerType: 'b1-synthetic',
+          parentSelector: 'none',
+          containerClasses: [],
+          containerIds: [],
+          depth: 0
+        };
+        
+        enrichedImages.set(canonical, {
+          url,
+          element,
+          index: enrichedImages.size,
+          containerSelector: selector,
+          containerContext,
+          sourceMethod: source
+        });
+      }
     };
+    
+    // Legacy add function for backward compatibility during transition
+    const add = (url) => addEnriched(url, null, 'b1-legacy', 'B1');
 
     const urlFromSrcset = (srcset) => {
       return (srcset || "")
@@ -2358,7 +2381,7 @@
     const scanOnce = () => {
       // 1) META TAGS & JSON-LD (from B1b)
       doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
-        .forEach(meta => meta.content && add(meta.content));
+        .forEach(meta => meta.content && addEnriched(meta.content, meta, `meta[${meta.getAttribute('property') || meta.getAttribute('name')}]`, 'B1-meta'));
 
       // JSON-LD structured data
       const ldScripts = [
@@ -2372,10 +2395,10 @@
           const walkJsonLd = (obj) => {
             if (!obj || typeof obj !== "object") return;
             if (Array.isArray(obj)) return obj.forEach(walkJsonLd);
-            if (typeof obj.image === "string") add(obj.image);
-            else if (Array.isArray(obj.image)) obj.image.forEach(url => add(url));
-            else if (obj.image?.url) add(obj.image.url);
-            if (obj.logo?.url) add(obj.logo.url);
+            if (typeof obj.image === "string") addEnriched(obj.image, script, 'script[type="application/ld+json"]', 'B1-jsonld');
+            else if (Array.isArray(obj.image)) obj.image.forEach(url => addEnriched(url, script, 'script[type="application/ld+json"]', 'B1-jsonld'));
+            else if (obj.image?.url) addEnriched(obj.image.url, script, 'script[type="application/ld+json"]', 'B1-jsonld');
+            if (obj.logo?.url) addEnriched(obj.logo.url, script, 'script[type="application/ld+json"]', 'B1-jsonld');
             Object.values(obj).forEach(walkJsonLd);
           };
           walkJsonLd(data);
@@ -2421,9 +2444,12 @@
 
         // Regular IMG elements
         container.querySelectorAll("img").forEach(img => {
+          // Determine container selector for this container
+          const containerSelector = UNIFIED_GALLERY_SELECTORS.find(sel => container.matches(sel)) || 'unknown-container';
+          
           // Current/primary sources
           const best = img.currentSrc || urlFromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
-          if (best) add(best);
+          if (best) addEnriched(best, img, containerSelector, 'B1-gallery');
           
           // Lazy loading attributes
           for (const attr of LAZY_ATTRS) {
@@ -2431,9 +2457,9 @@
             if (!value) continue;
             if (attr.endsWith("srcset")) {
               const url = urlFromSrcset(value);
-              if (url) add(url);
+              if (url) addEnriched(url, img, `${containerSelector}[${attr}]`, 'B1-lazy');
             } else {
-              add(value);
+              addEnriched(value, img, `${containerSelector}[${attr}]`, 'B1-lazy');
             }
           }
         });
@@ -2491,19 +2517,10 @@
       });
     } catch {}
 
-    const finalUrls = Array.from(urls);
-    debug(`🔍 B1 Comprehensive Collection: ${finalUrls.length} total URLs collected`);
+    const enrichedUrls = Array.from(enrichedImages.values());
+    debug(`🔍 B1 Comprehensive Collection: ${enrichedUrls.length} total enriched images collected`);
     
-    // Convert raw URLs to enriched format for house system
-    const enrichedUrls = finalUrls.map((url, index) => ({
-      url, 
-      element: null, 
-      index, 
-      containerSelector: 'b1-comprehensive',
-      sourceMethod: 'B1' // Tag as B1 collection method
-    }));
-    
-    debug(`🔄 COMPREHENSIVE COLLECTION: ${finalUrls.length} total raw URLs collected`);
+    debug(`🔄 COMPREHENSIVE COLLECTION: ${enrichedUrls.length} total enriched URLs collected`);
     
     // Apply house filtering/scoring system (same as A1 for integer scores)
     debug('🏠 Applying house filtering/scoring system...');
