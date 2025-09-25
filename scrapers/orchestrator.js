@@ -1357,27 +1357,20 @@
     }));
   }
 
-  // Normalize B1 images (raw URLs) to ImageCandidate format  
+  // Normalize B1 images (already filtered/scored) to ImageCandidate format - LIKE A1
   function normalizeB1Images(images) {
-    return images.map((img, index) => {
-      const url = typeof img === 'string' ? img : img.url;
-      const upgradedUrl = upgradeCDNUrl(url);
-      const mockEnriched = { url: upgradedUrl, element: null, index, containerSelector: 'b1-unified' };
-      const scoreByB1 = computeAndScoreImage(mockEnriched);
-      
-      return {
-        url: url,
-        canonicalUrl: canonicalKey(url),
-        origin: 'B1',
-        scoreByA1: null,
-        scoreByB1: scoreByB1,
-        scoreFinal: scoreByB1,
-        upgradedUrl: upgradedUrl,
-        element: typeof img === 'object' ? img.element : null,
-        index: index,
-        context: { source: 'B1-unifiedCollector', method: 'comprehensive-meta-gallery' }
-      };
-    });
+    return images.map((img, index) => ({
+      url: typeof img === 'string' ? img : img.url,
+      canonicalUrl: canonicalKey(typeof img === 'string' ? img : img.url),
+      origin: 'B1',
+      scoreByA1: null,
+      scoreByB1: typeof img === 'object' && img.score ? img.score : null,  // ← PRESERVE existing score (like A1)
+      scoreFinal: typeof img === 'object' && img.score ? img.score : 0,    // ← PRESERVE existing score (like A1)
+      upgradedUrl: upgradeCDNUrl(typeof img === 'string' ? img : img.url),
+      element: typeof img === 'object' ? img.element : null,
+      index: index,
+      context: { source: 'B1-unifiedCollector', method: 'selector-based-like-A1' }
+    }));
   }
 
   // Merge and deduplicate ImageCandidates, keeping highest scoring per canonical URL
@@ -2368,46 +2361,41 @@
     }
     return null;
   }
-  // Unified image collection - combines collectHiResAugment + GenericImageCollector v2
+  // Unified image collection - NOW USES A1'S PROVEN METHOD
   async function getImagesUnified({ doc = document, observeMs = 1000 } = {}) {
-    debug('🔄 UNIFIED IMAGE COLLECTION STARTING');
+    debug('🔄 B1 UNIFIED COLLECTION: Using A1 proven method (score during collection)');
     
-    const rawUrls = new Set(); // Dedupe URLs from both collectors
-    
-    // B1: Unified collector (combined hi-res augment + generic collection in single DOM pass)
-    debug('🎯 Running B1 Unified Collector for comprehensive coverage...');
-    const unifiedUrls = await runUnifiedImageCollectorV3({ doc, observeMs });
-    const hiResUrls = unifiedUrls; // Maintain compatibility for container context logic
-    unifiedUrls.forEach(url => rawUrls.add(url));
-    debug(`✅ B1 Unified Collector: ${unifiedUrls.length} raw URLs`);
-    
-    // Convert raw URLs to enriched format with proper container context
-    const allRawUrls = Array.from(rawUrls);
-    const enrichedUrls = allRawUrls.map((url, index) => {
-      // Try to determine container context based on URL patterns and source
-      let containerSelector = 'b1-combined-collectors';
+    // Use A1's proven approach: selector-based collection with scoring during collection
+    const UNIFIED_GALLERY_SELECTORS = [
+      // A1 proven gallery patterns
+      '.product-media img', '.gallery img', '.image-gallery img', '.product-images img', '.product-gallery img',
+      '[class*=gallery] img', '.slider img', '.thumbnails img', '.pdp-gallery img', '[data-testid*=image] img',
       
-      // If this URL came from hi-res augment (gallery patterns), mark as primary gallery
-      if (hiResUrls.includes(url)) {
-        containerSelector = '.product-gallery img'; // Mark as primary gallery
+      // collectHiResAugment proven patterns  
+      '#imageBlock img', '#altImages img', '[data-a-dynamic-image]',
+      '.product-single__photo img', '.flickity-viewport img',
+      'main figure img', 'main .gallery img', 'article figure img',
+      
+      // Additional proven patterns
+      '.carousel img', '.swiper-container img', '.product__media img', '.pdp-media img',
+      '.media-gallery img', '.main-image img', '[data-product-gallery] img', '[data-gallery] img'
+    ];
+    
+    // Try each selector until we find sufficient images (like A1 does)
+    for (const sel of UNIFIED_GALLERY_SELECTORS) {
+      debug(`🎯 B1 trying selector: ${sel}`);
+      const urls = await gatherImagesBySelector(sel);  // ← Score during collection (A1 method)
+      if (urls.length >= 3) {
+        debug(`✅ B1 selector success: ${urls.length} images found with ${sel}`);
+        return urls.slice(0, 30); 
       }
-      
-      return { 
-        url, 
-        element: null, 
-        index, 
-        containerSelector 
-      };
-    });
+    }
     
-    debug(`🔄 UNIFIED COLLECTION: ${allRawUrls.length} total raw URLs from both collectors`);
-    
-    // A1: Apply house filtering/scoring system
-    debug('🏠 Applying house filtering/scoring system...');
-    const finalImages = await hybridUniqueImages(enrichedUrls);
-    
-    debug(`✅ UNIFIED FINAL: ${finalImages.length} images after house processing`);
-    return finalImages.slice(0, 30);
+    // Fallback: try generic img selector
+    debug('🎯 B1 fallback: trying generic img selector');
+    const fallback = await gatherImagesBySelector('img');
+    debug(`✅ B1 fallback: ${fallback.length} images found`);
+    return fallback.slice(0, 30);
   }
 
 
