@@ -1534,7 +1534,11 @@
       if (score >= 100) stats.highCount++;
       if (score < 50) stats.lowCount++;
       
-      if (score < 50) {
+      // TRUSTED CDN BYPASS - happens BEFORE score threshold to fix B1 bias
+      if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(abs)) {
+        addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${abs.slice(0, 100)}`, abs, score, true);
+        // Skip score threshold for trusted CDNs - they get processed regardless of score
+      } else if (score < 50) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
         continue;
@@ -1609,12 +1613,7 @@
     const fileSizeCheckPromises = [];
     
     for (const img of bestImages) {
-      // Trusted CDNs bypass ALL size checks - HIGHEST PRIORITY  
-      if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
-        sizeFilteredImages.push(img);
-        addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${img.url.slice(0, 100)}`, img.url, img.score, true);
-        continue;
-      }
+      // Note: Trusted CDN bypass now happens earlier in the pipeline to fix B1 scoring bias
       // Trust high scores over file size limits (modern CDN optimization) - EARLY CHECK
       if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {  // High score + minimum size check
         sizeFilteredImages.push(img);

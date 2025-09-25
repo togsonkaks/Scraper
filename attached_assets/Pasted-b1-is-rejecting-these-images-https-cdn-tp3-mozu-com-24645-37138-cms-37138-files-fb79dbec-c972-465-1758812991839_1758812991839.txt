@@ -1,0 +1,21 @@
+b1 is rejecting these images.
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925
+
+a1 is accepting this images
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925
+
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925
+https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925
