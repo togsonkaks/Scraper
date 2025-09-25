@@ -2771,15 +2771,17 @@
             // Merge and dedupe memory + custom
             let combinedImages = await uniqueImages(memoryImages.concat(customImages));
             
-            // Fall back to generic only if still insufficient
+            // Fall back to parallel collection (A1 + B1) if still insufficient
             if (combinedImages.length < 3) {
-              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+              debug('🖼️ IMAGES: Custom insufficient, running parallel A1+B1 collection...');
               
-              // Get additional images using standard method
-              const genericImages = await getImagesGeneric();
-              debug('🖼️ ADDITIONAL IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+              // Run both A1 and B1 simultaneously for comprehensive coverage
+              const parallelImages = await collectImagesCombined({ doc: document, observeMs: 1000 });
+              debug('🖼️ PARALLEL IMAGES:', { count: parallelImages.length, breakdown: parallelImages.slice(0, 3) });
               
-              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+              // Convert ImageCandidates back to URLs for compatibility
+              const parallelUrls = parallelImages.map(img => img.upgradedUrl || img.url);
+              combinedImages = await uniqueImages(combinedImages.concat(parallelUrls));
             }
           
             images = combinedImages.slice(0, 30);
