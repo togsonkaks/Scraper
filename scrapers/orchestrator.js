@@ -2527,8 +2527,49 @@
             debug(`   ${priority}: ${selector} (${count} images)`);
           });
           
-          if (productHints.length > 0) {
-            debug(`🎯 TOP RECOMMENDATIONS: ${[...new Set(productHints)].join(', ')}`);
+          // Include ALL HIGH PRIORITY selectors (not just product hints)
+          const allHighPrioritySelectors = [];
+          sortedContainers.forEach(([selector, count]) => {
+            const isProbablyProduct = productHints.includes(selector) || 
+                                    selector.includes('product') || selector.includes('pdp');
+            if (isProbablyProduct || count >= 3) { // Product-related OR 3+ images
+              allHighPrioritySelectors.push(selector);
+            }
+          });
+          
+          if (allHighPrioritySelectors.length > 0) {
+            debug(`🎯 TOP RECOMMENDATIONS: ${[...new Set(allHighPrioritySelectors)].join(', ')}`);
+            
+            // USE DISCOVERED SELECTORS IMMEDIATELY instead of ignoring them!
+            debug('🎯 TESTING DISCOVERED SELECTORS (high-priority first)...');
+            const discoveredSelectors = [...new Set(allHighPrioritySelectors)];
+            
+            let discoveredImages = [];
+            for (const selector of discoveredSelectors) {
+              const images = await gatherImagesBySelector(selector);
+              if (images.length > 0) {
+                debug(`✅ DISCOVERED "${selector}": found ${images.length} images`);
+                discoveredImages = discoveredImages.concat(images);
+              }
+            }
+            
+            // Remove duplicates from discovered images
+            const uniqueDiscovered = [];
+            const seenUrls = new Set();
+            for (const img of discoveredImages) {
+              const url = typeof img === 'string' ? img : img.url;
+              if (!seenUrls.has(url)) {
+                seenUrls.add(url);
+                uniqueDiscovered.push(img);
+              }
+            }
+            
+            if (uniqueDiscovered.length >= 3) {
+              debug(`🚀 DISCOVERY SUCCESS: Found ${uniqueDiscovered.length} images using discovered selectors - SKIPPING generic selectors`);
+              return uniqueDiscovered.slice(0, 30);
+            } else {
+              debug(`🔄 DISCOVERY INSUFFICIENT: Only ${uniqueDiscovered.length} images, continuing with generic selectors...`);
+            }
           }
         } else {
           debug('📋 PAGE STRUCTURE: No clear container patterns detected');
@@ -2545,7 +2586,7 @@
       }
     }
     
-    debug('📍 B1: Using individual selector testing for precise attribution');
+    debug('📍 B1: Discovered selectors failed, falling back to generic selector testing');
     
     try {
       // Individual A1 calls with each selector - preserves precise attribution
@@ -3063,24 +3104,25 @@
             // Merge and dedupe memory + custom
             let combinedImages = await uniqueImages(memoryImages.concat(customImages));
             
-            // Fall back to parallel collection (A1 + B1) if still insufficient
+            // Sequential fallback logic instead of parallel spam
             if (combinedImages.length < 3) {
-              debug('🖼️ IMAGES: Custom insufficient, running parallel A1+B1 collection...');
+              debug('🖼️ IMAGES: Custom insufficient, trying A1 individual selectors...');
+              const a1Images = await getImagesGeneric(); // A1 individual testing
               
-              // Run both A1 and B1 simultaneously for comprehensive coverage
-              const parallelImages = await collectImagesCombined({ doc: document, observeMs: 1000 });
-              debug('🖼️ PARALLEL IMAGES:', { count: parallelImages.length, breakdown: parallelImages.slice(0, 3) });
-              
-              // If parallel collection succeeded, use those results directly (already processed)
-              if (parallelImages.length > 0) {
-                debug('✅ PARALLEL SUCCESS: Using processed ImageCandidates directly - skipping legacy filtering');
-                // Convert ImageCandidates to simple format for final output
-                images = parallelImages.slice(0, 30).map(img => img.upgradedUrl || img.url);
+              if (a1Images.length >= 3) {
+                debug('✅ A1 SUCCESS: Found sufficient images, using A1 results');
+                images = a1Images.slice(0, 30);
               } else {
-                // Only run legacy uniqueImages if parallel collection failed
-                const parallelUrls = parallelImages.map(img => img.upgradedUrl || img.url);
-                combinedImages = await uniqueImages(combinedImages.concat(parallelUrls));
-                images = combinedImages.slice(0, 30);
+                debug('🖼️ A1 insufficient, trying B1 comprehensive...');  
+                const b1Images = await getImagesComprehensive(); // B1 comprehensive
+                if (b1Images.length > 0) {
+                  debug('✅ B1 SUCCESS: Using B1 results');
+                  images = b1Images.slice(0, 30);
+                } else {
+                  debug('🔄 B1 failed, falling back to smart fallback...');
+                  const fallbackImages = await getImagesSmartFallback();
+                  images = (fallbackImages.length > 0 ? fallbackImages : a1Images).slice(0, 30);
+                }
               }
             } else {
               images = combinedImages.slice(0, 30);

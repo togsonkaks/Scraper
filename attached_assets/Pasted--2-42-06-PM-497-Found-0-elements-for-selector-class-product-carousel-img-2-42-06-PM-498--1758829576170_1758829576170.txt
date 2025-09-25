@@ -1,0 +1,104 @@
+[2:42:06 PM] 497 📊 Found 0 elements for selector: [class*="product-carousel"] img
+[2:42:06 PM] 498 📊 CONTAINER STATS [[class*="product-carousel"] img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 499 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 500 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:42:06 PM] 501 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:42:06 PM] 502 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:42:06 PM] 503 🏆 TOP SCORED IMAGES: []
+[2:42:06 PM] 504 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:42:06 PM] 505 🖼️ FINAL IMAGES: []
+[2:42:06 PM] 506 🖼️ After hybrid filtering: 0 images
+[2:42:06 PM] 507 🎯 CONTAINER PERFORMANCE [.flickity-viewport img]: 0 final images (0.0% success rate)
+[2:42:06 PM] 508 🖼️ After hybrid filtering: 0 images
+[2:42:06 PM] 509 🎯 CONTAINER PERFORMANCE [[class*="product-carousel"] img]: 0 final images (0.0% success rate)
+[2:42:06 PM] 510 📊 A1: ".flickity-viewport img" → found:0, kept:0 (0% success)
+[2:42:06 PM] 511 🔍 GATHERING IMAGES with selector: .swiper-wrapper img
+[2:42:06 PM] 512 📊 Found 0 elements for selector: .swiper-wrapper img
+[2:42:06 PM] 513 📊 CONTAINER STATS [.swiper-wrapper img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 514 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 515 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:42:06 PM] 516 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:42:06 PM] 517 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:42:06 PM] 518 🏆 TOP SCORED IMAGES: []
+[2:42:06 PM] 519 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:42:06 PM] 520 🖼️ FINAL IMAGES: []
+[2:42:06 PM] 521 🔍 GATHERING IMAGES with selector: [class*="product-slider"] img
+[2:42:06 PM] 522 📊 Found 0 elements for selector: [class*="product-slider"] img
+[2:42:06 PM] 523 📊 CONTAINER STATS [[class*="product-slider"] img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 524 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 525 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:42:06 PM] 526 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:42:06 PM] 527 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:42:06 PM] 528 🏆 TOP SCORED IMAGES: []
+[2:42:06 PM] 529 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:42:06 PM] 530 🖼️ FINAL IMAGES: []
+[2:42:06 PM] 531 🖼️ After hybrid filtering: 0 images
+[2:42:06 PM] 532 🎯 CONTAINER PERFORMANCE [.swiper-wrapper img]: 0 final images (0.0% success rate)
+[2:42:06 PM] 533 🖼️ After hybrid filtering: 0 images
+[2:42:06 PM] 534 🎯 CONTAINER PERFORMANCE [[class*="product-slider"] img]: 0 final images (0.0% success rate)
+[2:42:06 PM] 535 📊 A1: ".swiper-wrapper img" → found:0, kept:0 (0% success)
+[2:42:06 PM] 536 🔍 GATHERING IMAGES with selector: .carousel-inner img
+[2:42:06 PM] 537 📊 Found 0 elements for selector: .carousel-inner img
+[2:42:06 PM] 538 📊 CONTAINER STATS [.carousel-inner img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 539 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 540 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:42:06 PM] 541 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:42:06 PM] 542 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:42:06 PM] 543 🏆 TOP SCORED IMAGES: []
+[2:42:06 PM] 544 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:42:06 PM] 545 🖼️ FINAL IMAGES: []
+[2:42:06 PM] 546 🔍 GATHERING IMAGES with selector: .product-detail img[src*="shopify"]
+[2:42:06 PM] 547 📊 Found 0 elements for selector: .product-detail img[src*="shopify"]
+[2:42:06 PM] 548 📊 CONTAINER STATS [.product-detail img[src*="shopify"]]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 549 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 550 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:42:06 PM] 551 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:42:06 PM] 552 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:42:06 PM] 553 🏆 TOP SCORED IMAGES: []
+[2:42:06 PM] 554 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:42:06 PM] 555 🖼️ FINAL IMAGES: []
+[2:42:06 PM] 556 🖼️ After hybrid filtering: 0 images
+[2:42:06 PM] 557 🎯 CONTAINER PERFORMANCE [.carousel-inner img]: 0 final images (0.0% success rate)
+[2:42:06 PM] 558 🖼️ After hybrid filtering: 0 images
+[2:42:06 PM] 559 🎯 CONTAINER PERFORMANCE [.product-detail img[src*="shopify"]]: 0 final images (0.0% success rate)
+[2:42:06 PM] 560 📊 A1: ".carousel-inner img" → found:0, kept:0 (0% success)
+[2:42:06 PM] 561 🔍 GATHERING IMAGES with selector: .slider-container img
+[2:42:06 PM] 562 📊 Found 0 elements for selector: .slider-container img
+[2:42:06 PM] 563 📊 CONTAINER STATS [.slider-container img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 564 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 565 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:42:06 PM] 566 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:42:06 PM] 567 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:42:06 PM] 568 🏆 TOP SCORED IMAGES: []
+[2:42:06 PM] 569 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:42:06 PM] 570 🖼️ FINAL IMAGES: []
+[2:42:06 PM] 571 🔍 GATHERING IMAGES with selector: .pdp img[src*="cdn"]
+[2:42:06 PM] 572 📊 Found 0 elements for selector: .pdp img[src*="cdn"]
+[2:42:06 PM] 573 📊 CONTAINER STATS [.pdp img[src*="cdn"]]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 574 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 575 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:42:06 PM] 576 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:42:06 PM] 577 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:42:06 PM] 578 🏆 TOP SCORED IMAGES: []
+[2:42:06 PM] 579 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:42:06 PM] 580 🖼️ FINAL IMAGES: []
+[2:42:06 PM] 581 🖼️ After hybrid filtering: 0 images
+[2:42:06 PM] 582 🎯 CONTAINER PERFORMANCE [.slider-container img]: 0 final images (0.0% success rate)
+[2:42:06 PM] 583 🖼️ After hybrid filtering: 0 images
+[2:42:06 PM] 584 🎯 CONTAINER PERFORMANCE [.pdp img[src*="cdn"]]: 0 final images (0.0% success rate)
+[2:42:06 PM] 585 📊 A1: ".slider-container img" → found:0, kept:0 (0% success)
+[2:42:06 PM] 586 🔍 GATHERING IMAGES with selector: .pdp-media img
+[2:42:06 PM] 587 📊 Found 0 elements for selector: .pdp-media img
+[2:42:06 PM] 588 📊 CONTAINER STATS [.pdp-media img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 589 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 590 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:42:06 PM] 591 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:42:06 PM] 592 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:42:06 PM] 593 🏆 TOP SCORED IMAGES: []
+[2:42:06 PM] 594 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:42:06 PM] 595 🖼️ FINAL IMAGES: []
+[2:42:06 PM] 596 🔍 GATHERING IMAGES with selector: [data-product] img[src*="amazonaws"]
+[2:42:06 PM] 597 📊 Found 0 elements for selector: [data-product] img[src*="amazonaws"]
+[2:42:06 PM] 598 📊 CONTAINER STATS [[data-product] img[src*="amazonaws"]]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:42:06 PM] 599 🖼️ Raw enriched URLs collected: 0
+[2:42:06 PM] 600 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}

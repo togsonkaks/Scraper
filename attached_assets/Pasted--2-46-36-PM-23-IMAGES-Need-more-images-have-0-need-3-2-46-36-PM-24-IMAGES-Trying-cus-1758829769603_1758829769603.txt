@@ -1,0 +1,187 @@
+[2:46:36 PM] 23 🖼️ IMAGES: Need more images (have 0, need 3+)
+[2:46:36 PM] 24 🧩 IMAGES: Trying custom handler...
+[2:46:36 PM] 25 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[2:46:36 PM] 26 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 27 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 28 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 29 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 30 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 31 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 32 🖼️ IMAGES: Custom insufficient, running parallel A1+B1 collection...
+[2:46:36 PM] 33 🔄 PARALLEL COLLECTION: Starting A1 + B1 simultaneous collection...
+[2:46:36 PM] 34 🖼️ Getting generic images for hostname: freepeople.com
+[2:46:36 PM] 35 📊 A1 SELECTOR PERFORMANCE ANALYSIS:
+[2:46:36 PM] 36 🔍 GATHERING IMAGES with selector: .product-gallery img
+[2:46:36 PM] 37 📊 Found 0 elements for selector: .product-gallery img
+[2:46:36 PM] 38 📊 CONTAINER STATS [.product-gallery img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 39 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 40 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 41 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 42 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 43 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 44 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 45 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 46 🚀 B1 COMPREHENSIVE: Starting on www.freepeople.com - single A1 call
+[2:46:36 PM] 47 📊 B1 SELECTOR PERFORMANCE ANALYSIS:
+[2:46:36 PM] 48 ❌ B1 NO MATCHES: All 32 selectors found 0 elements
+[2:46:36 PM] 49 📊 B1 PRE-PROCESSING: 0 total elements from 32 selectors
+[2:46:36 PM] 50 🔍 B1 FAILURE ANALYSIS: All selectors empty, analyzing page structure...
+[2:46:36 PM] 51 📊 DISCOVERY: Found 24 total images on page
+[2:46:36 PM] 52 💡 RECOMMENDED SELECTORS (based on actual page structure):
+[2:46:36 PM] 53 🎯 HIGH PRIORITY: .o-pwa-button-none img (5 images)
+[2:46:36 PM] 54 🎯 HIGH PRIORITY: .o-pwa-image img (3 images)
+[2:46:36 PM] 55 🎯 HIGH PRIORITY: .c-pwa-payment-messages img (2 images)
+[2:46:36 PM] 56 🎯 TOP RECOMMENDATIONS: .o-pwa-button-none img, .c-pwa-payment-messages img, .o-pwa-image img
+[2:46:36 PM] 57 📍 B1: Using individual selector testing for precise attribution
+[2:46:36 PM] 58 🔍 GATHERING IMAGES with selector: .product-gallery img
+[2:46:36 PM] 59 📊 Found 0 elements for selector: .product-gallery img
+[2:46:36 PM] 60 📊 CONTAINER STATS [.product-gallery img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 61 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 62 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 63 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 64 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 65 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 66 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 67 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 68 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 69 🎯 CONTAINER PERFORMANCE [.product-gallery img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 70 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 71 🎯 CONTAINER PERFORMANCE [.product-gallery img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 72 📊 A1: ".product-gallery img" → found:0, kept:0 (0% success)
+[2:46:36 PM] 73 🔍 GATHERING IMAGES with selector: .product-images img
+[2:46:36 PM] 74 📊 Found 0 elements for selector: .product-images img
+[2:46:36 PM] 75 📊 CONTAINER STATS [.product-images img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 76 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 77 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 78 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 79 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 80 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 81 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 82 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 83 🔍 GATHERING IMAGES with selector: .product-photos img
+[2:46:36 PM] 84 📊 Found 0 elements for selector: .product-photos img
+[2:46:36 PM] 85 📊 CONTAINER STATS [.product-photos img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 86 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 87 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 88 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 89 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 90 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 91 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 92 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 93 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 94 🎯 CONTAINER PERFORMANCE [.product-images img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 95 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 96 🎯 CONTAINER PERFORMANCE [.product-photos img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 97 📊 A1: ".product-images img" → found:0, kept:0 (0% success)
+[2:46:36 PM] 98 🔍 GATHERING IMAGES with selector: .product-media img
+[2:46:36 PM] 99 📊 Found 0 elements for selector: .product-media img
+[2:46:36 PM] 100 📊 CONTAINER STATS [.product-media img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 101 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 102 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 103 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 104 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 105 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 106 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 107 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 108 🔍 GATHERING IMAGES with selector: .product-images img
+[2:46:36 PM] 109 📊 Found 0 elements for selector: .product-images img
+[2:46:36 PM] 110 📊 CONTAINER STATS [.product-images img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 111 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 112 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 113 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 114 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 115 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 116 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 117 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 118 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 119 🎯 CONTAINER PERFORMANCE [.product-media img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 120 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 121 🎯 CONTAINER PERFORMANCE [.product-images img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 122 📊 A1: ".product-media img" → found:0, kept:0 (0% success)
+[2:46:36 PM] 123 🔍 GATHERING IMAGES with selector: .product-photo img
+[2:46:36 PM] 124 📊 Found 0 elements for selector: .product-photo img
+[2:46:36 PM] 125 📊 CONTAINER STATS [.product-photo img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 126 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 127 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 128 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 129 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 130 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 131 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 132 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 133 🔍 GATHERING IMAGES with selector: .gallery img
+[2:46:36 PM] 134 📊 Found 0 elements for selector: .gallery img
+[2:46:36 PM] 135 📊 CONTAINER STATS [.gallery img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 136 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 137 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 138 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 139 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 140 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 141 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 142 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 143 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 144 🎯 CONTAINER PERFORMANCE [.product-photo img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 145 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 146 🎯 CONTAINER PERFORMANCE [.gallery img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 147 📊 A1: ".product-photo img" → found:0, kept:0 (0% success)
+[2:46:36 PM] 148 🔍 GATHERING IMAGES with selector: .image-gallery img
+[2:46:36 PM] 149 📊 Found 0 elements for selector: .image-gallery img
+[2:46:36 PM] 150 📊 CONTAINER STATS [.image-gallery img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 151 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 152 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 153 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 154 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 155 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 156 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 157 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 158 🔍 GATHERING IMAGES with selector: .image-gallery img
+[2:46:36 PM] 159 📊 Found 0 elements for selector: .image-gallery img
+[2:46:36 PM] 160 📊 CONTAINER STATS [.image-gallery img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 161 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 162 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 163 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 164 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 165 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 166 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 167 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 168 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 169 🎯 CONTAINER PERFORMANCE [.image-gallery img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 170 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 171 🎯 CONTAINER PERFORMANCE [.image-gallery img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 172 📊 A1: ".image-gallery img" → found:0, kept:0 (0% success)
+[2:46:36 PM] 173 🔍 GATHERING IMAGES with selector: .media-gallery img
+[2:46:36 PM] 174 📊 Found 0 elements for selector: .media-gallery img
+[2:46:36 PM] 175 📊 CONTAINER STATS [.media-gallery img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 176 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 177 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 178 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 179 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 180 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 181 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 182 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 183 🔍 GATHERING IMAGES with selector: .media-gallery img
+[2:46:36 PM] 184 📊 Found 0 elements for selector: .media-gallery img
+[2:46:36 PM] 185 📊 CONTAINER STATS [.media-gallery img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 186 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 187 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 188 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 189 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 190 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 191 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 192 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 193 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 194 🎯 CONTAINER PERFORMANCE [.media-gallery img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 195 🖼️ After hybrid filtering: 0 images
+[2:46:36 PM] 196 🎯 CONTAINER PERFORMANCE [.media-gallery img]: 0 final images (0.0% success rate)
+[2:46:36 PM] 197 📊 A1: ".media-gallery img" → found:0, kept:0 (0% success)
+[2:46:36 PM] 198 🔍 GATHERING IMAGES with selector: .gallery img
+[2:46:36 PM] 199 📊 Found 0 elements for selector: .gallery img
+[2:46:36 PM] 200 📊 CONTAINER STATS [.gallery img]: {"found":0,"extracted":0,"types":[],"parents":[]}
+[2:46:36 PM] 201 🖼️ Raw enriched URLs collected: 0
+[2:46:36 PM] 202 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:46:36 PM] 203 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[2:46:36 PM] 204 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[2:46:36 PM] 205 🏆 TOP SCORED IMAGES: []
+[2:46:36 PM] 206 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:46:36 PM] 207 🖼️ FINAL IMAGES: []
+[2:46:36 PM] 208 🔍 GATHERING IMAGES with selector: .product-media img
+[2:46:36 PM] 209 📊 Found 0 elements for selector: .product-media img
