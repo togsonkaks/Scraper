@@ -648,12 +648,12 @@
       if (variants.length === 1) {
         deduplicated.push(variants[0]);
       } else {
-        // Score all variants and keep the best
+        // Score all variants and keep the best using unified scoring
         let bestVariant = variants[0];
-        let bestScore = scoreImageURL(bestVariant.url, bestVariant, bestVariant.index);
+        let bestScore = computeAndScoreImage(bestVariant);
         
         for (let i = 1; i < variants.length; i++) {
-          const score = scoreImageURL(variants[i].url, variants[i], variants[i].index);
+          const score = computeAndScoreImage(variants[i]);
           if (score > bestScore) {
             bestScore = score;
             bestVariant = variants[i];
@@ -1474,8 +1474,8 @@
         continue;
       }
       
-      // Apply score threshold (minimum 50 points)
-      const score = scoreImageURL(abs, enriched, enriched.index);
+      // Apply score threshold using unified scoring (minimum 50 points)
+      const score = computeAndScoreImage(enriched);
       if (score < 50) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
