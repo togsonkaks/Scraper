@@ -1495,6 +1495,20 @@
     // Container performance tracking
     const containerScoreStats = new Map(); // containerSelector -> { scores: [], count: 0, avgScore: 0 }
     
+    // Rejection tracking by selector
+    const rejectionStats = new Map(); // containerSelector -> { notImageUrl: 0, lowScore: 0, junk: 0, smallFile: 0, scores: [] }
+    
+    // Helper function to track rejections by selector
+    function trackRejection(enriched, type, score = 0) {
+      const containerKey = enriched.containerSelector || 'unknown';
+      if (!rejectionStats.has(containerKey)) {
+        rejectionStats.set(containerKey, { notImageUrl: 0, lowScore: 0, junk: 0, smallFile: 0, scores: [] });
+      }
+      const stats = rejectionStats.get(containerKey);
+      stats[type]++;
+      if (score > 0) stats.scores.push(score);
+    }
+    
     // Group enriched URLs by canonical form
     for (const enriched of enrichedUrls) {
       if (!enriched.url) {
@@ -1509,13 +1523,17 @@
       
       // Basic image validation
       if (!looksLikeImageURL(abs)) {
-        addImageDebugLog('debug', `❌ NOT IMAGE URL: ${abs.slice(0, 100)}`, abs, 0, false);
+        trackRejection(enriched, 'notImageUrl');
+        const selectorInfo = enriched.containerSelector ? ` via [${enriched.containerSelector}]` : '';
+        addImageDebugLog('debug', `❌ NOT IMAGE URL${selectorInfo}: ${abs.slice(0, 100)}`, abs, 0, false);
         filtered.invalid++;
         continue;
       }
       
       if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) {
-        addImageDebugLog('debug', `🗑️ JUNK IMAGE: ${abs.slice(0, 80)}`, abs, 0, false);
+        trackRejection(enriched, 'junk');
+        const selectorInfo = enriched.containerSelector ? ` via [${enriched.containerSelector}]` : '';
+        addImageDebugLog('debug', `🗑️ JUNK IMAGE${selectorInfo}: ${abs.slice(0, 80)}`, abs, 0, false);
         filtered.junk++;
         continue;
       }
@@ -1535,7 +1553,9 @@
       if (score < 50) stats.lowCount++;
       
       if (score < 50) {
-        addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
+        trackRejection(enriched, 'lowScore', score);
+        const selectorInfo = enriched.containerSelector ? ` via [${enriched.containerSelector}]` : '';
+        addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score})${selectorInfo}: ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
         continue;
       }
@@ -1649,7 +1669,16 @@
         );
       } else {
         // Too small, reject
-        addImageDebugLog('debug', `📉 TOO SMALL (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
+        const selectorInfo = img.containerSelector ? ` via [${img.containerSelector}]` : '';
+        addImageDebugLog('debug', `📉 TOO SMALL (est: ${Math.round(estimatedSize/1000)}KB)${selectorInfo}: ${img.url.slice(0, 100)}`, img.url, img.score, false);
+        
+        // Track rejection by selector
+        const containerKey = img.containerSelector || 'unknown';
+        if (!rejectionStats.has(containerKey)) {
+          rejectionStats.set(containerKey, { notImageUrl: 0, lowScore: 0, junk: 0, smallFile: 0, scores: [] });
+        }
+        rejectionStats.get(containerKey).smallFile++;
+        
         filtered.smallFile++;
       }
     }
@@ -1679,7 +1708,16 @@
           addImageDebugLog('debug', `📏 SIZE CHECK FAILED (CORS?) - keeping high-score/CDN: ${img.url.slice(0, 100)}`, img.url, img.score, true);
         } else if (actualSize && actualSize < 5000 && !/w[_=]\d{3,}|h[_=]\d{3,}/i.test(img.url)) {
           // Only reject truly tiny images without dimension hints
-          addImageDebugLog('debug', `📉 TRULY TINY REJECTED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
+          const selectorInfo = img.containerSelector ? ` via [${img.containerSelector}]` : '';
+          addImageDebugLog('debug', `📉 TRULY TINY REJECTED (${Math.round(actualSize/1000)}KB)${selectorInfo}: ${img.url.slice(0, 100)}`, img.url, img.score, false);
+          
+          // Track rejection by selector
+          const containerKey = img.containerSelector || 'unknown';
+          if (!rejectionStats.has(containerKey)) {
+            rejectionStats.set(containerKey, { notImageUrl: 0, lowScore: 0, junk: 0, smallFile: 0, scores: [] });
+          }
+          rejectionStats.get(containerKey).smallFile++;
+          
           filtered.smallFile++;
         } else {
           // Keep borderline cases - better to include than exclude
@@ -1730,6 +1768,43 @@
       sortedContainers.slice(0, 5).forEach(([selector, stats]) => {
         debug(`📊 ${selector}: ${stats.count} images, avg score ${stats.avgScore}, high-quality: ${stats.highCount}, junk: ${stats.lowCount}`);
       });
+    }
+    
+    // Report rejection summary statistics
+    if (rejectionStats.size > 0) {
+      debug('📊 REJECTION SUMMARY:');
+      const totalNotImageUrl = Array.from(rejectionStats.values()).reduce((sum, stats) => sum + stats.notImageUrl, 0);
+      const totalLowScore = Array.from(rejectionStats.values()).reduce((sum, stats) => sum + stats.lowScore, 0);
+      const totalJunk = Array.from(rejectionStats.values()).reduce((sum, stats) => sum + stats.junk, 0);
+      const totalSmallFile = Array.from(rejectionStats.values()).reduce((sum, stats) => sum + stats.smallFile, 0);
+      
+      debug(`   ❌ NOT IMAGE URLs: ${totalNotImageUrl} total`);
+      debug(`   📉 LOW SCORE REJECTED: ${totalLowScore} total`);
+      debug(`   🗑️  JUNK IMAGES: ${totalJunk} total`);
+      debug(`   📏 TOO SMALL: ${totalSmallFile} total`);
+      
+      // Show top offending selectors
+      const sortedRejections = Array.from(rejectionStats.entries())
+        .map(([selector, stats]) => {
+          const totalRejections = stats.notImageUrl + stats.lowScore + stats.junk + stats.smallFile;
+          const avgScore = stats.scores.length > 0 ? (stats.scores.reduce((a, b) => a + b, 0) / stats.scores.length).toFixed(1) : '0.0';
+          return { selector, stats, totalRejections, avgScore };
+        })
+        .filter(item => item.totalRejections > 0)
+        .sort((a, b) => b.totalRejections - a.totalRejections);
+      
+      if (sortedRejections.length > 0) {
+        debug('   🔍 TOP REJECTION SOURCES:');
+        sortedRejections.slice(0, 5).forEach(({ selector, stats, totalRejections, avgScore }) => {
+          const breakdown = [];
+          if (stats.notImageUrl > 0) breakdown.push(`${stats.notImageUrl} not-image`);
+          if (stats.lowScore > 0) breakdown.push(`${stats.lowScore} low-score (avg: ${avgScore})`);
+          if (stats.junk > 0) breakdown.push(`${stats.junk} junk`);
+          if (stats.smallFile > 0) breakdown.push(`${stats.smallFile} too-small`);
+          
+          debug(`      - [${selector}]: ${totalRejections} total (${breakdown.join(', ')})`);
+        });
+      }
     }
     
     return finalUrls;
@@ -1783,12 +1858,36 @@
         srcset: el.getAttribute('srcset')
       };
       
-      debug('📋 Image attributes:', attrs);
-      
       const s1 = attrs.src || attrs['data-src'] || attrs['data-image'] || 
                  attrs['data-zoom-image'] || attrs['data-large'];
+      
+      // Analyze image for actionable debugging info
+      const fileName = s1 ? s1.substring(s1.lastIndexOf('/') + 1, s1.indexOf('?') > 0 ? s1.indexOf('?') : undefined) : 'unknown';
+      const dimensions = `${el.naturalWidth || el.width || '?'}x${el.naturalHeight || el.height || '?'}px`;
+      const classes = el.className || '';
+      const utilityClasses = ['cookie', 'social', 'nav', 'menu', 'logo', 'icon', 'banner', 'footer', 'header'].filter(cls => classes.toLowerCase().includes(cls));
       if (s1) {
-        debug('✅ Found image URL from attributes:', s1.slice(0, 100));
+        debug(`🔍 INVESTIGATING: ${fileName} via [${sel}]`);
+        debug(`   📏 Dimensions: ${dimensions}`);
+        if (utilityClasses.length > 0) {
+          debug(`   🏷️  Utility classes: ${utilityClasses.join(', ')} (likely not product image)`);
+        }
+        if (classes && !utilityClasses.length) {
+          debug(`   🏷️  Classes: ${classes.substring(0, 50)}${classes.length > 50 ? '...' : ''}`);
+        }
+        
+        // Determine verdict for this image investigation
+        let verdict = '';
+        if (utilityClasses.length > 0) {
+          verdict = `❌ VERDICT: NOT PRODUCT IMAGE - utility/branding content (${utilityClasses.join(', ')})`;
+        } else if ((el.naturalWidth || el.width || 0) < 100 && (el.naturalHeight || el.height || 0) < 100) {
+          verdict = '❌ VERDICT: TOO SMALL - likely icon or thumbnail';
+        } else if (/cookie|logo|nav|social|icon|banner/i.test(fileName)) {
+          verdict = '❌ VERDICT: FILENAME SUGGESTS NON-PRODUCT IMAGE';
+        } else {
+          verdict = '✅ VERDICT: POTENTIAL PRODUCT IMAGE - proceeding to scoring';
+        }
+        debug(`   ${verdict}`);
         
         // Smart Shopify files filtering
         if (shouldBlockShopifyFiles(s1, el)) {
@@ -1915,7 +2014,9 @@
         for (const src of el.parentElement.querySelectorAll('source')) {
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
-            debug('✅ Found image URL from picture source:', b.slice(0, 100));
+            const sourceFileName = b.substring(b.lastIndexOf('/') + 1, b.indexOf('?') > 0 ? b.indexOf('?') : undefined);
+            debug(`✅ Found image URL from picture source: ${sourceFileName}`);
+            debug(`   📍 Source: <picture> element via [${sel}]`);
             
             // Smart Shopify files filtering
             if (shouldBlockShopifyFiles(b, src)) {
