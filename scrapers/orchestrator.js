@@ -2423,7 +2423,7 @@
 
       // Proven e-commerce patterns (specific, not broad)
       '.product-gallery-main img', '.product-gallery-thumb img',
-      '.swiper-wrapper img', '.carousel-inner img', '.slider-track img',
+      '.product-gallery .swiper-wrapper img', '[class*="product"] .swiper-wrapper img', '[data-product] .swiper-wrapper img', '.carousel-inner img', '.slider-track img',
 
       // Flexible pattern matching (catches site variations) 
       '[class*="zoom-modal"] img', '[class*="product-media"] img', '[class*="product-slides"] img',
@@ -2667,7 +2667,7 @@
       '.product-single__photo img', '.flickity-viewport img',
       
       // Modern carousel/slider frameworks (targeted)
-      '.swiper-wrapper img', '.carousel-inner img', '.slider-container img',
+      '.product-gallery .swiper-wrapper img', '[class*="product"] .swiper-wrapper img', '[data-product] .swiper-wrapper img', '.carousel-inner img', '.slider-container img',
       '.pdp-media img', '.product__media img',
       
       // Flexible pattern matching (catches site variations) 
