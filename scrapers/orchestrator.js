@@ -2709,12 +2709,20 @@
               const parallelImages = await collectImagesCombined({ doc: document, observeMs: 1000 });
               debug('🖼️ PARALLEL IMAGES:', { count: parallelImages.length, breakdown: parallelImages.slice(0, 3) });
               
-              // Convert ImageCandidates back to URLs for compatibility
-              const parallelUrls = parallelImages.map(img => img.upgradedUrl || img.url);
-              combinedImages = await uniqueImages(combinedImages.concat(parallelUrls));
+              // If parallel collection succeeded, use those results directly (already processed)
+              if (parallelImages.length > 0) {
+                debug('✅ PARALLEL SUCCESS: Using processed ImageCandidates directly - skipping legacy filtering');
+                // Convert ImageCandidates to simple format for final output
+                images = parallelImages.slice(0, 30).map(img => img.upgradedUrl || img.url);
+              } else {
+                // Only run legacy uniqueImages if parallel collection failed
+                const parallelUrls = parallelImages.map(img => img.upgradedUrl || img.url);
+                combinedImages = await uniqueImages(combinedImages.concat(parallelUrls));
+                images = combinedImages.slice(0, 30);
+              }
+            } else {
+              images = combinedImages.slice(0, 30);
             }
-          
-            images = combinedImages.slice(0, 30);
           }
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
           
