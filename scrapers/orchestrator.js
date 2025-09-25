@@ -1299,14 +1299,46 @@
     return false;
   }
 
-  // Purpose: discover big images that appear only after click/zoom/lazy hydration
-  // Safe-by-default: scoped to gallery containers; no normalization/dedupe here.
-  async function collectHiResAugment({
-    doc = document,
-    observeMs = 1200,           // brief watch to catch lazy hydration / zoom swaps
-    max = 40,                   // soft cap; your filter will trim further
-    scopeSelectors = [
-      // UNIFIED GALLERY SELECTORS (A1 + collectHiResAugment proven patterns)
+  // B1 Unified Collector: Combines hi-res augment + generic collection
+  // Merges gallery-focused approach with comprehensive meta/JSON-LD parsing
+  async function runUnifiedImageCollectorV3({ 
+    doc = document, 
+    observeMs = 1200,
+    max = 40 
+  } = {}) {
+    debug(`🚀 B1 UNIFIED COLLECTOR STARTING on ${window.location.hostname}`);
+    
+    const live = window.document || doc;
+    const urls = new Set();
+    
+    const add = (url) => {
+      if (!url) return;
+      try { url = new URL(url, location.href).toString(); } catch {}
+      if (!/^https?:\/\//i.test(url)) return;
+      urls.add(url);
+    };
+
+    const urlFromSrcset = (srcset) => {
+      return (srcset || "")
+        .split(",")
+        .map(s => s.trim())
+        .map(s => {
+          const [url, descriptor] = s.split(/\s+/);
+          const w = descriptor?.endsWith("w") ? parseInt(descriptor) : 0;
+          const x = descriptor?.endsWith("x") ? parseFloat(descriptor) : 0;
+          return { url, score: w || x * 1000 || 0 };
+        })
+        .filter(x => x.url)
+        .sort((a, b) => b.score - a.score)[0]?.url;
+    };
+
+    const bgUrl = (style) => {
+      const match = /url\((['"]?)(.*?)\1\)/i.exec(style || "");
+      return match?.[2];
+    };
+
+    // UNIFIED GALLERY SELECTORS (from both B1a and B1b)
+    const UNIFIED_GALLERY_SELECTORS = [
       // A1 proven gallery patterns
       '.product-media', '.gallery', '.image-gallery', '.product-images', '.product-gallery',
       '[class*=gallery]', '.slider', '.thumbnails', '.pdp-gallery', '[data-testid*=image]',
@@ -1319,85 +1351,45 @@
       // Additional proven patterns
       '.carousel', '.swiper-container', '.product__media', '.pdp-media',
       '.media-gallery', '.main-image', '[data-product-gallery]', '[data-gallery]'
-    ]
-  } = {}) {
-    debug(`🚀 HI-RES AUGMENT STARTING on ${window.location.hostname}`);
-    
-    const live = window.document || doc;
-    const urls = [];
-    const seen = new Set();
+    ];
 
-    const add = (u) => {
-      if (!u) return;
-      // No normalization here — your existing filtration/upgrade pipeline will handle it.
-      try { u = new URL(u, location.href).toString(); } catch {}
-      if (!/^https?:\/\//i.test(u)) return;
-      if (seen.has(u)) return;
-      seen.add(u);
-      urls.push(u);
-    };
+    const LAZY_ATTRS = [
+      "data-src", "data-srcset", "data-lazy", "data-lazy-src", "data-original",
+      "data-zoom-image", "data-large_image", "data-hires", "data-defer-src",
+      "data-defer-srcset", "data-flickity-lazyload"
+    ];
 
-    const pickSrcsetLargest = (ss) => {
-      return (ss || "")
-        .split(",")
-        .map(s => s.trim())
-        .map(s => {
-          const [u, d] = s.split(/\s+/);
-          const w = d?.endsWith("w") ? parseInt(d) : 0;
-          const x = d?.endsWith("x") ? parseFloat(d) : 0;
-          return { u, score: w || x * 1000 || 0 };
-        })
-        .filter(x => x.u)
-        .sort((a,b) => b.score - a.score)[0]?.u;
-    };
+    const EXCLUDE_AREAS = 'header, nav, footer, aside, [role="banner"], [role="navigation"], *[class*="breadcrumb"], *[class*="promo"], *[class*="newsletter"], *[class*="cookie"]';
 
-    // 1) Find a gallery scope; if none, fall back to doc (but we prefer scope)
-    let scope = null;
-    for (const sel of scopeSelectors) {
-      const n = doc.querySelector(sel);
-      if (n) { scope = n; break; }
-    }
-    if (!scope) scope = doc;
+    // MAIN SCANNING FUNCTION
+    const scanOnce = () => {
+      // 1) META TAGS & JSON-LD (from B1b)
+      doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
+        .forEach(meta => meta.content && add(meta.content));
 
-    // 2) One-shot pass inside scope
-    const scanScopeOnce = () => {
-      // Full-size/zoom swaps (Amazon immersive, generic zoomers)
-      scope.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
-        add(img.currentSrc || img.src);
-      });
-
-      // Regular imgs + lazy attrs + <picture><source>
-      const LAZY = [
-        'data-src','data-srcset','data-lazy','data-lazy-src','data-original',
-        'data-zoom-image','data-large_image','data-hires','data-defer-src',
-        'data-defer-srcset','data-flickity-lazyload'
+      // JSON-LD structured data
+      const ldScripts = [
+        ...doc.querySelectorAll('script[type="application/ld+json"]'),
+        ...(live !== doc ? live.querySelectorAll('script[type="application/ld+json"]') : [])
       ];
+      
+      for (const script of ldScripts) {
+        try {
+          const data = JSON.parse(script.textContent || "{}");
+          const walkJsonLd = (obj) => {
+            if (!obj || typeof obj !== "object") return;
+            if (Array.isArray(obj)) return obj.forEach(walkJsonLd);
+            if (typeof obj.image === "string") add(obj.image);
+            else if (Array.isArray(obj.image)) obj.image.forEach(url => add(url));
+            else if (obj.image?.url) add(obj.image.url);
+            if (obj.logo?.url) add(obj.logo.url);
+            Object.values(obj).forEach(walkJsonLd);
+          };
+          walkJsonLd(data);
+        } catch {}
+      }
 
-      scope.querySelectorAll('img').forEach(img => {
-        const best = img.currentSrc || pickSrcsetLargest(img.getAttribute('srcset')) || img.getAttribute('src');
-        if (best) add(best);
-        LAZY.forEach(a => {
-          const v = img.getAttribute(a);
-          if (!v) return;
-          if (a.endsWith('srcset')) {
-            const u = pickSrcsetLargest(v); if (u) add(u);
-          } else add(v);
-        });
-      });
-
-      scope.querySelectorAll('picture source[srcset]').forEach(s => {
-        const u = pickSrcsetLargest(s.getAttribute('srcset')); if (u) add(u);
-      });
-
-      // Background images inside scope (hero/product cards)
-      const urlRe = /url\((['"]?)(.*?)\1\)/i;
-      scope.querySelectorAll('[style]').forEach(el => {
-        const m = urlRe.exec(el.getAttribute('style') || ''); if (m?.[2]) add(m[2]);
-      });
-    };
-
-    // 3) Amazon a-state (read from live document; sanitized clones strip <script>)
-    const grabAState = () => {
+      // 2) AMAZON A-STATE PARSING (from B1a)
       const states = live.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]');
       states.forEach(s => {
         try {
@@ -1417,29 +1409,98 @@
           (atf?.variant || []).forEach(add);
         } catch {}
       });
-    };
 
-    // 4) Observe briefly to catch lazy/zoom swaps (you or the site can click; we just listen)
-    try {
-      scanScopeOnce();
-      grabAState();
-
-      await new Promise(resolve => {
-        const obs = new MutationObserver(() => {
-          scanScopeOnce();
+      // 3) GALLERY CONTAINER SCANNING (merged from both)
+      const containers = [];
+      UNIFIED_GALLERY_SELECTORS.forEach(sel => {
+        doc.querySelectorAll(sel).forEach(container => {
+          if (!container.closest(EXCLUDE_AREAS)) {
+            containers.push(container);
+          }
         });
-        try { window.scrollBy(0, 1); window.scrollBy(0, -1); } catch {}
-        obs.observe(scope, { subtree: true, childList: true, attributes: true });
-        setTimeout(() => { obs.disconnect(); resolve(); }, observeMs);
       });
 
-      // 5) Soft cap; your existing filtration pipeline will finalize ranking
-      debug(`🔍 Hi-res augment collected: ${urls.length} URLs`);
-      return urls.slice(0, max);
-    } catch (error) {
-      debug(`❌ HI-RES AUGMENT ERROR:`, error.message);
-      return [];
-    }
+      const scanContainer = (container) => {
+        // Full-size/zoom swaps (Amazon immersive, generic zoomers)
+        container.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
+          add(img.currentSrc || img.src);
+        });
+
+        // Regular IMG elements
+        container.querySelectorAll("img").forEach(img => {
+          // Current/primary sources
+          const best = img.currentSrc || urlFromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
+          if (best) add(best);
+          
+          // Lazy loading attributes
+          for (const attr of LAZY_ATTRS) {
+            const value = img.getAttribute(attr);
+            if (!value) continue;
+            if (attr.endsWith("srcset")) {
+              const url = urlFromSrcset(value);
+              if (url) add(url);
+            } else {
+              add(value);
+            }
+          }
+        });
+        
+        // Picture elements
+        container.querySelectorAll("picture source[srcset]").forEach(source => {
+          const url = urlFromSrcset(source.getAttribute("srcset"));
+          if (url) add(url);
+        });
+        
+        // Background images
+        container.querySelectorAll("[style]").forEach(el => {
+          const url = bgUrl(el.getAttribute("style"));
+          if (url) add(url);
+        });
+      };
+      
+      // Scan all product containers
+      containers.forEach(scanContainer);
+      
+      // Focused fallback: semantic areas if insufficient
+      if (urls.size < 2) {
+        doc.querySelectorAll('main .images, main .photos, article .images, article .photos').forEach(area => {
+          if (!area.closest(EXCLUDE_AREAS) && !containers.includes(area)) {
+            scanContainer(area);
+          }
+        });
+      }
+    };
+
+    // Initial scan
+    scanOnce();
+
+    // Single mutation observer (merged timing from both)
+    try {
+      await new Promise(resolve => {
+        const observer = new MutationObserver(() => scanOnce());
+        observer.observe(doc, { 
+          subtree: true, 
+          childList: true, 
+          attributes: true, 
+          attributeFilter: ["src", "srcset", "data-src", "data-srcset", "style"] 
+        });
+        
+        // Micro-scroll to trigger lazy loading
+        try { 
+          window.scrollBy(0, 5); 
+          window.scrollBy(0, -5); 
+        } catch {}
+        
+        setTimeout(() => {
+          observer.disconnect();
+          resolve();
+        }, observeMs);
+      });
+    } catch {}
+
+    const finalUrls = Array.from(urls);
+    debug(`🔍 B1 Unified Collector: ${finalUrls.length} total URLs collected`);
+    return finalUrls.slice(0, max);
   }
 
   // Hybrid unique images with score threshold and file size filtering
@@ -2191,17 +2252,12 @@
     
     const rawUrls = new Set(); // Dedupe URLs from both collectors
     
-    // B1: Collect raw URLs from collectHiResAugment (click activation + gallery patterns)
-    debug('🎯 Running collectHiResAugment for click/zoom/gallery patterns...');
-    const hiResUrls = await collectHiResAugment({ doc, observeMs });
-    hiResUrls.forEach(url => rawUrls.add(url));
-    debug(`✅ collectHiResAugment: ${hiResUrls.length} raw URLs`);
-    
-    // B1: Collect raw URLs from GenericImageCollector v2 (comprehensive sources)
-    debug('🎯 Running GenericImageCollector v2 for comprehensive source coverage...');
-    const genericUrls = await runGenericImageCollectorV2({ doc, observeMs });
-    genericUrls.forEach(url => rawUrls.add(url));
-    debug(`✅ GenericImageCollector v2: ${genericUrls.length} raw URLs`);
+    // B1: Unified collector (combined hi-res augment + generic collection in single DOM pass)
+    debug('🎯 Running B1 Unified Collector for comprehensive coverage...');
+    const unifiedUrls = await runUnifiedImageCollectorV3({ doc, observeMs });
+    const hiResUrls = unifiedUrls; // Maintain compatibility for container context logic
+    unifiedUrls.forEach(url => rawUrls.add(url));
+    debug(`✅ B1 Unified Collector: ${unifiedUrls.length} raw URLs`);
     
     // Convert raw URLs to enriched format with proper container context
     const allRawUrls = Array.from(rawUrls);
@@ -2232,177 +2288,6 @@
     return finalImages.slice(0, 30);
   }
 
-  // GenericImageCollector v2: mutation observer + comprehensive sources, raw URLs only
-  async function runGenericImageCollectorV2({ doc = document, observeMs = 1000 } = {}) {
-    const urls = new Set();
-    const live = window.document || doc;
-    
-    const add = (url) => {
-      if (!url) return;
-      try { url = new URL(url, location.href).toString(); } catch {}
-      if (!/^https?:\/\//i.test(url)) return;
-      urls.add(url);
-    };
-
-    const urlFromSrcset = (srcset) => {
-      return (srcset || "")
-        .split(",")
-        .map(s => s.trim())
-        .map(s => {
-          const [url, descriptor] = s.split(/\s+/);
-          const w = descriptor?.endsWith("w") ? parseInt(descriptor) : 0;
-          const x = descriptor?.endsWith("x") ? parseFloat(descriptor) : 0;
-          return { url, score: w || x * 1000 || 0 };
-        })
-        .filter(x => x.url)
-        .sort((a, b) => b.score - a.score)[0]?.url;
-    };
-
-    const bgUrl = (style) => {
-      const match = /url\((['"]?)(.*?)\1\)/i.exec(style || "");
-      return match?.[2];
-    };
-
-    // Immediate scan
-    const scanOnce = () => {
-      // Meta/Twitter/OG images
-      doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
-        .forEach(meta => meta.content && add(meta.content));
-
-      // JSON-LD structured data
-      const ldScripts = [
-        ...doc.querySelectorAll('script[type="application/ld+json"]'),
-        ...(live !== doc ? live.querySelectorAll('script[type="application/ld+json"]') : [])
-      ];
-      
-      for (const script of ldScripts) {
-        try {
-          const data = JSON.parse(script.textContent || "{}");
-          const walkJsonLd = (obj) => {
-            if (!obj || typeof obj !== "object") return;
-            if (Array.isArray(obj)) return obj.forEach(walkJsonLd);
-            if (typeof obj.image === "string") add(obj.image);
-            else if (Array.isArray(obj.image)) obj.image.forEach(url => add(url));
-            else if (obj.image?.url) add(obj.image.url);
-            if (obj.logo?.url) add(obj.logo.url);
-            Object.values(obj).forEach(walkJsonLd);
-          };
-          walkJsonLd(data);
-        } catch {}
-      }
-
-      // TARGETED PRODUCT CONTAINER SCANNING (replaces global img scan)
-      const LAZY_ATTRS = [
-        "data-src", "data-srcset", "data-lazy", "data-lazy-src", "data-original",
-        "data-zoom-image", "data-large_image", "data-hires", "data-defer-src",
-        "data-defer-srcset", "data-flickity-lazyload"
-      ];
-      
-      // UNIFIED GALLERY SELECTORS (A1 + collectHiResAugment proven patterns)
-      const UNIFIED_GALLERY_SELECTORS = [
-        // A1 proven gallery patterns
-        '.product-media', '.gallery', '.image-gallery', '.product-images', '.product-gallery',
-        '[class*=gallery]', '.slider', '.thumbnails', '.pdp-gallery', '[data-testid*=image]',
-        
-        // collectHiResAugment proven patterns  
-        '#imageBlock', '#altImages', '[data-a-dynamic-image]',
-        '.product-single__photo', '.flickity-viewport',
-        'main figure', 'main .gallery', 'article figure',
-        
-        // Additional proven patterns
-        '.carousel', '.swiper-container', '.product__media', '.pdp-media',
-        '.media-gallery', '.main-image', '[data-product-gallery]', '[data-gallery]'
-      ];
-      
-      // Exclude obvious non-product areas
-      const EXCLUDE_AREAS = 'header, nav, footer, aside, [role="banner"], [role="navigation"], *[class*="breadcrumb"], *[class*="promo"], *[class*="newsletter"], *[class*="cookie"]';
-      
-      // Find unified gallery containers (no broad product root selectors)
-      const containers = [];
-      UNIFIED_GALLERY_SELECTORS.forEach(sel => {
-        doc.querySelectorAll(sel).forEach(container => {
-          if (!container.closest(EXCLUDE_AREAS)) {
-            containers.push(container);
-          }
-        });
-      });
-      
-      const scanContainer = (container) => {
-        // IMG elements within container
-        container.querySelectorAll("img").forEach(img => {
-          // Current/primary sources
-          const best = img.currentSrc || urlFromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
-          if (best) add(best);
-          
-          // Lazy loading attributes
-          for (const attr of LAZY_ATTRS) {
-            const value = img.getAttribute(attr);
-            if (!value) continue;
-            if (attr.endsWith("srcset")) {
-              const url = urlFromSrcset(value);
-              if (url) add(url);
-            } else {
-              add(value);
-            }
-          }
-        });
-        
-        // Picture elements within container
-        container.querySelectorAll("picture source[srcset]").forEach(source => {
-          const url = urlFromSrcset(source.getAttribute("srcset"));
-          if (url) add(url);
-        });
-        
-        // Background images within container
-        container.querySelectorAll("[style]").forEach(el => {
-          const url = bgUrl(el.getAttribute("style"));
-          if (url) add(url);
-        });
-      };
-      
-      // Scan all product containers
-      containers.forEach(scanContainer);
-      
-      // Focused fallback: only add semantic areas if insufficient
-      if (urls.size < 2) {
-        // Target only main semantic areas with image-specific classes
-        doc.querySelectorAll('main .images, main .photos, article .images, article .photos').forEach(area => {
-          if (!area.closest(EXCLUDE_AREAS) && !containers.includes(area)) {
-            scanContainer(area);
-          }
-        });
-      }
-    };
-
-    // Initial scan
-    scanOnce();
-
-    // Mutation observer for lazy loading
-    try {
-      await new Promise(resolve => {
-        const observer = new MutationObserver(() => scanOnce());
-        observer.observe(doc, { 
-          subtree: true, 
-          childList: true, 
-          attributes: true, 
-          attributeFilter: ["src", "srcset", "data-src", "data-srcset", "style"] 
-        });
-        
-        // Micro-scroll to trigger lazy loading
-        try { 
-          window.scrollBy(0, 5); 
-          window.scrollBy(0, -5); 
-        } catch {}
-        
-        setTimeout(() => {
-          observer.disconnect();
-          resolve();
-        }, observeMs);
-      });
-    } catch {}
-
-    return Array.from(urls);
-  }
 
   async function getImagesGeneric() {
     const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
@@ -2772,12 +2657,11 @@
               const genericImages = await getImagesGeneric();
               debug('🖼️ A1 GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
               
-              // B1 PATH: Combined collectors feeding to house scoring system
-              debug('🖼️ B1: Running combined collectors...');
-              const hiResUrls = await collectHiResAugment({ doc: document, observeMs: 1000 });
-              const genericUrls = await runGenericImageCollectorV2({ doc: document, observeMs: 1000 });
-              const combinedRawUrls = [...new Set([...hiResUrls, ...genericUrls])];
-              debug(`🖼️ B1 RAW COLLECTION: ${hiResUrls.length} + ${genericUrls.length} = ${combinedRawUrls.length} URLs (after dedup)`);
+              // B1 PATH: Unified collector feeding to house scoring system
+              debug('🖼️ B1: Running unified collector...');
+              const unifiedUrls = await runUnifiedImageCollectorV3({ doc: document, observeMs: 1000 });
+              const combinedRawUrls = [...new Set(unifiedUrls)];
+              debug(`🖼️ B1 UNIFIED COLLECTION: ${unifiedUrls.length} URLs collected`);
               
               // Feed B1 raw URLs to house scoring system
               const enrichedB1 = combinedRawUrls.map((url, index) => ({ 
