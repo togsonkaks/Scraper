@@ -36,6 +36,8 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
 
 ## Recent Changes
+- **Flexible Pattern Matching**: Added CSS attribute selectors `[class*="pattern"]` to catch gallery variations across sites (e.g., lululemon's `product-media-slides_slide_image`)
+- **Selector Optimization**: Replaced overly broad selectors with targeted patterns while maintaining comprehensive coverage - improved performance from 60+ to 8-15 images
 - **Container Tracking Bug Fix**: Fixed critical hi-res augmentation bug that was causing high-quality images to lose gallery bonuses and get rejected (scores dropped from 205 to 8)
 - **Urban Outfitters Custom Handler**: Created dedicated custom handler for Urban Outfitters with PWA container targeting and $redesign-zoom-5x$ quality upgrades
 - **PWA Pattern Recognition**: Added comprehensive wildcard pattern support for Progressive Web App containers across multiple ecommerce sites
