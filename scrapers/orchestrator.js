@@ -931,9 +931,10 @@
       else if (size >= 400) score += 15; // Decent size
     }
     
-    // EFFECTIVE RESOLUTION SCORING (replaces old size detection)
+    // EFFECTIVE RESOLUTION SCORING (replaces old size detection) - CALIBRATED
     if (meta.effectiveWidth > 0) {
-      const resolutionScore = Math.min(100, 20 * Math.log2(meta.effectiveWidth / 300));
+      // Diminishing returns: max 40 points instead of 100
+      const resolutionScore = Math.min(40, 12 * Math.log2(meta.effectiveWidth / 300));
       score += resolutionScore;
       debug(`🔍 EFFECTIVE RESOLUTION: ${meta.effectiveWidth}px (${meta.urlWidth}×${meta.dpr}) = +${resolutionScore.toFixed(1)} points`);
       
@@ -1007,16 +1008,16 @@
       debug(`☁️ CDN TRUST: Cloudinary = +10 points`);
     }
     
-    // DOMAIN PREFERENCE SCORING - boost same-domain images
+    // DOMAIN PREFERENCE SCORING - boost same-domain images (CALIBRATED)
     const currentDomain = globalThis.location?.hostname?.replace(/^www\./, '') || '';
     try {
       const imgDomain = new URL(url).hostname.replace(/^www\./, '');
       if (currentDomain && imgDomain === currentDomain) {
-        score += 30;
-        debug(`🏠 SAME DOMAIN BONUS: +30 points (${currentDomain})`);
+        score += 15;
+        debug(`🏠 SAME DOMAIN BONUS: +15 points (${currentDomain})`);
       } else if (currentDomain && url.includes(currentDomain)) {
-        score += 20;
-        debug(`🏠 DOMAIN REFERENCE BONUS: +20 points`);
+        score += 10;
+        debug(`🏠 DOMAIN REFERENCE BONUS: +10 points`);
       }
     } catch (e) {
       // Invalid URL, skip domain check
@@ -1049,8 +1050,8 @@
       const isSmallImage = meta.effectiveWidth > 0 && meta.effectiveWidth < 250;
       
       if (!isUtilityImage && !isSmallImage) {
-        score += 100;
-        debug(`🏆 PRIMARY GALLERY BONUS: "${fileName}" from unified detection gets +100 points`);
+        score += 35;
+        debug(`🏆 PRIMARY GALLERY BONUS: "${fileName}" from unified detection gets +35 points`);
       } else {
         debug(`🚫 PRIMARY GALLERY BONUS BLOCKED: "${fileName}" failed guards (utility: ${isUtilityImage}, small: ${isSmallImage})`);
       }
@@ -1099,9 +1100,9 @@
     if (/\b(assets?|static|cdn|media|img)\./i.test(url)) score += 25; // Asset subdomains
     if (/\b(mozu\.com|cloudinary\.com|imgix\.net|shopify\.com|fastly\.com)\b/i.test(url)) score += 15;
     
-    // Product code detection bonuses
-    if (/\b[A-Z]\d{4}[A-Z]?\b/i.test(url)) score += 40; // Product codes like M6169R, A0480U
-    if (/\bproduct/i.test(url)) score += 20;
+    // Product code detection bonuses (CALIBRATED)
+    if (/\b[A-Z]\d{4}[A-Z]?\b/i.test(url)) score += 20; // Product codes like M6169R, A0480U
+    if (/\bproduct/i.test(url)) score += 10;
     
     // Path context bonuses and penalties  
     if (/\/(product|main|hero|detail|primary)/i.test(url)) score += 15;
