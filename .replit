@@ -13,15 +13,28 @@ deploymentTarget = "vm"
 expertMode = true
 
 [workflows]
-runButton = "Tagglo Lightweight"
+runButton = "Project"
 
 [[workflows.workflow]]
-name = "Tagglo Lightweight"
+name = "Project"
+mode = "parallel"
 author = "agent"
 
 [[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run replit"
+task = "workflow.run"
+args = "Tagglo Electron"
+
+[[workflows.workflow]]
+name = "Tagglo Electron"
+author = "agent"
 
 [workflows.workflow.metadata]
-outputType = "console"
+outputType = "vnc"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./start-electron.sh"
+
+[nix]
+channel = "stable-25_05"
+packages = ["xvfb-run", "glib", "gtk3", "at-spi2-atk", "nss", "nspr"]
