@@ -1,0 +1,84 @@
+[9:59:14 AM] 301 🖼️ After hybrid filtering: 8 images
+[9:59:14 AM] 302 🎯 CONTAINER PERFORMANCE [.product-gallery img]: 8 final images (20.5% success rate)
+[9:59:14 AM] 303 ✅ Site-specific success: 8 images found
+[9:59:14 AM] 304 📊 PARALLEL RESULTS: A1=8 images, B1=0 images
+[9:59:14 AM] 305 ❌ B1 COLLECTION ERROR: urls is not defined
+[9:59:14 AM] 306 🎯 COLLECTION PERFORMANCE: A1 SUCCESS (8 images), B1 FAILED (0 images)
+[9:59:14 AM] 307 🔍 MERGE BREAKDOWN: A1-only=8, B1-only=0, Both=0, Total=8
+[9:59:14 AM] 308 🎯 PARALLEL FINAL: 8 images after merge/dedup (A1: 8, B1: 0)
+[9:59:14 AM] 309 🖼️ PARALLEL IMAGES: {"count":8,"breakdown":[{"url":"https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925","canonicalUrl":"https://cdn-tp3.mozu.com/2464
+[9:59:14 AM] 310 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":8}
+[9:59:14 AM] 311 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[9:59:14 AM] 312 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[9:59:14 AM] 313 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[9:59:14 AM] 314 📍 CONTAINER INFO: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[9:59:14 AM] 315 🎯 UNIFIED SCORE: 0 for fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_m
+[9:59:14 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+0
+📋 Copy URL
+[9:59:14 AM] 316 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[9:59:14 AM] 317 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[9:59:14 AM] 318 📍 CONTAINER INFO: "e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[9:59:14 AM] 319 🎯 UNIFIED SCORE: 0 for e857fdb1-6878-4357-812c-400b886c482b?quality=60&_m
+[9:59:14 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+0
+📋 Copy URL
+[9:59:14 AM] 320 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[9:59:14 AM] 321 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[9:59:14 AM] 322 📍 CONTAINER INFO: "ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[9:59:14 AM] 323 🎯 UNIFIED SCORE: 0 for ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_m
+[9:59:14 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+0
+📋 Copy URL
+[9:59:14 AM] 324 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[9:59:14 AM] 325 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[9:59:14 AM] 326 📍 CONTAINER INFO: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[9:59:14 AM] 327 🎯 UNIFIED SCORE: 0 for 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_m
+[9:59:14 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+0
+📋 Copy URL
+[9:59:14 AM] 328 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[9:59:14 AM] 329 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[9:59:14 AM] 330 📍 CONTAINER INFO: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[9:59:14 AM] 331 🎯 UNIFIED SCORE: 0 for fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_m
+[9:59:14 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+0
+📋 Copy URL
+[9:59:14 AM] 332 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[9:59:14 AM] 333 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[9:59:14 AM] 334 📍 CONTAINER INFO: "91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[9:59:14 AM] 335 🎯 UNIFIED SCORE: 0 for 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_m
+[9:59:14 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+0
+📋 Copy URL
+[9:59:14 AM] 336 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[9:59:14 AM] 337 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[9:59:14 AM] 338 📍 CONTAINER INFO: "d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[9:59:14 AM] 339 🎯 UNIFIED SCORE: 0 for d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_m
+[9:59:14 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+0
+📋 Copy URL
+[9:59:14 AM] 340 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +5.0 points
+[9:59:14 AM] 341 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[9:59:14 AM] 342 📍 CONTAINER INFO: "721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[9:59:14 AM] 343 🎯 UNIFIED SCORE: 0 for 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_m
+[9:59:14 AM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+0
+📋 Copy URL
+[9:59:14 AM] 344 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[9:59:14 AM] 345 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[9:59:14 AM] 346 🏆 TOP SCORED IMAGES: []
+[9:59:14 AM] 347 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":8,"smallFile":0,"duplicateGroups":0,"kept":0}
+[9:59:14 AM] 348 🖼️ FINAL IMAGES: []
+[9:59:14 AM] 349 🏆 CONTAINER PERFORMANCE ANALYSIS:
+[9:59:14 AM] 350 📊 legacy: 8 images, avg score 0.0, high-quality: 0, junk: 8
+[9:59:14 AM] 351 🖼️ FINAL IMAGES: {"count":0,"images":[]}
+[9:59:14 AM] 352 🤖 IMAGES: Zero images found, activating LLM fallback...
+[9:59:14 AM] 353 🤖 LLM FALLBACK: Starting AI-powered image selector discovery...
+[9:59:14 AM] 354 🤖 LLM FALLBACK: Sending request to LLM agent {"htmlLength":120000,"url":"https://www.acehardware.com/departments/tools/powe"}
+[9:59:14 AM] 355 🤖 LLM FALLBACK: Critical error: IPC not available
+[9:59:14 AM] 356 🤖 LLM FALLBACK: No additional images found
+[9:59:14 AM] 357 ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless","brand":"STIHL","description":"STIHL introduces another worlds first a cutoff mac","price":"539.99","imageCount":0,"firstImages":[],"selec
+[9:59:14 AM] 358 ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":0}
+[9:59:14 AM] ✅ Debug trace complete
+Clear Debug
