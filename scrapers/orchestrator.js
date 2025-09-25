@@ -1534,11 +1534,7 @@
       if (score >= 100) stats.highCount++;
       if (score < 50) stats.lowCount++;
       
-      // TRUSTED CDN BYPASS - happens BEFORE score threshold to fix B1 bias
-      if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(abs)) {
-        addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${abs.slice(0, 100)}`, abs, score, true);
-        // Skip score threshold for trusted CDNs - they get processed regardless of score
-      } else if (score < 50) {
+      if (score < 50) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
         filtered.lowScore++;
         continue;
@@ -1613,7 +1609,12 @@
     const fileSizeCheckPromises = [];
     
     for (const img of bestImages) {
-      // Note: Trusted CDN bypass now happens earlier in the pipeline to fix B1 scoring bias
+      // Trusted CDNs bypass ALL size checks - HIGHEST PRIORITY  
+      if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        continue;
+      }
       // Trust high scores over file size limits (modern CDN optimization) - EARLY CHECK
       if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {  // High score + minimum size check
         sizeFilteredImages.push(img);
@@ -2296,220 +2297,58 @@
     }
     return null;
   }
-  // Unified image collection - COMPREHENSIVE + DIRECT HOUSE SYSTEM PROCESSING
+  // B1 Comprehensive Collection - Uses A1's proven functions directly
   async function getImagesUnified({ doc = document, observeMs = 1200 } = {}) {
-    debug(`🚀 B1 COMPREHENSIVE COLLECTION: Starting on ${window.location.hostname}`);
+    debug(`🚀 B1 COMPREHENSIVE: Starting on ${window.location.hostname} - using A1 functions`);
     
-    const live = window.document || doc;
-    const urls = new Set();
-    
-    const add = (url) => {
-      if (!url) return;
-      try { url = new URL(url, location.href).toString(); } catch {}
-      if (!/^https?:\/\//i.test(url)) return;
-      urls.add(url);
-    };
+    // Use A1's proven comprehensive selectors
+    const COMPREHENSIVE_SELECTORS = [
+      // Primary product galleries (most e-commerce sites) 
+      '.product-gallery img', '.product-photos img', '.product-images img',
+      '.gallery img', '.image-gallery img', '.media-gallery img',
+      '.product-media img', '.product-photo img',
 
-    const urlFromSrcset = (srcset) => {
-      return (srcset || "")
-        .split(",")
-        .map(s => s.trim())
-        .map(s => {
-          const [url, descriptor] = s.split(/\s+/);
-          const w = descriptor?.endsWith("w") ? parseInt(descriptor) : 0;
-          const x = descriptor?.endsWith("x") ? parseFloat(descriptor) : 0;
-          return { url, score: w || x * 1000 || 0 };
-        })
-        .filter(x => x.url)
-        .sort((a, b) => b.score - a.score)[0]?.url;
-    };
+      // PWA and modern frameworks  
+      '[class*="gallery"] img', '[class*="product-image"] img', '[class*="media"] img',
+      '[class*="swiper"] img', '[class*="carousel"] img', '[class*="slider"] img',
 
-    const bgUrl = (style) => {
-      const match = /url\((['"]?)(.*?)\1\)/i.exec(style || "");
-      return match?.[2];
-    };
+      // Proven high-quality patterns  
+      'main img[src*="cdn"]', 'main img[src*="shopify"]', 'main img[src*="amazonaws"]',
+      'main img[src*="cloudinary"]', 'main img[src*="imgix"]',
 
-    // UNIFIED GALLERY SELECTORS (from both B1a and B1b)
-    const UNIFIED_GALLERY_SELECTORS = [
-      // A1 proven gallery patterns
-      '.product-media', '.gallery', '.image-gallery', '.product-images', '.product-gallery',
-      '[class*=gallery]', '.slider', '.thumbnails', '.pdp-gallery', '[data-testid*=image]',
-      
-      // collectHiResAugment proven patterns  
-      '#imageBlock', '#altImages', '[data-a-dynamic-image]',
-      '.product-single__photo', '.flickity-viewport',
-      'main figure', 'main .gallery', 'article figure',
-      
-      // Additional proven patterns
-      '.carousel', '.swiper-container', '.product__media', '.pdp-media',
-      '.media-gallery', '.main-image', '[data-product-gallery]', '[data-gallery]'
+      // Generic high-value containers
+      'main figure img', 'article figure img', 'section figure img',
+      '[role="main"] img', '.main-content img',
+
+      // Additional patterns from successful implementations
+      '.pdp img', '.product-detail img', '.item-gallery img', 
+      '[data-gallery] img', '[data-product-gallery] img', '[data-image] img'
     ];
 
-    const LAZY_ATTRS = [
-      "data-src", "data-srcset", "data-lazy", "data-lazy-src", "data-original",
-      "data-zoom-image", "data-large_image", "data-hires", "data-defer-src",
-      "data-defer-srcset", "data-flickity-lazyload"
-    ];
-
-    const EXCLUDE_AREAS = 'header, nav, footer, aside, [role="banner"], [role="navigation"], *[class*="breadcrumb"], *[class*="promo"], *[class*="newsletter"], *[class*="cookie"]';
-
-    // MAIN SCANNING FUNCTION
-    const scanOnce = () => {
-      // 1) META TAGS & JSON-LD (from B1b)
-      doc.querySelectorAll('meta[property="og:image"], meta[name="og:image"], meta[name="twitter:image"], meta[name="twitter:image:src"]')
-        .forEach(meta => meta.content && add(meta.content));
-
-      // JSON-LD structured data
-      const ldScripts = [
-        ...doc.querySelectorAll('script[type="application/ld+json"]'),
-        ...(live !== doc ? live.querySelectorAll('script[type="application/ld+json"]') : [])
-      ];
-      
-      for (const script of ldScripts) {
-        try {
-          const data = JSON.parse(script.textContent || "{}");
-          const walkJsonLd = (obj) => {
-            if (!obj || typeof obj !== "object") return;
-            if (Array.isArray(obj)) return obj.forEach(walkJsonLd);
-            if (typeof obj.image === "string") add(obj.image);
-            else if (Array.isArray(obj.image)) obj.image.forEach(url => add(url));
-            else if (obj.image?.url) add(obj.image.url);
-            if (obj.logo?.url) add(obj.logo.url);
-            Object.values(obj).forEach(walkJsonLd);
-          };
-          walkJsonLd(data);
-        } catch {}
+    let allImages = [];
+    
+    // Use A1's gatherImagesBySelector for each comprehensive selector
+    debug('📍 B1: Using A1 gatherImagesBySelector functions for comprehensive collection');
+    
+    for (const selector of COMPREHENSIVE_SELECTORS) {
+      try {
+        // Call A1's proven function directly - gets proper DOM elements + container selectors
+        const selectorImages = await gatherImagesBySelector(selector);
+        if (selectorImages.length > 0) {
+          debug(`✅ B1: ${selector} found ${selectorImages.length} images`);
+          allImages.push(...selectorImages);
+        }
+      } catch (e) {
+        debug(`⚠️ B1: Error with selector ${selector}:`, e.message);
       }
+    }
 
-      // 2) AMAZON A-STATE PARSING (from B1a)
-      const states = live.querySelectorAll('script[type="a-state"][data-a-state],script[type="application/json"][data-a-state]');
-      states.forEach(s => {
-        try {
-          const keyAttr = s.getAttribute('data-a-state');
-          const key = keyAttr ? JSON.parse(keyAttr).key || '' : '';
-          if (!/image\-block\-state|imageState|dpx\-image\-state/i.test(key)) return;
-          const payload = JSON.parse(s.textContent || '{}');
-          const gallery = payload?.imageGalleryData
-            || payload?.imageBlock?.imageGalleryData
-            || payload?.colorImages?.initial
-            || [];
-          (gallery || []).forEach(o => {
-            ['hiRes','mainUrl','large','zoom','thumb','variant'].forEach(k => o?.[k] && add(o[k]));
-          });
-          const atf = payload?.ImageBlockATF || payload?.imageBlock?.ImageBlockATF;
-          if (atf?.hiRes) add(atf.hiRes);
-          (atf?.variant || []).forEach(add);
-        } catch {}
-      });
-
-      // 3) GALLERY CONTAINER SCANNING (merged from both)
-      const containers = [];
-      UNIFIED_GALLERY_SELECTORS.forEach(sel => {
-        doc.querySelectorAll(sel).forEach(container => {
-          if (!container.closest(EXCLUDE_AREAS)) {
-            containers.push(container);
-          }
-        });
-      });
-
-      const scanContainer = (container) => {
-        // Full-size/zoom swaps (Amazon immersive, generic zoomers)
-        container.querySelectorAll('img.fullscreen, .ivLargeImage img').forEach(img => {
-          add(img.currentSrc || img.src);
-        });
-
-        // Regular IMG elements
-        container.querySelectorAll("img").forEach(img => {
-          // Current/primary sources
-          const best = img.currentSrc || urlFromSrcset(img.getAttribute("srcset")) || img.getAttribute("src");
-          if (best) add(best);
-          
-          // Lazy loading attributes
-          for (const attr of LAZY_ATTRS) {
-            const value = img.getAttribute(attr);
-            if (!value) continue;
-            if (attr.endsWith("srcset")) {
-              const url = urlFromSrcset(value);
-              if (url) add(url);
-            } else {
-              add(value);
-            }
-          }
-        });
-        
-        // Picture elements
-        container.querySelectorAll("picture source[srcset]").forEach(source => {
-          const url = urlFromSrcset(source.getAttribute("srcset"));
-          if (url) add(url);
-        });
-        
-        // Background images
-        container.querySelectorAll("[style]").forEach(el => {
-          const url = bgUrl(el.getAttribute("style"));
-          if (url) add(url);
-        });
-      };
-      
-      // Scan all product containers
-      containers.forEach(scanContainer);
-      
-      // Focused fallback: semantic areas if insufficient
-      if (urls.size < 2) {
-        doc.querySelectorAll('main .images, main .photos, article .images, article .photos').forEach(area => {
-          if (!area.closest(EXCLUDE_AREAS) && !containers.includes(area)) {
-            scanContainer(area);
-          }
-        });
-      }
-    };
-
-    // Initial scan
-    scanOnce();
-
-    // Single mutation observer (merged timing from both)
-    try {
-      await new Promise(resolve => {
-        const observer = new MutationObserver(() => scanOnce());
-        observer.observe(doc, { 
-          subtree: true, 
-          childList: true, 
-          attributes: true, 
-          attributeFilter: ["src", "srcset", "data-src", "data-srcset", "style"] 
-        });
-        
-        // Micro-scroll to trigger lazy loading
-        try { 
-          window.scrollBy(0, 5); 
-          window.scrollBy(0, -5); 
-        } catch {}
-        
-        setTimeout(() => {
-          observer.disconnect();
-          resolve();
-        }, observeMs);
-      });
-    } catch {}
-
-    const finalUrls = Array.from(urls);
-    debug(`🔍 B1 Comprehensive Collection: ${finalUrls.length} total URLs collected`);
+    debug(`🔍 B1 COMPREHENSIVE: Collected ${allImages.length} total images using A1 functions`);
+    debug(`✅ COMPREHENSIVE FINAL: ${allImages.length} images (already processed by A1 system)`);
     
-    // Convert raw URLs to enriched format for house system
-    const enrichedUrls = finalUrls.map((url, index) => ({
-      url, 
-      element: null, 
-      index, 
-      containerSelector: 'b1-comprehensive',
-      sourceMethod: 'B1' // Tag as B1 collection method
-    }));
-    
-    debug(`🔄 COMPREHENSIVE COLLECTION: ${finalUrls.length} total raw URLs collected`);
-    
-    // Apply house filtering/scoring system (same as A1 for integer scores)
-    debug('🏠 Applying house filtering/scoring system...');
-    const finalImages = await hybridUniqueImages(enrichedUrls);
-    
-    debug(`✅ COMPREHENSIVE FINAL: ${finalImages.length} images after house processing`);
-    return finalImages.slice(0, 30);
+    // A1's gatherImagesBySelector already applies hybridUniqueImages() filtering
+    // So return results directly without double-processing
+    return allImages.slice(0, 30);
   }
 
 
