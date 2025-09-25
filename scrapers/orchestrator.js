@@ -1602,7 +1602,8 @@
         // Only one candidate, use it
         const candidate = candidates[0];
         bestImages.push({ ...candidate, canonical });
-        addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${candidate.score}): ${candidate.url.slice(0, 100)}`, candidate.url, candidate.score, true);
+        const selectorInfo = candidate.containerSelector ? ` via [${candidate.containerSelector}]` : '';
+        addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${candidate.score})${selectorInfo}: ${candidate.url.slice(0, 100)}`, candidate.url, candidate.score, true);
         filtered.kept++;
       } else {
         // Multiple candidates, pick highest score
@@ -2708,12 +2709,25 @@
       debug(`❌ A1 JUNK SELECTORS: ${junkSelectors.map(s => `"${s.selector}" (${s.found} found, 0 kept)`).join(', ')}`);
     }
     const og = q('meta[property="og:image"]')?.content;
-    const all = await gatherImagesBySelector('img');
+    
+    // SMART FALLBACK - Never use bare 'img' selector, use targeted fallbacks
+    const fallbackSelectors = [
+      '[data-product] img',
+      '[class*="product"] img', 
+      '[class*="gallery"] img',
+      '[class*="media"] img',
+      'main img',
+      '[role="main"] img',
+      'section img',
+      'article img'
+    ].join(', ');
+    
+    const all = await gatherImagesBySelector(fallbackSelectors);
     
     // URLs already filtered by gatherImagesBySelector() -> hybridUniqueImages()
     const combined = (og ? [og] : []).concat(all);
     const uniq = await uniqueImages(combined);
-    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
+    mark('images', { selectors:['targeted-fallbacks'], attr:'src', method:'smart-fallback', urls: uniq.slice(0,30) });
     return uniq.slice(0,30);
   }
 

@@ -414,7 +414,7 @@ const HOMEDEPOT = {
     
     // Fallback: any Home Depot product images if gallery didn't catch enough
     if (out.size < 5) {
-      doc.querySelectorAll('img').forEach(img => {
+      doc.querySelectorAll('main img, section img, [class*="product"] img').forEach(img => {
         let url = img.currentSrc || img.src;
         if (url && /(?:images\.thdstatic\.com|www\.thdstatic\.com)/i.test(url) && 
             !/(?:icon|logo|sprite|thumb)/i.test(url)) {
@@ -587,7 +587,7 @@ const ACE_HARDWARE = {
 
     // Comprehensive image collection
     const imageSelectors = [
-      'img', // All images
+      '[data-product] img', '[class*="product"] img', // Targeted product images instead of all images
       '[data-src]', '[data-image]', '[data-zoom]', '[data-large]',
       '[data-zoom-image]', '[data-large-image]', '[data-full-image]',
       '[style*="background-image"]',
@@ -624,10 +624,10 @@ const ACE_HARDWARE = {
       });
     }
 
-    // Wide sweep if not enough found
+    // Smart sweep if not enough found - target likely product areas
     if (urls.size < 3) {
-      console.log("[DEBUG] Not enough images found, doing wide document sweep...");
-      doc.querySelectorAll('img').forEach(img => {
+      console.log("[DEBUG] Not enough images found, doing targeted document sweep...");
+      doc.querySelectorAll('main img, section img, [class*="product"] img, [class*="gallery"] img').forEach(img => {
         const u = img.currentSrc || img.src;
         if (u && /\.(jpe?g|png|webp|avif)/i.test(u)) urls.add(u);
       });
@@ -978,10 +978,10 @@ const MESHKI = {
       productImages.push(...doc.querySelectorAll(selector));
     }
     
-    // Fallback to all images if no product containers found
+    // Fallback to targeted images if no product containers found
     if (productImages.length === 0) {
-      console.log('[MESHKI DEBUG] No product containers found, falling back to all images');
-      productImages.push(...doc.querySelectorAll('img'));
+      console.log('[MESHKI DEBUG] No product containers found, falling back to targeted images');
+      productImages.push(...doc.querySelectorAll('main img, section img, [class*="product"] img'));
     } else {
       console.log(`[MESHKI DEBUG] Found ${productImages.length} images in product containers`);
     }
@@ -1056,7 +1056,7 @@ const NIKE = {
     
     // Fallback: any Nike static images, convert to high-res
     if (out.size < 3) {
-      doc.querySelectorAll('img').forEach(img => {
+      doc.querySelectorAll('main img, section img, [class*="product"] img').forEach(img => {
         const u = img.currentSrc || img.src;
         if (u && u.includes('static.nike.com/a/images') && !/(icon|thumb|sprite|logo)/i.test(u)) {
           let highResUrl = u.replace(/t_default/gi, 't_PDP_1728_v1').replace(/t_s3/gi, 't_PDP_1728_v1');
@@ -1324,8 +1324,8 @@ const ALIEXPRESS = {
     console.log("[DEBUG] AliExpress custom image logic running...");
     const urls = new Set();
     
-    // STEP 1: Cast a wide net - collect ALL images first
-    doc.querySelectorAll('img').forEach(img => {
+    // STEP 1: Cast a targeted net - collect product area images first
+    doc.querySelectorAll('main img, section img, [class*="product"] img, [class*="gallery"] img').forEach(img => {
       let url = img.currentSrc || img.src;
       if (url) {
         // Only require basic URL validity - be permissive at collection stage
