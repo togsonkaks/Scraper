@@ -1269,8 +1269,8 @@
     
     const score = scoreImageURL(upgradedUrl, enrichedImageData, index);
     
-    // Unified clamping to 0-205 range
-    const clampedScore = Math.max(0, Math.min(205, score));
+    // Unified clamping to 0-205 range with integer rounding
+    const clampedScore = Math.round(Math.max(0, Math.min(205, score)));
     
     debug(`🎯 UNIFIED SCORE: ${clampedScore} for ${upgradedUrl.substring(upgradedUrl.lastIndexOf('/') + 1).slice(0, 50)}`);
     
