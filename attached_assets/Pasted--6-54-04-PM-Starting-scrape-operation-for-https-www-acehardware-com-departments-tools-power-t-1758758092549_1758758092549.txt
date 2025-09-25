@@ -1,0 +1,862 @@
+[6:54:04 PM] 🚀 Starting scrape operation for: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359
+[6:54:07 PM] 1 🚀 SCRAPE START {"host":"acehardware.com","href":"https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359","mode":"normal"}
+[6:54:07 PM] 2 🚫 MEMORY DISABLED - Custom handlers take priority
+[6:54:07 PM] 3 🔄 NORMAL MODE - memory + fallbacks
+[6:54:07 PM] 4 🧩 TITLE: Trying custom handler...
+[6:54:07 PM] 5 🧩 CUSTOM TITLE MISS: returned object null
+[6:54:07 PM] 6 📝 TITLE: Falling back to generic...
+[6:54:07 PM] 7 📝 TITLE FROM GENERIC: STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless Cut-Off Saw Tool Only
+[6:54:07 PM] 8 🏷️ BRAND: Falling back to generic...
+[6:54:07 PM] 9 🏷️ BRAND FROM GENERIC: STIHL
+[6:54:07 PM] 10 📄 DESCRIPTION: Falling back to generic...
+[6:54:07 PM] 11 📄 DESCRIPTION FROM GENERIC: STIHL introduces another worlds first a cutoff machine powered by 36 volt Lithium Ion battery technology. The TSA 230 STIHL Cutquik cutoff machine starts instantly and changes the game for the jobsite, delivering maneuverability and solid cutting performance in a lightweight, compact package that can be used indoors. Its onboard water control helps suppress dust while a toolless wheel lock prevents wheel rotation when removing the wheel attachment bolt. And because it is battery powered, there is no air filter to maintain. The TSA 230 even provides great value priced below its gasoline powered counterpart. Groundbreaking innovation, grounded in quality engineering.Find the TSA 230 CUT OFF SAW 9D at Ace.
+[6:54:07 PM] 12 🧩 PRICE: Trying custom handler...
+[6:54:07 PM] 13 🧩 CUSTOM PRICE MISS: returned object null
+[6:54:07 PM] 14 💰 PRICE: Falling back to generic...
+[6:54:07 PM] 15 🔍 PRICE PARSING: {"input":"$539.99","inputType":"string","inputLength":7}
+[6:54:07 PM] 16 🧹 CLEANED INPUT: {"original":"$539.99","cleaned":"$539.99"}
+[6:54:07 PM] 17 🔧 RECONSTRUCTED INPUT: {"cleaned":"$539.99","reconstructed":"$539.99"}
+[6:54:07 PM] 18 💰 MONETARY TOKENS: [539.99]
+[6:54:07 PM] 19 🔢 TOKEN BREAKDOWN: {"decimalTokens":[539.99],"integerTokens":[],"preferDecimals":true}
+[6:54:07 PM] 20 ✅ PRICE FROM MONETARY: {"result":539.99,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[539.99]}
+[6:54:07 PM] 21 🎯 REFINING PRICE: {"baseVal":"539.99","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[6:54:07 PM] 22 Price element <DIV.price>
+[6:54:07 PM] 23 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[6:54:07 PM] 24 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[6:54:07 PM] 25 📍 ANCESTOR 0: <DIV.price>
+[6:54:07 PM] 26 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$539.99","cleaned":"$539.99","reconstructed":"$539.99"}
+[6:54:07 PM] 27 💰 ANCESTOR 0 SMART PRICE: 539.99 from tokens: [539.99]
+[6:54:07 PM] 28 📍 ANCESTOR 1: <DIV.price-value-wrapper>
+[6:54:07 PM] 29 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$539.99","cleaned":"$539.99","reconstructed":"$539.99"}
+[6:54:07 PM] 30 💰 ANCESTOR 1 SMART PRICE: 539.99 from tokens: [539.99]
+[6:54:07 PM] 31 📍 ANCESTOR 2: <DIV>
+[6:54:07 PM] 32 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Price$539.99Get up to in Rebates for 75234","cleaned":"Price$539.99Get up to in Rebates for 75234","reconstructed":"Price$539.99Get up to in Rebates for 75234"}
+[6:54:07 PM] 33 💰 ANCESTOR 2 SMART PRICE: 539.99 from tokens: [539.99]
+[6:54:07 PM] 34 ✅ CONTEXT REFINEMENT RESULT: {"result":"539.99","originalBase":"539.99"}
+[6:54:07 PM] 35 💰 PRICE FROM GENERIC: 539.99
+[6:54:07 PM] 36 🖼️ IMAGES: Skipping memory in normal mode
+[6:54:07 PM] 37 🖼️ IMAGES: Need more images (have 0, need 3+)
+[6:54:07 PM] 38 🧩 IMAGES: Trying custom handler...
+[6:54:07 PM] 39 🧩 CUSTOM IMAGES: {"count":0,"images":[]}
+[6:54:07 PM] 40 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[6:54:07 PM] 41 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[6:54:07 PM] 42 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[6:54:07 PM] 43 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[6:54:07 PM] 44 🏆 TOP SCORED IMAGES: []
+[6:54:07 PM] 45 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[6:54:07 PM] 46 🖼️ FINAL IMAGES: []
+[6:54:07 PM] 47 🖼️ IMAGES: Custom insufficient, getting generic images...
+[6:54:07 PM] 48 🖼️ Getting generic images for hostname: acehardware.com
+[6:54:07 PM] 49 🎯 Trying site-specific selector for acehardware.com: .product-gallery img
+[6:54:07 PM] 50 🔍 GATHERING IMAGES with selector: .product-gallery img
+[6:54:07 PM] 51 📊 Found 39 elements for selector: .product-gallery img
+[6:54:07 PM] 52 Image element <IMG.mz-productimages-mainimage>
+[6:54:07 PM] 53 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[6:54:07 PM] 54 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=4
+[6:54:07 PM] 55 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 56 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 57 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb
+[6:54:07 PM] 58 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 59 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 60 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb
+[6:54:07 PM] 61 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 62 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 63 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb
+[6:54:07 PM] 64 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 65 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 66 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb
+[6:54:07 PM] 67 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 68 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 69 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb
+[6:54:07 PM] 70 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 71 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 72 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb
+[6:54:07 PM] 73 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 74 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 75 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb
+[6:54:07 PM] 76 Image element <IMG.ar-watermark>
+[6:54:07 PM] 77 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[6:54:07 PM] 78 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+[6:54:07 PM] 79 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 80 📋 Image attributes: {"src":"https://vid.ly/1w5f2k/poster","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[6:54:07 PM] 81 ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+[6:54:07 PM] 82 Image element <IMG.store-location-logo-svg>
+[6:54:07 PM] 83 📋 Image attributes: {"src":"//cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[6:54:07 PM] 84 ✅ Found image URL from attributes: //cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg
+[6:54:07 PM] 85 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 86 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 87 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb
+[6:54:07 PM] 88 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 89 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 90 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb
+[6:54:07 PM] 91 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 92 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 93 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb
+[6:54:07 PM] 94 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 95 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 96 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb
+[6:54:07 PM] 97 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 98 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 99 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb
+[6:54:07 PM] 100 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 101 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 102 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb
+[6:54:07 PM] 103 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 104 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 105 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb
+[6:54:07 PM] 106 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 107 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[6:54:07 PM] 108 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb
+[6:54:07 PM] 109 Image element <IMG.ar-watermark2>
+[6:54:07 PM] 110 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[6:54:07 PM] 111 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+[6:54:07 PM] 112 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 113 📋 Image attributes: {"src":"https://vid.ly/1w5f2k/poster","data-src":"https://vid.ly/1w5f2k/poster","data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[6:54:07 PM] 114 ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+[6:54:07 PM] 115 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 116 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 117 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1
+[6:54:07 PM] 118 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 119 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 120 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1
+[6:54:07 PM] 121 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 122 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 123 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1
+[6:54:07 PM] 124 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 125 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 126 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1
+[6:54:07 PM] 127 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 128 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 129 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1
+[6:54:07 PM] 130 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 131 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 132 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1
+[6:54:07 PM] 133 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 134 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 135 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1
+[6:54:07 PM] 136 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 137 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 138 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1
+[6:54:07 PM] 139 Image element <IMG.ar-watermark2>
+[6:54:07 PM] 140 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[6:54:07 PM] 141 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+[6:54:07 PM] 142 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 143 📋 Image attributes: {"src":"https://vid.ly/1w5f2k/poster","data-src":"https://vid.ly/1w5f2k/poster","data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[6:54:07 PM] 144 ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+[6:54:07 PM] 145 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 146 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 147 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1
+[6:54:07 PM] 148 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 149 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 150 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1
+[6:54:07 PM] 151 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 152 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 153 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1
+[6:54:07 PM] 154 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 155 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 156 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1
+[6:54:07 PM] 157 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 158 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 159 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1
+[6:54:07 PM] 160 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 161 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 162 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1
+[6:54:07 PM] 163 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 164 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 165 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1
+[6:54:07 PM] 166 Image element <IMG.swiper-lazy>
+[6:54:07 PM] 167 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[6:54:07 PM] 168 ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1
+[6:54:07 PM] 169 🖼️ Raw enriched URLs collected: 39
+[6:54:07 PM] 170 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":39}
+[6:54:07 PM] 171 🔍 EFFECTIVE RESOLUTION: 480px (480×1) = +13.6 points
+[6:54:07 PM] 172 📉 SMALL WIDTH PENALTY: 480px gets -100 points (under 500px threshold)
+[6:54:07 PM] 173 🏆 PRIMARY GALLERY BONUS: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 174 🔍 EFFECTIVE RESOLUTION: 73.46875px (0×1) = +-40.6 points
+[6:54:07 PM] 175 📉 SMALL WIDTH PENALTY: 73.46875px gets -100 points (under 500px threshold)
+[6:54:07 PM] 176 🚫 PRIMARY GALLERY BONUS BLOCKED: "e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 177 🔍 EFFECTIVE RESOLUTION: 73.46875px (0×1) = +-40.6 points
+[6:54:07 PM] 178 📉 SMALL WIDTH PENALTY: 73.46875px gets -100 points (under 500px threshold)
+[6:54:07 PM] 179 🚫 PRIMARY GALLERY BONUS BLOCKED: "ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 180 🔍 EFFECTIVE RESOLUTION: 73.46875px (0×1) = +-40.6 points
+[6:54:07 PM] 181 📉 SMALL WIDTH PENALTY: 73.46875px gets -100 points (under 500px threshold)
+[6:54:07 PM] 182 🚫 PRIMARY GALLERY BONUS BLOCKED: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 183 🔍 EFFECTIVE RESOLUTION: 73.46875px (0×1) = +-40.6 points
+[6:54:07 PM] 184 📉 SMALL WIDTH PENALTY: 73.46875px gets -100 points (under 500px threshold)
+[6:54:07 PM] 185 🚫 PRIMARY GALLERY BONUS BLOCKED: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 186 🔍 EFFECTIVE RESOLUTION: 73.46875px (0×1) = +-40.6 points
+[6:54:07 PM] 187 📉 SMALL WIDTH PENALTY: 73.46875px gets -100 points (under 500px threshold)
+[6:54:07 PM] 188 🚫 PRIMARY GALLERY BONUS BLOCKED: "91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 189 🔍 EFFECTIVE RESOLUTION: 73.46875px (0×1) = +-40.6 points
+[6:54:07 PM] 190 📉 SMALL WIDTH PENALTY: 73.46875px gets -100 points (under 500px threshold)
+[6:54:07 PM] 191 🚫 PRIMARY GALLERY BONUS BLOCKED: "d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 192 🔍 EFFECTIVE RESOLUTION: 73.46875px (0×1) = +-40.6 points
+[6:54:07 PM] 193 📉 SMALL WIDTH PENALTY: 73.46875px gets -100 points (under 500px threshold)
+[6:54:07 PM] 194 🚫 PRIMARY GALLERY BONUS BLOCKED: "721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[6:54:07 PM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg
+0
+📋 Copy URL
+[6:54:07 PM] 195 🔍 EFFECTIVE RESOLUTION: 1200px (0×1) = +40.0 points
+[6:54:07 PM] 196 🏆 PRIMARY GALLERY BONUS: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 197 🔍 EFFECTIVE RESOLUTION: 1200px (0×1) = +40.0 points
+[6:54:07 PM] 198 🏆 PRIMARY GALLERY BONUS: "e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 199 🔍 EFFECTIVE RESOLUTION: 1200px (0×1) = +40.0 points
+[6:54:07 PM] 200 🏆 PRIMARY GALLERY BONUS: "ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 201 🔍 EFFECTIVE RESOLUTION: 1200px (0×1) = +40.0 points
+[6:54:07 PM] 202 🏆 PRIMARY GALLERY BONUS: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 203 🔍 EFFECTIVE RESOLUTION: 1200px (0×1) = +40.0 points
+[6:54:07 PM] 204 🏆 PRIMARY GALLERY BONUS: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 205 🔍 EFFECTIVE RESOLUTION: 1200px (0×1) = +40.0 points
+[6:54:07 PM] 206 🏆 PRIMARY GALLERY BONUS: "91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 207 🔍 EFFECTIVE RESOLUTION: 1200px (0×1) = +40.0 points
+[6:54:07 PM] 208 🏆 PRIMARY GALLERY BONUS: "d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 209 🔍 EFFECTIVE RESOLUTION: 1200px (0×1) = +40.0 points
+[6:54:07 PM] 210 🏆 PRIMARY GALLERY BONUS: "721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925" from ".product-gallery img" gets +100 points
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[6:54:07 PM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[6:54:07 PM] 211 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 212 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 213 🚫 PRIMARY GALLERY BONUS BLOCKED: "fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 214 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 215 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 216 🚫 PRIMARY GALLERY BONUS BLOCKED: "e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 217 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 218 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 219 🚫 PRIMARY GALLERY BONUS BLOCKED: "ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 220 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 221 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 222 🚫 PRIMARY GALLERY BONUS BLOCKED: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 223 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 224 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 225 🚫 PRIMARY GALLERY BONUS BLOCKED: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 226 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 227 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 228 🚫 PRIMARY GALLERY BONUS BLOCKED: "91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 229 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 230 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 231 🚫 PRIMARY GALLERY BONUS BLOCKED: "d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 232 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 233 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 234 🚫 PRIMARY GALLERY BONUS BLOCKED: "721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[6:54:07 PM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[6:54:07 PM] 235 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 236 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 237 🚫 PRIMARY GALLERY BONUS BLOCKED: "fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 238 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 239 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 240 🚫 PRIMARY GALLERY BONUS BLOCKED: "e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 241 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 242 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 243 🚫 PRIMARY GALLERY BONUS BLOCKED: "ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 244 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 245 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 246 🚫 PRIMARY GALLERY BONUS BLOCKED: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 247 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 248 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 249 🚫 PRIMARY GALLERY BONUS BLOCKED: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 250 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 251 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 252 🚫 PRIMARY GALLERY BONUS BLOCKED: "91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 253 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 254 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 255 🚫 PRIMARY GALLERY BONUS BLOCKED: "d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 256 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 257 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 258 🚫 PRIMARY GALLERY BONUS BLOCKED: "721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925" failed guards (utility: false, small: true)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 259 🔄 HYBRID UNIQUE: Applying family deduplication to 9 candidates
+[6:54:07 PM] 260 👨‍👩‍👧‍👦 HYBRID UNIQUE: 9 images after family deduplication
+[6:54:07 PM] ✅ BEST OF 2 (score: 205): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+205
+📋 Copy URL
+[6:54:07 PM] ✅ SINGLE IMAGE (score: 205): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] ✅ SINGLE IMAGE (score: 205): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] ✅ SINGLE IMAGE (score: 205): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] ✅ SINGLE IMAGE (score: 205): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] ✅ SINGLE IMAGE (score: 205): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] ✅ SINGLE IMAGE (score: 205): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] ✅ SINGLE IMAGE (score: 205): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+205
+📋 Copy URL
+[6:54:07 PM] 261 🏆 TOP SCORED IMAGES: ["fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925 (score: 205)","e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925 (score: 205)","ffd28359-099f-4ba1-a364-fafc22
+[6:54:07 PM] 262 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":4,"lowScore":23,"smallFile":0,"duplicateGroups":1,"kept":8}
+[6:54:07 PM] 263 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[6:54:07 PM] 264 🖼️ After hybrid filtering: 8 images
+[6:54:07 PM] 265 ✅ Site-specific success: 8 images found
+[6:54:07 PM] 266 🖼️ A1 GENERIC IMAGES: {"count":8,"images":["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e
+[6:54:07 PM] 267 🖼️ B1: Running combined collectors...
+[6:54:07 PM] 268 🚀 HI-RES AUGMENT STARTING on www.acehardware.com
+[6:54:07 PM] 269 🔍 Hi-res augment collected: 20 URLs
+[6:54:07 PM] 270 🖼️ B1 RAW COLLECTION: 20 + 67 = 67 URLs (after dedup)
+[6:54:07 PM] 271 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":67}
+[6:54:07 PM] 272 🔍 EFFECTIVE RESOLUTION: 480px (480×1) = +13.6 points
+[6:54:07 PM] 273 📉 SMALL WIDTH PENALTY: 480px gets -100 points (under 500px threshold)
+[6:54:07 PM] 274 📍 CONTAINER INFO: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (8.561438102252751): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+8.561438102252751
+📋 Copy URL
+[6:54:07 PM] 275 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 276 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 277 📍 CONTAINER INFO: "e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 278 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 279 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 280 📍 CONTAINER INFO: "ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 281 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 282 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 283 📍 CONTAINER INFO: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 284 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 285 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 286 📍 CONTAINER INFO: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 287 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 288 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 289 📍 CONTAINER INFO: "91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 290 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 291 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 292 📍 CONTAINER INFO: "d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 293 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 294 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 295 📍 CONTAINER INFO: "721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[6:54:07 PM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg
+0
+📋 Copy URL
+[6:54:07 PM] 296 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 297 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 298 📍 CONTAINER INFO: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 299 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 300 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 301 📍 CONTAINER INFO: "fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 302 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 303 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 304 📍 CONTAINER INFO: "e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 305 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 306 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 307 📍 CONTAINER INFO: "ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 308 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 309 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 310 📍 CONTAINER INFO: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 311 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 312 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 313 📍 CONTAINER INFO: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 314 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 315 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 316 📍 CONTAINER INFO: "91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 317 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 318 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 319 📍 CONTAINER INFO: "d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 320 🔍 EFFECTIVE RESOLUTION: 100px (100×1) = +-31.7 points
+[6:54:07 PM] 321 📉 SMALL WIDTH PENALTY: 100px gets -100 points (under 500px threshold)
+[6:54:07 PM] 322 📍 CONTAINER INFO: "721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_m
+0
+📋 Copy URL
+[6:54:07 PM] 323 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 324 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 325 📍 CONTAINER INFO: "fb79dbec-c972-4659-9b86-b5ddc41e3851?_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?_mzcb=_175
+0
+📋 Copy URL
+[6:54:07 PM] ❌ NOT IMAGE URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/[object%20Object]
+0[IMG ERROR]
+📋 Copy URL
+[6:54:07 PM] 326 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 327 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 328 📍 CONTAINER INFO: "607afa52-0c62-5d96-ac7c-38eb650c5dc9" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/607afa52-0c62-5d96-ac7c-38eb650c5dc9
+0
+📋 Copy URL
+[6:54:07 PM] 329 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 330 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 331 📍 CONTAINER INFO: "5c0911f5-7d6b-5299-b32f-0022d32f49bc" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86c3RpaGw/5c0911f5-7d6b-5299-b32f-0022d32f49bc
+0
+📋 Copy URL
+[6:54:07 PM] 332 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 333 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 334 📍 CONTAINER INFO: "7085c372-3846-47c7-b784-abcb098cebba?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/7085c372-3846-47c7-b784-abcb098cebba?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 335 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 336 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 337 📍 CONTAINER INFO: "92a84573-3dba-4a3b-bf2a-936d59433c55?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/92a84573-3dba-4a3b-bf2a-936d59433c55?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 338 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 339 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 340 📍 CONTAINER INFO: "57884988-6c2e-4213-a40c-bcb8360f3c49?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/57884988-6c2e-4213-a40c-bcb8360f3c49?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 341 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 342 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 343 📍 CONTAINER INFO: "ff3133a0-3da2-4728-8510-6b480c7870e6?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ff3133a0-3da2-4728-8510-6b480c7870e6?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 344 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 345 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 346 📍 CONTAINER INFO: "87e93836-b24a-4f8a-9a95-6e55046ffc8a?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/87e93836-b24a-4f8a-9a95-6e55046ffc8a?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/header_AR%20icon.svg
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/placeholder-white.jpg
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/cms//files/badge_tool_only.png
+0
+📋 Copy URL
+[6:54:07 PM] 347 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 348 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 349 📍 CONTAINER INFO: "b53a94b4-e720-49a4-9c2d-443e8f483575?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/b53a94b4-e720-49a4-9c2d-443e8f483575?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 350 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 351 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 352 📍 CONTAINER INFO: "635999a8-e5d7-4acc-b1a5-8074082f45b3?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/635999a8-e5d7-4acc-b1a5-8074082f45b3?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 353 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 354 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 355 📍 CONTAINER INFO: "bfa534fe-7df4-410c-a866-a5793e377194?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/bfa534fe-7df4-410c-a866-a5793e377194?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 356 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 357 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 358 📍 CONTAINER INFO: "f24c851e-f87d-4230-a6e7-a8220fe63ead?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/f24c851e-f87d-4230-a6e7-a8220fe63ead?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 359 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 360 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 361 📍 CONTAINER INFO: "c7775b5d-e1f0-4b8f-9533-f2c983ce82d7?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/c7775b5d-e1f0-4b8f-9533-f2c983ce82d7?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 362 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 363 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 364 📍 CONTAINER INFO: "ee5069d4-be19-463d-91b7-fc33991712f7?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ee5069d4-be19-463d-91b7-fc33991712f7?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 365 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 366 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 367 📍 CONTAINER INFO: "bb5e7fcb-8006-4234-852e-314b53ad3428?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/bb5e7fcb-8006-4234-852e-314b53ad3428?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 368 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 369 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 370 📍 CONTAINER INFO: "311c5648-f400-4a1f-be37-04c8b4aa769d?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/311c5648-f400-4a1f-be37-04c8b4aa769d?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 371 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 372 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 373 📍 CONTAINER INFO: "e9fd3deb-8aa2-4088-806b-960d5e2efd44?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e9fd3deb-8aa2-4088-806b-960d5e2efd44?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 374 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 375 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 376 📍 CONTAINER INFO: "6cc5c52b-a8e0-4575-bbb5-7ebd7365f743?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/6cc5c52b-a8e0-4575-bbb5-7ebd7365f743?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 377 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 378 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 379 📍 CONTAINER INFO: "8ea6c244-4a6d-406f-bd5f-d65d872d61f5?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/8ea6c244-4a6d-406f-bd5f-d65d872d61f5?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 380 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 381 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 382 📍 CONTAINER INFO: "efbeae41-2d38-4b58-af3f-ad19abfce8c9?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/efbeae41-2d38-4b58-af3f-ad19abfce8c9?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 383 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 384 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 385 📍 CONTAINER INFO: "ddc89b99-f72d-46bc-a9f2-7c9bd2d00d6d?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ddc89b99-f72d-46bc-a9f2-7c9bd2d00d6d?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 386 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 387 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 388 📍 CONTAINER INFO: "7e002db1-1406-4d2f-a824-5fe24735d821?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/7e002db1-1406-4d2f-a824-5fe24735d821?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 389 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 390 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 391 📍 CONTAINER INFO: "b87e968e-ed3d-4cd6-b2b1-6b8290c5b30d?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/b87e968e-ed3d-4cd6-b2b1-6b8290c5b30d?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 392 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 393 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 394 📍 CONTAINER INFO: "435ebce3-d837-4eb6-af9c-c70736c285b5?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/435ebce3-d837-4eb6-af9c-c70736c285b5?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 395 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 396 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 397 📍 CONTAINER INFO: "eb944512-7877-49fd-ae49-1a9a0aa4734c?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/eb944512-7877-49fd-ae49-1a9a0aa4734c?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 398 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 399 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 400 📍 CONTAINER INFO: "09fe173c-413a-4e78-9648-9ce1e25121cc?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/09fe173c-413a-4e78-9648-9ce1e25121cc?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 401 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 402 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 403 📍 CONTAINER INFO: "f3c8df64-0de1-4942-a5cd-57e3e00c37ed?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/f3c8df64-0de1-4942-a5cd-57e3e00c37ed?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 404 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 405 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 406 📍 CONTAINER INFO: "5c58db69-9e50-48b1-90f8-4083a725dfa9?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/5c58db69-9e50-48b1-90f8-4083a725dfa9?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 407 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 408 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 409 📍 CONTAINER INFO: "c1339bf5-8709-4fcf-ac84-351ecc254af3?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/c1339bf5-8709-4fcf-ac84-351ecc254af3?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 410 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 411 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 412 📍 CONTAINER INFO: "6f578b3d-ff75-4787-bc6c-86c30362b57d?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/6f578b3d-ff75-4787-bc6c-86c30362b57d?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 413 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 414 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 415 📍 CONTAINER INFO: "7248047e-ff17-44fa-819e-81d9439a3a3e?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/7248047e-ff17-44fa-819e-81d9439a3a3e?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/cms//files/Badge_new_png.png
+0
+📋 Copy URL
+[6:54:07 PM] 416 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 417 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 418 📍 CONTAINER INFO: "2a47954f-1e67-4515-8ab2-d419f7d9374a?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/2a47954f-1e67-4515-8ab2-d419f7d9374a?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 419 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 420 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 421 📍 CONTAINER INFO: "d1df6e4a-119b-4123-b597-cbc280292e61?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d1df6e4a-119b-4123-b597-cbc280292e61?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 422 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 423 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 424 📍 CONTAINER INFO: "e3edac0b-d363-423a-b6a9-f259df82a0ed?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e3edac0b-d363-423a-b6a9-f259df82a0ed?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 425 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 426 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 427 📍 CONTAINER INFO: "f84863cd-4b7b-46b3-8632-b2ad50cddce1?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/f84863cd-4b7b-46b3-8632-b2ad50cddce1?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 428 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 429 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 430 📍 CONTAINER INFO: "ee2dc3eb-0fee-438f-bcc7-ae7cf00058ac?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ee2dc3eb-0fee-438f-bcc7-ae7cf00058ac?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 431 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 432 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 433 📍 CONTAINER INFO: "3371c2f2-967d-4b3e-8a17-b615d4c2447a?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/3371c2f2-967d-4b3e-8a17-b615d4c2447a?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 434 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 435 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 436 📍 CONTAINER INFO: "887d989d-cb34-4bf6-9f38-fd5991e98522?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/887d989d-cb34-4bf6-9f38-fd5991e98522?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 437 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 438 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 439 📍 CONTAINER INFO: "0bcfdf30-8fec-43a4-8c4f-dbac3850f9fd?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/0bcfdf30-8fec-43a4-8c4f-dbac3850f9fd?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 440 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 441 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 442 📍 CONTAINER INFO: "b05dc22e-752f-40b0-861e-19bbd134f0e9?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/b05dc22e-752f-40b0-861e-19bbd134f0e9?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 443 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 444 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 445 📍 CONTAINER INFO: "4d641603-a5af-43dd-bc56-07fa31137e65?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4d641603-a5af-43dd-bc56-07fa31137e65?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 446 🔍 EFFECTIVE RESOLUTION: 250px (250×1) = +-5.3 points
+[6:54:07 PM] 447 📉 SMALL WIDTH PENALTY: 250px gets -100 points (under 500px threshold)
+[6:54:07 PM] 448 📍 CONTAINER INFO: "c3487d3f-1e40-467d-8a36-ad934c322102?max=250&quality=80&_mzcb=_1756125248925" from "b1-combined-collectors" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/c3487d3f-1e40-467d-8a36-ad934c322102?max=250&qu
+0
+📋 Copy URL
+[6:54:07 PM] 449 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[6:54:07 PM] 450 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[6:54:07 PM] 451 🏆 TOP SCORED IMAGES: []
+[6:54:07 PM] 452 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":2,"junk":6,"lowScore":59,"smallFile":0,"duplicateGroups":0,"kept":0}
+[6:54:07 PM] 453 🖼️ FINAL IMAGES: []
+[6:54:07 PM] 454 🖼️ B1 HOUSE FILTERED: {"count":0,"images":[]}
+[6:54:07 PM] 455 🖼️ MERGED A1+B1: 8 + 0 = 8 total
+[6:54:07 PM] 456 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":8}
+[6:54:07 PM] 457 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[6:54:07 PM] 458 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 459 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 460 📍 CONTAINER INFO: "fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (3.3007499855768714): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+3.3007499855768714
+📋 Copy URL
+[6:54:07 PM] 461 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 462 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 463 📍 CONTAINER INFO: "e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 464 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 465 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 466 📍 CONTAINER INFO: "ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 467 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 468 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 469 📍 CONTAINER INFO: "4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 470 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 471 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 472 📍 CONTAINER INFO: "fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 473 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 474 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 475 📍 CONTAINER INFO: "91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 476 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 477 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 478 📍 CONTAINER INFO: "d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 479 🔍 EFFECTIVE RESOLUTION: 400px (0×1) = +8.3 points
+[6:54:07 PM] 480 📉 SMALL WIDTH PENALTY: 400px gets -100 points (under 500px threshold)
+[6:54:07 PM] 481 📍 CONTAINER INFO: "721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925" from "legacy" (not primary gallery)
+[6:54:07 PM] 📉 LOW SCORE REJECTED (0): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+0
+📋 Copy URL
+[6:54:07 PM] 482 🔄 HYBRID UNIQUE: Applying family deduplication to 0 candidates
+[6:54:07 PM] 483 👨‍👩‍👧‍👦 HYBRID UNIQUE: 0 images after family deduplication
+[6:54:07 PM] 484 🏆 TOP SCORED IMAGES: []
+[6:54:07 PM] 485 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":8,"smallFile":0,"duplicateGroups":0,"kept":0}
+[6:54:07 PM] 486 🖼️ FINAL IMAGES: []
+[6:54:07 PM] 487 🖼️ FINAL IMAGES: {"count":0,"images":[]}
+[6:54:07 PM] 488 🤖 IMAGES: Zero images found, activating LLM fallback...
+[6:54:07 PM] 489 🤖 LLM FALLBACK: Starting AI-powered image selector discovery...
+[6:54:07 PM] 490 🤖 LLM FALLBACK: Sending request to LLM agent {"htmlLength":120000,"url":"https://www.acehardware.com/departments/tools/powe"}
+[6:54:07 PM] 491 🤖 LLM FALLBACK: Critical error: IPC not available
+[6:54:07 PM] 492 🤖 LLM FALLBACK: No additional images found
+[6:54:07 PM] 493 ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless","brand":"STIHL","description":"STIHL introduces another worlds first a cutoff mac","price":"539.99","imageCount":0,"firstImages":[],"selec
+[6:54:07 PM] 494 ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":0}
+[6:54:07 PM] ✅ Debug trace complete

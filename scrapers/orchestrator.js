@@ -1042,43 +1042,21 @@
       debug(`📉 NAVIGATION PENALTY: "${fileName}" gets -30 points`);
     }
     
-    // CONTAINER BONUS SYSTEM - +100 points for primary product gallery images
-    if (containerSelector) {
-      const containerSel = containerSelector;
+    // UNIFIED PRIMARY GALLERY BONUS SYSTEM - Use unified isPrimaryGallery detection
+    if (enrichedData && enrichedData.isPrimaryGallery) {
+      // Apply guards - don't give bonus to obvious utility images
+      const isUtilityImage = /(frame|mockup|ui-|banner|size-?chart|chart|guide|nav|menu|dropdown|header|footer|ezgif|resize)/i.test(fileName);
+      const isSmallImage = meta.effectiveWidth > 0 && meta.effectiveWidth < 250;
       
-      // Define primary product gallery selectors (highest priority containers)
-      const primaryGallerySelectors = [
-        '[class*=gallery] img',
-        '.product-media img',
-        '.product-gallery img',
-        '.product-images img',
-        '.gallery img',
-        '.image-gallery img',
-        '.pdp-gallery img',
-        '.pdp-images img',
-        '.swiper-slide img',
-        '.swiper-container img'
-      ];
-      
-      // Check if this image came from a primary gallery container
-      const isFromPrimaryGallery = primaryGallerySelectors.some(sel => 
-        containerSel === sel || containerSel.includes(sel.replace(' img', ''))
-      );
-      
-      if (isFromPrimaryGallery) {
-        // Apply guards - don't give bonus to obvious utility images
-        const isUtilityImage = /(frame|mockup|ui-|banner|size-?chart|chart|guide|nav|menu|dropdown|header|footer|ezgif|resize)/i.test(fileName);
-        const isSmallImage = meta.effectiveWidth > 0 && meta.effectiveWidth < 250;
-        
-        if (!isUtilityImage && !isSmallImage) {
-          score += 100;
-          debug(`🏆 PRIMARY GALLERY BONUS: "${fileName}" from "${containerSel}" gets +100 points`);
-        } else {
-          debug(`🚫 PRIMARY GALLERY BONUS BLOCKED: "${fileName}" failed guards (utility: ${isUtilityImage}, small: ${isSmallImage})`);
-        }
+      if (!isUtilityImage && !isSmallImage) {
+        score += 100;
+        debug(`🏆 PRIMARY GALLERY BONUS: "${fileName}" from unified detection gets +100 points`);
       } else {
-        debug(`📍 CONTAINER INFO: "${fileName}" from "${containerSel}" (not primary gallery)`);
+        debug(`🚫 PRIMARY GALLERY BONUS BLOCKED: "${fileName}" failed guards (utility: ${isUtilityImage}, small: ${isSmallImage})`);
       }
+    } else {
+      const contextInfo = enrichedData ? enrichedData.containerSelector || 'unknown' : 'legacy-call';
+      debug(`📍 CONTAINER INFO: "${fileName}" from "${contextInfo}" (not primary gallery)`);
     }
     
     // Legacy ASOS bonus (keeping for backward compatibility, but reduced)
@@ -1259,6 +1237,66 @@
       debug('📏 FILE SIZE CHECK FAILED:', url, error.message);
       return null;
     }
+  }
+
+  // UNIFIED SCORING SYSTEM - combines A1 context detection + B1 preprocessing
+  function computeAndScoreImage(imageData) {
+    const { url, element, index, containerSelector } = imageData;
+    
+    // B1's preprocessing pipeline (ensures consistent URL handling)
+    let processedUrl = url;
+    try {
+      processedUrl = new URL(url, location.href).toString();
+    } catch {}
+    
+    // Apply CDN upgrades (B1 strength)
+    const upgradedUrl = upgradeCDNUrl(processedUrl);
+    
+    // Analyze metadata (B1 strength)
+    const metadata = analyzeImageMetadata(upgradedUrl, element);
+    
+    // A1's context detection strength - unified primary gallery detection
+    const isPrimaryGallery = determineIsPrimaryGallery(containerSelector, element);
+    
+    // Unified scoring with consistent context
+    const enrichedImageData = {
+      ...imageData,
+      url: upgradedUrl,
+      isPrimaryGallery,
+      metadata
+    };
+    
+    const score = scoreImageURL(upgradedUrl, enrichedImageData, index);
+    
+    // Unified clamping to 0-205 range
+    const clampedScore = Math.max(0, Math.min(205, score));
+    
+    debug(`🎯 UNIFIED SCORE: ${clampedScore} for ${upgradedUrl.substring(upgradedUrl.lastIndexOf('/') + 1).slice(0, 50)}`);
+    
+    return clampedScore;
+  }
+  
+  // Unified primary gallery detection (A1 + unified selectors)
+  function determineIsPrimaryGallery(containerSelector, element) {
+    // Selector-based detection (A1 strength)
+    if (containerSelector && (
+      containerSelector.includes('.product-gallery') ||
+      containerSelector.includes('#imageBlock') ||
+      containerSelector.includes('#altImages') ||
+      containerSelector.includes('.flickity-viewport') ||
+      containerSelector.includes('.swiper-container') ||
+      containerSelector.includes('[data-a-dynamic-image]')
+    )) {
+      return true;
+    }
+    
+    // DOM-based detection (fallback)
+    if (element && element.closest) {
+      const galleryAncestor = element.closest('.product-gallery, #imageBlock, #altImages, .flickity-viewport, .swiper-container, [data-a-dynamic-image], .product-images, .image-gallery');
+      if (galleryAncestor) return true;
+    }
+    
+    return false;
   }
 
   // Purpose: discover big images that appear only after click/zoom/lazy hydration
