@@ -2302,7 +2302,7 @@
     debug(`🚀 B1 COMPREHENSIVE: Starting on ${window.location.hostname} - single A1 call`);
     
     // TARGETED COMPREHENSIVE SELECTORS - Effective + Focused
-    const UNIFIED_SELECTOR = [
+    const B1_SELECTORS = [
       // Primary product galleries (specific containers)
       '.product-gallery img', '.product-photos img', '.product-images img',
       '.gallery img', '.image-gallery img', '.media-gallery img',
@@ -2327,14 +2327,48 @@
       // Proven gallery data attributes
       '[data-gallery] img', '[data-product-gallery] img', '[data-product-image] img',
       '.pdp-gallery img', '.item-gallery img'
-    ].join(', ');
+    ];
+    
+    const UNIFIED_SELECTOR = B1_SELECTORS.join(', ');
 
+    // B1 SELECTOR PERFORMANCE TRACKING - Before processing
+    debug('📊 B1 SELECTOR PERFORMANCE ANALYSIS:');
+    const b1SelectorStats = [];
+    let totalB1Found = 0;
+    
+    for (const sel of B1_SELECTORS) {
+      const elementCount = document.querySelectorAll(sel).length;
+      totalB1Found += elementCount;
+      b1SelectorStats.push({
+        selector: sel,
+        found: elementCount
+      });
+      debug(`📊 B1: "${sel}" → found:${elementCount} elements`);
+    }
+    
+    debug(`📊 B1 PRE-PROCESSING: ${totalB1Found} total elements from ${B1_SELECTORS.length} selectors`);
     debug('📍 B1: Using single combined A1 gatherImagesBySelector call');
     
     try {
       // Single A1 call with all selectors combined - runs A1 pipeline ONCE
       const allImages = await gatherImagesBySelector(UNIFIED_SELECTOR);
       debug(`🔍 B1 COMPREHENSIVE: Single A1 call found ${allImages.length} images`);
+      
+      // B1 POST-PROCESSING ANALYSIS
+      const overallB1Success = totalB1Found > 0 ? ((allImages.length / totalB1Found) * 100).toFixed(1) : 0;
+      debug(`📊 B1 SUMMARY: ${totalB1Found} total elements found, ${allImages.length} kept (${overallB1Success}% overall success)`);
+      
+      // Identify problem selectors (finding many elements but contributing to low overall success)
+      const highVolumeSelectors = b1SelectorStats.filter(s => s.found > 10);
+      const lowVolumeSelectors = b1SelectorStats.filter(s => s.found === 0);
+      
+      if (highVolumeSelectors.length > 0) {
+        debug(`🔍 B1 HIGH VOLUME SELECTORS: ${highVolumeSelectors.map(s => `"${s.selector}" (${s.found})`).join(', ')}`);
+      }
+      if (lowVolumeSelectors.length > 0) {
+        debug(`❌ B1 EMPTY SELECTORS: ${lowVolumeSelectors.map(s => `"${s.selector}"`).join(', ')}`);
+      }
+      
       debug(`✅ COMPREHENSIVE FINAL: ${allImages.length} images (processed once by A1 system)`);
       
       return allImages.slice(0, 30);
@@ -2416,13 +2450,48 @@
       '.product-detail figure img', '.main-product figure img', 
       '[role="main"] .gallery img', '.content-product .gallery img'
     ];
+    
+    // SELECTOR PERFORMANCE TRACKING
+    debug('📊 A1 SELECTOR PERFORMANCE ANALYSIS:');
+    const selectorStats = [];
     for (const sel of gallerySels) {
+      const elementCount = document.querySelectorAll(sel).length;
       const urls = await gatherImagesBySelector(sel);
+      const kept = urls.length;
+      const successRate = elementCount > 0 ? ((kept / elementCount) * 100).toFixed(1) : 0;
+      
+      selectorStats.push({
+        selector: sel,
+        found: elementCount,
+        kept: kept,
+        successRate: successRate
+      });
+      
+      debug(`📊 A1: "${sel}" → found:${elementCount}, kept:${kept} (${successRate}% success)`);
+      
       if (urls.length >= 3) {
+        debug(`✅ A1 SUCCESS: "${sel}" provided sufficient images (${kept})`);
         // URLs already filtered by gatherImagesBySelector() -> hybridUniqueImages()
         mark('images', { selectors:[sel], attr:'src', method:'generic-gallery', urls: urls.slice(0,30) }); 
         return urls.slice(0,30); 
       }
+    }
+    
+    // A1 SUMMARY
+    const totalFound = selectorStats.reduce((sum, stat) => sum + stat.found, 0);
+    const totalKept = selectorStats.reduce((sum, stat) => sum + stat.kept, 0);
+    const overallSuccess = totalFound > 0 ? ((totalKept / totalFound) * 100).toFixed(1) : 0;
+    debug(`📊 A1 SUMMARY: ${totalFound} total elements found, ${totalKept} kept (${overallSuccess}% overall success)`);
+    
+    // Identify best and worst performers
+    const goodSelectors = selectorStats.filter(s => s.found > 0 && parseFloat(s.successRate) > 50);
+    const junkSelectors = selectorStats.filter(s => s.found > 5 && parseFloat(s.successRate) === 0);
+    
+    if (goodSelectors.length > 0) {
+      debug(`✅ A1 GOOD SELECTORS: ${goodSelectors.map(s => `"${s.selector}" (${s.successRate}%)`).join(', ')}`);
+    }
+    if (junkSelectors.length > 0) {
+      debug(`❌ A1 JUNK SELECTORS: ${junkSelectors.map(s => `"${s.selector}" (${s.found} found, 0 kept)`).join(', ')}`);
     }
     const og = q('meta[property="og:image"]')?.content;
     const all = await gatherImagesBySelector('img');
@@ -2761,6 +2830,28 @@
       }
 
       const payload = { title, brand, description, price, url: location.href, images, timestamp: new Date().toISOString(), mode };
+      
+      // COMPREHENSIVE SELECTOR PERFORMANCE FINAL SUMMARY
+      debug('📊 ═══════════════════════════════════════════════════════════════');
+      debug('📊 COMPREHENSIVE SELECTOR PERFORMANCE FINAL SUMMARY');
+      debug('📊 ═══════════════════════════════════════════════════════════════');
+      debug(`📊 SITE: ${window.location.hostname}`);
+      debug(`📊 FINAL IMAGES KEPT: ${images?.length || 0}`);
+      debug(`📊 MODE: ${mode}`);
+      
+      // Log selectors that were actually used (from __used tracking)
+      if (__used && Object.keys(__used).length > 0) {
+        debug('📊 SELECTORS THAT CONTRIBUTED TO FINAL RESULTS:');
+        Object.entries(__used).forEach(([field, data]) => {
+          if (field === 'images' && data.selectors) {
+            debug(`📊   ${field}: ${data.selectors.join(', ')} (method: ${data.method})`);
+          }
+        });
+      }
+      
+      debug('📊 ═══════════════════════════════════════════════════════════════');
+      debug('📊 END SELECTOR PERFORMANCE SUMMARY');
+      debug('📊 ═══════════════════════════════════════════════════════════════');
       
       debug('✅ SCRAPE COMPLETE - FINAL RESULTS:', {
         title: title?.slice(0, 50),
