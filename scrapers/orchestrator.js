@@ -140,6 +140,66 @@
       preview
     });
   };
+
+  // Capture container context for performance tracking
+  const captureContainerContext = (el) => {
+    try {
+      const context = {
+        containerType: 'unknown',
+        parentSelector: 'none',
+        containerClasses: [],
+        containerIds: [],
+        depth: 0
+      };
+
+      let parent = el.parentElement;
+      let depth = 0;
+
+      // Walk up the DOM to find meaningful container context
+      while (parent && depth < 5) {
+        const classes = parent.className || '';
+        const id = parent.id || '';
+        const tagName = parent.tagName?.toLowerCase() || '';
+
+        // Capture container information
+        if (classes) context.containerClasses.push(classes);
+        if (id) context.containerIds.push(id);
+
+        // Identify container types based on common patterns
+        if (tagName === 'section' || tagName === 'article') {
+          context.containerType = tagName;
+          context.parentSelector = `${tagName}${id ? '#' + id : ''}${classes ? '.' + classes.split(' ')[0] : ''}`;
+          break;
+        } else if (/gallery|carousel|slider|swiper|product-images?|image-container/i.test(classes)) {
+          context.containerType = 'gallery';
+          context.parentSelector = `.${classes.split(' ').find(c => /gallery|carousel|slider|swiper|product|image/i.test(c)) || classes.split(' ')[0]}`;
+          break;
+        } else if (/grid|list|collection|products?/i.test(classes)) {
+          context.containerType = 'listing';
+          context.parentSelector = `.${classes.split(' ').find(c => /grid|list|collection|product/i.test(c)) || classes.split(' ')[0]}`;
+          break;
+        } else if (id && /product|detail|main/i.test(id)) {
+          context.containerType = 'product-detail';
+          context.parentSelector = `#${id}`;
+          break;
+        }
+
+        parent = parent.parentElement;
+        depth++;
+      }
+
+      context.depth = depth;
+      return context;
+    } catch (err) {
+      return {
+        containerType: 'error',
+        parentSelector: 'error',
+        containerClasses: [],
+        containerIds: [],
+        depth: 0
+      };
+    }
+  };
   
   const debugSelector = (selector, found, context = '') => {
     if (!DEBUG) return;
@@ -1649,10 +1709,24 @@
     
     const enrichedUrls = []; // Now includes element info
     
+    // Track container context for performance analysis
+    const containerStats = {
+      selector: sel,
+      elementsFound: elements.length,
+      imagesExtracted: 0,
+      containerTypes: new Set(),
+      parentSelectors: new Set()
+    };
+    
     try {
       for (let i = 0; i < elements.length; i++) {
       const el = elements[i];
       debugElement(el, `Image element`);
+      
+      // Track container hierarchy for performance analysis
+      const containerContext = captureContainerContext(el);
+      containerStats.containerTypes.add(containerContext.containerType);
+      containerStats.parentSelectors.add(containerContext.parentSelector);
       
       const attrs = {
         src: el.getAttribute('src') || el.currentSrc,
@@ -1713,11 +1787,15 @@
         }
         
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
+        containerStats.imagesExtracted++;
+        
         enrichedUrls.push({ 
           url: upgradedUrl, 
           element: el, 
           index: i,
-          containerSelector: sel // Track which selector found this image
+          containerSelector: sel, // Track which selector found this image
+          containerContext: containerContext, // Full container hierarchy
+          sourceMethod: 'A1' // Default to A1, will be overridden by B1
         });
       }
       
@@ -1768,12 +1846,20 @@
           continue;
         }
         
-        const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
+        const upgradedBest = upgradeCDNUrl(best);
+        containerStats.imagesExtracted++;
+        
+        const containerContext = captureContainerContext(el);
+        containerStats.containerTypes.add(containerContext.containerType);
+        containerStats.parentSelectors.add(containerContext.parentSelector);
+        
         enrichedUrls.push({ 
-          url: upgradedUrl, 
+          url: upgradedBest, 
           element: el, 
           index: i,
-          containerSelector: sel // Track which selector found this image
+          containerSelector: sel, // Track which selector found this image
+          containerContext: containerContext, // Full container hierarchy
+          sourceMethod: 'A1' // Default to A1, will be overridden by B1
         });
       }
       
@@ -1844,9 +1930,22 @@
       return [];
     }
     
+    // Log container performance stats before filtering
+    debug(`📊 CONTAINER STATS [${sel}]:`, {
+      found: containerStats.elementsFound,
+      extracted: containerStats.imagesExtracted,
+      types: Array.from(containerStats.containerTypes),
+      parents: Array.from(containerStats.parentSelectors).slice(0, 3) // Limit output
+    });
+    
     debug(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
     const filtered = await hybridUniqueImages(enrichedUrls);
     debug(`🖼️ After hybrid filtering: ${filtered.length} images`);
+    
+    // Log container performance after filtering
+    const finalCount = filtered.length;
+    const successRate = containerStats.elementsFound > 0 ? (finalCount / containerStats.elementsFound * 100).toFixed(1) : '0.0';
+    debug(`🎯 CONTAINER PERFORMANCE [${sel}]: ${finalCount} final images (${successRate}% success rate)`);
     
     return filtered;
   }
