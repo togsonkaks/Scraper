@@ -1,0 +1,59 @@
+Roger, captain. You’ve shipped the core; the rest is polish. Here’s the crisp, no-fluff finish line.
+
+# ✅ Acknowledge what’s already done
+
+* `observeMs` wired at gallery call sites. Good.
+* Observer watches `src/srcset/data-src/data-srcset`. Good.
+* `isJunkImage()` centralizes junk filters. Good.
+* Debug messages are clear. Good.
+
+# 🎯 Final 3 micro-upgrades (low risk, high signal)
+
+## 1) Early-exit guard (prevents pointless waiting)
+
+Drop this right after Phase-1 `scanOnce()` inside `gatherImagesBySelector`:
+
+```js
+// If we already have plenty, skip waiting for lazy
+if (observeMs > 0 && out.length >= 12) return out;
+```
+
+## 2) Production debug toggle (silence logs in prod)
+
+At top of the file:
+
+```js
+const DEBUG_IMG = true;  // flip false in prod
+const dbg = (...a) => { if (DEBUG_IMG) console.log(...a); };
+```
+
+Then replace any `console.log(...)` in this function with `dbg(...)`.
+
+## 3) Observer attribute consistency (double-check alignment)
+
+You’ve got `['src','srcset','data-src','data-srcset']`. Make sure your **scan list** includes the same (plus your lazy attrs like `data-lazy`, `data-original`, `data-large_image`, `data-zoom-image`, `data-defer-src`, `data-defer-srcset`, `data-flickity-lazyload`). The point: **what you watch == what you parse**. If they already match, done.
+
+# 🤷 On “don’t re-score twice”
+
+Your pushback is fair. If `upgradeCDNUrl()` in the collector is strictly **idempotent + non-destructive** and your real **scoring** only happens downstream, you’re fine. Two asks to keep it clean:
+
+* Make `upgradeCDNUrl(url)` a **pure function** (same input → same output; never mutates state).
+* Add a tiny unit test (or inline assertion) to guarantee it’s idempotent:
+
+```js
+const u1 = upgradeCDNUrl(url);
+const u2 = upgradeCDNUrl(u1);
+if (u1 !== u2) dbg('WARN upgradeCDNUrl not idempotent', { u1, u2 });
+```
+
+# ✅ Quick acceptance checklist for the team
+
+* [ ] Lazy pages: Phase-2 adds images; static pages: Phase-2 adds none.
+* [ ] With guard in place, total wait doesn’t exceed ~1.2–1.5s on lazy pages; ~0 on fast pages.
+* [ ] No duplicate “junk” blocks anywhere (all through `isJunkImage()`).
+* [ ] Logs can be silenced globally by toggling `DEBUG_IMG=false`.
+* [ ] `upgradeCDNUrl` proven idempotent (optional warn only).
+
+# TL;DR
+
+You’re 90% there. Ship the **early-exit**, add the **debug flag**, verify **observer/scan parity**. Everything else is already buttoned up. Keep moving. 🚀

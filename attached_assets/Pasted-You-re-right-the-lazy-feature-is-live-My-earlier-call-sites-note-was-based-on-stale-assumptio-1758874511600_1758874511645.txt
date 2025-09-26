@@ -1,0 +1,98 @@
+You’re right—the lazy feature is **live**. My earlier “call sites” note was based on stale assumptions. Props for wiring `observeMs` at the gallery calls. ✅
+
+Now let’s finish the hardening so this thing is bullet-proof and not bloated.
+
+# What’s good (lock it in)
+
+* `gatherImagesBySelector(sel, observeMs=0)` exists and works.
+* MutationObserver is in place.
+* `attributeFilter` now includes `srcset`/`data-srcset`.
+* Phase-1 vs Phase-2 split is clean.
+* Debug is readable.
+
+# What still matters (surgical, not a rewrite)
+
+## 1) Dedup the junk checks (stop triple-filtering)
+
+**Problem:** you run the same junk filters in multiple branches (src/srcset/picture). That’s wasted cycles + noise.
+
+**Instruction for Replit (do it once in this function):**
+
+```js
+function isJunkImage(url) {
+  return /(_web\.png|_modal_|yotpo\.com|-\d{2,3}\.(png|jpg)|cld\.accentuate\.io|sprite|icon|logo|placeholder)/i.test(url);
+}
+```
+
+Then **before** pushing any candidate in `gatherImagesBySelector`, call `if (isJunkImage(u)) return;`.
+Leave deeper/semantic filtering to your downstream `hybridUniqueImages`.
+
+## 2) Keep lazy activation only where it pays
+
+You already added `, 1200` at gallery calls. Great. Make sure **fallback collectors** (OG, JSON-LD, meta, background sweep) keep `observeMs=0`. That preserves speed on static pages.
+
+## 3) Guard against observer overrun (cheap + safe)
+
+No timing logs. No perf counters. Just a basic guard so we don’t sit around if Phase-1 already found plenty.
+
+**Instruction for Replit (inside `gatherImagesBySelector`):**
+
+```js
+// After Phase 1 scan:
+if (out.length >= 12 && observeMs > 0) return out;
+```
+
+Keeps it simple; prevents pointless waiting when we already have a fat set.
+
+## 4) Tame debug verbosity without losing signal
+
+You like the emoji logs—cool. Put them behind one flag so prod isn’t chatty:
+
+```js
+const DEBUG_IMG = true; // flip to false in prod
+const dbg = (...a) => { if (DEBUG_IMG) console.log(...a); };
+```
+
+Replace raw `console.log` calls with `dbg(...)`. Same clarity, zero spam when you don’t want it.
+
+## 5) One dedupe, one normalize (don’t re-score twice)
+
+Inside `gatherImagesBySelector`, **don’t** normalize/upgrade twice or pre-score. Collect raw URLs → let your existing downstream pipeline handle normalize/group/score once. (Right now some pre-“upgradeCDNUrl” calls and hybrid filters are duplicating that work; trim them if they’re redundant.)
+
+## 6) Observer filter is good—mirror the lazy attrs
+
+You already added `srcset/data-srcset`. Also ensure the lazy attribute list you scan matches the observer filter (e.g., `data-lazy`, `data-original`, `data-large_image`, `data-zoom-image`, `data-defer-src`, `data-defer-srcset`, `data-flickity-lazyload`). No need to go broader.
+
+---
+
+# Smoke tests (5 minutes, no drama)
+
+1. **Amazon PDP (variant gallery)**
+
+   * Expect Phase-2 to add hi-res frames.
+   * ✅ Pass if `phase2_count > phase1_count` and at least one URL includes `_SL1500_` (or hires/zoom token).
+
+2. **Shopify PDP (with srcset swaps)**
+
+   * Expect new URLs to appear only after `observeMs`.
+   * ✅ Pass if any `srcset` URL appears in Phase-2 that wasn’t in Phase-1.
+
+3. **Static PDP (no lazy)**
+
+   * ✅ Pass if Phase-2 adds **0** new URLs and total time doesn’t regress noticeably.
+
+4. **Icon spam sanity**
+
+   * ✅ Pass if `isJunkImage()` blocks sprites/placeholders (no “logo/sprite/placeholder” URLs in final array).
+
+---
+
+# Definition of done (manager-speak, but real)
+
+* Lazy is **ON** only for gallery selectors; OFF elsewhere.
+* **Zero** duplicate junk checks across src/srcset/picture branches.
+* **One** collect → **one** normalize/group/score downstream.
+* Debug can be flipped with a single flag.
+* Amazon & Shopify lazy pages show **Phase-2 uplift**; static pages unaffected.
+
+That’s it. You already did the heavy lifting; this is just shaving off rough edges so it’s fast, predictable, and clean.

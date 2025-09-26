@@ -8,6 +8,7 @@
  */
 (function () {
   const DEBUG = true;
+  const DEBUG_IMG = true; // Toggle for image-specific debug logs (set false in production)
   const TAG = '[TG]';
   
   // Collect debug logs to send back to UI
@@ -95,6 +96,13 @@
         console.error(TAG + '[ERROR]', ...a);
         addToDebugLog('error', ...a);
       } catch(_){} 
+    }
+  };
+  
+  // Image-specific debug helper (can be silenced in production)
+  const dbg = (...args) => {
+    if (DEBUG_IMG) {
+      console.log(...args);
     }
   };
   
@@ -1109,14 +1117,14 @@
     return await hybridUniqueImages(enriched);
   }
   async function gatherImagesBySelector(sel, observeMs = 0) {
-    debug('🔍 GATHERING IMAGES with selector:', sel);
+    dbg('🔍 GATHERING IMAGES with selector:', sel);
     
     const elements = qa(sel);
-    debug(`📊 Found ${elements.length} elements for selector:`, sel);
+    dbg(`📊 Found ${elements.length} elements for selector:`, sel);
     
     // Skip processing if no elements found - eliminates 12+ lines of wasteful filtering/scoring
     if (elements.length === 0) {
-      debug(`🚫 SKIPPING: No elements found`);
+      dbg(`🚫 SKIPPING: No elements found`);
       return [];
     }
     
@@ -1136,23 +1144,23 @@
         srcset: el.getAttribute('srcset')
       };
       
-      debug('📋 Image attributes:', attrs);
+      dbg('📋 Image attributes:', attrs);
       
       const s1 = attrs.src || attrs['data-src'] || attrs['data-image'] || 
                  attrs['data-zoom-image'] || attrs['data-large'];
       if (s1) {
-        debug('✅ Found image URL from attributes:', s1.slice(0, 100));
+        dbg('✅ Found image URL from attributes:', s1.slice(0, 100));
         
         // Consolidated junk filtering
         const junkCheck = isJunkImage(s1, el);
         if (junkCheck.blocked) {
-          debug(`❌ BLOCKED [${junkCheck.reason}]:`, s1.substring(s1.lastIndexOf('/') + 1));
+          dbg(`❌ BLOCKED [${junkCheck.reason}]:`, s1.substring(s1.lastIndexOf('/') + 1));
           continue;
         }
         
         // Show positive confirmation for Shopify product images
         if (/\/cdn\/shop\/files\//i.test(s1)) {
-          debug('✅ ALLOWED: Shopify files path (product image):', s1.substring(s1.lastIndexOf('/') + 1));
+          dbg('✅ ALLOWED: Shopify files path (product image):', s1.substring(s1.lastIndexOf('/') + 1));
         }
         
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
@@ -1162,18 +1170,18 @@
       const ss = attrs.srcset;
       const best = pickFromSrcset(ss); 
       if (best) {
-        debug('✅ Found image URL from srcset:', best.slice(0, 100));
+        dbg('✅ Found image URL from srcset:', best.slice(0, 100));
         
         // Consolidated junk filtering
         const junkCheck = isJunkImage(best, el);
         if (junkCheck.blocked) {
-          debug(`❌ BLOCKED [${junkCheck.reason}]:`, best.substring(best.lastIndexOf('/') + 1));
+          dbg(`❌ BLOCKED [${junkCheck.reason}]:`, best.substring(best.lastIndexOf('/') + 1));
           continue;
         }
         
         // Show positive confirmation for Shopify product images
         if (/\/cdn\/shop\/files\//i.test(best)) {
-          debug('✅ ALLOWED: Shopify files path (product image):', best.substring(best.lastIndexOf('/') + 1));
+          dbg('✅ ALLOWED: Shopify files path (product image):', best.substring(best.lastIndexOf('/') + 1));
         }
         
         const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
@@ -1182,22 +1190,22 @@
       
       // Check picture parent
       if (el.parentElement && el.parentElement.tagName.toLowerCase()==='picture') {
-        debug('📸 Checking picture parent for sources...');
+        dbg('📸 Checking picture parent for sources...');
         for (const src of el.parentElement.querySelectorAll('source')) {
           const b = pickFromSrcset(src.getAttribute('srcset')); 
           if (b) {
-            debug('✅ Found image URL from picture source:', b.slice(0, 100));
+            dbg('✅ Found image URL from picture source:', b.slice(0, 100));
             
             // Consolidated junk filtering
             const junkCheck = isJunkImage(b, src);
             if (junkCheck.blocked) {
-              debug(`❌ BLOCKED [${junkCheck.reason}]:`, b.substring(b.lastIndexOf('/') + 1));
+              dbg(`❌ BLOCKED [${junkCheck.reason}]:`, b.substring(b.lastIndexOf('/') + 1));
               continue;
             }
             
             // Show positive confirmation for Shopify product images
             if (/\/cdn\/shop\/files\//i.test(b)) {
-              debug('✅ ALLOWED: Shopify files path (product image):', b.substring(b.lastIndexOf('/') + 1));
+              dbg('✅ ALLOWED: Shopify files path (product image):', b.substring(b.lastIndexOf('/') + 1));
             }
             
             const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades
@@ -1208,16 +1216,16 @@
     }
     } catch(e) {
       console.warn('[DEBUG] gatherImagesBySelector error:', e.message);
-      debug('❌ Image gathering failed, returning empty array');
+      dbg('❌ Image gathering failed, returning empty array');
     }
     
-    debug(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
+    dbg(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
     const immediateImages = await hybridUniqueImages(enrichedUrls);
-    debug(`🖼️ After hybrid filtering: ${immediateImages.length} immediate images`);
+    dbg(`🖼️ After hybrid filtering: ${immediateImages.length} immediate images`);
     
     // Phase 2: Lazy Loading (optional)
     if (observeMs > 0) {
-      debug(`⏳ LAZY LOADING: Observing for ${observeMs}ms for additional images...`);
+      dbg(`⏳ LAZY LOADING: Observing for ${observeMs}ms for additional images...`);
       
       // Track new images that appear
       const lazyImages = [];
@@ -1232,7 +1240,7 @@
               if (node.tagName === 'IMG') {
                 const imgUrl = node.src || node.getAttribute('data-src');
                 if (imgUrl && !lazyImages.includes(imgUrl)) {
-                  debug(`🔍 LAZY: New img element found: ${imgUrl.slice(0, 80)}`);
+                  dbg(`🔍 LAZY: New img element found: ${imgUrl.slice(0, 80)}`);
                   lazyImages.push(imgUrl);
                 }
               }
@@ -1241,7 +1249,7 @@
               imgs.forEach(img => {
                 const imgUrl = img.src || img.getAttribute('data-src');
                 if (imgUrl && !lazyImages.includes(imgUrl)) {
-                  debug(`🔍 LAZY: New nested img found: ${imgUrl.slice(0, 80)}`);
+                  dbg(`🔍 LAZY: New nested img found: ${imgUrl.slice(0, 80)}`);
                   lazyImages.push(imgUrl);
                 }
               });
@@ -1252,7 +1260,7 @@
           if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
             const imgUrl = mutation.target.src;
             if (imgUrl && !lazyImages.includes(imgUrl)) {
-              debug(`🔍 LAZY: Src change detected: ${imgUrl.slice(0, 80)}`);
+              dbg(`🔍 LAZY: Src change detected: ${imgUrl.slice(0, 80)}`);
               lazyImages.push(imgUrl);
             }
           }
@@ -1274,7 +1282,7 @@
       observer.disconnect();
       
       if (lazyImages.length > 0) {
-        debug(`🎯 LAZY LOADING: Found ${lazyImages.length} additional images`);
+        dbg(`🎯 LAZY LOADING: Found ${lazyImages.length} additional images`);
         
         // Convert lazy images to enriched format
         const lazyEnriched = lazyImages.map((url, index) => ({
@@ -1286,11 +1294,11 @@
         // Filter lazy images and combine with immediate images
         const filteredLazy = await hybridUniqueImages(lazyEnriched);
         const combinedImages = immediateImages.concat(filteredLazy);
-        debug(`🚀 LAZY LOADING COMPLETE: ${immediateImages.length} immediate + ${filteredLazy.length} lazy = ${combinedImages.length} total`);
+        dbg(`🚀 LAZY LOADING COMPLETE: ${immediateImages.length} immediate + ${filteredLazy.length} lazy = ${combinedImages.length} total`);
         
         return combinedImages;
       } else {
-        debug(`📭 LAZY LOADING: No additional images found during observation`);
+        dbg(`📭 LAZY LOADING: No additional images found during observation`);
       }
     }
     
