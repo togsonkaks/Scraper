@@ -1,0 +1,180 @@
+Got it. Here’s a tight, end-to-end **Blueprint** to stand up your Electron test bench that previews images exactly like a mobile Pinterest feed—fast, minimal, and operator-friendly. No code, just the playbook.
+
+# 0) Objective & Non-Goals
+
+* **Objective:** In Electron, preview a scraped image set **exactly as it would appear on iPhone/iPad**, with basic banner/tiny-image hygiene, click-through, and quick parity checks.
+* **Non-Goals:** Building the real mobile app UI, changing scraper logic, or shipping ML. This is a **wind tunnel**, not production UI.
+
+# 1) System Architecture (simple & reliable)
+
+**Electron Main**
+
+* Creates two panes (split view):
+
+  * **Left:** existing controls/logs.
+  * **Right:** **Mobile Preview** (a dedicated `BrowserView` or `BrowserWindow` in a **separate session partition**).
+* Manages **device profiles** (UA, viewport, DPR, touch flags, safe-area CSS envs).
+* Passes the latest **scrape payload** to the Mobile Preview via IPC.
+
+**Mobile Preview (Renderer)**
+
+* Renders a Pinterest-style **masonry grid** with virtualization.
+* Applies **image hygiene scoring** (hide/demote/join duplicates).
+* Handles **tap → detail sheet → swipe carousel**.
+* Provides **operator controls** (device toggle, filter preset, snapshot).
+
+**Lightweight Store**
+
+* In memory (JSON) with optional disk cache:
+
+  * `profiles.json`, `domain_overrides.json`
+  * `lastFilters`, `lastProfile`, `hostHeuristics` (banner patterns you mark manually)
+
+# 2) Device Profiles (must feel like real phones)
+
+* **iPhone 15 Pro**: 1179×2556, **DPR 3**, iOS Safari UA, `hover:none`, `pointer:coarse`, `maxTouchPoints: 5`
+* **iPad Mini (portrait)**: 768×1024, **DPR 2**, iPad UA, same touch media
+* **Pixel 8 (sanity check)**: 1080×2400, **DPR ~2.6**, Android Chrome UA
+* **Safe-area**: simulate notch/home indicator using CSS env vars; add 12–16px rounded corners on cards to match your refs.
+* **Session partitions**: one per profile (e.g., `persist:iphone`, `persist:ipad`) so cookies/logins don’t collide.
+
+# 3) Data Contract (scraper → preview)
+
+Your scraper outputs an array of images; keep it boring and explicit:
+
+```json
+[
+  {
+    "src": "https://cdn.site/.../img1.jpg",
+    "width": 1200,
+    "height": 1500,
+    "bytes": 142345,
+    "productId": "SKU-123",
+    "sourceUrl": "https://site.com/p/sku-123",
+    "domain": "site.com"
+  }
+]
+```
+
+**Notes**
+
+* If `width/height` missing, preview resolves quickly (HEAD or image decode) **once**, caches result.
+* Group images by `{productId || sourceUrl}` to enable the detail carousel.
+
+# 4) Masonry & Interaction Spec (Pinterest-ish)
+
+* **Columns**: iPhone = 2; iPad = 3. Gutter 10–12px. Card radius 12px. Shadow subtle.
+* **Virtualization**: render only visible rows + small buffer (smooth to 150–300 cards).
+* **Deterministic fill**: compute card heights from known aspect to avoid layout jank.
+* **Tap**: opens **in-panel** detail sheet (device-width image, pinch-zoom, swipe L/R within product set).
+* **Actions**: `Open Source Page` (in same device profile), `Copy Image URL`, `Snapshot Pane`.
+
+# 5) Image Hygiene Policy (simple, tunable, transparent)
+
+**Hard Hide (not shown)**
+
+* `minEdge < 200px` **OR** both edges `< 320px` **and** `bytes < 20KB`
+* `aspectRatio > 3.0` **or** `< 0.25` (ultra-wide banners/slivers)
+
+**Soft Demote (sink to bottom, still visible in “All”)**
+
+* `1.95–3.0` **or** `0.33–0.5` aspect (banner-ish strips)
+* `longestEdge 200–320px`
+* (Optional later) high text density
+
+**Boosts**
+
+* Aspect in `0.75–1.6`
+* Longest edge `>= 800px`
+* Square `~1:1` and portraits `2:3`, `3:4`
+
+**Duplicates**
+
+* Same `src` → collapse with “+N” badge
+* (Optional later) perceptual hash to merge resizes
+
+**Score (stable, explainable)**
+
+```
+score = base(1.0)
+      + sizeBoost(0..0.5)
+      + ratioBoost(-0.4..+0.4)
+      - bannerPenalty(0 or 0.8)
+      - dupPenalty(0 or 0.6)
+```
+
+Sort by `score` (stable sort) → fill grid.
+**Presets**: Standard (default), Strict (hide soft-demotes), Loose (show everything).
+
+# 6) Operator Controls (top-right of Mobile Preview)
+
+* **Device**: iPhone / iPad / Pixel / Fit-to-Panel
+* **Filters**: Strict / Standard / Loose
+* **Per-domain overrides**: quick panel (e.g., change minEdge to 256 for nike.com; save)
+* **Snapshot**: export PNG + JSON stats (counts hidden/demoted, median aspect/edge)
+* **Open Source Page**: load `sourceUrl` inside same device profile to eyeball DOM vs gallery
+
+# 7) QA & Parity Protocol (trust but verify)
+
+**Golden Set (20 pages, 5 categories)**
+For each domain:
+
+1. Scrape → preview iPhone + iPad.
+2. On a real iPhone/iPad, open the native app (or a comparable grid) and capture screenshots.
+3. Compare: columns match, gutters within ±2px, safe-area respected, card rhythm “feels” right.
+4. Record metrics:
+
+   * Time-to-first-paint (first 24 cards) **< 1.5s** cached
+   * 60fps scroll to 150 cards (visualized)
+   * Waste rate (hidden+demoted) **< 35%**
+   * False negative (legit product hidden) **< 3%** (spot-checks)
+
+**Ship Gate:** 95% of Golden Set hits metrics; manual review signs off.
+
+# 8) Minimal Tech Choices (keep it boring)
+
+* **Masonry**: CSS grid + column balancer, or a tiny virtualization lib. No heavy UI frameworks needed.
+* **State**: plain JS + one small store; persist minimal operator prefs in JSON.
+* **Image loading**: `loading="lazy"`, intersection observer; precompute height to avoid jank.
+* **Parity**: use CSS custom props for gutters/radius; easy to tweak to match your reference images.
+
+# 9) Milestones (short, sequenced)
+
+**M1 — Device Fidelity**
+
+* Profiles switch UA/DPR/media; separate partitions; safe-area visible; profile toggle UI.
+
+**M2 — Gallery MVP**
+
+* Accepts scraper JSON; applies hygiene policy; 2/3-col masonry; deterministic fill; virtualization.
+
+**M3 — Interactions**
+
+* Tap → detail sheet with swipe within product group; back restores scroll; Open Source Page; Snapshot.
+
+**M4 — Tuning & Parity**
+
+* Per-domain overrides; Strict/Standard/Loose; Golden Set runs; hit KPIs.
+
+# 10) Risks & Guardrails
+
+* **Over-filtering wides** (legit panoramas): keep visible in Loose; expose “Why hidden?” tooltip for trust.
+* **Cookie/login differences**: add **“Clone session to Mobile”** button to copy cookies from desktop to the active mobile partition.
+* **CDN shenanigans**: many sizes via query params; prefer best fit for device DPR; don’t upsample.
+
+# 11) “Even Better” (optional, still simple)
+
+* **Banner learning**: when you mark an image “Banner,” store host path hints (e.g., `/ads/`, `?utm_campaign=`) into `hostHeuristics` to auto-demote siblings next time.
+* **Stats footer**: `Shown: 86 | Demoted: 19 | Hidden: 14 | Median AR: 0.89 | Median Edge: 1024`—instant health check.
+* **One-click Export**: dump the sorted, cleaned list as JSON for your real mobile app to consume during prototyping.
+
+---
+
+## TL;DR (what you actually build this week)
+
+1. **Device-accurate Mobile Preview** pane in Electron (iPhone/iPad profiles + partitions + safe-areas).
+2. **Masonry gallery** that ingests your scraper JSON, applies ultra-simple hygiene scoring, and supports tap→detail.
+3. **Operator controls** (device toggle, filter preset, per-domain overrides, snapshot, open source).
+4. **Golden Set** process to validate parity and tune thresholds.
+
+That’s it—simple, efficient, and laser-focused on the only question that matters right now: **“Will our images look right on real phones?”**
