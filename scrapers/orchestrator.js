@@ -1316,7 +1316,7 @@
         childList: true,
         subtree: true,
         attributes: true,
-        attributeFilter: ['src', 'data-src']
+        attributeFilter: ['src', 'srcset', 'data-src', 'data-srcset']
       });
       
       // Wait for the specified time
@@ -1692,7 +1692,7 @@
     const siteSelectors = siteSpecificSelectors[hostname] || [];
     for (const sel of siteSelectors) {
       debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
-      const urls = await gatherImagesBySelector(sel);
+      const urls = await gatherImagesBySelector(sel, 1200);
       if (urls.length >= 1) {
         debug(`✅ Site-specific success: ${urls.length} images found`);
         mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
@@ -1705,7 +1705,7 @@
       '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
     ];
     for (const sel of gallerySels) {
-      const urls = await gatherImagesBySelector(sel);
+      const urls = await gatherImagesBySelector(sel, 1200);
       if (urls.length >= 3) { mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); return urls.slice(0,30); }
     }
     const og = q('meta[property="og:image"]')?.content;

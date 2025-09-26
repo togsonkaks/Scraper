@@ -1,0 +1,98 @@
+Locking this in. Your counter-proposal is sane: flip the two critical levers and ship. Here’s a tight, copy-paste brief for the Replit agent with **minimal surface area** and **zero architecture drama**.
+
+# 🔧 Scope (no scope creep)
+
+Implement exactly two changes:
+
+1. **Pass `observeMs` at gallery call sites** (activate lazy).
+2. **Broaden `MutationObserver.attributeFilter`** to catch `srcset` swaps.
+
+Everything else stays put. No domain defaults, no perf timers, no feature flags.
+
+---
+
+# 1) Call-site activations (surgical edits)
+
+**Rule of thumb:** Only pass `observeMs` for **gallery-like** selectors (PDP images, carousels). Keep fallbacks (OG/JSON-LD/meta) at `0`.
+
+### Replace at gallery calls:
+
+```diff
+- await gatherImagesBySelector('.gallery img');
++ await gatherImagesBySelector('.gallery img, picture, [style*="background"]', 1200);
+```
+
+### Likely places to change (names may vary in your codebase):
+
+* Unified product scrape (main selector batch)
+* Site-specific PDP/gallery loops
+* Amazon PDP path (optional but recommended): `1200`
+
+> Keep all other calls (meta/JSON-LD/og/twitter/background fallbacks) as:
+
+```js
+await gatherImagesBySelector('<selector>', 0);
+```
+
+---
+
+# 2) Observer filter: catch real lazy swaps
+
+Inside **`gatherImagesBySelector`** (already has `observeMs = 0` param):
+
+### Expand attribute filters:
+
+```diff
+- attributeFilter: ['src', 'data-src']
++ attributeFilter: ['src', 'srcset', 'data-src', 'data-srcset']
+```
+
+### Ensure LAZY attrs list covers common cases:
+
+```diff
+const LAZY_ATTRS = [
+- 'data-src','data-srcset','data-lazy','data-lazy-src','data-original',
+- 'data-zoom-image','data-large_image','data-hires','data-defer-src','data-defer-srcset'
++ 'data-src','data-srcset','data-lazy','data-lazy-src','data-original',
++ 'data-zoom-image','data-large_image','data-hires',
++ 'data-defer-src','data-defer-srcset','data-flickity-lazyload'
+];
+```
+
+That’s it. No extra logs, no timers, no domain matrices.
+
+---
+
+# ✅ Optional (nice, not required)
+
+Add JSDoc so future devs don’t miss the param:
+
+```js
+/**
+ * gatherImagesBySelector
+ * @param {string} sel - Gallery-ish selector(s), e.g. '.gallery img, picture, [style*="background"]'
+ * @param {number} [observeMs=0] - Lazy window in ms. 0 = no observer. Typical PDPs: 1200.
+ * @returns {Promise<string[]>} Absolute URLs (raw; normalization/scoring happens downstream)
+ */
+```
+
+---
+
+# 🔬 Quick acceptance test (5 minutes)
+
+1. Run on a known lazy PDP (Amazon/Shopify variant page).
+2. Confirm **before** change: images found only from Phase 1 (no extra gallery frames).
+3. Apply changes; refresh; pass `1200` at gallery call.
+4. Confirm **after** change: additional images appear (srcset/zoom frames now captured).
+5. Ensure non-lazy pages behave identically (no measurable delay where `observeMs=0`).
+
+---
+
+# Executive summary (for the coding agent)
+
+* Signature is already updated. Do **not** touch it.
+* Wire `observeMs=1200` at gallery call sites only.
+* Expand `attributeFilter` to include `srcset`/`data-srcset`.
+* No other architectural changes.
+
+Ship that, and your lazy wins start showing up.

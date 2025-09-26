@@ -1,0 +1,163 @@
+You’re right—my bad on the signature. If `gatherImagesBySelector(sel, observeMs = 0)` is already in, then the feature exists but isn’t being *activated*. Let’s turn this into a clean, surgical brief you can hand to Replit so they wire it correctly and stop the chaos.
+
+# What’s correct (agreeing with you)
+
+* Signature **IS updated**. ✅
+* Call sites **don’t pass** `observeMs`. That’s why lazy never fires. ✅
+* Observer’s `attributeFilter` is too narrow. ✅
+* There’s still architectural overlap (multiple paths doing near-same work). ✅
+
+# Action plan (copy-paste to Replit)
+
+## 1) Pass `observeMs` at the right call sites
+
+Only for **gallery-like** selectors. Leave fast fallbacks at 0.
+
+**Change:**
+
+```diff
+- await gatherImagesBySelector('.gallery img');
++ await gatherImagesBySelector('.gallery img, picture, [style*="background"]', 1200);
+```
+
+Also update these common entry points (names may differ in your repo):
+
+* Unified product scrape (the main selector batch)
+* Any site-specific “product gallery” loops
+* Amazon PDP path (optional; 1000–1200ms is enough)
+
+> Rule of thumb: only pass `observeMs` where images *hydrate/swaps* occur (galleries, carousels, PDP images). Keep OG/JSON-LD/meta at `0`.
+
+## 2) Expand the observer filters (catch real lazy swaps)
+
+Inside `gatherImagesBySelector`:
+
+```diff
+- attributeFilter: ['src', 'data-src']
++ attributeFilter: ['src', 'srcset', 'data-src', 'data-srcset']
+```
+
+And make sure your lazy attr list includes the usual suspects:
+
+```diff
+const LAZY_ATTRS = [
+- 'data-src','data-srcset','data-lazy','data-lazy-src','data-original','data-zoom-image','data-large_image','data-hires','data-defer-src','data-defer-srcset'
++ 'data-src','data-srcset','data-lazy','data-lazy-src','data-original',
++ 'data-zoom-image','data-large_image','data-hires',
++ 'data-defer-src','data-defer-srcset','data-flickity-lazyload'
+];
+```
+
+## 3) Add a tiny early-exit & budget
+
+Keep UX snappy when we already have enough images.
+
+```js
+// after Phase 1 scanOnce():
+if (out.length >= 12 && observeMs > 0) {
+  // Plenty of candidates; skip observer to save time.
+  return out;
+}
+```
+
+Also cap:
+
+```js
+if (observeMs > 1500) observeMs = 1500;
+```
+
+## 4) Add crystal-clear debug (no spam)
+
+Right inside `gatherImagesBySelector`:
+
+```js
+const t0 = performance.now();
+let mutCount = 0;
+function dbg(stage, data) {
+  const line = { t: Math.round(performance.now()-t0)+'ms', stage, ...data };
+  if (Array.isArray(window.__tg_debugLog)) window.__tg_debugLog.push(line);
+  else console.log('[gatherImagesBySelector]', line);
+}
+
+// After immediate scan:
+dbg('phase1', { sel, count: out.length });
+
+// In MutationObserver callback:
+mutCount += muts.length;
+
+// After observer disconnects & final scan:
+dbg('phase2', { sel, mutations: mutCount, total: out.length });
+```
+
+This gives you exactly three tidy log entries per call: phase1, phase2, and final counts—no wall of text.
+
+## 5) Document usage (so devs stop guessing)
+
+Add JSDoc on the function:
+
+```js
+/**
+ * gatherImagesBySelector
+ * @param {string} sel - CSS selector for gallery candidates (e.g., '.gallery img, picture, [style*="background"]')
+ * @param {number} [observeMs=0] - Optional lazy window. 0 = no observer. Typical PDPs: 800–1200ms.
+ * @returns {Promise<string[]>} Absolute URLs (raw; caller normalizes/scores later)
+ */
+```
+
+## 6) (Optional but smart) Domain defaults
+
+Centralize where we turn lazy on, so call sites don’t hardcode 1200 everywhere.
+
+```js
+const DOMAIN_LAZY = {
+  'amazon.com': 1000,
+  'shop.app': 1200,
+  'zara.com': 1200
+  // default: 0
+};
+
+// helper:
+function lazyBudgetForHost(hostname) {
+  const h = hostname.replace(/^www\./,'').toLowerCase();
+  return DOMAIN_LAZY[h] ?? 0;
+}
+
+// usage:
+const ms = lazyBudgetForHost(location.hostname);
+await gatherImagesBySelector('.gallery img, picture, [style*="background"]', ms);
+```
+
+## 7) Kill overlap gradually (feature flag)
+
+If you still have multiple “engines/paths” calling `gatherImagesBySelector`, gate them:
+
+```js
+const ENABLE_LEGACY_PATHS = false;
+if (ENABLE_LEGACY_PATHS) {
+  // legacy collectors here
+}
+```
+
+Run only the **unified** path by default. This removes the “two engines fighting” symptom you saw.
+
+---
+
+# Sanity checklist (what “done” looks like)
+
+* [ ] On a lazy PDP, **phase1 < phase2** count (observer actually adds images).
+* [ ] On a fast/static PDP, **phase2 ≈ phase1** (observer skipped or adds nothing).
+* [ ] `__tg_debugLog` shows exactly **phase1/phase2** entries per call, not spam.
+* [ ] No double normalization or in-collector dedupe elsewhere (collect → normalize later).
+* [ ] Performance: with `observeMs=1200`, end-to-end added latency stays under ~1.3s on lazy pages; 0 on fast pages.
+* [ ] Attribute changes to `srcset` or `data-srcset` now trigger rescans.
+
+---
+
+# TL;DR for the team
+
+* The feature is implemented. **Use it.**
+* Pass `1200` at gallery call sites; keep fallbacks at `0`.
+* Watch `srcset` and `data-srcset`, not just `src`.
+* Add small debug & budget. Ship.
+
+That’s it. Flip the switch and the lazy wins show up.

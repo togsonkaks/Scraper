@@ -1,0 +1,73 @@
+​
+
+Short answer: partially implemented.
+You have the lazy-loading block inside gatherImagesBySelector, but the function doesn’t accept the observeMs argument, so the new code never runs. A few other small gaps too.
+
+Here’s the quick audit you can paste to Replit:
+What’s implemented
+
+    A full lazy phase (MutationObserver + wait + merge) is present: it records new <img> nodes and src changes, waits, then merges and re-filters.
+
+    It converts lazy finds to enriched entries and reuses hybridUniqueImages before concatenating.
+
+    The function still returns a single array of URLs after hybrid filtering (good).
+
+What’s missing / blocking
+
+    Signature never updated
+    gatherImagesBySelector is still declared as async function gatherImagesBySelector(sel) (no observeMs). Therefore if (observeMs > 0) is always false and the lazy path never activates.
+
+    ✅ Fix: change the signature to
+    async function gatherImagesBySelector(sel, observeMs = 0)
+    and pass a value where needed (e.g., 1200ms).
+
+    Call sites don’t pass observeMs
+    Your “unified” and “generic” callers still invoke gatherImagesBySelector(sel) with one arg. Example: unified selector and gallery loops.
+
+    ✅ Fix: for main product gallery selectors, call with a delay:
+    await gatherImagesBySelector(sel, 1200) (or your chosen value).
+    Keep OG/meta fallbacks at 0 to stay fast.
+
+    Observer misses some lazy patterns
+    Attribute filter currently watches only src and data-src; many sites switch srcset or data-srcset.
+
+    ✅ Fix: attributeFilter: ['src','srcset','data-src','data-srcset'].
+
+    Duplicate definitions still exist (technical debt)
+    There are multiple versions of “generic” pipelines and dual-engine code alongside the new B1 single-call path; they’re all still present and call gatherImagesBySelector in different ways. This is why behavior feels inconsistent. Examples of parallel collectors + legacy fallback blocks are still in the file.
+
+    ✅ Fix (phased): keep one primary path (B1 unified or dual-engine), gate the others behind a feature flag so only one runs.
+
+    Minor consistency nits
+
+    When mapping lazy images to enriched objects you already call upgradeCDNUrl—good. Ensure immediate phase also upgrades consistently before hybrid filter (it does via existing pipeline, but double-check upstream).
+
+    Consider adding data-lazy, data-original to the attributeFilter too, mirroring your scan list.
+
+Minimal patch (exact changes to request)
+
+    Change signature
+
+- async function gatherImagesBySelector(sel) {
++ async function gatherImagesBySelector(sel, observeMs = 0) {
+
+    Update observer filters
+
+- attributeFilter: ['src', 'data-src']
++ attributeFilter: ['src', 'srcset', 'data-src', 'data-srcset']
+
+    Pass observeMs at call sites likely to be galleries
+
+- const urls = await gatherImagesBySelector(sel);
++ const urls = await gatherImagesBySelector(sel, 1200);
+
+Do this in:
+
+    site-specific loops (after the first match if you want speed), and gallery selector loops.
+
+    unified B1 call: gatherImagesBySelector(UNIFIED_SELECTOR, 1200).
+
+    (Optional) Kill overlap with a flag
+    Add at top: const ENABLE_DUAL_ENGINE = false; and wrap the dual-engine getImagesUnified() and legacy getImagesGeneric_Legacy() paths in if (ENABLE_DUAL_ENGINE) { ... } so only B1 runs.
+
+If Replit makes just those three edits (signature, observer filters, call-site delay), your lazy loading addition will actually run, you’ll catch the modal/slide images, and you won’t affect fast paths that shouldn’t wait.
