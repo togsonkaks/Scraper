@@ -1,0 +1,72 @@
+Goals
+
+Replace the current overlapping collectors with one clean, single-pass pipeline.
+
+Collect first, coordinate later (no early filtering/deduping inside collectors).
+
+Keep my existing filtering/scoring downstream untouched.
+
+Add deterministic debug: for every URL, show how it was found (selector/attr/path).
+
+Skip heavy work when candidates = 0 (no pointless “cleanup” passes).
+
+Provide hooks for lazy/zoom pages without breaking working sites.
+
+Non-Goals
+
+Don’t re-design my scoring/ranking rules.
+
+Don’t add an LLM step.
+
+Don’t add new UI—only return better data + cleaner logs.
+
+Problems Observed (fix each)
+
+Early dedupe during collection (critical)
+
+Current code uses a shared seenUrls and rejects URLs inside each collector (Engine A & Engine B).
+
+Effect: If Engine A sees a low-res first, Engine B’s hi-res gets skipped.
+
+Fix: Remove every Set/Map dedupe inside collectors. Collectors only push raw candidates. Dedup happens once, after collection.
+
+Multiple, inconsistent normalizers
+
+Engine A and B both call different normalizeUrl()/upgradeCDNUrl() logic.
+
+Effect: apples vs oranges; the dedupe key doesn’t match; scoring sees altered URLs twice.
+
+Fix: Delete all in-collector normalization. Use one normalizer in a single NORMALIZE stage.
+
+Heavy “cleanup” always runs—even when 0 images
+
+Effect: wasted time; confusing logs.
+
+Fix: If candidates.length === 0, bail early. Don’t run normalize/group/filter/score.
+Return { images: [], __imagesDetailed: [], __debugLog }.
+
+Repeated document scans & oversized scope
+
+Selectors like document.querySelectorAll("img") run multiple times with subtle differences.
+
+Effect: 100s of dup candidates, slower runtime.
+
+Fix: One pass per source type: img/srcset/lazy, picture>source, meta og/twitter, JSON-LD, inline background-image, optional Amazon a-state.
+
+Background probing run too broadly
+
+Effect: extra requests/timeouts even when not needed.
+
+Fix: Scope background scan to main, article, .product, .gallery if present; never full document unless no scope exists.
+
+Collector responsibilities blurry
+
+Collectors filter/score/dedupe; downstream also filters/scores.
+
+Fix: Collectors only discover: (url, source, provenance, meta hint). Nothing else.
+
+Debug logs hard to follow
+
+Logs mix messages from multiple layers, repeated counts, and no provenance.
+
+Fix: Structured, step-tagged logging (see “Debug Spec” below).

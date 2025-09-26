@@ -1,0 +1,103 @@
+Pipeline (synchronous where possible)
+1) DISCOVER (collect only)
+
+Implement one function discover(doc, live) that:
+
+Scans once for each source type:
+
+IMG + lazy attrs: src, currentSrc, srcset (+ best candidate from srcset), and lazy attrs (data-src, data-srcset, data-lazy, data-zoom-image, data-large_image, …).
+Selector scope: main img, article img, .product img, img.
+
+PICTURE/SOURCE: take largest from srcset.
+
+Backgrounds (inline only): in main, article, .product, .gallery if present; else document.
+
+Meta: og:image, twitter:image.
+
+JSON-LD: parse script[type="application/ld+json"] in both doc and live (sanitized clones drop some). Extract image, image[].url, logo.url.
+
+Amazon a-state: only read from live doc; pull imageGalleryData, colorImages.initial, ImageBlockATF(hiRes/variant).
+
+For each URL: push a Candidate with full foundBy (collector name, selector, attr, cssPath()).
+
+Do not normalize/dedupe here.
+
+2) NORMALIZE (one shared function)
+
+Strip query (?…)
+
+Unescape %2B → +
+
+Apply Amazon only token upgrades:
+
+_(SX|SY|SL|UX|UY|SR|SS|UL|US)\d+(,\d+)*_ → _SL1500_
+
+_CRx,y,w,h_ → _
+
+_QL\d+_ → _QL100_
+
+Nothing else.
+
+3) GROUP (one shared function)
+
+Compute a family key:
+
+Amazon: /images/I/<id>.* → "amz:<id>"
+
+Otherwise: strip protocol & query, replace size/crop tokens with stubs.
+
+Map <familyKey, Candidate[]>.
+
+4) FILTER (reuse your house thresholds)
+
+Use the host overrides you already have.
+
+If kept == 0, fall back to pre-filter flat for ranking (so you still return “something”).
+
+5) SCORE (reuse your house scoring)
+
+Keep your weights; add small URL-number bonus only once here.
+
+Return top.map(x => x.url) and __imagesDetailed with provenance.
+Debug Spec (make logs easy to read)
+
+Emit exactly these lines (one each):
+
+DISCOVER: candidates=<N>
+
+NORMALIZE: in=<N> out=<N>
+
+GROUP: families=<N> items=<N>
+
+FILTER: in=<N> out=<N> (or FILTER: skipped (no candidates))
+
+SCORE: in=<N> out=<N>
+
+END: done in <ms>, images=<N>
+
+For provenance, include on each __imagesDetailed row:
+What to Delete / Merge (housekeeping)
+
+Remove all early dedupe/normalization inside collectors (Engine A/B).
+
+Remove any duplicate pickLargestFromSrcset() helpers—use one.
+
+Remove repeated querySelectorAll("img") loops—make a single pass.
+
+Remove any background-image probing that creates new Image() globally; only probe inline backgrounds within scoped containers.
+
+Remove every “cleanup/sort/score” call that runs when candidates === 0.
+
+Acceptance Criteria
+
+On pages that previously returned 0 images, the pipeline does not run normalize/group/filter/score; it logs FILTER: skipped (no candidates) and returns early.
+
+On Amazon PDPs, hi-res URLs appear with foundBy.collector === 'amazon' and foundBy.attr = hiRes|large|zoom|variant.
+
+On generic PDPs, at least one image shows provenance from img or picture with the exact selector/attr.
+
+With observeMs:1200, lazy galleries that previously needed user clicks now return additional candidates (visible in DISCOVER count and __imagesDetailed).
+
+No function does both “collect” and “filter/score”. Collectors are pure.
+
+CPU time and console noise drop: one DISCOVER (or two if observeMs>0), then one each for NORMALIZE/GROUP/FILTER/SCORE.
