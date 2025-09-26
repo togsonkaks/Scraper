@@ -498,6 +498,8 @@
           <div><b>URL:</b> ${result?.url || ''}</div>
           <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
         images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
+        // Update mobile preview with scraped images
+        updateMobilePreview(imgs);
         // Enhanced URL display with click-to-copy functionality (safe DOM approach)
         out.innerHTML = ''; // Clear first
         imgs.forEach((url, index) => {
@@ -572,6 +574,8 @@
           <div><b>URL:</b> ${result?.url || ''}</div>
           <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
         images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
+        // Update mobile preview with scraped images
+        updateMobilePreview(imgs);
         // Enhanced URL display with click-to-copy functionality (safe DOM approach)
         out.innerHTML = ''; // Clear first
         imgs.forEach((url, index) => {
@@ -1514,6 +1518,65 @@
         }
       });
     })();
+    // Mobile Preview Functions
+    function updateMobilePreview(imageUrls) {
+      const mobileGrid = document.getElementById("mobileGrid");
+      const imageCount = document.getElementById("imageCount");
+      
+      if (!imageUrls || imageUrls.length === 0) {
+        mobileGrid.innerHTML = '<div style="text-align:center;color:#666;padding:20px;">No images to preview</div>';
+        imageCount.textContent = "0 images";
+        return;
+      }
+      
+      // Filter images for mobile preview
+      const filteredImages = imageUrls.filter(url => {
+        const urlLower = url.toLowerCase();
+        const bannersKeywords = ["banner", "hero", "promo", "ad", "advertisement"];
+        return !bannersKeywords.some(keyword => urlLower.includes(keyword));
+      }).slice(0, 20);
+      
+      // Create Pinterest-style grid
+      mobileGrid.innerHTML = filteredImages.map(url => `
+        <div class="mobile-image-card" onclick="openImageOverlay('${url}')">
+          <img src="${url}" referrerpolicy="no-referrer" 
+               onerror="this.parentElement.style.display='none'" 
+               onload="this.style.opacity='1'">
+        </div>
+      `).join("");
+      
+      imageCount.textContent = `${filteredImages.length} images`;
+    }
+    
+    // Device toggle functionality
+    document.addEventListener("DOMContentLoaded", () => {
+      const iphoneBtn = document.getElementById("iphoneBtn");
+      const ipadBtn = document.getElementById("ipadBtn");
+      const mobileContainer = document.getElementById("mobileContainer");
+      
+      if (iphoneBtn && ipadBtn && mobileContainer) {
+        iphoneBtn.addEventListener("click", () => {
+          mobileContainer.className = "mobile-container iphone";
+          iphoneBtn.className = "device-btn active";
+          ipadBtn.className = "device-btn";
+          iphoneBtn.style.background = "#2196F3";
+          iphoneBtn.style.color = "white";
+          ipadBtn.style.background = "#ccc";
+          ipadBtn.style.color = "#333";
+        });
+        
+        ipadBtn.addEventListener("click", () => {
+          mobileContainer.className = "mobile-container ipad";
+          ipadBtn.className = "device-btn active";
+          iphoneBtn.className = "device-btn";
+          ipadBtn.style.background = "#2196F3";
+          ipadBtn.style.color = "white";
+          iphoneBtn.style.background = "#ccc";
+          iphoneBtn.style.color = "#333";
+        });
+      }
+    });
+
 
     // Validation Panel Functions
     function showValidationPanel(results, summaryMsg, foundSuggestions) {
