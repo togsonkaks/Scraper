@@ -1272,7 +1272,7 @@
         childList: true,
         subtree: true,
         attributes: true,
-        attributeFilter: ['src', 'srcset', 'data-src', 'data-srcset']
+        attributeFilter: ['src', 'srcset', 'data-src', 'data-srcset', 'data-image', 'data-zoom-image', 'data-large']
       });
       
       // Wait for the specified time
