@@ -140,7 +140,7 @@
       grid-auto-rows: masonry; /* Future masonry support */
     }
     .mobile-container.ipad .mobile-grid {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr !important;
     }
     
     .mobile-image-card {
@@ -1535,15 +1535,24 @@
         return;
       }
       
-      // Score and sort all images (keep all, just reorder)
-      const scoredImages = imageUrls.map(url => ({
+      // Preserve original order, only move clearly bad images to bottom
+      const scoredImages = imageUrls.map((url, index) => ({
         url: url,
         score: calculateImageQualityScore(url),
-        quality: getQualityLabel(calculateImageQualityScore(url))
-      })).sort((a, b) => b.score - a.score); // Best first
+        quality: getQualityLabel(calculateImageQualityScore(url)),
+        originalIndex: index,
+        isClearlyBad: isClearlyBadImage(url, calculateImageQualityScore(url))
+      }));
+      
+      // Separate good images (keep original order) from clearly bad ones
+      const goodImages = scoredImages.filter(img => !img.isClearlyBad);
+      const badImages = scoredImages.filter(img => img.isClearlyBad);
+      
+      // Combine: good images in original order + bad images at bottom
+      const orderedImages = [...goodImages, ...badImages];
       
       // Create Pinterest-style masonry grid
-      mobileGrid.innerHTML = scoredImages.map((item, index) => `
+      mobileGrid.innerHTML = orderedImages.map((item, index) => `
         <div class="mobile-image-card" onclick="openImageOverlay('${item.url}')" data-index="${index}">
           <div class="quality-badge quality-${item.quality}">${item.quality.toUpperCase()}</div>
           <img src="${item.url}" referrerpolicy="no-referrer" 
@@ -1557,6 +1566,9 @@
       // Scroll to top when updating
       const mobileContainer = document.getElementById('mobileContainer');
       if (mobileContainer) mobileContainer.scrollTop = 0;
+      
+      // Reinitialize device toggle to ensure it works
+      setTimeout(initDeviceToggle, 100);
     }
     
     // Image Quality Scoring Algorithm  
@@ -1611,14 +1623,45 @@
       return 'low';
     }
     
-    // Device toggle functionality
-    document.addEventListener("DOMContentLoaded", () => {
+    // Identify clearly bad images that should move to bottom
+    function isClearlyBadImage(url, score) {
+      const urlLower = url.toLowerCase();
+      
+      // Strong banner indicators
+      const bannerKeywords = ['banner', 'hero', 'promo', 'ad', 'advertisement', 'header'];
+      const hasBannerKeyword = bannerKeywords.some(keyword => urlLower.includes(keyword));
+      
+      // Size analysis from URL patterns
+      const sizeMatch = url.match(/[\/_](\d{3,4})[x\/_]?(\d{3,4})?/);
+      let isTooSmall = false;
+      let isWideBanner = false;
+      
+      if (sizeMatch) {
+        const width = parseInt(sizeMatch[1]);
+        const height = parseInt(sizeMatch[2]) || width;
+        const aspectRatio = width / height;
+        
+        isTooSmall = width < 300 && height < 300; // Both dimensions small
+        isWideBanner = aspectRatio >= 2.5; // Very wide banners
+      }
+      
+      // Only move clearly problematic images
+      return hasBannerKeyword || isTooSmall || isWideBanner || score < 25;
+    }
+    
+    // Initialize device toggle functionality  
+    function initDeviceToggle() {
       const iphoneBtn = document.getElementById("iphoneBtn");
       const ipadBtn = document.getElementById("ipadBtn");
       const mobileContainer = document.getElementById("mobileContainer");
       
       if (iphoneBtn && ipadBtn && mobileContainer) {
-        iphoneBtn.addEventListener("click", () => {
+        // Remove any existing listeners
+        iphoneBtn.onclick = null;
+        ipadBtn.onclick = null;
+        
+        iphoneBtn.onclick = () => {
+          console.log('iPhone clicked');
           mobileContainer.className = "mobile-container iphone";
           iphoneBtn.className = "device-btn active";
           ipadBtn.className = "device-btn";
@@ -1626,9 +1669,11 @@
           iphoneBtn.style.color = "white";
           ipadBtn.style.background = "#ccc";
           ipadBtn.style.color = "#333";
-        });
+          mobileContainer.scrollTop = 0;
+        };
         
-        ipadBtn.addEventListener("click", () => {
+        ipadBtn.onclick = () => {
+          console.log('iPad clicked - switching to 3 columns');
           mobileContainer.className = "mobile-container ipad";
           ipadBtn.className = "device-btn active";
           iphoneBtn.className = "device-btn";
@@ -1636,9 +1681,13 @@
           ipadBtn.style.color = "white";
           iphoneBtn.style.background = "#ccc";
           iphoneBtn.style.color = "#333";
-        });
+          mobileContainer.scrollTop = 0;
+        };
       }
-    });
+    }
+    
+    // Initialize on DOM ready and after mobile preview updates
+    document.addEventListener("DOMContentLoaded", initDeviceToggle);
 
 
     // Validation Panel Functions
