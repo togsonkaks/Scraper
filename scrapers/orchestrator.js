@@ -521,6 +521,44 @@
     return true;
   }
   
+  // Consolidated junk image filtering - eliminates duplicate logic
+  function isJunkImage(url, element = null, reason = null) {
+    if (!url) return { blocked: true, reason: 'empty URL' };
+    
+    // Shopify files filtering first
+    if (shouldBlockShopifyFiles(url, element)) {
+      return { blocked: true, reason: 'Shopify theme asset' };
+    }
+    
+    // Comprehensive junk patterns (consolidated from 3+ locations)
+    if (/_web\.png/i.test(url)) {
+      return { blocked: true, reason: 'Feature icon' };
+    }
+    if (/_modal_/i.test(url)) {
+      return { blocked: true, reason: 'Material swatch' };
+    }
+    if (/yotpo\.com/i.test(url)) {
+      return { blocked: true, reason: 'Review image' };
+    }
+    if (/-\d{3}\.png/i.test(url)) {
+      return { blocked: true, reason: 'Technical sample' };
+    }
+    if (/(boucle|basketweave|velvet)/i.test(url)) {
+      return { blocked: true, reason: 'Fabric pattern' };
+    }
+    if (/cushion-image/i.test(url)) {
+      return { blocked: true, reason: 'Component image' };
+    }
+    if (/cld\.accentuate\.io/i.test(url)) {
+      return { blocked: true, reason: 'Accentuate CDN junk' };
+    }
+    if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(url)) {
+      return { blocked: true, reason: 'Navigation/collection junk' };
+    }
+    
+    return { blocked: false, reason: null };
+  }
+  
   // Universal CDN URL upgrade function
   function upgradeCDNUrl(url) {
     let upgraded = url;
@@ -1105,46 +1143,16 @@
       if (s1) {
         debug('✅ Found image URL from attributes:', s1.slice(0, 100));
         
-        // Smart Shopify files filtering
-        if (shouldBlockShopifyFiles(s1, el)) {
-          debug('❌ BLOCKED: Shopify files path (theme asset):', s1.substring(s1.lastIndexOf('/') + 1));
+        // Consolidated junk filtering
+        const junkCheck = isJunkImage(s1, el);
+        if (junkCheck.blocked) {
+          debug(`❌ BLOCKED [${junkCheck.reason}]:`, s1.substring(s1.lastIndexOf('/') + 1));
           continue;
         }
+        
+        // Show positive confirmation for Shopify product images
         if (/\/cdn\/shop\/files\//i.test(s1)) {
           debug('✅ ALLOWED: Shopify files path (product image):', s1.substring(s1.lastIndexOf('/') + 1));
-        }
-        if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(s1)) {
-          debug('❌ BLOCKED: Junk pattern:', s1.substring(s1.lastIndexOf('/') + 1));
-          continue;
-        }
-        // COMPREHENSIVE JUNK PATTERNS
-        if (/_web\.png/i.test(s1)) {
-          debug('❌ BLOCKED: Feature icon:', s1.substring(s1.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/_modal_/i.test(s1)) {
-          debug('❌ BLOCKED: Material swatch:', s1.substring(s1.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/yotpo\.com/i.test(s1)) {
-          debug('❌ BLOCKED: Review image:', s1.substring(s1.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/-\d{3}\.png/i.test(s1)) {
-          debug('❌ BLOCKED: Technical sample:', s1.substring(s1.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/(boucle|basketweave|velvet)/i.test(s1)) {
-          debug('❌ BLOCKED: Fabric pattern:', s1.substring(s1.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/cushion-image/i.test(s1)) {
-          debug('❌ BLOCKED: Component image:', s1.substring(s1.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/cld\.accentuate\.io/i.test(s1)) {
-          debug('❌ BLOCKED: Accentuate CDN junk:', s1.substring(s1.lastIndexOf('/') + 1));
-          continue;
         }
         
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
@@ -1156,46 +1164,16 @@
       if (best) {
         debug('✅ Found image URL from srcset:', best.slice(0, 100));
         
-        // Smart Shopify files filtering
-        if (shouldBlockShopifyFiles(best, el)) {
-          debug('❌ BLOCKED: Shopify files path (theme asset):', best.substring(best.lastIndexOf('/') + 1));
+        // Consolidated junk filtering
+        const junkCheck = isJunkImage(best, el);
+        if (junkCheck.blocked) {
+          debug(`❌ BLOCKED [${junkCheck.reason}]:`, best.substring(best.lastIndexOf('/') + 1));
           continue;
         }
+        
+        // Show positive confirmation for Shopify product images
         if (/\/cdn\/shop\/files\//i.test(best)) {
           debug('✅ ALLOWED: Shopify files path (product image):', best.substring(best.lastIndexOf('/') + 1));
-        }
-        if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(best)) {
-          debug('❌ BLOCKED: Junk pattern:', best.substring(best.lastIndexOf('/') + 1));
-          continue;
-        }
-        // COMPREHENSIVE JUNK PATTERNS
-        if (/_web\.png/i.test(best)) {
-          debug('❌ BLOCKED: Feature icon:', best.substring(best.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/_modal_/i.test(best)) {
-          debug('❌ BLOCKED: Material swatch:', best.substring(best.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/yotpo\.com/i.test(best)) {
-          debug('❌ BLOCKED: Review image:', best.substring(best.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/-\d{3}\.png/i.test(best)) {
-          debug('❌ BLOCKED: Technical sample:', best.substring(best.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/(boucle|basketweave|velvet)/i.test(best)) {
-          debug('❌ BLOCKED: Fabric pattern:', best.substring(best.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/cushion-image/i.test(best)) {
-          debug('❌ BLOCKED: Component image:', best.substring(best.lastIndexOf('/') + 1));
-          continue;
-        }
-        if (/cld\.accentuate\.io/i.test(best)) {
-          debug('❌ BLOCKED: Accentuate CDN junk:', best.substring(best.lastIndexOf('/') + 1));
-          continue;
         }
         
         const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
@@ -1210,46 +1188,16 @@
           if (b) {
             debug('✅ Found image URL from picture source:', b.slice(0, 100));
             
-            // Smart Shopify files filtering
-            if (shouldBlockShopifyFiles(b, src)) {
-              debug('❌ BLOCKED: Shopify files path (theme asset):', b.substring(b.lastIndexOf('/') + 1));
+            // Consolidated junk filtering
+            const junkCheck = isJunkImage(b, src);
+            if (junkCheck.blocked) {
+              debug(`❌ BLOCKED [${junkCheck.reason}]:`, b.substring(b.lastIndexOf('/') + 1));
               continue;
             }
+            
+            // Show positive confirmation for Shopify product images
             if (/\/cdn\/shop\/files\//i.test(b)) {
               debug('✅ ALLOWED: Shopify files path (product image):', b.substring(b.lastIndexOf('/') + 1));
-            }
-            if (/(shop.?nav|memorial|collection|kova.?box|cust_)/i.test(b)) {
-              debug('❌ BLOCKED: Junk pattern:', b.substring(b.lastIndexOf('/') + 1));
-              continue;
-            }
-            // COMPREHENSIVE JUNK PATTERNS
-            if (/_web\.png/i.test(b)) {
-              debug('❌ BLOCKED: Feature icon:', b.substring(b.lastIndexOf('/') + 1));
-              continue;
-            }
-            if (/_modal_/i.test(b)) {
-              debug('❌ BLOCKED: Material swatch:', b.substring(b.lastIndexOf('/') + 1));
-              continue;
-            }
-            if (/yotpo\.com/i.test(b)) {
-              debug('❌ BLOCKED: Review image:', b.substring(b.lastIndexOf('/') + 1));
-              continue;
-            }
-            if (/-\d{3}\.png/i.test(b)) {
-              debug('❌ BLOCKED: Technical sample:', b.substring(b.lastIndexOf('/') + 1));
-              continue;
-            }
-            if (/(boucle|basketweave|velvet)/i.test(b)) {
-              debug('❌ BLOCKED: Fabric pattern:', b.substring(b.lastIndexOf('/') + 1));
-              continue;
-            }
-            if (/cushion-image/i.test(b)) {
-              debug('❌ BLOCKED: Component image:', b.substring(b.lastIndexOf('/') + 1));
-              continue;
-            }
-            if (/cld\.accentuate\.io/i.test(b)) {
-              debug('❌ BLOCKED: Accentuate CDN junk:', b.substring(b.lastIndexOf('/') + 1));
-              continue;
             }
             
             const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades

@@ -1,0 +1,375 @@
+2:55:55 AM] 🚀 Starting scrape operation for: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359
+[2:55:56 AM] 🚀 SCRAPE START {"host":"acehardware.com","href":"https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359","mode":"normal"}
+[2:55:56 AM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[2:55:56 AM] 🔄 NORMAL MODE - memory + fallbacks
+[2:55:56 AM] 🧩 TITLE: Trying custom handler...
+[2:55:56 AM] 🧩 CUSTOM TITLE MISS: returned object null
+[2:55:56 AM] 📝 TITLE: Falling back to generic...
+[2:55:56 AM] 📝 TITLE FROM GENERIC: STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless Cut-Off Saw Tool Only
+[2:55:56 AM] 🏷️ BRAND: Falling back to generic...
+[2:55:56 AM] 🏷️ BRAND FROM GENERIC: STIHL
+[2:55:56 AM] 📄 DESCRIPTION: Falling back to generic...
+[2:55:56 AM] 📄 DESCRIPTION FROM GENERIC: STIHL introduces another worlds first a cutoff machine powered by 36 volt Lithium Ion battery technology. The TSA 230 STIHL Cutquik cutoff machine starts instantly and changes the game for the jobsite, delivering maneuverability and solid cutting performance in a lightweight, compact package that can be used indoors. Its onboard water control helps suppress dust while a toolless wheel lock prevents wheel rotation when removing the wheel attachment bolt. And because it is battery powered, there is no air filter to maintain. The TSA 230 even provides great value priced below its gasoline powered counterpart. Groundbreaking innovation, grounded in quality engineering.Find the TSA 230 CUT OFF SAW 9D at Ace.
+[2:55:56 AM] 🧩 PRICE: Trying custom handler...
+[2:55:56 AM] 🧩 CUSTOM PRICE MISS: returned object null
+[2:55:56 AM] 💰 PRICE: Falling back to generic...
+[2:55:56 AM] 🔍 PRICE PARSING: {"input":"$539.99","inputType":"string","inputLength":7}
+[2:55:56 AM] 🧹 CLEANED INPUT: {"original":"$539.99","cleaned":"$539.99"}
+[2:55:56 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$539.99","reconstructed":"$539.99"}
+[2:55:56 AM] 💰 MONETARY TOKENS: [539.99]
+[2:55:56 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[539.99],"integerTokens":[],"preferDecimals":true}
+[2:55:56 AM] ✅ PRICE FROM MONETARY: {"result":539.99,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[539.99]}
+[2:55:56 AM] 🎯 REFINING PRICE: {"baseVal":"539.99","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[2:55:56 AM] Price element <DIV.price>
+[2:55:56 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[2:55:56 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[2:55:56 AM] 📍 ANCESTOR 0: <DIV.price>
+[2:55:56 AM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$539.99","cleaned":"$539.99","reconstructed":"$539.99"}
+[2:55:56 AM] 💰 ANCESTOR 0 SMART PRICE: 539.99 from tokens: [539.99]
+[2:55:56 AM] 📍 ANCESTOR 1: <DIV.price-value-wrapper>
+[2:55:56 AM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$539.99","cleaned":"$539.99","reconstructed":"$539.99"}
+[2:55:56 AM] 💰 ANCESTOR 1 SMART PRICE: 539.99 from tokens: [539.99]
+[2:55:56 AM] 📍 ANCESTOR 2: <DIV>
+[2:55:56 AM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Price$539.99Get up to in Rebates for 75234","cleaned":"Price$539.99Get up to in Rebates for 75234","reconstructed":"Price$539.99Get up to in Rebates for 75234"}
+[2:55:56 AM] 💰 ANCESTOR 2 SMART PRICE: 539.99 from tokens: [539.99]
+[2:55:56 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"539.99","originalBase":"539.99"}
+[2:55:56 AM] 💰 PRICE FROM GENERIC: 539.99
+[2:55:56 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[2:55:56 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[2:55:56 AM] 🧩 IMAGES: Trying custom handler...
+[2:55:56 AM] 🧩 CUSTOM IMAGES: {"count":0,"images":[]}
+[2:55:56 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":0}
+[2:55:56 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":0}
+[2:55:56 AM] 🏆 TOP SCORED IMAGES: []
+[2:55:56 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":0}
+[2:55:56 AM] 🖼️ FINAL IMAGES: []
+[2:55:56 AM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[2:55:56 AM] 🖼️ Getting generic images for hostname: acehardware.com
+[2:55:56 AM] 🎯 Trying site-specific selector for acehardware.com: .product-gallery img
+[2:55:56 AM] 🔍 GATHERING IMAGES with selector: .product-gallery img
+[2:55:56 AM] 📊 Found 39 elements for selector: .product-gallery img
+[2:55:56 AM] Image element <IMG.mz-productimages-mainimage>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-larg
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=4
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.ar-watermark>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"https://vid.ly/1w5f2k/poster","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[2:55:56 AM] ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+[2:55:56 AM] Image element <IMG.store-location-logo-svg>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"","data-src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925","data-image":null,"data-zoom-image":null,"data-large":null,"s
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb
+[2:55:56 AM] Image element <IMG.ar-watermark2>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"https://vid.ly/1w5f2k/poster","data-src":"https://vid.ly/1w5f2k/poster","data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[2:55:56 AM] ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.ar-watermark2>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"https://vid.ly/1w5f2k/poster","data-src":"https://vid.ly/1w5f2k/poster","data-image":null,"data-zoom-image":null,"data-large":null,"srcset":null}
+[2:55:56 AM] ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1
+[2:55:56 AM] Image element <IMG.swiper-lazy>
+[2:55:56 AM] 📋 Image attributes: {"src":"//cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925","data-src":null,"data-image":null,"data-zoom-image":null,"data-large":null,"sr
+[2:55:56 AM] ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1
+[2:55:56 AM] 🖼️ Raw enriched URLs collected: 39
+[2:55:56 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":39}
+[2:55:56 AM] 📉 LOW SCORE REJECTED (45): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+45
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (45): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+45
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+25
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+25
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+25
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+25
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+25
+📋 Copy URL
+[2:55:56 AM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[2:55:56 AM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[2:55:56 AM] 🗑️ JUNK IMAGE: https://cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg
+0
+📋 Copy URL
+[2:55:56 AM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[2:55:56 AM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[2:55:56 AM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] 📉 LOW SCORE REJECTED (40): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_m
+40
+📋 Copy URL
+[2:55:56 AM] ✅ BEST OF 2 (score: 120): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+120
+📋 Copy URL
+[2:55:56 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+120
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+120
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🏆 TOP SCORED IMAGES: ["fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 (score: 120)","e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925 (score: 65)","ffd28359-099f-4ba1-a364
+[2:55:56 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":4,"lowScore":23,"smallFile":0,"duplicateGroups":1,"kept":8}
+[2:55:56 AM] 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[2:55:56 AM] 🖼️ After hybrid filtering: 8 immediate images
+[2:55:56 AM] ⏳ LAZY LOADING: Observing for 1200ms for additional images...
+[2:55:56 AM] 📭 LAZY LOADING: No additional images found during observation
+[2:55:56 AM] ✅ Site-specific success: 8 images found
+[2:55:56 AM] 🖼️ GENERIC IMAGES: {"count":8,"images":["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925","https://cdn-tp3.mozu.com/24645-37138/cms/37138
+[2:55:56 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":8}
+[2:55:56 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 105): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+105
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 85): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+85
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 85): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+85
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+105
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+85
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+85
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+65
+📋 Copy URL
+[2:55:56 AM] 🏆 TOP SCORED IMAGES: ["fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 (score: 105)","e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925 (score: 85)","ffd28359-099f-4ba1-a364
+[2:55:56 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":8}
+[2:55:56 AM] 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[2:55:56 AM] 🖼️ FINAL IMAGES: {"count":8,"images":["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925","https://cdn-tp3.mozu.com/24645-37138/cms/37138
+[2:55:56 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless","brand":"STIHL","description":"STIHL introduces another worlds first a cutoff mac","price":"539.99","imageCount":8,"firstImages":["https:/
+[2:55:56 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":8}
+[2:55:56 AM] ✅ Debug trace complete
