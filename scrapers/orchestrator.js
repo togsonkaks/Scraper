@@ -1076,6 +1076,12 @@
     const elements = qa(sel);
     debug(`📊 Found ${elements.length} elements for selector:`, sel);
     
+    // Skip processing if no elements found - eliminates 12+ lines of wasteful filtering/scoring
+    if (elements.length === 0) {
+      debug(`🚫 SKIPPING: No elements found`);
+      return [];
+    }
+    
     const enrichedUrls = []; // Now includes element info
     
     try {
