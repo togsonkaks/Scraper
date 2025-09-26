@@ -36,6 +36,13 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
 
 ## Recent Changes
+- **Mobile Preview Interface**: Implemented Pinterest-style mobile testing interface replacing right panel validation section
+- **Device Simulation**: Added iPhone (375px, 2-column) and iPad (768px, 3-column) responsive layout toggle
+- **Pinterest-Style Layout**: Created masonry grid with image cards, hover effects, rounded corners, and proper spacing
+- **Image Filtering**: Added banner detection and aspect ratio filtering for mobile-optimized product image display
+- **Early-Exit Optimization**: Added pipeline short-circuiting when no images found, eliminating unnecessary processing stages
+- **Production Debug Toggle**: Implemented conditional debug logging with DEBUG_IMG flag for deployment control
+- **Observer Attribute Consistency**: Fixed lazy loading observer to watch all scanned attributes (data-image, data-zoom-image, data-large)
 - **Scoring Threshold Adjustment**: Lowered small width penalty from 500px to 300px threshold to accept quality product images (320px-480px range now passes scoring)
 - **Flexible Pattern Matching**: Added CSS attribute selectors `[class*="pattern"]` to catch gallery variations across sites (e.g., lululemon's `product-media-slides_slide_image`)
 - **Selector Optimization**: Replaced overly broad selectors with targeted patterns while maintaining comprehensive coverage - improved performance from 60+ to 8-15 images
