@@ -445,12 +445,11 @@
       statusEl.innerHTML = `<span class="pill">Loading ${currentHost}</span>`;
       await window.api.openProduct(url);
       
-      // Check for LLM cache after URL loads
-      await checkLLMCache();
 
       // poll readiness and enable Save once likely hydrated
       setSaveState(true, 'Waiting for page…');
       const iv = setInterval(async () => {
+        console.log('🔍 Polling for page readiness...');
         const ok = await window.api.evalInProduct(`
           (async () => {
             const h1 = document.querySelector("h1,[itemprop='name']");
