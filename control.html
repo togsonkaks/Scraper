@@ -124,46 +124,52 @@
     
     .mobile-container {
       border: 1px solid #ddd; border-radius: 12px; background: #f8f9fa;
-      padding: 12px; margin-top: 12px; max-height: 600px; overflow-y: auto;
-      transition: width 0.3s ease;
+      padding: 12px; margin-top: 12px; height: 450px; overflow-y: auto;
+      transition: width 0.3s ease; scroll-behavior: smooth;
     }
     .mobile-container.iphone { width: 375px; max-width: 100%; }
     .mobile-container.ipad { width: 768px; max-width: 100%; }
     
     .mobile-content {
       background: white; border-radius: 8px; padding: 12px;
-      min-height: 400px; position: relative;
+      min-height: 420px; position: relative;
     }
     
     .mobile-grid {
-      display: grid; gap: 10px; grid-template-columns: 1fr 1fr;
+      display: grid; gap: 12px; grid-template-columns: 1fr 1fr;
+      grid-auto-rows: masonry; /* Future masonry support */
     }
     .mobile-container.ipad .mobile-grid {
       grid-template-columns: 1fr 1fr 1fr;
     }
     
-    .image-card {
+    .mobile-image-card {
       background: white; border-radius: 12px; overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      break-inside: avoid; position: relative;
     }
-    .image-card:hover {
-      transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    }
-    
-    .image-card img {
-      width: 100%; height: auto; display: block; border-radius: 12px 12px 0 0;
+    .mobile-image-card:hover {
+      transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
     
-    .image-info {
-      padding: 8px; font-size: 11px; color: #666;
-      border-top: 1px solid #f0f0f0;
+    .mobile-image-card img {
+      width: 100%; height: auto; display: block; 
+      border-radius: 12px; opacity: 0; transition: opacity 0.3s ease;
     }
-    .image-size { font-weight: 500; color: #333; }
-    .image-score { 
-      display: inline-block; background: #e8f4fd; color: #1976d2; 
-      padding: 2px 6px; border-radius: 4px; margin-top: 4px;
+    .mobile-image-card img.loaded {
+      opacity: 1;
     }
+    
+    .quality-badge {
+      position: absolute; top: 6px; right: 6px;
+      padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 500;
+      background: rgba(255,255,255,0.9); color: #333; backdrop-filter: blur(4px);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .quality-high { background: rgba(76,175,80,0.9); color: white; }
+    .quality-medium { background: rgba(255,193,7,0.9); color: white; }
+    .quality-low { background: rgba(158,158,158,0.9); color: white; }
   </style>
 </head>
 <body>
@@ -1518,34 +1524,91 @@
         }
       });
     })();
-    // Mobile Preview Functions
+    // Mobile Preview Functions with Smart Quality Scoring
     function updateMobilePreview(imageUrls) {
       const mobileGrid = document.getElementById("mobileGrid");
       const imageCount = document.getElementById("imageCount");
       
       if (!imageUrls || imageUrls.length === 0) {
-        mobileGrid.innerHTML = '<div style="text-align:center;color:#666;padding:20px;">No images to preview</div>';
+        mobileGrid.innerHTML = '<div style="text-align:center;color:#666;padding:40px;">No images to preview</div>';
         imageCount.textContent = "0 images";
         return;
       }
       
-      // Filter images for mobile preview
-      const filteredImages = imageUrls.filter(url => {
-        const urlLower = url.toLowerCase();
-        const bannersKeywords = ["banner", "hero", "promo", "ad", "advertisement"];
-        return !bannersKeywords.some(keyword => urlLower.includes(keyword));
-      }).slice(0, 20);
+      // Score and sort all images (keep all, just reorder)
+      const scoredImages = imageUrls.map(url => ({
+        url: url,
+        score: calculateImageQualityScore(url),
+        quality: getQualityLabel(calculateImageQualityScore(url))
+      })).sort((a, b) => b.score - a.score); // Best first
       
-      // Create Pinterest-style grid
-      mobileGrid.innerHTML = filteredImages.map(url => `
-        <div class="mobile-image-card" onclick="openImageOverlay('${url}')">
-          <img src="${url}" referrerpolicy="no-referrer" 
-               onerror="this.parentElement.style.display='none'" 
-               onload="this.style.opacity='1'">
+      // Create Pinterest-style masonry grid
+      mobileGrid.innerHTML = scoredImages.map((item, index) => `
+        <div class="mobile-image-card" onclick="openImageOverlay('${item.url}')" data-index="${index}">
+          <div class="quality-badge quality-${item.quality}">${item.quality.toUpperCase()}</div>
+          <img src="${item.url}" referrerpolicy="no-referrer" 
+               onerror="this.parentElement.style.display='none'"
+               onload="this.classList.add('loaded')">
         </div>
       `).join("");
       
-      imageCount.textContent = `${filteredImages.length} images`;
+      imageCount.textContent = `${imageUrls.length} images`;
+      
+      // Scroll to top when updating
+      const mobileContainer = document.getElementById('mobileContainer');
+      if (mobileContainer) mobileContainer.scrollTop = 0;
+    }
+    
+    // Image Quality Scoring Algorithm  
+    function calculateImageQualityScore(url) {
+      let score = 50; // Base score
+      const urlLower = url.toLowerCase();
+      
+      // URL keyword analysis
+      const productKeywords = ['product', 'gallery', 'zoom', 'large', 'detail', 'main', 'primary'];
+      const bannerKeywords = ['banner', 'hero', 'promo', 'ad', 'advertisement', 'header', 'logo'];
+      
+      productKeywords.forEach(keyword => {
+        if (urlLower.includes(keyword)) score += 15;
+      });
+      
+      bannerKeywords.forEach(keyword => {
+        if (urlLower.includes(keyword)) score -= 25;
+      });
+      
+      // Size estimation from URL patterns (common CDN patterns)
+      const sizeMatch = url.match(/[\/_](\d{3,4})[x\/_]?(\d{3,4})?/);
+      if (sizeMatch) {
+        const width = parseInt(sizeMatch[1]);
+        const height = parseInt(sizeMatch[2]) || width;
+        
+        // Size scoring
+        if (width >= 400 && height >= 400) score += 20;
+        else if (width >= 300 || height >= 300) score += 10;
+        else if (width < 200 && height < 200) score -= 15;
+        
+        // Aspect ratio scoring  
+        const aspectRatio = width / height;
+        if (aspectRatio >= 0.8 && aspectRatio <= 1.25) {
+          score += 20; // Square/near-square (ideal product shots)
+        } else if (aspectRatio >= 2.0) {
+          score -= 30; // Wide banners
+        } else if (aspectRatio >= 3.0) {
+          score -= 50; // Very wide banners
+        }
+      }
+      
+      // File type preferences
+      if (urlLower.includes('.webp') || urlLower.includes('.jpg')) score += 5;
+      if (urlLower.includes('.gif')) score -= 10; // Often low quality
+      
+      return Math.max(0, Math.min(100, score)); // Clamp 0-100
+    }
+    
+    function getQualityLabel(score) {
+      if (score >= 70) return 'high';
+      if (score >= 40) return 'medium'; 
+      return 'low';
     }
     
     // Device toggle functionality
