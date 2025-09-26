@@ -410,6 +410,7 @@
     let currentHost = null;
     let lastSelectorsUsed = null;
     let lastPayload = null;
+    let currentUrl = ''; // Fixed: moved from line 808 to prevent initialization error
 
     function normalizeSelectorInfo(selectorInfo) {
       if (!selectorInfo) return null;
