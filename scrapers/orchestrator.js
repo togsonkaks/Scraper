@@ -1070,7 +1070,7 @@
     const enriched = urls.map((url, index) => ({ url, element: null, index }));
     return await hybridUniqueImages(enriched);
   }
-  async function gatherImagesBySelector(sel) {
+  async function gatherImagesBySelector(sel, observeMs = 0) {
     debug('🔍 GATHERING IMAGES with selector:', sel);
     
     const elements = qa(sel);
@@ -1264,10 +1264,89 @@
     }
     
     debug(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
-    const filtered = await hybridUniqueImages(enrichedUrls);
-    debug(`🖼️ After hybrid filtering: ${filtered.length} images`);
+    const immediateImages = await hybridUniqueImages(enrichedUrls);
+    debug(`🖼️ After hybrid filtering: ${immediateImages.length} immediate images`);
     
-    return filtered;
+    // Phase 2: Lazy Loading (optional)
+    if (observeMs > 0) {
+      debug(`⏳ LAZY LOADING: Observing for ${observeMs}ms for additional images...`);
+      
+      // Track new images that appear
+      const lazyImages = [];
+      
+      // Set up lightweight MutationObserver  
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+          // Check for new img elements
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              // Direct img element
+              if (node.tagName === 'IMG') {
+                const imgUrl = node.src || node.getAttribute('data-src');
+                if (imgUrl && !lazyImages.includes(imgUrl)) {
+                  debug(`🔍 LAZY: New img element found: ${imgUrl.slice(0, 80)}`);
+                  lazyImages.push(imgUrl);
+                }
+              }
+              // img elements within added nodes
+              const imgs = node.querySelectorAll ? node.querySelectorAll('img') : [];
+              imgs.forEach(img => {
+                const imgUrl = img.src || img.getAttribute('data-src');
+                if (imgUrl && !lazyImages.includes(imgUrl)) {
+                  debug(`🔍 LAZY: New nested img found: ${imgUrl.slice(0, 80)}`);
+                  lazyImages.push(imgUrl);
+                }
+              });
+            }
+          });
+          
+          // Check for src changes on existing images
+          if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+            const imgUrl = mutation.target.src;
+            if (imgUrl && !lazyImages.includes(imgUrl)) {
+              debug(`🔍 LAZY: Src change detected: ${imgUrl.slice(0, 80)}`);
+              lazyImages.push(imgUrl);
+            }
+          }
+        });
+      });
+      
+      // Observe the document for changes
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['src', 'data-src']
+      });
+      
+      // Wait for the specified time
+      await new Promise(resolve => setTimeout(resolve, observeMs));
+      
+      // Stop observing
+      observer.disconnect();
+      
+      if (lazyImages.length > 0) {
+        debug(`🎯 LAZY LOADING: Found ${lazyImages.length} additional images`);
+        
+        // Convert lazy images to enriched format
+        const lazyEnriched = lazyImages.map((url, index) => ({
+          url: upgradeCDNUrl(url),
+          element: null,
+          index: immediateImages.length + index
+        }));
+        
+        // Filter lazy images and combine with immediate images
+        const filteredLazy = await hybridUniqueImages(lazyEnriched);
+        const combinedImages = immediateImages.concat(filteredLazy);
+        debug(`🚀 LAZY LOADING COMPLETE: ${immediateImages.length} immediate + ${filteredLazy.length} lazy = ${combinedImages.length} total`);
+        
+        return combinedImages;
+      } else {
+        debug(`📭 LAZY LOADING: No additional images found during observation`);
+      }
+    }
+    
+    return immediateImages;
   }
 
   /* ---------- MEMORY RESOLUTION ---------- */
