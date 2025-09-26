@@ -1,0 +1,60 @@
+Because your pipeline never **short-circuits** on empty input.
+You’re still calling the filtering/scoring stages with `[]`, so they dutifully run and log:
+
+* `LEGACY FILTERING IMAGES … inputCount: 0`
+* `HYBRID FILTERING UNIQUE … inputCount: 0`
+* `TOP SCORED IMAGES: []`
+* …
+
+Nothing is “wrong” with those functions; you’re just invoking them when there’s nothing to process.
+
+## Fix (do this in one place)
+
+Add a single guard right after collection (custom + generic discovery) **before** you call any “filter/score” functions.
+
+```js
+// after you build `candidates` (array of raw URLs/objects)
+if (!candidates || candidates.length === 0) {
+  dbg('PIPELINE', 'No candidates ⇒ skipping filter/score & returning early');
+  return {
+    title, price, url: location.href,
+    images: [],
+    __imagesDetailed: [],
+    __debugLog: logs
+  };
+}
+```
+
+Put the guard in the main orchestrator just once—e.g., right after `discover()` (or after the combined “custom OR generic” collection step). That stops all the empty-stage logs you highlighted.
+
+## Optional (belt-and-suspenders)
+
+If you want every stage to be safe on its own, add tiny early-exit checks inside each:
+
+```js
+function legacyFilter(arr){ if (!arr?.length) { dbg('LEGACY','skip (empty)'); return []; } /* ... */ }
+function hybridUnique(arr){ if (!arr?.length) { dbg('HYBRID','skip (empty)'); return []; } /* ... */ }
+function scoreRank(arr){ if (!arr?.length) { dbg('SCORE','skip (empty)'); return []; } /* ... */ }
+```
+
+## Order tweak (prevents wasted work)
+
+Make sure the order is:
+
+1. **Collect custom**
+2. If `< minNeeded`, **collect generic**
+3. **Merge candidates**
+4. **EARLY RETURN if 0** ← (new guard)
+5. Normalize → Group → Filter → Score
+
+Right now your logs show “Custom insufficient, getting generic images…”, but you still enter the filter/score blocks with 0 before you fetch generic. Move the fallback **before** filtering, or do the early-return right after the combined collection.
+
+## Debug output (cleaner)
+
+Replace those blue blocks with one clear line when empty:
+
+```
+[3:30:54 AM] 🧪 PIPELINE: 0 candidates → skipped filter/score
+```
+
+That’s it. One short-circuit in the orchestrator stops the “processing 0” noise and saves time.

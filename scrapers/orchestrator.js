@@ -1940,23 +1940,39 @@
             }
           }
           
-          // If we have custom images, use them (custom overrides memory)
-          if (customImages.length > 0) {
-            debug('🎯 USING CUSTOM IMAGES (overriding memory)');
-            images = (await uniqueImages(customImages)).slice(0, 30);
-          } else {
-            // Merge and dedupe memory + custom
-            let combinedImages = await uniqueImages(memoryImages.concat(customImages));
+          // EARLY EXIT: Check if we have any candidates before processing
+          const totalCandidates = memoryImages.length + customImages.length;
+          if (totalCandidates === 0) {
+            debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+            const genericImages = await getImagesGeneric();
+            debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
             
-            // Fall back to generic only if still insufficient
-            if (combinedImages.length < 3) {
-              debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
-              const genericImages = await getImagesGeneric();
-              debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-              combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+            // Final check: if still no candidates after generic, exit early
+            if (genericImages.length === 0) {
+              dbg('🚫 PIPELINE: No candidates → skipping filter/score & returning early');
+              images = [];
+            } else {
+              images = (await uniqueImages(genericImages)).slice(0, 30);
             }
-          
-            images = combinedImages.slice(0, 30);
+          } else {
+            // If we have custom images, use them (custom overrides memory)
+            if (customImages.length > 0) {
+              debug('🎯 USING CUSTOM IMAGES (overriding memory)');
+              images = (await uniqueImages(customImages)).slice(0, 30);
+            } else {
+              // Merge and dedupe memory + custom
+              let combinedImages = await uniqueImages(memoryImages.concat(customImages));
+              
+              // Fall back to generic only if still insufficient
+              if (combinedImages.length < 3) {
+                debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+                const genericImages = await getImagesGeneric();
+                debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+                combinedImages = await uniqueImages(combinedImages.concat(genericImages));
+              }
+            
+              images = combinedImages.slice(0, 30);
+            }
           }
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
           
