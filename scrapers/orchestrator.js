@@ -1155,6 +1155,54 @@
       }
     }
     
+    // Pixel-count competition: Within similar images, boost the one with highest pixel count
+    function getPixelCount(url) {
+      const dimensionalPatterns = [
+        /s(\d+)x(\d+)/i,              // Barnes & Noble: s1200x630
+        /(\d+)x(\d+)(?:_|\.|$)/i,     // Generic: 1200x630
+        /w(\d+)_h(\d+)/i              // Some CDNs: w1200_h630
+      ];
+      
+      for (const pattern of dimensionalPatterns) {
+        const match = url.match(pattern);
+        if (match) {
+          const width = parseInt(match[1]);
+          const height = parseInt(match[2]);
+          return width * height;
+        }
+      }
+      return 0;
+    }
+    
+    function getBaseImageUrl(url) {
+      // Strip dimensional patterns to group similar images
+      return url
+        .replace(/s(\d+)x(\d+)/g, '')
+        .replace(/(\d+)x(\d+)(?:_|\.|$)/g, '')
+        .replace(/w(\d+)_h(\d+)/g, '');
+    }
+    
+    // Group similar images and boost winner in each group
+    const imageGroups = new Map();
+    sizeFilteredImages.forEach(img => {
+      const baseUrl = getBaseImageUrl(img.url);
+      if (!imageGroups.has(baseUrl)) {
+        imageGroups.set(baseUrl, []);
+      }
+      imageGroups.get(baseUrl).push(img);
+    });
+    
+    // Apply pixel-count bonuses within each group
+    imageGroups.forEach(group => {
+      if (group.length > 1) {
+        const winner = group.reduce((max, img) => 
+          getPixelCount(img.url) > getPixelCount(max.url) ? img : max
+        );
+        winner.score += 25; // +25 bonus for highest pixel count in group
+        debug(`🏆 PIXEL WINNER: ${winner.url.substring(winner.url.lastIndexOf('/') + 1)} (+25 bonus, score now ${winner.score})`);
+      }
+    });
+    
     // Sort by score (highest first), then by size estimate, then by DOM order for ties
     sizeFilteredImages.sort((a, b) => {
       // Primary sort: Score (highest first)
