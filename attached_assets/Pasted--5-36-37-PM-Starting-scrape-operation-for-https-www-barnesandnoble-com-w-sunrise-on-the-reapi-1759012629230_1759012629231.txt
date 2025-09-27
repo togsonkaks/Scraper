@@ -1,0 +1,295 @@
+[5:36:37 PM] 🚀 Starting scrape operation for: https://www.barnesandnoble.com/w/sunrise-on-the-reaping-suzanne-collins/1145703863?ean=9781546171461
+[5:36:39 PM] 🚀 SCRAPE START {"host":"barnesandnoble.com","href":"https://www.barnesandnoble.com/w/sunrise-on-the-reaping-suzanne-collins/1145703863?ean=9781546171461","mode":"normal"}
+[5:36:39 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[5:36:39 PM] 🔄 NORMAL MODE - memory + fallbacks
+[5:36:39 PM] 🧩 TITLE: Trying custom handler...
+[5:36:39 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[5:36:39 PM] 📝 TITLE: Falling back to generic...
+[5:36:39 PM] 📝 TITLE FROM GENERIC: Sunrise on the Reaping (A Hunger Games Novel)
+[5:36:39 PM] 🏷️ BRAND: Falling back to generic...
+[5:36:39 PM] 🏷️ BRAND FROM GENERIC: Sunrise
+[5:36:39 PM] 📄 DESCRIPTION: Falling back to generic...
+[5:36:39 PM] 📄 DESCRIPTION FROM GENERIC: The unforgettable fifth book in the Hunger Games series: Haymitch’s story. Feature film scheduled for November 2026. #1 USA Today
+[5:36:39 PM] 🧩 PRICE: Trying custom handler...
+[5:36:39 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[5:36:39 PM] 💰 PRICE: Falling back to generic...
+[5:36:39 PM] 🎯 REFINING PRICE: {"baseVal":null,"fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[5:36:39 PM] Price element <SPAN>
+[5:36:39 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[5:36:39 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[5:36:39 PM] 📍 ANCESTOR 0: <SPAN>
+[5:36:39 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"22.39","cleaned":"22.39","reconstructed":"22.39"}
+[5:36:39 PM] 💰 ANCESTOR 0 SMART PRICE: null from tokens: []
+[5:36:39 PM] 📍 ANCESTOR 1: <DIV>
+[5:36:39 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"22.39\nIn Stock","cleaned":"22.39\nIn Stock","reconstructed":"22.39\nIn Stock"}
+[5:36:39 PM] 💰 ANCESTOR 1 SMART PRICE: null from tokens: []
+[5:36:39 PM] 📍 ANCESTOR 2: <DIV>
+[5:36:39 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Sunrise on the Reaping (A Hunger Games Novel)\nThe unforgettable fifth book in the Hunger Games serie","cleaned":"Sunrise on the Reaping (A Hunger Games Novel)\nThe unforgettable fifth bo
+[5:36:39 PM] 💰 ANCESTOR 2 SMART PRICE: null from tokens: []
+[5:36:39 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":null,"originalBase":null}
+[5:36:39 PM] 🔍 PRICE PARSING: {"input":"$22.39","inputType":"string","inputLength":6}
+[5:36:39 PM] 🧹 CLEANED INPUT: {"original":"$22.39","cleaned":"$22.39"}
+[5:36:39 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$22.39","reconstructed":"$22.39"}
+[5:36:39 PM] 💰 MONETARY TOKENS: [22.39]
+[5:36:39 PM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[22.39],"integerTokens":[],"preferDecimals":true}
+[5:36:39 PM] ✅ PRICE FROM MONETARY: {"result":22.39,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[22.39]}
+[5:36:39 PM] 🎯 REFINING PRICE: {"baseVal":"22.39","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[5:36:39 PM] Price element <SPAN#pdp-cur-price.price>
+[5:36:39 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[5:36:39 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[5:36:39 PM] 📍 ANCESTOR 0: <SPAN#pdp-cur-price.price>
+[5:36:39 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$22.39","cleaned":"$22.39","reconstructed":"$22.39"}
+[5:36:39 PM] 💰 ANCESTOR 0 SMART PRICE: 22.39 from tokens: [22.39]
+[5:36:39 PM] 📍 ANCESTOR 1: <DIV.price-current-old-details>
+[5:36:39 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$22.39 \n$27.99\nSave 20%\nCurrent price is $22.39, Original price is $27.99. You Save 20%.","cleaned":"$22.39 \n$27.99\nSave 20%\nCurrent price is $22.39, You Save 20%.","reconstructed"
+[5:36:39 PM] 💰 ANCESTOR 1 SMART PRICE: 22.39 from tokens: [22.39,27.99,22.39]
+[5:36:39 PM] 📍 ANCESTOR 2: <DIV.d-sm-none>
+[5:36:39 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"$22.39 \n$27.99\nSave 20%\nCurrent price is $22.39, Original price is $27.99. You Save 20%.","cleaned":"$22.39 \n$27.99\nSave 20%\nCurrent price is $22.39, You Save 20%.","reconstructed"
+[5:36:39 PM] 💰 ANCESTOR 2 SMART PRICE: 22.39 from tokens: [22.39,27.99,22.39]
+[5:36:39 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"22.39","originalBase":"22.39"}
+[5:36:39 PM] 💰 PRICE FROM GENERIC: 22.39
+[5:36:39 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[5:36:39 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[5:36:39 PM] 🧩 IMAGES: Trying custom handler...
+[5:36:39 PM] 🧩 CUSTOM IMAGES: {"count":0,"images":[]}
+[5:36:39 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[5:36:39 PM] 🖼️ Getting generic images for hostname: barnesandnoble.com
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":10}
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/books/topnav-promopod-images/2025/1122_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/books/topnav-promopod-images/2025/1136_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/books/topnav-promopod-images/2025/1125_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/nook/topnav-promopod-images/2025/1451_F
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/audiobooks/TopNavPromoPod/2025/1135_Fly
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/teens/topnav-promopod-images/2025/1020_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/kids/topnav-promopod-images/2025/1019_F
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/toysandgames/topnav-promopod-images/202
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/homeandgifts/topnav-promopod-images/202
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/moviesandtv/topnav-promopod-images/2025
+0
+📋 Copy URL
+[5:36:39 PM] 🏆 TOP SCORED IMAGES: []
+[5:36:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":10,"smallFile":0,"duplicateGroups":0,"kept":0}
+[5:36:39 PM] 🖼️ FINAL IMAGES: []
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.rhf_carousel_flyout_promo>
+[5:36:39 PM] Image element <IMG.globalNavBannerImg>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG#pdpMainImage.full-shadow>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.Resolve>
+[5:36:39 PM] Image element <IMG.privacy-opt-out-img>
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG>
+[5:36:39 PM] Image element <IMG.pdpZoomerImage-marginbtm>
+[5:36:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":40}
+[5:36:39 PM] ❌ NOT IMAGE URL: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5OTk5OX
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/books/topnav-promopod-images/2025/1122_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/books/topnav-promopod-images/2025/1136_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/books/topnav-promopod-images/2025/1125_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/nook/topnav-promopod-images/2025/1451_F
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/audiobooks/TopNavPromoPod/2025/1135_Fly
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/teens/topnav-promopod-images/2025/1020_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/kids/topnav-promopod-images/2025/1019_F
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/toysandgames/topnav-promopod-images/202
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/homeandgifts/topnav-promopod-images/202
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/bnstores/moviesandtv/topnav-promopod-images/2025
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/global/global-nav-banner/2025/09/1296_GlobalNav_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/global/global-nav-banner/2025/09/1296_GlobalNav_
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/global/global-nav-banner/2025/09/1296_GlobalNav_
+0
+📋 Copy URL
+[5:36:39 PM] ❌ NOT IMAGE URL: https://prodimage.images-bn.com/pimages/9780439023528_p0_v2_s192x300jpg
+0
+📋 Copy URL
+[5:36:39 PM] ❌ NOT IMAGE URL: https://prodimage.images-bn.com/pimages/9781339030609_p0_v6_s192x300jpg
+0
+📋 Copy URL
+[5:36:39 PM] ❌ NOT IMAGE URL: https://prodimage.images-bn.com/pimages/9781546171867_p0_v5_s192x300jpg
+0
+📋 Copy URL
+[5:36:39 PM] ❌ NOT IMAGE URL: https://prodimage.images-bn.com/pimages/9780545586177_p0_v2_s192x300jpg
+0
+📋 Copy URL
+[5:36:39 PM] ❌ NOT IMAGE URL: https://prodimage.images-bn.com/pimages/9781546159544_p0_v5_s192x300jpg
+0
+📋 Copy URL
+[5:36:39 PM] ❌ NOT IMAGE URL: https://prodimage.images-bn.com/pimages/9781546171874_p0_v5_s192x300jpg
+0
+📋 Copy URL
+[5:36:39 PM] 📉 LOW SCORE REJECTED (0): https://dispatch.barnesandnoble.com/content/dam/ccr/global/footer/opt-out.png
+0
+📋 Copy URL
+[5:36:39 PM] 🗑️ JUNK IMAGE: https://cdn.cookielaw.org/logos/33d35526-57b1-44a6-8f05-42d47c05fc99/7e7be525-57
+0
+📋 Copy URL
+[5:36:39 PM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+0
+📋 Copy URL
+[5:36:39 PM] ✅ BEST OF 15 (score: 90): https://img.images-bn.com/static/redesign/srcs/images/grey-box.png?v12.13.5
+90
+📋 Copy URL
+[5:36:39 PM] 🔄 DUPLICATE GROUP: 14 lower-scored versions rejected
+90
+📋 Copy URL
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 70): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s600x595.jpg
+70
+📋 Copy URL
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 90): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg
+90
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (90): https://img.images-bn.com/static/redesign/srcs/images/grey-box.png?v12.13.5
+90
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (70): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s600x595.jpg
+70
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (90): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg
+90
+📋 Copy URL
+[5:36:39 PM] 🏆 TOP SCORED IMAGES: ["9781546171461_p0_v5_s1200x1200.jpg (score: 90)","grey-box.png?v12.13.5 (score: 90)","9781546171461_p0_v5_s600x595.jpg (score: 70)"]
+[5:36:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":8,"junk":1,"lowScore":14,"smallFile":0,"duplicateGroups":1,"kept":3}
+[5:36:39 PM] 🖼️ FINAL IMAGES: ["https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg","https://img.images-bn.com/static/redesign/srcs/images/grey-box.png?v12.13.5","https://prodimage.images-bn.com/pimages/978
+[5:36:39 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":4}
+[5:36:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":4}
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 120): http://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x630.jpg
+120
+📋 Copy URL
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 110): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg
+110
+📋 Copy URL
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 95): https://img.images-bn.com/static/redesign/srcs/images/grey-box.png?v12.13.5
+95
+📋 Copy URL
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 70): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s600x595.jpg
+70
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (120): http://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x630.jpg
+120
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (110): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg
+110
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (95): https://img.images-bn.com/static/redesign/srcs/images/grey-box.png?v12.13.5
+95
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (70): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s600x595.jpg
+70
+📋 Copy URL
+[5:36:39 PM] 🏆 TOP SCORED IMAGES: ["9781546171461_p0_v5_s1200x630.jpg (score: 120)","9781546171461_p0_v5_s1200x1200.jpg (score: 110)","grey-box.png?v12.13.5 (score: 95)","9781546171461_p0_v5_s600x595.jpg (score: 70)"]
+[5:36:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":4}
+[5:36:39 PM] 🖼️ FINAL IMAGES: ["http://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x630.jpg","https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg","https://img.images-bn.com/static/redesign/srcs
+[5:36:39 PM] 🖼️ GENERIC IMAGES: {"count":4,"images":["http://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x630.jpg","https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg","https://img.images-bn.com/
+[5:36:39 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":4}
+[5:36:39 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":4}
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 120): http://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x630.jpg
+120
+📋 Copy URL
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 110): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg
+110
+📋 Copy URL
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 95): https://img.images-bn.com/static/redesign/srcs/images/grey-box.png?v12.13.5
+95
+📋 Copy URL
+[5:36:39 PM] ✅ SINGLE IMAGE (score: 70): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s600x595.jpg
+70
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (120): http://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x630.jpg
+120
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (110): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg
+110
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (95): https://img.images-bn.com/static/redesign/srcs/images/grey-box.png?v12.13.5
+95
+📋 Copy URL
+[5:36:39 PM] 🎯 HIGH SCORE + SIZE OK (70): https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s600x595.jpg
+70
+📋 Copy URL
+[5:36:39 PM] 🏆 TOP SCORED IMAGES: ["9781546171461_p0_v5_s1200x630.jpg (score: 120)","9781546171461_p0_v5_s1200x1200.jpg (score: 110)","grey-box.png?v12.13.5 (score: 95)","9781546171461_p0_v5_s600x595.jpg (score: 70)"]
+[5:36:39 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":4}
+[5:36:39 PM] 🖼️ FINAL IMAGES: ["http://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x630.jpg","https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg","https://img.images-bn.com/static/redesign/srcs
+[5:36:39 PM] 🖼️ FINAL IMAGES: {"count":4,"images":["http://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x630.jpg","https://prodimage.images-bn.com/pimages/9781546171461_p0_v5_s1200x1200.jpg","https://img.images-bn.com/
+[5:36:39 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Sunrise on the Reaping (A Hunger Games Novel)","brand":"Sunrise","description":"The unforgettable fifth book in the Hunger Games s","price":"22.39","imageCount":4,"firstImages":["http://prod
+[5:36:39 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":4}
+[5:36:39 PM] ✅ Debug trace complete
