@@ -801,8 +801,9 @@
     
     // Aggressive semantic penalties for navigation/UI elements
     if (/\b(womens?-clothing|mens?-clothing|best-sellers?|new-arrivals?|accessories|shop-by|featured-edit|wellness|searchburger)\b/i.test(url)) score -= 70;
-    if (/\b(banner|logo|bg|background|header|footer|nav|navigation|menu)\b/i.test(url)) score -= 50;
-    if (/\b(ad|advertisement|promo|campaign|marketing|sidebar|bullet-point)\b/i.test(url)) score -= 60;
+    
+    // Unified promotional content penalty - eliminates promotional images
+    if (/\b(promo|banner|hero|ad|advertisement|flyout|logo|bg|background|header|footer|nav|navigation|menu|campaign|marketing|sidebar|bullet-point)\b/i.test(url)) score -= 200;
     if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;
     if (/\b(warranty|insurance|coverage|support|claim)\b/i.test(url)) score -= 55;
     

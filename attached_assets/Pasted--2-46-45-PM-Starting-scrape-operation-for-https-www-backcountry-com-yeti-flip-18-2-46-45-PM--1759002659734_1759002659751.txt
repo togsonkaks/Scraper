@@ -1,0 +1,1225 @@
+[2:46:45 PM] 🚀 Starting scrape operation for: https://www.backcountry.com/yeti-flip-18
+[2:46:45 PM] 🚀 SCRAPE START {"host":"backcountry.com","href":"https://www.backcountry.com/yeti-flip-18","mode":"normal"}
+[2:46:45 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[2:46:45 PM] 🔄 NORMAL MODE - memory + fallbacks
+[2:46:45 PM] 🧩 TITLE: Trying custom handler...
+[2:46:45 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[2:46:45 PM] 📝 TITLE: Falling back to generic...
+[2:46:45 PM] 📝 TITLE FROM GENERIC: YETI Hopper Flip 18 Soft Cooler
+[2:46:45 PM] 🏷️ BRAND: Falling back to generic...
+[2:46:45 PM] 🏷️ BRAND FROM GENERIC: YETI
+[2:46:45 PM] 📄 DESCRIPTION: Falling back to generic...
+[2:46:45 PM] 📄 DESCRIPTION FROM GENERIC: Buy the YETI Hopper Flip 18 Soft Cooler online or shop all Hike & Camp from Backcountry.com.
+[2:46:45 PM] 🧩 PRICE: Trying custom handler...
+[2:46:45 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[2:46:45 PM] 💰 PRICE: Falling back to generic...
+[2:46:45 PM] 🔍 PRICE PARSING: {"input":"$300.00","inputType":"string","inputLength":7}
+[2:46:45 PM] 🧹 CLEANED INPUT: {"original":"$300.00","cleaned":"$300.00"}
+[2:46:45 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$300.00","reconstructed":"$300.00"}
+[2:46:45 PM] 💰 MONETARY TOKENS: [300]
+[2:46:45 PM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[300],"preferDecimals":false}
+[2:46:45 PM] ✅ PRICE FROM MONETARY: {"result":300,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[300]}
+[2:46:45 PM] 🎯 REFINING PRICE: {"baseVal":"300","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[2:46:45 PM] Price element <SPAN.chakra-text>
+[2:46:45 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[2:46:45 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[2:46:45 PM] 📍 ANCESTOR 0: <SPAN.chakra-text>
+[2:46:45 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$300.00","cleaned":"$300.00","reconstructed":"$300.00"}
+[2:46:45 PM] 💰 ANCESTOR 0 SMART PRICE: 300 from tokens: [300]
+[2:46:45 PM] 📍 ANCESTOR 1: <DIV.css-0>
+[2:46:45 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$300.00","cleaned":"$300.00","reconstructed":"$300.00"}
+[2:46:45 PM] 💰 ANCESTOR 1 SMART PRICE: 300 from tokens: [300]
+[2:46:45 PM] 📍 ANCESTOR 2: <DIV.css-2imjyh>
+[2:46:45 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"$300.00","cleaned":"$300.00","reconstructed":"$300.00"}
+[2:46:45 PM] 💰 ANCESTOR 2 SMART PRICE: 300 from tokens: [300]
+[2:46:45 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"300","originalBase":"300"}
+[2:46:45 PM] 💰 PRICE FROM GENERIC: 300
+[2:46:45 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[2:46:45 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[2:46:45 PM] 🧩 IMAGES: Trying custom handler...
+[2:46:45 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[2:46:45 PM] 🖼️ Getting generic images for hostname: backcountry.com
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.sezzle-logo>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG.chakra-image>
+[2:46:45 PM] Image element <IMG#batBeacon721672414172>
+[2:46:45 PM] Image element <IMG>
+[2:46:45 PM] Image element <IMG>
+[2:46:45 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":108}
+[2:46:45 PM] 📉 LOW SCORE REJECTED (35): https://content.backcountry.com/images/items/small/YET/YETZ092/BLA.jpg
+35
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (35): https://content.backcountry.com/images/items/small/YET/YETZ092/BLA.jpg
+35
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (35): https://content.backcountry.com/images/items/small/YET/YETZ092/BLAFORGRE.jpg
+35
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (35): https://content.backcountry.com/images/items/small/YET/YETZ092/CHEBLO.jpg
+35
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (0): https://content.backcountry.com/images/items/small/YET/YETZ092/NAV.jpg
+0
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (35): https://content.backcountry.com/images/items/small/YET/YETZ092/WETCAM.jpg
+35
+📋 Copy URL
+[2:46:45 PM] ❌ NOT IMAGE URL: https://media.sezzle.com/branding/2.0/Sezzle_Logo_FullColor.svg
+0
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] 📉 LOW SCORE REJECTED (10): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86YXR0cmlidXRpb25sb2dvMg/d2cfd25b-0d26-49d7-a542-30f
+10
+📋 Copy URL
+[2:46:45 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=5438854&Ver=2&mid=a33be641-cc0a-4bb2-9075-ecec0808a723&bo=1&sid=ac3
+0[IMG ERROR]
+📋 Copy URL
+[2:46:45 PM] 🗑️ JUNK IMAGE: https://cdn.cookielaw.org/logos/78ce4d69-6668-4330-98ea-9f2ae2f26860/d8949ead-23
+0
+📋 Copy URL
+[2:46:45 PM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+0
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 95): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg
+95
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 85): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Womens.jpg
+85
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 85): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0051/Flyout.jpg
+85
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/SkiFlyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/RideFlyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ BEST OF 2 (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0052/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+65
+📋 Copy URL
+[2:46:45 PM] ✅ BEST OF 2 (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0055/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+65
+📋 Copy URL
+[2:46:45 PM] ✅ BEST OF 2 (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0063/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+65
+📋 Copy URL
+[2:46:45 PM] ✅ BEST OF 2 (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0058/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+65
+📋 Copy URL
+[2:46:45 PM] ✅ BEST OF 2 (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0083/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_bike.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_hikecamp.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_travel.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0221/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0379/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0059/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0188/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0160/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0259/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D6.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D5.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D4.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D3.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D2.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D1.jpg
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/36f7dfe5-1909-5f2f-a87f-fc20011b94e5
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/74337aa0-c5d2-5bb7-a85b-d841851c20f0
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/7f2bba82-0ae7-570a-87f5-75752c54a1ea
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/025be9a2-6dd1-50b1-ad2a-2eb91008e1ef
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9447afff-0118-57b3-8a94-a1a558d70486
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/355d629c-34a9-5914-b199-ef5dabe8acaf
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/8cd9890a-303a-51fa-b4db-46a7e4ac822d
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/2eae2cb0-7ef7-5be6-a40c-f6cf3c5964ec
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b904cc53-0681-561c-baf7-4a0849d5ff46
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b2664fa9-a17e-5b3d-a4ee-b52b9c3f04bd
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/e54152d3-3915-59e9-b3db-2dba10cba616
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b936e69c-f954-5da7-af4c-90d2995a6419
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/771ea32e-40e7-56b2-b57a-23b84688cdcc
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/15ac6988-5b47-5b59-ad3d-2014818991d4
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9a039b1d-5f25-53c5-b98f-c865c697e637
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/abc7e8ea-0862-5109-9785-3fbea6a5bbac
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/70ab8343-08f1-5e73-b50a-9d409b4acb21
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/50fead3d-8cde-5609-861a-5c260d9d95ba
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ef0d3d8a-4cf9-5f40-8981-5023a196ee3b
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ef055eb0-d18b-51e4-af1a-c2af21aa2392
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/d287fe08-c0d5-5eaa-86c8-0fa2597ffdce
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/c617f3f6-df2c-5cce-a764-8e65ababad76
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/6bc4d9aa-3093-5221-989d-b26c08c2783c
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/040a8059-786b-50ea-b322-218e4d19d122
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/aec9501f-6b25-5916-b98b-e0fbd73e7684
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/d2c38e76-ac56-5441-a57f-b30ee249c869
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9edc1d30-1d0c-5873-81e4-bd4374bc6e36
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/cb921833-1040-5896-b2a1-bd2540d6d453
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/84851852-147c-502a-850e-991772225978
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/dc517b9b-c94b-5749-af72-b2ab5f0cb776
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/116ed261-9bf7-598e-8197-93e32d23257a
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/535ee866-9cc1-5d7d-b138-37b0fcf5287b
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/a7d7bc43-9ed7-5610-a321-5f48746c8ef1
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/81d1b7ca-cddd-5416-8a39-ab2b5ac25187
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/f28c0056-4d0f-517e-a771-451277061781
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/653b44b5-62ad-5424-89df-54b979532157
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/d604cd13-dbc1-5e53-ae71-395b4f4f99ca
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/6b125bd9-fa05-5d33-803e-b8e05ca843a2
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b0db0d08-a43f-5385-a3cf-7af441013691
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/e0c04ae7-6408-5973-b2b9-31c4ea73e09a
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/7ab26c95-a36c-596d-8dbd-76421ee8fe6b
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ad211b5a-5875-56e1-bbb0-999170485cfc
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/f6c6de99-e558-5685-839c-b8d4aa67e6cb
+65
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/2921165c-8550-5dff-abae-307caca138d1
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b4e240da-b4c8-510e-81f6-2c2108b971f2
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b01e7bee-8478-5fbb-905e-e02b48dc7e6f
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/49652761-a31b-5edb-a161-f43c460ca983
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ef93230b-3725-5696-8799-d1015ed18d1c
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/a7b4f2ff-c820-5be9-9dcf-3f136605cfdf
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/dac3e85a-9574-52c2-8690-d81580fcbecb
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/8331e421-0ed5-5ec4-9a4b-cf8da16d07e4
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/c2911e22-41d4-5d2d-ab30-2850a4fff67a
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/49ed9223-0c4b-56c3-aadb-0c17fffa3a0a
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/1908b195-d6eb-5600-bb9a-6b4a8dd2f762
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/88f00813-3192-5ee5-ac74-09c5d3b46050
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/21fd0d76-3335-55f4-8480-fae5a0b0f88c
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/bb18a406-45d8-5afb-88d2-d8d2ef1644f2
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (95): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg
+95
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (85): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Womens.jpg
+85
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (85): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0051/Flyout.jpg
+85
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/SkiFlyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/RideFlyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0052/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0055/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0063/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0058/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0083/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_bike.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_hikecamp.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_travel.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0221/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0379/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0059/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0188/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0160/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0259/Flyout.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D6.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D5.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D4.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D3.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D2.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D1.jpg
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/36f7dfe5-1909-5f2f-a87f-fc20011b94e5
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/74337aa0-c5d2-5bb7-a85b-d841851c20f0
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/7f2bba82-0ae7-570a-87f5-75752c54a1ea
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/025be9a2-6dd1-50b1-ad2a-2eb91008e1ef
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9447afff-0118-57b3-8a94-a1a558d70486
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/355d629c-34a9-5914-b199-ef5dabe8acaf
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/8cd9890a-303a-51fa-b4db-46a7e4ac822d
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/2eae2cb0-7ef7-5be6-a40c-f6cf3c5964ec
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b904cc53-0681-561c-baf7-4a0849d5ff46
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b2664fa9-a17e-5b3d-a4ee-b52b9c3f04bd
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/e54152d3-3915-59e9-b3db-2dba10cba616
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b936e69c-f954-5da7-af4c-90d2995a6419
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/771ea32e-40e7-56b2-b57a-23b84688cdcc
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/15ac6988-5b47-5b59-ad3d-2014818991d4
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9a039b1d-5f25-53c5-b98f-c865c697e637
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/abc7e8ea-0862-5109-9785-3fbea6a5bbac
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/70ab8343-08f1-5e73-b50a-9d409b4acb21
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/50fead3d-8cde-5609-861a-5c260d9d95ba
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ef0d3d8a-4cf9-5f40-8981-5023a196ee3b
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ef055eb0-d18b-51e4-af1a-c2af21aa2392
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/d287fe08-c0d5-5eaa-86c8-0fa2597ffdce
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/c617f3f6-df2c-5cce-a764-8e65ababad76
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/6bc4d9aa-3093-5221-989d-b26c08c2783c
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/040a8059-786b-50ea-b322-218e4d19d122
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/aec9501f-6b25-5916-b98b-e0fbd73e7684
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/d2c38e76-ac56-5441-a57f-b30ee249c869
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9edc1d30-1d0c-5873-81e4-bd4374bc6e36
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/cb921833-1040-5896-b2a1-bd2540d6d453
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/84851852-147c-502a-850e-991772225978
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/dc517b9b-c94b-5749-af72-b2ab5f0cb776
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/116ed261-9bf7-598e-8197-93e32d23257a
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/535ee866-9cc1-5d7d-b138-37b0fcf5287b
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/a7d7bc43-9ed7-5610-a321-5f48746c8ef1
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/81d1b7ca-cddd-5416-8a39-ab2b5ac25187
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/f28c0056-4d0f-517e-a771-451277061781
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/653b44b5-62ad-5424-89df-54b979532157
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/d604cd13-dbc1-5e53-ae71-395b4f4f99ca
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/6b125bd9-fa05-5d33-803e-b8e05ca843a2
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b0db0d08-a43f-5385-a3cf-7af441013691
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/e0c04ae7-6408-5973-b2b9-31c4ea73e09a
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/7ab26c95-a36c-596d-8dbd-76421ee8fe6b
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ad211b5a-5875-56e1-bbb0-999170485cfc
+65
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (65): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/f6c6de99-e558-5685-839c-b8d4aa67e6cb
+65
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/2921165c-8550-5dff-abae-307caca138d1
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b4e240da-b4c8-510e-81f6-2c2108b971f2
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b01e7bee-8478-5fbb-905e-e02b48dc7e6f
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/49652761-a31b-5edb-a161-f43c460ca983
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ef93230b-3725-5696-8799-d1015ed18d1c
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/a7b4f2ff-c820-5be9-9dcf-3f136605cfdf
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/dac3e85a-9574-52c2-8690-d81580fcbecb
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/8331e421-0ed5-5ec4-9a4b-cf8da16d07e4
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/c2911e22-41d4-5d2d-ab30-2850a4fff67a
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/49ed9223-0c4b-56c3-aadb-0c17fffa3a0a
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/1908b195-d6eb-5600-bb9a-6b4a8dd2f762
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/88f00813-3192-5ee5-ac74-09c5d3b46050
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/21fd0d76-3335-55f4-8480-fae5a0b0f88c
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/bb18a406-45d8-5afb-88d2-d8d2ef1644f2
+50
+📋 Copy URL
+[2:46:45 PM] 🏆 TOP SCORED IMAGES: ["Flyout_Mens.jpg (score: 95)","Flyout_Womens.jpg (score: 85)","Flyout.jpg (score: 85)","SkiFlyout.jpg (score: 65)","RideFlyout.jpg (score: 65)"]
+[2:46:45 PM] ⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by DOM order
+[2:46:45 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":1,"lowScore":16,"smallFile":0,"duplicateGroups":5,"kept":83}
+[2:46:45 PM] 🖼️ FINAL IMAGES: ["https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg","https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Womens.jp","https://content.backcountry.com/p
+[2:46:45 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":51}
+[2:46:45 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":51}
+[2:46:45 PM] ✅ BEST OF 2 (score: 80): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg
+80
+📋 Copy URL
+[2:46:45 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+80
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 70): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg
+70
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 70): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Womens.jpg
+70
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0051/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/SkiFlyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/RideFlyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0052/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0055/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0063/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0058/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0083/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_bike.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_hikecamp.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_travel.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0221/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0379/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0059/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0188/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0160/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0259/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D6.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D5.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D4.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D3.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D2.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D1.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/74337aa0-c5d2-5bb7-a85b-d841851c20f0
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/7f2bba82-0ae7-570a-87f5-75752c54a1ea
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/025be9a2-6dd1-50b1-ad2a-2eb91008e1ef
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b2664fa9-a17e-5b3d-a4ee-b52b9c3f04bd
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/e54152d3-3915-59e9-b3db-2dba10cba616
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b936e69c-f954-5da7-af4c-90d2995a6419
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/771ea32e-40e7-56b2-b57a-23b84688cdcc
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/15ac6988-5b47-5b59-ad3d-2014818991d4
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9a039b1d-5f25-53c5-b98f-c865c697e637
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/abc7e8ea-0862-5109-9785-3fbea6a5bbac
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/50fead3d-8cde-5609-861a-5c260d9d95ba
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/d287fe08-c0d5-5eaa-86c8-0fa2597ffdce
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/c617f3f6-df2c-5cce-a764-8e65ababad76
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/84851852-147c-502a-850e-991772225978
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/535ee866-9cc1-5d7d-b138-37b0fcf5287b
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b0db0d08-a43f-5385-a3cf-7af441013691
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ad211b5a-5875-56e1-bbb0-999170485cfc
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/f6c6de99-e558-5685-839c-b8d4aa67e6cb
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/36f7dfe5-1909-5f2f-a87f-fc20011b94e5
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9447afff-0118-57b3-8a94-a1a558d70486
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/355d629c-34a9-5914-b199-ef5dabe8acaf
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/8cd9890a-303a-51fa-b4db-46a7e4ac822d
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/2eae2cb0-7ef7-5be6-a40c-f6cf3c5964ec
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b904cc53-0681-561c-baf7-4a0849d5ff46
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (80): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg
+80
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (70): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg
+70
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (70): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Womens.jpg
+70
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0051/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/SkiFlyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/RideFlyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0052/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0055/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0063/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0058/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0083/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_bike.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_hikecamp.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_travel.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0221/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0379/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0059/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0188/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0160/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0259/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D6.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D5.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D4.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D3.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D2.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D1.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/74337aa0-c5d2-5bb7-a85b-d841851c20f0
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/7f2bba82-0ae7-570a-87f5-75752c54a1ea
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/025be9a2-6dd1-50b1-ad2a-2eb91008e1ef
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b2664fa9-a17e-5b3d-a4ee-b52b9c3f04bd
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/e54152d3-3915-59e9-b3db-2dba10cba616
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b936e69c-f954-5da7-af4c-90d2995a6419
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/771ea32e-40e7-56b2-b57a-23b84688cdcc
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/15ac6988-5b47-5b59-ad3d-2014818991d4
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9a039b1d-5f25-53c5-b98f-c865c697e637
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/abc7e8ea-0862-5109-9785-3fbea6a5bbac
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/50fead3d-8cde-5609-861a-5c260d9d95ba
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/d287fe08-c0d5-5eaa-86c8-0fa2597ffdce
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/c617f3f6-df2c-5cce-a764-8e65ababad76
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/84851852-147c-502a-850e-991772225978
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/535ee866-9cc1-5d7d-b138-37b0fcf5287b
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b0db0d08-a43f-5385-a3cf-7af441013691
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/ad211b5a-5875-56e1-bbb0-999170485cfc
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/f6c6de99-e558-5685-839c-b8d4aa67e6cb
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/36f7dfe5-1909-5f2f-a87f-fc20011b94e5
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/9447afff-0118-57b3-8a94-a1a558d70486
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/355d629c-34a9-5914-b199-ef5dabe8acaf
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/8cd9890a-303a-51fa-b4db-46a7e4ac822d
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/2eae2cb0-7ef7-5be6-a40c-f6cf3c5964ec
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b904cc53-0681-561c-baf7-4a0849d5ff46
+50
+📋 Copy URL
+[2:46:45 PM] 🏆 TOP SCORED IMAGES: ["BLA.jpg (score: 80)","Flyout_Mens.jpg (score: 70)","Flyout_Womens.jpg (score: 70)","Flyout.jpg (score: 50)","SkiFlyout.jpg (score: 50)"]
+[2:46:45 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":1,"kept":50}
+[2:46:45 PM] 🖼️ FINAL IMAGES: ["https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg","https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg","https://content.backcountry.com/promo_uploa
+[2:46:45 PM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg","https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg","https://content.backco
+[2:46:45 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":30}
+[2:46:45 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 80): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg
+80
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 70): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg
+70
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 70): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Womens.jpg
+70
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0051/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/SkiFlyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/RideFlyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0052/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0055/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0063/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0058/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0083/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_bike.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_hikecamp.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_travel.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0221/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0379/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0059/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0188/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0160/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0259/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D6.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D5.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D4.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D3.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D2.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D1.jpg
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/74337aa0-c5d2-5bb7-a85b-d841851c20f0
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/7f2bba82-0ae7-570a-87f5-75752c54a1ea
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/025be9a2-6dd1-50b1-ad2a-2eb91008e1ef
+50
+📋 Copy URL
+[2:46:45 PM] ✅ SINGLE IMAGE (score: 50): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b2664fa9-a17e-5b3d-a4ee-b52b9c3f04bd
+50
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (80): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg
+80
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (70): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg
+70
+📋 Copy URL
+[2:46:45 PM] 🎯 HIGH SCORE + SIZE OK (70): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Womens.jpg
+70
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0051/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/SkiFlyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0288/RideFlyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0052/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0055/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0063/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0058/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0083/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_bike.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_hikecamp.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/PC020/Flyout_travel.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0221/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2024/BC24_0379/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0059/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0188/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0160/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/promo_upload/bcs/2025/BC25_0259/Flyout.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D6.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D5.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D4.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D3.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D2.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 80KB): https://content.backcountry.com/images/items/large/YET/YETZ092/BLA_D1.jpg
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/74337aa0-c5d2-5bb7-a85b-d841851c20f0
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/7f2bba82-0ae7-570a-87f5-75752c54a1ea
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/025be9a2-6dd1-50b1-ad2a-2eb91008e1ef
+50
+📋 Copy URL
+[2:46:45 PM] 📏 SIZE OK (est: 50KB): https://photos-us.bazaarvoice.com/photo/2/cGhvdG86eWV0aQ/b2664fa9-a17e-5b3d-a4ee-b52b9c3f04bd
+50
+📋 Copy URL
+[2:46:45 PM] 🏆 TOP SCORED IMAGES: ["BLA.jpg (score: 80)","Flyout_Mens.jpg (score: 70)","Flyout_Womens.jpg (score: 70)","Flyout.jpg (score: 50)","SkiFlyout.jpg (score: 50)"]
+[2:46:45 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":30}
+[2:46:45 PM] 🖼️ FINAL IMAGES: ["https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg","https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg","https://content.backcountry.com/promo_uploa
+[2:46:45 PM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://content.backcountry.com/images/items/large/YET/YETZ092/BLA.jpg","https://content.backcountry.com/promo_upload/bcs/2025/BC25_0202/Flyout_Mens.jpg","https://content.backco
+[2:46:45 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"YETI Hopper Flip 18 Soft Cooler","brand":"YETI","description":"Buy the YETI Hopper Flip 18 Soft Cooler online or ","price":"300","imageCount":30,"firstImages":["https://content.backcountry.c
+[2:46:45 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":30}
+[2:46:45 PM] ✅ Debug trace complete
