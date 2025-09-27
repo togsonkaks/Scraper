@@ -813,7 +813,7 @@
     
     // Unified promotional content penalty - eliminates promotional images
     // Compound terms (substring match): promo_upload, flyout_mens, etc.
-    if (/(promo|flyout|banner|advertisement|campaign|marketing|bullet-point)/i.test(url)) score -= 200;
+    if (/(promo|flyout|banner|advertisement|campaign|marketing|bullet-point|feedback)/i.test(url)) score -= 200;
     // Short words (word boundary): avoid matching "adoredvintage.com" for "ad"
     if (/\b(ad|logo|bg|background|header|footer|nav|navigation|menu|sidebar)\b/i.test(url)) score -= 200;
     if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;

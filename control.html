@@ -1705,14 +1705,30 @@
       }, 100);
     }
     
-    // Simple size check when images load - only adjust quality badges
+    // Size check when images load - adjust quality badges and move bad images to bottom
     function checkImageSize(imgElement) {
       const width = imgElement.naturalWidth || imgElement.width;
       const height = imgElement.naturalHeight || imgElement.height;
       
       if (width && height) {
         const badge = imgElement.parentElement.querySelector('.quality-badge');
-        if (width < 200 || height < 200) {
+        const card = imgElement.parentElement;
+        
+        // Check for bad dimensions: too small or weird aspect ratio
+        const tooSmall = width < 300 || height < 300;
+        const aspectRatio = Math.max(width / height, height / width); // Always >= 1
+        const weirdShape = aspectRatio >= 2.5;
+        
+        if (tooSmall || weirdShape) {
+          // Move to bottom by appending to parent container
+          const mobileGrid = document.getElementById("mobileGrid");
+          if (mobileGrid && mobileGrid.contains(card)) {
+            mobileGrid.appendChild(card);
+            badge.textContent = 'LOW';
+            badge.className = 'quality-badge quality-low';
+            console.log(`📱 MOVED TO BOTTOM: ${width}x${height} (aspect: ${aspectRatio.toFixed(1)}) - ${tooSmall ? 'too small' : 'weird shape'}`);
+          }
+        } else if (width < 200 || height < 200) {
           badge.textContent = 'LOW';
           badge.className = 'quality-badge quality-low';
         } else if (width >= 600 && height >= 600) {
