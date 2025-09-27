@@ -1674,17 +1674,29 @@
       }
       
       // Preserve original order, only move clearly bad images to bottom
-      const scoredImages = imageUrls.map((url, index) => ({
-        url: url,
-        score: calculateImageQualityScore(url),
-        quality: getQualityLabel(calculateImageQualityScore(url)),
-        originalIndex: index,
-        isClearlyBad: isClearlyBadImage(url, calculateImageQualityScore(url))
-      }));
+      const scoredImages = imageUrls.map((url, index) => {
+        const score = calculateImageQualityScore(url);
+        const quality = getQualityLabel(score);
+        const isBad = isClearlyBadImage(url, score);
+        
+        console.log(`🔍 IMAGE ${index + 1}: ${url.substring(url.lastIndexOf('/') + 1)} | Score: ${score} | Quality: ${quality} | IsBad: ${isBad}`);
+        
+        return {
+          url: url,
+          score: score,
+          quality: quality,
+          originalIndex: index,
+          isClearlyBad: isBad
+        };
+      });
       
       // Separate good images (keep original order) from clearly bad ones
       const goodImages = scoredImages.filter(img => !img.isClearlyBad);
       const badImages = scoredImages.filter(img => img.isClearlyBad);
+      
+      console.log(`📊 FILTERING RESULTS: ${goodImages.length} good images, ${badImages.length} bad images`);
+      console.log(`📋 Good images:`, goodImages.map(img => `${img.url.substring(img.url.lastIndexOf('/') + 1)} (${img.score})`));
+      console.log(`🗑️ Bad images:`, badImages.map(img => `${img.url.substring(img.url.lastIndexOf('/') + 1)} (${img.score})`));
       
       // Combine: good images in original order + bad images at bottom
       const orderedImages = [...goodImages, ...badImages];
@@ -1759,35 +1771,44 @@
     }
     
     function getQualityLabel(score) {
-      if (score >= 70) return 'high';
-      if (score >= 40) return 'medium'; 
+      if (score >= 80) return 'high';    // More strict: was 70
+      if (score >= 55) return 'medium';  // More strict: was 40
       return 'low';
     }
     
-    // Identify clearly bad images that should move to bottom
+    // Identify clearly bad images that should move to bottom (MORE STRICT)
     function isClearlyBadImage(url, score) {
       const urlLower = url.toLowerCase();
       
-      // Strong banner indicators
-      const bannerKeywords = ['banner', 'hero', 'promo', 'ad', 'advertisement', 'header'];
+      // Expanded banner and UI element indicators
+      const bannerKeywords = ['banner', 'hero', 'promo', 'ad', 'advertisement', 'header', 'footer', 
+                             'nav', 'menu', 'logo', 'icon', 'thumb', 'thumbnail', 'small', 'mini',
+                             'sprite', 'placeholder', 'loading', 'badge', 'bullet', 'arrow'];
       const hasBannerKeyword = bannerKeywords.some(keyword => urlLower.includes(keyword));
       
-      // Size analysis from URL patterns
-      const sizeMatch = url.match(/[\/_](\d{3,4})[x\/_]?(\d{3,4})?/);
+      // More aggressive size analysis from URL patterns
+      const sizeMatch = url.match(/[\/_](\d{2,4})[x\/_]?(\d{2,4})?/);
       let isTooSmall = false;
       let isWideBanner = false;
+      let isTinyImage = false;
       
       if (sizeMatch) {
         const width = parseInt(sizeMatch[1]);
         const height = parseInt(sizeMatch[2]) || width;
         const aspectRatio = width / height;
         
-        isTooSmall = width < 300 && height < 300; // Both dimensions small
-        isWideBanner = aspectRatio >= 2.5; // Very wide banners
+        isTooSmall = width < 400 || height < 400; // More strict: was 300x300
+        isWideBanner = aspectRatio >= 2.0; // More strict: was 2.5
+        isTinyImage = width < 150 || height < 150; // Catch tiny images
       }
       
-      // Only move clearly problematic images
-      return hasBannerKeyword || isTooSmall || isWideBanner || score < 25;
+      // Additional quality filters
+      const hasLowQualityIndicators = /\b(swatch|variant|color|size|guide|chart|care|warranty)\b/i.test(url);
+      const isGifOrSvg = /\.(gif|svg)($|\?)/i.test(url);
+      
+      // Much stricter filtering
+      return hasBannerKeyword || isTooSmall || isWideBanner || isTinyImage || 
+             hasLowQualityIndicators || isGifOrSvg || score < 40; // Raised from 25 to 40
     }
     
     // Initialize device toggle functionality  
