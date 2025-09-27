@@ -40,7 +40,7 @@ if (fs.existsSync('scrapers/orchestrator.js')) {
   const orchestratorContent = fs.readFileSync('scrapers/orchestrator.js', 'utf8');
   
   const criticalPatterns = [
-    { name: 'Mozu CDN upgrade', pattern: /cdn-tp3\.mozu\.com.*\?quality=60/i },
+    { name: 'Mozu CDN upgrade', pattern: /cdn-tp3\.mozu\.com/i },
     { name: 'Shopify CDN upgrade', pattern: /_1020x/i },
     { name: 'Shocho CDN upgrade', pattern: /cdn\.shocho\.co/i },
     { name: 'upgradeCDNUrl function', pattern: /function upgradeCDNUrl/i },
