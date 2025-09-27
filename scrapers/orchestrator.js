@@ -753,8 +753,7 @@
       /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
       /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
       /[?&]\$n_(\d+)w?\b/i,  // ASOS patterns: ?$n_640w, ?$n_1920
-      /[wh](\d+)_/i,  // TheOutnet format: w1020_, h800_
-      /s(\d+)x(\d+)/i // Barnes & Noble: s1200x630
+      /[wh](\d+)_/i  // TheOutnet format: w1020_, h800_
     ];
     
     let detectedSize = 0;

@@ -1,0 +1,147 @@
+[6:32:17 PM] 🚀 Starting scrape operation for: https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki
+[6:32:17 PM] 🚀 SCRAPE START {"host":"allbirds.com","href":"https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki","mode":"normal"}
+[6:32:17 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[6:32:17 PM] 🔄 NORMAL MODE - memory + fallbacks
+[6:32:17 PM] 🧩 TITLE: Trying custom handler...
+[6:32:17 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[6:32:17 PM] 📝 TITLE: Falling back to generic...
+[6:32:17 PM] 📝 TITLE FROM GENERIC: Men's Tree Glider
+[6:32:17 PM] 🏷️ BRAND: Falling back to generic...
+[6:32:17 PM] 🏷️ BRAND FROM GENERIC: Allbirds
+[6:32:17 PM] 📄 DESCRIPTION: Falling back to generic...
+[6:32:17 PM] 📄 DESCRIPTION FROM GENERIC: Whether it’s workouts or hangouts, the Tree Glider has every phase of your day covered. Inspired by effortless ease, this elevated active style brings flow everywhere you go.
+[6:32:17 PM] 🧩 PRICE: Trying custom handler...
+[6:32:17 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[6:32:17 PM] 💰 PRICE: Falling back to generic...
+[6:32:17 PM] 🔍 PRICE PARSING: {"input":"135","inputType":"string","inputLength":3}
+[6:32:17 PM] 🧹 CLEANED INPUT: {"original":"135","cleaned":"135"}
+[6:32:17 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"135","reconstructed":"135"}
+[6:32:17 PM] 💰 MONETARY TOKENS: []
+[6:32:17 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[135]}
+[6:32:17 PM] ✅ FINAL PRICE RESULT: {"result":135,"method":"MIN_FALLBACK","allNumbers":[135]}
+[6:32:17 PM] 💰 PRICE FROM GENERIC: 135
+[6:32:17 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[6:32:17 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[6:32:17 PM] 🧩 IMAGES: Trying custom handler...
+[6:32:17 PM] 🧩 CUSTOM IMAGES: {"count":19,"images":["https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_LEFT.png?v=1751323586&width=1024","https://www.allbirds.com/cdn/shop/files/A11187_
+[6:32:17 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[6:32:17 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":19}
+[6:32:17 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":19}
+[6:32:17 PM] 🗑️ JUNK IMAGE: https://www.allbirds.com/cdn/shop/files/preview_images/792502ba9beb4508a2624553c
+0
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 205): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_LEFT.
+205
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 195): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-
+195
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 195): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_TD-10
+195
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 175): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_SOLE-
+175
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 175): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_PAIR_
+175
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPStyling-01_Lifestyle_Desktop
+135
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPStyling-02_Lifestyle_Desktop
+135
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPStyling-03_Lifestyle_Desktop
+135
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-01_Lifestyle_Deskt
+135
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-02_Texture_Desktop
+135
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-03_Lifestyle_Deskt
+135
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-04_Lifestyle_Deskt
+135
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-05_Lifestyle_Deskt
+135
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 150): https://www.allbirds.com/cdn/shop/files/Tree_Landscape_e7d71ddb-fbf5-426c-860a-1daec6e541d2.png?v=17
+150
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 160): https://images.ctfassets.net/9uo1qvvet3xa/61zNzxDvwohNVVPOGD9EV3/ca0ac423ab7618c80bfd17edbf548d2b/A1
+160
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 155): https://images.ctfassets.net/9uo1qvvet3xa/4On5N3o9h4WHKzbB9kb2cR/896e754175fb2dca3407b5b78776804f/A1
+155
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 145): https://images.ctfassets.net/9uo1qvvet3xa/5GJy9qwPRAnxcWaUXvPsAC/aa7dce4eb04007ec5607be2e9bfc01ef/A1
+145
+📋 Copy URL
+[6:32:17 PM] ✅ SINGLE IMAGE (score: 195): https://images.ctfassets.net/9uo1qvvet3xa/4tmbkyTQFR8FtIVUJsizr3/6a8c21847bb4eea3b8e30a20efd3e223/A1
+195
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (205): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_LEFT.
+205
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (195): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-
+195
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (195): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_TD-10
+195
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (175): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_SOLE-
+175
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (175): https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_PAIR_
+175
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPStyling-01_Lifestyle_Desktop
+135
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPStyling-02_Lifestyle_Desktop
+135
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPStyling-03_Lifestyle_Desktop
+135
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-01_Lifestyle_Deskt
+135
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-02_Texture_Desktop
+135
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-03_Lifestyle_Deskt
+135
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-04_Lifestyle_Deskt
+135
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (135): https://www.allbirds.com/cdn/shop/files/25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-05_Lifestyle_Deskt
+135
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (150): https://www.allbirds.com/cdn/shop/files/Tree_Landscape_e7d71ddb-fbf5-426c-860a-1daec6e541d2.png?v=17
+150
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (160): https://images.ctfassets.net/9uo1qvvet3xa/61zNzxDvwohNVVPOGD9EV3/ca0ac423ab7618c80bfd17edbf548d2b/A1
+160
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (155): https://images.ctfassets.net/9uo1qvvet3xa/4On5N3o9h4WHKzbB9kb2cR/896e754175fb2dca3407b5b78776804f/A1
+155
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (145): https://images.ctfassets.net/9uo1qvvet3xa/5GJy9qwPRAnxcWaUXvPsAC/aa7dce4eb04007ec5607be2e9bfc01ef/A1
+145
+📋 Copy URL
+[6:32:17 PM] 🎯 HIGH SCORE + SIZE OK (195): https://images.ctfassets.net/9uo1qvvet3xa/4tmbkyTQFR8FtIVUJsizr3/6a8c21847bb4eea3b8e30a20efd3e223/A1
+195
+📋 Copy URL
+[6:32:17 PM] 🏆 TOP SCORED IMAGES: ["A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_LEFT.png?v=1751323586&width=1024 (score: 205)","A11789_25Q3_Tree_Runner_Go_Utility_Natural_Black_Dark_Jungle_Natural_White_Sole_PDP_LEFT-2000x2
+[6:32:17 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":1,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":18}
+[6:32:17 PM] 🖼️ FINAL IMAGES: ["https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree-Glider-Natural-Black-Ru","https://images.ctfassets.net/9uo1qvvet3xa/4tmbkyTQFR8FtIVUJsizr3/6a8c21847bb4eea","https://www.allbirds.com/cdn/sho
+[6:32:17 PM] 🖼️ FINAL IMAGES: {"count":18,"images":["https://www.allbirds.com/cdn/shop/files/A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_LEFT.png?v=1751323586&width=1024","https://images.ctfassets.net/9uo1qvvet3xa/4tmbk
+[6:32:17 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Men's Tree Glider","brand":"Allbirds","description":"Whether it’s workouts or hangouts, the Tree Glider","price":"135","imageCount":18,"firstImages":["https://www.allbirds.com/cdn/shop/files
+[6:32:17 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":18}
+[6:32:17 PM] ✅ Debug trace complete
