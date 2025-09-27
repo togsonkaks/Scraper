@@ -634,6 +634,15 @@
       }
     }
     
+    // BACKCOUNTRY CDN: Upgrade from 'large' to high-resolution '1200' images
+    if (/content\.backcountry\.com\/images\/items\/large\//i.test(url)) {
+      upgraded = upgraded.replace(/\/large\//gi, '/1200/');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Backcountry CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
