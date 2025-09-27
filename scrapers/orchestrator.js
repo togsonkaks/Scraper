@@ -818,6 +818,43 @@
       }
     }
     
+    // URL-based product name matching with graduated scoring
+    const productKeywords = extractProductKeywords();
+    if (productKeywords.length > 0) {
+      const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' '); // Convert URL to searchable text
+      let keywordMatches = 0;
+      
+      // Count how many product keywords appear in the image URL/filename
+      for (const keyword of productKeywords) {
+        if (filename.includes(keyword)) {
+          keywordMatches++;
+        }
+      }
+      
+      // Apply graduated bonuses based on keyword matches
+      if (keywordMatches > 0) {
+        let bonus = 0;
+        const matchRatio = keywordMatches / productKeywords.length;
+        
+        if (matchRatio >= 1.0) {
+          // All words match - this is definitely the product
+          bonus = 200;
+        } else if (keywordMatches >= 3) {
+          // 3+ words match - very likely the product
+          bonus = 150;
+        } else if (keywordMatches >= 2) {
+          // 2 words match - probably the product
+          bonus = 100;
+        } else {
+          // 1 word match - maybe the product
+          bonus = 50;
+        }
+        
+        score += bonus;
+        dbg(`🎯 FILENAME MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
+      }
+    }
+    
     return Math.max(0, score);
   }
   
