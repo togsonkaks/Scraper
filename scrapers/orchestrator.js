@@ -989,32 +989,6 @@
     }
   }
 
-  // Helper functions for pixel-count competition
-  function getPixelCount(url) {
-    const dimensionalPatterns = [
-      /s(\d+)x(\d+)/i,              // Barnes & Noble: s1200x630
-      /(\d+)x(\d+)(?:_|\.|$)/i,     // Generic: 1200x630
-      /w(\d+)_h(\d+)/i              // Some CDNs: w1200_h630
-    ];
-    
-    for (const pattern of dimensionalPatterns) {
-      const match = url.match(pattern);
-      if (match) {
-        const width = parseInt(match[1]);
-        const height = parseInt(match[2]);
-        return width * height;
-      }
-    }
-    return 0;
-  }
-  
-  function getBaseImageUrl(url) {
-    // Strip dimensional patterns to group similar images
-    return url
-      .replace(/s(\d+)x(\d+)/g, '')
-      .replace(/(\d+)x(\d+)(?:_|\.|$)/g, '')
-      .replace(/w(\d+)_h(\d+)/g, '');
-  }
 
   // ⚠️ CRITICAL FUNCTION - Core deduplication and filtering pipeline ⚠️
   // Hybrid unique images with score threshold and file size filtering
@@ -1183,6 +1157,31 @@
     }
     
     // Pixel-count competition: Within similar images, boost the one with highest pixel count
+    function getPixelCount(url) {
+      const dimensionalPatterns = [
+        /s(\d+)x(\d+)/i,              // Barnes & Noble: s1200x630
+        /(\d+)x(\d+)(?:_|\.|$)/i,     // Generic: 1200x630
+        /w(\d+)_h(\d+)/i              // Some CDNs: w1200_h630
+      ];
+      
+      for (const pattern of dimensionalPatterns) {
+        const match = url.match(pattern);
+        if (match) {
+          const width = parseInt(match[1]);
+          const height = parseInt(match[2]);
+          return width * height;
+        }
+      }
+      return 0;
+    }
+    
+    function getBaseImageUrl(url) {
+      // Strip dimensional patterns to group similar images
+      return url
+        .replace(/s(\d+)x(\d+)/g, '')
+        .replace(/(\d+)x(\d+)(?:_|\.|$)/g, '')
+        .replace(/w(\d+)_h(\d+)/g, '');
+    }
     
     // Group similar images and boost winner in each group
     const imageGroups = new Map();
