@@ -726,7 +726,8 @@
       /_(\d+)x\d*(?:_|\.|$)/i, // _750x, _1024x1024
       /(\d+)x\d+(?:_|\.|$)/i,  // 750x750
       /\b([0-9]{3,4})(?:w|h|px)(?:_|\.|$)/i, // 750w, 1200px
-      /[?&]\$n_(\d+)w?\b/i  // ASOS patterns: ?$n_640w, ?$n_1920
+      /[?&]\$n_(\d+)w?\b/i,  // ASOS patterns: ?$n_640w, ?$n_1920
+      /[wh](\d+)_/i  // TheOutnet format: w1020_, h800_
     ];
     
     let detectedSize = 0;
@@ -738,11 +739,11 @@
     }
     
     if (detectedSize > 0) {
-      if (detectedSize >= 1200) score += 40;
-      else if (detectedSize >= 800) score += 30; 
-      else if (detectedSize >= 600) score += 20;
-      else if (detectedSize >= 400) score += 10;
-      else if (detectedSize < 200) score -= 40; // Strong penalty for tiny images
+      if (detectedSize >= 1200) score += 100;
+      else if (detectedSize >= 800) score += 80;
+      else if (detectedSize >= 600) score += 60;
+      else if (detectedSize >= 400) score += 30;
+      else if (detectedSize < 200) score += 10; // Almost nothing for tiny images
     }
     
     // Quality bonuses (enhanced patterns)

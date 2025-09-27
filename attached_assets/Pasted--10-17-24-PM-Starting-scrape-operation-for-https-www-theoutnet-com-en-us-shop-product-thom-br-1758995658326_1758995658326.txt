@@ -1,0 +1,333 @@
+[10:17:24 PM] 🚀 Starting scrape operation for: https://www.theoutnet.com/en-us/shop/product/thom-browne/jackets/blazers/cotton-oxford-blazer/1647597350158618
+[10:17:25 PM] 🚀 SCRAPE START {"host":"theoutnet.com","href":"https://www.theoutnet.com/en-us/shop/product/thom-browne/jackets/blazers/cotton-oxford-blazer/1647597350158618","mode":"normal"}
+[10:17:25 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[10:17:25 PM] 🔄 NORMAL MODE - memory + fallbacks
+[10:17:25 PM] 🧩 TITLE: Trying custom handler...
+[10:17:25 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[10:17:25 PM] 📝 TITLE: Falling back to generic...
+[10:17:25 PM] 📝 TITLE FROM GENERIC: THOM BROWNE Cotton Oxford blazer
+[10:17:25 PM] 🏷️ BRAND: Falling back to generic...
+[10:17:25 PM] 🏷️ BRAND FROM GENERIC: THOM BROWNE
+[10:17:25 PM] 📄 DESCRIPTION: Falling back to generic...
+[10:17:25 PM] 📄 DESCRIPTION FROM GENERIC: Shop on-sale THOM BROWNE Cotton Oxford blazer for Woman. Browse the best deals from THOM BROWNE and luxury fashion at The Outnet.
+[10:17:25 PM] 🧩 PRICE: Trying custom handler...
+[10:17:25 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[10:17:25 PM] 💰 PRICE: Falling back to generic...
+[10:17:25 PM] 💰 PRICE FROM GENERIC: null
+[10:17:25 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[10:17:25 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[10:17:25 PM] 🧩 IMAGES: Trying custom handler...
+[10:17:25 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[10:17:25 PM] 🖼️ Getting generic images for hostname: theoutnet.com
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":10}
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ✅ BEST OF 2 (score: 85): https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg
+85
+📋 Copy URL
+[10:17:25 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+85
+📋 Copy URL
+[10:17:25 PM] ✅ BEST OF 2 (score: 85): https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg
+85
+📋 Copy URL
+[10:17:25 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+85
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (85): https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg
+85
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (85): https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg
+85
+📋 Copy URL
+[10:17:25 PM] 🏆 TOP SCORED IMAGES: ["w1020_q80.jpg (score: 85)","w220_q80.jpg (score: 85)"]
+[10:17:25 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":6,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":2,"kept":2}
+[10:17:25 PM] 🖼️ FINAL IMAGES: ["https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg","https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg"]
+[10:17:25 PM] Image element <IMG.BenefitsBar1__icon>
+[10:17:25 PM] Image element <IMG.BenefitsBar1__icon>
+[10:17:25 PM] Image element <IMG.BenefitsBar1__icon>
+[10:17:25 PM] Image element <IMG.BenefitsBar1__icon>
+[10:17:25 PM] Image element <IMG.BenefitsBar1__icon>
+[10:17:25 PM] Image element <IMG.BenefitsBar1__icon>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG.Image18__image>
+[10:17:25 PM] Image element <IMG>
+[10:17:25 PM] Image element <IMG#batBeacon153471091666>
+[10:17:25 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":26}
+[10:17:25 PM] 🗑️ JUNK IMAGE: https://www.theoutnet.com/cms/ycm/resource/blob/2019768/a89d1fd400b76c8386958cf7
+0
+📋 Copy URL
+[10:17:25 PM] 🗑️ JUNK IMAGE: https://www.theoutnet.com/cms/ycm/resource/blob/2019768/a89d1fd400b76c8386958cf7
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: https://integrations.fitanalytics.com/shop/outnet/outnet-hanger.svg
+0
+📋 Copy URL
+[10:17:25 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=5797392&Ver=2&mid=d80a81d9-3638-431b-9270-6d1ec1bef865&bo=2&sid=460
+0[IMG ERROR]
+📋 Copy URL
+[10:17:25 PM] ✅ BEST OF 2 (score: 85): https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b7316b2d/delivery-tru
+85
+📋 Copy URL
+[10:17:25 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+85
+📋 Copy URL
+[10:17:25 PM] ✅ BEST OF 2 (score: 85): https://www.theoutnet.com/cms/ycm/resource/blob/2646250/8c41f371b963212fbd38dfd2fde14f42/hanger-data
+85
+📋 Copy URL
+[10:17:25 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+85
+📋 Copy URL
+[10:17:25 PM] ✅ BEST OF 3 (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+65
+📋 Copy URL
+[10:17:25 PM] ✅ BEST OF 3 (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/R/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/R/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/E/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/E/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/D/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/D/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (85): https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b7316b2d/delivery-tru
+85
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (85): https://www.theoutnet.com/cms/ycm/resource/blob/2646250/8c41f371b963212fbd38dfd2fde14f42/hanger-data
+85
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/R/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/R/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/E/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/E/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/D/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/D/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🏆 TOP SCORED IMAGES: ["delivery-truck-data.png (score: 85)","hanger-data.png (score: 85)","w1020_q80.jpg (score: 65)","w220_q80.jpg (score: 65)","w1020_q80.jpg (score: 65)"]
+[10:17:25 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":8,"junk":2,"lowScore":0,"smallFile":0,"duplicateGroups":4,"kept":10}
+[10:17:25 PM] 🖼️ FINAL IMAGES: ["https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b","https://www.theoutnet.com/cms/ycm/resource/blob/2646250/8c41f371b963212fbd38dfd2","https://www.theoutnet.com/varian
+[10:17:25 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":11}
+[10:17:25 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":11}
+[10:17:25 PM] ✅ BEST OF 2 (score: 95): https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg
+95
+📋 Copy URL
+[10:17:25 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+95
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 70): https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b7316b2d/delivery-tru
+70
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 70): https://www.theoutnet.com/cms/ycm/resource/blob/2646250/8c41f371b963212fbd38dfd2fde14f42/hanger-data
+70
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/R/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/R/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/E/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/E/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/D/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/D/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (95): https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg
+95
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (70): https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b7316b2d/delivery-tru
+70
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (70): https://www.theoutnet.com/cms/ycm/resource/blob/2646250/8c41f371b963212fbd38dfd2fde14f42/hanger-data
+70
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/R/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/R/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/E/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/E/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/D/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/D/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🏆 TOP SCORED IMAGES: ["w1020_q80.jpg (score: 95)","delivery-truck-data.png (score: 70)","hanger-data.png (score: 70)","w220_q80.jpg (score: 65)","w1020_q80.jpg (score: 65)"]
+[10:17:25 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":1,"kept":10}
+[10:17:25 PM] 🖼️ FINAL IMAGES: ["https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg","https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b","https://www.theoutnet.com/cms/ycm/reso
+[10:17:25 PM] 🖼️ GENERIC IMAGES: {"count":10,"images":["https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg","https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b7316b2d/delivery-tru
+[10:17:25 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":10}
+[10:17:25 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":10}
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 95): https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg
+95
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 70): https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b7316b2d/delivery-tru
+70
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 70): https://www.theoutnet.com/cms/ycm/resource/blob/2646250/8c41f371b963212fbd38dfd2fde14f42/hanger-data
+70
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/R/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/R/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/E/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/E/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/D/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] ✅ SINGLE IMAGE (score: 65): https://www.theoutnet.com/variants/images/1647597350158618/D/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (95): https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg
+95
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (70): https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b7316b2d/delivery-tru
+70
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (70): https://www.theoutnet.com/cms/ycm/resource/blob/2646250/8c41f371b963212fbd38dfd2fde14f42/hanger-data
+70
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/F/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/R/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/R/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/E/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/E/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/D/w1020_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🎯 HIGH SCORE + SIZE OK (65): https://www.theoutnet.com/variants/images/1647597350158618/D/w220_q80.jpg
+65
+📋 Copy URL
+[10:17:25 PM] 🏆 TOP SCORED IMAGES: ["w1020_q80.jpg (score: 95)","delivery-truck-data.png (score: 70)","hanger-data.png (score: 70)","w220_q80.jpg (score: 65)","w1020_q80.jpg (score: 65)"]
+[10:17:25 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":10}
+[10:17:25 PM] 🖼️ FINAL IMAGES: ["https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg","https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b","https://www.theoutnet.com/cms/ycm/reso
+[10:17:25 PM] 🖼️ FINAL IMAGES: {"count":10,"images":["https://www.theoutnet.com/variants/images/1647597350158618/F/w1020_q80.jpg","https://www.theoutnet.com/cms/ycm/resource/blob/610958/676b59aa4d571f46beb0f2c0b7316b2d/delivery-tru
+[10:17:25 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"THOM BROWNE Cotton Oxford blazer","brand":"THOM BROWNE","description":"Shop on-sale THOM BROWNE Cotton Oxford blazer for ","price":null,"imageCount":10,"firstImages":["https://www.theoutnet.
+[10:17:25 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":false,"images":10}
+[10:17:25 PM] ✅ Debug trace complete
