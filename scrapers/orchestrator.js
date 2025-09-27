@@ -617,6 +617,21 @@
       }
     }
     
+    // MOZU CDN (ACE HARDWARE): Upgrade to high-quality unconstrained versions
+    if (/cdn-tp3\.mozu\.com/i.test(url)) {
+      // Convert ?max=100 to ?quality=60 for small images
+      upgraded = upgraded.replace(/\?max=\d+/gi, '?quality=60');
+      
+      // For URLs with quality, strip all constraining parameters after it
+      if (/[?&]quality=\d+/i.test(upgraded)) {
+        // Keep only the base URL + ?quality=60, remove everything else
+        upgraded = upgraded.replace(/(\?quality=\d+).*$/i, '$1');
+      }
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Mozu CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
     
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
