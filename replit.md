@@ -35,29 +35,43 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - Runs with virtual display on :99
 - Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
 
+## Critical System Architecture
+⚠️ **PROTECTION NOTICE**: These systems are CRITICAL - any modifications must preserve core functionality
+
+### Core Scraping Systems (orchestrator.js)
+1. **Price Detection** - Multi-strategy extraction with 20+ custom handlers and refinement algorithms
+2. **Title & Brand Extraction** - JSON-LD, meta tags, breadcrumbs, URL patterns, title analysis
+3. **Image Discovery** - Site-specific selectors + generic fallbacks for 20+ major e-commerce sites
+4. **Image Scoring** - Sophisticated algorithm: size detection, quality bonuses, semantic penalties
+5. **Custom Handlers** - Specialized logic for Amazon, Nike, Adidas, Home Depot, AliExpress, etc.
+6. **Selector Memory** - File-based persistence with history tracking and automatic migration
+7. **Filtering Systems** - Multi-stage junk detection, Shopify intelligence, quality thresholds
+8. **Deduplication** - Canonical URL grouping with score-based selection
+
+### CDN Upgrade Patterns (CRITICAL - DO NOT REMOVE)
+- **Shopify**: _640x → _1020x dimension upgrades
+- **Urban Outfitters**: Scene7 $redesign-zoom-5x$ template upgrades  
+- **BBQ Guys/Shocho**: Remove resize parameters for full-size
+- **Mozu**: ?max=100 → ?quality=60 conversions (RECENTLY RESTORED)
+
+### Custom Handler Registry (custom.js)
+- **Amazon (AMZ)**: Quality scoring, hi-res attributes, a-state JSON parsing
+- **Nike**: t_PDP_1728_v1 high-res template conversions
+- **Adidas**: [data-testid*="image"] targeting, w_600→w_1200 upgrades
+- **Home Depot**: Thumbnail upgrades (_100→_1000), spin profile upgrades
+- **AliExpress**: Multi-strategy title extraction, sophisticated filtering
+- **20+ other major retailers** with specialized price/image/title logic
+
 ## Recent Changes
-- **Mobile Preview Interface**: Implemented Pinterest-style mobile testing interface replacing right panel validation section
-- **Device Simulation**: Added iPhone (375px, 2-column) and iPad (768px, 3-column) responsive layout toggle
-- **Pinterest-Style Layout**: Created masonry grid with image cards, hover effects, rounded corners, and proper spacing
-- **Image Filtering**: Added banner detection and aspect ratio filtering for mobile-optimized product image display
-- **Early-Exit Optimization**: Added pipeline short-circuiting when no images found, eliminating unnecessary processing stages
-- **Production Debug Toggle**: Implemented conditional debug logging with DEBUG_IMG flag for deployment control
-- **Observer Attribute Consistency**: Fixed lazy loading observer to watch all scanned attributes (data-image, data-zoom-image, data-large)
-- **Scoring Threshold Adjustment**: Lowered small width penalty from 500px to 300px threshold to accept quality product images (320px-480px range now passes scoring)
-- **Flexible Pattern Matching**: Added CSS attribute selectors `[class*="pattern"]` to catch gallery variations across sites (e.g., lululemon's `product-media-slides_slide_image`)
-- **Selector Optimization**: Replaced overly broad selectors with targeted patterns while maintaining comprehensive coverage - improved performance from 60+ to 8-15 images
-- **Container Tracking Bug Fix**: Fixed critical hi-res augmentation bug that was causing high-quality images to lose gallery bonuses and get rejected (scores dropped from 205 to 8)
-- **Urban Outfitters Custom Handler**: Created dedicated custom handler for Urban Outfitters with PWA container targeting and $redesign-zoom-5x$ quality upgrades
-- **PWA Pattern Recognition**: Added comprehensive wildcard pattern support for Progressive Web App containers across multiple ecommerce sites
-- **Container Bonus System**: Enhanced gallery detection with +100 point bonuses for primary product containers from proven custom handlers
-- **Hi-Res Augmentation Expansion**: Extended scope selectors to include battle-tested patterns from Nike, Adidas, American Eagle, and other major retailers
-- **LQIP Detection System**: Implemented comprehensive Low Quality Image Placeholder detection with automatic high-resolution upgrades
-- **Enhanced Brand Detection**: Replaced simple brand logic with comprehensive detection including JSON-LD, meta tags, breadcrumbs, URL patterns, and title analysis
-- **CDN Pattern Recognition**: Added support for 12+ major CDNs including Cloudinary, Imgix, ImageKit, Fastly, and e-commerce platforms
-- **Image Quality Scoring**: Enhanced scoring system with LQIP penalties and high-resolution upgrade bonuses
-- Installed system dependencies for Electron GUI support
-- Configured virtual display setup for Replit environment
-- Added deployment configuration as VM target
+- **System Integrity Audit (Sept 2025)**: Comprehensive audit revealed all core systems intact except missing Mozu CDN upgrade logic
+- **Mozu CDN Restoration**: Fixed missing ?max=100 → ?quality=60 conversion for Ace Hardware product images
+- **Code Protection Measures**: Added comprehensive system documentation and change tracking safeguards
+- **Mobile Preview Interface**: Pinterest-style mobile testing interface with device simulation
+- **Enhanced Image Pipeline**: Early-exit optimization, production debug toggle, observer consistency fixes
+- **Scoring Improvements**: Threshold adjustments (500px→300px), flexible pattern matching, container tracking fixes
+- **Custom Handler Expansion**: Urban Outfitters PWA targeting, hi-res augmentation, LQIP detection
+- **Brand Detection Overhaul**: Multi-strategy approach with JSON-LD, meta tags, breadcrumbs, URL analysis
+- **CDN Support Expansion**: 12+ major CDNs including Cloudinary, Imgix, ImageKit, Fastly platforms
 
 ## User Preferences
 - Prefers existing project structure and conventions

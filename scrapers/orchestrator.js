@@ -567,6 +567,7 @@
     return { blocked: false, reason: null };
   }
   
+  // ⚠️ CRITICAL FUNCTION - DO NOT REMOVE CDN UPGRADE PATTERNS ⚠️
   // Universal CDN URL upgrade function
   function upgradeCDNUrl(url) {
     let upgraded = url;
@@ -617,7 +618,7 @@
       }
     }
     
-    // MOZU CDN (ACE HARDWARE): Upgrade to high-quality unconstrained versions
+    // ⚠️ CRITICAL: MOZU CDN (ACE HARDWARE) - RECENTLY RESTORED - DO NOT REMOVE ⚠️
     if (/cdn-tp3\.mozu\.com/i.test(url)) {
       // Convert ?max=100 to ?quality=60 for small images
       upgraded = upgraded.replace(/\?max=\d+/gi, '?quality=60');
@@ -643,6 +644,7 @@
     return upgraded;
   }
 
+  // ⚠️ CRITICAL FUNCTION - Multi-layered image quality scoring algorithm ⚠️
   // Enhanced image quality scoring function with aggressive filtering  
   function scoreImageURL(url, element = null, elementIndex = 0) {
     if (!url) return 0;
@@ -973,6 +975,7 @@
     }
   }
 
+  // ⚠️ CRITICAL FUNCTION - Core deduplication and filtering pipeline ⚠️
   // Hybrid unique images with score threshold and file size filtering
   async function hybridUniqueImages(enrichedUrls) {
     debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
@@ -2115,5 +2118,56 @@
     }
   }
 
-  Object.assign(globalThis, { scrapeProduct });
+  // ⚠️ CRITICAL FUNCTIONALITY VALIDATION ⚠️
+  // Auto-validation to detect missing critical functionality
+  function validateCriticalSystems() {
+    const issues = [];
+    
+    // Check CDN upgrade patterns
+    const cdnUpgradeFunction = upgradeCDNUrl.toString();
+    if (!cdnUpgradeFunction.includes('cdn-tp3.mozu.com')) {
+      issues.push('CRITICAL: Mozu CDN upgrade pattern missing');
+    }
+    if (!cdnUpgradeFunction.includes('cdn.shocho.co')) {
+      issues.push('CRITICAL: Shocho CDN upgrade pattern missing');
+    }
+    if (!cdnUpgradeFunction.includes('cdn/shop')) {
+      issues.push('CRITICAL: Shopify CDN upgrade pattern missing');
+    }
+    
+    // Check core functions exist
+    if (typeof scoreImageURL !== 'function') {
+      issues.push('CRITICAL: Image scoring function missing');
+    }
+    if (typeof hybridUniqueImages !== 'function') {
+      issues.push('CRITICAL: Deduplication function missing');
+    }
+    if (typeof isJunkImage !== 'function') {
+      issues.push('CRITICAL: Junk filtering function missing');
+    }
+    
+    // Check JUNK_IMG pattern exists
+    if (!JUNK_IMG || !JUNK_IMG.test) {
+      issues.push('CRITICAL: Junk image pattern missing');
+    }
+    
+    // Log validation results
+    if (issues.length > 0) {
+      console.error('🚨 CRITICAL SYSTEM VALIDATION FAILED:');
+      issues.forEach(issue => console.error(`  - ${issue}`));
+    } else {
+      console.log('✅ CRITICAL SYSTEM VALIDATION PASSED: All systems intact');
+    }
+    
+    return issues.length === 0;
+  }
+  
+  // Run validation on load
+  try {
+    validateCriticalSystems();
+  } catch (e) {
+    console.error('🚨 VALIDATION ERROR:', e);
+  }
+
+  Object.assign(globalThis, { scrapeProduct, validateCriticalSystems });
 })();
