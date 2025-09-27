@@ -838,13 +838,27 @@
         }
       }
       
-      // Simple graduated bonuses
-      if (keywordMatches >= 2) {
-        score += 50; // Multiple matches - probably the product
-        dbg(`🎯 FILENAME MATCH: ${keywordMatches} keywords match (+50): ${url.slice(-50)}`);
-      } else if (keywordMatches === 1) {
-        score += 20; // Single match - maybe relevant
-        dbg(`🎯 FILENAME MATCH: ${keywordMatches} keyword match (+20): ${url.slice(-50)}`);
+      // Balanced graduated bonuses based on match ratio
+      if (keywordMatches > 0) {
+        let bonus = 0;
+        const matchRatio = keywordMatches / productKeywords.length;
+        
+        if (matchRatio >= 1.0) {
+          // All words match - definitely the product
+          bonus = 100;
+        } else if (keywordMatches >= 3) {
+          // 3+ words match - very likely the product  
+          bonus = 60;
+        } else if (keywordMatches >= 2) {
+          // 2 words match - probably the product
+          bonus = 30;
+        } else {
+          // 1 word match - maybe relevant
+          bonus = 20;
+        }
+        
+        score += bonus;
+        dbg(`🎯 FILENAME MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
       }
     }
     
