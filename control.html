@@ -1662,7 +1662,7 @@
         }
       });
     })();
-    // Mobile Preview Functions with Smart Quality Scoring
+    // Mobile Preview Functions - Trust Scraper Ordering
     function updateMobilePreview(imageUrls) {
       const mobileGrid = document.getElementById("mobileGrid");
       const imageCount = document.getElementById("imageCount");
@@ -1673,41 +1673,22 @@
         return;
       }
       
-      // Preserve original order, only move clearly bad images to bottom
-      const scoredImages = imageUrls.map((url, index) => {
-        const score = calculateImageQualityScore(url);
-        const quality = getQualityLabel(score);
-        const isBad = isClearlyBadImage(url, score);
-        
-        console.log(`🔍 IMAGE ${index + 1}: ${url.substring(url.lastIndexOf('/') + 1)} | Score: ${score} | Quality: ${quality} | IsBad: ${isBad}`);
-        
-        return {
-          url: url,
-          score: score,
-          quality: quality,
-          originalIndex: index,
-          isClearlyBad: isBad
-        };
-      });
+      // Trust scraper's order - just create image objects
+      const imageObjects = imageUrls.map((url, index) => ({
+        url: url,
+        originalIndex: index,
+        quality: 'medium' // Default quality since scraper already sorted
+      }));
       
-      // Separate good images (keep original order) from clearly bad ones
-      const goodImages = scoredImages.filter(img => !img.isClearlyBad);
-      const badImages = scoredImages.filter(img => img.isClearlyBad);
+      console.log(`📊 MOBILE PREVIEW: Preserving scraper order for ${imageObjects.length} images`);
       
-      console.log(`📊 FILTERING RESULTS: ${goodImages.length} good images, ${badImages.length} bad images`);
-      console.log(`📋 Good images:`, goodImages.map(img => `${img.url.substring(img.url.lastIndexOf('/') + 1)} (${img.score})`));
-      console.log(`🗑️ Bad images:`, badImages.map(img => `${img.url.substring(img.url.lastIndexOf('/') + 1)} (${img.score})`));
-      
-      // Combine: good images in original order + bad images at bottom
-      const orderedImages = [...goodImages, ...badImages];
-      
-      // Create Pinterest-style masonry grid
-      mobileGrid.innerHTML = orderedImages.map((item, index) => `
+      // Create Pinterest-style masonry grid - keep scraper's exact order
+      mobileGrid.innerHTML = imageObjects.map((item, index) => `
         <div class="mobile-image-card" onclick="openMobileImageDetail('${item.url}', '${item.quality}')" data-index="${index}">
           <div class="quality-badge quality-${item.quality}">${item.quality.toUpperCase()}</div>
           <img src="${item.url}" referrerpolicy="no-referrer" 
                onerror="this.parentElement.style.display='none'"
-               onload="this.classList.add('loaded')">
+               onload="this.classList.add('loaded'); checkImageSize(this)">
         </div>
       `).join("");
       
@@ -1722,6 +1703,24 @@
         initDeviceToggle();
         initMobileModal();
       }, 100);
+    }
+    
+    // Simple size check when images load - only adjust quality badges
+    function checkImageSize(imgElement) {
+      const width = imgElement.naturalWidth || imgElement.width;
+      const height = imgElement.naturalHeight || imgElement.height;
+      
+      if (width && height) {
+        const badge = imgElement.parentElement.querySelector('.quality-badge');
+        if (width < 200 || height < 200) {
+          badge.textContent = 'LOW';
+          badge.className = 'quality-badge quality-low';
+        } else if (width >= 600 && height >= 600) {
+          badge.textContent = 'HIGH';
+          badge.className = 'quality-badge quality-high';
+        }
+        // Keep 'MEDIUM' for everything else
+      }
     }
     
     // Image Quality Scoring Algorithm  
