@@ -1,0 +1,1212 @@
+[3:33:07 PM] 🚀 Starting scrape operation for: https://www.adoredvintage.com/products/classic-effortless-blue-natural-striped-linen-shorts
+[3:33:13 PM] 🚀 SCRAPE START {"host":"adoredvintage.com","href":"https://www.adoredvintage.com/products/classic-effortless-blue-natural-striped-linen-shorts","mode":"normal"}
+[3:33:13 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[3:33:13 PM] 🔄 NORMAL MODE - memory + fallbacks
+[3:33:13 PM] 🧩 TITLE: Trying custom handler...
+[3:33:13 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[3:33:13 PM] 📝 TITLE: Falling back to generic...
+[3:33:13 PM] 📝 TITLE FROM GENERIC: Thomasin Striped Shorts
+[3:33:13 PM] 🏷️ BRAND: Falling back to generic...
+[3:33:13 PM] 🏷️ BRAND FROM GENERIC: Modern
+[3:33:13 PM] 📄 DESCRIPTION: Falling back to generic...
+[3:33:13 PM] 📄 DESCRIPTION FROM GENERIC: Effortless and easy to wear linen and cotton summer shorts in charcoal pinstripe with elasticated waistband and side pockets. Slips on for wear. 55% Linen, 45% Cotton Imported Fit Notes &amp; Measurements Size 4/6 dress form (35B/25W) is wearing a small as shown S: 14.5" length 12" across waist (relaxed) M: 15" length
+[3:33:13 PM] 🧩 PRICE: Trying custom handler...
+[3:33:13 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[3:33:13 PM] 💰 PRICE: Falling back to generic...
+[3:33:13 PM] 🔍 PRICE PARSING: {"input":"$48.00","inputType":"string","inputLength":6}
+[3:33:13 PM] 🧹 CLEANED INPUT: {"original":"$48.00","cleaned":"$48.00"}
+[3:33:13 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$48.00","reconstructed":"$48.00"}
+[3:33:13 PM] 💰 MONETARY TOKENS: [48]
+[3:33:13 PM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[],"integerTokens":[48],"preferDecimals":false}
+[3:33:13 PM] ✅ PRICE FROM MONETARY: {"result":48,"method":"MINIMUM_SMART","chosenFrom":"ALL_TOKENS","allTokens":[48]}
+[3:33:13 PM] 🎯 REFINING PRICE: {"baseVal":"48","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[3:33:13 PM] Price element <SPAN.price>
+[3:33:13 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[3:33:13 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[3:33:13 PM] 📍 ANCESTOR 0: <SPAN.price>
+[3:33:13 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$48.00","cleaned":"$48.00","reconstructed":"$48.00"}
+[3:33:13 PM] 💰 ANCESTOR 0 SMART PRICE: 48 from tokens: [48]
+[3:33:13 PM] 📍 ANCESTOR 1: <DIV.product-page-info__price>
+[3:33:13 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$48.00","cleaned":"$48.00","reconstructed":"$48.00"}
+[3:33:13 PM] 💰 ANCESTOR 1 SMART PRICE: 48 from tokens: [48]
+[3:33:13 PM] 📍 ANCESTOR 2: <DIV.product-page-info>
+[3:33:13 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"25% Off Taken at Checkout!\nPreloved\nThomasin Striped Shorts\n $48.00\n \n ","cleaned":"25% Off Taken at Checkout!\nPreloved\nThomasin Striped Shorts\n
+[3:33:13 PM] 💰 ANCESTOR 2 SMART PRICE: 48 from tokens: [48,100]
+[3:33:13 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"48","originalBase":"48"}
+[3:33:13 PM] 💰 PRICE FROM GENERIC: 48
+[3:33:13 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[3:33:13 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[3:33:13 PM] 🧩 IMAGES: Trying custom handler...
+[3:33:13 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[3:33:13 PM] 🖼️ Getting generic images for hostname: adoredvintage.com
+[3:33:13 PM] 🎯 Trying site-specific selector for adoredvintage.com: .product-gallery img
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":22}
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_9
+0
+📋 Copy URL
+[3:33:13 PM] 🏆 TOP SCORED IMAGES: []
+[3:33:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":14,"junk":0,"lowScore":8,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:33:13 PM] 🖼️ FINAL IMAGES: []
+[3:33:13 PM] 🎯 Trying site-specific selector for adoredvintage.com: .rimage__img
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: adored-vintage-logo-flower_e0016817-aa64-43b3-a651-ea2fe1886d32_400x.png?v=1634773729 -> adored-vintage-logo-flower_e0016817-aa64-43b3-a651-ea2fe1886d32_1020x.png?v=1634773729
+[3:33:13 PM] ✨ UPGRADED CDN URL: adored-vintage-logo-flower_e0016817-aa64-43b3-a651-ea2fe1886d32_400x.png?v=1634773729 -> adored-vintage-logo-flower_e0016817-aa64-43b3-a651-ea2fe1886d32_1020x.png?v=1634773729
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] ✨ UPGRADED CDN URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] ✨ UPGRADED CDN URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] ✨ UPGRADED CDN URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] ✨ UPGRADED CDN URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] ✨ UPGRADED CDN URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] ✨ UPGRADED CDN URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_271x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_271x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":74}
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 🗑️ JUNK IMAGE: https://www.adoredvintage.com/cdn/shop/files/adored-vintage-logo-flower_e0016817
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredbrownstripedlinenshortsC458R_1_10
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/popsicle-stand-shorts_1020x.progressive.jpg?v=168735690
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/CreamandrustbrownhorizontalstripedknitshortsC432P_1_102
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/VintageinspiredcreamandtanwidestripedshortsC435P_1_1020
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredbrownstripedlinenshortsC458R_1_10
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/popsicle-stand-shorts_1020x.progressive.jpg?v=168735690
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/CreamandrustbrownhorizontalstripedknitshortsC432P_1_102
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/VintageinspiredcreamandtanwidestripedshortsC435P_1_1020
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] 🏆 TOP SCORED IMAGES: []
+[3:33:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":41,"junk":1,"lowScore":32,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:33:13 PM] 🖼️ FINAL IMAGES: []
+[3:33:13 PM] 🎯 Trying site-specific selector for adoredvintage.com: [class*="product-image"] img
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] ✨ UPGRADED CDN URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] ✨ UPGRADED CDN URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] ✨ UPGRADED CDN URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] ✨ UPGRADED CDN URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] ✨ UPGRADED CDN URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] ✨ UPGRADED CDN URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_271x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_271x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":48}
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredbrownstripedlinenshortsC458R_1_10
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/popsicle-stand-shorts_1020x.progressive.jpg?v=168735690
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/CreamandrustbrownhorizontalstripedknitshortsC432P_1_102
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/VintageinspiredcreamandtanwidestripedshortsC435P_1_1020
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredbrownstripedlinenshortsC458R_1_10
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/popsicle-stand-shorts_1020x.progressive.jpg?v=168735690
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/CreamandrustbrownhorizontalstripedknitshortsC432P_1_102
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/VintageinspiredcreamandtanwidestripedshortsC435P_1_1020
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] 🏆 TOP SCORED IMAGES: []
+[3:33:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":24,"junk":0,"lowScore":24,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:33:13 PM] 🖼️ FINAL IMAGES: []
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":22}
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_9
+0
+📋 Copy URL
+[3:33:13 PM] 🏆 TOP SCORED IMAGES: []
+[3:33:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":14,"junk":0,"lowScore":8,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:33:13 PM] 🖼️ FINAL IMAGES: []
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":22}
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_9
+0
+📋 Copy URL
+[3:33:13 PM] 🏆 TOP SCORED IMAGES: []
+[3:33:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":14,"junk":0,"lowScore":8,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:33:13 PM] 🖼️ FINAL IMAGES: []
+[3:33:13 PM] Image element <IMG>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: adored-vintage-logo-flower_e0016817-aa64-43b3-a651-ea2fe1886d32_400x.png?v=1634773729 -> adored-vintage-logo-flower_e0016817-aa64-43b3-a651-ea2fe1886d32_1020x.png?v=1634773729
+[3:33:13 PM] ✨ UPGRADED CDN URL: adored-vintage-logo-flower_e0016817-aa64-43b3-a651-ea2fe1886d32_400x.png?v=1634773729 -> adored-vintage-logo-flower_e0016817-aa64-43b3-a651-ea2fe1886d32_1020x.png?v=1634773729
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_523x.progressive.jpg?v=1748895218 -> ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1020x.progressive.jpg?v=1748895218
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] ✨ UPGRADED CDN URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] ✨ UPGRADED CDN URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] ✨ UPGRADED CDN URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_270x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicvintageinspiredbrownstripedlinenshortsC458R_1_277x.progressive.jpg?v=1752622039 -> ClassicvintageinspiredbrownstripedlinenshortsC458R_1_1020x.progressive.jpg?v=1752622039
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] ✨ UPGRADED CDN URL: popsicle-stand-shorts_277x.progressive.jpg?v=1687356902 -> popsicle-stand-shorts_1020x.progressive.jpg?v=1687356902
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] ✨ UPGRADED CDN URL: CreamandrustbrownhorizontalstripedknitshortsC432P_1_277x.progressive.jpg?v=1751332056 -> CreamandrustbrownhorizontalstripedknitshortsC432P_1_1020x.progressive.jpg?v=1751332056
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassicmediumwashhighrisedenimcargoshortsC466R_1_277x.progressive.jpg?v=1754686465 -> ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.progressive.jpg?v=1754686465
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] ✨ UPGRADED CDN URL: VintageinspiredcreamandtanwidestripedshortsC435P_1_277x.progressive.jpg?v=1751332138 -> VintageinspiredcreamandtanwidestripedshortsC435P_1_1020x.progressive.jpg?v=1751332138
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] ✨ UPGRADED CDN URL: ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_277x.progressive.jpg?v=1746553843 -> ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC405K_1_1020x.progressive.jpg?v=1746553843
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Atelette-Calais-Dress-13_271x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] ✨ UPGRADED CDN URL: Atelette-Calais-Dress-13_271x.progressive.jpg?v=1742227356 -> Atelette-Calais-Dress-13_1020x.progressive.jpg?v=1742227356
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] ✨ UPGRADED CDN URL: frankie-shorts-C1718R-2_277x.progressive.jpg?v=1709051080 -> frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051080
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] ✨ UPGRADED CDN URL: Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_277x.progressive.jpg?v=1742269957 -> Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_1_1020x.progressive.jpg?v=1742269957
+[3:33:13 PM] Image element <IMG.rimage__img>
+[3:33:13 PM] ✨ UPGRADED Shopify URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] ✨ UPGRADED CDN URL: Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_277x.progressive.jpg?v=1752621898 -> Timelessandfemininesolidblacka-linecottonmidiskirtC452K_1_1020x.progressive.jpg?v=1752621898
+[3:33:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":75}
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 🗑️ JUNK IMAGE: https://www.adoredvintage.com/cdn/shop/files/adored-vintage-logo-flower_e0016817
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_1
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_9
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredbrownstripedlinenshortsC458R_1_10
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/popsicle-stand-shorts_1020x.progressive.jpg?v=168735690
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/CreamandrustbrownhorizontalstripedknitshortsC432P_1_102
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/VintageinspiredcreamandtanwidestripedshortsC435P_1_1020
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicvintageinspiredbrownstripedlinenshortsC458R_1_10
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/popsicle-stand-shorts_1020x.progressive.jpg?v=168735690
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/CreamandrustbrownhorizontalstripedknitshortsC432P_1_102
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassicmediumwashhighrisedenimcargoshortsC466R_1_1020x.
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/VintageinspiredcreamandtanwidestripedshortsC435P_1_1020
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessdarkwashhighwaisttiereddenimmidiskirtC
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Atelette-Calais-Dress-13_1020x.progressive.jpg?v=174222
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_1020x.progressive.jpg?v=1709051
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Romantic-Edwardian-inspired-cotton-camisole-top-AT124T_
+0
+📋 Copy URL
+[3:33:13 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+0
+📋 Copy URL
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): https://www.adoredvintage.com/cdn/shop/files/Timelessandfemininesolidblacka-linecottonmidiskirtC452K
+0
+📋 Copy URL
+[3:33:13 PM] 🏆 TOP SCORED IMAGES: []
+[3:33:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":42,"junk":1,"lowScore":32,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:33:13 PM] 🖼️ FINAL IMAGES: []
+[3:33:13 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[3:33:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[3:33:13 PM] 📉 LOW SCORE REJECTED (0): http://www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_12
+0
+📋 Copy URL
+[3:33:13 PM] 🏆 TOP SCORED IMAGES: []
+[3:33:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":1,"smallFile":0,"duplicateGroups":0,"kept":0}
+[3:33:13 PM] 🖼️ FINAL IMAGES: []
+[3:33:13 PM] 🖼️ GENERIC IMAGES: {"count":0,"images":[]}
+[3:33:13 PM] 🖼️ FINAL IMAGES: {"count":0,"images":[]}
+[3:33:13 PM] 🤖 IMAGES: Zero images found, activating LLM fallback...
+[3:33:13 PM] 🤖 LLM FALLBACK: Starting AI-powered image selector discovery...
+[3:33:13 PM] 🤖 LLM FALLBACK: Sending request to LLM agent {"htmlLength":120000,"url":"https://www.adoredvintage.com/products/classic-eff"}
+[3:33:13 PM] 🤖 LLM FALLBACK: Critical error: IPC not available
+[3:33:13 PM] 🤖 LLM FALLBACK: No additional images found
+[3:33:13 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Thomasin Striped Shorts","brand":"Modern","description":"Effortless and easy to wear linen and cotton summe","price":"48","imageCount":0,"firstImages":[],"selectorsUsed":{"title":{"selectors
+[3:33:13 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":0}
+[3:33:13 PM] ✅ Debug trace complete

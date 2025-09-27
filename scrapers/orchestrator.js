@@ -803,7 +803,10 @@
     if (/\b(womens?-clothing|mens?-clothing|best-sellers?|new-arrivals?|accessories|shop-by|featured-edit|wellness|searchburger)\b/i.test(url)) score -= 70;
     
     // Unified promotional content penalty - eliminates promotional images
-    if (/(promo|banner|ad|advertisement|flyout|logo|bg|background|header|footer|nav|navigation|menu|campaign|marketing|sidebar|bullet-point)/i.test(url)) score -= 200;
+    // Compound terms (substring match): promo_upload, flyout_mens, etc.
+    if (/(promo|flyout|banner|advertisement|campaign|marketing|bullet-point)/i.test(url)) score -= 200;
+    // Short words (word boundary): avoid matching "adoredvintage.com" for "ad"
+    if (/\b(ad|logo|bg|background|header|footer|nav|navigation|menu|sidebar)\b/i.test(url)) score -= 200;
     if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;
     if (/\b(warranty|insurance|coverage|support|claim)\b/i.test(url)) score -= 55;
     
