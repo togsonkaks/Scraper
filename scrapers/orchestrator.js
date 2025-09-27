@@ -1122,11 +1122,29 @@
     
     const allElements = qa(sel);
     // Apply smart exclusion filtering
-    const elements = allElements.filter(el => !shouldExcludeContainer(el));
+    const filteredElements = allElements.filter(el => !shouldExcludeContainer(el));
     
-    dbg(`📊 Found ${allElements.length} total elements, ${elements.length} after exclusion filtering for selector:`, sel);
-    if (allElements.length !== elements.length) {
-      dbg(`🚫 FILTERED OUT: ${allElements.length - elements.length} elements from recommendation/related containers`);
+    // Apply container priority scoring and sort by priority
+    const prioritizedElements = filteredElements.map(el => ({
+      element: el,
+      priority: calculateContainerPriority(el.closest('[class], [id]') || el.parentElement || el)
+    }));
+    
+    // Sort by priority (highest first)
+    prioritizedElements.sort((a, b) => b.priority - a.priority);
+    const elements = prioritizedElements.map(item => item.element);
+    
+    dbg(`📊 Found ${allElements.length} total elements, ${filteredElements.length} after exclusion, ${elements.length} after prioritization for selector:`, sel);
+    if (allElements.length !== filteredElements.length) {
+      dbg(`🚫 FILTERED OUT: ${allElements.length - filteredElements.length} elements from recommendation/related containers`);
+    }
+    
+    // Show top 3 priority scores for debugging
+    if (prioritizedElements.length > 0) {
+      const topPriorities = prioritizedElements.slice(0, 3).map(item => 
+        `${item.element.tagName}.${item.element.className.split(' ')[0] || ''}(${item.priority})`
+      );
+      dbg(`🏆 TOP PRIORITIES: ${topPriorities.join(', ')}`);
     }
     
     // Skip processing if no elements found - eliminates 12+ lines of wasteful filtering/scoring
@@ -1645,6 +1663,88 @@
       current = current.parentElement;
     }
     return false;
+  }
+  
+  function calculateContainerPriority(element) {
+    if (!element) return 0;
+    
+    let score = 50; // Base score
+    const className = (element.className || '').toLowerCase();
+    const id = (element.id || '').toLowerCase();
+    
+    // Extract product name from URL for relevance matching
+    const urlPath = window.location.pathname;
+    const productNameParts = urlPath
+      .split('/').pop() // Get last part of URL
+      .replace(/[.-]/g, ' ') // Replace dashes/dots with spaces
+      .split(' ')
+      .filter(part => part.length > 2) // Filter out short words
+      .map(part => part.toLowerCase());
+    
+    // HIGHEST PRIORITY (+200): Containers near product title/description
+    const titleElement = document.querySelector('h1, .product-title, [itemprop="name"]');
+    if (titleElement) {
+      const elementRect = element.getBoundingClientRect();
+      const titleRect = titleElement.getBoundingClientRect();
+      const distance = Math.abs(elementRect.top - titleRect.bottom);
+      
+      if (distance < 300) { // Within 300px of title
+        score += 200;
+        dbg(`🏆 HIGHEST PRIORITY: Container near product title (+200): ${element.tagName}.${className}`);
+      }
+    }
+    
+    // HIGH PRIORITY (+150): Main product galleries with 4+ images
+    const imageCount = element.querySelectorAll('img').length;
+    if (imageCount >= 4) {
+      score += 150;
+      dbg(`🖼️ HIGH PRIORITY: Gallery with ${imageCount} images (+150): ${element.tagName}.${className}`);
+    }
+    
+    // MEDIUM PRIORITY (+100): Containers with product name in class/id
+    let nameMatches = 0;
+    for (const part of productNameParts) {
+      if (className.includes(part) || id.includes(part)) {
+        nameMatches++;
+      }
+    }
+    if (nameMatches > 0) {
+      const bonus = Math.min(100, nameMatches * 30); // Up to 100 points
+      score += bonus;
+      dbg(`🏷️ MEDIUM PRIORITY: Container matches ${nameMatches} product name parts (+${bonus}): ${element.tagName}.${className}`);
+    }
+    
+    // LOW PRIORITY (+50): Generic gallery containers
+    const galleryPatterns = ['gallery', 'product', 'images', 'media'];
+    for (const pattern of galleryPatterns) {
+      if (className.includes(pattern) || id.includes(pattern)) {
+        score += 50;
+        dbg(`💼 LOW PRIORITY: Generic gallery pattern '${pattern}' (+50): ${element.tagName}.${className}`);
+        break;
+      }
+    }
+    
+    // PENALTY (-100): Sidebar, footer, nav containers
+    const penaltyPatterns = ['sidebar', 'footer', 'nav', 'header', 'menu'];
+    for (const pattern of penaltyPatterns) {
+      if (className.includes(pattern) || id.includes(pattern)) {
+        score -= 100;
+        dbg(`⚠️ PENALTY: Navigation/UI container '${pattern}' (-100): ${element.tagName}.${className}`);
+        break;
+      }
+    }
+    
+    return score;
+  }
+  
+  // Extract product keywords from URL for image filename matching
+  function extractProductKeywords(url = window.location.pathname) {
+    return url
+      .split('/').pop() // Get last part of URL path
+      .replace(/[.-]/g, ' ') // Replace dashes/dots with spaces  
+      .split(' ')
+      .filter(part => part.length > 2) // Filter out short words like 'a', 'an', 'the'
+      .map(part => part.toLowerCase());
   }
   
   async function getImagesGeneric() {
