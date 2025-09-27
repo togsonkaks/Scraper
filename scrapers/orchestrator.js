@@ -1120,8 +1120,14 @@
   async function gatherImagesBySelector(sel, observeMs = 0) {
     dbg('🔍 GATHERING IMAGES with selector:', sel);
     
-    const elements = qa(sel);
-    dbg(`📊 Found ${elements.length} elements for selector:`, sel);
+    const allElements = qa(sel);
+    // Apply smart exclusion filtering
+    const elements = allElements.filter(el => !shouldExcludeContainer(el));
+    
+    dbg(`📊 Found ${allElements.length} total elements, ${elements.length} after exclusion filtering for selector:`, sel);
+    if (allElements.length !== elements.length) {
+      dbg(`🚫 FILTERED OUT: ${allElements.length - elements.length} elements from recommendation/related containers`);
+    }
     
     // Skip processing if no elements found - eliminates 12+ lines of wasteful filtering/scoring
     if (elements.length === 0) {
@@ -1614,6 +1620,33 @@
     }
     return null;
   }
+  // Smart container exclusion and priority system
+  function shouldExcludeContainer(element) {
+    if (!element) return false;
+    
+    // Conservative exclusion patterns - avoid recommendation/related content
+    const exclusionPatterns = [
+      'related', 'recommend', 'you-might', 'also-like', 
+      'similar', 'trending', 'popular', 'recently-viewed', 'carousel'
+    ];
+    
+    // Check element and parent containers for exclusion patterns
+    let current = element;
+    for (let i = 0; i < 5 && current && current.parentElement; i++) {
+      const className = (current.className || '').toLowerCase();
+      const id = (current.id || '').toLowerCase();
+      
+      for (const pattern of exclusionPatterns) {
+        if (className.includes(pattern) || id.includes(pattern)) {
+          dbg(`🚫 EXCLUDED CONTAINER: Found '${pattern}' in ${current.tagName}.${className}`);
+          return true;
+        }
+      }
+      current = current.parentElement;
+    }
+    return false;
+  }
+  
   async function getImagesGeneric() {
     const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
     debug('🖼️ Getting generic images for hostname:', hostname);
