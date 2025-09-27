@@ -818,8 +818,15 @@
       }
     }
     
-    // URL-based product name matching with graduated scoring
-    const productKeywords = extractProductKeywords();
+    // Simple filename matching bonus - extract product keywords from URL path
+    const urlPath = window.location.pathname;
+    const productKeywords = urlPath
+      .split('/').pop() // Get last part of URL path
+      .replace(/[.-]/g, ' ') // Replace dashes/dots with spaces  
+      .split(' ')
+      .filter(part => part.length > 2) // Filter out short words
+      .map(part => part.toLowerCase());
+    
     if (productKeywords.length > 0) {
       const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' '); // Convert URL to searchable text
       let keywordMatches = 0;
@@ -831,27 +838,13 @@
         }
       }
       
-      // Apply graduated bonuses based on keyword matches
-      if (keywordMatches > 0) {
-        let bonus = 0;
-        const matchRatio = keywordMatches / productKeywords.length;
-        
-        if (matchRatio >= 1.0) {
-          // All words match - this is definitely the product
-          bonus = 200;
-        } else if (keywordMatches >= 3) {
-          // 3+ words match - very likely the product
-          bonus = 150;
-        } else if (keywordMatches >= 2) {
-          // 2 words match - probably the product
-          bonus = 100;
-        } else {
-          // 1 word match - maybe the product
-          bonus = 50;
-        }
-        
-        score += bonus;
-        dbg(`🎯 FILENAME MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
+      // Simple graduated bonuses
+      if (keywordMatches >= 2) {
+        score += 50; // Multiple matches - probably the product
+        dbg(`🎯 FILENAME MATCH: ${keywordMatches} keywords match (+50): ${url.slice(-50)}`);
+      } else if (keywordMatches === 1) {
+        score += 20; // Single match - maybe relevant
+        dbg(`🎯 FILENAME MATCH: ${keywordMatches} keyword match (+20): ${url.slice(-50)}`);
       }
     }
     
@@ -1158,30 +1151,32 @@
     dbg('🔍 GATHERING IMAGES with selector:', sel);
     
     const allElements = qa(sel);
-    // Apply smart exclusion filtering
-    const filteredElements = allElements.filter(el => !shouldExcludeContainer(el));
     
-    // Apply container priority scoring and sort by priority
-    const prioritizedElements = filteredElements.map(el => ({
-      element: el,
-      priority: calculateContainerPriority(el.closest('[class], [id]') || el.parentElement || el)
-    }));
+    // Conservative filtering - only exclude obvious recommendation containers
+    const elements = allElements.filter(el => {
+      // Check element and immediate parents for obvious recommendation patterns
+      let current = el;
+      for (let i = 0; i < 3 && current; i++) {
+        const className = (current.className || '').toLowerCase();
+        const id = (current.id || '').toLowerCase();
+        
+        // Only exclude very specific recommendation patterns
+        if (className.includes('related-products') || 
+            className.includes('recommendations') || 
+            className.includes('you-might-also-like') ||
+            id.includes('related-products') ||
+            id.includes('recommendations')) {
+          dbg(`🚫 EXCLUDED: Found recommendation container in ${current.tagName}.${className}`);
+          return false;
+        }
+        current = current.parentElement;
+      }
+      return true;
+    });
     
-    // Sort by priority (highest first)
-    prioritizedElements.sort((a, b) => b.priority - a.priority);
-    const elements = prioritizedElements.map(item => item.element);
-    
-    dbg(`📊 Found ${allElements.length} total elements, ${filteredElements.length} after exclusion, ${elements.length} after prioritization for selector:`, sel);
-    if (allElements.length !== filteredElements.length) {
-      dbg(`🚫 FILTERED OUT: ${allElements.length - filteredElements.length} elements from recommendation/related containers`);
-    }
-    
-    // Show top 3 priority scores for debugging
-    if (prioritizedElements.length > 0) {
-      const topPriorities = prioritizedElements.slice(0, 3).map(item => 
-        `${item.element.tagName}.${item.element.className.split(' ')[0] || ''}(${item.priority})`
-      );
-      dbg(`🏆 TOP PRIORITIES: ${topPriorities.join(', ')}`);
+    dbg(`📊 Found ${allElements.length} total elements, ${elements.length} after conservative filtering for selector:`, sel);
+    if (allElements.length !== elements.length) {
+      dbg(`🚫 FILTERED OUT: ${allElements.length - elements.length} obvious recommendation containers`);
     }
     
     // Skip processing if no elements found - eliminates 12+ lines of wasteful filtering/scoring
@@ -1675,115 +1670,6 @@
     }
     return null;
   }
-  // Smart container exclusion and priority system
-  function shouldExcludeContainer(element) {
-    if (!element) return false;
-    
-    // Conservative exclusion patterns - avoid recommendation/related content
-    const exclusionPatterns = [
-      'related', 'recommend', 'you-might', 'also-like', 
-      'similar', 'trending', 'popular', 'recently-viewed', 'carousel'
-    ];
-    
-    // Check element and parent containers for exclusion patterns
-    let current = element;
-    for (let i = 0; i < 5 && current && current.parentElement; i++) {
-      const className = (current.className || '').toLowerCase();
-      const id = (current.id || '').toLowerCase();
-      
-      for (const pattern of exclusionPatterns) {
-        if (className.includes(pattern) || id.includes(pattern)) {
-          dbg(`🚫 EXCLUDED CONTAINER: Found '${pattern}' in ${current.tagName}.${className}`);
-          return true;
-        }
-      }
-      current = current.parentElement;
-    }
-    return false;
-  }
-  
-  function calculateContainerPriority(element) {
-    if (!element) return 0;
-    
-    let score = 50; // Base score
-    const className = (element.className || '').toLowerCase();
-    const id = (element.id || '').toLowerCase();
-    
-    // Extract product name from URL for relevance matching
-    const urlPath = window.location.pathname;
-    const productNameParts = urlPath
-      .split('/').pop() // Get last part of URL
-      .replace(/[.-]/g, ' ') // Replace dashes/dots with spaces
-      .split(' ')
-      .filter(part => part.length > 2) // Filter out short words
-      .map(part => part.toLowerCase());
-    
-    // HIGHEST PRIORITY (+200): Containers near product title/description
-    const titleElement = document.querySelector('h1, .product-title, [itemprop="name"]');
-    if (titleElement) {
-      const elementRect = element.getBoundingClientRect();
-      const titleRect = titleElement.getBoundingClientRect();
-      const distance = Math.abs(elementRect.top - titleRect.bottom);
-      
-      if (distance < 300) { // Within 300px of title
-        score += 200;
-        dbg(`🏆 HIGHEST PRIORITY: Container near product title (+200): ${element.tagName}.${className}`);
-      }
-    }
-    
-    // HIGH PRIORITY (+150): Main product galleries with 4+ images
-    const imageCount = element.querySelectorAll('img').length;
-    if (imageCount >= 4) {
-      score += 150;
-      dbg(`🖼️ HIGH PRIORITY: Gallery with ${imageCount} images (+150): ${element.tagName}.${className}`);
-    }
-    
-    // MEDIUM PRIORITY (+100): Containers with product name in class/id
-    let nameMatches = 0;
-    for (const part of productNameParts) {
-      if (className.includes(part) || id.includes(part)) {
-        nameMatches++;
-      }
-    }
-    if (nameMatches > 0) {
-      const bonus = Math.min(100, nameMatches * 30); // Up to 100 points
-      score += bonus;
-      dbg(`🏷️ MEDIUM PRIORITY: Container matches ${nameMatches} product name parts (+${bonus}): ${element.tagName}.${className}`);
-    }
-    
-    // LOW PRIORITY (+50): Generic gallery containers
-    const galleryPatterns = ['gallery', 'product', 'images', 'media'];
-    for (const pattern of galleryPatterns) {
-      if (className.includes(pattern) || id.includes(pattern)) {
-        score += 50;
-        dbg(`💼 LOW PRIORITY: Generic gallery pattern '${pattern}' (+50): ${element.tagName}.${className}`);
-        break;
-      }
-    }
-    
-    // PENALTY (-100): Sidebar, footer, nav containers
-    const penaltyPatterns = ['sidebar', 'footer', 'nav', 'header', 'menu'];
-    for (const pattern of penaltyPatterns) {
-      if (className.includes(pattern) || id.includes(pattern)) {
-        score -= 100;
-        dbg(`⚠️ PENALTY: Navigation/UI container '${pattern}' (-100): ${element.tagName}.${className}`);
-        break;
-      }
-    }
-    
-    return score;
-  }
-  
-  // Extract product keywords from URL for image filename matching
-  function extractProductKeywords(url = window.location.pathname) {
-    return url
-      .split('/').pop() // Get last part of URL path
-      .replace(/[.-]/g, ' ') // Replace dashes/dots with spaces  
-      .split(' ')
-      .filter(part => part.length > 2) // Filter out short words like 'a', 'an', 'the'
-      .map(part => part.toLowerCase());
-  }
-  
   async function getImagesGeneric() {
     const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
     debug('🖼️ Getting generic images for hostname:', hostname);
