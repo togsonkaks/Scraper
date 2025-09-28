@@ -459,8 +459,10 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   
   const orchPath = path.join(__dirname, 'scrapers', 'orchestrator.js');
   const customPath = path.join(__dirname, 'scrapers', 'custom.js');
+  const debugLoggerPath = path.join(__dirname, 'scrapers', 'debug_logger.js');
   const orchSource = fs.readFileSync(orchPath, 'utf8');
   const customSource = fs.readFileSync(customPath, 'utf8');
+  const debugLoggerSource = fs.readFileSync(debugLoggerPath, 'utf8');
   const injected = `
     (async () => {
       try {
@@ -469,6 +471,9 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
         
         
         ${warmupScrollJS()}
+        
+        // FIRST: Load debug logger for automatic logging
+        ${debugLoggerSource}
         
         // CRITICAL: Load custom.js FIRST to expose getCustomHandlers
         ${customSource}
