@@ -422,8 +422,18 @@ ipcMain.handle('eval-in-product', async (_e, js) => {
 ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   const win = ensureProduct();
   
-  // Get current URL to determine host
+  // Get current URL for automatic debug logging
   const currentURL = await win.webContents.executeJavaScript('location.href');
+  
+  // Start automatic debug logging
+  await win.webContents.executeJavaScript(`
+    if (typeof window.startDebugLogging === 'function') {
+      window.startDebugLogging('${currentURL}');
+      console.log('🤖 AUTO: Debug logging started for scrape operation');
+    }
+  `);
+  
+  // Get host from the current URL
   const host = normalizeHost(new URL(currentURL).hostname);
   
   // Load memory data for injection
@@ -471,7 +481,29 @@ ipcMain.handle('scrape-current', async (_e, opts = {}) => {
       } catch(e) { return { result: { __error: String(e) }, selectorsUsed: null }; }
     })();
   `;
-  return win.webContents.executeJavaScript(injected, true);
+  
+  try {
+    const result = await win.webContents.executeJavaScript(injected, true);
+    
+    // Stop automatic debug logging after scrape completes
+    await win.webContents.executeJavaScript(`
+      if (typeof window.stopDebugLogging === 'function') {
+        window.stopDebugLogging();
+        console.log('🤖 AUTO: Debug logging stopped after scrape operation');
+      }
+    `);
+    
+    return result;
+  } catch (error) {
+    // Stop debug logging even if scrape fails
+    await win.webContents.executeJavaScript(`
+      if (typeof window.stopDebugLogging === 'function') {
+        window.stopDebugLogging();
+        console.log('🤖 AUTO: Debug logging stopped after scrape error');
+      }
+    `);
+    throw error;
+  }
 });
 
 /* ========= LLM agent ========= */
