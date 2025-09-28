@@ -1,0 +1,279 @@
+Elixir Duo at Kylie Cosmetics.
+[2:19:46 PM] 🧩 PRICE: Trying custom handler...
+[2:19:46 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[2:19:46 PM] 💰 PRICE: Falling back to generic...
+[2:19:46 PM] 🔍 PRICE PARSING: {"input":"Sale price\n $62.10","inputType":"string","inputLength":26}
+[2:19:46 PM] 🧹 CLEANED INPUT: {"original":"Sale price\n $62.10","cleaned":"Sale price\n $62.10"}
+[2:19:46 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"Sale price\n $62.10","reconstructed":"Sale price\n $62.10"}
+[2:19:46 PM] 💰 MONETARY TOKENS: [62.1]
+[2:19:46 PM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[62.1],"integerTokens":[],"preferDecimals":true}
+[2:19:46 PM] ✅ PRICE FROM MONETARY: {"result":62.1,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[62.1]}
+[2:19:46 PM] 🎯 REFINING PRICE: {"baseVal":"62.1","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[2:19:46 PM] Price element <SPAN.price>
+[2:19:46 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[2:19:46 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[2:19:46 PM] 📍 ANCESTOR 0: <SPAN.price>
+[2:19:46 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"Sale price\n $62.10","cleaned":"Sale price\n $62.10","reconstructed":"Sale price\n $62.10"}
+[2:19:46 PM] 💰 ANCESTOR 0 SMART PRICE: 62.1 from tokens: [62.1]
+[2:19:46 PM] 📍 ANCESTOR 1: <DIV.pricing__values>
+[2:19:46 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"Sale price\n $62.10 \n Regular price\n $69","cleaned":"Sale price\n $62.10 \n Regular price\n $69","reconstructed":"Sale price\n
+[2:19:46 PM] 💰 ANCESTOR 1 SMART PRICE: 62.1 from tokens: [62.1,69]
+[2:19:46 PM] 📍 ANCESTOR 2: <DIV.pricing>
+[2:19:46 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"glossy finish + second-skin blur \n Sale price\n $62.10 \n Regular price\n ","cleaned":"glossy finish + second-skin blur \n Sale price\n $62.
+[2:19:46 PM] 💰 ANCESTOR 2 SMART PRICE: 62.1 from tokens: [62.1,69]
+[2:19:46 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"62.1","originalBase":"62.1"}
+[2:19:46 PM] 💰 PRICE FROM GENERIC: 62.1
+[2:19:46 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[2:19:46 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[2:19:46 PM] 🧩 IMAGES: Trying custom handler...
+[2:19:46 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[2:19:46 PM] 🖼️ Getting generic images for hostname: kyliecosmetics.com
+[2:19:46 PM] 🔍 Selector '.product-media img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: '.product-media img' → 0 images
+[2:19:46 PM] 🔍 Selector '.gallery img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: '.gallery img' → 0 images
+[2:19:46 PM] 🔍 Selector '.image-gallery img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: '.image-gallery img' → 0 images
+[2:19:46 PM] 🔍 Selector '.product-images img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: '.product-images img' → 0 images
+[2:19:46 PM] 🔍 Selector '.product-gallery img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: '.product-gallery img' → 0 images
+[2:19:46 PM] 🔍 Selector '.product_media_item img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: '.product_media_item img' → 0 images
+[2:19:46 PM] 🔍 Selector '.product__media-item img.image__img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: '.product__media-item img.image__img' → 0 images
+[2:19:46 PM] 🔍 Selector 'img.image_img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: 'img.image_img' → 0 images
+[2:19:46 PM] 🔍 Selector 'img.image__img' found 0 elements
+[2:19:46 PM] 🎯 Trying selector: 'img.image__img' → 0 images
+[2:19:46 PM] 🔍 Selector '[class*=gallery] img' found 28 elements
+[2:19:46 PM] 📝 First element: <img src="//kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_800x.jpg?v=1750693037" data-src="//kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bun
+[2:19:46 PM] 🔍 Processing 28 image elements...
+[2:19:46 PM] Image element #1 <IMG.responsive-image__image>
+[2:19:46 PM] ✨ UPGRADED Shopify URL: v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_800x.jpg?v=1750693037 -> v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_800x.jpg?v=1750693037 -> v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037
+[2:19:46 PM] Image element #2 <IMG.responsive-image__image>
+[2:19:46 PM] ✨ UPGRADED Shopify URL: v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_800x.jpg?v=1750693037 -> v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_800x.jpg?v=1750693037 -> v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037
+[2:19:46 PM] Image element #3 <IMG.responsive-image__image>
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_800x.jpg?v=1750693037 -> KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_800x.jpg?v=1750693037 -> KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED Shopify URL: skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_800x.jpg?v=1750693037 -> skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_800x.jpg?v=1750693037 -> skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_800x.jpg?v=1750693037 -> KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_800x.jpg?v=1750693037 -> KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_1020x.jpg?v=1750693037
+[2:19:46 PM] ✨ UPGRADED Shopify URL: matte_lip_kit_kylie_friday_400x.jpg?v=1741811444 -> matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444
+[2:19:46 PM] ✨ UPGRADED CDN URL: matte_lip_kit_kylie_friday_400x.jpg?v=1741811444 -> matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444
+[2:19:46 PM] ✨ UPGRADED Shopify URL: matte_lip_kit_bare_400x.jpg?v=1741809265 -> matte_lip_kit_bare_1020x.jpg?v=1741809265
+[2:19:46 PM] ✨ UPGRADED CDN URL: matte_lip_kit_bare_400x.jpg?v=1741809265 -> matte_lip_kit_bare_1020x.jpg?v=1741809265
+[2:19:46 PM] ✨ UPGRADED Shopify URL: skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe65c8eef_400x.jpg?v=1721749335 -> skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335
+[2:19:46 PM] ✨ UPGRADED CDN URL: skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe65c8eef_400x.jpg?v=1721749335 -> skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c43-03716577aaf4_400x.jpg?v=1721749335 -> KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c43-03716577aaf4_1020x.jpg?v=1721749335
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c43-03716577aaf4_400x.jpg?v=1721749335 -> KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c43-03716577aaf4_1020x.jpg?v=1721749335
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_LLPRP_23_Smitten_Stylized_400x.jpg?v=1701816850 -> KJC_LLPRP_23_Smitten_Stylized_1020x.jpg?v=1701816850
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_LLPRP_23_Smitten_Stylized_400x.jpg?v=1701816850 -> KJC_LLPRP_23_Smitten_Stylized_1020x.jpg?v=1701816850
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_LLPRP_23_Saturn_Stylized_400x.jpg?v=1701816848 -> KJC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701816848
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_LLPRP_23_Saturn_Stylized_400x.jpg?v=1701816848 -> KJC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701816848
+[2:19:46 PM] ✨ UPGRADED Shopify URL: 1N_400x.jpg?v=1695741517 -> 1N_1020x.jpg?v=1695741517
+[2:19:46 PM] ✨ UPGRADED CDN URL: 1N_400x.jpg?v=1695741517 -> 1N_1020x.jpg?v=1695741517
+[2:19:46 PM] ✨ UPGRADED Shopify URL: 1N_400x.jpg?v=1695741517 -> 1N_1020x.jpg?v=1695741517
+[2:19:46 PM] ✨ UPGRADED CDN URL: 1N_400x.jpg?v=1695741517 -> 1N_1020x.jpg?v=1695741517
+[2:19:46 PM] ✨ UPGRADED Shopify URL: jnuywyanlfcrajpcpba2_400x.jpg?v=1690256428 -> jnuywyanlfcrajpcpba2_1020x.jpg?v=1690256428
+[2:19:46 PM] ✨ UPGRADED CDN URL: jnuywyanlfcrajpcpba2_400x.jpg?v=1690256428 -> jnuywyanlfcrajpcpba2_1020x.jpg?v=1690256428
+[2:19:46 PM] ✨ UPGRADED Shopify URL: tli4tbawu0cqowlxmd78_400x.jpg?v=1690256428 -> tli4tbawu0cqowlxmd78_1020x.jpg?v=1690256428
+[2:19:46 PM] ✨ UPGRADED CDN URL: tli4tbawu0cqowlxmd78_400x.jpg?v=1690256428 -> tli4tbawu0cqowlxmd78_1020x.jpg?v=1690256428
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?v=1742484461 -> KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?v=1742484461 -> KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?v=1742484461 -> KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?v=1742484461 -> KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=1675363605 -> KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=1675363605 -> KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=1675363605 -> KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=1675363605 -> KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[2:19:46 PM] ✨ UPGRADED Shopify URL: KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9ab-e64abfad1429_400x.jpg?v=1705447407 -> KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9ab-e64abfad1429_1020x.jpg?v=1705447407
+[2:19:46 PM] ✨ UPGRADED CDN URL: KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9ab-e64abfad1429_400x.jpg?v=1705447407 -> KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9ab-e64abfad1429_1020x.jpg?v=1705447407
+[2:19:46 PM] ✨ UPGRADED Shopify URL: PhotoNov022023_24433PM-2copy_400x.jpg?v=1705447407 -> PhotoNov022023_24433PM-2copy_1020x.jpg?v=1705447407
+[2:19:46 PM] ✨ UPGRADED CDN URL: PhotoNov022023_24433PM-2copy_400x.jpg?v=1705447407 -> PhotoNov022023_24433PM-2copy_1020x.jpg?v=1705447407
+[2:19:46 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":28}
+[2:19:46 PM] 🎯 PRODUCT ID from URL: glossy-lip-kit-skin-tint-blurring-elixir-duo
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd2207
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4eb
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_US_Stylized_1WN_3f8924a4-fff3-4a1b-88c8-24090c6
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Smitten_Stylized_1020x.jpg?v=170
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/1N_1020x.jpg?v=1695741517
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/1N_1020x.jpg?v=1695741517
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/jnuywyanlfcrajpcpba2_1020x.jpg?v=169025642
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/tli4tbawu0cqowlxmd78_1020x.jpg?v=169025642
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9a
+0
+📋 Copy URL
+[2:19:46 PM] 📉 LOW SCORE REJECTED (0): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/PhotoNov022023_24433PM-2copy_1020x.jpg?v=1705
+0
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 235): https://kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2
+235
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 225): https://kyliecosmetics.com/cdn/shop/files/v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-
+225
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 175): https://kyliecosmetics.com/cdn/shop/files/skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_
+175
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 85): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_LipMacro_Kylie_01_WS.jpg?v=1750692350&width=200
+85
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 250): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=174
+250
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 250): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_1020x.jpg?v=1741809265
+250
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 215): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe
+215
+📋 Copy URL
+[2:19:46 PM] ✅ BEST OF 2 (score: 240): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1
+240
+📋 Copy URL
+[2:19:46 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+240
+📋 Copy URL
+[2:19:46 PM] 🎯 HIGH SCORE + SIZE OK (235): https://kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2
+235
+📋 Copy URL
+[2:19:46 PM] 🎯 HIGH SCORE + SIZE OK (225): https://kyliecosmetics.com/cdn/shop/files/v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-
+225
+📋 Copy URL
+[2:19:46 PM] 🎯 HIGH SCORE + SIZE OK (175): https://kyliecosmetics.com/cdn/shop/files/skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_
+175
+📋 Copy URL
+[2:19:46 PM] 🎯 HIGH SCORE + SIZE OK (85): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_LipMacro_Kylie_01_WS.jpg?v=1750692350&width=200
+85
+📋 Copy URL
+[2:19:46 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=174
+250
+📋 Copy URL
+[2:19:46 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_1020x.jpg?v=1741809265
+250
+📋 Copy URL
+[2:19:46 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe
+215
+📋 Copy URL
+[2:19:46 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1
+240
+📋 Copy URL
+[2:19:46 PM] 🏆 TOP SCORED IMAGES: ["matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444 (score: 250)","matte_lip_kit_bare_1020x.jpg?v=1741809265 (score: 250)","KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605 (score: 240)","v2_Glossy
+[2:19:46 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":19,"smallFile":0,"duplicateGroups":1,"kept":8}
+[2:19:46 PM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_fr","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_102","https://cdn.shopify.com/s/files/
+[2:19:46 PM] 🎯 Trying selector: '[class*=gallery] img' → 8 images
+[2:19:46 PM] ✅ Success with selector: '[class*=gallery] img'
+[2:19:46 PM] 🖼️ GENERIC IMAGES: {"count":8,"images":["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_
+[2:19:46 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":8}
+[2:19:46 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 265): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=174
+265
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 255): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_1020x.jpg?v=1741809265
+255
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 245): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1
+245
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 190): https://kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2
+190
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 190): https://kyliecosmetics.com/cdn/shop/files/v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-
+190
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 200): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe
+200
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 160): https://kyliecosmetics.com/cdn/shop/files/skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_
+160
+📋 Copy URL
+[2:19:46 PM] ✅ SINGLE IMAGE (score: 70): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_LipMacro_Kylie_01_WS.jpg?v=1750692350&width=200
+70
+📋 Copy URL
+[2:19:46 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=174
+265
+📋 Copy URL
+[2:19:46 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_1020x.jpg?v=1741809265
+255
+📋 Copy URL
+[2:19:46 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1
+245
+📋 Copy URL
+[2:19:46 PM] 🎯 HIGH SCORE + SIZE OK (190): https://kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2
+190
+📋 Copy URL
+[2:19:46 PM] 🎯 HIGH SCORE + SIZE OK (190): https://kyliecosmetics.com/cdn/shop/files/v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-
+190
+📋 Copy URL
+[2:19:46 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe
+200
+📋 Copy URL
+[2:19:46 PM] 🎯 HIGH SCORE + SIZE OK (160): https://kyliecosmetics.com/cdn/shop/files/skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_
+160
+📋 Copy URL
+[2:19:46 PM] 🎯 HIGH SCORE + SIZE OK (70): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_LipMacro_Kylie_01_WS.jpg?v=1750692350&width=200
+70
+📋 Copy URL
+[2:19:46 PM] 🏆 TOP SCORED IMAGES: ["matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444 (score: 265)","matte_lip_kit_bare_1020x.jpg?v=1741809265 (score: 255)","KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605 (score: 245)","skin_tint
+[2:19:46 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":8}
+[2:19:46 PM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_fr","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_102","https://cdn.shopify.com/s/files/
+[2:19:46 PM] 🖼️ FINAL IMAGES: {"count":8,"images":["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_
+[2:19:46 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Glossy Lip Kit & Skin Tint Blurring Elixir Duo","brand":"kylie-cosmetics","description":"Want a shiny, contoured lip and weightless coverag","price":"62.1","imageCount":8,"firstImages":["htt
+[2:19:46 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":8}
+[2:19:46 PM] ✅ Debug trace complete
