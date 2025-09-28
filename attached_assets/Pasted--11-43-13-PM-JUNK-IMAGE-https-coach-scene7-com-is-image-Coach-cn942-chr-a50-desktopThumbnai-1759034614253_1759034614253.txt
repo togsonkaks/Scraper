@@ -1,0 +1,80 @@
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a50?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a8?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a45?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a46?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a50?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a8?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a45?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a46?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a50?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a8?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a45?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a46?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a50?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopThumbnail$
+0
+📋 Copy URL
+[11:43:13 PM] ✅ SINGLE IMAGE (score: 95): https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$
+95
+📋 Copy URL
+[11:43:13 PM] 🔒 TRUSTED CDN BYPASS: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$
+95
+📋 Copy URL
+[11:43:13 PM] 🏆 TOP SCORED IMAGES: ["cn942_chr_a0?$desktopProduct$ (score: 95)"]
+[11:43:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":17,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[11:43:13 PM] 🖼️ FINAL IMAGES: ["https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$"]
+[11:43:13 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[11:43:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[11:43:13 PM] ✅ SINGLE IMAGE (score: 110): https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$
+110
+📋 Copy URL
+[11:43:13 PM] 🔒 TRUSTED CDN BYPASS: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$
+110
+📋 Copy URL
+[11:43:13 PM] 🏆 TOP SCORED IMAGES: ["cn942_chr_a0?$desktopProduct$ (score: 110)"]
+[11:43:13 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[11:43:13 PM] 🖼️ FINAL IMAGES: ["https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$"]
+[11:43:13 PM] 🖼️ GENERIC IMAGES: {"count":1,"images":["https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$"]}
+[11:43:13 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[11:43:13 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[11:43:13 PM] ✅ SINGLE IMAGE (score: 110): https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$
+110
+📋 Copy URL
+[11:43:13 PM] 🔒 TRUSTED CDN BYPASS: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$
+110
+📋 Copy URL
