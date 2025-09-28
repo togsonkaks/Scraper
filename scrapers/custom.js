@@ -1945,7 +1945,7 @@ const REGISTRY = [
   // COACH, // TEMPORARILY DISABLED - testing generic vs custom
   COMMENSE,
   // CUYANA, // TEMPORARILY DISABLED - testing generic vs custom
-  JOHNSCRAZYSOCKS,
+  // JOHNSCRAZYSOCKS, // TEMPORARILY DISABLED - testing generic vs custom
   KIRRINFINCH,
   MAHABIS,
   { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },

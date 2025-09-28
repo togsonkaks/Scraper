@@ -1,0 +1,759 @@
+[11:17:28 AM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=5663743&Ver=2&mid=545e0ecd-aba6-41b9-b9d8-0ea2eda22674&bo=1&sid=950
+0[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 130): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+130
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+130
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 130): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+130[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+130[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 110): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+110
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+110
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 110): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+110[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+110[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+100
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 5 (score: 110): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+110
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+110
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 5 (score: 110): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+110[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 4 lower-scored versions rejected
+110[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 3 (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+100
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 3 (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+100
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 65): https://www.instacart.com/image-server/64x64/www.instacart.com/assets/checkout/quality_guarantee/rib
+65
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 65): https://www.instacart.com/image-server/256x256/www.instacart.com/assets/checkout/quality_guarantee/r
+65
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a580.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 3 (score: 100): https://www.instacart.com/assets/domains/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a5
+100
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+100
+📋 Copy URL
+[11:17:28 AM] ✅ BEST OF 2 (score: 100): https://www.instacart.com/assets/domains/product-image/file/large_0042d78c-3ed4-4750-a52f-f847ed67d4
+100
+📋 Copy URL
+[11:17:28 AM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 110): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+110
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 110): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+110[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] ✅ SINGLE IMAGE (score: 100): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+130
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+130[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+110
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+110[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+110
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+110[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🎯 HIGH SCORE + SIZE OK (65): https://www.instacart.com/image-server/64x64/www.instacart.com/assets/checkout/quality_guarantee/rib
+65
+📋 Copy URL
+[11:17:28 AM] 🎯 HIGH SCORE + SIZE OK (65): https://www.instacart.com/image-server/256x256/www.instacart.com/assets/checkout/quality_guarantee/r
+65
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a580.
+100
+📋 Copy URL
+[11:17:28 AM] 🎯 HIGH SCORE + SIZE OK (100): https://www.instacart.com/assets/domains/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a5
+100
+📋 Copy URL
+[11:17:28 AM] 🎯 HIGH SCORE + SIZE OK (100): https://www.instacart.com/assets/domains/product-image/file/large_0042d78c-3ed4-4750-a52f-f847ed67d4
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:28 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+110
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+110[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+100
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+100[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🏆 TOP SCORED IMAGES: ["large_dea782d5-2f2f-4b81-b3ca-65b884be6fe4.webp (score: 130)","large_dea782d5-2f2f-4b81-b3ca-65b884be6fe4.webp (score: 130)","large_d70fe194-3d6d-464a-a475-16c717a184f0.webp (score: 110)","large_d70
+[11:17:29 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":1,"junk":4,"lowScore":0,"smallFile":0,"duplicateGroups":14,"kept":43}
+[11:17:29 AM] 🖼️ FINAL IMAGES: ["https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(","https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.n","https://www.instacart.com/image-
+[11:17:29 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":43}
+[11:17:29 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":43}
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 125): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+125
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 115): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+115[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 115): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+115
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+95
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+95
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a580.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/assets/domains/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a5
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/assets/domains/product-image/file/large_0042d78c-3ed4-4750-a52f-f847ed67d4
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 50): https://www.instacart.com/image-server/64x64/www.instacart.com/assets/checkout/quality_guarantee/rib
+50
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 50): https://www.instacart.com/image-server/256x256/www.instacart.com/assets/checkout/quality_guarantee/r
+50
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+125
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+115[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+115
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+95
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+95
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a580.
+85
+📋 Copy URL
+[11:17:29 AM] 🎯 HIGH SCORE + SIZE OK (85): https://www.instacart.com/assets/domains/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a5
+85
+📋 Copy URL
+[11:17:29 AM] 🎯 HIGH SCORE + SIZE OK (85): https://www.instacart.com/assets/domains/product-image/file/large_0042d78c-3ed4-4750-a52f-f847ed67d4
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 📏 SIZE OK (est: 100KB): https://www.instacart.com/image-server/64x64/www.instacart.com/assets/checkout/quality_guarantee/rib
+50
+📋 Copy URL
+[11:17:29 AM] 📏 SIZE OK (est: 100KB): https://www.instacart.com/image-server/256x256/www.instacart.com/assets/checkout/quality_guarantee/r
+50
+📋 Copy URL
+[11:17:29 AM] 🏆 TOP SCORED IMAGES: ["large_dea782d5-2f2f-4b81-b3ca-65b884be6fe4.webp (score: 125)","large_dea782d5-2f2f-4b81-b3ca-65b884be6fe4.webp (score: 115)","large_d70fe194-3d6d-464a-a475-16c717a184f0.webp (score: 115)","large_d70
+[11:17:29 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":43}
+[11:17:29 AM] 🖼️ FINAL IMAGES: ["https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(","https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.n","https://www.instacart.com/image-
+[11:17:29 AM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_dea782d5-2f2f-4b81-b3ca-65b884be6fe4.
+[11:17:29 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":30}
+[11:17:29 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":30}
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 125): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+125
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 115): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+115[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 115): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+115
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+95
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+95
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 95): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a580.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/assets/domains/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a5
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/assets/domains/product-image/file/large_0042d78c-3ed4-4750-a52f-f847ed67d4
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] ✅ SINGLE IMAGE (score: 85): https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+125
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+115[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+115
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+95
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+95
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+95[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a580.
+85
+📋 Copy URL
+[11:17:29 AM] 🎯 HIGH SCORE + SIZE OK (85): https://www.instacart.com/assets/domains/product-image/file/large_ba1a6a19-7c7c-4889-a59d-4b7400e6a5
+85
+📋 Copy URL
+[11:17:29 AM] 🎯 HIGH SCORE + SIZE OK (85): https://www.instacart.com/assets/domains/product-image/file/large_0042d78c-3ed4-4750-a52f-f847ed67d4
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/fil
+85[IMG ERROR]
+📋 Copy URL
+[11:17:29 AM] 🔒 TRUSTED CDN BYPASS: https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.
+85
+📋 Copy URL
+[11:17:29 AM] 🏆 TOP SCORED IMAGES: ["large_dea782d5-2f2f-4b81-b3ca-65b884be6fe4.webp (score: 125)","large_dea782d5-2f2f-4b81-b3ca-65b884be6fe4.webp (score: 115)","large_d70fe194-3d6d-464a-a475-16c717a184f0.webp (score: 115)","large_d70
+[11:17:29 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":30}
+[11:17:29 AM] 🖼️ FINAL IMAGES: ["https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(","https://www.instacart.com/products/true):format(jpg)/d2lnr5mha7bycj.cloudfront.n","https://www.instacart.com/image-
+[11:17:29 AM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://www.instacart.com/image-server/257x257/filters:fill(FFFFFF,true):format(jpg)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_dea782d5-2f2f-4b81-b3ca-65b884be6fe4.
+[11:17:29 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Paper Goods","brand":"let resolve\n let reject\n window.resolveLoading = () => resolve()\n window.rejectLoading = (error) => reject(error)\n window.__do_not_use_me_loadin
+[11:17:29 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":false,"images":30}
+[11:17:29 AM] ✅ Debug trace complete
