@@ -833,31 +833,6 @@ const CHEWY = {
   }
 };
 
-// ---------- Coach / Coach Outlet (Scene7, upsized) ----------
-const COACH = {
-  match: (h) => /\bcoach(outlet)?\.com$/i.test(h),
-  async images(doc = document) {
-    const out = [];
-    doc.querySelectorAll('img, source[srcset], a[href]').forEach(el => {
-      const push = (u) => { if (u) out.push(u); };
-      const pullSet = (ss) => (ss||'').split(',').forEach(s=>{
-        const u = s.trim().split(/\s+/)[0]; if (u) push(u);
-      });
-      if (el.tagName === 'SOURCE') pullSet(el.getAttribute('srcset'));
-      else if (el.tagName === 'A') {
-        const u = el.getAttribute('href')||''; if (/scene7\.com\/is\/image/i.test(u)) push(u);
-      } else {
-        const src = el.currentSrc || el.getAttribute('src') || '';
-        if (/scene7\.com\/is\/image/i.test(src)) push(src);
-        pullSet(el.getAttribute('srcset'));
-      }
-    });
-    const uniq = [...new Set(out)]
-      .filter(u => /scene7\.com\/is\/image/i.test(u))
-      .map(u => /[?&]wid=\d+/.test(u) ? u : (u + (/\?/.test(u) ? '&' : '?') + 'wid=2000&qlt=90&op_usm=1.0,1.0,0.0,0'));
-    return uniq.slice(0, 20);
-  }
-};
 
 // ---------- Commense / TheCommense (visible price + PhotoSwipe) ----------
 const COMMENSE = {
