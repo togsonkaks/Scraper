@@ -707,6 +707,19 @@
       }
     }
     
+    // ETSY CDN: Upgrade small thumbnail dimensions to high-quality
+    if (/i\.etsystatic\.com/i.test(url)) {
+      // Upgrade common small dimensions to 1200x1200
+      upgraded = upgraded.replace(/il_300x300/g, 'il_1200x1200');
+      upgraded = upgraded.replace(/il_340x270/g, 'il_1200x1200');
+      upgraded = upgraded.replace(/il_500x400/g, 'il_1200x1200');
+      upgraded = upgraded.replace(/il_600x480/g, 'il_1200x1200');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Etsy CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
