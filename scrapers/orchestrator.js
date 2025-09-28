@@ -1407,10 +1407,15 @@
     
     const enrichedUrls = []; // Now includes element info
     
+    debug(`🔍 Processing ${elements.length} image elements...`);
+    
     try {
       for (let i = 0; i < elements.length; i++) {
       const el = elements[i];
-      debugElement(el, `Image element`);
+      // Only log first 3 elements to reduce spam
+      if (i < 3) {
+        debugElement(el, `Image element #${i+1}`);
+      }
       
       const attrs = {
         src: el.getAttribute('src') || el.currentSrc,
