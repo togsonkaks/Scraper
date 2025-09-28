@@ -55,6 +55,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **Mozu**: ?max=100 → ?quality=60 conversions (RECENTLY RESTORED)
 - **American Eagle Outfitters**: Scene7 $pdp-mdg-opt$ → $pdp-md-opt$ quality upgrades (md is better quality)
 - **Etsy**: il_300x300 → il_1200x1200 dimension upgrades for high-quality product images
+- **IKEA**: ?f=u/xxl → ?f=xxxl upgrades for highest quality available
 
 ### Custom Handler Registry (custom.js)
 - **Amazon (AMZ)**: Quality scoring, hi-res attributes, a-state JSON parsing

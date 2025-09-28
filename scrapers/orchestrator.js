@@ -720,6 +720,22 @@
       }
     }
     
+    // IKEA CDN: Upgrade to highest quality available
+    if (/ikea\.com\/.*\/images\//i.test(url)) {
+      // Always upgrade to xxxl quality (highest available)
+      upgraded = upgraded.replace(/\?f=(u|s|xxs|xs|s|m|l|xl|xxl)/g, '?f=xxxl');
+      
+      // Add xxxl quality if no f parameter exists
+      if (!/\?f=/i.test(upgraded) && /\.jpg|\.png|\.webp/i.test(upgraded)) {
+        const separator = upgraded.includes('?') ? '&' : '?';
+        upgraded += `${separator}f=xxxl`;
+      }
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED IKEA CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
