@@ -1751,19 +1751,22 @@ const CASTLERY = {
   async images(doc = document) {
     const debug = (msg) => {
       try {
+        const logMsg = `[CASTLERY] ${msg}`;
         if (typeof window !== 'undefined' && window.__tg_debugLog) {
           if (typeof window.__tg_debugLog === 'function') {
-            window.__tg_debugLog(`[CASTLERY] ${msg}`);
+            window.__tg_debugLog(logMsg);
           } else if (Array.isArray(window.__tg_debugLog)) {
-            window.__tg_debugLog.push(`[CASTLERY] ${msg}`);
+            window.__tg_debugLog.push(logMsg);
           } else {
-            console.log(`[CASTLERY] ${msg}`);
+            console.log(logMsg);
           }
         } else {
-          console.log(`[CASTLERY] ${msg}`);
+          console.log(logMsg);
         }
+        return true; // Always return something to prevent undefined
       } catch(e) {
         console.log(`[CASTLERY] ${msg}`); // fallback if anything fails
+        return true;
       }
     };
 
@@ -1776,9 +1779,10 @@ const CASTLERY = {
     
     slideContainers.forEach((slide, index) => {
       const images = slide.querySelectorAll('img');
-      debug(`[DEBUG] Castlery slide ${index + 1} has ${images.length} images`);
+      debug(`Slide ${index + 1}: Found ${images.length} images`);
       
-      images.forEach(img => {
+      images.forEach((img, imgIndex) => {
+        debug(`  Slide ${index + 1}, Image ${imgIndex + 1}: Checking sources...`);
         // Check multiple sources for Cloudinary URLs
         const sources = [
           img.src,
@@ -1790,17 +1794,22 @@ const CASTLERY = {
           img.getAttribute('data-large')
         ].filter(Boolean);
 
-        sources.forEach(url => {
-          // Only accept product image URLs, skip marketing banners
-          if (url && url.includes('res.cloudinary.com/castlery') && 
-              !url.includes('/marketing/') && 
-              !url.includes('/banner/') && 
-              !url.includes('/menu/') &&
-              !url.includes('w_{width}')) {
-            debug(`[DEBUG] Castlery found product image: ${url.substring(url.lastIndexOf('/') + 1)}`);
-            out.add(url);
-          } else if (url && (url.includes('/marketing/') || url.includes('/banner/') || url.includes('/menu/'))) {
-            debug(`[DEBUG] Castlery skipping marketing/banner: ${url.substring(url.lastIndexOf('/') + 1)}`);
+        sources.forEach((url, srcIndex) => {
+          if (url) {
+            debug(`    Source ${srcIndex + 1}: ${url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('/') + 40)}...`);
+            // Only accept product image URLs, skip marketing banners
+            if (url.includes('res.cloudinary.com/castlery') && 
+                !url.includes('/marketing/') && 
+                !url.includes('/banner/') && 
+                !url.includes('/menu/') &&
+                !url.includes('w_{width}')) {
+              debug(`    ✅ ACCEPTED: ${url.substring(url.lastIndexOf('/') + 1)}`);
+              out.add(url);
+            } else if (url.includes('/marketing/') || url.includes('/banner/') || url.includes('/menu/')) {
+              debug(`    ❌ SKIPPED (marketing/banner): ${url.substring(url.lastIndexOf('/') + 1)}`);
+            } else if (!url.includes('res.cloudinary.com/castlery')) {
+              debug(`    ❌ SKIPPED (not Cloudinary): ${url.substring(url.lastIndexOf('/') + 1)}`);
+            }
           }
         });
       });
@@ -1812,10 +1821,11 @@ const CASTLERY = {
       /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(url)
     );
 
-    debug(`[DEBUG] Castlery collected ${result.length} product images from slides (CDN upgrades will be applied automatically)`);
+    debug(`FINAL RESULTS: Collected ${result.length} unique product images from ${slideContainers.length} slides`);
     result.forEach((url, i) => {
-      debug(`[DEBUG] Castlery [${i+1}]: ${url.substring(url.lastIndexOf('/') + 1)}`);
+      debug(`  Final Image ${i+1}: ${url.substring(url.lastIndexOf('/') + 1)}`);
     });
+    debug(`Castlery custom handler complete - returning ${result.length} images`);
     
     return result.slice(0, 20);
   }
