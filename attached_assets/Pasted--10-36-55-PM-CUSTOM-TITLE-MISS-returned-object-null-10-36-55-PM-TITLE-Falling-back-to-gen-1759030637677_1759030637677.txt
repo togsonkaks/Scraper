@@ -1,0 +1,57 @@
+[10:36:55 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[10:36:55 PM] 📝 TITLE: Falling back to generic...
+[10:36:55 PM] 📝 TITLE FROM GENERIC: Dalton Storage Bed
+[10:36:55 PM] 🏷️ BRAND: Falling back to generic...
+[10:36:55 PM] 🏷️ BRAND FROM GENERIC: Castlery
+[10:36:55 PM] 📄 DESCRIPTION: Falling back to generic...
+[10:36:55 PM] 📄 DESCRIPTION FROM GENERIC: Shop Dalton Storage Bed - $1,699. Join The Castlery Club & get $50 off your first order with us. Plus FREE delivery to selected cities for orders above $1,399.
+[10:36:55 PM] 🧩 PRICE: Trying custom handler...
+[10:36:55 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[10:36:55 PM] 💰 PRICE: Falling back to generic...
+[10:36:55 PM] 🔍 PRICE PARSING: {"input":"1699","inputType":"string","inputLength":4}
+[10:36:55 PM] 🧹 CLEANED INPUT: {"original":"1699","cleaned":"1699"}
+[10:36:55 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"1699","reconstructed":"1699"}
+[10:36:55 PM] 💰 MONETARY TOKENS: []
+[10:36:55 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[1699]}
+[10:36:55 PM] ✅ FINAL PRICE RESULT: {"result":1699,"method":"MIN_FALLBACK","allNumbers":[1699]}
+[10:36:55 PM] 💰 PRICE FROM GENERIC: 1699
+[10:36:55 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[10:36:55 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[10:36:55 PM] 🧩 IMAGES: Trying custom handler...
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] undefined
+[10:36:55 PM] 🧩 CUSTOM IMAGES: {"count":1,"images":["https://res.cloudinary.com/castlery/image/private/w_500,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v1693795800/crusader/variants/50440835-NG4001/Dalton-Storage-Bed-With-Harper-Side-Table-S
+[10:36:55 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[10:36:55 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[10:36:55 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[10:36:55 PM] ✨ UPGRADED Cloudinary URL: Dalton-Storage-Bed-With-Harper-Side-Table-Square-Set_1-1693795799.jpg -> Dalton-Storage-Bed-With-Harper-Side-Table-Square-Set_1-1693795799.jpg
+[10:36:55 PM] ✅ SINGLE IMAGE (score: 203): https://res.cloudinary.com/castlery/image/private/w_1280,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v169379580
+203
+📋 Copy URL
+[10:36:55 PM] 🎯 HIGH SCORE + SIZE OK (203): https://res.cloudinary.com/castlery/image/private/w_1280,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v169379580
+203
+📋 Copy URL
+[10:36:55 PM] 🏆 TOP SCORED IMAGES: ["Dalton-Storage-Bed-With-Harper-Side-Table-Square-Set_1-1693795799.jpg (score: 203)"]
+[10:36:55 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[10:36:55 PM] 🖼️ FINAL IMAGES: ["https://res.cloudinary.com/castlery/image/private/w_1280,f_auto,q_auto/b_rgb:F3F"]
+[10:36:55 PM] 🖼️ FINAL IMAGES: {"count":1,"images":["https://res.cloudinary.com/castlery/image/private/w_1280,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v1693795800/crusader/variants/50440835-NG4001/Dalton-Storage-Bed-With-Harper-Side-Table-
+[10:36:55 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Dalton Storage Bed","brand":"Castlery","description":"Shop Dalton Storage Bed - $1,699. Join The Castler","price":"1699","imageCount":1,"firstImages":["https://res.cloudinary.com/castlery/im
+[10:36:55 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":1}
