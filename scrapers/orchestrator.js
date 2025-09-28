@@ -595,6 +595,16 @@
       }
     }
     
+    // BOOHOO/BOOHOOMAN: Upgrade thumbnail dimensions to high-quality
+    if (/mediahub\.boohooman\.com/i.test(url)) {
+      // Upgrade small thumbnail dimensions to full-size
+      upgraded = upgraded.replace(/w=112&h=167/g, 'w=1000&h=1500');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED BoohooMAN CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // SHOPIFY CDN: Upgrade small dimensions to high-quality versions
     if (/\/cdn\/shop\//i.test(url) || /cdn\.shopify\.com/i.test(url)) {
       // Upgrade single dimension: 523x → 1020x, 640x → 1020x, etc.
