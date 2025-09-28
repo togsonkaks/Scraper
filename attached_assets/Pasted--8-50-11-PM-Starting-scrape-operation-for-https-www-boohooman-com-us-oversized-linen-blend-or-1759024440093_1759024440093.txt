@@ -1,0 +1,475 @@
+[8:50:11 PM] 🚀 Starting scrape operation for: https://www.boohooman.com/us/oversized-linen-blend-organza-shirt-relaxed-short-set/CMM09851.html?color=564&_gl=1*1ov32xo*_up*MQ..*_ga*MTY2OTg2MjMuMTc1MTI0NDAxMQ..*_ga_3W4EF6FBG0*czE3NTEyNDQwMTAkbzEkZzAkdDE3NTEyNDQwMTAkajYwJGwwJGg2Nzg5NTE2ODI.
+[8:50:12 PM] 🚀 SCRAPE START {"host":"boohooman.com","href":"https://www.boohooman.com/us/tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket/CMM16576.html?color=135","mode":"normal"}
+[8:50:12 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[8:50:12 PM] 🔄 NORMAL MODE - memory + fallbacks
+[8:50:12 PM] 🧩 TITLE: Trying custom handler...
+[8:50:12 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[8:50:12 PM] 📝 TITLE: Falling back to generic...
+[8:50:12 PM] 📝 TITLE FROM GENERIC: Tall Regular Fit Peached Nylon Funnel Neck Mid Length Parka Jacket
+[8:50:12 PM] 🏷️ BRAND: Falling back to generic...
+[8:50:12 PM] 🏷️ BRAND FROM GENERIC: boohooMAN
+[8:50:12 PM] 📄 DESCRIPTION: Falling back to generic...
+[8:50:12 PM] 📄 DESCRIPTION FROM GENERIC: Shop Tall Regular Fit Peached Nylon Funnel Neck Mid Length Parka Jacket at boohooMAN.com and upgrade your look! With our incredible range of Parka, we are pretty sure we've got what you are looking for! Buy now!
+[8:50:12 PM] 🧩 PRICE: Trying custom handler...
+[8:50:12 PM] ❌ Custom price handler error: normalizeMoney is not defined
+[8:50:12 PM] 💰 PRICE: Falling back to generic...
+[8:50:12 PM] 🔍 PRICE PARSING: {"input":"65.00","inputType":"string","inputLength":5}
+[8:50:12 PM] 🧹 CLEANED INPUT: {"original":"65.00","cleaned":"65.00"}
+[8:50:12 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"65.00","reconstructed":"65.00"}
+[8:50:12 PM] 💰 MONETARY TOKENS: []
+[8:50:12 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[65]}
+[8:50:12 PM] ✅ FINAL PRICE RESULT: {"result":65,"method":"MIN_FALLBACK","allNumbers":[65]}
+[8:50:12 PM] 🎯 REFINING PRICE: {"baseVal":"65","fromMemory":false,"hasElement":true,"elementTag":"SPAN"}
+[8:50:12 PM] Price element <SPAN.price-sales>
+[8:50:12 PM] 📋 CHECKING ATTRIBUTES: {"content":"65.00","data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":"65.00"}
+[8:50:12 PM] 🔍 PRICE PARSING: {"input":"65.00","inputType":"string","inputLength":5}
+[8:50:12 PM] 🧹 CLEANED INPUT: {"original":"65.00","cleaned":"65.00"}
+[8:50:12 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"65.00","reconstructed":"65.00"}
+[8:50:12 PM] 💰 MONETARY TOKENS: []
+[8:50:12 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[65]}
+[8:50:12 PM] ✅ FINAL PRICE RESULT: {"result":65,"method":"MIN_FALLBACK","allNumbers":[65]}
+[8:50:12 PM] ✅ PRICE FROM ATTRIBUTES: 65
+[8:50:12 PM] 💰 PRICE FROM GENERIC: 65
+[8:50:12 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[8:50:12 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[8:50:12 PM] 🧩 IMAGES: Trying custom handler...
+[8:50:12 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[8:50:12 PM] 🖼️ Getting generic images for hostname: boohooman.com
+[8:50:12 PM] Image element <IMG.>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.>
+[8:50:12 PM] Image element <IMG.>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.>
+[8:50:12 PM] Image element <IMG.>
+[8:50:12 PM] Image element <IMG.offer-icon>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.category-thumb>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG>
+[8:50:12 PM] Image element <IMG.primary-image>
+[8:50:12 PM] Image element <IMG.product-share-button-img>
+[8:50:12 PM] Image element <IMG.thumb-image>
+[8:50:12 PM] ✨ UPGRADED BoohooMAN CDN URL: khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[8:50:12 PM] ✨ UPGRADED CDN URL: khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[8:50:12 PM] Image element <IMG.thumb-image>
+[8:50:12 PM] ✨ UPGRADED BoohooMAN CDN URL: khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[8:50:12 PM] ✨ UPGRADED CDN URL: khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[8:50:12 PM] Image element <IMG.thumb-image>
+[8:50:12 PM] ✨ UPGRADED BoohooMAN CDN URL: khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[8:50:12 PM] ✨ UPGRADED CDN URL: khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> khaki-tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[8:50:12 PM] Image element <IMG.swatchanchor-img>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.js-required>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG.swatch-image>
+[8:50:12 PM] Image element <IMG>
+[8:50:12 PM] Image element <IMG>
+[8:50:12 PM] Image element <IMG>
+[8:50:12 PM] Image element <IMG>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG.lazyload>
+[8:50:12 PM] Image element <IMG>
+[8:50:12 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":73}
+[8:50:12 PM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Sites-boohooman-navigation-US/d
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: https://www.boohooman.com/us/tall-regular-fit-peached-nylon-funnel-neck-mid-length-parka-jacket/x
+0[IMG ERROR]
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl/khaki-tall-regular-fit-peached-
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl/khaki-tall-regular-fit-peached-
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: https://media.boohoo.com/i/boohooamplience/Mobile_Plain_Share_Button
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl/khaki-tall-regular-fit-peached-
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl/khaki-tall-regular-fit-peached-
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl/khaki-tall-regular-fit-peached-
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl_1/khaki-tall-regular-fit-peache
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl_1/khaki-tall-regular-fit-peache
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl_1/khaki-tall-regular-fit-peache
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl_2/khaki-tall-regular-fit-peache
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl_2/khaki-tall-regular-fit-peache
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl_2/khaki-tall-regular-fit-peache
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[8:50:12 PM] ❌ NOT IMAGE URL: https://mediahub.boohooman.com/GIFT_CARD_ICON_5481_1
+0
+📋 Copy URL
+[8:50:12 PM] 📉 LOW SCORE REJECTED (0): https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dwaa
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[8:50:12 PM] 🗑️ JUNK IMAGE: https://mediahub.boohooman.com/cmm16576_khaki_xl/khaki-tall-regular-fit-peached-
+0
+📋 Copy URL
+[8:50:12 PM] ✅ SINGLE IMAGE (score: 95): https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+95
+📋 Copy URL
+[8:50:12 PM] 🔧 CDN OPTIMIZED (95): https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+95
+📋 Copy URL
+[8:50:12 PM] 🏆 TOP SCORED IMAGES: ["cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp (score: 95)"]
+[8:50:12 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":41,"junk":30,"lowScore":1,"smallFile":0,"duplicateGroups":0,"kept":1}
+[8:50:12 PM] 🖼️ FINAL IMAGES: ["https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&"]
+[8:50:12 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":2}
+[8:50:12 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":2}
+[8:50:12 PM] ❌ NOT IMAGE URL: https://mediahub.boohooman.com/cmm16576_khaki_xl?pdp.template
+0
+📋 Copy URL
+[8:50:12 PM] ✅ SINGLE IMAGE (score: 100): https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+100
+📋 Copy URL
+[8:50:12 PM] 🔧 CDN OPTIMIZED (100): https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+100
+📋 Copy URL
+[8:50:12 PM] 🏆 TOP SCORED IMAGES: ["cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp (score: 100)"]
+[8:50:12 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":1,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[8:50:12 PM] 🖼️ FINAL IMAGES: ["https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&"]
+[8:50:12 PM] 🖼️ GENERIC IMAGES: {"count":1,"images":["https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp"]}
+[8:50:12 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":1}
+[8:50:12 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":1}
+[8:50:12 PM] ✅ SINGLE IMAGE (score: 110): https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+110
+📋 Copy URL
+[8:50:12 PM] 🔧 CDN OPTIMIZED (110): https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+110
+📋 Copy URL
+[8:50:12 PM] 🏆 TOP SCORED IMAGES: ["cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp (score: 110)"]
+[8:50:12 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[8:50:12 PM] 🖼️ FINAL IMAGES: ["https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&"]
+[8:50:12 PM] 🖼️ FINAL IMAGES: {"count":1,"images":["https://mediahub.boohooman.com/cmm16576_khaki_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp"]}
+[8:50:12 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Tall Regular Fit Peached Nylon Funnel Neck Mid Len","brand":"boohooMAN","description":"Shop Tall Regular Fit Peached Nylon Funnel Neck Mi","price":"65","imageCount":1,"firstImages":["https:/
+[8:50:12 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":1}
+[8:50:12 PM] ✅ Debug trace complete
