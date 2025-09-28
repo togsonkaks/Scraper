@@ -787,11 +787,49 @@ const CHEWY = {
     return __pickJSONLDProductPrice(doc);
   },
   images(doc = document) {
-    const out = new Set();
+    const allUrls = [];
     doc.querySelectorAll('[data-testid="product-carousel"] img').forEach(i=>{
-      const u = i.currentSrc || i.src; if (u) out.add(u);
+      const u = i.currentSrc || i.src; 
+      if (u) allUrls.push(u);
     });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
+    
+    // Filter valid image URLs and exclude UI assets
+    const validUrls = allUrls.filter(u => 
+      /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u) &&
+      !u.includes('customer-photos') &&
+      !u.includes('static/spa/') &&
+      u.includes('image.chewy.com/catalog/')
+    );
+    
+    // Group by base filename (before _AC_SL{size}_V1_ pattern)
+    const groups = {};
+    validUrls.forEach(url => {
+      // Extract base filename: img-611603._AC_SL600_V1_.jpg -> img-611603
+      const match = url.match(/\/([^\/]+)(_AC_SL\d+_V\d+_)?\.([^.]+)$/);
+      if (match) {
+        const baseName = match[1].replace(/_AC_SL\d+_V\d+_$/, '');
+        if (!groups[baseName]) groups[baseName] = [];
+        groups[baseName].push(url);
+      }
+    });
+    
+    // For each group, pick the highest resolution version
+    const deduped = [];
+    Object.values(groups).forEach(urls => {
+      if (urls.length === 1) {
+        deduped.push(urls[0]);
+      } else {
+        // Sort by resolution (extract SL{number} and pick highest)
+        const sorted = urls.sort((a, b) => {
+          const aSize = (a.match(/_AC_SL(\d+)_/) || [0, 0])[1];
+          const bSize = (b.match(/_AC_SL(\d+)_/) || [0, 0])[1];
+          return parseInt(bSize) - parseInt(aSize); // Descending
+        });
+        deduped.push(sorted[0]); // Take highest resolution
+      }
+    });
+    
+    return deduped.slice(0, 20);
   }
 };
 
