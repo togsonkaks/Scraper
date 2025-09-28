@@ -1264,7 +1264,8 @@
       const dimensionalPatterns = [
         /s(\d+)x(\d+)/i,              // Barnes & Noble: s1200x630
         /(\d+)x(\d+)(?:_|\.|$)/i,     // Generic: 1200x630
-        /w(\d+)_h(\d+)/i              // Some CDNs: w1200_h630
+        /w(\d+)_h(\d+)/i,             // Some CDNs: w1200_h630
+        /w(\d+)xh(\d+)/i              // CDNs with x separator: w2500xh2000
       ];
       
       for (const pattern of dimensionalPatterns) {
@@ -1275,6 +1276,14 @@
           return width * height;
         }
       }
+      
+      // Shopify single dimension patterns (treat as square)
+      const shopifyMatch = url.match(/_(\d+)x/i);  // _1200x format
+      if (shopifyMatch) {
+        const dimension = parseInt(shopifyMatch[1]);
+        return dimension * dimension;  // Square it for pixel count
+      }
+      
       return 0;
     }
     
@@ -1283,7 +1292,9 @@
       return url
         .replace(/s(\d+)x(\d+)/g, '')
         .replace(/(\d+)x(\d+)(?:_|\.|$)/g, '')
-        .replace(/w(\d+)_h(\d+)/g, '');
+        .replace(/w(\d+)_h(\d+)/g, '')
+        .replace(/w(\d+)xh(\d+)/g, '')      // w2500xh2000 format
+        .replace(/_(\d+)x/g, '');           // Shopify _1200x format
     }
     
     // Group similar images and boost winner in each group
