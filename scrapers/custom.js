@@ -866,17 +866,6 @@ const CUYANA = {
   }
 };
 
-// ---------- ILIA (active swiper first; boost product shots) ----------
-const ILIA = {
-  match: (h) => /\bilia(bea)?uty\.com$/i.test(h),
-  images(doc = document) {
-    const out = new Set();
-    const active = doc.querySelector('.product-media-gallery__variant-slide.swiper-slide-active img');
-    if (active?.src) out.add(active.currentSrc || active.src);
-    doc.querySelectorAll('.product-media-gallery__variant-slide img').forEach(i=>out.add(i.currentSrc || i.src));
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
-  }
-};
 
 // ---------- LARQ (target .productgallery, avoid review thumbnails) ----------
 const LARQ = {
@@ -1956,7 +1945,6 @@ const REGISTRY = [
   // COACH, // TEMPORARILY DISABLED - testing generic vs custom
   COMMENSE,
   // CUYANA, // TEMPORARILY DISABLED - testing generic vs custom
-  // ILIA, // TEMPORARILY DISABLED - testing generic vs custom
   JOHNSCRAZYSOCKS,
   KIRRINFINCH,
   MAHABIS,
