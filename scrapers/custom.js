@@ -1956,7 +1956,7 @@ const REGISTRY = [
   // COACH, // TEMPORARILY DISABLED - testing generic vs custom
   COMMENSE,
   // CUYANA, // TEMPORARILY DISABLED - testing generic vs custom
-  ILIA,
+  // ILIA, // TEMPORARILY DISABLED - testing generic vs custom
   JOHNSCRAZYSOCKS,
   KIRRINFINCH,
   MAHABIS,
