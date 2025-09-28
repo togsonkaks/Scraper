@@ -585,6 +585,16 @@
       upgraded = upgraded.replace(/[?&]qlt=\d+/gi, '');
     }
     
+    // BJ'S WHOLESALE CLUB: Scene7 CDN upgrades
+    if (/bjs\.scene7\.com\/is\/image/i.test(url)) {
+      // Upgrade from lower quality to zoom quality
+      upgraded = upgraded.replace(/\$bjs-201\$/g, '$bjs-zoom$');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED BJ's CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // SHOPIFY CDN: Upgrade small dimensions to high-quality versions
     if (/\/cdn\/shop\//i.test(url) || /cdn\.shopify\.com/i.test(url)) {
       // Upgrade single dimension: 523x → 1020x, 640x → 1020x, etc.
