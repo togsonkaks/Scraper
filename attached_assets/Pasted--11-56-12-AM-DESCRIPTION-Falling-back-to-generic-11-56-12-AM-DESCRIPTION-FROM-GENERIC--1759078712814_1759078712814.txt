@@ -1,0 +1,263 @@
+[11:56:12 AM] 📄 DESCRIPTION: Falling back to generic...
+[11:56:12 AM] 📄 DESCRIPTION FROM GENERIC: Introducing the Georgie suit in Sky Gray, our lightest gray yet—a versatile shade that exudes modern sophistication. Lined with our striking Kraken motif, it reveals an intricate octopus theme for a bold, unexpected touch of personality.Designed for women, trans and non-binary folks. Available in sizes XS-3XL.
+[11:56:12 AM] 🧩 PRICE: Trying custom handler...
+[11:56:12 AM] 🧩 CUSTOM PRICE MISS: returned object null
+[11:56:12 AM] 💰 PRICE: Falling back to generic...
+[11:56:12 AM] 🔍 PRICE PARSING: {"input":"415","inputType":"string","inputLength":3}
+[11:56:12 AM] 🧹 CLEANED INPUT: {"original":"415","cleaned":"415"}
+[11:56:12 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"415","reconstructed":"415"}
+[11:56:12 AM] 💰 MONETARY TOKENS: []
+[11:56:12 AM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[415]}
+[11:56:12 AM] ✅ FINAL PRICE RESULT: {"result":415,"method":"MIN_FALLBACK","allNumbers":[415]}
+[11:56:12 AM] 💰 PRICE FROM GENERIC: 415
+[11:56:12 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:56:12 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:56:12 AM] 🧩 IMAGES: Trying custom handler...
+[11:56:12 AM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[11:56:12 AM] 🖼️ Getting generic images for hostname: kirrinfinch.com
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] Image element <IMG.jdgm-gallery__thumbnail>
+[11:56:12 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":18}
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 105): https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=format&w=160
+105
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 95): https://judgeme.imgix.net/kirrin-finch/1734374300__image__original.jpg?auto=format&w=160
+95
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 95): https://judgeme.imgix.net/kirrin-finch/1731438241__img_4540__original.jpeg?auto=format&w=160
+95
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1731438242__img_4535__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1731438243__img_4536__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1731438244__img_4539__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1729704232__img_7970__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1725466308__img_2518__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1721079361__1000008733__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1721079362__1000009018__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1721079365__1000009019__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1706819262__img_6775__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1705777218__img_5227__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1705777221__img_5223__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1705844411__img_5227__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1704840515__img_2797__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1704840517__img_2852__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1702012121__kat_lindsay_95__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (105): https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=format&w=160
+105
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (95): https://judgeme.imgix.net/kirrin-finch/1734374300__image__original.jpg?auto=format&w=160
+95
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (95): https://judgeme.imgix.net/kirrin-finch/1731438241__img_4540__original.jpeg?auto=format&w=160
+95
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1731438242__img_4535__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1731438243__img_4536__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1731438244__img_4539__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1729704232__img_7970__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1725466308__img_2518__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1721079361__1000008733__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1721079362__1000009018__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1721079365__1000009019__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1706819262__img_6775__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1705777218__img_5227__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1705777221__img_5223__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1705844411__img_5227__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1704840515__img_2797__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1704840517__img_2852__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1702012121__kat_lindsay_95__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🏆 TOP SCORED IMAGES: ["1745257740__img_4113__original.jpeg?auto=format&w=160 (score: 105)","1734374300__image__original.jpg?auto=format&w=160 (score: 95)","1731438241__img_4540__original.jpeg?auto=format&w=160 (score: 95)
+[11:56:12 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":18}
+[11:56:12 AM] 🖼️ FINAL IMAGES: ["https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=","https://judgeme.imgix.net/kirrin-finch/1734374300__image__original.jpg?auto=form","https://judgeme.imgix.net/kirrin
+[11:56:12 AM] 🖼️ GENERIC IMAGES: {"count":18,"images":["https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=format&w=160","https://judgeme.imgix.net/kirrin-finch/1734374300__image__original.jpg?auto=format
+[11:56:12 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":18}
+[11:56:12 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":18}
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 105): https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=format&w=160
+105
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 95): https://judgeme.imgix.net/kirrin-finch/1734374300__image__original.jpg?auto=format&w=160
+95
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 95): https://judgeme.imgix.net/kirrin-finch/1731438241__img_4540__original.jpeg?auto=format&w=160
+95
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1731438242__img_4535__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1731438243__img_4536__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1731438244__img_4539__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1729704232__img_7970__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1725466308__img_2518__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1721079361__1000008733__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1721079362__1000009018__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1721079365__1000009019__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1706819262__img_6775__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1705777218__img_5227__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1705777221__img_5223__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1705844411__img_5227__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1704840515__img_2797__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1704840517__img_2852__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] ✅ SINGLE IMAGE (score: 75): https://judgeme.imgix.net/kirrin-finch/1702012121__kat_lindsay_95__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (105): https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=format&w=160
+105
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (95): https://judgeme.imgix.net/kirrin-finch/1734374300__image__original.jpg?auto=format&w=160
+95
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (95): https://judgeme.imgix.net/kirrin-finch/1731438241__img_4540__original.jpeg?auto=format&w=160
+95
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1731438242__img_4535__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1731438243__img_4536__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1731438244__img_4539__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1729704232__img_7970__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1725466308__img_2518__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1721079361__1000008733__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1721079362__1000009018__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1721079365__1000009019__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1706819262__img_6775__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1705777218__img_5227__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1705777221__img_5223__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1705844411__img_5227__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1704840515__img_2797__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1704840517__img_2852__original.jpeg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🔧 CDN OPTIMIZED (75): https://judgeme.imgix.net/kirrin-finch/1702012121__kat_lindsay_95__original.jpg?auto=format&w=160
+75
+📋 Copy URL
+[11:56:12 AM] 🏆 TOP SCORED IMAGES: ["1745257740__img_4113__original.jpeg?auto=format&w=160 (score: 105)","1734374300__image__original.jpg?auto=format&w=160 (score: 95)","1731438241__img_4540__original.jpeg?auto=format&w=160 (score: 95)
+[11:56:12 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":18}
+[11:56:12 AM] 🖼️ FINAL IMAGES: ["https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=","https://judgeme.imgix.net/kirrin-finch/1734374300__image__original.jpg?auto=form","https://judgeme.imgix.net/kirrin
+[11:56:12 AM] 🖼️ FINAL IMAGES: {"count":18,"images":["https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=format&w=160","https://judgeme.imgix.net/kirrin-finch/1734374300__image__original.jpg?auto=format
+[11:56:12 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"The Georgie Sky Gray Suit Blazer","brand":"Kirrin Finch","description":"Introducing the Georgie suit in Sky Gray, our ligh","price":"415","imageCount":18,"firstImages":["https://judgeme.imgi
