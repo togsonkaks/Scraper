@@ -89,7 +89,7 @@ async function handleQueryLogs(data, res) {
 }
 
 // Start server
-const PORT = 5001; // Use different port to avoid conflicts
+const PORT = 8000; // Use allowed port
 server.listen(PORT, () => {
   console.log(`🚀 Debug API server running on port ${PORT}`);
 });

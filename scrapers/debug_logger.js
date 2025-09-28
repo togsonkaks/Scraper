@@ -165,7 +165,7 @@ class DebugLogger {
       `;
       
       // Save to database using Node.js fetch to localhost
-      const response = await fetch('http://localhost:5001/api/save-debug-logs', {
+      const response = await fetch('http://localhost:8000/api/save-debug-logs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query })
@@ -242,7 +242,7 @@ class DebugLogger {
   // Helper method to execute database queries
   static async queryLogs(query) {
     try {
-      const response = await fetch('http://localhost:5001/api/query-debug-logs', {
+      const response = await fetch('http://localhost:8000/api/query-debug-logs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query })
