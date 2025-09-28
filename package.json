@@ -4,15 +4,15 @@
   "main": "main.js",
   "type": "commonjs",
   "scripts": {
-  "electron": "electron .",
-  "replit": "node scripts/print-help.js"
-},
+    "electron": "electron .",
+    "replit": "node scripts/print-help.js"
+  },
   "dependencies": {
     "dotenv": "^17.2.2",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0",
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "electron": "^38.0.0"
   }
-  
 }
