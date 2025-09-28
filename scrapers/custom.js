@@ -903,20 +903,6 @@ const LARQ = {
   }
 };
 
-// ---------- John's Crazy Socks (gallery-only; drop size charts) ----------
-const JOHNSCRAZYSOCKS = {
-  match: (h) => /\bjohnscrazysocks\.com$/i.test(h),
-  images(doc = document) {
-    const out = new Set();
-    doc.querySelectorAll('.product-gallery_image img, [data-media-type="image"] img').forEach(i=>{
-      const u = i.getAttribute('data-zoom-src') || i.currentSrc || i.src;
-      if (!u) return;
-      if (/size[_-]?chart|_200x/i.test(u)) return;
-      out.add(u);
-    });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
-  }
-};
 
 // ---------- Kirrin Finch (data-price + zoom src) ----------
 const KIRRINFINCH = {
@@ -1945,8 +1931,7 @@ const REGISTRY = [
   // COACH, // TEMPORARILY DISABLED - testing generic vs custom
   COMMENSE,
   // CUYANA, // TEMPORARILY DISABLED - testing generic vs custom
-  // JOHNSCRAZYSOCKS, // TEMPORARILY DISABLED - testing generic vs custom
-  KIRRINFINCH,
+  // KIRRINFINCH, // TEMPORARILY DISABLED - testing generic vs custom  
   MAHABIS,
   { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
   MESHKI,
