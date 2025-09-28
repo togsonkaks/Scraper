@@ -1,0 +1,477 @@
+12:37:55 PM] 🖼️ All specific selectors failed, falling back to broad 'img'
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: Georgie_Blazer_Web_Size_Chart_2_800x.png?v=1711658742 -> Georgie_Blazer_Web_Size_Chart_2_1020x.png?v=1711658742
+[12:37:55 PM] ✨ UPGRADED CDN URL: Georgie_Blazer_Web_Size_Chart_2_800x.png?v=1711658742 -> Georgie_Blazer_Web_Size_Chart_2_1020x.png?v=1711658742
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:55 PM] ✨ UPGRADED CDN URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] Image element <IMG.>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: 2025_3_KirrinFinch_1984_300x.jpg?v=1748959706 -> 2025_3_KirrinFinch_1984_1020x.jpg?v=1748959706
+[12:37:55 PM] ✨ UPGRADED CDN URL: 2025_3_KirrinFinch_1984_300x.jpg?v=1748959706 -> 2025_3_KirrinFinch_1984_1020x.jpg?v=1748959706
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: 2024_9_17_KirrinFinch_1568_300x.jpg?v=1748960368 -> 2024_9_17_KirrinFinch_1568_1020x.jpg?v=1748960368
+[12:37:55 PM] ✨ UPGRADED CDN URL: 2024_9_17_KirrinFinch_1568_300x.jpg?v=1748960368 -> 2024_9_17_KirrinFinch_1568_1020x.jpg?v=1748960368
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: 2025_3_KirrinFinch_1902_bbd12044-9e3b-4c1a-8586-d68498cce1c0_300x.jpg?v=1748959703 -> 2025_3_KirrinFinch_1902_bbd12044-9e3b-4c1a-8586-d68498cce1c0_1020x.jpg?v=1748959703
+[12:37:55 PM] ✨ UPGRADED CDN URL: 2025_3_KirrinFinch_1902_bbd12044-9e3b-4c1a-8586-d68498cce1c0_300x.jpg?v=1748959703 -> 2025_3_KirrinFinch_1902_bbd12044-9e3b-4c1a-8586-d68498cce1c0_1020x.jpg?v=1748959703
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: Blazer_size_chart_mobile_800x.jpg?v=1631720975 -> Blazer_size_chart_mobile_1020x.jpg?v=1631720975
+[12:37:55 PM] ✨ UPGRADED CDN URL: Blazer_size_chart_mobile_800x.jpg?v=1631720975 -> Blazer_size_chart_mobile_1020x.jpg?v=1631720975
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:55 PM] ✨ UPGRADED CDN URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: 2025_3_KirrinFinch_3354_300x.jpg?v=1754404908 -> 2025_3_KirrinFinch_3354_1020x.jpg?v=1754404908
+[12:37:55 PM] ✨ UPGRADED CDN URL: 2025_3_KirrinFinch_3354_300x.jpg?v=1754404908 -> 2025_3_KirrinFinch_3354_1020x.jpg?v=1754404908
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: 2024_9_17_KirrinFinch_1901_300x.jpg?v=1748960375 -> 2024_9_17_KirrinFinch_1901_1020x.jpg?v=1748960375
+[12:37:55 PM] ✨ UPGRADED CDN URL: 2024_9_17_KirrinFinch_1901_300x.jpg?v=1748960375 -> 2024_9_17_KirrinFinch_1901_1020x.jpg?v=1748960375
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: BlackDressShirtSpreadCollarForAFABbodies_1a448a55-50ec-446e-b706-72c6db810e11_300x.png?v=1748960332 -> BlackDressShirtSpreadCollarForAFABbodies_1a448a55-50ec-446e-b706-72c6db810e11_1020x.png?v=1748960332
+[12:37:55 PM] ✨ UPGRADED CDN URL: BlackDressShirtSpreadCollarForAFABbodies_1a448a55-50ec-446e-b706-72c6db810e11_300x.png?v=1748960332 -> BlackDressShirtSpreadCollarForAFABbodies_1a448a55-50ec-446e-b706-72c6db810e11_1020x.png?v=1748960332
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:55 PM] ✨ UPGRADED CDN URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: Georgie_Blazer_Mobile_Size_Chart_Extended_800x.png?v=1691605030 -> Georgie_Blazer_Mobile_Size_Chart_Extended_1020x.png?v=1691605030
+[12:37:55 PM] ✨ UPGRADED CDN URL: Georgie_Blazer_Mobile_Size_Chart_Extended_800x.png?v=1691605030 -> Georgie_Blazer_Mobile_Size_Chart_Extended_1020x.png?v=1691605030
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:55 PM] ✨ UPGRADED CDN URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG.lazyload>
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: White_Easy_Care_Front_300x.jpg?v=1748960329 -> White_Easy_Care_Front_1020x.jpg?v=1748960329
+[12:37:55 PM] ✨ UPGRADED CDN URL: White_Easy_Care_Front_300x.jpg?v=1748960329 -> White_Easy_Care_Front_1020x.jpg?v=1748960329
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: Navy_Womens_Dress_Pants_6e634824-c615-437d-8372-a63ba08c0288_300x.jpg?v=1748959610 -> Navy_Womens_Dress_Pants_6e634824-c615-437d-8372-a63ba08c0288_1020x.jpg?v=1748959610
+[12:37:55 PM] ✨ UPGRADED CDN URL: Navy_Womens_Dress_Pants_6e634824-c615-437d-8372-a63ba08c0288_300x.jpg?v=1748959610 -> Navy_Womens_Dress_Pants_6e634824-c615-437d-8372-a63ba08c0288_1020x.jpg?v=1748959610
+[12:37:55 PM] Image element <IMG>
+[12:37:55 PM] ✨ UPGRADED Shopify URL: BlueWavesPocketSquarePhoto2_300x.jpg?v=1669132468 -> BlueWavesPocketSquarePhoto2_1020x.jpg?v=1669132468
+[12:37:55 PM] ✨ UPGRADED CDN URL: BlueWavesPocketSquarePhoto2_300x.jpg?v=1669132468 -> BlueWavesPocketSquarePhoto2_1020x.jpg?v=1669132468
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:55 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: Georgie_Blazer_Web_Size_Chart_1_800x.png?v=1710447617 -> Georgie_Blazer_Web_Size_Chart_1_1020x.png?v=1710447617
+[12:37:56 PM] ✨ UPGRADED CDN URL: Georgie_Blazer_Web_Size_Chart_1_800x.png?v=1710447617 -> Georgie_Blazer_Web_Size_Chart_1_1020x.png?v=1710447617
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:56 PM] ✨ UPGRADED CDN URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: Black_Suit_Pants_Mens_Inspired_078b0535-7b1e-43a8-aa8a-b3f2c19a1806_300x.jpg?v=1748959616 -> Black_Suit_Pants_Mens_Inspired_078b0535-7b1e-43a8-aa8a-b3f2c19a1806_1020x.jpg?v=1748959616
+[12:37:56 PM] ✨ UPGRADED CDN URL: Black_Suit_Pants_Mens_Inspired_078b0535-7b1e-43a8-aa8a-b3f2c19a1806_300x.jpg?v=1748959616 -> Black_Suit_Pants_Mens_Inspired_078b0535-7b1e-43a8-aa8a-b3f2c19a1806_1020x.jpg?v=1748959616
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: Black_Skinny_Tie_300x.jpg?v=1688651229 -> Black_Skinny_Tie_1020x.jpg?v=1688651229
+[12:37:56 PM] ✨ UPGRADED CDN URL: Black_Skinny_Tie_300x.jpg?v=1688651229 -> Black_Skinny_Tie_1020x.jpg?v=1688651229
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: Blazer_size_chart_mobile_800x.jpg?v=1631720975 -> Blazer_size_chart_mobile_1020x.jpg?v=1631720975
+[12:37:56 PM] ✨ UPGRADED CDN URL: Blazer_size_chart_mobile_800x.jpg?v=1631720975 -> Blazer_size_chart_mobile_1020x.jpg?v=1631720975
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:56 PM] ✨ UPGRADED CDN URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: White_Easy_Care_Front_300x.jpg?v=1748960329 -> White_Easy_Care_Front_1020x.jpg?v=1748960329
+[12:37:56 PM] ✨ UPGRADED CDN URL: White_Easy_Care_Front_300x.jpg?v=1748960329 -> White_Easy_Care_Front_1020x.jpg?v=1748960329
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: Georgie_Burgundy_Vest_Front_300x.jpg?v=1748959674 -> Georgie_Burgundy_Vest_Front_1020x.jpg?v=1748959674
+[12:37:56 PM] ✨ UPGRADED CDN URL: Georgie_Burgundy_Vest_Front_300x.jpg?v=1748959674 -> Georgie_Burgundy_Vest_Front_1020x.jpg?v=1748959674
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: 2022_10_KirrinFinch_0291_300x.jpg?v=1748959671 -> 2022_10_KirrinFinch_0291_1020x.jpg?v=1748959671
+[12:37:56 PM] ✨ UPGRADED CDN URL: 2022_10_KirrinFinch_0291_300x.jpg?v=1748959671 -> 2022_10_KirrinFinch_0291_1020x.jpg?v=1748959671
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.image__img>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-black-suit-blazer_50x.png?v=12292270875995361682 -> swatch-androgynous-black-suit-blazer_1020x.png?v=12292270875995361682
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-navy-suit-blazer_50x.png?v=14884380868002736190 -> swatch-androgynous-navy-suit-blazer_1020x.png?v=14884380868002736190
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sky-gray-suit-blazer_50x.png?v=2778732746090322623 -> swatch-the-georgie-sky-gray-suit-blazer_1020x.png?v=2778732746090322623
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-charcoal-suit-blazer_50x.png?v=16828919768311283642 -> swatch-the-georgie-charcoal-suit-blazer_1020x.png?v=16828919768311283642
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_50x.png?v=7355873429446244534 -> swatch-the-georgie-slate-blue-blazer-x-lisa-congdon-lining_1020x.png?v=7355873429446244534
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-emerald-suit-blazer_50x.png?v=1395703977979585351 -> swatch-the-georgie-emerald-suit-blazer_1020x.png?v=1395703977979585351
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-navy-suit-blazer-lisa-c-edition_50x.png?v=1777275577098766498 -> swatch-the-georgie-navy-suit-blazer-lisa-c-edition_1020x.png?v=1777275577098766498
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-pride-edition-black-suit-blazer_50x.png?v=5908647514448180825 -> swatch-the-georgie-pride-edition-black-suit-blazer_1020x.png?v=5908647514448180825
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-burgundy-suit-blazer_50x.png?v=1087502178716210264 -> swatch-the-georgie-burgundy-suit-blazer_1020x.png?v=1087502178716210264
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-olive-suit-blazer_50x.png?v=5837279340301555346 -> swatch-the-georgie-olive-suit-blazer_1020x.png?v=5837279340301555346
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-chocolate-suit-blazer_50x.png?v=14398469073542451526 -> swatch-the-georgie-chocolate-suit-blazer_1020x.png?v=14398469073542451526
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-dusty-mauve-suit-blazer_50x.png?v=109407990733662800 -> swatch-the-georgie-dusty-mauve-suit-blazer_1020x.png?v=109407990733662800
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-the-georgie-sage-suit-blazer_50x.png?v=14585039381502391851 -> swatch-the-georgie-sage-suit-blazer_1020x.png?v=14585039381502391851
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:56 PM] ✨ UPGRADED CDN URL: swatch-androgynous-gray-suit-blazer_50x.png?v=6086756421487865399 -> swatch-androgynous-gray-suit-blazer_1020x.png?v=6086756421487865399
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: Blazer_size_chart_mobile_800x.jpg?v=1631720975 -> Blazer_size_chart_mobile_1020x.jpg?v=1631720975
+[12:37:56 PM] ✨ UPGRADED CDN URL: Blazer_size_chart_mobile_800x.jpg?v=1631720975 -> Blazer_size_chart_mobile_1020x.jpg?v=1631720975
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:56 PM] ✨ UPGRADED CDN URL: ico-highlights-02_100x.png?v=1631726456 -> ico-highlights-02_1020x.png?v=1631726456
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG.lazyload>
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: OliveSuitDressPants_300x.jpg?v=1748959648 -> OliveSuitDressPants_1020x.jpg?v=1748959648
+[12:37:56 PM] ✨ UPGRADED CDN URL: OliveSuitDressPants_300x.jpg?v=1748959648 -> OliveSuitDressPants_1020x.jpg?v=1748959648
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: GoldMulticoloredLeafTie2edited_300x.jpg?v=1669239638 -> GoldMulticoloredLeafTie2edited_1020x.jpg?v=1669239638
+[12:37:56 PM] ✨ UPGRADED CDN URL: GoldMulticoloredLeafTie2edited_300x.jpg?v=1669239638 -> GoldMulticoloredLeafTie2edited_1020x.jpg?v=1669239638
+[12:37:56 PM] Image element <IMG>
+[12:37:56 PM] ✨ UPGRADED Shopify URL: Formal_Black_Shirt_For_Women_070bd6a1-e2af-4c50-988b-c88be22886bb_300x.jpg?v=1748960327 ->
