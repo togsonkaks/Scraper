@@ -587,8 +587,8 @@
     
     // BJ'S WHOLESALE CLUB: Scene7 CDN upgrades
     if (/bjs\.scene7\.com\/is\/image/i.test(url)) {
-      // Upgrade from lower quality to zoom quality
-      upgraded = upgraded.replace(/\$bjs-201\$/g, '$bjs-zoom$');
+      // Upgrade any BJ's quality parameter to zoom quality (future-proof)
+      upgraded = upgraded.replace(/\$bjs-[^$]+\$/g, '$bjs-zoom$');
       
       if (upgraded !== url) {
         debug(`✨ UPGRADED BJ's CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
