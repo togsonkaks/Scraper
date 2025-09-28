@@ -1,0 +1,713 @@
+[9:24:05 PM] 🚀 Starting scrape operation for: https://www.castlery.com/us/products/dalton-storage-bed
+[9:24:05 PM] 🚀 SCRAPE START {"host":"castlery.com","href":"https://www.castlery.com/us/products/luna-sideboard","mode":"normal"}
+[9:24:05 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[9:24:05 PM] 🔄 NORMAL MODE - memory + fallbacks
+[9:24:05 PM] 🧩 TITLE: Trying custom handler...
+[9:24:05 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[9:24:05 PM] 📝 TITLE: Falling back to generic...
+[9:24:05 PM] 📝 TITLE FROM GENERIC: Luna Sideboard
+[9:24:05 PM] 🏷️ BRAND: Falling back to generic...
+[9:24:05 PM] 🏷️ BRAND FROM GENERIC: Castlery
+[9:24:05 PM] 📄 DESCRIPTION: Falling back to generic...
+[9:24:05 PM] 📄 DESCRIPTION FROM GENERIC: Designed by Polish designer Krystian Kowalski, Luna serves as both a practical and artistic statement piece for modern homes.
+[9:24:05 PM] 🧩 PRICE: Trying custom handler...
+[9:24:05 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[9:24:05 PM] 💰 PRICE: Falling back to generic...
+[9:24:05 PM] 🔍 PRICE PARSING: {"input":"1599","inputType":"string","inputLength":4}
+[9:24:05 PM] 🧹 CLEANED INPUT: {"original":"1599","cleaned":"1599"}
+[9:24:05 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"1599","reconstructed":"1599"}
+[9:24:05 PM] 💰 MONETARY TOKENS: []
+[9:24:05 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[1599]}
+[9:24:05 PM] ✅ FINAL PRICE RESULT: {"result":1599,"method":"MIN_FALLBACK","allNumbers":[1599]}
+[9:24:05 PM] 💰 PRICE FROM GENERIC: 1599
+[9:24:05 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[9:24:05 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[9:24:05 PM] 🧩 IMAGES: Trying custom handler...
+[9:24:05 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[9:24:05 PM] 🖼️ Getting generic images for hostname: castlery.com
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.lazyautosizes>
+[9:24:05 PM] Image element <IMG.img-lazyload>
+[9:24:05 PM] Image element <IMG.img-lazyload>
+[9:24:05 PM] Image element <IMG.img-lazyload>
+[9:24:05 PM] Image element <IMG.img-lazyload>
+[9:24:05 PM] Image element <IMG.img-lazyload>
+[9:24:05 PM] Image element <IMG.img-lazyload>
+[9:24:05 PM] Image element <IMG.img-lazyload>
+[9:24:05 PM] Image element <IMG#batBeacon9362249256>
+[9:24:05 PM] Image element <IMG#batBeacon942006965034>
+[9:24:05 PM] Image element <IMG#batBeacon563111310360>
+[9:24:05 PM] Image element <IMG#batBeacon394787514640>
+[9:24:05 PM] Image element <IMG#batBeacon145582175321>
+[9:24:05 PM] Image element <IMG#batBeacon307099251962>
+[9:24:05 PM] Image element <IMG#batBeacon844131282397>
+[9:24:05 PM] Image element <IMG.needsclick>
+[9:24:05 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":124}
+[9:24:05 PM] 🗑️ JUNK IMAGE: https://cdn-cookieyes.com/assets/images/close.svg
+0
+📋 Copy URL
+[9:24:05 PM] 🗑️ JUNK IMAGE: https://cdn-cookieyes.com/assets/images/poweredbtcky.svg
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756275050/marketing/US/Menu/USCA_S3_New_Menu_Banner_De
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756347654/marketing/US/Menu/USCA_S3_25_MB_Campaign_Des
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1750242677/marketing/AU/menu/2025_SC_New_Desktop.jpg
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756350821/marketing/US/Menu/US_S3_Sofa_NewIn_MB_Deskto
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1748051828/marketing/US/Menu/Desktop-Fable.jpg
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1710830921/marketing/US/Menu/Sofa_Sale_19032024_Desktop
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756351079/marketing/US/Menu/US_S3_Tables_NewIn_MB_Desk
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1746778886/marketing/US/Menu/US_S2_Tables_MB_Desktop.jp
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756351081/marketing/US/Menu/US_S3_Tables_RTS_MB_Deskto
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756351247/marketing/US/Menu/US_S3_Chairs_NewIn_MB_Desk
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756351248/marketing/US/Menu/US_S3_Chairs_RTS_MB_Deskto
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1716455012/marketing/US/Menu/chairs_sale_23042024_Deskt
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756353851/marketing/US/Menu/US_S3_Beds_NewIn_MB_Deskto
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1710832110/marketing/US/Menu/Beds_NewIn_19032024_Deskto
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756353849/marketing/US/Menu/US_S3_Beds_Queen_MB_Deskto
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756354259/marketing/US/Menu/US_S3_Storage_NewIn_MB_Des
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756354262/marketing/US/Menu/US_S3_Storage_Bestsellers_
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1735011071/marketing/US/Menu/US_Jan_Storage_Sale_Deskto
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1746779541/marketing/US/Menu/US_S2_Bestsellers_MB_Deskt
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1741319395/marketing/US/Menu/US_S1_Living_Room_Sets_MB_
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756360495/marketing/US/Menu/US_S3_Sets_Sale_MB_Desktop
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1741319519/marketing/US/Menu/US_S1_New_In_Outdoor_MB_De
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756360781/marketing/US/Menu/US_S3_Outdoor_Sets_MB_Desk
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756360783/marketing/US/Menu/US_S3_Outdoor_Sale_MB_Desk
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756361232/marketing/US/Menu/US_S3_Accessories_NewIn_MB
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1742891239/marketing/CA/Menu%20Banner/CA_Rugs_Menu_Bann
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1716455547/marketing/US/Menu/accessories_mirror_2304202
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1710471818/marketing/Cross-Market/menu%20banner/FC_1503
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1686122585/marketing/Cross-Market/menu%20banner/0706202
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1693467323/marketing/Cross-Market/menu%20banner/3108202
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1757407916/marketing/US/Menu/US_Anni_EA_MB_Desktop.jpg
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1756881351/marketing/US/Menu/US_0925_FSS_MB_Desktop.jpg
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1733194792/marketing/US/Menu/1209-0731_LR_Add-On_Menu_D
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/g_center//v1660299434/crusader/variants/50850043/WebBanner_Krys
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 📉 LOW SCORE REJECTED (0): https://www.castlery.com/us/products/q_auto/v1684379485/static/room-designer/banner_background_us.jp
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 🗑️ JUNK IMAGE: https://www.castlery.com/us/products/q_auto/v1684382730/static/room-designer/ico
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] 🗑️ JUNK IMAGE: https://www.castlery.com/us/products/q_auto/v1684382729/static/room-designer/ico
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=148021186&tm=gtm002&Ver=2&mid=10cc3bc7-2b7a-4225-aafb-d892201122ce&
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=148021186&tm=gtm002&Ver=2&mid=10cc3bc7-2b7a-4225-aafb-d892201122ce&
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=148021186&tm=gtm002&Ver=2&mid=10cc3bc7-2b7a-4225-aafb-d892201122ce&
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=148021186&tm=gtm002&Ver=2&mid=10cc3bc7-2b7a-4225-aafb-d892201122ce&
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=148021186&tm=gtm002&Ver=2&mid=10cc3bc7-2b7a-4225-aafb-d892201122ce&
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=148021186&tm=gtm002&Ver=2&mid=10cc3bc7-2b7a-4225-aafb-d892201122ce&
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=148021186&tm=gtm002&Ver=2&mid=10cc3bc7-2b7a-4225-aafb-d892201122ce&
+0[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ BEST OF 3 (score: 120): https://www.castlery.com/us/products/c_fit/v1657160471/crusader/variants/50850043/Luna_Sideboaer-Set
+120[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+120[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 200): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 200): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 120): https://www.castlery.com/us/products/g_center//v1657160471/crusader/variants/50850043/Luna_Sideboaer
+120[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 200): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 200): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 200): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 200): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 200): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Ang
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406209/crusader/variants/50850043/Luna-Sideboard-Sid
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Bac
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ BEST OF 3 (score: 80): https://res.cloudinary.com/castlery/image/upload/v1677638704/static/common/sell_filled.png
+80
+📋 Copy URL
+[9:24:05 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+80
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 50): https://d3k81ch9hvuctc.cloudfront.net/company/VcqsQ3/images/f46f6f19-1127-4e18-aab8-c5f96734e450.jpe
+50
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (120): https://www.castlery.com/us/products/c_fit/v1657160471/crusader/variants/50850043/Luna_Sideboaer-Set
+120[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (200): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (200): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (120): https://www.castlery.com/us/products/g_center//v1657160471/crusader/variants/50850043/Luna_Sideboaer
+120[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (200): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (200): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (200): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (200): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (200): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+200[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Ang
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406209/crusader/variants/50850043/Luna-Sideboard-Sid
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Bac
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (80): https://res.cloudinary.com/castlery/image/upload/v1677638704/static/common/sell_filled.png
+80
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🔒 TRUSTED CDN BYPASS: https://d3k81ch9hvuctc.cloudfront.net/company/VcqsQ3/images/f46f6f19-1127-4e18-aab8-c5f96734e450.jpe
+50
+📋 Copy URL
+[9:24:05 PM] 🏆 TOP SCORED IMAGES: ["Luna-Sideboard-Front-1670406210.jpg (score: 200)","Luna-Sideboard-Square-Set_3.jpg (score: 200)","Luna-Sideboard-Square-Set_4.jpg (score: 200)","Luna-Sideboard-Square-Det_4.jpg (score: 200)","Luna-S
+[9:24:05 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":66,"junk":4,"lowScore":35,"smallFile":0,"duplicateGroups":2,"kept":15}
+[9:24:05 PM] 🖼️ FINAL IMAGES: ["https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/5085004","https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/508","https://www.castlery.com/us/prod
+[9:24:05 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":16}
+[9:24:05 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":16}
+[9:24:05 PM] 📉 LOW SCORE REJECTED (35): https://d3k81ch9hvuctc.cloudfront.net/company/VcqsQ3/images/f46f6f19-1127-4e18-aab8-c5f96734e450.jpe
+35
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 203): https://res.cloudinary.com/castlery/image/private/c_fit,f_auto,q_auto,w_1000/v1670406210/crusader/va
+203
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 205): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+205[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 205): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+205[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Ang
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406209/crusader/variants/50850043/Luna-Sideboard-Sid
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Bac
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 105): https://www.castlery.com/us/products/c_fit/v1657160471/crusader/variants/50850043/Luna_Sideboaer-Set
+105[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 105): https://www.castlery.com/us/products/g_center//v1657160471/crusader/variants/50850043/Luna_Sideboaer
+105[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 65): https://res.cloudinary.com/castlery/image/upload/v1677638704/static/common/sell_filled.png
+65
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (203): https://res.cloudinary.com/castlery/image/private/c_fit,f_auto,q_auto,w_1000/v1670406210/crusader/va
+203
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (205): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+205[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (205): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+205[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Ang
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406209/crusader/variants/50850043/Luna-Sideboard-Sid
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Bac
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (105): https://www.castlery.com/us/products/c_fit/v1657160471/crusader/variants/50850043/Luna_Sideboaer-Set
+105[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (105): https://www.castlery.com/us/products/g_center//v1657160471/crusader/variants/50850043/Luna_Sideboaer
+105[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (65): https://res.cloudinary.com/castlery/image/upload/v1677638704/static/common/sell_filled.png
+65
+📋 Copy URL
+[9:24:05 PM] 🏆 TOP SCORED IMAGES: ["Luna-Sideboard-Front-1670406210.jpg (score: 205)","Luna-Sideboard-Square-Set_3.jpg (score: 205)","Luna-Sideboard-Front-1670406210.png (score: 203)","Luna-Sideboard-Front-1670406210.png (score: 185)"
+[9:24:05 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":1,"smallFile":0,"duplicateGroups":0,"kept":15}
+[9:24:05 PM] 🖼️ FINAL IMAGES: ["https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/5085004","https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/508","https://res.cloudinary.com/castl
+[9:24:05 PM] 🖼️ GENERIC IMAGES: {"count":15,"images":["https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Front-1670406210.jpg","https://www.castlery.com/us/products/g_center//v164845211
+[9:24:05 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":15}
+[9:24:05 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":15}
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 215): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+215[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 205): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+205[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 193): https://res.cloudinary.com/castlery/image/private/c_fit,f_auto,q_auto,w_1000/v1670406210/crusader/va
+193
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Ang
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406209/crusader/variants/50850043/Luna-Sideboard-Sid
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Bac
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 105): https://www.castlery.com/us/products/c_fit/v1657160471/crusader/variants/50850043/Luna_Sideboaer-Set
+105[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 105): https://www.castlery.com/us/products/g_center//v1657160471/crusader/variants/50850043/Luna_Sideboaer
+105[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] ✅ SINGLE IMAGE (score: 65): https://res.cloudinary.com/castlery/image/upload/v1677638704/static/common/sell_filled.png
+65
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (215): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+215[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (205): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+205[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (193): https://res.cloudinary.com/castlery/image/private/c_fit,f_auto,q_auto,w_1000/v1670406210/crusader/va
+193
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Fro
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452113/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/50850043/Luna-Sideboard
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Ang
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406209/crusader/variants/50850043/Luna-Sideboard-Sid
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (185): https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Bac
+185[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (105): https://www.castlery.com/us/products/c_fit/v1657160471/crusader/variants/50850043/Luna_Sideboaer-Set
+105[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (105): https://www.castlery.com/us/products/g_center//v1657160471/crusader/variants/50850043/Luna_Sideboaer
+105[IMG ERROR]
+📋 Copy URL
+[9:24:05 PM] 🎯 HIGH SCORE + SIZE OK (65): https://res.cloudinary.com/castlery/image/upload/v1677638704/static/common/sell_filled.png
+65
+📋 Copy URL
+[9:24:05 PM] 🏆 TOP SCORED IMAGES: ["Luna-Sideboard-Front-1670406210.jpg (score: 215)","Luna-Sideboard-Square-Set_3.jpg (score: 205)","Luna-Sideboard-Front-1670406210.png (score: 193)","Luna-Sideboard-Front-1670406210.png (score: 185)"
+[9:24:05 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":15}
+[9:24:05 PM] 🖼️ FINAL IMAGES: ["https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/5085004","https://www.castlery.com/us/products/g_center//v1648452112/crusader/variants/508","https://res.cloudinary.com/castl
+[9:24:05 PM] 🖼️ FINAL IMAGES: {"count":15,"images":["https://www.castlery.com/us/products/c_fit/v1670406210/crusader/variants/50850043/Luna-Sideboard-Front-1670406210.jpg","https://www.castlery.com/us/products/g_center//v164845211
+[9:24:05 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Luna Sideboard","brand":"Castlery","description":"Designed by Polish designer Krystian Kowalski, Lun","price":"1599","imageCount":15,"firstImages":["https://www.castlery.com/us/products/c_fi
+[9:24:05 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":15}
+[9:24:05 PM] ✅ Debug trace complete
+Clear Debug
