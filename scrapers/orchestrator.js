@@ -2008,7 +2008,9 @@
   }
   async function getImagesGeneric() {
     const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
+    const callStack = new Error().stack.split('\n').slice(1, 4).map(line => line.trim()).join(' -> ');
     debug('🖼️ Getting generic images for hostname:', hostname);
+    debug('📍 CALL TRACE:', callStack);
     
     // Site-specific selectors for problematic sites
     const siteSpecificSelectors = {
@@ -2350,7 +2352,7 @@
           let usedGeneric = false; // Track if we already called getImagesGeneric
           
           if (totalCandidates === 0) {
-            debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+            debug('🖼️ IMAGES: Custom insufficient, getting generic images... [FIRST CALL PATH]');
             const genericImages = await getImagesGeneric();
             debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
             usedGeneric = true; // Mark that we used generic collection
@@ -2373,7 +2375,7 @@
               
               // Fall back to generic only if still insufficient AND we haven't already used generic
               if (combinedImages.length < 3 && !usedGeneric) {
-                debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
+                debug('🖼️ IMAGES: Custom insufficient, getting generic images... [SECOND CALL PATH]');
                 const genericImages = await getImagesGeneric();
                 debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
                 combinedImages = await uniqueImages(combinedImages.concat(genericImages));
