@@ -691,6 +691,17 @@
       }
     }
     
+    // KOHL'S: Upgrade wid/hei parameters for higher quality
+    if (/media\.kohlsimg\.com/i.test(url)) {
+      // Upgrade smaller dimensions to high quality: wid=390&hei=390 → wid=1500&hei=1500
+      upgraded = upgraded.replace(/([?&])wid=\d+/gi, '$1wid=1500');
+      upgraded = upgraded.replace(/([?&])hei=\d+/gi, '$1hei=1500');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Kohl's CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // CLOUDINARY: Universal upgrade for small dimensions to high-quality
     if (/res\.cloudinary\.com/i.test(url)) {
       // Convert any width ≤500 to w_1280 for high-quality images
