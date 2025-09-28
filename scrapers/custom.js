@@ -1643,62 +1643,22 @@ const URBAN_OUTFITTERS = {
 const BESTBUY = {
   match: (h) => /\bbestbuy\.com$/i.test(h),
   
-  async images(doc = document) {
-    console.log("[DEBUG] Best Buy custom image logic running...");
-    const urls = new Set();
-    
-    // Target the main product gallery specifically to avoid lazy-loaded recommendations
-    const galleryContainer = doc.querySelector('[aria-label="Media Gallery"]');
-    const scope = galleryContainer || doc.body;
-    
-    console.log(`[DEBUG] Best Buy using scope: ${galleryContainer ? 'Media Gallery' : 'document body'}`);
-    
-    // Collect images from the main gallery container only
-    const imageSelectors = [
-      '.image-block-standard-img',        // Main product images
-      '[class*="image-block"] img',       // Image block variants
-      '.mediaGallery img',                // Gallery images
-      '[data-testid*="image"] img',       // Test ID images
-      '.product-image img'                // Generic product images
-    ];
-    
-    imageSelectors.forEach(selector => {
-      scope.querySelectorAll(selector).forEach(img => {
-        let url = img.currentSrc || img.src;
-        
-        // Only Best Buy CDN images
-        if (url && /pisces\.bbystatic\.com/i.test(url)) {
-          // Upgrade to higher resolution by removing size constraints
-          url = url.replace(/;maxHeight=\d+/gi, ';maxHeight=2000');
-          url = url.replace(/;maxWidth=\d+/gi, ';maxWidth=2000');
-          url = url.replace(/;resizeMethod=upsize/gi, '');
-          
-          console.log(`[DEBUG] Best Buy image: ${url.substring(url.lastIndexOf('/') + 1)}`);
-          urls.add(url);
-        }
-      });
-    });
-    
-    // If gallery container didn't yield enough, try product area but avoid recommendations
-    if (urls.size < 3) {
-      console.log("[DEBUG] Best Buy expanding to main product area...");
-      const productArea = doc.querySelector('main, .product-detail, .product-content, .pdp-container');
-      const expandedScope = productArea || doc.body;
+  images(doc = document) {
+    try {
+      const urls = [];
       
-      expandedScope.querySelectorAll('img[src*="pisces.bbystatic.com"]').forEach(img => {
+      // Simple approach: target main Best Buy gallery images
+      doc.querySelectorAll('.image-block-standard-img').forEach(img => {
         const url = img.currentSrc || img.src;
-        if (url && !img.closest('[class*="recommendation"], [class*="suggested"], [class*="related"], [class*="similar"]')) {
-          const upgraded = url
-            .replace(/;maxHeight=\d+/gi, ';maxHeight=2000')
-            .replace(/;maxWidth=\d+/gi, ';maxWidth=2000')
-            .replace(/;resizeMethod=upsize/gi, '');
-          urls.add(upgraded);
+        if (url && /pisces\.bbystatic\.com/i.test(url)) {
+          urls.push(url);
         }
       });
+      
+      return urls.slice(0, 15);
+    } catch (e) {
+      return [];
     }
-    
-    console.log(`[DEBUG] Best Buy found ${urls.size} gallery images (avoiding lazy-loaded recommendations)`);
-    return [...urls].filter(Boolean).slice(0, 15);
   }
 };
 
