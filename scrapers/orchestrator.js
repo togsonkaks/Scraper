@@ -757,6 +757,68 @@
     return upgraded;
   }
 
+  // Product ID extraction and caching for relevance filtering
+  let _cachedProductId = null;
+  let _cachedProductKeywords = null;
+  
+  function extractProductIdFromUrl(url) {
+    // Extract 6-11 alphanumeric chars after / or _ and before _ 
+    const match = url.match(/[/_]([a-zA-Z0-9]{6,11})_/);
+    return match ? match[1] : null;
+  }
+  
+  function findMainProductId() {
+    if (_cachedProductId !== null) return _cachedProductId;
+    
+    // First try URL pattern extraction
+    const urlPath = window.location.pathname;
+    const urlPatterns = [
+      /\/prd-(\d+)\//,           // Kohl's: /prd-7663979/
+      /\/product\/([^\/]+)/,     // Generic: /product/ABC123/  
+      /\/dp\/([^\/]+)/,          // Amazon: /dp/B08XYZ/
+      /\/A-(\d+)/,               // Target: /A-54321/
+      /\/products\/([^\/]+)/     // Shopify: /products/product-name/
+    ];
+    
+    for (const pattern of urlPatterns) {
+      const match = urlPath.match(pattern);
+      if (match) {
+        _cachedProductId = match[1];
+        debug(`🎯 PRODUCT ID from URL: ${_cachedProductId}`);
+        return _cachedProductId;
+      }
+    }
+    
+    // Fallback: analyze all images on page to find most frequent ID
+    const allImages = Array.from(document.querySelectorAll('img')).map(img => img.src || img.dataset.src).filter(Boolean);
+    const productIds = allImages.map(extractProductIdFromUrl).filter(Boolean);
+    
+    if (productIds.length > 0) {
+      const counts = {};
+      productIds.forEach(id => counts[id] = (counts[id] || 0) + 1);
+      _cachedProductId = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+      debug(`🎯 PRODUCT ID from frequency analysis: ${_cachedProductId} (${counts[_cachedProductId]} occurrences)`);
+      return _cachedProductId;
+    }
+    
+    _cachedProductId = ''; // Cache empty result to avoid re-computation
+    return '';
+  }
+  
+  function getProductKeywords() {
+    if (_cachedProductKeywords !== null) return _cachedProductKeywords;
+    
+    const urlPath = window.location.pathname;
+    _cachedProductKeywords = urlPath
+      .split('/').pop() // Get last part of URL path
+      .replace(/[.-]/g, ' ') // Replace dashes/dots with spaces  
+      .split(' ')
+      .filter(part => part.length > 2) // Filter out short words
+      .map(part => part.toLowerCase());
+      
+    return _cachedProductKeywords;
+  }
+
   // ⚠️ CRITICAL FUNCTION - Multi-layered image quality scoring algorithm ⚠️
   // Enhanced image quality scoring function with aggressive filtering  
   function scoreImageURL(url, element = null, elementIndex = 0) {
