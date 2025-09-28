@@ -1936,7 +1936,7 @@
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
       '.product_media_item img','.product__media-item img.image__img','img.image_img','img.image__img',
-      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+      '[class*=gallery] img','.slider img','[class*="slider-image"] img','[class*="slider-img"] img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
     ];
     for (const sel of gallerySels) {
       const elements = qa(sel);
