@@ -1025,21 +1025,56 @@
       }
     }
     
-    // RELEVANCE GATE: Check for keyword matches AND product ID matches
+    // Simple filename matching bonus - extract product keywords from URL path
     const productKeywords = getProductKeywords();
-    const mainProductId = findMainProductId();
     
-    let keywordMatches = 0;
-    let hasProductIdMatch = false;
-    
-    // Check keyword matches
     if (productKeywords.length > 0) {
       const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' '); // Convert URL to searchable text
+      let keywordMatches = 0;
       
       // Count how many product keywords appear in the image URL/filename
       for (const keyword of productKeywords) {
         if (filename.includes(keyword)) {
           keywordMatches++;
+        }
+      }
+      
+      // Balanced graduated bonuses based on match ratio
+      if (keywordMatches > 0) {
+        let bonus = 0;
+        const matchRatio = keywordMatches / productKeywords.length;
+        
+        if (matchRatio >= 1.0) {
+          // All words match - definitely the product
+          bonus = 100;
+        } else if (keywordMatches >= 3) {
+          // 3+ words match - very likely the product  
+          bonus = 60;
+        } else if (keywordMatches >= 2) {
+          // 2 words match - probably the product
+          bonus = 30;
+        } else {
+          // 1 word match - maybe relevant
+          bonus = 20;
+        }
+        
+        score += bonus;
+        dbg(`🎯 FILENAME MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
+      }
+    }
+    
+    // FINAL RELEVANCE GATE: Check for relevance before returning score
+    const mainProductId = findMainProductId();
+    let hasKeywordMatch = false;
+    let hasProductIdMatch = false;
+    
+    // Check if we had any keyword matches (from above logic)
+    if (productKeywords.length > 0) {
+      const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' ');
+      for (const keyword of productKeywords) {
+        if (filename.includes(keyword)) {
+          hasKeywordMatch = true;
+          break;
         }
       }
     }
@@ -1049,42 +1084,15 @@
       const imageProductId = extractProductIdFromUrl(url);
       if (imageProductId === mainProductId) {
         hasProductIdMatch = true;
+        score += 150; // Product ID bonus
+        dbg(`🎯 PRODUCT ID MATCH: ${mainProductId} match (+150): ${url.slice(-50)}`);
       }
     }
     
-    // RELEVANCE GATE: Skip scoring if no relevance to main product
-    if (keywordMatches === 0 && !hasProductIdMatch) {
-      dbg(`❌ RELEVANCE GATE: No keyword or product ID matches, skipping: ${url.slice(-50)}`);
-      return 0; // Skip this image entirely
-    }
-    
-    // Award keyword bonuses (existing system)
-    if (keywordMatches > 0) {
-      let bonus = 0;
-      const matchRatio = keywordMatches / productKeywords.length;
-      
-      if (matchRatio >= 1.0) {
-        // All words match - definitely the product
-        bonus = 100;
-      } else if (keywordMatches >= 3) {
-        // 3+ words match - very likely the product  
-        bonus = 60;
-      } else if (keywordMatches >= 2) {
-        // 2 words match - probably the product
-        bonus = 30;
-      } else {
-        // 1 word match - maybe relevant
-        bonus = 20;
-      }
-      
-      score += bonus;
-      dbg(`🎯 KEYWORD MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
-    }
-    
-    // Award product ID bonus (new system)
-    if (hasProductIdMatch) {
-      score += 150;
-      dbg(`🎯 PRODUCT ID MATCH: ${mainProductId} match (+150): ${url.slice(-50)}`);
+    // Apply relevance gate - return 0 if no relevance
+    if (!hasKeywordMatch && !hasProductIdMatch) {
+      dbg(`❌ RELEVANCE GATE: No keyword or product ID matches, score zeroed: ${url.slice(-50)}`);
+      return 0;
     }
     
     return Math.max(0, score);
