@@ -1744,6 +1744,78 @@ const BESTBUY = {
   }
 };
 
+// ---------- Castlery (target .slick-slide containers for Cloudinary URLs only) ----------
+const CASTLERY = {
+  match: (h) => /\bcastlery\.com$/i.test(h),
+  
+  async images(doc = document) {
+    const debug = (msg) => {
+      try {
+        if (typeof window !== 'undefined' && window.__tg_debugLog) {
+          if (typeof window.__tg_debugLog === 'function') {
+            window.__tg_debugLog(msg);
+          } else if (Array.isArray(window.__tg_debugLog)) {
+            window.__tg_debugLog.push(msg);
+          } else {
+            console.log(msg);
+          }
+        } else {
+          console.log(msg);
+        }
+      } catch(e) {
+        console.log(msg); // fallback if anything fails
+      }
+    };
+
+    debug("[DEBUG] Castlery custom handler: targeting .slick-slide containers for Cloudinary URLs");
+    const out = new Set();
+    
+    // Target Castlery's specific .slick-slide carousel structure
+    const slideContainers = doc.querySelectorAll('.slick-slide, .slick-active, .slick-current');
+    debug(`[DEBUG] Castlery found ${slideContainers.length} slide containers`);
+    
+    slideContainers.forEach((slide, index) => {
+      const images = slide.querySelectorAll('img');
+      debug(`[DEBUG] Castlery slide ${index + 1} has ${images.length} images`);
+      
+      images.forEach(img => {
+        // Check both current src and data attributes for Cloudinary URLs
+        const sources = [
+          img.src,
+          img.currentSrc, 
+          img.getAttribute('src'),
+          img.getAttribute('data-src'),
+          img.getAttribute('data-zoom'),
+          img.getAttribute('data-large')
+        ].filter(Boolean);
+
+        sources.forEach(url => {
+          // Only accept Cloudinary URLs, ignore processed Castlery URLs
+          if (url && url.includes('res.cloudinary.com/castlery')) {
+            debug(`[DEBUG] Castlery found Cloudinary URL: ${url.substring(url.lastIndexOf('/') + 1)}`);
+            out.add(url);
+          } else if (url && url.includes('castlery.com/us/products')) {
+            debug(`[DEBUG] Castlery skipping processed URL: ${url.substring(url.lastIndexOf('/') + 1)}`);
+          }
+        });
+      });
+    });
+
+    // Convert to array and filter for valid image extensions
+    const result = [...out].filter(url => 
+      url && 
+      url.includes('res.cloudinary.com/castlery') &&
+      /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(url)
+    );
+
+    debug(`[DEBUG] Castlery collected ${result.length} Cloudinary images (CDN upgrades will be applied automatically)`);
+    result.forEach((url, i) => {
+      debug(`[DEBUG] Castlery [${i+1}]: ${url.substring(url.lastIndexOf('/') + 1)}`);
+    });
+    
+    return result.slice(0, 20);
+  }
+};
 
 const REGISTRY = [
   AMZ,
@@ -1780,6 +1852,7 @@ const REGISTRY = [
   AE,
   ASOS,
   URBAN_OUTFITTERS,
+  CASTLERY,
 
 
 ];
