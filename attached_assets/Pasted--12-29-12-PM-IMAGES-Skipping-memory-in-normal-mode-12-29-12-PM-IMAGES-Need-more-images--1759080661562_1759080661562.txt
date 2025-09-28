@@ -1,0 +1,350 @@
+[12:29:12 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:29:12 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:29:12 PM] 🧩 IMAGES: Trying custom handler...
+[12:29:12 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:29:12 PM] 🖼️ Getting generic images for hostname: freepeople.com
+[12:29:12 PM] 🔍 Selector '.product-media img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.product-media img' → 0 images
+[12:29:12 PM] 🔍 Selector '.gallery img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.gallery img' → 0 images
+[12:29:12 PM] 🔍 Selector '.image-gallery img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.image-gallery img' → 0 images
+[12:29:12 PM] 🔍 Selector '.product-images img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.product-images img' → 0 images
+[12:29:12 PM] 🔍 Selector '.product-gallery img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.product-gallery img' → 0 images
+[12:29:12 PM] 🔍 Selector '.product_media_item img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.product_media_item img' → 0 images
+[12:29:12 PM] 🔍 Selector 'img.image_img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: 'img.image_img' → 0 images
+[12:29:12 PM] 🔍 Selector '[class*=gallery] img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '[class*=gallery] img' → 0 images
+[12:29:12 PM] 🔍 Selector '.slider img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.slider img' → 0 images
+[12:29:12 PM] 🔍 Selector '.thumbnails img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.thumbnails img' → 0 images
+[12:29:12 PM] 🔍 Selector '.pdp-gallery img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '.pdp-gallery img' → 0 images
+[12:29:12 PM] 🔍 Selector '[data-testid*=image] img' found 0 elements
+[12:29:12 PM] 🎯 Trying selector: '[data-testid*=image] img' → 0 images
+[12:29:12 PM] 🖼️ All specific selectors failed, falling back to broad 'img'
+[12:29:12 PM] Image element <IMG.c-pwa-header-tabs__img>
+[12:29:12 PM] Image element <IMG.c-pwa-header-tabs__img>
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=360 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=360 -> ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=360 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=360 -> ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=360 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=360 -> ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=360 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=360 -> ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=640 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&qlt=80&wid=360 -> ?$redesign-zoom-5x$
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?$a15-pdp-detail-shot$&fit=constrain&fmt=webp&qlt=80&wid=360 -> ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] Image element <IMG.o-pwa-color-swatch>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?fit=constrain&hei=56&qlt=75 ->
+[12:29:12 PM] Image element <IMG.o-pwa-color-swatch>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?fit=constrain&hei=56&qlt=75 ->
+[12:29:12 PM] Image element <IMG.o-pwa-color-swatch>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?fit=constrain&hei=56&qlt=75 ->
+[12:29:12 PM] Image element <IMG.o-pwa-color-swatch>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?fit=constrain&hei=56&qlt=75 ->
+[12:29:12 PM] Image element <IMG.o-pwa-color-swatch>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?fit=constrain&hei=56&qlt=75 ->
+[12:29:12 PM] Image element <IMG.o-pwa-color-swatch>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?fit=constrain&hei=56&qlt=75 ->
+[12:29:12 PM] Image element <IMG.o-pwa-color-swatch>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?fit=constrain&hei=56&qlt=75 ->
+[12:29:12 PM] Image element <IMG.o-pwa-color-swatch>
+[12:29:12 PM] ✨ UPGRADED CDN URL: ?fit=constrain&hei=56&qlt=75 ->
+[12:29:12 PM] Image element <IMG.c-pwa-icon>
+[12:29:12 PM] Image element <IMG.c-pwa-icon>
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] Image element <IMG.o-pwa-image__img>
+[12:29:12 PM] Image element <IMG.c-pwa-chat-invitation__avatar>
+[12:29:12 PM] Image element <IMG>
+[12:29:12 PM] Image element <IMG>
+[12:29:12 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":34}
+[12:29:12 PM] ❌ NOT IMAGE URL: https://images.ctfassets.net/udk41sh7kfzj/2GcuAlT2uFzpQy1hmX0i72/86e949ce18f87f88c85e25ca39af6ac5/Lo
+0
+📋 Copy URL
+[12:29:12 PM] ❌ NOT IMAGE URL: https://images.ctfassets.net/udk41sh7kfzj/13zMramB5P5SGXE2sNs2zr/e8538af76276a2554d8c163199866d9e/Lo
+0
+📋 Copy URL
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$&fmt=webp
+[12:29:12 PM] 🚫 BLOCKED Free People swatch:
+[12:29:12 PM] 📉 LOW SCORE REJECTED (0): https://images.urbndata.com/is/image/FreePeople/89421648_101_swatch/
+0
+📋 Copy URL
+[12:29:12 PM] 🚫 BLOCKED Free People swatch:
+[12:29:12 PM] 📉 LOW SCORE REJECTED (0): https://images.urbndata.com/is/image/FreePeople/89421648_065_swatch/
+0
+📋 Copy URL
+[12:29:12 PM] 🚫 BLOCKED Free People swatch:
+[12:29:12 PM] 📉 LOW SCORE REJECTED (0): https://images.urbndata.com/is/image/FreePeople/89421648_046_swatch/
+0
+📋 Copy URL
+[12:29:12 PM] 🚫 BLOCKED Free People swatch:
+[12:29:12 PM] 📉 LOW SCORE REJECTED (0): https://images.urbndata.com/is/image/FreePeople/89421648_051_swatch/
+0
+📋 Copy URL
+[12:29:12 PM] 🚫 BLOCKED Free People swatch:
+[12:29:12 PM] 📉 LOW SCORE REJECTED (0): https://images.urbndata.com/is/image/FreePeople/89421648_081_swatch/
+0
+📋 Copy URL
+[12:29:12 PM] 🚫 BLOCKED Free People swatch:
+[12:29:12 PM] 📉 LOW SCORE REJECTED (0): https://images.urbndata.com/is/image/FreePeople/89421648_020_swatch/
+0
+📋 Copy URL
+[12:29:12 PM] 🚫 BLOCKED Free People swatch:
+[12:29:12 PM] 📉 LOW SCORE REJECTED (0): https://images.urbndata.com/is/image/FreePeople/89421648_054_swatch/
+0
+📋 Copy URL
+[12:29:12 PM] 🚫 BLOCKED Free People swatch:
+[12:29:12 PM] 📉 LOW SCORE REJECTED (0): https://images.urbndata.com/is/image/FreePeople/89421648_048_swatch/
+0
+📋 Copy URL
+[12:29:12 PM] 🗑️ JUNK IMAGE: https://static.freepeople.com/static/v3/assets/klarna-logo-black-CdKAKn0h.svg
+0
+📋 Copy URL
+[12:29:12 PM] 🗑️ JUNK IMAGE: https://static.freepeople.com/static/v3/assets/afterpay-logo-black-CvYC8Sxt.svg
+0
+📋 Copy URL
+[12:29:12 PM] 🗑️ JUNK IMAGE: https://images.ctfassets.net/udk41sh7kfzj/5LuAkuFlCenwEI6XlFY27O/ecc0143d6450e1a
+0
+📋 Copy URL
+[12:29:12 PM] 🗑️ JUNK IMAGE: https://images.ctfassets.net/udk41sh7kfzj/6cyFAOilaGBZIkf6xYi48W/2194b216a5c593f
+0
+📋 Copy URL
+[12:29:12 PM] 🗑️ JUNK IMAGE: https://cdn.cookielaw.org/logos/a9d3dc19-0c91-478e-9e19-de0cc524c81c/018e2e0d-72
+0
+📋 Copy URL
+[12:29:12 PM] ❌ NOT IMAGE URL: https://cdn.cookielaw.org/logos/static/powered_by_logo.svg
+0
+📋 Copy URL
+[12:29:12 PM] ✅ BEST OF 3 (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+95
+📋 Copy URL
+[12:29:12 PM] ✅ BEST OF 3 (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+95
+📋 Copy URL
+[12:29:12 PM] ✅ BEST OF 3 (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+95
+📋 Copy URL
+[12:29:12 PM] ✅ BEST OF 3 (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+95
+📋 Copy URL
+[12:29:12 PM] ✅ BEST OF 3 (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 65): https://images.ctfassets.net/udk41sh7kfzj/6Ee3bIQKoky4tKcwS8HXse/a6a36ab8f0b09f32eac2859e0951463d/UP
+65
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 105): https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23edacf31fac12c68f4e/Ca
+105
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 65): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+65
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.ctfassets.net/udk41sh7kfzj/6Ee3bIQKoky4tKcwS8HXse/a6a36ab8f0b09f32eac2859e0951463d/UP
+65
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (105): https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23edacf31fac12c68f4e/Ca
+105
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (65): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+65
+📋 Copy URL
+[12:29:12 PM] 🏆 TOP SCORED IMAGES: ["CargoPocket_PDP_Resize-2.png (score: 105)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)"]
+[12:29:12 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":5,"lowScore":8,"smallFile":0,"duplicateGroups":5,"kept":8}
+[12:29:12 PM] 🖼️ FINAL IMAGES: ["https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23e","https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5","https://images.urbndata.com/is/i
+[12:29:12 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":9}
+[12:29:12 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":9}
+[12:29:12 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 89421648_101_0
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/FreePeople/89421648_101_0
+55
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 110): https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23edacf31fac12c68f4e/Ca
+110
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 50): https://images.ctfassets.net/udk41sh7kfzj/6Ee3bIQKoky4tKcwS8HXse/a6a36ab8f0b09f32eac2859e0951463d/UP
+50
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 50): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+50
+📋 Copy URL
+[12:29:12 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_0
+55
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (110): https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23edacf31fac12c68f4e/Ca
+110
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 📏 SIZE OK (est: 100KB): https://images.ctfassets.net/udk41sh7kfzj/6Ee3bIQKoky4tKcwS8HXse/a6a36ab8f0b09f32eac2859e0951463d/UP
+50
+📋 Copy URL
+[12:29:12 PM] 📏 SIZE OK (est: 100KB): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+50
+📋 Copy URL
+[12:29:12 PM] 🏆 TOP SCORED IMAGES: ["CargoPocket_PDP_Resize-2.png (score: 110)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)"]
+[12:29:12 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":9}
+[12:29:12 PM] 🖼️ FINAL IMAGES: ["https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23e","https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5","https://images.urbndata.com/is/i
+[12:29:12 PM] 🖼️ GENERIC IMAGES: {"count":9,"images":["https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23edacf31fac12c68f4e/CargoPocket_PDP_Resize-2.png","https://images.urbndata.com/is/image/FreePeople/8
+[12:29:12 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":9}
+[12:29:12 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":9}
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] 🎯 FREE PEOPLE HIGH-RES: ?$redesign-zoom-5x$
+[12:29:12 PM] ⚠️ FREE PEOPLE LOW-QUALITY: Non-upgraded base image 89421648_101_0
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 120): https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23edacf31fac12c68f4e/Ca
+120
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 95): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 55): https://images.urbndata.com/is/image/FreePeople/89421648_101_0
+55
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 50): https://images.ctfassets.net/udk41sh7kfzj/6Ee3bIQKoky4tKcwS8HXse/a6a36ab8f0b09f32eac2859e0951463d/UP
+50
+📋 Copy URL
+[12:29:12 PM] ✅ SINGLE IMAGE (score: 50): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+50
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (120): https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23edacf31fac12c68f4e/Ca
+120
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_c/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_a/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_b/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 🎯 HIGH SCORE + SIZE OK (95): https://images.urbndata.com/is/image/FreePeople/89421648_101_d/?$redesign-zoom-5x$
+95
+📋 Copy URL
+[12:29:12 PM] 📏 SIZE OK (est: 50KB): https://images.urbndata.com/is/image/FreePeople/89421648_101_0
+55
+📋 Copy URL
+[12:29:12 PM] 📏 SIZE OK (est: 100KB): https://images.ctfassets.net/udk41sh7kfzj/6Ee3bIQKoky4tKcwS8HXse/a6a36ab8f0b09f32eac2859e0951463d/UP
+50
+📋 Copy URL
+[12:29:12 PM] 📏 SIZE OK (est: 100KB): https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP
+50
+📋 Copy URL
+[12:29:12 PM] 🏆 TOP SCORED IMAGES: ["CargoPocket_PDP_Resize-2.png (score: 120)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)","?$redesign-zoom-5x$ (score: 95)"]
+[12:29:12 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":9}
+[12:29:12 PM] 🖼️ FINAL IMAGES: ["https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23e","https://images.urbndata.com/is/image/FreePeople/89421648_101_0/?$redesign-zoom-5","https://images.urbndata.com/is/i
+[12:29:12 PM] 🖼️ FINAL IMAGES: {"count":9,"images":["https://images.ctfassets.net/udk41sh7kfzj/6F9bAwoEPuxzRs2Pk3vpro/75aaa53684ca23edacf31fac12c68f4e/CargoPocket_PDP_Resize-2.png","https://images.urbndata.com/is/image/FreePeople/8
+[12:29:12 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"In The Wild Long Shorts","brand":"FP Movement","description":"Shop our In The Wild Long Shorts at FreePeople.com","price":"68","imageCount":9,"firstImages":["https://images.ctfassets.net/udk
+[12:29:12 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":9}
+[12:29:12 PM] ✅ Debug trace complete

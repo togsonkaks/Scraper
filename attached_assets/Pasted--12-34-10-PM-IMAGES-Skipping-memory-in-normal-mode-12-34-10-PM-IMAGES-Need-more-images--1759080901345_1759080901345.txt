@@ -1,0 +1,40 @@
+[12:34:10 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:34:10 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:34:10 PM] 🧩 IMAGES: Trying custom handler...
+[12:34:10 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:34:10 PM] 🖼️ Getting generic images for hostname: kirrinfinch.com
+[12:34:10 PM] 🔍 Selector '.product-media img' found 0 elements
+[12:34:10 PM] 🎯 Trying selector: '.product-media img' → 0 images
+[12:34:10 PM] 🔍 Selector '.gallery img' found 0 elements
+[12:34:10 PM] 🎯 Trying selector: '.gallery img' → 0 images
+[12:34:10 PM] 🔍 Selector '.image-gallery img' found 0 elements
+[12:34:10 PM] 🎯 Trying selector: '.image-gallery img' → 0 images
+[12:34:10 PM] 🔍 Selector '.product-images img' found 0 elements
+[12:34:10 PM] 🎯 Trying selector: '.product-images img' → 0 images
+[12:34:10 PM] 🔍 Selector '.product-gallery img' found 0 elements
+[12:34:10 PM] 🎯 Trying selector: '.product-gallery img' → 0 images
+[12:34:10 PM] 🔍 Selector '.product_media_item img' found 0 elements
+[12:34:10 PM] 🎯 Trying selector: '.product_media_item img' → 0 images
+[12:34:10 PM] 🔍 Selector 'img.image_img' found 0 elements
+[12:34:10 PM] 🎯 Trying selector: 'img.image_img' → 0 images
+[12:34:10 PM] 🔍 Selector '[class*=gallery] img' found 18 elements
+[12:34:10 PM] 📝 First element: <img class="jdgm-gallery__thumbnail" alt="User picture" data-src="https://judgeme.imgix.net/kirrin-finch/1745257740__img_4113__original.jpeg?auto=format&amp;w=160" data-mfp-src="https://judgeme.imgix.
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] Image element <IMG.jdgm-gallery__thumbnail>
+[12:34:10 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":18}
