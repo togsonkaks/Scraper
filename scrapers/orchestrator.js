@@ -632,7 +632,10 @@
     
     // SHOPIFY CDN: Upgrade small dimensions to high-quality versions
     if (/\/cdn\/shop\//i.test(url) || /cdn\.shopify\.com/i.test(url)) {
-      // Upgrade single dimension: 523x → 1020x, 640x → 1020x, etc.
+      // Upgrade 2-digit dimensions: _94x → _1020x, _97x → _1020x, etc.
+      upgraded = upgraded.replace(/_(\d{2})x(\.|\?|$)/gi, '_1020x$2');
+      
+      // Upgrade 3-digit dimensions: 523x → 1020x, 640x → 1020x, etc.
       upgraded = upgraded.replace(/_([1-9]\d{2})x(\.|\?|$)/gi, '_1020x$2');
       
       // Upgrade two dimensions only if both are small (avoid downgrading _640x1200 → _1020x1020)
