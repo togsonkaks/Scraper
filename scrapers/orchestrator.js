@@ -595,6 +595,21 @@
       }
     }
     
+    // COACH: Scene7 CDN upgrades  
+    if (/coach\.scene7\.com\/is\/image/i.test(url)) {
+      // Upgrade thumbnail template to ProductZoom for proper aspect ratio
+      upgraded = upgraded.replace(/\$desktopThumbnail\$/g, '$desktopProductZoom$');
+      
+      // Add high-resolution parameters if not present
+      if (!upgraded.includes('wid=')) {
+        upgraded += (upgraded.includes('?') ? '&' : '?') + 'wid=2000&qlt=90&op_usm=1.0,1.0,0.0,0';
+      }
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Coach CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // BOOHOO/BOOHOOMAN: Upgrade thumbnail dimensions to high-quality
     if (/mediahub\.boohooman\.com/i.test(url)) {
       // Upgrade small thumbnail dimensions to full-size
