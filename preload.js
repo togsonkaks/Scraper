@@ -64,7 +64,11 @@ contextBridge.exposeInMainWorld('api', {
   deleteLLMCache: (url) => call('llm-cache-delete', url),
 
   // ---- Right-click Inspect
-  inspectAt: (x, y) => call('inspect-at', { x, y })
+  inspectAt: (x, y) => call('inspect-at', { x, y }),
+
+  // ---- Debug logging
+  debugSaveLogs: (query) => call('debug-save-logs', { query }),
+  debugQueryLogs: (query) => call('debug-query-logs', { query })
 });
 
 // Right-click context menu with Inspect Element option

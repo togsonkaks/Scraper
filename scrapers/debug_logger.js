@@ -164,17 +164,24 @@ class DebugLogger {
         VALUES ${values}
       `;
       
-      // Save to database using Node.js fetch to localhost
-      const response = await fetch('http://localhost:8000/api/save-debug-logs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query })
-      });
-      
-      if (response.ok) {
+      // Save to database using Electron IPC
+      if (typeof window !== 'undefined' && window.api && window.api.debugSaveLogs) {
+        const result = await window.api.debugSaveLogs(query);
         console.log(`✅ DEBUG LOGGER: Saved ${this.logs.length} logs to database`);
       } else {
-        console.error('❌ DEBUG LOGGER: Failed to save logs:', response.statusText);
+        console.error('❌ DEBUG LOGGER: IPC not available, falling back to fetch');
+        // Fallback to fetch for testing
+        const response = await fetch('http://localhost:8000/api/save-debug-logs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query })
+        });
+        
+        if (response.ok) {
+          console.log(`✅ DEBUG LOGGER: Saved ${this.logs.length} logs to database`);
+        } else {
+          console.error('❌ DEBUG LOGGER: Failed to save logs:', response.statusText);
+        }
       }
       
     } catch (error) {
@@ -242,17 +249,24 @@ class DebugLogger {
   // Helper method to execute database queries
   static async queryLogs(query) {
     try {
-      const response = await fetch('http://localhost:8000/api/query-debug-logs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query })
-      });
-      
-      if (response.ok) {
-        return await response.json();
+      // Try IPC first
+      if (typeof window !== 'undefined' && window.api && window.api.debugQueryLogs) {
+        return await window.api.debugQueryLogs(query);
       } else {
-        console.error('❌ Failed to query debug logs:', response.statusText);
-        return [];
+        console.warn('❌ IPC not available, falling back to fetch');
+        // Fallback to fetch for testing
+        const response = await fetch('http://localhost:8000/api/query-debug-logs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query })
+        });
+        
+        if (response.ok) {
+          return await response.json();
+        } else {
+          console.error('❌ Failed to query debug logs:', response.statusText);
+          return [];
+        }
       }
     } catch (error) {
       console.error('❌ Error querying debug logs:', error);

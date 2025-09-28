@@ -3,6 +3,7 @@ try { require('dotenv').config(); } catch {}
 const path = require('path');
 const fs = require('fs');
 const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
+const http = require('http');
 
 // File-based selector storage helpers
 const SELECTORS_DIR = path.join(app.getPath('userData'), 'selectors');
@@ -784,6 +785,79 @@ ipcMain.handle('trigger-migration', async () => {
   } catch (e) {
     return { success: false, error: String(e) };
   }
+});
+
+// Debug Logging IPC handlers
+ipcMain.handle('debug-save-logs', async (_e, { query }) => {
+  return new Promise((resolve, reject) => {
+    const postData = JSON.stringify({ query });
+    const options = {
+      hostname: 'localhost',
+      port: 8000,
+      path: '/api/save-debug-logs',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = http.request(options, (res) => {
+      let data = '';
+      res.on('data', (chunk) => data += chunk);
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          resolve({ success: true });
+        }
+      });
+    });
+
+    req.on('error', (error) => {
+      console.error('Debug save error:', error);
+      reject(error);
+    });
+
+    req.write(postData);
+    req.end();
+  });
+});
+
+ipcMain.handle('debug-query-logs', async (_e, { query }) => {
+  return new Promise((resolve, reject) => {
+    const postData = JSON.stringify({ query });
+    const options = {
+      hostname: 'localhost',
+      port: 8000,
+      path: '/api/query-debug-logs',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = http.request(options, (res) => {
+      let data = '';
+      res.on('data', (chunk) => data += chunk);
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch (e) {
+          reject(new Error('Invalid JSON response'));
+        }
+      });
+    });
+
+    req.on('error', (error) => {
+      console.error('Debug query error:', error);
+      reject(error);
+    });
+
+    req.write(postData);
+    req.end();
+  });
 });
 
 // Enhanced memory-get that provides compatibility format
