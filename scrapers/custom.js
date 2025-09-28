@@ -1887,6 +1887,50 @@ const CASTLERY = {
   }
 };
 
+const ETSY = {
+  match: (h) => /(^|\.)etsy\.com$/i.test(h),
+  images(doc = document) {
+    console.log("[DEBUG] Etsy custom image logic running...");
+    const out = new Set();
+    
+    // Target main product gallery containers only - eliminates cross-sell noise
+    const mainGallerySelectors = [
+      'div[class*="image-overlay-list"] img',           // Main gallery from HTML structure
+      '[data-listing-image] img',                       // Images with listing data attribute
+      '[data-image-overlay] img',                       // Image overlay containers
+      '.shop2-listing-image img',                       // Listing images
+      '.listing-page-image img',                        // Page images
+      '[data-test-id*="listing-image"] img'             // Test ID patterns
+    ];
+    
+    console.log("[DEBUG] Etsy: Targeting main product gallery containers to avoid cross-sell...");
+    
+    mainGallerySelectors.forEach(selector => {
+      try {
+        const imgs = doc.querySelectorAll(selector);
+        console.log(`[DEBUG] Etsy: Found ${imgs.length} images with selector: ${selector}`);
+        
+        imgs.forEach(img => {
+          const u = img.currentSrc || img.src || img.getAttribute('data-src');
+          if (u && u.includes('etsystatic.com')) {
+            // Apply Etsy CDN upgrades (already handled by upgradeCDNUrl)
+            out.add(u);
+            console.log(`[DEBUG] Etsy: Added main gallery image: ${u.substring(u.lastIndexOf('/') + 1)}`);
+          }
+        });
+      } catch (e) {
+        console.warn(`[DEBUG] Etsy: Error with selector ${selector}:`, e.message);
+      }
+    });
+    
+    const result = [...out].filter(Boolean);
+    console.log(`[DEBUG] Etsy: Collected ${result.length} main product images (cross-sells eliminated)`);
+    
+    // Return limited set to avoid overload
+    return result.slice(0, 20);
+  }
+};
+
 const REGISTRY = [
   AMZ,
   BESTBUY,
@@ -1923,6 +1967,7 @@ const REGISTRY = [
   ASOS,
   URBAN_OUTFITTERS,
   CASTLERY,
+  ETSY,
 
 
 ];

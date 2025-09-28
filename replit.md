@@ -62,6 +62,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **Adidas**: [data-testid*="image"] targeting, w_600→w_1200 upgrades
 - **Home Depot**: Thumbnail upgrades (_100→_1000), spin profile upgrades
 - **AliExpress**: Multi-strategy title extraction, sophisticated filtering
+- **Etsy**: Container-targeted main product gallery (eliminates cross-sell noise)
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
