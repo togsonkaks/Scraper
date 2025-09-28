@@ -1744,6 +1744,129 @@ const BESTBUY = {
   }
 };
 
+// ---------- Castlery ----------
+const CASTLERY = {
+  match: (h) => /\bcastlery\.com$/i.test(h),
+  
+  async images(doc = document) {
+    const debug = (msg) => {
+      try {
+        if (typeof window !== 'undefined' && window.__tg_debugLog) {
+          if (typeof window.__tg_debugLog === 'function') {
+            window.__tg_debugLog(msg);
+          } else if (Array.isArray(window.__tg_debugLog)) {
+            window.__tg_debugLog.push(msg);
+          } else {
+            console.log(msg);
+          }
+        } else {
+          console.log(msg);
+        }
+      } catch(e) {
+        console.log(msg); // fallback if anything fails
+      }
+    };
+
+    debug("[DEBUG] Castlery custom image handler running...");
+    const out = new Set();
+    
+    // Target Castlery's specific gallery containers and data structures
+    const gallerySelectors = [
+      // Main product gallery containers
+      '.product-gallery img',
+      '.product-images img', 
+      '.product-media img',
+      '[class*="gallery"] img',
+      '[class*="product"] img[src*="cloudinary"]',
+      '[class*="image"] img[src*="cloudinary"]',
+      
+      // Data attribute images (lazy loading)
+      'img[data-src*="cloudinary"]',
+      'img[data-image*="cloudinary"]', 
+      'img[data-zoom*="cloudinary"]',
+      'img[data-large*="cloudinary"]',
+      
+      // Slider/carousel images
+      '[class*="slide"] img',
+      '[class*="carousel"] img',
+      '[data-testid*="image"] img',
+      '[aria-label*="image"] img',
+      
+      // Broad Cloudinary sweep
+      'img[src*="res.cloudinary.com/castlery"]',
+      'img[data-src*="res.cloudinary.com/castlery"]'
+    ];
+
+    // Collect images from all gallery selectors
+    for (const selector of gallerySelectors) {
+      try {
+        const elements = doc.querySelectorAll(selector);
+        debug(`[DEBUG] Castlery selector "${selector}" found ${elements.length} elements`);
+        
+        elements.forEach(img => {
+          // Try multiple sources: src, data-src, data-image, etc.
+          const sources = [
+            img.src,
+            img.currentSrc,
+            img.getAttribute('src'),
+            img.getAttribute('data-src'),
+            img.getAttribute('data-image'), 
+            img.getAttribute('data-zoom'),
+            img.getAttribute('data-large'),
+            img.getAttribute('data-zoom-image')
+          ].filter(Boolean);
+
+          sources.forEach(url => {
+            if (url && url.includes('cloudinary')) {
+              debug(`[DEBUG] Castlery found Cloudinary image: ${url.substring(url.lastIndexOf('/') + 1)}`);
+              out.add(url);
+            }
+          });
+        });
+      } catch (e) {
+        debug(`[DEBUG] Castlery selector failed: ${selector} - ${e.message}`);
+      }
+    }
+
+    // Also check for JSON data structures that might contain image URLs
+    try {
+      const scripts = doc.querySelectorAll('script[type="application/json"], script:not([src])');
+      scripts.forEach(script => {
+        try {
+          const text = script.textContent || script.innerText;
+          if (text && text.includes('cloudinary') && text.includes('castlery')) {
+            // Extract Cloudinary URLs from JSON
+            const cloudinaryMatches = text.match(/https:\/\/res\.cloudinary\.com\/castlery\/[^"'\s]+/g);
+            if (cloudinaryMatches) {
+              cloudinaryMatches.forEach(url => {
+                debug(`[DEBUG] Castlery found JSON Cloudinary URL: ${url.substring(url.lastIndexOf('/') + 1)}`);
+                out.add(url);
+              });
+            }
+          }
+        } catch (e) {
+          // Skip invalid JSON
+        }
+      });
+    } catch (e) {
+      debug(`[DEBUG] Castlery JSON parsing failed: ${e.message}`);
+    }
+
+    const result = [...out].filter(url => 
+      url && 
+      url.includes('cloudinary.com/castlery') &&
+      /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(url)
+    );
+
+    debug(`[DEBUG] Castlery custom handler collected ${result.length} total images`);
+    result.forEach((url, i) => {
+      debug(`[DEBUG] Castlery [${i+1}]: ${url.substring(url.lastIndexOf('/') + 1)}`);
+    });
+    
+    return result.slice(0, 20);
+  }
+};
+
 const REGISTRY = [
   AMZ,
   BESTBUY,
@@ -1779,6 +1902,7 @@ const REGISTRY = [
   AE,
   ASOS,
   URBAN_OUTFITTERS,
+  CASTLERY,
 
 
 ];
