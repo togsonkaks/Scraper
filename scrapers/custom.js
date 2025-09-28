@@ -1777,6 +1777,10 @@ const CASTLERY = {
     const slideContainers = doc.querySelectorAll('.slick-slide:not(.slick-cloned)');
     debug(`[DEBUG] Castlery found ${slideContainers.length} original slide containers (skipping clones)`);
     
+    // ALSO target thumbnail gallery images (where additional product views are)
+    const thumbnailContainers = doc.querySelectorAll('[class*="thumb"], [class*="gallery"], [class*="preview"]');
+    debug(`[DEBUG] Castlery found ${thumbnailContainers.length} thumbnail containers`);
+    
     slideContainers.forEach((slide, index) => {
       const images = slide.querySelectorAll('img');
       debug(`Slide ${index + 1}: Found ${images.length} images`);
@@ -1815,13 +1819,52 @@ const CASTLERY = {
       });
     });
 
+    // Process thumbnail containers the same way
+    thumbnailContainers.forEach((thumb, index) => {
+      const images = thumb.querySelectorAll('img');
+      debug(`Thumbnail ${index + 1}: Found ${images.length} images`);
+      
+      images.forEach((img, imgIndex) => {
+        debug(`  Thumbnail ${index + 1}, Image ${imgIndex + 1}: Checking sources...`);
+        // Check multiple sources for Cloudinary URLs
+        const sources = [
+          img.src,
+          img.currentSrc,
+          img.getAttribute('src'),
+          img.getAttribute('data-src'),
+          img.getAttribute('data-image'), 
+          img.getAttribute('data-zoom'),
+          img.getAttribute('data-large')
+        ].filter(Boolean);
+
+        sources.forEach((url, srcIndex) => {
+          if (url) {
+            debug(`    Source ${srcIndex + 1}: ${url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('/') + 40)}...`);
+            // Only accept product image URLs, skip marketing banners
+            if (url.includes('res.cloudinary.com/castlery') && 
+                !url.includes('/marketing/') && 
+                !url.includes('/banner/') && 
+                !url.includes('/menu/') &&
+                !url.includes('w_{width}')) {
+              debug(`    ✅ ACCEPTED: ${url.substring(url.lastIndexOf('/') + 1)}`);
+              out.add(url);
+            } else if (url.includes('/marketing/') || url.includes('/banner/') || url.includes('/menu/')) {
+              debug(`    ❌ SKIPPED (marketing/banner): ${url.substring(url.lastIndexOf('/') + 1)}`);
+            } else if (!url.includes('res.cloudinary.com/castlery')) {
+              debug(`    ❌ SKIPPED (not Cloudinary): ${url.substring(url.lastIndexOf('/') + 1)}`);
+            }
+          }
+        });
+      });
+    });
+
     const result = [...out].filter(url => 
       url && 
       url.includes('res.cloudinary.com/castlery') &&
       /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(url)
     );
 
-    debug(`FINAL RESULTS: Collected ${result.length} unique product images from ${slideContainers.length} slides`);
+    debug(`FINAL RESULTS: Collected ${result.length} unique product images from ${slideContainers.length} slides + ${thumbnailContainers.length} thumbnails`);
     result.forEach((url, i) => {
       debug(`  Final Image ${i+1}: ${url.substring(url.lastIndexOf('/') + 1)}`);
     });

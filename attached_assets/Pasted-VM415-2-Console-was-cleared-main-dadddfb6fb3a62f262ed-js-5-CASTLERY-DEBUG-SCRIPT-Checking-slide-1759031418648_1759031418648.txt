@@ -1,0 +1,76 @@
+VM415:2 Console was cleared
+main-dadddfb6fb3a62f262ed.js:5 🔍 CASTLERY DEBUG SCRIPT - Checking slide detection
+main-dadddfb6fb3a62f262ed.js:5 📊 Total slides found: 30
+main-dadddfb6fb3a62f262ed.js:5 📊 Original slides (no clones): 15
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 1: Found 1 images
+main-dadddfb6fb3a62f262ed.js:5   📷 Image 1:
+main-dadddfb6fb3a62f262ed.js:5     1: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     2: Dalton-Storage-Bed-With-Harper-Side-Table-Square-Set_1-1693795799.jpg
+main-dadddfb6fb3a62f262ed.js:5     ✅ CLOUDINARY: Dalton-Storage-Bed-With-Harper-Side-Table-Square-Set_1-1693795799.jpg
+main-dadddfb6fb3a62f262ed.js:5     3: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 2: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 3: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 4: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 5: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 6: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 7: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 8: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 9: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 10: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 11: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 12: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 13: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 14: Found 0 images
+main-dadddfb6fb3a62f262ed.js:5 
+🎯 Slide 15: Found 3 images
+main-dadddfb6fb3a62f262ed.js:5   📷 Image 1:
+main-dadddfb6fb3a62f262ed.js:5     1: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     2: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     3: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     4: Dalton-Queen-Size-Bed-Angle-1677134588.png
+main-dadddfb6fb3a62f262ed.js:5     ✅ CLOUDINARY: Dalton-Queen-Size-Bed-Angle-1677134588.png
+main-dadddfb6fb3a62f262ed.js:5   📷 Image 2:
+main-dadddfb6fb3a62f262ed.js:5     1: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     2: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     3: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     4: Dalton-Storage-Queen-Size-Bed-With-2-Harper-side-table-1711705165.png
+main-dadddfb6fb3a62f262ed.js:5     ✅ CLOUDINARY: Dalton-Storage-Queen-Size-Bed-With-2-Harper-side-table-1711705165.png
+main-dadddfb6fb3a62f262ed.js:5   📷 Image 3:
+main-dadddfb6fb3a62f262ed.js:5     1: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     2: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     3: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     ❌ NOT CLOUDINARY: gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+main-dadddfb6fb3a62f262ed.js:5     4: Dalton-Queen-Size-Bed-With-2-Seb-Bedroom-set-1701252782.png
+main-dadddfb6fb3a62f262ed.js:5     ✅ CLOUDINARY: Dalton-Queen-Size-Bed-With-2-Seb-Bedroom-set-1701252782.png
+main-dadddfb6fb3a62f262ed.js:5 
+🏆 FINAL RESULTS:
+main-dadddfb6fb3a62f262ed.js:5 📊 Unique Cloudinary URLs found: 4
+main-dadddfb6fb3a62f262ed.js:5   https://res.cloudinary.com/castlery/image/private/w_500,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v1693795800/crusader/variants/50440835-NG4001/Dalton-Storage-Bed-With-Harper-Side-Table-Square-Set_1-1693795799.jpg1: Dalton-Storage-Bed-With-Harper-Side-Table-Square-Set_1-1693795799.jpg
+main-dadddfb6fb3a62f262ed.js:5   https://res.cloudinary.com/castlery/image/private/w_{width},f_auto,q_auto/c_fit/v1677134588/crusader/variants/50440791-NG4001/Dalton-Queen-Size-Bed-Angle-1677134588.png1: Dalton-Queen-Size-Bed-Angle-1677134588.png
+main-dadddfb6fb3a62f262ed.js:5   https://res.cloudinary.com/castlery/image/private/w_{width},f_auto,q_auto/c_fit/v1711705165/crusader/variants/PB-001483-NG4001/Dalton-Storage-Queen-Size-Bed-With-2-Harper-side-table-1711705165.png1: Dalton-Storage-Queen-Size-Bed-With-2-Harper-side-table-1711705165.png
+main-dadddfb6fb3a62f262ed.js:5   https://res.cloudinary.com/castlery/image/private/w_{width},f_auto,q_auto/c_fit/v1701252782/crusader/variants/PB-001271-NG4001/Dalton-Queen-Size-Bed-With-2-Seb-Bedroom-set-1701252782.png1: Dalton-Queen-Size-Bed-With-2-Seb-Bedroom-set-1701252782.png
+undefined
