@@ -1,0 +1,78 @@
+10:28:37 PM] 🚀 Starting scrape operation for: https://www.castlery.com/us/products/dalton-storage-bed
+[10:28:37 PM] 🚀 SCRAPE START {"host":"castlery.com","href":"https://www.castlery.com/us/products/posey-tv-stand","mode":"normal"}
+[10:28:37 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[10:28:37 PM] 🔄 NORMAL MODE - memory + fallbacks
+[10:28:37 PM] 🧩 TITLE: Trying custom handler...
+[10:28:37 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[10:28:37 PM] 📝 TITLE: Falling back to generic...
+[10:28:37 PM] 📝 TITLE FROM GENERIC: Posey TV Stand
+[10:28:37 PM] 🏷️ BRAND: Falling back to generic...
+[10:28:37 PM] 🏷️ BRAND FROM GENERIC: Castlery
+[10:28:37 PM] 📄 DESCRIPTION: Falling back to generic...
+[10:28:37 PM] 📄 DESCRIPTION FROM GENERIC: With soft curves and clean lines, Posey makes organising effortless—hiding the clutter, but not the style.
+[10:28:37 PM] 🧩 PRICE: Trying custom handler...
+[10:28:37 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[10:28:37 PM] 💰 PRICE: Falling back to generic...
+[10:28:37 PM] 🔍 PRICE PARSING: {"input":"1299","inputType":"string","inputLength":4}
+[10:28:37 PM] 🧹 CLEANED INPUT: {"original":"1299","cleaned":"1299"}
+[10:28:37 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"1299","reconstructed":"1299"}
+[10:28:37 PM] 💰 MONETARY TOKENS: []
+[10:28:37 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[1299]}
+[10:28:37 PM] ✅ FINAL PRICE RESULT: {"result":1299,"method":"MIN_FALLBACK","allNumbers":[1299]}
+[10:28:37 PM] 💰 PRICE FROM GENERIC: 1299
+[10:28:37 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[10:28:37 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[10:28:37 PM] 🧩 IMAGES: Trying custom handler...
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] undefined
+[10:28:37 PM] 🧩 CUSTOM IMAGES: {"count":2,"images":["https://res.cloudinary.com/castlery/image/private/w_500,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v1748229660/crusader/variants/40550326/Posey-Sideboard-Natural-Square-Set_1-1748229659.jp
+[10:28:37 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[10:28:37 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":2}
+[10:28:37 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":2}
+[10:28:37 PM] ✨ UPGRADED Cloudinary URL: Posey-Sideboard-Natural-Square-Set_1-1748229659.jpg -> Posey-Sideboard-Natural-Square-Set_1-1748229659.jpg
+[10:28:37 PM] ✨ UPGRADED Cloudinary URL: Posey-Sideboard-Natural-Square-Set_1-1748229659.jpg -> Posey-Sideboard-Natural-Square-Set_1-1748229659.jpg
+[10:28:37 PM] ✅ BEST OF 2 (score: 123): https://res.cloudinary.com/castlery/image/private/w_1280,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v174822966
+123
+📋 Copy URL
+[10:28:37 PM] 🔄 DUPLICATE GROUP: 1 lower-scored versions rejected
+123
+📋 Copy URL
+[10:28:37 PM] 🎯 HIGH SCORE + SIZE OK (123): https://res.cloudinary.com/castlery/image/private/w_1280,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v174822966
+123
+📋 Copy URL
+[10:28:37 PM] 🏆 TOP SCORED IMAGES: ["Posey-Sideboard-Natural-Square-Set_1-1748229659.jpg (score: 123)"]
+[10:28:37 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":1,"kept":1}
+[10:28:37 PM] 🖼️ FINAL IMAGES: ["https://res.cloudinary.com/castlery/image/private/w_1280,f_auto,q_auto/b_rgb:F3F"]
+[10:28:37 PM] 🖼️ FINAL IMAGES: {"count":1,"images":["https://res.cloudinary.com/castlery/image/private/w_1280,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v1748229660/crusader/variants/40550326/Posey-Sideboard-Natural-Square-Set_1-1748229659.j
+[10:28:37 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Posey TV Stand","brand":"Castlery","description":"With soft curves and clean lines, Posey makes orga","price":"1299","imageCount":1,"firstImages":["https://res.cloudinary.com/castlery/image/
+[10:28:37 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":1}
+[10:28:37 PM] ✅ Debug trace complete

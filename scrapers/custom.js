@@ -1770,9 +1770,9 @@ const CASTLERY = {
     debug("[DEBUG] Castlery custom handler: targeting .slick-slide containers for product images");
     const out = new Set();
     
-    // Target ONLY the product carousel slides - no marketing banners
-    const slideContainers = doc.querySelectorAll('.slick-slide, .slick-active, .slick-current');
-    debug(`[DEBUG] Castlery found ${slideContainers.length} slide containers`);
+    // Target ONLY original slides (skip clones) - no marketing banners
+    const slideContainers = doc.querySelectorAll('.slick-slide:not(.slick-cloned)');
+    debug(`[DEBUG] Castlery found ${slideContainers.length} original slide containers (skipping clones)`);
     
     slideContainers.forEach((slide, index) => {
       const images = slide.querySelectorAll('img');
