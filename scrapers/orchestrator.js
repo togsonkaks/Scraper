@@ -1929,8 +1929,14 @@
     ];
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel, 1200);
-      if (urls.length >= 3) { mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); return urls.slice(0,30); }
+      debug(`🎯 Trying selector: '${sel}' → ${urls.length} images`);
+      if (urls.length >= 3) { 
+        debug(`✅ Success with selector: '${sel}'`);
+        mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); 
+        return urls.slice(0,30); 
+      }
     }
+    debug(`🖼️ All specific selectors failed, falling back to broad 'img'`);
     const og = q('meta[property="og:image"]')?.content;
     const all = await gatherImagesBySelector('img');
     const combined = (og ? [og] : []).concat(all);
