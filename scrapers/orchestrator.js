@@ -610,6 +610,16 @@
       }
     }
     
+    // AMERICAN EAGLE OUTFITTERS: Scene7 CDN upgrades
+    if (/s7d2\.scene7\.com.*aeo/i.test(url)) {
+      // Upgrade md to mdg templates for higher quality
+      upgraded = upgraded.replace(/\$pdp-md-opt\$/g, '$pdp-mdg-opt$');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED AEO CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // BOOHOO/BOOHOOMAN: Upgrade thumbnail dimensions to high-quality
     if (/mediahub\.boohooman\.com/i.test(url)) {
       // Upgrade small thumbnail dimensions to full-size

@@ -53,6 +53,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **Urban Outfitters**: Scene7 $redesign-zoom-5x$ template upgrades  
 - **BBQ Guys/Shocho**: Remove resize parameters for full-size
 - **Mozu**: ?max=100 → ?quality=60 conversions (RECENTLY RESTORED)
+- **American Eagle Outfitters**: Scene7 $pdp-md-opt$ → $pdp-mdg-opt$ quality upgrades
 
 ### Custom Handler Registry (custom.js)
 - **Amazon (AMZ)**: Quality scoring, hi-res attributes, a-state JSON parsing
