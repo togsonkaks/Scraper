@@ -1,0 +1,51 @@
+[11:27:52 PM] 🚀 Starting scrape operation for: https://www.coachoutlet.com/products/shirt-jacket/CN942-CHR.html?rrec=true
+[11:27:52 PM] 🚀 SCRAPE START {"host":"coachoutlet.com","href":"https://www.coachoutlet.com/products/shirt-jacket/CN942-CHR.html?rrec=true","mode":"normal"}
+[11:27:52 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[11:27:52 PM] 🔄 NORMAL MODE - memory + fallbacks
+[11:27:52 PM] 🧩 TITLE: Trying custom handler...
+[11:27:52 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[11:27:52 PM] 📝 TITLE: Falling back to generic...
+[11:27:52 PM] 📝 TITLE FROM GENERIC: Shirt Jacket
+[11:27:52 PM] 🏷️ BRAND: Falling back to generic...
+[11:27:52 PM] 🏷️ BRAND FROM GENERIC: COACH®
+[11:27:52 PM] 📄 DESCRIPTION: Falling back to generic...
+[11:27:52 PM] 📄 DESCRIPTION FROM GENERIC: A great layering piece for transitional weather, this classicfit woolblend shirt jacket features a lightweight fill for extra warmth. The versatile style is finished with flannel buttons, large slip pockets and a chest flap pocket detailed with our leather tab in a nod to our heritage.
+[11:27:52 PM] 🧩 PRICE: Trying custom handler...
+[11:27:52 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[11:27:52 PM] 💰 PRICE: Falling back to generic...
+[11:27:52 PM] 💰 PRICE FROM GENERIC: null
+[11:27:52 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:27:52 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:27:52 PM] 🧩 IMAGES: Trying custom handler...
+[11:27:52 PM] 🧩 CUSTOM IMAGES: {"count":6,"images":["https://coach.scene7.com/is/image/Coach/cn942_chr_a50?$desktopThumbnail$&wid=2000&qlt=90&op_usm=1.0,1.0,0.0,0","https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopThumb
+[11:27:52 PM] 🎯 USING CUSTOM IMAGES (overriding memory)
+[11:27:52 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":6}
+[11:27:52 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":6}
+[11:27:52 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a50?$desktopThumbnail$&wid=200
+0
+📋 Copy URL
+[11:27:52 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopThumbnail$&wid=2000
+0
+📋 Copy URL
+[11:27:52 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a8?$desktopThumbnail$&wid=2000
+0
+📋 Copy URL
+[11:27:52 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a45?$desktopThumbnail$&wid=200
+0
+📋 Copy URL
+[11:27:52 PM] 🗑️ JUNK IMAGE: https://coach.scene7.com/is/image/Coach/cn942_chr_a46?$desktopThumbnail$&wid=200
+0
+📋 Copy URL
+[11:27:52 PM] ✅ SINGLE IMAGE (score: 80): https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$&wid=2000&qlt=90&op_usm=1.0,1.0
+80
+📋 Copy URL
+[11:27:52 PM] 🔒 TRUSTED CDN BYPASS: https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$&wid=2000&qlt=90&op_usm=1.0,1.0
+80
+📋 Copy URL
+[11:27:52 PM] 🏆 TOP SCORED IMAGES: ["cn942_chr_a0?$desktopProduct$&wid=2000&qlt=90&op_usm=1.0,1.0,0.0,0 (score: 80)"]
+[11:27:52 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":5,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":1}
+[11:27:52 PM] 🖼️ FINAL IMAGES: ["https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$&wid=2000&q"]
+[11:27:52 PM] 🖼️ FINAL IMAGES: {"count":1,"images":["https://coach.scene7.com/is/image/Coach/cn942_chr_a0?$desktopProduct$&wid=2000&qlt=90&op_usm=1.0,1.0,0.0,0"]}
+[11:27:52 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Shirt Jacket","brand":"COACH®","description":"A great layering piece for transitional weather, t","price":null,"imageCount":1,"firstImages":["https://coach.scene7.com/is/image/Coach/cn942_ch
+[11:27:52 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":false,"images":1}
+[11:27:52 PM] ✅ Debug trace complete

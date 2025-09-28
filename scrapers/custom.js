@@ -1934,7 +1934,7 @@ const REGISTRY = [
   BARNES_NOBLE,
   BONBONBON,
   CHEWY,
-  COACH,
+  // COACH, // TEMPORARILY DISABLED - testing generic vs custom
   COMMENSE,
   CUYANA,
   ILIA,
