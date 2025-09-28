@@ -1712,7 +1712,32 @@ const BESTBUY = {
         });
       }
       
-      return [...urls].slice(0, 15);
+      const urlArray = [...urls];
+      
+      // Extract product IDs and count occurrences
+      const productIdCounts = {};
+      const urlsWithProductIds = urlArray.map(url => {
+        const productIdMatch = url.match(/\/(\d{7})[\w_]/); // Extract 7-digit product ID
+        const productId = productIdMatch ? productIdMatch[1] : 'unknown';
+        productIdCounts[productId] = (productIdCounts[productId] || 0) + 1;
+        return { url, productId };
+      });
+      
+      // Find the majority product ID (most frequent)
+      const majorityProductId = Object.keys(productIdCounts).reduce((a, b) => 
+        productIdCounts[a] > productIdCounts[b] ? a : b
+      );
+      
+      // Sort: majority product ID images first, then minority ones at the bottom
+      const sortedUrls = urlsWithProductIds
+        .sort((a, b) => {
+          if (a.productId === majorityProductId && b.productId !== majorityProductId) return -1;
+          if (a.productId !== majorityProductId && b.productId === majorityProductId) return 1;
+          return 0;
+        })
+        .map(item => item.url);
+      
+      return sortedUrls.slice(0, 15);
     } catch (e) {
       return [];
     }
