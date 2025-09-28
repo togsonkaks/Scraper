@@ -2202,6 +2202,14 @@
     try {
       const host = location.hostname.replace(/^www\./,'');
       const mode = (opts && opts.mode) || 'normal';
+      
+      // Start automatic debug logging to database
+      let sessionId = null;
+      if (typeof window !== 'undefined' && window.startDebugLogging) {
+        sessionId = window.startDebugLogging(location.href);
+        log(`💾 DEBUG LOGGER: Session ${sessionId} started for ${host}`);
+      }
+      
       log('🚀 SCRAPE START', { host, href: location.href, mode });
 
       // GLOBAL FLAG: Disable memory completely (custom handlers take priority)
@@ -2426,6 +2434,12 @@
       });
       
       globalThis.__tg_lastSelectorsUsed = __used;
+      
+      // Stop debug logging and save to database
+      if (typeof window !== 'undefined' && window.stopDebugLogging) {
+        await window.stopDebugLogging();
+        log('💾 DEBUG LOGGER: Session saved to database');
+      }
       
       // Include debug log in response
       if (typeof window !== 'undefined' && window.__tg_debugLog) {
