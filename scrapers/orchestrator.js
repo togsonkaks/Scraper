@@ -2347,10 +2347,13 @@
           
           // EARLY EXIT: Check if we have any candidates before processing
           const totalCandidates = memoryImages.length + customImages.length;
+          let usedGeneric = false; // Track if we already called getImagesGeneric
+          
           if (totalCandidates === 0) {
             debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
             const genericImages = await getImagesGeneric();
             debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+            usedGeneric = true; // Mark that we used generic collection
             
             // Final check: if still no candidates after generic, exit early
             if (genericImages.length === 0) {
@@ -2368,8 +2371,8 @@
               // Merge and dedupe memory + custom
               let combinedImages = await uniqueImages(memoryImages.concat(customImages));
               
-              // Fall back to generic only if still insufficient
-              if (combinedImages.length < 3) {
+              // Fall back to generic only if still insufficient AND we haven't already used generic
+              if (combinedImages.length < 3 && !usedGeneric) {
                 debug('🖼️ IMAGES: Custom insufficient, getting generic images...');
                 const genericImages = await getImagesGeneric();
                 debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
