@@ -1639,23 +1639,80 @@ const URBAN_OUTFITTERS = {
   }
 };
 
-// ---------- Best Buy (Gallery-focused to avoid lazy-loaded recommendations) ----------
+// ---------- Best Buy (Container-based targeting to avoid similar product contamination) ----------
 const BESTBUY = {
   match: (h) => /\bbestbuy\.com$/i.test(h),
   
   images(doc = document) {
     try {
-      const urls = [];
+      const urls = new Set();
       
-      // Simple approach: target main Best Buy gallery images
-      doc.querySelectorAll('.image-block-standard-img').forEach(img => {
-        const url = img.currentSrc || img.src;
-        if (url && /pisces\.bbystatic\.com/i.test(url)) {
-          urls.push(url);
+      // Strategy 1: Target main product gallery containers specifically
+      const mainContainers = [
+        '[aria-label="Media Gallery"]',           // Main gallery area
+        '[data-testid="main-product-gallery"]',   // Product gallery container
+        '.sr-media-gallery',                      // Product media gallery
+        '.product-media-gallery',                 // Gallery section
+        '.pdp-product-gallery'                    // Product detail page gallery
+      ];
+      
+      let foundInMain = false;
+      for (const selector of mainContainers) {
+        const container = doc.querySelector(selector);
+        if (container) {
+          foundInMain = true;
+          container.querySelectorAll('img').forEach(img => {
+            const url = img.currentSrc || img.src;
+            if (url && /pisces\.bbystatic\.com/i.test(url)) {
+              // Upgrade to higher resolution
+              const upgraded = url
+                .replace(/;maxHeight=\d+/gi, ';maxHeight=2000')
+                .replace(/;maxWidth=\d+/gi, ';maxWidth=2000')
+                .replace(/;resizeMethod=upsize/gi, '');
+              urls.add(upgraded);
+            }
+          });
+          break; // Found main container, stop searching
         }
-      });
+      }
       
-      return urls.slice(0, 15);
+      // Strategy 2: If no main container found, use exclusion-based approach
+      if (!foundInMain) {
+        doc.querySelectorAll('img[src*="pisces.bbystatic.com"]').forEach(img => {
+          // Exclude images from recommendation/similar product sections
+          const excludeContainers = [
+            '[class*="recommendation"]',
+            '[class*="similar"]', 
+            '[class*="related"]',
+            '[class*="suggested"]',
+            '[data-testid*="recommendation"]',
+            '[data-testid*="similar"]',
+            '.carousel-item',
+            '.swiper-slide'
+          ];
+          
+          let isInExcludedSection = false;
+          for (const excludeSelector of excludeContainers) {
+            if (img.closest(excludeSelector)) {
+              isInExcludedSection = true;
+              break;
+            }
+          }
+          
+          if (!isInExcludedSection) {
+            const url = img.currentSrc || img.src;
+            if (url) {
+              const upgraded = url
+                .replace(/;maxHeight=\d+/gi, ';maxHeight=2000')
+                .replace(/;maxWidth=\d+/gi, ';maxWidth=2000')
+                .replace(/;resizeMethod=upsize/gi, '');
+              urls.add(upgraded);
+            }
+          }
+        });
+      }
+      
+      return [...urls].slice(0, 15);
     } catch (e) {
       return [];
     }
