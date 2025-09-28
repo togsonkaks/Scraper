@@ -1753,17 +1753,17 @@ const CASTLERY = {
       try {
         if (typeof window !== 'undefined' && window.__tg_debugLog) {
           if (typeof window.__tg_debugLog === 'function') {
-            window.__tg_debugLog(msg);
+            window.__tg_debugLog(`[CASTLERY] ${msg}`);
           } else if (Array.isArray(window.__tg_debugLog)) {
-            window.__tg_debugLog.push(msg);
+            window.__tg_debugLog.push(`[CASTLERY] ${msg}`);
           } else {
-            console.log(msg);
+            console.log(`[CASTLERY] ${msg}`);
           }
         } else {
-          console.log(msg);
+          console.log(`[CASTLERY] ${msg}`);
         }
       } catch(e) {
-        console.log(msg); // fallback if anything fails
+        console.log(`[CASTLERY] ${msg}`); // fallback if anything fails
       }
     };
 
