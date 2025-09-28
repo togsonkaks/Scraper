@@ -1845,7 +1845,7 @@
     
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
-      '[class*=gallery] img','[class*=slide] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
     ];
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel, 1200);
