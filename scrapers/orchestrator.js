@@ -663,10 +663,26 @@
       }
     }
     
+    // CLOUDINARY: Universal upgrade for small dimensions to high-quality
+    if (/res\.cloudinary\.com/i.test(url)) {
+      // Convert any width ≤500 to w_1280 for high-quality images
+      upgraded = upgraded.replace(/w_(\d+)/g, (match, width) => {
+        const w = parseInt(width);
+        if (w <= 500) {
+          return 'w_1280';
+        }
+        return match;
+      });
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Cloudinary URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
-    if (upgraded !== url && !/cdn\.shocho\.co/i.test(url)) {
+    if (upgraded !== url && !/cdn\.shocho\.co/i.test(url) && !/res\.cloudinary\.com/i.test(url)) {
       debug(`✨ UPGRADED CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
     }
     
@@ -1829,7 +1845,7 @@
     
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
-      '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
+      '[class*=gallery] img','[class*=slide] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
     ];
     for (const sel of gallerySels) {
       const urls = await gatherImagesBySelector(sel, 1200);
