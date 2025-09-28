@@ -1265,36 +1265,26 @@
       }
     });
     
-    // GROUP BY CONTAINER: Group images by their container element
-    const containerGroups = new Map();
-    
-    sizeFilteredImages.forEach(img => {
-      const containerKey = img.container || 'unknown';
-      if (!containerGroups.has(containerKey)) {
-        containerGroups.set(containerKey, []);
-      }
-      containerGroups.get(containerKey).push(img);
+    // Sort by score (highest first), then by size estimate, then by DOM order for ties
+    sizeFilteredImages.sort((a, b) => {
+      // Primary sort: Score (highest first)
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      
+      // Secondary sort: Estimated file size (largest first)
+      const sizeA = estimateFileSize(a.url);
+      const sizeB = estimateFileSize(b.url);
+      const sizeDiff = sizeB - sizeA;
+      if (sizeDiff !== 0) return sizeDiff;
+      
+      // Tertiary sort: DOM order (earlier first)
+      return a.index - b.index;
     });
     
-    // Sort groups by count (largest group first)
-    const sortedGroups = Array.from(containerGroups.values())
-      .sort((groupA, groupB) => groupB.length - groupA.length);
+    debug('🏆 TOP SCORED IMAGES:', sizeFilteredImages.slice(0, 5).map(img => 
+      `${img.url.substring(img.url.lastIndexOf('/') + 1)} (score: ${img.score})`));
     
-    debug('📦 CONTAINER GROUPS:', sortedGroups.map((group, i) => 
-      `Group ${i+1}: ${group.length} images`));
-    
-    debug('🏆 TOP GROUP IMAGES:', sortedGroups[0]?.slice(0, 3).map(img => 
-      `${img.url.substring(img.url.lastIndexOf('/') + 1)} (group size: ${sortedGroups[0].length})`));
-    
-    // Flatten groups while preserving order within each group (by DOM index)
-    const groupedImages = [];
-    sortedGroups.forEach(group => {
-      // Sort within group by DOM order (original order preserved)
-      group.sort((a, b) => a.index - b.index);
-      groupedImages.push(...group);
-    });
-    
-    const finalUrls = groupedImages.slice(0, 50).map(img => img.url);
+    const finalUrls = sizeFilteredImages.slice(0, 50).map(img => img.url);
     
     if (sizeFilteredImages.length > 50) {
       addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by DOM order`, '', 0, false);
@@ -1387,8 +1377,7 @@
         }
         
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
-        const container = el.closest('div, section, article, ul, li, figure') || el.parentElement;
-        enrichedUrls.push({ url: upgradedUrl, element: el, index: i, container });
+        enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
       
       const ss = attrs.srcset;
@@ -1409,8 +1398,7 @@
         }
         
         const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
-        const container = el.closest('div, section, article, ul, li, figure') || el.parentElement;
-        enrichedUrls.push({ url: upgradedUrl, element: el, index: i, container });
+        enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
       }
       
       // Check picture parent
@@ -1434,8 +1422,7 @@
             }
             
             const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades
-            const container = el.closest('div, section, article, ul, li, figure') || el.parentElement;
-            enrichedUrls.push({ url: upgradedUrl, element: el, index: i, container });
+            enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
           }
         }
       }
@@ -1514,8 +1501,7 @@
         const lazyEnriched = lazyImages.map((url, index) => ({
           url: upgradeCDNUrl(url),
           element: null,
-          index: immediateImages.length + index,
-          container: null // Lazy images don't have container info
+          index: immediateImages.length + index
         }));
         
         // Filter lazy images and combine with immediate images
