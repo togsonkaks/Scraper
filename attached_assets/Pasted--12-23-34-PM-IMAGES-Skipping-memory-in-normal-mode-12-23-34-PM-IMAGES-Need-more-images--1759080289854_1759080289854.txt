@@ -1,0 +1,116 @@
+[12:23:34 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:23:34 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:23:34 PM] 🧩 IMAGES: Trying custom handler...
+[12:23:34 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:23:34 PM] 🖼️ Getting generic images for hostname: ikea.com
+[12:23:34 PM] 🎯 Trying selector: '.product-media img' → 0 images
+[12:23:34 PM] 🎯 Trying selector: '.gallery img' → 0 images
+[12:23:34 PM] 🎯 Trying selector: '.image-gallery img' → 0 images
+[12:23:34 PM] 🎯 Trying selector: '.product-images img' → 0 images
+[12:23:34 PM] 🎯 Trying selector: '.product-gallery img' → 0 images
+[12:23:34 PM] 🎯 Trying selector: '.product_media_item img' → 0 images
+[12:23:34 PM] 🎯 Trying selector: 'img.image_img' → 0 images
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=u -> vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152806_pe885493_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1156014_pe886841_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152799_pe885491_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1370958_pe958924_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142943_pe881417_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152843_pe885496_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152796_pe885489_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142898_pe881398_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152809_pe885494_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1156015_pe886842_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=s -> vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1152803_pe885492_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.pip-image>
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED IKEA CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] ✨ UPGRADED CDN URL: vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxs -> vagstranda-pocket-spring-mattress-medium-firm-white__1142855_pe881376_s5.jpg?f=xxxl
+[12:23:34 PM] Image element <IMG.plann-image>
+[12:23:34 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":54}

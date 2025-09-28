@@ -1928,6 +1928,11 @@
       '[class*=gallery] img','.slider img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
     ];
     for (const sel of gallerySels) {
+      const elements = qa(sel);
+      debug(`🔍 Selector '${sel}' found ${elements.length} elements`);
+      if (elements.length > 0) {
+        debug(`📝 First element:`, elements[0].outerHTML.slice(0, 200));
+      }
       const urls = await gatherImagesBySelector(sel, 1200);
       debug(`🎯 Trying selector: '${sel}' → ${urls.length} images`);
       if (urls.length >= 3) { 
