@@ -1911,7 +1911,7 @@ const REGISTRY = [
   CHEWY,
   // COACH, // TEMPORARILY DISABLED - testing generic vs custom
   COMMENSE,
-  CUYANA,
+  // CUYANA, // TEMPORARILY DISABLED - testing generic vs custom
   ILIA,
   JOHNSCRAZYSOCKS,
   KIRRINFINCH,
