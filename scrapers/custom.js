@@ -1744,7 +1744,7 @@ const BESTBUY = {
   }
 };
 
-// ---------- Castlery (target .slick-slide containers for Cloudinary URLs only) ----------
+// ---------- Castlery (comprehensive discovery with Cloudinary filtering) ----------
 const CASTLERY = {
   match: (h) => /\bcastlery\.com$/i.test(h),
   
@@ -1767,48 +1767,101 @@ const CASTLERY = {
       }
     };
 
-    debug("[DEBUG] Castlery custom handler: targeting .slick-slide containers for Cloudinary URLs");
+    debug("[DEBUG] Castlery custom handler: comprehensive discovery for Cloudinary URLs");
     const out = new Set();
     
-    // Target Castlery's specific .slick-slide carousel structure
-    const slideContainers = doc.querySelectorAll('.slick-slide, .slick-active, .slick-current');
-    debug(`[DEBUG] Castlery found ${slideContainers.length} slide containers`);
-    
-    slideContainers.forEach((slide, index) => {
-      const images = slide.querySelectorAll('img');
-      debug(`[DEBUG] Castlery slide ${index + 1} has ${images.length} images`);
+    // Comprehensive gallery selectors - cast a wide net across the entire page
+    const gallerySelectors = [
+      // Main product gallery containers
+      '.product-gallery img',
+      '.product-images img', 
+      '.product-media img',
+      '[class*="gallery"] img',
+      '[class*="product"] img[src*="cloudinary"]',
+      '[class*="image"] img[src*="cloudinary"]',
       
-      images.forEach(img => {
-        // Check both current src and data attributes for Cloudinary URLs
-        const sources = [
-          img.src,
-          img.currentSrc, 
-          img.getAttribute('src'),
-          img.getAttribute('data-src'),
-          img.getAttribute('data-zoom'),
-          img.getAttribute('data-large')
-        ].filter(Boolean);
+      // Data attribute images (lazy loading)
+      'img[data-src*="cloudinary"]',
+      'img[data-image*="cloudinary"]', 
+      'img[data-zoom*="cloudinary"]',
+      'img[data-large*="cloudinary"]',
+      
+      // Slider/carousel images
+      '[class*="slide"] img',
+      '[class*="carousel"] img',
+      '[data-testid*="image"] img',
+      '[aria-label*="image"] img',
+      
+      // Broad Cloudinary sweep across entire page
+      'img[src*="res.cloudinary.com/castlery"]',
+      'img[data-src*="res.cloudinary.com/castlery"]'
+    ];
 
-        sources.forEach(url => {
-          // Only accept Cloudinary URLs, ignore processed Castlery URLs
-          if (url && url.includes('res.cloudinary.com/castlery')) {
-            debug(`[DEBUG] Castlery found Cloudinary URL: ${url.substring(url.lastIndexOf('/') + 1)}`);
-            out.add(url);
-          } else if (url && url.includes('castlery.com/us/products')) {
-            debug(`[DEBUG] Castlery skipping processed URL: ${url.substring(url.lastIndexOf('/') + 1)}`);
-          }
+    // Collect images from all gallery selectors
+    for (const selector of gallerySelectors) {
+      try {
+        const elements = doc.querySelectorAll(selector);
+        debug(`[DEBUG] Castlery selector "${selector}" found ${elements.length} elements`);
+        
+        elements.forEach(img => {
+          // Try multiple sources: src, data-src, data-image, etc.
+          const sources = [
+            img.src,
+            img.currentSrc,
+            img.getAttribute('src'),
+            img.getAttribute('data-src'),
+            img.getAttribute('data-image'), 
+            img.getAttribute('data-zoom'),
+            img.getAttribute('data-large'),
+            img.getAttribute('data-zoom-image')
+          ].filter(Boolean);
+
+          sources.forEach(url => {
+            // Only accept Cloudinary URLs, ignore processed Castlery URLs
+            if (url && url.includes('res.cloudinary.com/castlery')) {
+              debug(`[DEBUG] Castlery found Cloudinary image: ${url.substring(url.lastIndexOf('/') + 1)}`);
+              out.add(url);
+            } else if (url && url.includes('castlery.com/us/products')) {
+              debug(`[DEBUG] Castlery skipping processed URL: ${url.substring(url.lastIndexOf('/') + 1)}`);
+            }
+          });
         });
-      });
-    });
+      } catch (e) {
+        debug(`[DEBUG] Castlery selector failed: ${selector} - ${e.message}`);
+      }
+    }
 
-    // Convert to array and filter for valid image extensions
+    // Also check for JSON data structures that might contain image URLs
+    try {
+      const scripts = doc.querySelectorAll('script[type="application/json"], script:not([src])');
+      scripts.forEach(script => {
+        try {
+          const text = script.textContent || script.innerText;
+          if (text && text.includes('cloudinary') && text.includes('castlery')) {
+            // Extract Cloudinary URLs from JSON
+            const cloudinaryMatches = text.match(/https:\/\/res\.cloudinary\.com\/castlery\/[^"'\s]+/g);
+            if (cloudinaryMatches) {
+              cloudinaryMatches.forEach(url => {
+                debug(`[DEBUG] Castlery found JSON Cloudinary URL: ${url.substring(url.lastIndexOf('/') + 1)}`);
+                out.add(url);
+              });
+            }
+          }
+        } catch (e) {
+          // Skip invalid JSON
+        }
+      });
+    } catch (e) {
+      debug(`[DEBUG] Castlery JSON parsing failed: ${e.message}`);
+    }
+
     const result = [...out].filter(url => 
       url && 
       url.includes('res.cloudinary.com/castlery') &&
       /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(url)
     );
 
-    debug(`[DEBUG] Castlery collected ${result.length} Cloudinary images (CDN upgrades will be applied automatically)`);
+    debug(`[DEBUG] Castlery custom handler collected ${result.length} total images (CDN upgrades will be applied automatically)`);
     result.forEach((url, i) => {
       debug(`[DEBUG] Castlery [${i+1}]: ${url.substring(url.lastIndexOf('/') + 1)}`);
     });
