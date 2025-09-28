@@ -859,6 +859,10 @@
     if (/\/(product|main|hero|detail|primary)/i.test(url)) score += 15;
     if (/\/(thumb|small|mini|icon)/i.test(url)) score -= 30;
     
+    // ENHANCED: PDP vs PLP patterns (Product Detail Page vs Product List Page)
+    if (/\/PDP_|_PDP_|product-detail/i.test(url)) score += 40; // Product Detail Page images (good!)
+    if (/\/PLP_|_PLP_|product-list/i.test(url)) score -= 40; // Product List Page images (cross-sell)
+    
     // Aggressive semantic penalties for navigation/UI elements
     if (/\b(womens?-clothing|mens?-clothing|best-sellers?|new-arrivals?|accessories|shop-by|featured-edit|wellness|searchburger)\b/i.test(url)) score -= 70;
     
@@ -884,9 +888,16 @@
       const id = element.id || '';
       const combined = (className + ' ' + id).toLowerCase();
       
-      if (/\b(main|hero|primary|featured|product-image|gallery-main)\b/i.test(combined)) score += 30;
+      // ENHANCED: Gallery container bonuses (prioritize product gallery images)
+      if (/\b(main|hero|primary|featured|product-image|gallery-main|product-gallery|media-gallery|image-gallery|product-media|slideshow|carousel|zoom-gallery)\b/i.test(combined)) score += 50;
+      if (/\b(gallery|product-thumb|media-item|slide-item|zoom-item)\b/i.test(combined)) score += 35;
+      
+      // Thumbnail penalties  
       if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 30;
-      if (/\b(banner|ad|sidebar|nav|header|footer|menu)\b/i.test(combined)) score -= 45;
+      
+      // ENHANCED: Navigation container penalties (reduce cross-sell noise)
+      if (/\b(banner|ad|sidebar|nav|navigation|header|footer|menu|cross-sell|upsell|related|recommended)\b/i.test(combined)) score -= 60;
+      if (/nav-/i.test(combined) || /-nav/i.test(combined) || /Sept.*Nav/i.test(combined)) score -= 70; // Specific nav patterns like "Sept_Nav"
       
       // Aspect ratio penalties from element dimensions
       const width = element.naturalWidth || element.width || 0;
