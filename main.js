@@ -827,7 +827,8 @@ ipcMain.handle('trigger-migration', async () => {
 // Debug Logging IPC handlers - Simple file-based approach
 ipcMain.handle('save-debug-file', async (_e, { filename, content }) => {
   try {
-    const debugLogsDir = path.join(app.getPath('userData'), 'debug-logs');
+    // Save in project directory for easy access in Replit
+    const debugLogsDir = path.join(__dirname, 'debug-logs');
     
     // Ensure debug-logs directory exists
     if (!fs.existsSync(debugLogsDir)) {
