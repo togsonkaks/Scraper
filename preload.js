@@ -68,7 +68,8 @@ contextBridge.exposeInMainWorld('api', {
 
   // ---- Debug logging
   debugSaveLogs: (query) => call('debug-save-logs', { query }),
-  debugQueryLogs: (query) => call('debug-query-logs', { query })
+  debugQueryLogs: (query) => call('debug-query-logs', { query }),
+  saveDebugFile: (filename, content) => call('save-debug-file', { filename, content })
 });
 
 // Right-click context menu with Inspect Element option

@@ -824,7 +824,28 @@ ipcMain.handle('trigger-migration', async () => {
   }
 });
 
-// Debug Logging IPC handlers
+// Debug Logging IPC handlers - Simple file-based approach
+ipcMain.handle('save-debug-file', async (_e, { filename, content }) => {
+  try {
+    const debugLogsDir = path.join(app.getPath('userData'), 'debug-logs');
+    
+    // Ensure debug-logs directory exists
+    if (!fs.existsSync(debugLogsDir)) {
+      fs.mkdirSync(debugLogsDir, { recursive: true });
+    }
+    
+    const filePath = path.join(debugLogsDir, filename);
+    fs.writeFileSync(filePath, content, 'utf8');
+    
+    console.log(`✅ Saved debug log file: ${filePath}`);
+    return { success: true, path: filePath };
+  } catch (error) {
+    console.error('❌ Error saving debug file:', error);
+    return { success: false, error: error.message };
+  }
+});
+
+// Legacy database handlers (keeping for compatibility)
 ipcMain.handle('debug-save-logs', async (_e, { query }) => {
   return new Promise((resolve, reject) => {
     const postData = JSON.stringify({ query });

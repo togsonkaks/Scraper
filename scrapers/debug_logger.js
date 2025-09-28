@@ -151,37 +151,51 @@ class DebugLogger {
     return Object.keys(metadata).length > 0 ? metadata : null;
   }
 
-  // Save captured logs to database
+  // Save captured logs to file - simple and reliable!
   async saveLogs() {
+    if (this.logs.length === 0) return;
+    
     try {
-      // Prepare batch insert
-      const values = this.logs.map(log => 
-        `('${this.sessionId}', '${this.url}', '${this.hostname}', '${log.level}', $Q$${log.message}$Q$, ${log.callTrace ? `$Q$${log.callTrace}$Q$` : 'NULL'}, ${log.metadata ? `'${JSON.stringify(log.metadata)}'::jsonb` : 'NULL'}, '${log.timestamp}')`
-      ).join(',\n');
+      // Create filename with timestamp and domain
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+      const domain = this.hostname.replace(/[^a-zA-Z0-9.-]/g, '_');
+      const filename = `session_${timestamp}_${domain}.txt`;
       
-      const query = `
-        INSERT INTO debug_logs (scrape_session_id, url, hostname, log_level, message, call_trace, metadata, timestamp)
-        VALUES ${values}
-      `;
+      // Format logs for file output
+      const logContent = [
+        `=== DEBUG LOG SESSION ===`,
+        `Session ID: ${this.sessionId}`,
+        `URL: ${this.url}`,
+        `Hostname: ${this.hostname}`,
+        `Started: ${this.sessionStartTime}`,
+        `Ended: ${new Date().toISOString()}`,
+        `Total Logs: ${this.logs.length}`,
+        `=========================\n`
+      ];
       
-      // Save to database using Electron IPC
-      if (typeof window !== 'undefined' && window.api && window.api.debugSaveLogs) {
-        const result = await window.api.debugSaveLogs(query);
-        console.log(`✅ DEBUG LOGGER: Saved ${this.logs.length} logs to database`);
-      } else {
-        console.error('❌ DEBUG LOGGER: IPC not available, falling back to fetch');
-        // Fallback to fetch for testing
-        const response = await fetch('http://localhost:8000/api/save-debug-logs', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query })
-        });
-        
-        if (response.ok) {
-          console.log(`✅ DEBUG LOGGER: Saved ${this.logs.length} logs to database`);
-        } else {
-          console.error('❌ DEBUG LOGGER: Failed to save logs:', response.statusText);
+      // Add each log entry
+      this.logs.forEach((log, index) => {
+        logContent.push(`[${log.timestamp}] ${log.level.toUpperCase()}: ${log.message}`);
+        if (log.callTrace) {
+          logContent.push(`  Call Trace: ${log.callTrace}`);
         }
+        if (log.metadata && Object.keys(log.metadata).length > 0) {
+          logContent.push(`  Metadata: ${JSON.stringify(log.metadata, null, 2)}`);
+        }
+        logContent.push(''); // Empty line between entries
+      });
+      
+      const fileContent = logContent.join('\n');
+      
+      // Save using simple file write (Electron main process will handle this)
+      if (typeof window !== 'undefined' && window.api && window.api.saveDebugFile) {
+        await window.api.saveDebugFile(filename, fileContent);
+        console.log(`✅ DEBUG LOGGER: Saved ${this.logs.length} logs to debug-logs/${filename}`);
+      } else {
+        // Fallback - just log to console if file save not available
+        console.log(`📄 DEBUG LOGGER: Would save to debug-logs/${filename}`);
+        console.log('📄 File content preview:');
+        console.log(fileContent.slice(0, 1000) + (fileContent.length > 1000 ? '\n... (truncated)' : ''));
       }
       
     } catch (error) {
