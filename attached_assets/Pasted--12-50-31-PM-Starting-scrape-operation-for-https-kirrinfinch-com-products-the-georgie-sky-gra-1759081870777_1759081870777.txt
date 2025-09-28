@@ -1,0 +1,292 @@
+[12:50:31 PM] 🚀 Starting scrape operation for: https://kirrinfinch.com/products/the-georgie-sky-gray-suit-blazer
+[12:50:32 PM] 🚀 SCRAPE START {"host":"kirrinfinch.com","href":"https://kirrinfinch.com/products/suspenders","mode":"normal"}
+[12:50:32 PM] 🚫 MEMORY DISABLED - Custom handlers take priority
+[12:50:32 PM] 🔄 NORMAL MODE - memory + fallbacks
+[12:50:32 PM] 🧩 TITLE: Trying custom handler...
+[12:50:32 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[12:50:32 PM] 📝 TITLE: Falling back to generic...
+[12:50:32 PM] 📝 TITLE FROM GENERIC: Suspenders
+[12:50:32 PM] 🏷️ BRAND: Falling back to generic...
+[12:50:32 PM] 🏷️ BRAND FROM GENERIC: Kirrin Finch
+[12:50:32 PM] 📄 DESCRIPTION: Falling back to generic...
+[12:50:32 PM] 📄 DESCRIPTION FROM GENERIC: Add some panache to your wardrobe with this floral print bow tie. It's pre-tied for that clasp and go out on the town efficiency.
+[12:50:32 PM] 🧩 PRICE: Trying custom handler...
+[12:50:32 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[12:50:32 PM] 💰 PRICE: Falling back to generic...
+[12:50:32 PM] 🔍 PRICE PARSING: {"input":"85","inputType":"string","inputLength":2}
+[12:50:32 PM] 🧹 CLEANED INPUT: {"original":"85","cleaned":"85"}
+[12:50:32 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"85","reconstructed":"85"}
+[12:50:32 PM] 💰 MONETARY TOKENS: []
+[12:50:32 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[85]}
+[12:50:32 PM] ✅ FINAL PRICE RESULT: {"result":85,"method":"MIN_FALLBACK","allNumbers":[85]}
+[12:50:32 PM] 💰 PRICE FROM GENERIC: 85
+[12:50:32 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:50:32 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:50:32 PM] 🧩 IMAGES: Trying custom handler...
+[12:50:32 PM] 🖼️ IMAGES: Custom insufficient, getting generic images...
+[12:50:32 PM] 🖼️ Getting generic images for hostname: kirrinfinch.com
+[12:50:32 PM] 🔍 Selector '.product-media img' found 0 elements
+[12:50:32 PM] 🎯 Trying selector: '.product-media img' → 0 images
+[12:50:32 PM] 🔍 Selector '.gallery img' found 0 elements
+[12:50:32 PM] 🎯 Trying selector: '.gallery img' → 0 images
+[12:50:32 PM] 🔍 Selector '.image-gallery img' found 0 elements
+[12:50:32 PM] 🎯 Trying selector: '.image-gallery img' → 0 images
+[12:50:32 PM] 🔍 Selector '.product-images img' found 0 elements
+[12:50:32 PM] 🎯 Trying selector: '.product-images img' → 0 images
+[12:50:32 PM] 🔍 Selector '.product-gallery img' found 0 elements
+[12:50:32 PM] 🎯 Trying selector: '.product-gallery img' → 0 images
+[12:50:32 PM] 🔍 Selector '.product_media_item img' found 0 elements
+[12:50:32 PM] 🎯 Trying selector: '.product_media_item img' → 0 images
+[12:50:32 PM] 🔍 Selector 'img.image_img' found 0 elements
+[12:50:32 PM] 🎯 Trying selector: 'img.image_img' → 0 images
+[12:50:32 PM] 🔍 Selector 'img.image__img' found 17 elements
+[12:50:32 PM] 📝 First element: <img class="image__img lazypreload lazyautosizes ls-is-cached lazyloaded" src="//kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914" data-widths="[180, 360, 540,
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] Image element <IMG.image__img>
+[12:50:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":21}
+[12:50:32 PM] 🗑️ JUNK IMAGE: https://kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=351368975481
+0
+📋 Copy URL
+[12:50:32 PM] 🗑️ JUNK IMAGE: https://kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=351368975481
+0
+📋 Copy URL
+[12:50:32 PM] 🗑️ JUNK IMAGE: https://kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=351368975481
+0
+📋 Copy URL
+[12:50:32 PM] 🗑️ JUNK IMAGE: https://kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=351368975481
+0
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 275): https://kirrinfinch.com/cdn/shop/files/Suspenders2_1080x.png?v=1731424279
+275
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 265): https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_1080x.png?v=1732030790
+265
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 265): https://kirrinfinch.com/cdn/shop/files/Suspenders_Close-Up_1080x.png?v=1731424347
+265
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 245): https://kirrinfinch.com/cdn/shop/files/Suspenders_Flatlay_1080x.png?v=1732030790
+245
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 165): https://kirrinfinch.com/cdn/shop/files/Suspenders2_%7Bwidth%7Dx.png?v=1731424279
+165[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 165): https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_%7Bwidth%7Dx.png?v=1732030790
+165[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 165): https://kirrinfinch.com/cdn/shop/files/Suspenders_Close-Up_%7Bwidth%7Dx.png?v=1731424347
+165[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 165): https://kirrinfinch.com/cdn/shop/files/Suspenders_Flatlay_%7Bwidth%7Dx.png?v=1732030790
+165[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0443_%7Bwidth%7Dx.png?v=1748959888
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0437_%7Bwidth%7Dx.png?v=1748959888
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0303_%7Bwidth%7Dx.jpg?v=1748959890
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0344_%7Bwidth%7Dx.jpg?v=1748959890
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0238_%7Bwidth%7Dx.png?v=1748959895
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0233_%7Bwidth%7Dx.jpg?v=1748959895
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 100): https://kirrinfinch.com/cdn/shop/products/BlackAndrogynousVest_79e33f9b-e5b4-448c-b3d8-93fc3a1e04d7_
+100[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 100): https://kirrinfinch.com/cdn/shop/products/BlackGenderNeutralSuitVest_287c8dc4-7a82-4b5d-8a3a-2593086
+100[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 50): https://kirrinfinch.com/cdn/shop/files/ico-07_%7Bwidth%7Dx.png?v=1618942092
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (275): https://kirrinfinch.com/cdn/shop/files/Suspenders2_1080x.png?v=1731424279
+275
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (265): https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_1080x.png?v=1732030790
+265
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (265): https://kirrinfinch.com/cdn/shop/files/Suspenders_Close-Up_1080x.png?v=1731424347
+265
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (245): https://kirrinfinch.com/cdn/shop/files/Suspenders_Flatlay_1080x.png?v=1732030790
+245
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (165): https://kirrinfinch.com/cdn/shop/files/Suspenders2_%7Bwidth%7Dx.png?v=1731424279
+165[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (165): https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_%7Bwidth%7Dx.png?v=1732030790
+165[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (165): https://kirrinfinch.com/cdn/shop/files/Suspenders_Close-Up_%7Bwidth%7Dx.png?v=1731424347
+165[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (165): https://kirrinfinch.com/cdn/shop/files/Suspenders_Flatlay_%7Bwidth%7Dx.png?v=1732030790
+165[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0443_%7Bwidth%7Dx.png?v=1748959888
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0437_%7Bwidth%7Dx.png?v=1748959888
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0303_%7Bwidth%7Dx.jpg?v=1748959890
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0344_%7Bwidth%7Dx.jpg?v=1748959890
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0238_%7Bwidth%7Dx.png?v=1748959895
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (65): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0233_%7Bwidth%7Dx.jpg?v=1748959895
+65[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (100): https://kirrinfinch.com/cdn/shop/products/BlackAndrogynousVest_79e33f9b-e5b4-448c-b3d8-93fc3a1e04d7_
+100[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (100): https://kirrinfinch.com/cdn/shop/products/BlackGenderNeutralSuitVest_287c8dc4-7a82-4b5d-8a3a-2593086
+100[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 📏 SIZE OK (est: 100KB): https://kirrinfinch.com/cdn/shop/files/ico-07_%7Bwidth%7Dx.png?v=1618942092
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🏆 TOP SCORED IMAGES: ["Suspenders2_1080x.png?v=1731424279 (score: 275)","Suspenders_Back_Close_Crop_1080x.png?v=1732030790 (score: 265)","Suspenders_Close-Up_1080x.png?v=1731424347 (score: 265)","Suspenders_Flatlay_1080x.
+[12:50:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":4,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":17}
+[12:50:32 PM] 🖼️ FINAL IMAGES: ["https://kirrinfinch.com/cdn/shop/files/Suspenders2_1080x.png?v=1731424279","https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_1080x.png?v=17","https://kirrinfinch.com/cdn/shop/files/
+[12:50:32 PM] 🎯 Trying selector: 'img.image__img' → 17 images
+[12:50:32 PM] ✅ Success with selector: 'img.image__img'
+[12:50:32 PM] 🖼️ GENERIC IMAGES: {"count":17,"images":["https://kirrinfinch.com/cdn/shop/files/Suspenders2_1080x.png?v=1731424279","https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_1080x.png?v=1732030790","https://ki
+[12:50:32 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":17}
+[12:50:32 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":17}
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 260): https://kirrinfinch.com/cdn/shop/files/Suspenders2_1080x.png?v=1731424279
+260
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 250): https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_1080x.png?v=1732030790
+250
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 250): https://kirrinfinch.com/cdn/shop/files/Suspenders_Close-Up_1080x.png?v=1731424347
+250
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 230): https://kirrinfinch.com/cdn/shop/files/Suspenders_Flatlay_1080x.png?v=1732030790
+230
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 150): https://kirrinfinch.com/cdn/shop/files/Suspenders2_%7Bwidth%7Dx.png?v=1731424279
+150[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 150): https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_%7Bwidth%7Dx.png?v=1732030790
+150[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 150): https://kirrinfinch.com/cdn/shop/files/Suspenders_Close-Up_%7Bwidth%7Dx.png?v=1731424347
+150[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 150): https://kirrinfinch.com/cdn/shop/files/Suspenders_Flatlay_%7Bwidth%7Dx.png?v=1732030790
+150[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 85): https://kirrinfinch.com/cdn/shop/products/BlackAndrogynousVest_79e33f9b-e5b4-448c-b3d8-93fc3a1e04d7_
+85[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 85): https://kirrinfinch.com/cdn/shop/products/BlackGenderNeutralSuitVest_287c8dc4-7a82-4b5d-8a3a-2593086
+85[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 50): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0443_%7Bwidth%7Dx.png?v=1748959888
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 50): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0437_%7Bwidth%7Dx.png?v=1748959888
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 50): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0238_%7Bwidth%7Dx.png?v=1748959895
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 50): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0303_%7Bwidth%7Dx.jpg?v=1748959890
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 50): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0344_%7Bwidth%7Dx.jpg?v=1748959890
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 50): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0233_%7Bwidth%7Dx.jpg?v=1748959895
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] ✅ SINGLE IMAGE (score: 50): https://kirrinfinch.com/cdn/shop/files/ico-07_%7Bwidth%7Dx.png?v=1618942092
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (260): https://kirrinfinch.com/cdn/shop/files/Suspenders2_1080x.png?v=1731424279
+260
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (250): https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_1080x.png?v=1732030790
+250
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (250): https://kirrinfinch.com/cdn/shop/files/Suspenders_Close-Up_1080x.png?v=1731424347
+250
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (230): https://kirrinfinch.com/cdn/shop/files/Suspenders_Flatlay_1080x.png?v=1732030790
+230
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (150): https://kirrinfinch.com/cdn/shop/files/Suspenders2_%7Bwidth%7Dx.png?v=1731424279
+150[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (150): https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_%7Bwidth%7Dx.png?v=1732030790
+150[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (150): https://kirrinfinch.com/cdn/shop/files/Suspenders_Close-Up_%7Bwidth%7Dx.png?v=1731424347
+150[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (150): https://kirrinfinch.com/cdn/shop/files/Suspenders_Flatlay_%7Bwidth%7Dx.png?v=1732030790
+150[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (85): https://kirrinfinch.com/cdn/shop/products/BlackAndrogynousVest_79e33f9b-e5b4-448c-b3d8-93fc3a1e04d7_
+85[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🎯 HIGH SCORE + SIZE OK (85): https://kirrinfinch.com/cdn/shop/products/BlackGenderNeutralSuitVest_287c8dc4-7a82-4b5d-8a3a-2593086
+85[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 📏 SIZE OK (est: 100KB): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0443_%7Bwidth%7Dx.png?v=1748959888
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 📏 SIZE OK (est: 100KB): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0437_%7Bwidth%7Dx.png?v=1748959888
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 📏 SIZE OK (est: 100KB): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0238_%7Bwidth%7Dx.png?v=1748959895
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 📏 SIZE OK (est: 80KB): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0303_%7Bwidth%7Dx.jpg?v=1748959890
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 📏 SIZE OK (est: 80KB): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0344_%7Bwidth%7Dx.jpg?v=1748959890
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 📏 SIZE OK (est: 80KB): https://kirrinfinch.com/cdn/shop/files/2024_9_17_KirrinFinch_0233_%7Bwidth%7Dx.jpg?v=1748959895
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 📏 SIZE OK (est: 100KB): https://kirrinfinch.com/cdn/shop/files/ico-07_%7Bwidth%7Dx.png?v=1618942092
+50[IMG ERROR]
+📋 Copy URL
+[12:50:32 PM] 🏆 TOP SCORED IMAGES: ["Suspenders2_1080x.png?v=1731424279 (score: 260)","Suspenders_Back_Close_Crop_1080x.png?v=1732030790 (score: 250)","Suspenders_Close-Up_1080x.png?v=1731424347 (score: 250)","Suspenders_Flatlay_1080x.
+[12:50:32 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":17}
+[12:50:32 PM] 🖼️ FINAL IMAGES: ["https://kirrinfinch.com/cdn/shop/files/Suspenders2_1080x.png?v=1731424279","https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_1080x.png?v=17","https://kirrinfinch.com/cdn/shop/files/
+[12:50:32 PM] 🖼️ FINAL IMAGES: {"count":17,"images":["https://kirrinfinch.com/cdn/shop/files/Suspenders2_1080x.png?v=1731424279","https://kirrinfinch.com/cdn/shop/files/Suspenders_Back_Close_Crop_1080x.png?v=1732030790","https://ki
+[12:50:32 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Suspenders","brand":"Kirrin Finch","description":"Add some panache to your wardrobe with this floral","price":"85","imageCount":17,"firstImages":["https://kirrinfinch.com/cdn/shop/files/Susp
+[12:50:32 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":17}
+[12:50:32 PM] ✅ Debug trace complete
