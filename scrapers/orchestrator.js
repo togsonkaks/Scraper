@@ -612,8 +612,8 @@
     
     // AMERICAN EAGLE OUTFITTERS: Scene7 CDN upgrades
     if (/s7d2\.scene7\.com.*aeo/i.test(url)) {
-      // Upgrade md to mdg templates for higher quality
-      upgraded = upgraded.replace(/\$pdp-md-opt\$/g, '$pdp-mdg-opt$');
+      // Downgrade mdg to md templates for better quality (md is better than mdg for AEO)
+      upgraded = upgraded.replace(/\$pdp-mdg-opt\$/g, '$pdp-md-opt$');
       
       if (upgraded !== url) {
         debug(`✨ UPGRADED AEO CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
