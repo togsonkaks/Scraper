@@ -1059,7 +1059,7 @@
         }
         
         score += bonus;
-        dbg(`🎯 FILENAME MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
+        debug(`🎯 FILENAME MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
       }
     }
     
@@ -1069,53 +1069,53 @@
     let hasProductIdMatch = false;
     
     // DEBUG: Show what we're working with
-    dbg(`🔍 DEBUG RELEVANCE for: ${url.slice(-50)}`);
-    dbg(`🔍 Keywords from URL: [${productKeywords.join(', ')}]`);
-    dbg(`🔍 Main Product ID: "${mainProductId}"`);
+    debug(`🔍 DEBUG RELEVANCE for: ${url.slice(-50)}`);
+    debug(`🔍 Keywords from URL: [${productKeywords.join(', ')}]`);
+    debug(`🔍 Main Product ID: "${mainProductId}"`);
     
     // Check if we had any keyword matches (from above logic)
     if (productKeywords.length > 0) {
       const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' ');
-      dbg(`🔍 Filename for matching: "${filename}"`);
+      debug(`🔍 Filename for matching: "${filename}"`);
       
       for (const keyword of productKeywords) {
         if (filename.includes(keyword)) {
           hasKeywordMatch = true;
-          dbg(`🔍 ✅ KEYWORD MATCH found: "${keyword}"`);
+          debug(`🔍 ✅ KEYWORD MATCH found: "${keyword}"`);
           break;
         } else {
-          dbg(`🔍 ❌ No match for keyword: "${keyword}"`);
+          debug(`🔍 ❌ No match for keyword: "${keyword}"`);
         }
       }
     } else {
-      dbg(`🔍 ❌ No keywords extracted from URL path`);
+      debug(`🔍 ❌ No keywords extracted from URL path`);
     }
     
     // Check product ID match
     if (mainProductId) {
       const imageProductId = extractProductIdFromUrl(url);
-      dbg(`🔍 Image Product ID: "${imageProductId}"`);
+      debug(`🔍 Image Product ID: "${imageProductId}"`);
       
       if (imageProductId === mainProductId) {
         hasProductIdMatch = true;
         score += 150; // Product ID bonus
-        dbg(`🎯 PRODUCT ID MATCH: ${mainProductId} match (+150): ${url.slice(-50)}`);
+        debug(`🎯 PRODUCT ID MATCH: ${mainProductId} match (+150): ${url.slice(-50)}`);
       } else {
-        dbg(`🔍 ❌ Product ID mismatch: "${imageProductId}" !== "${mainProductId}"`);
+        debug(`🔍 ❌ Product ID mismatch: "${imageProductId}" !== "${mainProductId}"`);
       }
     } else {
-      dbg(`🔍 ❌ No main product ID found`);
+      debug(`🔍 ❌ No main product ID found`);
     }
     
     // Show final relevance decision
-    dbg(`🔍 Final relevance: hasKeywordMatch=${hasKeywordMatch}, hasProductIdMatch=${hasProductIdMatch}`);
+    debug(`🔍 Final relevance: hasKeywordMatch=${hasKeywordMatch}, hasProductIdMatch=${hasProductIdMatch}`);
     
     // Apply relevance gate - return 0 if no relevance
     if (!hasKeywordMatch && !hasProductIdMatch) {
-      dbg(`❌ RELEVANCE GATE: No keyword or product ID matches, score zeroed: ${url.slice(-50)}`);
+      debug(`❌ RELEVANCE GATE: No keyword or product ID matches, score zeroed: ${url.slice(-50)}`);
       return 0;
     } else {
-      dbg(`✅ RELEVANCE GATE: Passed - keeping score ${score}: ${url.slice(-50)}`);
+      debug(`✅ RELEVANCE GATE: Passed - keeping score ${score}: ${url.slice(-50)}`);
     }
     
     return Math.max(0, score);
