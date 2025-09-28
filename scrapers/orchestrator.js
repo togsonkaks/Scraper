@@ -1025,18 +1025,16 @@
       }
     }
     
-    // Simple filename matching bonus - extract product keywords from URL path
-    const urlPath = window.location.pathname;
-    const productKeywords = urlPath
-      .split('/').pop() // Get last part of URL path
-      .replace(/[.-]/g, ' ') // Replace dashes/dots with spaces  
-      .split(' ')
-      .filter(part => part.length > 2) // Filter out short words
-      .map(part => part.toLowerCase());
+    // RELEVANCE GATE: Check for keyword matches AND product ID matches
+    const productKeywords = getProductKeywords();
+    const mainProductId = findMainProductId();
     
+    let keywordMatches = 0;
+    let hasProductIdMatch = false;
+    
+    // Check keyword matches
     if (productKeywords.length > 0) {
       const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' '); // Convert URL to searchable text
-      let keywordMatches = 0;
       
       // Count how many product keywords appear in the image URL/filename
       for (const keyword of productKeywords) {
@@ -1044,29 +1042,49 @@
           keywordMatches++;
         }
       }
-      
-      // Balanced graduated bonuses based on match ratio
-      if (keywordMatches > 0) {
-        let bonus = 0;
-        const matchRatio = keywordMatches / productKeywords.length;
-        
-        if (matchRatio >= 1.0) {
-          // All words match - definitely the product
-          bonus = 100;
-        } else if (keywordMatches >= 3) {
-          // 3+ words match - very likely the product  
-          bonus = 60;
-        } else if (keywordMatches >= 2) {
-          // 2 words match - probably the product
-          bonus = 30;
-        } else {
-          // 1 word match - maybe relevant
-          bonus = 20;
-        }
-        
-        score += bonus;
-        dbg(`🎯 FILENAME MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
+    }
+    
+    // Check product ID match
+    if (mainProductId) {
+      const imageProductId = extractProductIdFromUrl(url);
+      if (imageProductId === mainProductId) {
+        hasProductIdMatch = true;
       }
+    }
+    
+    // RELEVANCE GATE: Skip scoring if no relevance to main product
+    if (keywordMatches === 0 && !hasProductIdMatch) {
+      dbg(`❌ RELEVANCE GATE: No keyword or product ID matches, skipping: ${url.slice(-50)}`);
+      return 0; // Skip this image entirely
+    }
+    
+    // Award keyword bonuses (existing system)
+    if (keywordMatches > 0) {
+      let bonus = 0;
+      const matchRatio = keywordMatches / productKeywords.length;
+      
+      if (matchRatio >= 1.0) {
+        // All words match - definitely the product
+        bonus = 100;
+      } else if (keywordMatches >= 3) {
+        // 3+ words match - very likely the product  
+        bonus = 60;
+      } else if (keywordMatches >= 2) {
+        // 2 words match - probably the product
+        bonus = 30;
+      } else {
+        // 1 word match - maybe relevant
+        bonus = 20;
+      }
+      
+      score += bonus;
+      dbg(`🎯 KEYWORD MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
+    }
+    
+    // Award product ID bonus (new system)
+    if (hasProductIdMatch) {
+      score += 150;
+      dbg(`🎯 PRODUCT ID MATCH: ${mainProductId} match (+150): ${url.slice(-50)}`);
     }
     
     return Math.max(0, score);
