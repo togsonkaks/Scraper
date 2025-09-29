@@ -1028,45 +1028,8 @@
       }
     }
     
-    // Simple filename matching bonus - extract product keywords from URL path
-    const productKeywords = getProductKeywords();
-    
-    if (productKeywords.length > 0) {
-      const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' '); // Convert URL to searchable text
-      let keywordMatches = 0;
-      
-      // Count how many product keywords appear in the image URL/filename
-      for (const keyword of productKeywords) {
-        if (filename.includes(keyword)) {
-          keywordMatches++;
-        }
-      }
-      
-      // Balanced graduated bonuses based on match ratio
-      if (keywordMatches > 0) {
-        let bonus = 0;
-        const matchRatio = keywordMatches / productKeywords.length;
-        
-        if (matchRatio >= 1.0) {
-          // All words match - definitely the product
-          bonus = 100;
-        } else if (keywordMatches >= 3) {
-          // 3+ words match - very likely the product  
-          bonus = 60;
-        } else if (keywordMatches >= 2) {
-          // 2 words match - probably the product
-          bonus = 30;
-        } else {
-          // 1 word match - maybe relevant
-          bonus = 20;
-        }
-        
-        score += bonus;
-        debug(`🎯 FILENAME MATCH: ${keywordMatches}/${productKeywords.length} keywords match (+${bonus}): ${url.slice(-50)}`);
-      }
-    }
-    
-    // Note: Relevance gate logic moved to final selection phase to avoid repeated execution
+    // Note: Keyword matching logic moved to final selection phase to avoid repeated execution
+    // All relevance-based scoring now happens once at the end in the FINAL RELEVANCE GATE
     
     return Math.max(0, score);
   }
