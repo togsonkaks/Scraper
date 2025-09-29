@@ -1390,64 +1390,7 @@
     debug('🖼️ HYBRID FILTERING RESULTS:', filtered);
     debug('🖼️ FINAL IMAGES:', finalUrls.slice(0, 5).map(url => url.slice(0, 80)));
     
-    // FINAL RELEVANCE GATE: Run keyword matching once on final screened list for ranking
-    if (finalImages.length > 1) {
-      const mainProductId = findMainProductId();
-      const productKeywords = getProductKeywords();
-      
-      if (productKeywords.length > 0) {
-        debug(`🔍 FINAL RELEVANCE CHECK: Running keyword matching on ${finalUrls.length} final images`);
-        debug(`🔍 Keywords: [${productKeywords.join(', ')}]`);
-        debug(`🔍 Main Product ID: "${mainProductId}"`);
-        
-        // Apply relevance-based re-ranking to final list
-        const rankedUrls = [];
-        const noMatchUrls = [];
-        
-        for (const img of finalImages) {
-          const url = img.url;
-          let hasKeywordMatch = false;
-          let hasProductIdMatch = false;
-          
-          // Check keyword matches
-          if (productKeywords.length > 0) {
-            const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' ');
-            for (const keyword of productKeywords) {
-              if (filename.includes(keyword)) {
-                hasKeywordMatch = true;
-                debug(`🔍 ✅ KEYWORD MATCH found: "${keyword}" in ${url.slice(-50)} | Found by: ${img.selector || 'unknown'}`);
-                break;
-              }
-            }
-            if (!hasKeywordMatch) {
-              debug(`🔍 ❌ No match for keywords: "${productKeywords.join(', ')}" in ${url.slice(-50)} | Found by: ${img.selector || 'unknown'}`);
-            }
-          }
-          
-          // Check product ID match
-          if (mainProductId) {
-            const imageProductId = extractProductIdFromUrl(url);
-            if (imageProductId === mainProductId) {
-              hasProductIdMatch = true;
-              debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} in ${url.slice(-50)} | Found by: ${img.selector || 'unknown'}`);
-            }
-          }
-          
-          // Sort into relevance-matched and non-matched groups
-          if (hasKeywordMatch || hasProductIdMatch) {
-            rankedUrls.push(url);
-          } else {
-            noMatchUrls.push(url);
-          }
-        }
-        
-        // Return relevance-matched images first, then others
-        const reorderedUrls = rankedUrls.concat(noMatchUrls);
-        debug(`🎯 RELEVANCE RANKING: ${rankedUrls.length} relevant, ${noMatchUrls.length} others`);
-        return reorderedUrls;
-      }
-    }
-    
+    // Return raw URLs without keyword matching - relevance ranking moved to caller
     return finalUrls;
   }
 
@@ -2377,6 +2320,66 @@
             }
           }
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
+          
+          // FINAL RELEVANCE GATE: Run keyword matching once on final screened list for ranking
+          if (images && images.length > 1) {
+            const mainProductId = findMainProductId();
+            const productKeywords = getProductKeywords();
+            
+            if (productKeywords.length > 0) {
+              debug(`🔍 FINAL RELEVANCE CHECK: Running keyword matching on ${images.length} final images`);
+              debug(`🔍 Keywords: [${productKeywords.join(', ')}]`);
+              debug(`🔍 Main Product ID: "${mainProductId}"`);
+              
+              // Apply relevance-based re-ranking to final list
+              const rankedUrls = [];
+              const noMatchUrls = [];
+              
+              for (const url of images) {
+                let hasKeywordMatch = false;
+                let hasProductIdMatch = false;
+                
+                // Check keyword matches
+                if (productKeywords.length > 0) {
+                  const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' ');
+                  for (const keyword of productKeywords) {
+                    if (filename.includes(keyword)) {
+                      hasKeywordMatch = true;
+                      const selector = urlToSelectorMap.get(url) || 'unknown';
+                      debug(`🔍 ✅ KEYWORD MATCH found: "${keyword}" in ${url.slice(-50)} | Found by: ${selector}`);
+                      break;
+                    }
+                  }
+                  if (!hasKeywordMatch) {
+                    const selector = urlToSelectorMap.get(url) || 'unknown';
+                    debug(`🔍 ❌ No match for keywords: "${productKeywords.join(', ')}" in ${url.slice(-50)} | Found by: ${selector}`);
+                  }
+                }
+                
+                // Check product ID match
+                if (mainProductId) {
+                  const imageProductId = extractProductIdFromUrl(url);
+                  if (imageProductId === mainProductId) {
+                    hasProductIdMatch = true;
+                    const selector = urlToSelectorMap.get(url) || 'unknown';
+                    debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} in ${url.slice(-50)} | Found by: ${selector}`);
+                  }
+                }
+                
+                // Sort into relevance-matched and non-matched groups
+                if (hasKeywordMatch || hasProductIdMatch) {
+                  rankedUrls.push(url);
+                } else {
+                  noMatchUrls.push(url);
+                }
+              }
+              
+              // Return relevance-matched images first, then others
+              const reorderedUrls = rankedUrls.concat(noMatchUrls);
+              debug(`🎯 RELEVANCE RANKING: ${rankedUrls.length} relevant, ${noMatchUrls.length} others`);
+              images = reorderedUrls; // Update the final images array with ranked results
+            }
+          }
           
           // LLM FALLBACK: If no images found, try AI-powered selector discovery
           if (images.length === 0 && mode !== 'memoryOnly') {
