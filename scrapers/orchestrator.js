@@ -1408,6 +1408,52 @@
     debug('🔗 DEDUPLICATED:', { outputCount: unique.length });
     return unique;
   }
+  // Simple raw URL extraction without processing
+  async function gatherRawImageUrls(sel) {
+    debug('🔗 GATHERING RAW URLs with selector:', sel);
+    
+    const elements = qa(sel);
+    const urls = [];
+    
+    for (let i = 0; i < elements.length; i++) {
+      const el = elements[i];
+      const attrs = {
+        src: el.src,
+        'data-src': el.getAttribute('data-src'),
+        'data-lazy': el.getAttribute('data-lazy'),
+        'data-image': el.getAttribute('data-image'),
+        srcset: el.srcset
+      };
+      
+      // Extract URL from various attributes
+      let url = null;
+      if (attrs.src && attrs.src !== location.href && !attrs.src.includes('data:')) {
+        url = attrs.src;
+      } else if (attrs['data-src']) {
+        url = attrs['data-src'];
+      } else if (attrs['data-lazy']) {
+        url = attrs['data-lazy'];
+      } else if (attrs['data-image']) {
+        url = attrs['data-image'];
+      } else if (attrs.srcset) {
+        url = pickFromSrcset(attrs.srcset);
+      }
+      
+      if (url) {
+        // Apply CDN upgrades but skip all scoring/filtering
+        const upgraded = upgradeCDNUrl(url);
+        const absolute = toAbs(upgraded);
+        if (absolute && absolute !== url) {
+          debug(`✨ UPGRADED CDN URL: ${url.slice(-80)} -> ${absolute.slice(-80)}`);
+        }
+        urls.push(absolute);
+      }
+    }
+    
+    debug(`🔗 RAW EXTRACTION: ${urls.length} URLs from ${elements.length} elements`);
+    return urls;
+  }
+  
   async function gatherImagesBySelector(sel, observeMs = 0) {
     dbg('🔍 GATHERING IMAGES with selector:', sel);
     
@@ -1976,7 +2022,7 @@
     const siteSelectors = siteSpecificSelectors[hostname] || [];
     for (const sel of siteSelectors) {
       debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
-      const urls = await gatherImagesBySelector(sel, 1200);
+      const urls = await gatherRawImageUrls(sel);
       if (urls.length >= 1) {
         debug(`✅ Site-specific success: ${urls.length} images found`);
         mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
@@ -1995,7 +2041,7 @@
       if (elements.length > 0) {
         debug(`📝 First element:`, elements[0].outerHTML.slice(0, 200));
       }
-      const urls = await gatherImagesBySelector(sel, 1200);
+      const urls = await gatherRawImageUrls(sel);
       debug(`🎯 Trying selector: '${sel}' → ${urls.length} images`);
       if (urls.length >= 3) { 
         debug(`✅ Success with selector: '${sel}'`);
@@ -2005,7 +2051,7 @@
     }
     debug(`🖼️ All specific selectors failed, falling back to broad 'img'`);
     const og = q('meta[property="og:image"]')?.content;
-    const all = await gatherImagesBySelector('img');
+    const all = await gatherRawImageUrls('img');
     const combined = (og ? [og] : []).concat(all);
     const uniq = await uniqueImages(combined);
     mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
