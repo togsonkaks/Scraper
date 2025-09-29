@@ -1,0 +1,104 @@
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s | Found by: img
+100
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s | Found by: img
+100
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 75): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp | Found by: img
+75
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (130): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+130
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s
+100
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s
+100
+📋 Copy URL
+[12:28:00 PM] 🔧 CDN OPTIMIZED (75): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+75
+📋 Copy URL
+[12:28:00 PM] 🏆 TOP SCORED IMAGES: ["light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=556&h=0&fit=ctn&fmt=auto (score: 130)","light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h
+[12:28:00 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":24,"junk":29,"lowScore":7,"smallFile":0,"duplicateGroups":1,"kept":4}
+[12:28:00 PM] 🖼️ FINAL IMAGES: ["https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-lin","https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-l","https://mediahub.boohooman.com/c
+[12:28:00 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":5}
+[12:28:00 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":5}
+[12:28:00 PM] ❌ NOT IMAGE URL: https://mediahub.boohooman.com/cmm09851_light%2520blue_xl?pdp.template
+0
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi | Found by: legacy
+100
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 150): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s | Found by: legacy
+150
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 130): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s | Found by: legacy
+130
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 60): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp | Found by: legacy
+60
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+100
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (150): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s
+150
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (130): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s
+130
+📋 Copy URL
+[12:28:00 PM] 🔧 CDN OPTIMIZED (60): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+60
+📋 Copy URL
+[12:28:00 PM] 🏆 TOP SCORED IMAGES: ["light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp (score: 150)","light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=10
+[12:28:00 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":1,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":4}
+[12:28:00 PM] 🖼️ FINAL IMAGES: ["https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-l","https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-l","https://mediahub.boohooman.com/c
+[12:28:00 PM] 🖼️ GENERIC IMAGES: {"count":4,"images":["https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp","https://media
+[12:28:00 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":4}
+[12:28:00 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":4}
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 160): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s | Found by: legacy
+160
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 150): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s | Found by: legacy
+150
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi | Found by: legacy
+100
+📋 Copy URL
+[12:28:00 PM] ✅ SINGLE IMAGE (score: 60): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp | Found by: legacy
+60
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (160): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s
+160
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (150): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s
+150
+📋 Copy URL
+[12:28:00 PM] 🎯 HIGH SCORE + SIZE OK (100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+100
+📋 Copy URL
+[12:28:00 PM] 🔧 CDN OPTIMIZED (60): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+60
+📋 Copy URL
+[12:28:00 PM] 🏆 TOP SCORED IMAGES: ["light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp (score: 160)","light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=10
+[12:28:00 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":4}
+[12:28:00 PM] 🖼️ FINAL IMAGES: ["https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-l","https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-l","https://mediahub.boohooman.com/c
+[12:28:00 PM] 🖼️ FINAL IMAGES: {"count":4,"images":["https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp","https://media
+[12:28:00 PM] 🎯 PRODUCT ID from frequency analysis: cmm09851 (7 occurrences)
+[12:28:00 PM] 🔍 FINAL RELEVANCE CHECK: Running keyword matching on 4 final images
+[12:28:00 PM] 🔍 Keywords: [cmm09851, html]
+[12:28:00 PM] 🔍 Main Product ID: "cmm09851"
+[12:28:00 PM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: legacy
+[12:28:00 PM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: legacy
+[12:28:00 PM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: legacy
+[12:28:00 PM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: legacy
+[12:28:00 PM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in elaxed-short-set?qlt=85&w=556&h=0&fit=ctn&fmt=auto | Found by: legacy
+[12:28:00 PM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in elaxed-short-set?qlt=85&w=556&h=0&fit=ctn&fmt=auto | Found by: legacy
+[12:28:00 PM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in %20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp | Found by: legacy
+[12:28:00 PM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in %20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp | Found by: legacy
+[12:28:00 PM] 🎯 RELEVANCE RANKING: 4 relevant, 0 others
+[12:28:00 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Oversized Linen Blend Organza Shirt & Relaxed Shor","brand":"boohooMAN","description":"Shop Oversized Linen Blend Organza Shirt & Relaxed","price":"20","imageCount":4,"firstImages":["https:/
+[12:28:00 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":4}
+[12:28:00 PM] 💾 DEBUG LOGGER: Session saved to database
+[12:28:00 PM] ✅ Debug trace complete

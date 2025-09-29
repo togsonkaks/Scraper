@@ -1394,12 +1394,19 @@
     return finalUrls;
   }
 
-  // Legacy function for compatibility with existing code
+  // Simple deduplication without processing - no more legacy filtering
   async function uniqueImages(urls) {
-    debug('🖼️ LEGACY FILTERING IMAGES (converting to enriched):', { inputCount: urls.length });
-    // Convert simple URLs to enriched format for hybrid processing
-    const enriched = urls.map((url, index) => ({ url, element: null, index, selector: 'legacy' }));
-    return await hybridUniqueImages(enriched);
+    debug('🔗 SIMPLE DEDUPLICATION:', { inputCount: urls.length });
+    const seen = new Set();
+    const unique = [];
+    for (const url of urls) {
+      if (url && !seen.has(url)) {
+        seen.add(url);
+        unique.push(url);
+      }
+    }
+    debug('🔗 DEDUPLICATED:', { outputCount: unique.length });
+    return unique;
   }
   async function gatherImagesBySelector(sel, observeMs = 0) {
     dbg('🔍 GATHERING IMAGES with selector:', sel);

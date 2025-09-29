@@ -1,0 +1,292 @@
+STIHL Cutquik cutoff machine starts instantly and changes the game for the jobsite, delivering maneuverability and solid cutting performance in a lightweight, compact package that can be used indoors. Its onboard water control helps suppress dust while a toolless wheel lock prevents wheel rotation when removing the wheel attachment bolt. And because it is battery powered, there is no air filter to maintain. The TSA 230 even provides great value priced below its gasoline powered counterpart. Groundbreaking innovation, grounded in quality engineering.Find the TSA 230 CUT OFF SAW 9D at Ace.
+[12:23:28 PM] 🧩 PRICE: Trying custom handler...
+[12:23:28 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[12:23:28 PM] 💰 PRICE: Falling back to generic...
+[12:23:28 PM] 🔍 PRICE PARSING: {"input":"$539.99","inputType":"string","inputLength":7}
+[12:23:28 PM] 🧹 CLEANED INPUT: {"original":"$539.99","cleaned":"$539.99"}
+[12:23:28 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$539.99","reconstructed":"$539.99"}
+[12:23:28 PM] 💰 MONETARY TOKENS: [539.99]
+[12:23:28 PM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[539.99],"integerTokens":[],"preferDecimals":true}
+[12:23:28 PM] ✅ PRICE FROM MONETARY: {"result":539.99,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[539.99]}
+[12:23:28 PM] 🎯 REFINING PRICE: {"baseVal":"539.99","fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[12:23:28 PM] Price element <DIV.price>
+[12:23:28 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[12:23:28 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[12:23:28 PM] 📍 ANCESTOR 0: <DIV.price>
+[12:23:28 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"$539.99","cleaned":"$539.99","reconstructed":"$539.99"}
+[12:23:28 PM] 💰 ANCESTOR 0 SMART PRICE: 539.99 from tokens: [539.99]
+[12:23:28 PM] 📍 ANCESTOR 1: <DIV>
+[12:23:28 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"$539.99","cleaned":"$539.99","reconstructed":"$539.99"}
+[12:23:28 PM] 💰 ANCESTOR 1 SMART PRICE: 539.99 from tokens: [539.99]
+[12:23:28 PM] 📍 ANCESTOR 2: <DIV#pdp-pricing-skeleton>
+[12:23:28 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Price$539.99","cleaned":"Price$539.99","reconstructed":"Price$539.99"}
+[12:23:28 PM] 💰 ANCESTOR 2 SMART PRICE: 539.99 from tokens: [539.99]
+[12:23:28 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":"539.99","originalBase":"539.99"}
+[12:23:28 PM] 💰 PRICE FROM GENERIC: 539.99
+[12:23:28 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[12:23:28 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[12:23:28 PM] 🧩 IMAGES: Trying custom handler...
+[12:23:28 PM] 🧩 CUSTOM IMAGES: {"count":0,"images":[]}
+[12:23:28 PM] 🖼️ IMAGES: No custom/memory images, getting generic images...
+[12:23:28 PM] 🖼️ Getting generic images for hostname: acehardware.com
+[12:23:28 PM] 📍 CALL TRACE: at getImagesGeneric (<anonymous>:4247:23) -> at scrapeProduct (<anonymous>:4600:41) -> at async <anonymous>:4806:21
+[12:23:28 PM] 🎯 Trying site-specific selector for acehardware.com: .product-gallery img
+[12:23:28 PM] 🔍 Processing 39 image elements...
+[12:23:28 PM] Image element #1 <IMG.mz-productimages-mainimage>
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=480&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[12:23:28 PM] Image element #2 <IMG.swiper-lazy>
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[12:23:28 PM] Image element #3 <IMG.swiper-lazy>
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1756125248925 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1756125248925 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1756125248925 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1756125248925 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1756125248925 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1756125248925 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1756125248925 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[12:23:28 PM] ✨ UPGRADED Mozu CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[12:23:28 PM] ✨ UPGRADED CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1756125248925 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[12:23:28 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":39}
+[12:23:28 PM] 📉 LOW SCORE REJECTED (45): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60 | Found by: .product-gallery img
+45
+📋 Copy URL
+[12:23:28 PM] 📉 LOW SCORE REJECTED (45): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60 | Found by: .product-gallery img
+45
+📋 Copy URL
+[12:23:28 PM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60 | Found by: .product-gallery img
+25
+📋 Copy URL
+[12:23:28 PM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60 | Found by: .product-gallery img
+25
+📋 Copy URL
+[12:23:28 PM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60 | Found by: .product-gallery img
+25
+📋 Copy URL
+[12:23:28 PM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60 | Found by: .product-gallery img
+25
+📋 Copy URL
+[12:23:28 PM] 📉 LOW SCORE REJECTED (25): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60 | Found by: .product-gallery img
+25
+📋 Copy URL
+[12:23:28 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[12:23:28 PM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[12:23:28 PM] 🗑️ JUNK IMAGE: https://cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg
+0
+📋 Copy URL
+[12:23:28 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[12:23:28 PM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[12:23:28 PM] 🗑️ JUNK IMAGE: https://cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.sv
+0
+📋 Copy URL
+[12:23:28 PM] ❌ NOT IMAGE URL: https://vid.ly/1w5f2k/poster
+0
+📋 Copy URL
+[12:23:28 PM] ✅ BEST OF 4 (score: 110): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60 | Found by: .product-gallery img
+110
+📋 Copy URL
+[12:23:28 PM] 🔄 DUPLICATE GROUP: 3 lower-scored versions rejected
+110
+📋 Copy URL
+[12:23:28 PM] ✅ BEST OF 3 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60 | Found by: .product-gallery img
+80
+📋 Copy URL
+[12:23:28 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+80
+📋 Copy URL
+[12:23:28 PM] ✅ BEST OF 3 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60 | Found by: .product-gallery img
+80
+📋 Copy URL
+[12:23:28 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+80
+📋 Copy URL
+[12:23:28 PM] ✅ BEST OF 3 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60 | Found by: .product-gallery img
+80
+📋 Copy URL
+[12:23:28 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+80
+📋 Copy URL
+[12:23:28 PM] ✅ BEST OF 3 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60 | Found by: .product-gallery img
+80
+📋 Copy URL
+[12:23:28 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+80
+📋 Copy URL
+[12:23:28 PM] ✅ BEST OF 3 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60 | Found by: .product-gallery img
+80
+📋 Copy URL
+[12:23:28 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+80
+📋 Copy URL
+[12:23:28 PM] ✅ BEST OF 3 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60 | Found by: .product-gallery img
+80
+📋 Copy URL
+[12:23:28 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+80
+📋 Copy URL
+[12:23:28 PM] ✅ BEST OF 3 (score: 80): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60 | Found by: .product-gallery img
+80
+📋 Copy URL
+[12:23:28 PM] 🔄 DUPLICATE GROUP: 2 lower-scored versions rejected
+80
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+110
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+80
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+80
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+80
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+80
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+80
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+80
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+80
+📋 Copy URL
+[12:23:28 PM] 🏆 TOP SCORED IMAGES: ["fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60 (score: 110)","e857fdb1-6878-4357-812c-400b886c482b?quality=60 (score: 80)","ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60 (score: 80)","4a0f5a7e-50
+[12:23:28 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":3,"junk":4,"lowScore":7,"smallFile":0,"duplicateGroups":8,"kept":8}
+[12:23:28 PM] 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[12:23:28 PM] ✅ Site-specific success: 8 images found
+[12:23:28 PM] 🖼️ GENERIC IMAGES: {"count":8,"images":["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812
+[12:23:28 PM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":8}
+[12:23:28 PM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":8}
+[12:23:28 PM] ✅ SINGLE IMAGE (score: 95): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60 | Found by: legacy
+95
+📋 Copy URL
+[12:23:28 PM] ✅ SINGLE IMAGE (score: 85): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60 | Found by: legacy
+85
+📋 Copy URL
+[12:23:28 PM] ✅ SINGLE IMAGE (score: 85): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60 | Found by: legacy
+85
+📋 Copy URL
+[12:23:28 PM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60 | Found by: legacy
+65
+📋 Copy URL
+[12:23:28 PM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60 | Found by: legacy
+65
+📋 Copy URL
+[12:23:28 PM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60 | Found by: legacy
+65
+📋 Copy URL
+[12:23:28 PM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60 | Found by: legacy
+65
+📋 Copy URL
+[12:23:28 PM] ✅ SINGLE IMAGE (score: 65): https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60 | Found by: legacy
+65
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+95
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60
+85
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+85
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+65
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+65
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+65
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+65
+📋 Copy URL
+[12:23:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+65
+📋 Copy URL
+[12:23:28 PM] 🏆 TOP SCORED IMAGES: ["fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60 (score: 95)","e857fdb1-6878-4357-812c-400b886c482b?quality=60 (score: 85)","ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60 (score: 85)","4a0f5a7e-501
+[12:23:28 PM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":8}
+[12:23:28 PM] 🖼️ FINAL IMAGES: ["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5d","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400","https://cdn-tp3.mozu.com/24645-3
+[12:23:28 PM] 🖼️ FINAL IMAGES: {"count":8,"images":["https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60","https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812
+[12:23:28 PM] 🎯 PRODUCT ID from frequency analysis: powered (1 occurrences)
+[12:23:28 PM] 🔍 FINAL RELEVANCE CHECK: Running keyword matching on 8 final images
+[12:23:28 PM] 🔍 Keywords: [2000359]
+[12:23:28 PM] 🔍 Main Product ID: "powered"
+[12:23:28 PM] 🔍 ❌ No match for keywords: "2000359" in es/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60 | Found by: legacy
+[12:23:28 PM] 🔍 ❌ No match for keywords: "2000359" in es/e857fdb1-6878-4357-812c-400b886c482b?quality=60 | Found by: legacy
+[12:23:28 PM] 🔍 ❌ No match for keywords: "2000359" in es/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60 | Found by: legacy
+[12:23:28 PM] 🔍 ❌ No match for keywords: "2000359" in es/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60 | Found by: legacy
+[12:23:28 PM] 🔍 ❌ No match for keywords: "2000359" in es/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60 | Found by: legacy
+[12:23:28 PM] 🔍 ❌ No match for keywords: "2000359" in es/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60 | Found by: legacy
+[12:23:28 PM] 🔍 ❌ No match for keywords: "2000359" in es/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60 | Found by: legacy
+[12:23:28 PM] 🔍 ❌ No match for keywords: "2000359" in es/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60 | Found by: legacy
+[12:23:28 PM] 🎯 RELEVANCE RANKING: 0 relevant, 8 others
+[12:23:28 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless","brand":"STIHL","description":"STIHL introduces another worlds first a cutoff mac","price":"539.99","imageCount":8,"firstImages":["https:/
+[12:23:28 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":8}
+[12:23:28 PM] 💾 DEBUG LOGGER: Session saved to database
+[12:23:28 PM] ✅ Debug trace complete
