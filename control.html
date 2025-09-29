@@ -555,6 +555,13 @@
     let lastSelectorsUsed = null;
     let lastPayload = null;
     let currentUrl = ''; // Fixed: moved from line 808 to prevent initialization error
+    
+    // Prevent duplicate event handler initialization
+    if (window.handlersInitialized) {
+      console.log('⚠️ Event handlers already initialized, skipping duplicate setup');
+      return;
+    }
+    window.handlersInitialized = true;
 
     function normalizeSelectorInfo(selectorInfo) {
       if (!selectorInfo) return null;
