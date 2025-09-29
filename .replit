@@ -13,7 +13,7 @@ deploymentTarget = "vm"
 expertMode = true
 
 [workflows]
-runButton = "Tagglo Electron"
+runButton = "Project"
 
 [[workflows.workflow]]
 name = "Project"
