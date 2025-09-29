@@ -1128,8 +1128,10 @@
   }
 
 
+  // ⚠️ OLD FUNCTION - REPLACED BY processImages() - KEPT FOR REFERENCE ⚠️
   // ⚠️ CRITICAL FUNCTION - Core deduplication and filtering pipeline ⚠️
   // Hybrid unique images with score threshold and file size filtering
+  /* COMMENTED OUT - MERGED INTO processImages()
   async function hybridUniqueImages(enrichedUrls) {
     debug('🔄 HYBRID FILTERING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
     const groups = new Map(); // canonical URL -> array of enriched URLs
@@ -1393,8 +1395,11 @@
     // Return raw URLs without keyword matching - relevance ranking moved to caller
     return finalUrls;
   }
+  */ // END hybridUniqueImages - MERGED INTO processImages()
 
+  // ⚠️ OLD FUNCTION - REPLACED BY inline logic in processImages() - KEPT FOR REFERENCE ⚠️
   // Simple deduplication without processing - no more legacy filtering
+  /* COMMENTED OUT - MERGED INTO processImages()
   async function uniqueImages(urls) {
     debug('🔗 SIMPLE DEDUPLICATION:', { inputCount: urls.length });
     const seen = new Set();
@@ -1408,7 +1413,11 @@
     debug('🔗 DEDUPLICATED:', { outputCount: unique.length });
     return unique;
   }
+  */ // END uniqueImages - MERGED INTO processImages()
+  
+  // ⚠️ OLD FUNCTION - REPLACED BY processImages() - KEPT FOR REFERENCE ⚠️
   // Simple raw URL extraction without processing
+  /* COMMENTED OUT - MERGED INTO processImages()
   async function gatherRawImageUrls(sel) {
     debug('🔗 GATHERING RAW URLs with selector:', sel);
     
@@ -1453,7 +1462,10 @@
     debug(`🔗 RAW EXTRACTION: ${urls.length} URLs from ${elements.length} elements`);
     return urls;
   }
+  */ // END gatherRawImageUrls - MERGED INTO processImages()
   
+  // ⚠️ OLD FUNCTION - REPLACED BY processImages() - KEPT FOR REFERENCE ⚠️
+  /* COMMENTED OUT - MERGED INTO processImages()
   async function gatherImagesBySelector(sel, observeMs = 0) {
     dbg('🔍 GATHERING IMAGES with selector:', sel);
     
@@ -1676,6 +1688,7 @@
     
     return immediateImages;
   }
+  */ // END gatherImagesBySelector - MERGED INTO processImages()
 
   /* ---------- MEMORY RESOLUTION ---------- */
   async function fromMemory(field, memEntry) {
@@ -1724,7 +1737,16 @@
         const arr = ldPickImages(prod);
         if (arr.length) {
           mark('images', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
-          return await uniqueImages(arr).slice(0,30);
+          // Simple deduplication inline
+          const seen = new Set();
+          const unique = [];
+          for (const url of arr) {
+            if (url && !seen.has(url)) {
+              seen.add(url);
+              unique.push(url);
+            }
+          }
+          return unique.slice(0,30);
         }
         const og = q('meta[property="og:image"]')?.content;
         return og ? [og] : null;
@@ -1743,7 +1765,7 @@
         debug(`🎯 TRYING SELECTOR [${field}]:`, sel);
         
         if (field === 'images') {
-          const urls = await gatherImagesBySelector(sel);
+          const urls = await processImages(sel, 1200);
           if (urls.length) { 
             debug(`✅ MEMORY IMAGES SUCCESS: ${urls.length} images found`);
             mark('images', { selectors:[sel], attr:'src', method:'css', urls: urls.slice(0,30) }); 
@@ -1985,31 +2007,377 @@
     }
     return null;
   }
+  // ⚠️ NEW MERGED ARCHITECTURE: Complete image processing pipeline in single function ⚠️
+  // Process images with complete pipeline: extraction → filtering → scoring → ranking
+  async function processImages(selector, observeMs = 1200) {
+    dbg('🔍 PROCESSING IMAGES with selector:', selector, 'observeMs:', observeMs);
+    
+    // Phase 1: Lazy Loading (optional but recommended)
+    if (observeMs > 0) {
+      dbg(`⏳ LAZY LOADING: Observing for ${observeMs}ms for lazy-loaded images...`);
+      
+      // Lightweight MutationObserver to catch lazy-loaded images
+      const lazyLoadedUrls = [];
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+          mutation.addedNodes.forEach(node => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              if (node.tagName === 'IMG') {
+                const imgUrl = node.src || node.getAttribute('data-src');
+                if (imgUrl && !lazyLoadedUrls.includes(imgUrl)) {
+                  dbg(`🔍 LAZY: New img element: ${imgUrl.slice(0, 80)}`);
+                  lazyLoadedUrls.push(imgUrl);
+                }
+              }
+              const imgs = node.querySelectorAll ? node.querySelectorAll('img') : [];
+              imgs.forEach(img => {
+                const imgUrl = img.src || img.getAttribute('data-src');
+                if (imgUrl && !lazyLoadedUrls.includes(imgUrl)) {
+                  dbg(`🔍 LAZY: New nested img: ${imgUrl.slice(0, 80)}`);
+                  lazyLoadedUrls.push(imgUrl);
+                }
+              });
+            }
+          });
+          if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+            const imgUrl = mutation.target.src;
+            if (imgUrl && !lazyLoadedUrls.includes(imgUrl)) {
+              dbg(`🔍 LAZY: Src change: ${imgUrl.slice(0, 80)}`);
+              lazyLoadedUrls.push(imgUrl);
+            }
+          }
+        });
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['src', 'srcset', 'data-src', 'data-srcset', 'data-image', 'data-zoom-image', 'data-large']
+      });
+      
+      await new Promise(resolve => setTimeout(resolve, observeMs));
+      observer.disconnect();
+      
+      if (lazyLoadedUrls.length > 0) {
+        dbg(`🎯 LAZY LOADING: Found ${lazyLoadedUrls.length} additional images`);
+      }
+    }
+    
+    // Phase 2: Element finding and filtering
+    const allElements = qa(selector);
+    const elements = allElements.filter(el => {
+      let current = el;
+      for (let i = 0; i < 3 && current; i++) {
+        const className = (current.className || '').toLowerCase();
+        const id = (current.id || '').toLowerCase();
+        if (className.includes('related-products') || 
+            className.includes('recommendations') || 
+            className.includes('you-might-also-like') ||
+            id.includes('related-products') ||
+            id.includes('recommendations')) {
+          dbg(`🚫 EXCLUDED: Recommendation container in ${current.tagName}.${className}`);
+          return false;
+        }
+        current = current.parentElement;
+      }
+      return true;
+    });
+    
+    dbg(`📊 Found ${allElements.length} total elements, ${elements.length} after filtering`);
+    
+    if (elements.length === 0) {
+      dbg(`🚫 SKIPPING: No elements found`);
+      return [];
+    }
+    
+    // Phase 3: URL extraction with enriched metadata
+    const enrichedUrls = [];
+    debug(`🔍 Processing ${elements.length} image elements...`);
+    
+    try {
+      for (let i = 0; i < elements.length; i++) {
+        const el = elements[i];
+        if (i < 3) debugElement(el, `Image element #${i+1}`);
+        
+        const attrs = {
+          src: el.getAttribute('src') || el.currentSrc,
+          'data-src': el.getAttribute('data-src'),
+          'data-image': el.getAttribute('data-image'),
+          'data-zoom-image': el.getAttribute('data-zoom-image'),
+          'data-large': el.getAttribute('data-large'),
+          srcset: el.getAttribute('srcset')
+        };
+        
+        // Extract from main attributes
+        const s1 = attrs.src || attrs['data-src'] || attrs['data-image'] || 
+                   attrs['data-zoom-image'] || attrs['data-large'];
+        if (s1) {
+          const junkCheck = isJunkImage(s1, el);
+          if (!junkCheck.blocked) {
+            const upgraded = upgradeCDNUrl(s1);
+            enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
+            urlToSelectorMap.set(upgraded, selector);
+          } else {
+            dbg(`❌ BLOCKED [${junkCheck.reason}]:`, s1.substring(s1.lastIndexOf('/') + 1));
+          }
+        }
+        
+        // Extract from srcset
+        if (attrs.srcset) {
+          const best = pickFromSrcset(attrs.srcset);
+          if (best) {
+            const junkCheck = isJunkImage(best, el);
+            if (!junkCheck.blocked) {
+              const upgraded = upgradeCDNUrl(best);
+              enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
+              urlToSelectorMap.set(upgraded, selector);
+            } else {
+              dbg(`❌ BLOCKED [${junkCheck.reason}]:`, best.substring(best.lastIndexOf('/') + 1));
+            }
+          }
+        }
+        
+        // Check picture parent for additional sources
+        if (el.parentElement && el.parentElement.tagName.toLowerCase() === 'picture') {
+          for (const src of el.parentElement.querySelectorAll('source')) {
+            const b = pickFromSrcset(src.getAttribute('srcset'));
+            if (b) {
+              const junkCheck = isJunkImage(b, src);
+              if (!junkCheck.blocked) {
+                const upgraded = upgradeCDNUrl(b);
+                enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
+                urlToSelectorMap.set(upgraded, selector);
+              }
+            }
+          }
+        }
+      }
+    } catch(e) {
+      console.warn('[DEBUG] processImages error:', e.message);
+      dbg('❌ Image processing failed, returning empty array');
+      return [];
+    }
+    
+    dbg(`🖼️ Raw enriched URLs collected: ${enrichedUrls.length}`);
+    
+    // Phase 4: Deduplication + Scoring + Size Filtering (merged from hybridUniqueImages)
+    debug('🔄 FILTERING & SCORING UNIQUE IMAGES...', { inputCount: enrichedUrls.length });
+    const groups = new Map();
+    const filtered = { empty: 0, invalid: 0, junk: 0, lowScore: 0, smallFile: 0, duplicateGroups: 0, kept: 0 };
+    
+    for (const enriched of enrichedUrls) {
+      if (!enriched.url) {
+        filtered.empty++;
+        continue;
+      }
+      
+      const abs = toAbs(enriched.url);
+      
+      if (!looksLikeImageURL(abs)) {
+        addImageDebugLog('debug', `❌ NOT IMAGE URL: ${abs.slice(0, 100)}`, abs, 0, false);
+        filtered.invalid++;
+        continue;
+      }
+      
+      if (JUNK_IMG.test(abs) || BASE64ISH_SEG.test(abs)) {
+        addImageDebugLog('debug', `🗑️ JUNK IMAGE: ${abs.slice(0, 80)}`, abs, 0, false);
+        filtered.junk++;
+        continue;
+      }
+      
+      const score = scoreImageURL(abs, enriched.element, enriched.index);
+      if (score < 50) {
+        addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
+        filtered.lowScore++;
+        continue;
+      }
+      
+      const canonical = canonicalKey(abs);
+      if (!groups.has(canonical)) groups.set(canonical, []);
+      groups.get(canonical).push({ url: abs, element: enriched.element, index: enriched.index, score, selector });
+    }
+    
+    // Select best scoring image from each group
+    const bestImages = [];
+    for (const [canonical, candidates] of groups) {
+      if (candidates.length === 1) {
+        const candidate = candidates[0];
+        bestImages.push({ ...candidate, canonical });
+        addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${candidate.score}): ${candidate.url.slice(0, 100)} | Found by: ${candidate.selector}`, candidate.url, candidate.score, true);
+        filtered.kept++;
+      } else {
+        let bestCandidate = candidates.reduce((best, current) => 
+          current.score > best.score ? current : best
+        );
+        bestImages.push({ ...bestCandidate, canonical });
+        addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestCandidate.score}): ${bestCandidate.url.slice(0, 100)} | Found by: ${bestCandidate.selector}`, bestCandidate.url, bestCandidate.score, true);
+        filtered.duplicateGroups++;
+        filtered.kept++;
+      }
+    }
+    
+    bestImages.sort((a, b) => a.index - b.index);
+    
+    // Phase 5: File size filtering
+    const sizeFilteredImages = [];
+    const fileSizeCheckPromises = [];
+    
+    for (const img of bestImages) {
+      if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        continue;
+      }
+      if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        continue;
+      } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        continue;
+      }
+      
+      const estimatedSize = estimateFileSize(img.url);
+      if (estimatedSize >= 50000) {
+        sizeFilteredImages.push(img);
+        addImageDebugLog('debug', `📏 SIZE OK (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+      } else if (estimatedSize >= 20000 && img.score >= 40) {
+        fileSizeCheckPromises.push(
+          checkFileSize(img.url).then(actualSize => ({ img, actualSize, estimatedSize }))
+        );
+      } else {
+        addImageDebugLog('debug', `📉 TOO SMALL (est: ${Math.round(estimatedSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
+        filtered.smallFile++;
+      }
+    }
+    
+    // Check borderline cases
+    if (fileSizeCheckPromises.length > 0) {
+      debug(`📏 CHECKING ACTUAL FILE SIZES for ${fileSizeCheckPromises.length} borderline images...`);
+      const sizeResults = await Promise.all(fileSizeCheckPromises);
+      for (const { img, actualSize } of sizeResults) {
+        if (img.score >= 65 && estimateFileSize(img.url) >= 15000) {
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `🎯 HIGH SCORE + SIZE OK (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        } else if (img.score >= 50 && /[?&](f_auto|q_auto|w[_=]\d+|h[_=]\d+)/i.test(img.url)) {
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `🔧 CDN OPTIMIZED (${img.score}): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        } else if (actualSize && actualSize >= 100000) {
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `📏 SIZE VERIFIED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        } else if (!actualSize && (img.score >= 95 || /\b(assets?|cdn|media)\./i.test(img.url))) {
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `📏 SIZE CHECK FAILED (CORS?) - keeping high-score/CDN: ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        } else if (actualSize && actualSize < 5000 && !/w[_=]\d{3,}|h[_=]\d{3,}/i.test(img.url)) {
+          addImageDebugLog('debug', `📉 TRULY TINY REJECTED (${Math.round(actualSize/1000)}KB): ${img.url.slice(0, 100)}`, img.url, img.score, false);
+          filtered.smallFile++;
+        } else {
+          sizeFilteredImages.push(img);
+          addImageDebugLog('debug', `📊 BORDERLINE KEPT (${actualSize ? Math.round(actualSize/1000) : '?'}KB): ${img.url.slice(0, 100)}`, img.url, img.score, true);
+        }
+      }
+    }
+    
+    // Phase 6: Pixel count competition
+    const getPixelCount = (url) => {
+      const dimensionalPatterns = [
+        /s(\d+)x(\d+)/i,
+        /(\d+)x(\d+)(?:_|\.|$)/i,
+        /w(\d+)_h(\d+)/i,
+        /w(\d+)xh(\d+)/i
+      ];
+      for (const pattern of dimensionalPatterns) {
+        const match = url.match(pattern);
+        if (match) return parseInt(match[1]) * parseInt(match[2]);
+      }
+      const shopifyMatch = url.match(/_(\d+)x/i);
+      if (shopifyMatch) {
+        const dimension = parseInt(shopifyMatch[1]);
+        return dimension * dimension;
+      }
+      return 0;
+    };
+    
+    const getBaseImageUrl = (url) => {
+      return url
+        .replace(/s(\d+)x(\d+)/g, '')
+        .replace(/(\d+)x(\d+)(?:_|\.|$)/g, '')
+        .replace(/w(\d+)_h(\d+)/g, '')
+        .replace(/w(\d+)xh(\d+)/g, '')
+        .replace(/_(\d+)x/g, '');
+    };
+    
+    const imageGroups = new Map();
+    sizeFilteredImages.forEach(img => {
+      const baseUrl = getBaseImageUrl(img.url);
+      if (!imageGroups.has(baseUrl)) imageGroups.set(baseUrl, []);
+      imageGroups.get(baseUrl).push(img);
+    });
+    
+    imageGroups.forEach(group => {
+      if (group.length > 1) {
+        const winner = group.reduce((max, img) => 
+          getPixelCount(img.url) > getPixelCount(max.url) ? img : max
+        );
+        winner.score += 25;
+        debug(`🏆 PIXEL WINNER: ${winner.url.substring(winner.url.lastIndexOf('/') + 1)} (+25 bonus, score now ${winner.score})`);
+      }
+    });
+    
+    // Phase 7: Final ranking (score → size → DOM order)
+    sizeFilteredImages.sort((a, b) => {
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      const sizeA = estimateFileSize(a.url);
+      const sizeB = estimateFileSize(b.url);
+      const sizeDiff = sizeB - sizeA;
+      if (sizeDiff !== 0) return sizeDiff;
+      return a.index - b.index;
+    });
+    
+    debug('🏆 TOP SCORED IMAGES:', sizeFilteredImages.slice(0, 5).map(img => 
+      `${img.url.substring(img.url.lastIndexOf('/') + 1)} (score: ${img.score})`));
+    
+    const finalImages = sizeFilteredImages.slice(0, 50);
+    const finalUrls = finalImages.map(img => img.url);
+    
+    finalImages.forEach(img => {
+      if (img.selector) urlToSelectorMap.set(img.url, img.selector);
+    });
+    
+    if (sizeFilteredImages.length > 50) {
+      addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by ranking`, '', 0, false);
+    }
+    
+    debug('🖼️ PROCESSING RESULTS:', filtered);
+    debug('🖼️ FINAL IMAGES:', finalUrls.slice(0, 5).map(url => url.slice(0, 80)));
+    
+    return finalUrls;
+  }
+
+  // NEW SIMPLIFIED ORCHESTRATOR: Selector strategy + lazy loading coordination
   async function getImagesGeneric() {
     const hostname = window.location.hostname.toLowerCase().replace(/^www\./, '');
     const callStack = new Error().stack.split('\n').slice(1, 4).map(line => line.trim()).join(' -> ');
     debug('🖼️ Getting generic images for hostname:', hostname);
     debug('📍 CALL TRACE:', callStack);
     
-    // Site-specific selectors for problematic sites
+    // Site-specific selectors
     const siteSpecificSelectors = {
       'adoredvintage.com': ['.product-gallery img', '.rimage__img', '[class*="product-image"] img'],
       'allbirds.com': ['.product-image-wrapper img', '.ProductImages img', 'main img[src*="shopify"]'],
       'amazon.com': [
-        // New 2024+ Amazon gallery selectors (thumbnails + main)
         '[data-csa-c-element-id*="image"] img',
         '[class*="ivImages"] img', 
         '[id*="ivImage"] img',
         '.iv-tab img',
         '[id*="altImages"] img',
         '[class*="imagesThumbnail"] img',
-        
-        // Broader Amazon image patterns
         'img[src*="images-amazon.com"]',
         'img[src*="ssl-images-amazon.com"]',
         'img[src*="m.media-amazon.com"]',
-        
-        // Legacy selectors (fallback)
         '.a-dynamic-image',
         '#imageBlockContainer img', 
         '#imageBlock img'
@@ -2022,7 +2390,7 @@
     const siteSelectors = siteSpecificSelectors[hostname] || [];
     for (const sel of siteSelectors) {
       debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
-      const urls = await gatherRawImageUrls(sel);
+      const urls = await processImages(sel, 1200);
       if (urls.length >= 1) {
         debug(`✅ Site-specific success: ${urls.length} images found`);
         mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
@@ -2030,32 +2398,40 @@
       }
     }
     
+    // Try gallery selectors
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
       '.product_media_item img','.product__media-item img.image__img','img.image_img','img.image__img',
       '[class*=gallery] img','.slider img','[class*="slider-image"] img','[class*="slider-img"] img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img'
     ];
     for (const sel of gallerySels) {
-      const elements = qa(sel);
-      debug(`🔍 Selector '${sel}' found ${elements.length} elements`);
-      if (elements.length > 0) {
-        debug(`📝 First element:`, elements[0].outerHTML.slice(0, 200));
-      }
-      const urls = await gatherRawImageUrls(sel);
-      debug(`🎯 Trying selector: '${sel}' → ${urls.length} images`);
+      debug(`🎯 Trying gallery selector: '${sel}'`);
+      const urls = await processImages(sel, 1200);
       if (urls.length >= 3) { 
         debug(`✅ Success with selector: '${sel}'`);
         mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); 
         return urls.slice(0,30); 
       }
     }
+    
+    // Final fallback to broad 'img'
     debug(`🖼️ All specific selectors failed, falling back to broad 'img'`);
     const og = q('meta[property="og:image"]')?.content;
-    const all = await gatherRawImageUrls('img');
-    const combined = (og ? [og] : []).concat(all);
-    const uniq = await uniqueImages(combined);
-    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: uniq.slice(0,30) });
-    return uniq.slice(0,30);
+    const urls = await processImages('img', 1200);
+    const combined = (og ? [og] : []).concat(urls);
+    
+    // Simple deduplication for final fallback
+    const seen = new Set();
+    const unique = [];
+    for (const url of combined) {
+      if (url && !seen.has(url)) {
+        seen.add(url);
+        unique.push(url);
+      }
+    }
+    
+    mark('images', { selectors:['img'], attr:'src', method:'generic-fallback', urls: unique.slice(0,30) });
+    return unique.slice(0,30);
   }
 
   // LLM FALLBACK: Use AI to discover image selectors when all else fails  
@@ -2138,7 +2514,7 @@
         debug('🤖 LLM FALLBACK: Testing selector:', selector);
         
         try {
-          const urls = await gatherImagesBySelector(selector);
+          const urls = await processImages(selector, 1200);
           if (urls.length > 0) {
             debug('🤖 LLM SUCCESS: Found', urls.length, 'images with selector:', selector);
             foundImages.push(...urls);
@@ -2350,7 +2726,16 @@
             dbg('🚫 PIPELINE: No candidates → returning empty');
             images = [];
           } else {
-            images = (await uniqueImages(allSources)).slice(0, 30);
+            // Simple deduplication inline
+            const seen = new Set();
+            const unique = [];
+            for (const url of allSources) {
+              if (url && !seen.has(url)) {
+                seen.add(url);
+                unique.push(url);
+              }
+            }
+            images = unique.slice(0, 30);
           }
           debug('🖼️ FINAL IMAGES:', { count: images.length, images: images.slice(0, 3) });
           
