@@ -1,0 +1,231 @@
+[10:45:39 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":3,"kept":25}
+[10:45:39 AM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_fr","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_102","https://cdn.shopify.com/s/files/
+[10:45:39 AM] 🎯 PRODUCT ID from URL: glossy-lip-kit-skin-tint-blurring-elixir-duo
+[10:45:39 AM] 🔍 FINAL RELEVANCE CHECK: Running keyword matching on 25 final images
+[10:45:39 AM] 🔍 Keywords: [glossy, lip, kit, skin, tint, blurring, elixir, duo]
+[10:45:39 AM] 🔍 Main Product ID: "glossy-lip-kit-skin-tint-blurring-elixir-duo"
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "lip" in /matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "lip" in products/matte_lip_kit_bare_1020x.jpg?v=1741809265 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "lip" in JC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "glossy" in 5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "glossy" in b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in oducts/jnuywyanlfcrajpcpba2_1020x.jpg?v=1690256428 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in oducts/tli4tbawu0cqowlxmd78_1020x.jpg?v=1690256428 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "skin" in 613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in f1ac-4b34-9c43-03716577aaf4_1020x.jpg?v=1721749335 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in C_LLPRP_23_Smitten_Stylized_1020x.jpg?v=1701816850 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in JC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701816848 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in s/1/0662/4598/4498/files/1N_1020x.jpg?v=1695741517 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 310b-4d7c-a9ab-e64abfad1429_1020x.jpg?v=1705447407 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in hotoNov022023_24433PM-2copy_1020x.jpg?v=1705447407 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "skin" in 447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in f4e4-4ef9-aac2-4e4a10f46b84_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in a94e-4719-8258-bd22078edff3_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 82f9-4a6c-8824-d191b61ece15_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 439f-4566-8539-b4ebccdcb01d_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in e6c1-45e1-9287-255b853d998a_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 2342-48e2-849a-9f4d5c0a4452_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 45ed-4718-870f-010c01c7d960_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "lip" in .jpg?v=1750692350&width=200&height=200&crop=center | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in .jpg?v=1757706158&width=200&height=200&crop=center | Found by: unknown
+[10:45:39 AM] 🎯 RELEVANCE RANKING: 8 relevant, 17 others
+[10:45:39 AM] 🎯 Trying selector: '[class*=gallery] img' → 25 images
+[10:45:39 AM] ✅ Success with selector: '[class*=gallery] img'
+[10:45:39 AM] 🖼️ GENERIC IMAGES: {"count":25,"images":["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip
+[10:45:39 AM] 🖼️ LEGACY FILTERING IMAGES (converting to enriched): {"inputCount":25}
+[10:45:39 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":25}
+[10:45:39 AM] 🎯 FILENAME MATCH: 2/8 keywords match (+30): /matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444
+[10:45:39 AM] 🎯 FILENAME MATCH: 2/8 keywords match (+30): products/matte_lip_kit_bare_1020x.jpg?v=1741809265
+[10:45:39 AM] 🎯 FILENAME MATCH: 1/8 keywords match (+20): JC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[10:45:39 AM] 🎯 FILENAME MATCH: 3/8 keywords match (+60): 5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037
+[10:45:39 AM] 🎯 FILENAME MATCH: 3/8 keywords match (+60): b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037
+[10:45:39 AM] 🎯 FILENAME MATCH: 2/8 keywords match (+30): 613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335
+[10:45:39 AM] 🎯 FILENAME MATCH: 2/8 keywords match (+30): 447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037
+[10:45:39 AM] 🎯 FILENAME MATCH: 1/8 keywords match (+20): .jpg?v=1750692350&width=200&height=200&crop=center
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 265): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=174 | Found by: undefined
+265
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 255): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_1020x.jpg?v=1741809265 | Found by: undefined
+255
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 245): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1 | Found by: undefined
+245
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 190): https://kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2 | Found by: undefined
+190
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 190): https://kyliecosmetics.com/cdn/shop/files/v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13- | Found by: undefined
+190
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 200): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe | Found by: undefined
+200
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 160): https://kyliecosmetics.com/cdn/shop/files/skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_ | Found by: undefined
+160
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 70): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_LipMacro_Kylie_01_WS.jpg?v=1750692350&width=200 | Found by: undefined
+70
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 205): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/jnuywyanlfcrajpcpba2_1020x.jpg?v=169025642 | Found by: undefined
+205
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 205): https://cdn.shopify.com/s/files/1/0662/4598/4498/products/tli4tbawu0cqowlxmd78_1020x.jpg?v=169025642 | Found by: undefined
+205
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 170): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c | Found by: undefined
+170
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 170): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Smitten_Stylized_1020x.jpg?v=170 | Found by: undefined
+170
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 170): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701 | Found by: undefined
+170
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 170): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/1N_1020x.jpg?v=1695741517 | Found by: undefined
+170
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 170): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg | Found by: undefined
+170
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 170): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9a | Found by: undefined
+170
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 170): https://cdn.shopify.com/s/files/1/0662/4598/4498/files/PhotoNov022023_24433PM-2copy_1020x.jpg?v=1705 | Found by: undefined
+170
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 130): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b | Found by: undefined
+130
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd2207 | Found by: undefined
+130
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b | Found by: undefined
+130
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4eb | Found by: undefined
+130
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853 | Found by: undefined
+130
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c | Found by: undefined
+130
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f- | Found by: undefined
+130
+📋 Copy URL
+[10:45:39 AM] ✅ SINGLE IMAGE (score: 50): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_US_Stylized_1WN_3f8924a4-fff3-4a1b-88c8-24090c6 | Found by: undefined
+50
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=174
+265
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_1020x.jpg?v=1741809265
+255
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1
+245
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (190): https://kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2
+190
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (190): https://kyliecosmetics.com/cdn/shop/files/v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-
+190
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe
+200
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (160): https://kyliecosmetics.com/cdn/shop/files/skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_
+160
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (70): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_LipMacro_Kylie_01_WS.jpg?v=1750692350&width=200
+70
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/jnuywyanlfcrajpcpba2_1020x.jpg?v=169025642
+205
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/tli4tbawu0cqowlxmd78_1020x.jpg?v=169025642
+205
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c
+170
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Smitten_Stylized_1020x.jpg?v=170
+170
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701
+170
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/1N_1020x.jpg?v=1695741517
+170
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg
+170
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9a
+170
+📋 Copy URL
+[10:45:39 AM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/PhotoNov022023_24433PM-2copy_1020x.jpg?v=1705
+170
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (130): https://kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b
+130
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd2207
+130
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b
+130
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4eb
+130
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853
+130
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c
+130
+📋 Copy URL
+[10:45:39 AM] 🎯 HIGH SCORE + SIZE OK (130): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-
+130
+📋 Copy URL
+[10:45:39 AM] 📏 CHECKING ACTUAL FILE SIZES for 1 borderline images...
+[10:45:39 AM] 📊 BORDERLINE KEPT (3KB): https://kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_US_Stylized_1WN_3f8924a4-fff3-4a1b-88c8-24090c6
+50
+📋 Copy URL
+[10:45:39 AM] 🏆 TOP SCORED IMAGES: ["matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444 (score: 265)","matte_lip_kit_bare_1020x.jpg?v=1741809265 (score: 255)","KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605 (score: 245)","jnuywyanl
+[10:45:39 AM] 🖼️ HYBRID FILTERING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":25}
+[10:45:39 AM] 🖼️ FINAL IMAGES: ["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_fr","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_102","https://cdn.shopify.com/s/files/
+[10:45:39 AM] 🔍 FINAL RELEVANCE CHECK: Running keyword matching on 25 final images
+[10:45:39 AM] 🔍 Keywords: [glossy, lip, kit, skin, tint, blurring, elixir, duo]
+[10:45:39 AM] 🔍 Main Product ID: "glossy-lip-kit-skin-tint-blurring-elixir-duo"
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "lip" in /matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "lip" in products/matte_lip_kit_bare_1020x.jpg?v=1741809265 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "lip" in JC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in oducts/jnuywyanlfcrajpcpba2_1020x.jpg?v=1690256428 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in oducts/tli4tbawu0cqowlxmd78_1020x.jpg?v=1690256428 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "skin" in 613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "glossy" in 5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "glossy" in b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in f1ac-4b34-9c43-03716577aaf4_1020x.jpg?v=1721749335 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in C_LLPRP_23_Smitten_Stylized_1020x.jpg?v=1701816850 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in JC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701816848 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in s/1/0662/4598/4498/files/1N_1020x.jpg?v=1695741517 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 310b-4d7c-a9ab-e64abfad1429_1020x.jpg?v=1705447407 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in hotoNov022023_24433PM-2copy_1020x.jpg?v=1705447407 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "skin" in 447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in f4e4-4ef9-aac2-4e4a10f46b84_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in a94e-4719-8258-bd22078edff3_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 82f9-4a6c-8824-d191b61ece15_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 439f-4566-8539-b4ebccdcb01d_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in e6c1-45e1-9287-255b853d998a_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 2342-48e2-849a-9f4d5c0a4452_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 45ed-4718-870f-010c01c7d960_1020x.jpg?v=1750693037 | Found by: unknown
+[10:45:39 AM] 🔍 ✅ KEYWORD MATCH found: "lip" in .jpg?v=1750692350&width=200&height=200&crop=center | Found by: unknown
+[10:45:39 AM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in .jpg?v=1757706158&width=200&height=200&crop=center | Found by: unknown
+[10:45:39 AM] 🎯 RELEVANCE RANKING: 8 relevant, 17 others
+[10:45:39 AM] 🖼️ FINAL IMAGES: {"count":25,"images":["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip
+[10:45:39 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Glossy Lip Kit & Skin Tint Blurring Elixir Duo","brand":"kylie-cosmetics","description":"Want a shiny, contoured lip and weightless coverag","price":"62.1","imageCount":25,"firstImages":["ht
+[10:45:39 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":25}
