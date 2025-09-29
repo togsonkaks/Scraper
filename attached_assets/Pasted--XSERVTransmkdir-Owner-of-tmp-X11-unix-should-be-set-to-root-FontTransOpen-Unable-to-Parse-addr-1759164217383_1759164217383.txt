@@ -1,0 +1,80 @@
+_XSERVTransmkdir: Owner of /tmp/.X11-unix should be set to root
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/misc/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/TTF/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/OTF/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/Type1/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/100dpi/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/75dpi/
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Could not resolve keysym XF86RefreshRateToggle
+> Warning:          Could not resolve keysym XF86Accessibility
+> Warning:          Could not resolve keysym XF86DoNotDisturb
+Errors from xkbcomp are not fatal to the X server
+[89:0929/151721.942828:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[89:0929/151724.138655:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[89:0929/151724.138716:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[89:0929/151724.147710:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+
+(electron:89): GLib-GIO-CRITICAL **: 15:17:24.199: g_settings_schema_source_lookup: assertion 'source != NULL' failed
+[89:0929/151724.228418:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[89:0929/151724.249171:ERROR:dbus/object_proxy.cc:573] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[89:0929/151724.249617:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[89:0929/151724.249633:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[89:0929/151724.249646:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[89:0929/151724.249659:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[89:0929/151724.249670:ERROR:dbus/object_proxy.cc:573] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+Starting localStorage migration check...
+[89:0929/151725.176758:ERROR:dbus/bus.cc:408] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+No localStorage data found to migrate
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/misc/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/TTF/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/OTF/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/Type1/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/100dpi/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/75dpi/
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Could not resolve keysym XF86RefreshRateToggle
+> Warning:          Could not resolve keysym XF86Accessibility
+> Warning:          Could not resolve keysym XF86DoNotDisturb
+Errors from xkbcomp are not fatal to the X server
+^C     
+ps aux
+^C^C^C^C^C^C^C^C^C^C^Cc^C^C^C^C^C^C^C^C^C^C^C^Cc
+ps aux
+
+
+
+
+
+
+
+
+
+kill -9 <PID>
+killall -9 node
+
+ps -ef
+
+
+
+
+
+
+
+
+yyyy
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/misc/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/TTF/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/OTF/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/Type1/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/100dpi/
+_FontTransOpen: Unable to Parse address ${prefix}/share/fonts/X11/75dpi/
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Could not resolve keysym XF86RefreshRateToggle
+> Warning:          Could not resolve keysym XF86Accessibility
+> Warning:          Could not resolve keysym XF86DoNotDisturb
+Errors from xkbcomp are not fatal to the X server
+^C^C^C^C^C^Crrrrr
+ps aux
+^C

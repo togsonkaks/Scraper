@@ -1,0 +1,92 @@
+[11:38:54 AM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:38:54 AM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:38:54 AM] 🧩 IMAGES: Trying custom handler...
+[11:38:54 AM] 🖼️ IMAGES: Custom insufficient, getting generic images... [FIRST CALL PATH]
+[11:38:54 AM] 🖼️ Getting generic images for hostname: kyliecosmetics.com
+[11:38:54 AM] 📍 CALL TRACE: at getImagesGeneric (<anonymous>:4333:23) -> at scrapeProduct (<anonymous>:4686:41) -> at async <anonymous>:4851:21
+[11:38:54 AM] 🔍 Selector '.product-media img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: '.product-media img' → 0 images
+[11:38:54 AM] 🔍 Selector '.gallery img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: '.gallery img' → 0 images
+[11:38:54 AM] 🔍 Selector '.image-gallery img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: '.image-gallery img' → 0 images
+[11:38:54 AM] 🔍 Selector '.product-images img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: '.product-images img' → 0 images
+[11:38:54 AM] 🔍 Selector '.product-gallery img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: '.product-gallery img' → 0 images
+[11:38:54 AM] 🔍 Selector '.product_media_item img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: '.product_media_item img' → 0 images
+[11:38:54 AM] 🔍 Selector '.product__media-item img.image__img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: '.product__media-item img.image__img' → 0 images
+[11:38:54 AM] 🔍 Selector 'img.image_img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: 'img.image_img' → 0 images
+[11:38:54 AM] 🔍 Selector 'img.image__img' found 0 elements
+[11:38:54 AM] 🎯 Trying selector: 'img.image__img' → 0 images
+[11:38:54 AM] 🔍 Selector '[class*=gallery] img' found 28 elements
+[11:38:54 AM] 📝 First element: <img src="//kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_800x.jpg?v=1750693037" data-src="//kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bun
+[11:38:54 AM] 🔍 Processing 28 image elements...
+[11:38:54 AM] Image element #1 <IMG.responsive-image__image>
+[11:38:54 AM] ✨ UPGRADED Shopify URL: v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_800x.jpg?v=1750693037 -> v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_800x.jpg?v=1750693037 -> v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037
+[11:38:54 AM] Image element #2 <IMG.responsive-image__image>
+[11:38:54 AM] ✨ UPGRADED Shopify URL: v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_800x.jpg?v=1750693037 -> v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_800x.jpg?v=1750693037 -> v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037
+[11:38:54 AM] Image element #3 <IMG.responsive-image__image>
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_800x.jpg?v=1750693037 -> KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_800x.jpg?v=1750693037 -> KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_800x.jpg?v=1750693037 -> KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED Shopify URL: skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_800x.jpg?v=1750693037 -> skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_800x.jpg?v=1750693037 -> skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_800x.jpg?v=1750693037 -> KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_800x.jpg?v=1750693037 -> KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_1020x.jpg?v=1750693037
+[11:38:54 AM] ✨ UPGRADED Shopify URL: matte_lip_kit_kylie_friday_400x.jpg?v=1741811444 -> matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444
+[11:38:54 AM] ✨ UPGRADED CDN URL: matte_lip_kit_kylie_friday_400x.jpg?v=1741811444 -> matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444
+[11:38:54 AM] ✨ UPGRADED Shopify URL: matte_lip_kit_bare_400x.jpg?v=1741809265 -> matte_lip_kit_bare_1020x.jpg?v=1741809265
+[11:38:54 AM] ✨ UPGRADED CDN URL: matte_lip_kit_bare_400x.jpg?v=1741809265 -> matte_lip_kit_bare_1020x.jpg?v=1741809265
+[11:38:54 AM] ✨ UPGRADED Shopify URL: skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe65c8eef_400x.jpg?v=1721749335 -> skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335
+[11:38:54 AM] ✨ UPGRADED CDN URL: skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe65c8eef_400x.jpg?v=1721749335 -> skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c43-03716577aaf4_400x.jpg?v=1721749335 -> KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c43-03716577aaf4_1020x.jpg?v=1721749335
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c43-03716577aaf4_400x.jpg?v=1721749335 -> KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c43-03716577aaf4_1020x.jpg?v=1721749335
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_LLPRP_23_Smitten_Stylized_400x.jpg?v=1701816850 -> KJC_LLPRP_23_Smitten_Stylized_1020x.jpg?v=1701816850
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_LLPRP_23_Smitten_Stylized_400x.jpg?v=1701816850 -> KJC_LLPRP_23_Smitten_Stylized_1020x.jpg?v=1701816850
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_LLPRP_23_Saturn_Stylized_400x.jpg?v=1701816848 -> KJC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701816848
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_LLPRP_23_Saturn_Stylized_400x.jpg?v=1701816848 -> KJC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701816848
+[11:38:54 AM] ✨ UPGRADED Shopify URL: 1N_400x.jpg?v=1695741517 -> 1N_1020x.jpg?v=1695741517
+[11:38:54 AM] ✨ UPGRADED CDN URL: 1N_400x.jpg?v=1695741517 -> 1N_1020x.jpg?v=1695741517
+[11:38:54 AM] ✨ UPGRADED Shopify URL: 1N_400x.jpg?v=1695741517 -> 1N_1020x.jpg?v=1695741517
+[11:38:54 AM] ✨ UPGRADED CDN URL: 1N_400x.jpg?v=1695741517 -> 1N_1020x.jpg?v=1695741517
+[11:38:54 AM] ✨ UPGRADED Shopify URL: jnuywyanlfcrajpcpba2_400x.jpg?v=1690256428 -> jnuywyanlfcrajpcpba2_1020x.jpg?v=1690256428
+[11:38:54 AM] ✨ UPGRADED CDN URL: jnuywyanlfcrajpcpba2_400x.jpg?v=1690256428 -> jnuywyanlfcrajpcpba2_1020x.jpg?v=1690256428
+[11:38:54 AM] ✨ UPGRADED Shopify URL: tli4tbawu0cqowlxmd78_400x.jpg?v=1690256428 -> tli4tbawu0cqowlxmd78_1020x.jpg?v=1690256428
+[11:38:54 AM] ✨ UPGRADED CDN URL: tli4tbawu0cqowlxmd78_400x.jpg?v=1690256428 -> tli4tbawu0cqowlxmd78_1020x.jpg?v=1690256428
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?v=1742484461 -> KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?v=1742484461 -> KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?v=1742484461 -> KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?v=1742484461 -> KJC_TBB_23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=1675363605 -> KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=1675363605 -> KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=1675363605 -> KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=1675363605 -> KJC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[11:38:54 AM] ✨ UPGRADED Shopify URL: KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9ab-e64abfad1429_400x.jpg?v=1705447407 -> KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9ab-e64abfad1429_1020x.jpg?v=1705447407
+[11:38:54 AM] ✨ UPGRADED CDN URL: KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9ab-e64abfad1429_400x.jpg?v=1705447407 -> KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9ab-e64abfad1429_1020x.jpg?v=1705447407
+[11:38:54 AM] ✨ UPGRADED Shopify URL: PhotoNov022023_24433PM-2copy_400x.jpg?v=1705447407 -> PhotoNov022023_24433PM-2copy_1020x.jpg?v=1705447407
+[11:38:54 AM] ✨ UPGRADED CDN URL: PhotoNov022023_24433PM-2copy_400x.jpg?v=1705447407 -> PhotoNov022023_24433PM-2copy_1020x.jpg?v=1705447407
+[11:38:54 AM] 🔄 HYBRID FILTERING UNIQUE IMAGES... {"inputCount":28}
+[11:38:54 AM] 🎯 FILENAME MATCH: 3/8 keywords match (+60): 5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037
+[11:38:54 AM] 🎯 FILENAME MATCH: 3/8 keywords match (+60): b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037
+[11:38:54 AM] 🎯 FILENAME MATCH: 2/8 keywords match (+30): 447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037
+[11:38:54 AM] 🎯 FILENAME MATCH: 1/8 keywords match (+20): .jpg?v=1750692350&width=200&height=200&crop=center
+[11:38:54 AM] 🎯 FILENAME MATCH: 2/8 keywords match (+30): /matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444
+[11:38:54 AM] 🎯 FILENAME MATCH: 2/8 keywords match (+30): products/matte_lip_kit_bare_1020x.jpg?v=1741809265
+[11:38:54 AM] 🎯 FILENAME MATCH: 2/8 keywords match (+30): 613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335
+[11:38:54 AM] 🎯 FILENAME MATCH: 1/8 keywords match (+20): JC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[11:38:54 AM] 🎯 FILENAME MATCH: 1/8 keywords match (+20): JC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605

@@ -2398,6 +2398,7 @@
                 debug('🖼️ IMAGES: Custom insufficient, getting generic images... [SECOND CALL PATH]');
                 const genericImages = await getImagesGeneric();
                 debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
+                usedGeneric = true; // Mark that we used generic here too
                 combinedImages = await uniqueImages(combinedImages.concat(genericImages));
               }
             
