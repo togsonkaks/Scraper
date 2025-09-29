@@ -2109,45 +2109,42 @@
           srcset: el.getAttribute('srcset')
         };
         
-        // Extract from main attributes
+        // Extract from main attributes (raw URLs, no CDN upgrade yet)
         const s1 = attrs.src || attrs['data-src'] || attrs['data-image'] || 
                    attrs['data-zoom-image'] || attrs['data-large'];
         if (s1) {
           const junkCheck = isJunkImage(s1, el);
           if (!junkCheck.blocked) {
-            const upgraded = upgradeCDNUrl(s1);
-            enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
-            urlToSelectorMap.set(upgraded, selector);
+            // Store RAW URL - CDN upgrade happens AFTER scoring
+            enrichedUrls.push({ url: s1, element: el, index: i, selector });
           } else {
             dbg(`❌ BLOCKED [${junkCheck.reason}]:`, s1.substring(s1.lastIndexOf('/') + 1));
           }
         }
         
-        // Extract from srcset
+        // Extract from srcset (raw URLs, no CDN upgrade yet)
         if (attrs.srcset) {
           const best = pickFromSrcset(attrs.srcset);
           if (best) {
             const junkCheck = isJunkImage(best, el);
             if (!junkCheck.blocked) {
-              const upgraded = upgradeCDNUrl(best);
-              enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
-              urlToSelectorMap.set(upgraded, selector);
+              // Store RAW URL - CDN upgrade happens AFTER scoring
+              enrichedUrls.push({ url: best, element: el, index: i, selector });
             } else {
               dbg(`❌ BLOCKED [${junkCheck.reason}]:`, best.substring(best.lastIndexOf('/') + 1));
             }
           }
         }
         
-        // Check picture parent for additional sources
+        // Check picture parent for additional sources (raw URLs, no CDN upgrade yet)
         if (el.parentElement && el.parentElement.tagName.toLowerCase() === 'picture') {
           for (const src of el.parentElement.querySelectorAll('source')) {
             const b = pickFromSrcset(src.getAttribute('srcset'));
             if (b) {
               const junkCheck = isJunkImage(b, src);
               if (!junkCheck.blocked) {
-                const upgraded = upgradeCDNUrl(b);
-                enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
-                urlToSelectorMap.set(upgraded, selector);
+                // Store RAW URL - CDN upgrade happens AFTER scoring
+                enrichedUrls.push({ url: b, element: el, index: i, selector });
               }
             }
           }
@@ -2193,9 +2190,13 @@
         continue;
       }
       
-      const canonical = canonicalKey(abs);
+      // ✅ SCORE PASSED! Now upgrade CDN URL for high-quality images
+      const upgraded = upgradeCDNUrl(abs);
+      urlToSelectorMap.set(upgraded, enriched.selector || selector);
+      
+      const canonical = canonicalKey(upgraded);
       if (!groups.has(canonical)) groups.set(canonical, []);
-      groups.get(canonical).push({ url: abs, element: enriched.element, index: enriched.index, score, selector });
+      groups.get(canonical).push({ url: upgraded, element: enriched.element, index: enriched.index, score, selector });
     }
     
     // Select best scoring image from each group
