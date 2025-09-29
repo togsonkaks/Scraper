@@ -2284,12 +2284,12 @@
           // Simplified single-path logic: combine all sources then fallback if needed
           let allSources = memoryImages.concat(customImages);
           
-          // If insufficient from custom/memory sources, get generic images
-          if (allSources.length < 3) {
-            debug('🖼️ IMAGES: Need more images, getting generic images...');
+          // If no images from custom/memory sources, get generic images
+          if (allSources.length === 0) {
+            debug('🖼️ IMAGES: No custom/memory images, getting generic images...');
             const genericImages = await getImagesGeneric();
             debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-            allSources = allSources.concat(genericImages);
+            allSources = genericImages; // Use generic images directly, no concat needed
           }
           
           // Process and dedupe all sources
