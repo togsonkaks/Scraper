@@ -1217,7 +1217,8 @@
         url: abs,
         element: enriched.element,
         index: enriched.index,
-        score: score
+        score: score,
+        selector: enriched.selector || 'unknown'
       });
     }
     
@@ -1411,6 +1412,13 @@
     
     const finalImages = sizeFilteredImages.slice(0, 50);
     const finalUrls = finalImages.map(img => img.url);
+    
+    // Update urlToSelectorMap with final processed URLs and their selectors
+    finalImages.forEach(img => {
+      if (img.selector) {
+        urlToSelectorMap.set(img.url, img.selector);
+      }
+    });
     
     if (sizeFilteredImages.length > 50) {
       addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by DOM order`, '', 0, false);
