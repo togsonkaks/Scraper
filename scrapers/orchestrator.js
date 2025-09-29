@@ -38,6 +38,9 @@
     }
   };
   
+  // Global mapping to track which selector found each URL
+  const urlToSelectorMap = new Map();
+
   const addImageDebugLog = (level, message, imageUrl, score, kept) => {
     if (typeof window !== 'undefined' && window.__tg_debugLog) {
       window.__tg_debugLog.push({
@@ -1198,7 +1201,7 @@
       // Apply score threshold (minimum 50 points)
       const score = scoreImageURL(abs, enriched.element, enriched.index);
       if (score < 50) {
-        addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)}`, abs, score, false);
+        addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
         continue;
       }
@@ -1225,7 +1228,7 @@
         // Only one candidate, use it
         const candidate = candidates[0];
         bestImages.push({ ...candidate, canonical });
-        addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${candidate.score}): ${candidate.url.slice(0, 100)}`, candidate.url, candidate.score, true);
+        addImageDebugLog('debug', `✅ SINGLE IMAGE (score: ${candidate.score}): ${candidate.url.slice(0, 100)} | Found by: ${candidate.selector}`, candidate.url, candidate.score, true);
         filtered.kept++;
       } else {
         // Multiple candidates, pick highest score
@@ -1234,7 +1237,7 @@
         );
         
         bestImages.push({ ...bestCandidate, canonical });
-        addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestCandidate.score}): ${bestCandidate.url.slice(0, 100)}`, bestCandidate.url, bestCandidate.score, true);
+        addImageDebugLog('debug', `✅ BEST OF ${candidates.length} (score: ${bestCandidate.score}): ${bestCandidate.url.slice(0, 100)} | Found by: ${bestCandidate.selector}`, bestCandidate.url, bestCandidate.score, true);
         filtered.duplicateGroups++;
         filtered.kept++;
         
@@ -1406,7 +1409,8 @@
     debug('🏆 TOP SCORED IMAGES:', sizeFilteredImages.slice(0, 5).map(img => 
       `${img.url.substring(img.url.lastIndexOf('/') + 1)} (score: ${img.score})`));
     
-    const finalUrls = sizeFilteredImages.slice(0, 50).map(img => img.url);
+    const finalImages = sizeFilteredImages.slice(0, 50);
+    const finalUrls = finalImages.map(img => img.url);
     
     if (sizeFilteredImages.length > 50) {
       addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by DOM order`, '', 0, false);
@@ -1416,7 +1420,7 @@
     debug('🖼️ FINAL IMAGES:', finalUrls.slice(0, 5).map(url => url.slice(0, 80)));
     
     // FINAL RELEVANCE GATE: Run keyword matching once on final screened list for ranking
-    if (finalUrls.length > 1) {
+    if (finalImages.length > 1) {
       const mainProductId = findMainProductId();
       const productKeywords = getProductKeywords();
       
@@ -1429,7 +1433,8 @@
         const rankedUrls = [];
         const noMatchUrls = [];
         
-        for (const url of finalUrls) {
+        for (const img of finalImages) {
+          const url = img.url;
           let hasKeywordMatch = false;
           let hasProductIdMatch = false;
           
@@ -1439,12 +1444,12 @@
             for (const keyword of productKeywords) {
               if (filename.includes(keyword)) {
                 hasKeywordMatch = true;
-                debug(`🔍 ✅ KEYWORD MATCH found: "${keyword}" in ${url.slice(-50)}`);
+                debug(`🔍 ✅ KEYWORD MATCH found: "${keyword}" in ${url.slice(-50)} | Found by: ${img.selector || 'unknown'}`);
                 break;
               }
             }
             if (!hasKeywordMatch) {
-              debug(`🔍 ❌ No match for keywords: "${productKeywords.join(', ')}" in ${url.slice(-50)}`);
+              debug(`🔍 ❌ No match for keywords: "${productKeywords.join(', ')}" in ${url.slice(-50)} | Found by: ${img.selector || 'unknown'}`);
             }
           }
           
@@ -1453,7 +1458,7 @@
             const imageProductId = extractProductIdFromUrl(url);
             if (imageProductId === mainProductId) {
               hasProductIdMatch = true;
-              debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} in ${url.slice(-50)}`);
+              debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} in ${url.slice(-50)} | Found by: ${img.selector || 'unknown'}`);
             }
           }
           
@@ -1479,7 +1484,7 @@
   async function uniqueImages(urls) {
     debug('🖼️ LEGACY FILTERING IMAGES (converting to enriched):', { inputCount: urls.length });
     // Convert simple URLs to enriched format for hybrid processing
-    const enriched = urls.map((url, index) => ({ url, element: null, index }));
+    const enriched = urls.map((url, index) => ({ url, element: null, index, selector: 'legacy' }));
     return await hybridUniqueImages(enriched);
   }
   async function gatherImagesBySelector(sel, observeMs = 0) {
@@ -1561,7 +1566,8 @@
         }
         
         const upgradedUrl = upgradeCDNUrl(s1); // Apply universal CDN URL upgrades
-        enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
+        enrichedUrls.push({ url: upgradedUrl, element: el, index: i, selector: sel });
+        urlToSelectorMap.set(upgradedUrl, sel); // Track selector for this URL
       }
       
       const ss = attrs.srcset;
@@ -1582,7 +1588,8 @@
         }
         
         const upgradedUrl = upgradeCDNUrl(best); // Apply universal CDN URL upgrades
-        enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
+        enrichedUrls.push({ url: upgradedUrl, element: el, index: i, selector: sel });
+        urlToSelectorMap.set(upgradedUrl, sel); // Track selector for this URL
       }
       
       // Check picture parent
@@ -1606,7 +1613,8 @@
             }
             
             const upgradedUrl = upgradeCDNUrl(b); // Apply universal CDN URL upgrades
-            enrichedUrls.push({ url: upgradedUrl, element: el, index: i });
+            enrichedUrls.push({ url: upgradedUrl, element: el, index: i, selector: sel });
+            urlToSelectorMap.set(upgradedUrl, sel); // Track selector for this URL
           }
         }
       }
@@ -2417,7 +2425,26 @@
         }
       }
 
-      const payload = { title, brand, description, price, url: location.href, images, timestamp: new Date().toISOString(), mode };
+      // Create enriched images data with selector information
+      const enrichedImages = [];
+      if (Array.isArray(images)) {
+        images.forEach(url => {
+          const selector = urlToSelectorMap.get(url) || 'unknown';
+          enrichedImages.push({ url, selector });
+        });
+      }
+      
+      const payload = { 
+        title, 
+        brand, 
+        description, 
+        price, 
+        url: location.href, 
+        images, 
+        enrichedImages,  // New field with selector information
+        timestamp: new Date().toISOString(), 
+        mode 
+      };
       
       debug('✅ SCRAPE COMPLETE - FINAL RESULTS:', {
         title: title?.slice(0, 50),

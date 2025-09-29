@@ -1,0 +1,32 @@
+[4:12:06 PM] 🔍 Main Product ID: "glossy-lip-kit-skin-tint-blurring-elixir-duo"
+[4:12:06 PM] 🔍 ✅ KEYWORD MATCH found: "lip" in /matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444
+[4:12:06 PM] 🔍 ✅ KEYWORD MATCH found: "lip" in products/matte_lip_kit_bare_1020x.jpg?v=1741809265
+[4:12:06 PM] 🔍 ✅ KEYWORD MATCH found: "lip" in JC_VLK_22_LipMacros_Bare_02_1020x.jpg?v=1675363605
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in oducts/jnuywyanlfcrajpcpba2_1020x.jpg?v=1690256428
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in oducts/tli4tbawu0cqowlxmd78_1020x.jpg?v=1690256428
+[4:12:06 PM] 🔍 ✅ KEYWORD MATCH found: "skin" in 613d-4cbb-b688-26ffe65c8eef_1020x.jpg?v=1721749335
+[4:12:06 PM] 🔍 ✅ KEYWORD MATCH found: "glossy" in 5575-4af9-9b8a-e3884e2bd997_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ✅ KEYWORD MATCH found: "glossy" in b904-42c1-ba13-35fe0ead65a6_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in f1ac-4b34-9c43-03716577aaf4_1020x.jpg?v=1721749335
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in C_LLPRP_23_Smitten_Stylized_1020x.jpg?v=1701816850
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in JC_LLPRP_23_Saturn_Stylized_1020x.jpg?v=1701816848
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in s/1/0662/4598/4498/files/1N_1020x.jpg?v=1695741517
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 23_Pink_Me_Up_At_8_Stylized_1020x.jpg?v=1742484461
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 310b-4d7c-a9ab-e64abfad1429_1020x.jpg?v=1705447407
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in hotoNov022023_24433PM-2copy_1020x.jpg?v=1705447407
+[4:12:06 PM] 🔍 ✅ KEYWORD MATCH found: "skin" in 447d-46b1-ad70-adef03d0579b_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in f4e4-4ef9-aac2-4e4a10f46b84_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in a94e-4719-8258-bd22078edff3_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 82f9-4a6c-8824-d191b61ece15_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 439f-4566-8539-b4ebccdcb01d_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in e6c1-45e1-9287-255b853d998a_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 2342-48e2-849a-9f4d5c0a4452_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in 45ed-4718-870f-010c01c7d960_1020x.jpg?v=1750693037
+[4:12:06 PM] 🔍 ✅ KEYWORD MATCH found: "lip" in .jpg?v=1750692350&width=200&height=200&crop=center
+[4:12:06 PM] 🔍 ❌ No match for keywords: "glossy, lip, kit, skin, tint, blurring, elixir, duo" in .jpg?v=1757706158&width=200&height=200&crop=center
+[4:12:06 PM] 🎯 RELEVANCE RANKING: 8 relevant, 17 others
+[4:12:06 PM] 🖼️ FINAL IMAGES: {"count":25,"images":["https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_1020x.jpg?v=1741811444","https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip
+[4:12:06 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Glossy Lip Kit & Skin Tint Blurring Elixir Duo","brand":"kylie-cosmetics","description":"Want a shiny, contoured lip and weightless coverag","price":"62.1","imageCount":25,"firstImages":["ht
+[4:12:06 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":25}
+[4:12:06 PM] 💾 DEBUG LOGGER: Session saved to database
+[4:12:06 PM] ✅ Debug trace complete
