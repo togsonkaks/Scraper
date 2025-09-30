@@ -2109,42 +2109,45 @@
           srcset: el.getAttribute('srcset')
         };
         
-        // Extract from main attributes (raw URLs, no CDN upgrade yet)
+        // Extract from main attributes - UPGRADE CDN FIRST, then check junk
         const s1 = attrs.src || attrs['data-src'] || attrs['data-image'] || 
                    attrs['data-zoom-image'] || attrs['data-large'];
         if (s1) {
-          const junkCheck = isJunkImage(s1, el);
+          const upgraded = upgradeCDNUrl(s1);  // ✨ UPGRADE FIRST - transforms URLs to best form
+          const junkCheck = isJunkImage(upgraded, el);  // Check upgraded URL for junk
           if (!junkCheck.blocked) {
-            // Store RAW URL - CDN upgrade happens AFTER scoring
-            enrichedUrls.push({ url: s1, element: el, index: i, selector });
+            enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
+            urlToSelectorMap.set(upgraded, selector);
           } else {
-            dbg(`❌ BLOCKED [${junkCheck.reason}]:`, s1.substring(s1.lastIndexOf('/') + 1));
+            dbg(`❌ BLOCKED [${junkCheck.reason}]:`, upgraded.substring(upgraded.lastIndexOf('/') + 1));
           }
         }
         
-        // Extract from srcset (raw URLs, no CDN upgrade yet)
+        // Extract from srcset - UPGRADE CDN FIRST, then check junk
         if (attrs.srcset) {
           const best = pickFromSrcset(attrs.srcset);
           if (best) {
-            const junkCheck = isJunkImage(best, el);
+            const upgraded = upgradeCDNUrl(best);  // ✨ UPGRADE FIRST
+            const junkCheck = isJunkImage(upgraded, el);
             if (!junkCheck.blocked) {
-              // Store RAW URL - CDN upgrade happens AFTER scoring
-              enrichedUrls.push({ url: best, element: el, index: i, selector });
+              enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
+              urlToSelectorMap.set(upgraded, selector);
             } else {
-              dbg(`❌ BLOCKED [${junkCheck.reason}]:`, best.substring(best.lastIndexOf('/') + 1));
+              dbg(`❌ BLOCKED [${junkCheck.reason}]:`, upgraded.substring(upgraded.lastIndexOf('/') + 1));
             }
           }
         }
         
-        // Check picture parent for additional sources (raw URLs, no CDN upgrade yet)
+        // Check picture parent for additional sources - UPGRADE CDN FIRST, then check junk
         if (el.parentElement && el.parentElement.tagName.toLowerCase() === 'picture') {
           for (const src of el.parentElement.querySelectorAll('source')) {
             const b = pickFromSrcset(src.getAttribute('srcset'));
             if (b) {
-              const junkCheck = isJunkImage(b, src);
+              const upgraded = upgradeCDNUrl(b);  // ✨ UPGRADE FIRST
+              const junkCheck = isJunkImage(upgraded, src);
               if (!junkCheck.blocked) {
-                // Store RAW URL - CDN upgrade happens AFTER scoring
-                enrichedUrls.push({ url: b, element: el, index: i, selector });
+                enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
+                urlToSelectorMap.set(upgraded, selector);
               }
             }
           }
