@@ -13,43 +13,6 @@ deploymentTarget = "vm"
 expertMode = true
 
 [workflows]
-runButton = "Project"
-
-[[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Tagglo Electron"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Debug API Server"
-
-[[workflows.workflow]]
-name = "Tagglo Electron"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "vnc"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "./start-electron.sh"
-
-[[workflows.workflow]]
-name = "Debug API Server"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "console"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node debug-api-server.js"
-waitForPort = 8000
 
 [nix]
 channel = "stable-25_05"
