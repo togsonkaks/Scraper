@@ -67,6 +67,11 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Electron Environment Fix (Sept 30, 2025)**: Fixed Electron startup in Replit NixOS environment
+  - Installed required system dependencies: gtk3, gsettings-desktop-schemas, glib, dconf
+  - Updated start-electron.sh to use xvfb-run wrapper for automatic X11 display management
+  - Set XDG_DATA_DIRS for GSettings schemas to prevent file dialog crashes
+  - Resolved sandbox permissions with ELECTRON_DISABLE_SANDBOX=1
 - **System Integrity Audit (Sept 2025)**: Comprehensive audit revealed all core systems intact except missing Mozu CDN upgrade logic
 - **Mozu CDN Restoration**: Fixed missing ?max=100 → ?quality=60 conversion for Ace Hardware product images
 - **Code Protection Measures**: Added comprehensive system documentation and change tracking safeguards

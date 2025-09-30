@@ -53,7 +53,7 @@ waitForPort = 8000
 
 [nix]
 channel = "stable-25_05"
-packages = ["xvfb-run", "glib", "gtk3", "at-spi2-atk", "nss", "nspr", "xorg.xvfb", "libdrm", "mesa", "libgbm", "xorg.libX11", "xorg.libXrandr", "libxkbcommon", "alsa-lib"]
+packages = ["xvfb-run", "glib", "gtk3", "at-spi2-atk", "nss", "nspr", "xorg.xvfb", "libdrm", "mesa", "libgbm", "xorg.libX11", "xorg.libXrandr", "libxkbcommon", "alsa-lib", "gsettings-desktop-schemas", "dconf"]
 
 [[ports]]
 localPort = 5001
