@@ -1765,14 +1765,9 @@
         debug(`🎯 TRYING SELECTOR [${field}]:`, sel);
         
         if (field === 'images') {
-          const urls = await processImages(sel, 1200);
-          if (urls.length) { 
-            debug(`✅ MEMORY IMAGES SUCCESS: ${urls.length} images found`);
-            mark('images', { selectors:[sel], attr:'src', method:'css', urls: urls.slice(0,30) }); 
-            return urls.slice(0,30); 
-          } else {
-            debug('❌ MEMORY IMAGES: No images found for selector:', sel);
-          }
+          // Skip memory selector for images - it will be tried later with other selectors
+          debug('⏩ SKIPPING MEMORY for images - will try with site-specific/generic');
+          continue;
         } else {
           const el = q(sel); 
           debugSelector(sel, el, `Memory ${field}`);
@@ -2394,7 +2389,7 @@
     const siteSelectors = siteSpecificSelectors[hostname] || [];
     for (const sel of siteSelectors) {
       debug(`🎯 Trying site-specific selector for ${hostname}:`, sel);
-      const urls = await processImages(sel, 1200);
+      const urls = await processImages(sel, 0);
       if (urls.length >= 1) {
         debug(`✅ Site-specific success: ${urls.length} images found`);
         mark('images', { selectors:[sel], attr:'src', method:'site-specific', urls: urls.slice(0,30) }); 
@@ -2410,7 +2405,7 @@
     ];
     for (const sel of gallerySels) {
       debug(`🎯 Trying gallery selector: '${sel}'`);
-      const urls = await processImages(sel, 1200);
+      const urls = await processImages(sel, 0);
       if (urls.length >= 3) { 
         debug(`✅ Success with selector: '${sel}'`);
         mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); 
@@ -2421,7 +2416,7 @@
     // Final fallback to broad 'img'
     debug(`🖼️ All specific selectors failed, falling back to broad 'img'`);
     const og = q('meta[property="og:image"]')?.content;
-    const urls = await processImages('img', 1200);
+    const urls = await processImages('img', 0);
     const combined = (og ? [og] : []).concat(urls);
     
     // Simple deduplication for final fallback
@@ -2518,7 +2513,7 @@
         debug('🤖 LLM FALLBACK: Testing selector:', selector);
         
         try {
-          const urls = await processImages(selector, 1200);
+          const urls = await processImages(selector, 0);
           if (urls.length > 0) {
             debug('🤖 LLM SUCCESS: Found', urls.length, 'images with selector:', selector);
             foundImages.push(...urls);
