@@ -924,28 +924,6 @@ const KIRRINFINCH = {
   }
 };
 
-// ---------- Mahabis (bundle price + zoom/high-res) ----------
-const MAHABIS = {
-  match: (h) => /\bmahabis\.com$/i.test(h),
-  price(doc = document) {
-  const el =
-    doc.querySelector('#bundlePrice .money') ||
-    doc.querySelector('.pricea .money, .product-details-wrap .money');
-  return normalizeMoney(T(el?.textContent)) || __pickJSONLDProductPrice(doc) || null;
-},
-
-  images(doc = document) {
-    const out = new Set();
-    const zoom = doc.getElementById('mobileZoomedImgDesktop');
-    if (zoom?.src) out.add(zoom.src);
-    doc.querySelectorAll('#productImageswrapper img, [data-high-res-url]').forEach(el=>{
-      const u = el.getAttribute?.('data-high-res-url') || el.currentSrc || el.src;
-      if (u) out.add(u);
-    });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
-  }
-};
-
 // ---------- MESHKI (dedupe small widths; keep largest per base) ----------
 const MESHKI = {
   match: (h) => /\bmeshki\.(us|com)\b/i.test(h),
@@ -1932,7 +1910,6 @@ const REGISTRY = [
   COMMENSE,
   // CUYANA, // TEMPORARILY DISABLED - testing generic vs custom
   // KIRRINFINCH, // TEMPORARILY DISABLED - testing generic vs custom  
-  MAHABIS,
   { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
   MESHKI,
   ALIEXPRESS,
