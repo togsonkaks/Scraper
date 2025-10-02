@@ -1679,7 +1679,7 @@
         const baseName = match ? match[1].toLowerCase() : null;
         
         // Extract dimensions from various CDN patterns: /1200/, _1200, w_1200/, h1200/, etc.
-        const sizePattern = url.match(/[\/\_]?[wh]?[\_]?(\d{3,4})[\/_\.]?/i);
+        const sizePattern = url.match(/[\/_]?[wh]?_?(\d{3,4})[\/_.]?/i);
         const sizeValue = sizePattern ? parseInt(sizePattern[1]) : 0;
         
         const hasLarge = url.includes('/large/');
