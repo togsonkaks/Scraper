@@ -1666,14 +1666,14 @@
     function resolveDuplicateImages(imageUrls) {
       if (!imageUrls || imageUrls.length <= 1) return imageUrls;
       
+      console.log('🔍 DUPLICATE RESOLUTION: Starting with', imageUrls.length, 'images');
+      
       const urlData = imageUrls.map((url, index) => {
-        const cleanUrl = url.split('?')[0];
-        const parts = cleanUrl.split('/');
-        const filename = parts[parts.length - 1];
+        // Find .jpg/.jpeg/.png and extract filename (everything between last / and the .)
+        const match = url.match(/\/([^\/]+)\.(jpe?g|png)(\?|$)/i);
+        const baseName = match ? match[1].toLowerCase() : null;
         
-        const baseWithExt = filename.toLowerCase();
-        const baseName = baseWithExt.replace(/\.(jpe?g|png)$/i, '');
-        
+        // Extract size from URL patterns like /1200/ or /large/
         const sizePattern = url.match(/\/(\d{3,4})\//);
         const sizeValue = sizePattern ? parseInt(sizePattern[1]) : 0;
         
@@ -1686,16 +1686,22 @@
         if (hasMedium) qualityScore -= 200;
         if (hasLarge && sizeValue === 0) qualityScore = 100;
         
-        return { url, index, baseName, qualityScore, filename: baseWithExt };
+        console.log(`  [${index}] ${baseName} → score: ${qualityScore} (${url.split('/').slice(-2).join('/')})`);
+        
+        return { url, index, baseName, qualityScore };
       });
       
       const duplicateGroups = {};
       urlData.forEach(item => {
-        if (!duplicateGroups[item.baseName]) {
-          duplicateGroups[item.baseName] = [];
+        if (item.baseName) {  // Only group if we extracted a valid baseName
+          if (!duplicateGroups[item.baseName]) {
+            duplicateGroups[item.baseName] = [];
+          }
+          duplicateGroups[item.baseName].push(item);
         }
-        duplicateGroups[item.baseName].push(item);
       });
+      
+      console.log('📦 GROUPS:', Object.keys(duplicateGroups).length, 'unique filenames');
       
       const toMoveToBottom = new Set();
       
