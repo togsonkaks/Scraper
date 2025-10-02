@@ -2002,6 +2002,39 @@
     }
     return null;
   }
+  // Helper: Compute actual CSS path from element (shows real container, not just 'img')
+  function getElementPath(el) {
+    if (!el || !el.tagName) return 'unknown';
+    
+    const parts = [];
+    let current = el;
+    let depth = 0;
+    
+    // Walk up to 3 levels to capture meaningful context
+    while (current && depth < 3) {
+      let part = current.tagName.toLowerCase();
+      
+      // Add ID if present (most specific)
+      if (current.id) {
+        part = `#${current.id}`;
+        parts.unshift(part);
+        break; // ID is specific enough, stop here
+      }
+      
+      // Add first class if present (helps identify container)
+      const classes = (current.className || '').toString().trim().split(/\s+/).filter(c => c);
+      if (classes.length > 0) {
+        part = `${part}.${classes[0]}`;
+      }
+      
+      parts.unshift(part);
+      current = current.parentElement;
+      depth++;
+    }
+    
+    return parts.join(' > ');
+  }
+
   // ⚠️ NEW MERGED ARCHITECTURE: Complete image processing pipeline in single function ⚠️
   // Process images with complete pipeline: extraction → filtering → scoring → ranking
   async function processImages(selector, observeMs = 1200) {
@@ -2104,6 +2137,9 @@
           srcset: el.getAttribute('srcset')
         };
         
+        // Compute actual CSS path for better debugging (shows real container, not just 'img')
+        const actualPath = getElementPath(el);
+        
         // Extract from main attributes - UPGRADE CDN FIRST, then check junk
         const s1 = attrs.src || attrs['data-src'] || attrs['data-image'] || 
                    attrs['data-zoom-image'] || attrs['data-large'];
@@ -2111,8 +2147,8 @@
           const upgraded = upgradeCDNUrl(s1);  // ✨ UPGRADE FIRST - transforms URLs to best form
           const junkCheck = isJunkImage(upgraded, el);  // Check upgraded URL for junk
           if (!junkCheck.blocked) {
-            enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
-            urlToSelectorMap.set(upgraded, selector);
+            enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath });
+            urlToSelectorMap.set(upgraded, actualPath);
           } else {
             dbg(`❌ BLOCKED [${junkCheck.reason}]:`, upgraded.substring(upgraded.lastIndexOf('/') + 1));
           }
@@ -2125,8 +2161,8 @@
             const upgraded = upgradeCDNUrl(best);  // ✨ UPGRADE FIRST
             const junkCheck = isJunkImage(upgraded, el);
             if (!junkCheck.blocked) {
-              enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
-              urlToSelectorMap.set(upgraded, selector);
+              enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath });
+              urlToSelectorMap.set(upgraded, actualPath);
             } else {
               dbg(`❌ BLOCKED [${junkCheck.reason}]:`, upgraded.substring(upgraded.lastIndexOf('/') + 1));
             }
@@ -2141,8 +2177,8 @@
               const upgraded = upgradeCDNUrl(b);  // ✨ UPGRADE FIRST
               const junkCheck = isJunkImage(upgraded, src);
               if (!junkCheck.blocked) {
-                enrichedUrls.push({ url: upgraded, element: el, index: i, selector });
-                urlToSelectorMap.set(upgraded, selector);
+                enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath });
+                urlToSelectorMap.set(upgraded, actualPath);
               }
             }
           }
