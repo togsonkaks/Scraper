@@ -1664,7 +1664,12 @@
     })();
     // Resolve duplicate images - keep higher quality, move lower to bottom
     function resolveDuplicateImages(imageUrls) {
-      if (!imageUrls || imageUrls.length <= 1) return imageUrls;
+      console.log('🚀 FUNCTION CALLED: resolveDuplicateImages with', imageUrls?.length || 0, 'images');
+      
+      if (!imageUrls || imageUrls.length <= 1) {
+        console.log('⏩ SKIPPING: Too few images');
+        return imageUrls;
+      }
       
       console.log('🔍 DUPLICATE RESOLUTION: Starting with', imageUrls.length, 'images');
       
@@ -1749,7 +1754,14 @@
         return;
       }
       
-      const cleanedUrls = resolveDuplicateImages(imageUrls);
+      let cleanedUrls = imageUrls;
+      try {
+        cleanedUrls = resolveDuplicateImages(imageUrls);
+        console.log('✅ Duplicate resolution completed successfully');
+      } catch (error) {
+        console.error('❌ Duplicate resolution FAILED:', error);
+        alert('Duplicate resolution error: ' + error.message);
+      }
       
       const imageObjects = cleanedUrls.map((url, index) => ({
         url: url,
