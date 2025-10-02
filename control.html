@@ -1662,6 +1662,76 @@
         }
       });
     })();
+    // Resolve duplicate images - keep higher quality, move lower to bottom
+    function resolveDuplicateImages(imageUrls) {
+      if (!imageUrls || imageUrls.length <= 1) return imageUrls;
+      
+      const urlData = imageUrls.map((url, index) => {
+        const cleanUrl = url.split('?')[0];
+        const parts = cleanUrl.split('/');
+        const filename = parts[parts.length - 1];
+        
+        const baseWithExt = filename.toLowerCase();
+        const baseName = baseWithExt.replace(/\.(jpe?g|png)$/i, '');
+        
+        const sizePattern = url.match(/\/(\d{3,4})\//);
+        const sizeValue = sizePattern ? parseInt(sizePattern[1]) : 0;
+        
+        const hasLarge = url.includes('/large/');
+        const hasMedium = url.includes('/medium/');
+        const hasSmall = url.includes('/small/');
+        
+        let qualityScore = sizeValue;
+        if (hasSmall) qualityScore -= 500;
+        if (hasMedium) qualityScore -= 200;
+        if (hasLarge && sizeValue === 0) qualityScore = 100;
+        
+        return { url, index, baseName, qualityScore, filename: baseWithExt };
+      });
+      
+      const duplicateGroups = {};
+      urlData.forEach(item => {
+        if (!duplicateGroups[item.baseName]) {
+          duplicateGroups[item.baseName] = [];
+        }
+        duplicateGroups[item.baseName].push(item);
+      });
+      
+      const toMoveToBottom = new Set();
+      
+      Object.values(duplicateGroups).forEach(group => {
+        if (group.length > 1) {
+          group.sort((a, b) => b.qualityScore - a.qualityScore);
+          
+          const best = group[0];
+          const lowerQuality = group.slice(1);
+          
+          console.log(`🔄 DUPLICATE FOUND: ${best.baseName}`);
+          console.log(`   ✅ KEEPING: ${best.url.split('/').slice(-2).join('/')} (score: ${best.qualityScore})`);
+          lowerQuality.forEach(item => {
+            console.log(`   ⬇️ MOVING DOWN: ${item.url.split('/').slice(-2).join('/')} (score: ${item.qualityScore})`);
+            toMoveToBottom.add(item.index);
+          });
+        }
+      });
+      
+      const kept = [];
+      const moved = [];
+      
+      imageUrls.forEach((url, index) => {
+        if (toMoveToBottom.has(index)) {
+          moved.push(url);
+        } else {
+          kept.push(url);
+        }
+      });
+      
+      const result = [...kept, ...moved];
+      console.log(`📊 DUPLICATE RESOLUTION: ${imageUrls.length} images → ${kept.length} top quality, ${moved.length} moved to bottom`);
+      
+      return result;
+    }
+    
     // Mobile Preview Functions - Trust Scraper Ordering
     function updateMobilePreview(imageUrls) {
       const mobileGrid = document.getElementById("mobileGrid");
@@ -1673,8 +1743,9 @@
         return;
       }
       
-      // Trust scraper's order - just create image objects
-      const imageObjects = imageUrls.map((url, index) => ({
+      const cleanedUrls = resolveDuplicateImages(imageUrls);
+      
+      const imageObjects = cleanedUrls.map((url, index) => ({
         url: url,
         originalIndex: index,
         quality: 'medium' // Default quality since scraper already sorted
