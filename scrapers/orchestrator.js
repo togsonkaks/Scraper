@@ -760,6 +760,19 @@
       }
     }
     
+    // BARNES & NOBLE: Upgrade rectangular dimensions to square (full product image)
+    if (/prodimage\.images-bn\.com/i.test(url)) {
+      // Convert any sWxH to square using larger dimension
+      upgraded = upgraded.replace(/s(\d+)x(\d+)/gi, (match, w, h) => {
+        const maxDim = Math.max(parseInt(w), parseInt(h));
+        return `s${maxDim}x${maxDim}`;
+      });
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Barnes & Noble CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
