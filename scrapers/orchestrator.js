@@ -2839,35 +2839,49 @@
               for (const url of images) {
                 let relevanceScore = 0;
                 const matchedKeywords = [];
+                const scoreBreakdown = [];
                 const selector = urlToSelectorMap.get(url) || 'unknown';
                 
-                // Check keyword matches - collect all matched keywords first
+                // 1. SELECTOR HIERARCHY SCORING (Primary filter)
+                const selectorLower = selector.toLowerCase();
+                if (selectorLower.match(/product-(main|gallery|primary|media)|primary-image/)) {
+                  relevanceScore += 100;
+                  scoreBreakdown.push('main-gallery:+100');
+                } else if (selectorLower.match(/zoom|photoswipe|panzoom|swiper|splide|slide/)) {
+                  relevanceScore += 75;
+                  scoreBreakdown.push('carousel:+75');
+                } else if (selectorLower.match(/recommendation|related|cross-sell|upsell|similar|suggested/)) {
+                  relevanceScore -= 50;
+                  scoreBreakdown.push('cross-sell:-50');
+                }
+                
+                // 2. PRODUCT ID MATCH (Secondary refinement)
+                if (mainProductId) {
+                  const imageProductId = extractProductIdFromUrl(url);
+                  if (imageProductId === mainProductId) {
+                    relevanceScore += 50;
+                    scoreBreakdown.push('pid:+50');
+                  }
+                }
+                
+                // 3. KEYWORD MATCH (Tertiary boost)
                 if (productKeywords.length > 0) {
                   const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' ');
                   for (const keyword of productKeywords) {
                     if (filename.includes(keyword)) {
                       matchedKeywords.push(keyword);
-                      relevanceScore += 50; // +50 points per keyword match
+                      relevanceScore += 50;
                     }
                   }
-                  
-                  // Log once with all matched keywords
                   if (matchedKeywords.length > 0) {
-                    const points = matchedKeywords.length * 50;
-                    debug(`🔍 ✅ ${matchedKeywords.length} keywords matched (${matchedKeywords.join(', ')}) +${points} pts in ${url.slice(-50)} | Found by: ${selector}`);
-                  } else {
-                    debug(`🔍 ❌ No match for keywords: "${productKeywords.join(', ')}" in ${url.slice(-50)} | Found by: ${selector}`);
+                    const keywordPoints = matchedKeywords.length * 50;
+                    scoreBreakdown.push(`kw:+${keywordPoints}`);
                   }
                 }
                 
-                // Check product ID match - award bonus points
-                if (mainProductId) {
-                  const imageProductId = extractProductIdFromUrl(url);
-                  if (imageProductId === mainProductId) {
-                    relevanceScore += 50; // +50 bonus for product ID match
-                    debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} +50 pts in ${url.slice(-50)} | Found by: ${selector}`);
-                  }
-                }
+                // Consolidated single-line log with score breakdown
+                const breakdown = scoreBreakdown.length > 0 ? scoreBreakdown.join(' ') : 'no-match:0';
+                debug(`🎯 Score=${relevanceScore} [${breakdown}] | ${url.slice(-60)} | selector: ${selector.slice(0, 40)}`);
                 
                 scoredImages.push({ url, score: relevanceScore });
               }
