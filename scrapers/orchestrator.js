@@ -2230,7 +2230,7 @@
       
       const canonical = canonicalKey(upgraded);
       if (!groups.has(canonical)) groups.set(canonical, []);
-      groups.get(canonical).push({ url: upgraded, element: enriched.element, index: enriched.index, score, selector });
+      groups.get(canonical).push({ url: upgraded, element: enriched.element, index: enriched.index, score, selector: enriched.selector });
     }
     
     // Select best scoring image from each group
