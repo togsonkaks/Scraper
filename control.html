@@ -823,7 +823,6 @@
     }
 
     */
-    async function autoValidateIfNeeded() {
     /* COMMENTED OUT: autoValidateIfNeeded (first definition) - triggers automatic validation
       if (!currentHost) return;
       try {
@@ -1368,11 +1367,10 @@
     }
     
     // Helper function to auto-validate selectors after changes
+    /* COMMENTED OUT: autoValidateIfNeeded (second definition) - triggers automatic validation
     async function autoValidateIfNeeded() {
       if (currentHost && validateBtn) {
         try {
-    /* COMMENTED OUT: autoValidateIfNeeded (second definition) - triggers automatic validation
-          // Wait a bit for DOM to settle
           await new Promise(resolve => setTimeout(resolve, 500));
           
           // Trigger validation if button exists
@@ -1382,10 +1380,10 @@
         }
       }
     }
+    */
 
     async function showSuggestionComparison(field, current, suggestions, validatedContent = null, allCandidates = null) {
       suggestionField.textContent = field;
-    */
       
       // Display current selector
       if (current && current.selectors) {
