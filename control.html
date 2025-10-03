@@ -1577,7 +1577,7 @@
     
     function updateImageCounter() {
       // Add image counter display
-      const overlay = document.getElementById('imageOverlay');
+      const overlay = document.getElementById('imageOverlay'); if (!overlay) return;
       let counter = overlay.querySelector('.image-counter');
       
       if (!counter && currentImageGallery.length > 1) {
@@ -1598,12 +1598,12 @@
     }
     
     function closeImageOverlay() {
-      document.getElementById('imageOverlay').classList.remove('show');
+      const overlay = document.getElementById('imageOverlay'); if (overlay) overlay.classList.remove('show');
       currentImageGallery = [];
       currentImageIndex = 0;
     }
     
-    document.getElementById('imageOverlay').addEventListener('click', (e) => {
+    const overlay = document.getElementById('imageOverlay'); if (overlay) overlay.addEventListener('click', (e) => {
       if (e.target.id === 'imageOverlay') closeImageOverlay();
     });
     
