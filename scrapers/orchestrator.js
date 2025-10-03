@@ -2838,21 +2838,24 @@
               
               for (const url of images) {
                 let relevanceScore = 0;
-                let matchCount = 0;
+                const matchedKeywords = [];
+                const selector = urlToSelectorMap.get(url) || 'unknown';
                 
-                // Check keyword matches - award points for each matching keyword
+                // Check keyword matches - collect all matched keywords first
                 if (productKeywords.length > 0) {
                   const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' ');
                   for (const keyword of productKeywords) {
                     if (filename.includes(keyword)) {
-                      relevanceScore += 10; // +10 points per keyword match
-                      matchCount++;
-                      const selector = urlToSelectorMap.get(url) || 'unknown';
-                      debug(`🔍 ✅ KEYWORD MATCH found: "${keyword}" (+10 pts) in ${url.slice(-50)} | Found by: ${selector}`);
+                      matchedKeywords.push(keyword);
+                      relevanceScore += 50; // +50 points per keyword match
                     }
                   }
-                  if (matchCount === 0) {
-                    const selector = urlToSelectorMap.get(url) || 'unknown';
+                  
+                  // Log once with all matched keywords
+                  if (matchedKeywords.length > 0) {
+                    const points = matchedKeywords.length * 50;
+                    debug(`🔍 ✅ ${matchedKeywords.length} keywords matched (${matchedKeywords.join(', ')}) +${points} pts in ${url.slice(-50)} | Found by: ${selector}`);
+                  } else {
                     debug(`🔍 ❌ No match for keywords: "${productKeywords.join(', ')}" in ${url.slice(-50)} | Found by: ${selector}`);
                   }
                 }
@@ -2861,9 +2864,8 @@
                 if (mainProductId) {
                   const imageProductId = extractProductIdFromUrl(url);
                   if (imageProductId === mainProductId) {
-                    relevanceScore += 100; // +100 bonus for product ID match
-                    const selector = urlToSelectorMap.get(url) || 'unknown';
-                    debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} (+100 pts) in ${url.slice(-50)} | Found by: ${selector}`);
+                    relevanceScore += 50; // +50 bonus for product ID match
+                    debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} +50 pts in ${url.slice(-50)} | Found by: ${selector}`);
                   }
                 }
                 

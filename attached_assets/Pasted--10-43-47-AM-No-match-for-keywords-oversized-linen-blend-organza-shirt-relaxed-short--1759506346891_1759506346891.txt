@@ -1,0 +1,29 @@
+[10:43:47 AM] 🔍 ❌ No match for keywords: "oversized, linen, blend, organza, shirt, relaxed, short" in hooman.com/cmm09851_light%2520blue_xl?pdp.template | Found by: unknown
+[10:43:47 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 (+100 pts) in hooman.com/cmm09851_light%2520blue_xl?pdp.template | Found by: unknown
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "oversized" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "linen" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "blend" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "organza" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "shirt" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "relaxed" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "short" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:43:47 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 (+100 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:43:47 AM] 🔍 ❌ No match for keywords: "oversized, linen, blend, organza, shirt, relaxed, short" in lue_xl_s.jpg?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: li.variation-value > span.swatchanchor > img.swatchanchor-img
+[10:43:47 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 (+100 pts) in lue_xl_s.jpg?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: li.variation-value > span.swatchanchor > img.swatchanchor-img
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "oversized" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "linen" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "blend" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "organza" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "shirt" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "relaxed" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "short" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 (+100 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "oversized" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "linen" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "blend" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "organza" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "shirt" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "relaxed" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ KEYWORD MATCH found: "short" (+10 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 (+100 pts) in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:43:47 AM] 🎯 RELEVANCE RANKING: 5 with matches, scores: [170, 170, 170, 100, 100]
