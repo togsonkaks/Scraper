@@ -1678,9 +1678,15 @@
         const match = url.match(/\/([^\/]+)\.(jpe?g|png)(\?|$)/i);
         const baseName = match ? match[1].toLowerCase() : null;
         
-        // Extract dimensions from various CDN patterns: /1200/, _1200, w_1200/, h1200/, etc.
-        const sizePattern = url.match(/[\/_]?[wh]?_?(\d{3,4})[\/_.]?/i);
-        const sizeValue = sizePattern ? parseInt(sizePattern[1]) : 0;
+        // Extract dimensions from query parameters (w=1000, h=1500) OR path-based patterns
+        let sizeValue = 0;
+        const queryMatch = url.match(/[?&][wh]=(\d+)/i);
+        if (queryMatch) {
+          sizeValue = parseInt(queryMatch[1]); // w=556 → 556, h=1500 → 1500
+        } else {
+          const pathMatch = url.match(/[\/_]?[wh]?_?(\d{3,4})[\/_.]?/i);
+          sizeValue = pathMatch ? parseInt(pathMatch[1]) : 0;
+        }
         
         const hasLarge = url.includes('/large/');
         const hasMedium = url.includes('/medium/');

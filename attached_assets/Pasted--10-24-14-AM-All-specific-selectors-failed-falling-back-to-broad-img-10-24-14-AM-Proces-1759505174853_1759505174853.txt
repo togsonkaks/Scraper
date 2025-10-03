@@ -1,0 +1,374 @@
+[10:24:14 AM] 🖼️ All specific selectors failed, falling back to broad 'img'
+[10:24:14 AM] 🔍 Processing 146 image elements...
+[10:24:14 AM] Image element #1 <IMG.>
+[10:24:14 AM] Image element #2 <IMG.offer-icon>
+[10:24:14 AM] Image element #3 <IMG.offer-icon>
+[10:24:14 AM] ✨ UPGRADED BoohooMAN CDN URL: light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[10:24:14 AM] ✨ UPGRADED CDN URL: light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[10:24:14 AM] ✨ UPGRADED BoohooMAN CDN URL: light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[10:24:14 AM] ✨ UPGRADED CDN URL: light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[10:24:14 AM] ✨ UPGRADED BoohooMAN CDN URL: light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[10:24:14 AM] ✨ UPGRADED CDN URL: light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=112&h=167&fit=ctn&fmt=webp -> light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp
+[10:24:14 AM] 🔄 FILTERING & SCORING UNIQUE IMAGES... {"inputCount":110}
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Sites-boohooman-navigation-US/d
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://www.boohooman.com/us/oversized-linen-blend-organza-shirt-relaxed-short-set/x
+0[IMG ERROR]
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://dummyimage.com/232x370?fmt=webp
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://media.boohoo.com/i/boohooamplience/Mobile_Plain_Share_Button
+0
+📋 Copy URL
+[10:24:14 AM] 📉 LOW SCORE REJECTED (20): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi | Found by: a.thumbnail-link > picture > img.thumb-image
+20
+📋 Copy URL
+[10:24:14 AM] 📉 LOW SCORE REJECTED (30): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi | Found by: a.thumbnail-link > picture > img.thumb-image
+30
+📋 Copy URL
+[10:24:14 AM] 📉 LOW SCORE REJECTED (20): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s | Found by: a.thumbnail-link > picture > img.thumb-image
+20
+📋 Copy URL
+[10:24:14 AM] 📉 LOW SCORE REJECTED (30): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s | Found by: a.thumbnail-link > picture > img.thumb-image
+30
+📋 Copy URL
+[10:24:14 AM] 📉 LOW SCORE REJECTED (20): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s | Found by: a.thumbnail-link > picture > img.thumb-image
+20
+📋 Copy URL
+[10:24:14 AM] 📉 LOW SCORE REJECTED (30): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s | Found by: a.thumbnail-link > picture > img.thumb-image
+30
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://mediahub.boohooman.com/GIFT_CARD_ICON_5481_1
+0
+📋 Copy URL
+[10:24:14 AM] 📉 LOW SCORE REJECTED (0): https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dwaa | Found by: li > a.man2man-logo > img
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] 🗑️ JUNK IMAGE: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content
+0
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://s.seedtag.com/cs/cookiesync/rtbhouse?channeluid=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM
+0[IMG ERROR]
+📋 Copy URL
+[10:24:14 AM] ❌ NOT IMAGE URL: https://lantern.roeye.com/track.php?fingerprint=1f3eab14-c499-45c2-952d-a98672551361&referrer=&landi
+0[IMG ERROR]
+📋 Copy URL
+[10:24:14 AM] ✅ BEST OF 4 (score: 130): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+130
+📋 Copy URL
+[10:24:14 AM] ✅ SINGLE IMAGE (score: 100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s | Found by: a.thumbnail-link > picture > img.thumb-image
+100
+📋 Copy URL
+[10:24:14 AM] ✅ SINGLE IMAGE (score: 100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s | Found by: a.thumbnail-link > picture > img.thumb-image
+100
+📋 Copy URL
+[10:24:14 AM] ✅ SINGLE IMAGE (score: 75): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp | Found by: li.variation-value > span.swatchanchor > img.swatchanchor-img
+75
+📋 Copy URL
+[10:24:14 AM] ✅ SINGLE IMAGE (score: 50): https://sync.go.sonobi.com/us.gif?nw=rh&nuid=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM | Found by: html.country-us > body.country-us > img
+50
+📋 Copy URL
+[10:24:14 AM] 🎯 HIGH SCORE + SIZE OK (130): https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+130
+📋 Copy URL
+[10:24:14 AM] 🎯 HIGH SCORE + SIZE OK (100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s
+100
+📋 Copy URL
+[10:24:14 AM] 🎯 HIGH SCORE + SIZE OK (100): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s
+100
+📋 Copy URL
+[10:24:14 AM] 🔧 CDN OPTIMIZED (75): https://mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+75
+📋 Copy URL
+[10:24:14 AM] 📏 CHECKING ACTUAL FILE SIZES for 1 borderline images...
+[10:24:14 AM] 📏 FILE SIZE CHECK FAILED: https://sync.go.sonobi.com/us.gif?nw=rh&nuid=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM Failed to fetch
+[10:24:14 AM] 📊 BORDERLINE KEPT (?KB): https://sync.go.sonobi.com/us.gif?nw=rh&nuid=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM
+50
+📋 Copy URL
+[10:24:14 AM] 🏆 TOP SCORED IMAGES: ["light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=556&h=0&fit=ctn&fmt=auto (score: 130)","light-blue-oversized-linen-blend-organza-shirt-&-relaxed-short-set?qlt=85&w=1000&h
+[10:24:14 AM] 🖼️ PROCESSING RESULTS: {"empty":0,"invalid":26,"junk":69,"lowScore":7,"smallFile":0,"duplicateGroups":1,"kept":5}
+[10:24:14 AM] 🖼️ FINAL IMAGES: ["https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-lin","https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-l","https://mediahub.boohooman.com/c
+[10:24:14 AM] 🖼️ GENERIC IMAGES: {"count":6,"images":["//mediahub.boohooman.com/cmm09851_light%2520blue_xl?pdp.template","https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shirt-&-relaxe
+[10:24:14 AM] 🖼️ FINAL IMAGES: {"count":6,"images":["//mediahub.boohooman.com/cmm09851_light%2520blue_xl?pdp.template","https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shirt-&-relaxe
+[10:24:14 AM] 🎯 PRODUCT ID from frequency analysis: cmm09851 (7 occurrences)
+[10:24:14 AM] 🔍 FINAL RELEVANCE CHECK: Running keyword matching on 6 final images
+[10:24:14 AM] 🔍 Keywords: [cmm09851, html]
+[10:24:14 AM] 🔍 Main Product ID: "cmm09851"
+[10:24:14 AM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in hooman.com/cmm09851_light%2520blue_xl?pdp.template | Found by: unknown
+[10:24:14 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in hooman.com/cmm09851_light%2520blue_xl?pdp.template | Found by: unknown
+[10:24:14 AM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in elaxed-short-set?qlt=85&w=556&h=0&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:24:14 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in elaxed-short-set?qlt=85&w=556&h=0&fit=ctn&fmt=auto | Found by: #product-main-zoom > figure.mz-figure > img.primary-image
+[10:24:14 AM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:24:14 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:24:14 AM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:24:14 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in ed-short-set?qlt=85&w=1000&h=1500&fit=ctn&fmt=webp | Found by: a.thumbnail-link > picture > img.thumb-image
+[10:24:14 AM] 🔍 ✅ KEYWORD MATCH found: "cmm09851" in %20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp | Found by: li.variation-value > span.swatchanchor > img.swatchanchor-img
+[10:24:14 AM] 🔍 ✅ PRODUCT ID MATCH: cmm09851 in %20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp | Found by: li.variation-value > span.swatchanchor > img.swatchanchor-img
+[10:24:14 AM] 🔍 ❌ No match for keywords: "cmm09851, html" in h&nuid=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM | Found by: html.country-us > body.country-us > img
+[10:24:14 AM] 🎯 RELEVANCE RANKING: 5 relevant, 1 others
+[10:24:14 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Oversized Linen Blend Organza Shirt & Relaxed Shor","brand":"boohooMAN","description":"Shop Oversized Linen Blend Organza Shirt & Relaxed","price":"20","imageCount":6,"firstImages":["//media
+[10:24:14 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":6}
+[10:24:14 AM] 💾 DEBUG LOGGER: Session saved to database
