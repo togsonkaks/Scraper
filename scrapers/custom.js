@@ -1753,10 +1753,22 @@ const CASTLERY = {
       
       images.forEach((img, imgIndex) => {
         debug(`  Slide ${index + 1}, Image ${imgIndex + 1}: Checking sources...`);
-        // Check multiple sources for Cloudinary URLs
+        
+        // Parse srcset to extract highest quality URL
+        const srcset = img.getAttribute('srcset') || img.srcset;
+        let srcsetUrls = [];
+        if (srcset) {
+          // srcset format: "url1 320w, url2 480w, url3 1920w"
+          srcsetUrls = srcset.split(',')
+            .map(entry => entry.trim().split(' ')[0]) // Extract URL part before width descriptor
+            .filter(Boolean);
+        }
+        
+        // Check multiple sources for Cloudinary URLs (srcset first for highest quality)
         const sources = [
-          img.src,
+          ...srcsetUrls,
           img.currentSrc,
+          img.src,
           img.getAttribute('src'),
           img.getAttribute('data-src'),
           img.getAttribute('data-image'), 
@@ -1792,10 +1804,22 @@ const CASTLERY = {
       
       images.forEach((img, imgIndex) => {
         debug(`  Thumbnail ${index + 1}, Image ${imgIndex + 1}: Checking sources...`);
-        // Check multiple sources for Cloudinary URLs
+        
+        // Parse srcset to extract highest quality URL
+        const srcset = img.getAttribute('srcset') || img.srcset;
+        let srcsetUrls = [];
+        if (srcset) {
+          // srcset format: "url1 320w, url2 480w, url3 1920w"
+          srcsetUrls = srcset.split(',')
+            .map(entry => entry.trim().split(' ')[0]) // Extract URL part before width descriptor
+            .filter(Boolean);
+        }
+        
+        // Check multiple sources for Cloudinary URLs (srcset first for highest quality)
         const sources = [
-          img.src,
+          ...srcsetUrls,
           img.currentSrc,
+          img.src,
           img.getAttribute('src'),
           img.getAttribute('data-src'),
           img.getAttribute('data-image'), 
