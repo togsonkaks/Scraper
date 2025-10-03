@@ -724,7 +724,6 @@
     };
 
     // Save selector memory (unchanged)
-    /* COMMENTED OUT: saveMemBtn.onclick - references removed UI elements (okTitle, okPrice, okImages checkboxes)
     saveMemBtn.onclick = async () => {
       const host = currentHost;
       if (!host || !lastPayload) return;
@@ -755,9 +754,7 @@
       await window.api.setSelectorMemory(host, foundSelectors, `Saved ${new Date().toISOString()}`);
       memDebug.innerHTML = `<div style="color:#2d5a27;">✅ Saved selectors.</div>`;
     };
-    */
 
-    /* COMMENTED OUT: clearMemBtn.onclick - references validationResults.innerHTML
     clearMemBtn.onclick = async () => {
       if (!currentHost) return;
       const confirmed = confirm('Clear all saved selectors for this domain?');
@@ -766,9 +763,7 @@
       memDebug.innerHTML = '<div style="color:#666;">No saved selectors for this domain</div>';
       validationResults.innerHTML = '<div style="color:#666; font-style:italic;">No saved selectors found</div>';
       alert('Cleared.');
-    */
     };
-    /* COMMENTED OUT: validateBtn.onclick - triggers validation
 
     validateBtn.onclick = async () => {
       if (!currentHost) return;
@@ -777,9 +772,7 @@
         const results = await window.api.validateSelectors(currentHost);
         displayValidationResults(results);
       } finally {
-    */
         validateBtn.textContent = 'Test Saved Selectors'; validateBtn.disabled = false;
-    /* COMMENTED OUT: displayValidationResults - writes to validationResults element
       }
     };
 
@@ -822,9 +815,7 @@
         ${fieldResults.join('')}`;
     }
 
-    */
     async function autoValidateIfNeeded() {
-    /* COMMENTED OUT: autoValidateIfNeeded (first definition) - triggers automatic validation
       if (!currentHost) return;
       try {
         const memory = await window.api.getSelectorMemory(currentHost);
@@ -835,7 +826,6 @@
       } catch {}
     }
 
-    */
     // AI Suggestion workflow
     const suggestionPanel = document.getElementById('suggestionPanel');
     const suggestionField = document.getElementById('suggestionField');
@@ -1325,7 +1315,7 @@
         }
         
         // Auto-validate to show results
-        // await autoValidateIfNeeded();
+        await autoValidateIfNeeded();
         
       } catch (error) {
         alert(`Error with batch AI: ${error.message}`);
@@ -1371,7 +1361,6 @@
     async function autoValidateIfNeeded() {
       if (currentHost && validateBtn) {
         try {
-    /* COMMENTED OUT: autoValidateIfNeeded (second definition) - triggers automatic validation
           // Wait a bit for DOM to settle
           await new Promise(resolve => setTimeout(resolve, 500));
           
@@ -1385,7 +1374,6 @@
 
     async function showSuggestionComparison(field, current, suggestions, validatedContent = null, allCandidates = null) {
       suggestionField.textContent = field;
-    */
       
       // Display current selector
       if (current && current.selectors) {
@@ -1501,7 +1489,7 @@
         currentSuggestionData = null;
         
         // Auto-validate to show the new selector working
-        // await autoValidateIfNeeded();
+        await autoValidateIfNeeded();
         
       } catch (error) {
         alert(`Error saving AI suggestion: ${error.message}`);
@@ -2123,7 +2111,7 @@
         alert(`✅ Applied ${appliedCount} fields successfully!\n\nThe selectors have been marked as validated. Use "Save (scrape)" to save them to memory.`);
         
         // Auto-validate to refresh the UI
-        // await autoValidateIfNeeded();
+        await autoValidateIfNeeded();
       }
     }
   </script>
