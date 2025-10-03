@@ -391,39 +391,36 @@
     </div>
     <div class="box">
       <div class="label">Mobile Preview</div>
-      <div id="validationPanel" style="margin-bottom: 12px; padding: 8px; background: #f5f5f5; border-radius: 4px; border-left: 4px solid #2196F3;">
-        <div style="font-weight: bold; margin-bottom: 6px; color: #333; font-size: 12px;">Device Toggle:</div>
-        <div id="validationResults" style="font-size: 11px; line-height: 1.4;">
-          <div id="mobileContainer" class="mobile-container iphone">
-            <div id="mobileContent" class="mobile-content">
-              <div id="mobileGrid" class="mobile-grid">
-                <!-- Images will be populated here -->
-              </div>
-              <!-- In-Container Image Detail Modal -->
-              <div id="mobileImageModal" class="mobile-image-modal">
-                <div class="mobile-modal-header">
-                  <button id="mobileBackBtn" class="mobile-back-btn">←</button>
-                  <div class="mobile-header-space"></div>
-                  <button id="mobileSaveBtn" class="mobile-save-btn">Save</button>
-                </div>
-                <div class="mobile-modal-content">
-                  <img id="mobileModalImage" class="mobile-modal-image" src="" alt="Product image">
-                </div>
-                <div class="mobile-modal-footer">
-                  <div class="mobile-image-info">
-                    <div id="mobileImageQuality" class="mobile-quality-indicator"></div>
-                    <div id="mobileImageUrl" class="mobile-image-url"></div>
-                  </div>
-                </div>
+      <!-- Mobile container directly, no validation wrappers -->
+      <div id="mobileContainer" class="mobile-container iphone">
+        <div id="mobileContent" class="mobile-content">
+          <div id="mobileGrid" class="mobile-grid">
+            <!-- Images will be populated here -->
+          </div>
+          <!-- In-Container Image Detail Modal -->
+          <div id="mobileImageModal" class="mobile-image-modal">
+            <div class="mobile-modal-header">
+              <button id="mobileBackBtn" class="mobile-back-btn">←</button>
+              <div class="mobile-header-space"></div>
+              <button id="mobileSaveBtn" class="mobile-save-btn">Save</button>
+            </div>
+            <div class="mobile-modal-content">
+              <img id="mobileModalImage" class="mobile-modal-image" src="" alt="Product image">
+            </div>
+            <div class="mobile-modal-footer">
+              <div class="mobile-image-info">
+                <div id="mobileImageQuality" class="mobile-quality-indicator"></div>
+                <div id="mobileImageUrl" class="mobile-image-url"></div>
               </div>
             </div>
           </div>
         </div>
-        <button id="iphoneBtn" class="device-btn active" data-device="iphone" style="margin-right: 8px; padding: 4px 8px; background: #2196F3; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">📱 iPhone</button>
-        <button id="ipadBtn" class="device-btn" data-device="ipad" style="padding: 4px 8px; background: #ccc; color: #333; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">📱 iPad</button>
-        <span style="font-size: 12px; color: #666; margin-left: 12px;" id="imageCount">0 images</span>
       </div>
+      <button id="iphoneBtn" class="device-btn active" data-device="iphone" style="margin-right: 8px; padding: 4px 8px; background: #2196F3; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">📱 iPhone</button>
+      <button id="ipadBtn" class="device-btn" data-device="ipad" style="padding: 4px 8px; background: #ccc; color: #333; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">📱 iPad</button>
+      <span style="font-size: 12px; color: #666; margin-left: 12px;" id="imageCount">0 images</span>
 
+      <!-- COMMENTED OUT: Selector Memory section entirely
       <div class="label">Selector Memory (approve to save)</div>
       <div>
         <label><input type="checkbox" id="okTitle"> Title OK</label>
@@ -446,35 +443,8 @@
         <button id="clearMemBtn" style="background:#b22;">Clear memory (host)</button>
         <button id="validateBtn" style="background:#4CAF50;">Test Saved Selectors</button>
       </div>
+      -->
       
-      <!-- AI Suggestion Panel -->
-      <div id="suggestionPanel" class="suggestion-panel">
-        <div style="font-weight: bold; margin-bottom: 6px; color: #333; font-size: 12px;">
-          🤖 AI Selector Suggestion for <span id="suggestionField"></span>:
-        </div>
-        <div class="suggestion-comparison">
-          <div class="suggestion-box">
-            <div style="font-weight: bold; color: #666; margin-bottom: 4px;">Current:</div>
-            <div id="currentSelector"></div>
-            <div style="margin-top: 4px; padding: 4px; background: #f9f9f9; border-radius: 2px; min-height: 20px;">
-              <div style="font-size: 10px; color: #666; margin-bottom: 2px;">Preview:</div>
-              <div id="currentPreview" style="font-size: 11px;">—</div>
-            </div>
-          </div>
-          <div class="suggestion-box">
-            <div style="font-weight: bold; color: #4CAF50; margin-bottom: 4px;">AI Suggestion:</div>
-            <div id="aiSuggestion"></div>
-            <div style="margin-top: 4px; padding: 4px; background: #f0f8f0; border-radius: 2px; min-height: 20px;">
-              <div style="font-size: 10px; color: #666; margin-bottom: 2px;">Preview:</div>
-              <div id="aiPreview" style="font-size: 11px;">—</div>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top: 8px;">
-          <button id="useSuggestionBtn" class="use-suggestion-btn">✅ Use AI Suggestion</button>
-          <button id="dismissSuggestionBtn" style="margin-left: 8px; padding: 4px 8px; background: #ccc; color: #333; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">❌ Keep Current</button>
-        </div>
-      </div>
     </div>
   </div>
 
