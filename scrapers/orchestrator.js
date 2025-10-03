@@ -2476,7 +2476,7 @@
     debug(`🖼️ All specific selectors failed, falling back to broad 'img'`);
     const og = q('meta[property="og:image"]')?.content;
     const urls = await processImages('img', 0);
-    const combined = (og ? [og] : []).concat(urls);
+    const combined = (og ? [upgradeCDNUrl(og)] : []).concat(urls);
     
     // Simple deduplication for final fallback
     const seen = new Set();
