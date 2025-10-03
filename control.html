@@ -1762,6 +1762,15 @@
       const mobileGrid = document.getElementById("mobileGrid");
       const imageCount = document.getElementById("imageCount");
       
+      // Null safety checks to prevent crashes
+      if (!mobileGrid || !imageCount) {
+        console.error('❌ Mobile preview elements not found in DOM:', { 
+          mobileGrid: !!mobileGrid, 
+          imageCount: !!imageCount 
+        });
+        return;
+      }
+      
       if (!imageUrls || imageUrls.length === 0) {
         mobileGrid.innerHTML = '<div style="text-align:center;color:#666;padding:40px;">No images to preview</div>';
         imageCount.textContent = "0 images";

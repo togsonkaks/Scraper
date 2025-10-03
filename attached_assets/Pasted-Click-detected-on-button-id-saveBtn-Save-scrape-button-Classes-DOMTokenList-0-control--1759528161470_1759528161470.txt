@@ -1,0 +1,27 @@
+Click detected on: <button id=​"saveBtn">​Save (scrape)​</button>​ Classes: DOMTokenList(0)
+control.html:1668 🚀 FUNCTION CALLED: resolveDuplicateImages with 5 images
+control.html:1675 🔍 DUPLICATE RESOLUTION: Starting with 5 images
+control.html:1708   [0] null → size: 2074, score: 1000 (nike-shox-r4-sneakers-in-black-and-silver/207494721-5?$n_1920w$&wid=1926&fit=constrain)
+control.html:1708   [1] null → size: 2074, score: 1000 (nike-shox-r4-sneakers-in-black-and-silver/207494721-1-black?$n_1920w$&wid=1926&fit=constrain)
+control.html:1708   [2] null → size: 2074, score: 1000 (nike-shox-r4-sneakers-in-black-and-silver/207494721-2?$n_1920w$&wid=1926&fit=constrain)
+control.html:1708   [3] null → size: 2074, score: 1000 (nike-shox-r4-sneakers-in-black-and-silver/207494721-3?$n_1920w$&wid=1926&fit=constrain)
+control.html:1708   [4] null → size: 2074, score: 1000 (nike-shox-r4-sneakers-in-black-and-silver/207494721-4?$n_1920w$&wid=1926&fit=constrain)
+control.html:1723 📦 GROUPS: 0 unique filenames
+control.html:1755 📊 DUPLICATE RESOLUTION: 5 images → 5 top quality, 0 moved to bottom
+control.html:1774 ✅ Duplicate resolution completed successfully
+control.html:1786 📊 MOBILE PREVIEW: Preserving scraper order for 5 images
+control.html:1628 Click detected on: <button id=​"validateBtn" style=​"background:​#4CAF50;​">​Test Saved Selectors​</button>​ Classes: DOMTokenList(0)
+control.html:1956 iPad clicked - switching to 3 columns
+control.html:1628 Click detected on: <button id=​"ipadBtn" class=​"device-btn active" data-device=​"ipad" style=​"padding:​ 4px 8px;​ background:​ rgb(33, 150, 243)​;​ color:​ white;​ border:​ none;​ border-radius:​ 3px;​ cursor:​ pointer;​ font-size:​ 11px;​">​📱 iPad​</button>​ Classes: DOMTokenList(2)
+control.html:1944 iPhone clicked
+control.html:1628 Click detected on: <button id=​"iphoneBtn" class=​"device-btn" data-device=​"iphone" style=​"margin-right:​ 8px;​ padding:​ 4px 8px;​ background:​ rgb(204, 204, 204)​;​ color:​ rgb(51, 51, 51)​;​ border:​ none;​ border-radius:​ 3px;​ cursor:​ pointer;​ font-size:​ 11px;​">​📱 iPhone​</button>​ Classes: DOMTokenList(1)
+control.html:1956 iPad clicked - switching to 3 columns
+control.html:1628 Click detected on: <button id=​"ipadBtn" class=​"device-btn active" data-device=​"ipad" style=​"padding:​ 4px 8px;​ background:​ rgb(33, 150, 243)​;​ color:​ white;​ border:​ none;​ border-radius:​ 3px;​ cursor:​ pointer;​ font-size:​ 11px;​">​📱 iPad​</button>​ Classes: DOMTokenList(2)
+control.html:1944 iPhone clicked
+control.html:1628 Click detected on: <button id=​"iphoneBtn" class=​"device-btn" data-device=​"iphone" style=​"margin-right:​ 8px;​ padding:​ 4px 8px;​ background:​ rgb(204, 204, 204)​;​ color:​ rgb(51, 51, 51)​;​ border:​ none;​ border-radius:​ 3px;​ cursor:​ pointer;​ font-size:​ 11px;​">​📱 iPhone​</button>​ Classes: DOMTokenList(1)
+control.html:1956 iPad clicked - switching to 3 columns
+control.html:1628 Click detected on: <button id=​"ipadBtn" class=​"device-btn active" data-device=​"ipad" style=​"padding:​ 4px 8px;​ background:​ rgb(33, 150, 243)​;​ color:​ white;​ border:​ none;​ border-radius:​ 3px;​ cursor:​ pointer;​ font-size:​ 11px;​">​📱 iPad​</button>​ Classes: DOMTokenList(2)
+control.html:1628 Click detected on: <img referrerpolicy=​"no-referrer" src=​"https:​/​/​images.asos-media.com/​products/​nike-shox-r4-sneakers-in-black-and-silver/​207494721-2?$n_1920w$&wid=1926&fit=constrain" title=​"https:​/​/​images.asos-media.com/​products/​nike-shox-r4-sneakers-in-black-and-silver/​207494721-2?$n_1920w$&wid=1926&fit=constrain" onclick=​"openImageOverlay('https:​/​/​images.asos-media.com/​products/​nike-shox-r4-sneakers-in-black-and-silver/​207494721-2?$n_1920w$&wid=1926&fit=constrain')​">​ Classes: DOMTokenList(0)
+control.html:1628 Click detected on: <button class=​"close-overlay" onclick=​"closeImageOverlay()​">​×​</button>​ Classes: DOMTokenList(1)
+control.html:1628 Click detected on: <div class=​"box">​…​</div>​ Classes: DOMTokenList(1)
+control.html:1628 Click detected on: <div class=​"box">​…​</div>​ Classes: DOMTokenList(1)
