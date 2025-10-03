@@ -625,8 +625,15 @@
     
     // BOOHOO/BOOHOOMAN: Upgrade thumbnail dimensions to high-quality
     if (/mediahub\.boohooman\.com/i.test(url)) {
-      // Upgrade small thumbnail dimensions to full-size
-      upgraded = upgraded.replace(/w=112&h=167/g, 'w=1000&h=1500');
+      // Upgrade any small dimensions to full-size (w=112, w=556, etc → w=1000&h=1500)
+      upgraded = upgraded.replace(/([?&])w=(\d+)&h=(\d+)/gi, (match, sep, w, h) => {
+        const width = parseInt(w);
+        const height = parseInt(h);
+        if (width < 1000 || height < 1500) {
+          return `${sep}w=1000&h=1500`;
+        }
+        return match;
+      });
       
       if (upgraded !== url) {
         debug(`✨ UPGRADED BoohooMAN CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
@@ -835,11 +842,30 @@
     if (_cachedProductKeywords !== null) return _cachedProductKeywords;
     
     const urlPath = window.location.pathname;
-    _cachedProductKeywords = urlPath
-      .split('/').pop() // Get last part of URL path
-      .replace(/[.-]/g, ' ') // Replace dashes/dots with spaces  
-      .split(' ')
-      .filter(part => part.length > 2) // Filter out short words
+    const pathSegments = urlPath.split('/').filter(s => s.length > 0);
+    
+    // Try to find the descriptive product slug (usually second-to-last or last segment)
+    // Skip segments that look like product IDs (all caps/numbers, short codes)
+    let productSlug = '';
+    for (let i = pathSegments.length - 1; i >= 0; i--) {
+      const segment = pathSegments[i];
+      // Skip if it looks like a product ID: CMM09851, 12345, SKU-123, etc
+      if (/^[A-Z0-9\-_]{3,15}$/i.test(segment) || /\.(html?|php|aspx?)$/i.test(segment)) {
+        continue; // Skip product IDs and file extensions
+      }
+      // Found a descriptive slug with multiple words
+      if (segment.includes('-') || segment.length > 15) {
+        productSlug = segment;
+        break;
+      }
+    }
+    
+    // Extract meaningful keywords from slug
+    _cachedProductKeywords = productSlug
+      .replace(/[._]/g, '-') // Normalize separators
+      .split('-')
+      .filter(part => part.length > 3) // Filter words longer than 3 chars (skip "set", "for", etc)
+      .filter(part => !/^\d+$/.test(part)) // Skip pure numbers
       .map(part => part.toLowerCase());
       
     return _cachedProductKeywords;
@@ -2807,52 +2833,52 @@
               debug(`🔍 Keywords: [${productKeywords.join(', ')}]`);
               debug(`🔍 Main Product ID: "${mainProductId}"`);
               
-              // Apply relevance-based re-ranking to final list
-              const rankedUrls = [];
-              const noMatchUrls = [];
+              // Apply relevance-based scoring and ranking to final list
+              const scoredImages = [];
               
               for (const url of images) {
-                let hasKeywordMatch = false;
-                let hasProductIdMatch = false;
+                let relevanceScore = 0;
+                let matchCount = 0;
                 
-                // Check keyword matches
+                // Check keyword matches - award points for each matching keyword
                 if (productKeywords.length > 0) {
                   const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' ');
                   for (const keyword of productKeywords) {
                     if (filename.includes(keyword)) {
-                      hasKeywordMatch = true;
+                      relevanceScore += 10; // +10 points per keyword match
+                      matchCount++;
                       const selector = urlToSelectorMap.get(url) || 'unknown';
-                      debug(`🔍 ✅ KEYWORD MATCH found: "${keyword}" in ${url.slice(-50)} | Found by: ${selector}`);
-                      break;
+                      debug(`🔍 ✅ KEYWORD MATCH found: "${keyword}" (+10 pts) in ${url.slice(-50)} | Found by: ${selector}`);
                     }
                   }
-                  if (!hasKeywordMatch) {
+                  if (matchCount === 0) {
                     const selector = urlToSelectorMap.get(url) || 'unknown';
                     debug(`🔍 ❌ No match for keywords: "${productKeywords.join(', ')}" in ${url.slice(-50)} | Found by: ${selector}`);
                   }
                 }
                 
-                // Check product ID match
+                // Check product ID match - award bonus points
                 if (mainProductId) {
                   const imageProductId = extractProductIdFromUrl(url);
                   if (imageProductId === mainProductId) {
-                    hasProductIdMatch = true;
+                    relevanceScore += 100; // +100 bonus for product ID match
                     const selector = urlToSelectorMap.get(url) || 'unknown';
-                    debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} in ${url.slice(-50)} | Found by: ${selector}`);
+                    debug(`🔍 ✅ PRODUCT ID MATCH: ${mainProductId} (+100 pts) in ${url.slice(-50)} | Found by: ${selector}`);
                   }
                 }
                 
-                // Sort into relevance-matched and non-matched groups
-                if (hasKeywordMatch || hasProductIdMatch) {
-                  rankedUrls.push(url);
-                } else {
-                  noMatchUrls.push(url);
-                }
+                scoredImages.push({ url, score: relevanceScore });
               }
               
-              // Return relevance-matched images first, then others
-              const reorderedUrls = rankedUrls.concat(noMatchUrls);
-              debug(`🎯 RELEVANCE RANKING: ${rankedUrls.length} relevant, ${noMatchUrls.length} others`);
+              // Sort by relevance score (highest first), keeping original order for ties
+              scoredImages.sort((a, b) => {
+                if (b.score !== a.score) return b.score - a.score;
+                return 0; // Maintain original order for equal scores
+              });
+              
+              const reorderedUrls = scoredImages.map(item => item.url);
+              const highScoreCount = scoredImages.filter(item => item.score > 0).length;
+              debug(`🎯 RELEVANCE RANKING: ${highScoreCount} with matches, scores: [${scoredImages.slice(0, 5).map(i => i.score).join(', ')}]`);
               images = reorderedUrls; // Update the final images array with ranked results
             }
           }
