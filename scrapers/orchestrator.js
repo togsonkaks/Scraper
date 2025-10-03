@@ -750,6 +750,16 @@
       }
     }
     
+    // MISSGUIDED (LTWEBSTATIC): Remove thumbnail suffix and upgrade to full-size JPG
+    if (/img\.ltwebstatic\.com/i.test(url)) {
+      // Remove _thumbnail_XXXx suffix and change .webp to .jpg for full-size
+      upgraded = upgraded.replace(/_thumbnail_\d+x\.webp/gi, '.jpg');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Missguided CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
