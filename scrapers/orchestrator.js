@@ -2840,7 +2840,7 @@
                 let relevanceScore = 0;
                 const matchedKeywords = [];
                 const scoreBreakdown = [];
-                const selector = urlToSelectorMap.get(url) || 'unknown';
+                const selector = String(urlToSelectorMap.get(url) || 'unknown');
                 
                 // 1. SELECTOR HIERARCHY SCORING (Primary filter)
                 const selectorLower = selector.toLowerCase();
