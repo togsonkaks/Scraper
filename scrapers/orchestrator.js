@@ -2837,10 +2837,14 @@
               const scoredImages = [];
               
               for (const url of images) {
+                // Ensure url is a string for safe string operations
+                const urlStr = String(url || '');
+                if (!urlStr) continue; // Skip empty URLs
+                
                 let relevanceScore = 0;
                 const matchedKeywords = [];
                 const scoreBreakdown = [];
-                const selector = String(urlToSelectorMap.get(url) || 'unknown');
+                const selector = String(urlToSelectorMap.get(urlStr) || 'unknown');
                 
                 // 1. SELECTOR HIERARCHY SCORING (Primary filter)
                 const selectorLower = selector.toLowerCase();
@@ -2857,7 +2861,7 @@
                 
                 // 2. PRODUCT ID MATCH (Secondary refinement)
                 if (mainProductId) {
-                  const imageProductId = extractProductIdFromUrl(url);
+                  const imageProductId = extractProductIdFromUrl(urlStr);
                   if (imageProductId === mainProductId) {
                     relevanceScore += 50;
                     scoreBreakdown.push('pid:+50');
@@ -2866,7 +2870,7 @@
                 
                 // 3. KEYWORD MATCH (Tertiary boost)
                 if (productKeywords.length > 0) {
-                  const filename = url.toLowerCase().replace(/[^a-z0-9]/g, ' ');
+                  const filename = urlStr.toLowerCase().replace(/[^a-z0-9]/g, ' ');
                   for (const keyword of productKeywords) {
                     if (filename.includes(keyword)) {
                       matchedKeywords.push(keyword);
@@ -2881,9 +2885,9 @@
                 
                 // Consolidated single-line log with score breakdown
                 const breakdown = scoreBreakdown.length > 0 ? scoreBreakdown.join(' ') : 'no-match:0';
-                debug(`🎯 Score=${relevanceScore} [${breakdown}] | ${url.slice(-60)} | selector: ${selector.slice(0, 40)}`);
+                debug(`🎯 Score=${relevanceScore} [${breakdown}] | ${urlStr.slice(-60)} | selector: ${selector.slice(0, 40)}`);
                 
-                scoredImages.push({ url, score: relevanceScore });
+                scoredImages.push({ url: urlStr, score: relevanceScore });
               }
               
               // Sort by relevance score (highest first), keeping original order for ties
