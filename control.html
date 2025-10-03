@@ -767,7 +767,6 @@
       validationResults.innerHTML = '<div style="color:#666; font-style:italic;">No saved selectors found</div>';
       alert('Cleared.');
     */
-    };
     /* COMMENTED OUT: validateBtn.onclick - triggers validation
 
     validateBtn.onclick = async () => {
@@ -777,11 +776,12 @@
         const results = await window.api.validateSelectors(currentHost);
         displayValidationResults(results);
       } finally {
-    */
         validateBtn.textContent = 'Test Saved Selectors'; validateBtn.disabled = false;
-    /* COMMENTED OUT: displayValidationResults - writes to validationResults element
       }
     };
+    */
+
+    /* COMMENTED OUT: displayValidationResults - writes to validationResults element
 
     function displayValidationResults(results) {
       if (!results.savedSelectors || Object.keys(results.savedSelectors).length === 0) {
