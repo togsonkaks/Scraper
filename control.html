@@ -1656,9 +1656,14 @@
       console.log('🔍 DUPLICATE RESOLUTION: Starting with', imageUrls.length, 'images');
       
       const urlData = imageUrls.map((url, index) => {
-        // Find .jpg/.jpeg/.png and extract filename (everything between last / and the .)
-        const match = url.match(/\/([^\/]+)\.(jpe?g|png)(\?|$)/i);
-        const baseName = match ? match[1].toLowerCase() : null;
+        // Find .jpg/.jpeg/.png/.webp and extract filename (everything between last / and the .)
+        const match = url.match(/\/([^\/]+)\.(jpe?g|png|webp)(\?|$)/i);
+        let baseName = match ? match[1].toLowerCase() : null;
+        
+        // Normalize eBay size patterns: s-l1600, s-l1300, s-l1140 → s-l (all variants group together)
+        if (baseName && /^s-l\d{3,4}$/i.test(baseName)) {
+          baseName = 's-l';
+        }
         
         // Extract dimensions from query parameters (w=1000, h=1500) OR path-based patterns
         let sizeValue = 0;
@@ -1674,17 +1679,16 @@
         const hasMedium = url.includes('/medium/');
         const hasSmall = url.includes('/small/');
         
-        // Quality scoring with >= 800 as top tier
+        // Quality scoring - use actual size value to differentiate high-quality variants
         let qualityScore = sizeValue;
-        if (sizeValue >= 800) {
-          qualityScore = 1000; // Top tier - all high quality treated equally
-        } else if (hasSmall) {
+        if (hasSmall) {
           qualityScore = -500;
         } else if (hasMedium) {
           qualityScore = -200;
         } else if (hasLarge && sizeValue === 0) {
           qualityScore = 100;
         }
+        // Keep actual sizeValue for high-quality images so 1600 > 1300 > 1140
         
         console.log(`  [${index}] ${baseName} → size: ${sizeValue}, score: ${qualityScore} (${url.split('/').slice(-2).join('/')})`);
         
