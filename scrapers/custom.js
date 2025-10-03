@@ -735,16 +735,16 @@ const AESOP = {
 };
 
 // ---------- Barnes & Noble (zoom modal + host allow) ----------
-const BARNES_NOBLE = {
-  match: (h) => /\bbarnesandnoble\.com$/i.test(h),
-  images(doc = document) {
-    const out = new Set();
-    doc.querySelectorAll('img[src*="prodimage.images.bn.com"]').forEach(i=>out.add(i.src));
-    doc.querySelector('[data-modal-url*="liquid-pixel-viewer"]')?.click();
-    doc.querySelectorAll('.modal img[src*="prodimage.images.bn.com"]').forEach(i=>out.add(i.src));
-    return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
-  }
-};
+// const BARNES_NOBLE = {
+//   match: (h) => /\bbarnesandnoble\.com$/i.test(h),
+//   images(doc = document) {
+//     const out = new Set();
+//     doc.querySelectorAll('img[src*="prodimage.images.bn.com"]').forEach(i=>out.add(i.src));
+//     doc.querySelector('[data-modal-url*="liquid-pixel-viewer"]')?.click();
+//     doc.querySelectorAll('.modal img[src*="prodimage.images.bn.com"]').forEach(i=>out.add(i.src));
+//     return [...out].filter(u => /\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
+//   }
+// };
 
 // ---------- BonBonBon (prefer visible price + main media) ----------
 const BONBONBON = {
@@ -835,23 +835,23 @@ const CHEWY = {
 
 
 // ---------- Commense / TheCommense (visible price + PhotoSwipe) ----------
-const COMMENSE = {
-  match: (h) => /\b(the)?commense\.com$/i.test(h),
-  price(doc = document) {
-  const el =
-    doc.querySelector('.product__main .product_price .money') ||
-    doc.querySelector('.product__main .product_price, span[id^="ProductPrice-"]');
-  return normalizeMoney(T(el?.textContent)) || __pickJSONLDProductPrice(doc) || null;
-},
-  images(doc = document) {
-    const out = new Set();
-    doc.querySelectorAll('[data-photoswipe-src], .pswp img, .product-main-slide img').forEach(el=>{
-      const u = el.getAttribute?.('data-photoswipe-src') || el.currentSrc || el.src;
-      if (u) out.add(u);
-    });
-    return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
-  }
-};
+// const COMMENSE = {
+//   match: (h) => /\b(the)?commense\.com$/i.test(h),
+//   price(doc = document) {
+//   const el =
+//     doc.querySelector('.product__main .product_price .money') ||
+//     doc.querySelector('.product__main .product_price, span[id^="ProductPrice-"]');
+//   return normalizeMoney(T(el?.textContent)) || __pickJSONLDProductPrice(doc) || null;
+// },
+//   images(doc = document) {
+//     const out = new Set();
+//     doc.querySelectorAll('[data-photoswipe-src], .pswp img, .product-main-slide img').forEach(el=>{
+//       const u = el.getAttribute?.('data-photoswipe-src') || el.currentSrc || el.src;
+//       if (u) out.add(u);
+//     });
+//     return [...out].filter(u=>/\.(jpe?g|png|webp|avif)(\?|#|$)/i.test(u)).slice(0,20);
+//   }
+// };
 
 // ---------- Cuyana (PhotoSwipe zoom / original-src) ----------
 const CUYANA = {
@@ -1710,160 +1710,6 @@ const BESTBUY = {
   }
 };
 
-// ---------- Castlery (focused .slick-slide targeting with Cloudinary filtering) ----------
-const CASTLERY = {
-  match: (h) => /\bcastlery\.com$/i.test(h),
-  
-  async images(doc = document) {
-    const debug = (msg) => {
-      try {
-        const logMsg = `[CASTLERY] ${msg}`;
-        if (typeof window !== 'undefined' && window.__tg_debugLog) {
-          if (typeof window.__tg_debugLog === 'function') {
-            window.__tg_debugLog(logMsg);
-          } else if (Array.isArray(window.__tg_debugLog)) {
-            window.__tg_debugLog.push(logMsg);
-          } else {
-            console.log(logMsg);
-          }
-        } else {
-          console.log(logMsg);
-        }
-        return true; // Always return something to prevent undefined
-      } catch(e) {
-        console.log(`[CASTLERY] ${msg}`); // fallback if anything fails
-        return true;
-      }
-    };
-
-    debug("[DEBUG] Castlery custom handler: targeting .slick-slide containers for product images");
-    const out = new Set();
-    
-    // Target ONLY original slides (skip clones) - no marketing banners
-    const slideContainers = doc.querySelectorAll('.slick-slide:not(.slick-cloned)');
-    debug(`[DEBUG] Castlery found ${slideContainers.length} original slide containers (skipping clones)`);
-    
-    // ALSO target thumbnail gallery images (where additional product views are)
-    const thumbnailContainers = doc.querySelectorAll('[class*="thumb"], [class*="gallery"], [class*="preview"]');
-    debug(`[DEBUG] Castlery found ${thumbnailContainers.length} thumbnail containers`);
-    
-    slideContainers.forEach((slide, index) => {
-      const images = slide.querySelectorAll('img');
-      debug(`Slide ${index + 1}: Found ${images.length} images`);
-      
-      images.forEach((img, imgIndex) => {
-        debug(`  Slide ${index + 1}, Image ${imgIndex + 1}: Checking sources...`);
-        
-        // Parse srcset to extract highest quality URL
-        const srcset = img.getAttribute('srcset') || img.srcset;
-        let srcsetUrls = [];
-        if (srcset) {
-          // srcset format: "url1 320w, url2 480w, url3 1920w"
-          srcsetUrls = srcset.split(',')
-            .map(entry => entry.trim().split(' ')[0]) // Extract URL part before width descriptor
-            .filter(Boolean);
-        }
-        
-        // Check multiple sources for Cloudinary URLs (srcset first for highest quality)
-        const sources = [
-          ...srcsetUrls,
-          img.currentSrc,
-          img.src,
-          img.getAttribute('src'),
-          img.getAttribute('data-src'),
-          img.getAttribute('data-image'), 
-          img.getAttribute('data-zoom'),
-          img.getAttribute('data-large')
-        ].filter(Boolean);
-
-        sources.forEach((url, srcIndex) => {
-          if (url && typeof url === 'string' && url.length > 0) {
-            debug(`    Source ${srcIndex + 1}: ${url.slice(-60)}`);
-            // Only accept product image URLs, skip marketing banners
-            if (url.includes('res.cloudinary.com/castlery') && 
-                !url.includes('/marketing/') && 
-                !url.includes('/banner/') && 
-                !url.includes('/menu/') &&
-                !url.includes('w_{width}')) {
-              debug(`    ✅ ACCEPTED: ${url.slice(-80)}`);
-              out.add(url);
-            } else if (url.includes('/marketing/') || url.includes('/banner/') || url.includes('/menu/')) {
-              debug(`    ❌ SKIPPED (marketing/banner): ${url.slice(-60)}`);
-            } else if (!url.includes('res.cloudinary.com/castlery')) {
-              debug(`    ❌ SKIPPED (not Cloudinary): ${url.slice(-60)}`);
-            }
-          }
-        });
-      });
-    });
-
-    // Process thumbnail containers the same way
-    thumbnailContainers.forEach((thumb, index) => {
-      const images = thumb.querySelectorAll('img');
-      debug(`Thumbnail ${index + 1}: Found ${images.length} images`);
-      
-      images.forEach((img, imgIndex) => {
-        debug(`  Thumbnail ${index + 1}, Image ${imgIndex + 1}: Checking sources...`);
-        
-        // Parse srcset to extract highest quality URL
-        const srcset = img.getAttribute('srcset') || img.srcset;
-        let srcsetUrls = [];
-        if (srcset) {
-          // srcset format: "url1 320w, url2 480w, url3 1920w"
-          srcsetUrls = srcset.split(',')
-            .map(entry => entry.trim().split(' ')[0]) // Extract URL part before width descriptor
-            .filter(Boolean);
-        }
-        
-        // Check multiple sources for Cloudinary URLs (srcset first for highest quality)
-        const sources = [
-          ...srcsetUrls,
-          img.currentSrc,
-          img.src,
-          img.getAttribute('src'),
-          img.getAttribute('data-src'),
-          img.getAttribute('data-image'), 
-          img.getAttribute('data-zoom'),
-          img.getAttribute('data-large')
-        ].filter(Boolean);
-
-        sources.forEach((url, srcIndex) => {
-          if (url && typeof url === 'string' && url.length > 0) {
-            debug(`    Source ${srcIndex + 1}: ${url.slice(-60)}`);
-            // Only accept product image URLs, skip marketing banners
-            if (url.includes('res.cloudinary.com/castlery') && 
-                !url.includes('/marketing/') && 
-                !url.includes('/banner/') && 
-                !url.includes('/menu/') &&
-                !url.includes('w_{width}')) {
-              debug(`    ✅ ACCEPTED: ${url.slice(-80)}`);
-              out.add(url);
-            } else if (url.includes('/marketing/') || url.includes('/banner/') || url.includes('/menu/')) {
-              debug(`    ❌ SKIPPED (marketing/banner): ${url.slice(-60)}`);
-            } else if (!url.includes('res.cloudinary.com/castlery')) {
-              debug(`    ❌ SKIPPED (not Cloudinary): ${url.slice(-60)}`);
-            }
-          }
-        });
-      });
-    });
-
-    const result = [...out].filter(url => 
-      url && 
-      url.includes('res.cloudinary.com/castlery') &&
-      /\.(jpg|jpeg|png|webp|avif)(\?|$)/i.test(url)
-    );
-
-    debug(`FINAL RESULTS: Collected ${result.length} unique product images from ${slideContainers.length} slides + ${thumbnailContainers.length} thumbnails`);
-    result.forEach((url, i) => {
-      debug(`  Final Image ${i+1}: ${url.slice(-80)}`);
-    });
-    debug(`Castlery custom handler complete - returning ${result.length} images`);
-    
-    return result.slice(0, 20);
-  }
-};
-
 const ETSY = {
   match: (h) => /(^|\.)etsy\.com$/i.test(h),
   images(doc = document) {
@@ -1927,11 +1773,11 @@ const REGISTRY = [
   ACE_HARDWARE,
   ALLBIRDS,
   AESOP,
-  BARNES_NOBLE,
+  // BARNES_NOBLE,
   BONBONBON,
   CHEWY,
   // COACH, // TEMPORARILY DISABLED - testing generic vs custom
-  COMMENSE,
+  // COMMENSE,
   // CUYANA, // TEMPORARILY DISABLED - testing generic vs custom
   // KIRRINFINCH, // TEMPORARILY DISABLED - testing generic vs custom  
   { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
@@ -1940,7 +1786,6 @@ const REGISTRY = [
   AE,
   ASOS,
   URBAN_OUTFITTERS,
-  CASTLERY,
   ETSY,
 
 
