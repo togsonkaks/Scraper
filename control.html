@@ -808,6 +808,7 @@
 
     function displayValidationResults(results) {
       if (!results.savedSelectors || Object.keys(results.savedSelectors).length === 0) {
+      console.log("⚠️ Validation display disabled to prevent mobile preview conflict"); return; // DISABLED
         validationResults.innerHTML = '<div style="color:#666; font-style:italic;">No saved selectors found for this domain</div>';
         return;
       }
