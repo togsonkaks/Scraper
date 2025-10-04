@@ -1644,47 +1644,7 @@
         }
       });
     })();
-    // FUNCTION 3: Sort by score, preserve order on ties
-    function sortImagesByQuality(imageUrls) {
-      console.log('🎯 QUALITY SORTING: Processing', imageUrls?.length || 0, 'images');
-      
-      if (!imageUrls || imageUrls.length <= 1) {
-        return imageUrls;
-      }
-      
-      // Score each image URL
-      const scored = imageUrls.map((url, index) => {
-        const keywordScore = scoreKeywords(url);
-        const dimensionScore = scoreDimensions(url);
-        const totalScore = keywordScore + dimensionScore;
-        
-        console.log(`  [${index}] ${url.split('/').pop().slice(0, 40)} → keywords:${keywordScore} + dimensions:${dimensionScore} = ${totalScore}`);
-        
-        return {
-          url,
-          originalIndex: index,
-          totalScore
-        };
-      });
-      
-      // Sort by score (highest first), preserve original order on ties
-      scored.sort((a, b) => {
-        if (b.totalScore !== a.totalScore) {
-          return b.totalScore - a.totalScore;
-        }
-        return a.originalIndex - b.originalIndex;
-      });
-      
-      const sorted = scored.map(item => item.url);
-      const topScore = scored[0]?.totalScore || 0;
-      const bottomScore = scored[scored.length - 1]?.totalScore || 0;
-      
-      console.log(`✅ SORTED: Top score ${topScore}, Bottom score ${bottomScore}`);
-      
-      return sorted;
-    }
-    
-    // Mobile Preview Functions - Trust Scraper Ordering
+    // Mobile Preview Functions - Progressive quality check as images load
     function updateMobilePreview(imageUrls) {
       const mobileGrid = document.getElementById("mobileGrid");
       const imageCount = document.getElementById("imageCount");
@@ -1704,22 +1664,13 @@
         return;
       }
       
-      let sortedUrls = imageUrls;
-      try {
-        sortedUrls = sortImagesByQuality(imageUrls);
-        console.log('✅ Quality sorting completed successfully');
-      } catch (error) {
-        console.error('❌ Quality sorting FAILED:', error);
-        alert('Quality sorting error: ' + error.message);
-      }
-      
-      const imageObjects = sortedUrls.map((url, index) => ({
+      const imageObjects = imageUrls.map((url, index) => ({
         url: url,
         originalIndex: index,
-        quality: 'medium' // Default quality since scraper already sorted
+        quality: 'medium' // Default, will be updated when image loads
       }));
       
-      console.log(`📊 MOBILE PREVIEW: Preserving scraper order for ${imageObjects.length} images`);
+      console.log(`📊 MOBILE PREVIEW: Displaying ${imageObjects.length} images - quality check on load`);
       
       // Create Pinterest-style masonry grid - keep scraper's exact order
       mobileGrid.innerHTML = imageObjects.map((item, index) => `
@@ -1744,37 +1695,42 @@
       }, 100);
     }
     
-    // Size check when images load - adjust quality badges and move bad images to bottom
+    // FUNCTION 3: Check quality after image loads, move bad ones to bottom
     function checkImageSize(imgElement) {
       const width = imgElement.naturalWidth || imgElement.width;
       const height = imgElement.naturalHeight || imgElement.height;
       
       if (width && height) {
+        const url = imgElement.src;
         const badge = imgElement.parentElement.querySelector('.quality-badge');
         const card = imgElement.parentElement;
         
-        // Check for bad dimensions: too small or weird aspect ratio
-        const tooSmall = width < 300 || height < 300;
-        const aspectRatio = Math.max(width / height, height / width); // Always >= 1
-        const weirdShape = aspectRatio >= 2.5;
+        // Calculate combined score
+        const keywordScore = scoreKeywords(url);
+        const dimensionScore = scoreDimensions(width, height, url);
+        const totalScore = keywordScore + dimensionScore;
         
-        if (tooSmall || weirdShape) {
-          // Move to bottom by appending to parent container
+        // Determine if image should move to bottom (negative or very low score)
+        const shouldMoveToBottom = totalScore < 20;
+        
+        if (shouldMoveToBottom) {
           const mobileGrid = document.getElementById("mobileGrid");
           if (mobileGrid && mobileGrid.contains(card)) {
             mobileGrid.appendChild(card);
             badge.textContent = 'LOW';
             badge.className = 'quality-badge quality-low';
-            console.log(`📱 MOVED TO BOTTOM: ${width}x${height} (aspect: ${aspectRatio.toFixed(1)}) - ${tooSmall ? 'too small' : 'weird shape'}`);
+            console.log(`📱 MOVED TO BOTTOM: ${width}x${height}, keywords:${keywordScore} + dimensions:${dimensionScore} = ${totalScore}`);
           }
-        } else if (width < 200 || height < 200) {
-          badge.textContent = 'LOW';
-          badge.className = 'quality-badge quality-low';
-        } else if (width >= 600 && height >= 600) {
+        } else if (totalScore >= 80) {
           badge.textContent = 'HIGH';
           badge.className = 'quality-badge quality-high';
+        } else if (totalScore >= 50) {
+          badge.textContent = 'MEDIUM';
+          badge.className = 'quality-badge quality-medium';
+        } else {
+          badge.textContent = 'LOW';
+          badge.className = 'quality-badge quality-low';
         }
-        // Keep 'MEDIUM' for everything else
       }
     }
     
@@ -1808,54 +1764,30 @@
       return score;
     }
     
-    // FUNCTION 2: Dimension Scoring (size patterns + folders + aspect)
-    function scoreDimensions(url) {
+    // FUNCTION 2: Dimension Scoring (REAL pixels after image loads)
+    function scoreDimensions(width, height, url) {
       let score = 0;
       const urlLower = url.toLowerCase();
       
-      // Extract dimension from URL (width OR height patterns)
-      let dimension = 0;
+      // Use REAL pixel dimensions for size tier scoring
+      const minDimension = Math.min(width, height);
+      const maxDimension = Math.max(width, height);
       
-      // eBay patterns: s-l1600, s-l1300, etc.
-      const ebayMatch = url.match(/s-l(\d{3,4})/i);
-      if (ebayMatch) {
-        dimension = parseInt(ebayMatch[1]);
-      }
-      
-      // Width patterns: _1100x, w_1100, w1100, ?w=1100, /1100/, width/1100, width_1100
-      const widthMatch = url.match(/_(\d{3,4})x|[w_](\d{3,4})|[?&]w=(\d{3,4})|width[\/_](\d{3,4})/i);
-      if (widthMatch && !dimension) {
-        dimension = parseInt(widthMatch[1] || widthMatch[2] || widthMatch[3] || widthMatch[4]);
-      }
-      
-      // Height patterns: _x1100, h_1100, h1100, ?h=1100, height/1100, height_1100
-      const heightMatch = url.match(/_x(\d{3,4})|h[_]?(\d{3,4})|[?&]h=(\d{3,4})|height[\/_](\d{3,4})/i);
-      if (heightMatch && !dimension) {
-        dimension = parseInt(heightMatch[1] || heightMatch[2] || heightMatch[3] || heightMatch[4]);
-      }
-      
-      // Size tier scoring
-      if (dimension >= 1100) score += 20;
-      else if (dimension >= 750) score += 15;
-      else if (dimension >= 400) score += 10;
-      else if (dimension >= 300) score += 5;
-      else if (dimension > 0 && dimension < 300) score -= 20;
+      // Size tier scoring based on smaller dimension
+      if (minDimension >= 1100) score += 20;
+      else if (minDimension >= 750) score += 15;
+      else if (minDimension >= 400) score += 10;
+      else if (minDimension >= 300) score += 5;
+      else if (minDimension > 0 && minDimension < 300) score -= 20;
       
       // Folder scoring
       if (urlLower.includes('/small/')) score -= 50;
       if (urlLower.includes('/medium/')) score -= 20;
       if (urlLower.includes('/large/')) score += 15;
       
-      // Aspect ratio penalty (banners)
-      // Extract both dimensions if available for aspect check
-      let width = 0, height = 0;
-      const dimMatch = url.match(/_?(\d{3,4})x(\d{3,4})/i);
-      if (dimMatch) {
-        width = parseInt(dimMatch[1]);
-        height = parseInt(dimMatch[2]);
-        const aspectRatio = Math.max(width / height, height / width);
-        if (aspectRatio >= 2.5) score -= 50;
-      }
+      // Aspect ratio penalty (banners) - use REAL pixels
+      const aspectRatio = Math.max(width / height, height / width);
+      if (aspectRatio >= 2.5) score -= 50;
       
       return score;
     }
