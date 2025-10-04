@@ -1,0 +1,47 @@
+why is medium showing first?
+📋 https://images.urbndata.com/is/image/FreePeople/84225424_061_a
+Copy
+📋 https://images.urbndata.com/is/image/FreePeople/84225424_061_a/?$redesign-zoom-5x$
+Copy
+📋 https://images.urbndata.com/is/image/FreePeople/84225424_061_b/?$redesign-zoom-5x$
+Copy
+📋 https://images.urbndata.com/is/image/FreePeople/84225424_061_c/?$redesign-zoom-5x$
+Copy
+📋 https://images.urbndata.com/is/image/FreePeople/84225424_061_d/?$redesign-zoom-5x$
+Copy
+📋 https://images.ctfassets.net/udk41sh7kfzj/1Kpsg1yhgGRBA3nBfdmC8u/e24278d8528bed5429961e2703cda39b/FP_Avatar.png
+Copy
+📋 https://idsync.rlcdn.com/458359.gif?partner_uid=b9882684-9b3d-404c-aeb4-522fc6da1808
+
+
+
+
+
+
+Uncaught TypeError: Cannot set properties of null (setting 'onclick')
+    at control.html:1468:30
+diagnostics.js:344 Diagnostics: Copy button listener attached
+VM4 sandbox_bundle:2 Electron Security Warning (Insecure Content-Security-Policy) This renderer process has either no Content Security
+  Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+  this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged.
+warnAboutInsecureCSP @ VM4 sandbox_bundle:2
+control.html:567 🔍 Polling for page readiness...
+control.html:1673 📊 MOBILE PREVIEW: Displaying 5 images - quality check on load
+control.html:1837 Opening mobile image detail: https://cdn.accentuate.io/7773503291554/1683123597797/Photo-Gallery-3.jpg?v=1683123597797
+control.html:1859 Closing mobile image detail
+control.html:567 🔍 Polling for page readiness...
+control.html:1673 📊 MOBILE PREVIEW: Displaying 7 images - quality check on load
+control.html:1673 📊 MOBILE PREVIEW: Displaying 18 images - quality check on load
+control.html:1722 📱 MOVED TO BOTTOM: 600x800, keywords:0 + dimensions:10 = 10
+control.html:1722 📱 MOVED TO BOTTOM: 1x1, keywords:0 + dimensions:-20 = -20
+control.html:1673 📊 MOBILE PREVIEW: Displaying 18 images - quality check on load
+control.html:1722 📱 MOVED TO BOTTOM: 600x800, keywords:0 + dimensions:10 = 10
+control.html:1722 📱 MOVED TO BOTTOM: 1x1, keywords:0 + dimensions:-20 = -20
+control.html:1673 📊 MOBILE PREVIEW: Displaying 18 images - quality check on load
+control.html:1722 📱 MOVED TO BOTTOM: 600x800, keywords:0 + dimensions:10 = 10
+control.html:1722 📱 MOVED TO BOTTOM: 1x1, keywords:0 + dimensions:-20 = -20
