@@ -1644,102 +1644,44 @@
         }
       });
     })();
-    // Resolve duplicate images - keep higher quality, move lower to bottom
-    function resolveDuplicateImages(imageUrls) {
-      console.log('🚀 FUNCTION CALLED: resolveDuplicateImages with', imageUrls?.length || 0, 'images');
+    // FUNCTION 3: Sort by score, preserve order on ties
+    function sortImagesByQuality(imageUrls) {
+      console.log('🎯 QUALITY SORTING: Processing', imageUrls?.length || 0, 'images');
       
       if (!imageUrls || imageUrls.length <= 1) {
-        console.log('⏩ SKIPPING: Too few images');
         return imageUrls;
       }
       
-      console.log('🔍 DUPLICATE RESOLUTION: Starting with', imageUrls.length, 'images');
-      
-      const urlData = imageUrls.map((url, index) => {
-        // Find .jpg/.jpeg/.png/.webp and extract filename (everything between last / and the .)
-        const match = url.match(/\/([^\/]+)\.(jpe?g|png|webp)(\?|$)/i);
-        let baseName = match ? match[1].toLowerCase() : null;
+      // Score each image URL
+      const scored = imageUrls.map((url, index) => {
+        const keywordScore = scoreKeywords(url);
+        const dimensionScore = scoreDimensions(url);
+        const totalScore = keywordScore + dimensionScore;
         
-        // Normalize eBay size patterns: s-l1600, s-l1300, s-l1140 → s-l (all variants group together)
-        if (baseName && /^s-l\d{3,4}$/i.test(baseName)) {
-          baseName = 's-l';
-        }
+        console.log(`  [${index}] ${url.split('/').pop().slice(0, 40)} → keywords:${keywordScore} + dimensions:${dimensionScore} = ${totalScore}`);
         
-        // Extract dimensions from query parameters (w=1000, h=1500) OR path-based patterns
-        let sizeValue = 0;
-        const queryMatch = url.match(/[?&][wh]=(\d+)/i);
-        if (queryMatch) {
-          sizeValue = parseInt(queryMatch[1]); // w=556 → 556, h=1500 → 1500
-        } else {
-          const pathMatch = url.match(/[\/_]?[wh]?_?(\d{3,4})[\/_.]?/i);
-          sizeValue = pathMatch ? parseInt(pathMatch[1]) : 0;
-        }
-        
-        const hasLarge = url.includes('/large/');
-        const hasMedium = url.includes('/medium/');
-        const hasSmall = url.includes('/small/');
-        
-        // Quality scoring - use actual size value to differentiate high-quality variants
-        let qualityScore = sizeValue;
-        if (hasSmall) {
-          qualityScore = -500;
-        } else if (hasMedium) {
-          qualityScore = -200;
-        } else if (hasLarge && sizeValue === 0) {
-          qualityScore = 100;
-        }
-        // Keep actual sizeValue for high-quality images so 1600 > 1300 > 1140
-        
-        console.log(`  [${index}] ${baseName} → size: ${sizeValue}, score: ${qualityScore} (${url.split('/').slice(-2).join('/')})`);
-        
-        return { url, index, baseName, qualityScore };
+        return {
+          url,
+          originalIndex: index,
+          totalScore
+        };
       });
       
-      const duplicateGroups = {};
-      urlData.forEach(item => {
-        if (item.baseName) {  // Only group if we extracted a valid baseName
-          if (!duplicateGroups[item.baseName]) {
-            duplicateGroups[item.baseName] = [];
-          }
-          duplicateGroups[item.baseName].push(item);
+      // Sort by score (highest first), preserve original order on ties
+      scored.sort((a, b) => {
+        if (b.totalScore !== a.totalScore) {
+          return b.totalScore - a.totalScore;
         }
+        return a.originalIndex - b.originalIndex;
       });
       
-      console.log('📦 GROUPS:', Object.keys(duplicateGroups).length, 'unique filenames');
+      const sorted = scored.map(item => item.url);
+      const topScore = scored[0]?.totalScore || 0;
+      const bottomScore = scored[scored.length - 1]?.totalScore || 0;
       
-      const toMoveToBottom = new Set();
+      console.log(`✅ SORTED: Top score ${topScore}, Bottom score ${bottomScore}`);
       
-      Object.values(duplicateGroups).forEach(group => {
-        if (group.length > 1) {
-          group.sort((a, b) => b.qualityScore - a.qualityScore);
-          
-          const best = group[0];
-          const lowerQuality = group.slice(1);
-          
-          console.log(`🔄 DUPLICATE FOUND: ${best.baseName}`);
-          console.log(`   ✅ KEEPING: ${best.url.split('/').slice(-2).join('/')} (score: ${best.qualityScore})`);
-          lowerQuality.forEach(item => {
-            console.log(`   ⬇️ MOVING DOWN: ${item.url.split('/').slice(-2).join('/')} (score: ${item.qualityScore})`);
-            toMoveToBottom.add(item.index);
-          });
-        }
-      });
-      
-      const kept = [];
-      const moved = [];
-      
-      imageUrls.forEach((url, index) => {
-        if (toMoveToBottom.has(index)) {
-          moved.push(url);
-        } else {
-          kept.push(url);
-        }
-      });
-      
-      const result = [...kept, ...moved];
-      console.log(`📊 DUPLICATE RESOLUTION: ${imageUrls.length} images → ${kept.length} top quality, ${moved.length} moved to bottom`);
-      
-      return result;
+      return sorted;
     }
     
     // Mobile Preview Functions - Trust Scraper Ordering
@@ -1762,16 +1704,16 @@
         return;
       }
       
-      let cleanedUrls = imageUrls;
+      let sortedUrls = imageUrls;
       try {
-        cleanedUrls = resolveDuplicateImages(imageUrls);
-        console.log('✅ Duplicate resolution completed successfully');
+        sortedUrls = sortImagesByQuality(imageUrls);
+        console.log('✅ Quality sorting completed successfully');
       } catch (error) {
-        console.error('❌ Duplicate resolution FAILED:', error);
-        alert('Duplicate resolution error: ' + error.message);
+        console.error('❌ Quality sorting FAILED:', error);
+        alert('Quality sorting error: ' + error.message);
       }
       
-      const imageObjects = cleanedUrls.map((url, index) => ({
+      const imageObjects = sortedUrls.map((url, index) => ({
         url: url,
         originalIndex: index,
         quality: 'medium' // Default quality since scraper already sorted
@@ -1836,91 +1778,86 @@
       }
     }
     
-    // Image Quality Scoring Algorithm  
-    function calculateImageQualityScore(url) {
+    // FUNCTION 1: Keyword Scoring (URL text analysis)
+    function scoreKeywords(url) {
       let score = 50; // Base score
       const urlLower = url.toLowerCase();
       
-      // URL keyword analysis
-      const productKeywords = ['product', 'gallery', 'zoom', 'large', 'detail', 'main', 'primary'];
-      const bannerKeywords = ['banner', 'hero', 'promo', 'ad', 'advertisement', 'header', 'logo'];
+      // Product keywords
+      if (urlLower.includes('product')) score += 20;
+      if (urlLower.includes('gallery')) score += 20;
+      if (urlLower.includes('zoom')) score += 20;
+      if (urlLower.includes('large')) score += 15;
       
-      productKeywords.forEach(keyword => {
-        if (urlLower.includes(keyword)) score += 15;
-      });
+      // Banner/junk keywords
+      if (urlLower.includes('banner')) score -= 50;
+      if (urlLower.includes('ad')) score -= 50;
+      if (urlLower.includes('logo')) score -= 50;
+      if (urlLower.includes('thumbnail')) score -= 50;
+      if (urlLower.includes('icon')) score -= 50;
+      if (urlLower.includes('sprite')) score -= 50;
       
-      bannerKeywords.forEach(keyword => {
-        if (urlLower.includes(keyword)) score -= 25;
-      });
+      // Low quality indicators
+      if (urlLower.includes('swatch')) score -= 20;
+      if (urlLower.includes('variant')) score -= 20;
       
-      // Size estimation from URL patterns (common CDN patterns)
-      const sizeMatch = url.match(/[\/_](\d{3,4})[x\/_]?(\d{3,4})?/);
-      if (sizeMatch) {
-        const width = parseInt(sizeMatch[1]);
-        const height = parseInt(sizeMatch[2]) || width;
-        
-        // Size scoring
-        if (width >= 400 && height >= 400) score += 20;
-        else if (width >= 300 || height >= 300) score += 10;
-        else if (width < 200 && height < 200) score -= 15;
-        
-        // Aspect ratio scoring  
-        const aspectRatio = width / height;
-        if (aspectRatio >= 0.8 && aspectRatio <= 1.25) {
-          score += 20; // Square/near-square (ideal product shots)
-        } else if (aspectRatio >= 2.0) {
-          score -= 30; // Wide banners
-        } else if (aspectRatio >= 3.0) {
-          score -= 50; // Very wide banners
-        }
-      }
+      // File type scoring
+      if (urlLower.includes('.webp') || urlLower.includes('.jpg') || urlLower.includes('.png')) score += 20;
+      if (urlLower.includes('.gif') || urlLower.includes('.svg')) score -= 50;
       
-      // File type preferences
-      if (urlLower.includes('.webp') || urlLower.includes('.jpg')) score += 5;
-      if (urlLower.includes('.gif')) score -= 10; // Often low quality
-      
-      return Math.max(0, Math.min(100, score)); // Clamp 0-100
+      return score;
     }
     
-    function getQualityLabel(score) {
-      if (score >= 80) return 'high';    // More strict: was 70
-      if (score >= 55) return 'medium';  // More strict: was 40
-      return 'low';
-    }
-    
-    // Identify clearly bad images that should move to bottom (MORE STRICT)
-    function isClearlyBadImage(url, score) {
+    // FUNCTION 2: Dimension Scoring (size patterns + folders + aspect)
+    function scoreDimensions(url) {
+      let score = 0;
       const urlLower = url.toLowerCase();
       
-      // Expanded banner and UI element indicators
-      const bannerKeywords = ['banner', 'hero', 'promo', 'ad', 'advertisement', 'header', 'footer', 
-                             'nav', 'menu', 'logo', 'icon', 'thumb', 'thumbnail', 'small', 'mini',
-                             'sprite', 'placeholder', 'loading', 'badge', 'bullet', 'arrow'];
-      const hasBannerKeyword = bannerKeywords.some(keyword => urlLower.includes(keyword));
+      // Extract dimension from URL (width OR height patterns)
+      let dimension = 0;
       
-      // More aggressive size analysis from URL patterns
-      const sizeMatch = url.match(/[\/_](\d{2,4})[x\/_]?(\d{2,4})?/);
-      let isTooSmall = false;
-      let isWideBanner = false;
-      let isTinyImage = false;
-      
-      if (sizeMatch) {
-        const width = parseInt(sizeMatch[1]);
-        const height = parseInt(sizeMatch[2]) || width;
-        const aspectRatio = width / height;
-        
-        isTooSmall = width < 400 || height < 400; // More strict: was 300x300
-        isWideBanner = aspectRatio >= 2.0; // More strict: was 2.5
-        isTinyImage = width < 150 || height < 150; // Catch tiny images
+      // eBay patterns: s-l1600, s-l1300, etc.
+      const ebayMatch = url.match(/s-l(\d{3,4})/i);
+      if (ebayMatch) {
+        dimension = parseInt(ebayMatch[1]);
       }
       
-      // Additional quality filters
-      const hasLowQualityIndicators = /\b(swatch|variant|color|size|guide|chart|care|warranty)\b/i.test(url);
-      const isGifOrSvg = /\.(gif|svg)($|\?)/i.test(url);
+      // Width patterns: _1100x, w_1100, w1100, ?w=1100, /1100/, width/1100, width_1100
+      const widthMatch = url.match(/_(\d{3,4})x|[w_](\d{3,4})|[?&]w=(\d{3,4})|width[\/_](\d{3,4})/i);
+      if (widthMatch && !dimension) {
+        dimension = parseInt(widthMatch[1] || widthMatch[2] || widthMatch[3] || widthMatch[4]);
+      }
       
-      // Much stricter filtering
-      return hasBannerKeyword || isTooSmall || isWideBanner || isTinyImage || 
-             hasLowQualityIndicators || isGifOrSvg || score < 40; // Raised from 25 to 40
+      // Height patterns: _x1100, h_1100, h1100, ?h=1100, height/1100, height_1100
+      const heightMatch = url.match(/_x(\d{3,4})|h[_]?(\d{3,4})|[?&]h=(\d{3,4})|height[\/_](\d{3,4})/i);
+      if (heightMatch && !dimension) {
+        dimension = parseInt(heightMatch[1] || heightMatch[2] || heightMatch[3] || heightMatch[4]);
+      }
+      
+      // Size tier scoring
+      if (dimension >= 1100) score += 20;
+      else if (dimension >= 750) score += 15;
+      else if (dimension >= 400) score += 10;
+      else if (dimension >= 300) score += 5;
+      else if (dimension > 0 && dimension < 300) score -= 20;
+      
+      // Folder scoring
+      if (urlLower.includes('/small/')) score -= 50;
+      if (urlLower.includes('/medium/')) score -= 20;
+      if (urlLower.includes('/large/')) score += 15;
+      
+      // Aspect ratio penalty (banners)
+      // Extract both dimensions if available for aspect check
+      let width = 0, height = 0;
+      const dimMatch = url.match(/_?(\d{3,4})x(\d{3,4})/i);
+      if (dimMatch) {
+        width = parseInt(dimMatch[1]);
+        height = parseInt(dimMatch[2]);
+        const aspectRatio = Math.max(width / height, height / width);
+        if (aspectRatio >= 2.5) score -= 50;
+      }
+      
+      return score;
     }
     
     // Initialize device toggle functionality  
