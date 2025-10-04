@@ -1772,13 +1772,14 @@
       if (urlLower.includes('thumbnail')) score -= 50;
       if (urlLower.includes('icon')) score -= 50;
       if (urlLower.includes('sprite')) score -= 50;
+      if (urlLower.includes('avatar')) score -= 50;
+      if (urlLower.includes('flag')) score -= 50;
       
       // Low quality indicators
       if (urlLower.includes('swatch')) score -= 20;
       if (urlLower.includes('variant')) score -= 20;
       
-      // File type scoring
-      if (urlLower.includes('.webp') || urlLower.includes('.jpg') || urlLower.includes('.png')) score += 20;
+      // File type penalties (only bad types)
       if (urlLower.includes('.gif') || urlLower.includes('.svg')) score -= 50;
       
       return score;
