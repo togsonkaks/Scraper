@@ -1750,13 +1750,16 @@
       
       // Banner/junk keywords
       if (urlLower.includes('banner')) score -= 50;
-      if (urlLower.includes('ad')) score -= 50;
+      if (/\bad\b/.test(urlLower)) score -= 50; // Word boundary to avoid "data"
       if (urlLower.includes('logo')) score -= 50;
       if (urlLower.includes('thumbnail')) score -= 50;
       if (urlLower.includes('icon')) score -= 50;
       if (urlLower.includes('sprite')) score -= 50;
       if (urlLower.includes('avatar')) score -= 50;
       if (urlLower.includes('flag')) score -= 50;
+      if (urlLower.includes('truck')) score -= 50; // Delivery icons
+      if (urlLower.includes('hanger')) score -= 50; // Clothing rack icons
+      if (urlLower.includes('delivery')) score -= 50; // Delivery icons
       
       // Low quality indicators
       if (urlLower.includes('swatch')) score -= 20;
