@@ -2501,7 +2501,7 @@
       }
     }
     
-    // Try gallery selectors (including picture/source for responsive images)
+    // Collect from ALL gallery selectors (including picture/source for responsive images)
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
       '.product_media_item img','.product__media-item img.image__img','img.image_img','img.image__img',
@@ -2509,18 +2509,36 @@
       '.product-media picture source','.gallery picture source','.product-gallery picture source','.pdp-gallery picture source',
       '[class*=gallery] picture source','.slider picture source','[class*="carousel"] picture source'
     ];
+    
+    let allGalleryUrls = [];
+    const usedSelectors = [];
     for (const sel of gallerySels) {
       debug(`🎯 Trying gallery selector: '${sel}'`);
       const urls = await processImages(sel, 0);
-      if (urls.length >= 3) { 
-        debug(`✅ Success with selector: '${sel}'`);
-        mark('images', { selectors:[sel], attr:'src', method:'generic', urls: urls.slice(0,30) }); 
-        return urls.slice(0,30); 
+      if (urls.length > 0) {
+        debug(`✅ Found ${urls.length} images with selector: '${sel}'`);
+        allGalleryUrls = allGalleryUrls.concat(urls);
+        usedSelectors.push(sel);
       }
     }
     
-    // Final fallback to broad 'img'
-    debug(`🖼️ All specific selectors failed, falling back to broad 'img'`);
+    // Deduplicate gallery results
+    if (allGalleryUrls.length > 0) {
+      const seen = new Set();
+      const unique = [];
+      for (const url of allGalleryUrls) {
+        if (url && !seen.has(url)) {
+          seen.add(url);
+          unique.push(url);
+        }
+      }
+      debug(`✅ Gallery selectors combined: ${unique.length} unique images from ${usedSelectors.length} selectors`);
+      mark('images', { selectors: usedSelectors, attr:'src', method:'gallery-combined', urls: unique.slice(0,30) });
+      return unique.slice(0,30);
+    }
+    
+    // Final fallback to broad 'img' (only if gallery found nothing)
+    debug(`🖼️ All gallery selectors found nothing, falling back to broad 'img'`);
     const og = q('meta[property="og:image"]')?.content;
     const urls = await processImages('img', 0);
     const combined = (og ? [upgradeCDNUrl(og)] : []).concat(urls);
