@@ -1760,11 +1760,10 @@ const LULULEMON = {
     console.log("[DEBUG] Lululemon custom image logic running...");
     const out = new Set();
     
-    // Use stable carousel ID selectors (class names are dynamically generated)
+    // Target main page gallery (not modal carousel which loads later)
     const selectors = [
-      'li[id^="carousel-image"] picture source',  // <picture><source> with srcset (stable ID)
-      'li[id^="carousel-image"] img',             // Fallback to img elements
-      '[class*="product-media"] picture source'   // Additional fallback for other layouts
+      'div[class*="pdp-gallery"] picture source',  // Main product gallery sources
+      'picture[class*="image_picture"] source'     // Backup selector
     ];
     
     selectors.forEach(selector => {
@@ -1773,18 +1772,24 @@ const LULULEMON = {
         console.log(`[DEBUG] Lululemon: Found ${elements.length} elements with selector: ${selector}`);
         
         elements.forEach(el => {
-          // For <source> elements, check srcset first, then fallback to src
-          let url = el.getAttribute('srcset') || el.currentSrc || el.src || el.getAttribute('data-src');
+          // For <source> elements, check srcset first
+          let srcset = el.getAttribute('srcset') || el.currentSrc || el.src || el.getAttribute('data-src');
           
-          // If srcset has multiple URLs, take the largest one
-          if (url && url.includes(',')) {
-            const srcsetParts = url.split(',').map(s => s.trim());
-            url = srcsetParts[srcsetParts.length - 1].split(' ')[0]; // Take last (largest) URL
-          }
-          
-          if (url && /images\.lululemon\.com/i.test(url)) {
-            out.add(url);
-            console.log(`[DEBUG] Lululemon: Added image: ${url.substring(url.lastIndexOf('/') + 1, url.indexOf('?') > 0 ? url.indexOf('?') : undefined)}`);
+          if (srcset && srcset.includes(',')) {
+            // Srcset has multiple URLs separated by commas with newlines
+            // Format: "url1 320w,\nurl2 750w,\nurl3 2644w"
+            const srcsetParts = srcset.split(',').map(s => s.trim());
+            // Take last (largest) URL and split by any whitespace to get just the URL
+            const url = srcsetParts[srcsetParts.length - 1].split(/\s+/)[0];
+            
+            if (url && /images\.lululemon\.com/i.test(url)) {
+              out.add(url);
+              console.log(`[DEBUG] Lululemon: Added image: ${url.substring(url.lastIndexOf('/') + 1, url.indexOf('?') > 0 ? url.indexOf('?') : undefined)}`);
+            }
+          } else if (srcset && /images\.lululemon\.com/i.test(srcset)) {
+            // Single URL without srcset
+            out.add(srcset);
+            console.log(`[DEBUG] Lululemon: Added image: ${srcset.substring(srcset.lastIndexOf('/') + 1, srcset.indexOf('?') > 0 ? srcset.indexOf('?') : undefined)}`);
           }
         });
       } catch (e) {
