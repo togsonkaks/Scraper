@@ -2460,36 +2460,40 @@
       addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by ranking`, '', 0, false);
     }
     
-    // Phase 8: Universal ?width= upgrade for top 3 images (dual-version strategy)
-    // Interleave upgraded versions immediately after originals so they survive slice(0,30)
-    debug(`🔧 PHASE 8: Checking ${finalUrls.length} URLs for ?width= upgrades...`);
-    debug(`🔍 First 3 URLs:`, finalUrls.slice(0, 3).map(u => u.slice(0, 100)));
+    // Phase 8: Universal ?width= upgrade for FIRST 3 URLs with ?width= pattern (dual-version strategy)
+    // Scans entire list to find first 3 URLs with ?width= params, upgrades those specific ones
+    debug(`🔧 PHASE 8: Scanning ${finalUrls.length} URLs to find first 3 with ?width= pattern...`);
     
     const finalUrlsWithUpgrades = [];
+    let upgradesAdded = 0;
+    
     for (let i = 0; i < finalUrls.length; i++) {
       const url = finalUrls[i];
-      finalUrlsWithUpgrades.push(url); // Add original
+      finalUrlsWithUpgrades.push(url); // Always add original
       
-      // For first 3 images only, add upgraded version right after if applicable
-      if (i < 3) {
+      // Check if this URL has ?width= pattern (and we haven't upgraded 3 yet)
+      if (upgradesAdded < 3) {
         const widthMatch = url.match(/[?&]width=(\d+)/i);
-        debug(`🔍 URL #${i+1} width check: ${widthMatch ? `found width=${widthMatch[1]}` : 'no width param'}`);
         if (widthMatch) {
           const currentWidth = parseInt(widthMatch[1]);
-          debug(`🔍 Current width=${currentWidth}, threshold=800, eligible=${currentWidth <= 800}`);
+          debug(`🔍 Found ?width=${currentWidth} at position ${i} (match #${upgradesAdded + 1})`);
+          
           // Only upgrade if current width is small (≤800px)
           if (currentWidth <= 800) {
             const upgradedUrl = url.replace(/([?&])width=\d+/i, '$1width=1200');
             if (upgradedUrl !== url) {
               finalUrlsWithUpgrades.push(upgradedUrl); // Insert immediately after original
-              debug(`🔄 UNIVERSAL WIDTH UPGRADE: ${url.slice(0, 80)} -> width=1200 (dual-version)`);
+              upgradesAdded++;
+              debug(`🔄 UPGRADE #${upgradesAdded}: ?width=${currentWidth} → ?width=1200 (position ${i})`);
             }
+          } else {
+            debug(`⏭️ Skipping ?width=${currentWidth} (already high-res)`);
           }
         }
       }
     }
     
-    debug(`✅ PHASE 8 COMPLETE: ${finalUrlsWithUpgrades.length} total URLs (original + upgrades)`);
+    debug(`✅ PHASE 8 COMPLETE: Added ${upgradesAdded} upgrades, ${finalUrlsWithUpgrades.length} total URLs`);
 
     
     debug('🖼️ PROCESSING RESULTS:', filtered);
