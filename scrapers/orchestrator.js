@@ -2489,12 +2489,7 @@
         '#imageBlock img'
       ],
       'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
-      'acehardware.com': ['.product-gallery img', '.mz-productimages img'],
-      'shop.lululemon.com': [
-        '.product-media-slides_slide__1Uqc picture source',
-        '.image_picture__2GpZD source',
-        '.product-media-slides_slide__1Uqc img'
-      ]
+      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
     };
     
     // Try site-specific selectors first

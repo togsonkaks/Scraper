@@ -1754,6 +1754,51 @@ const ETSY = {
   }
 };
 
+const LULULEMON = {
+  match: (h) => /shop\.lululemon\.com$/i.test(h),
+  images(doc = document) {
+    console.log("[DEBUG] Lululemon custom image logic running...");
+    const out = new Set();
+    
+    // Target Lululemon's specific gallery structure from their HTML
+    const selectors = [
+      '.product-media-slides_slide__1Uqc picture source',  // <picture><source> with srcset
+      '.image_picture__2GpZD source',                      // Backup picture selector
+      '.product-media-slides_slide__1Uqc img'              // Fallback to img elements
+    ];
+    
+    selectors.forEach(selector => {
+      try {
+        const elements = doc.querySelectorAll(selector);
+        console.log(`[DEBUG] Lululemon: Found ${elements.length} elements with selector: ${selector}`);
+        
+        elements.forEach(el => {
+          // For <source> elements, check srcset first, then fallback to src
+          let url = el.getAttribute('srcset') || el.currentSrc || el.src || el.getAttribute('data-src');
+          
+          // If srcset has multiple URLs, take the largest one
+          if (url && url.includes(',')) {
+            const srcsetParts = url.split(',').map(s => s.trim());
+            url = srcsetParts[srcsetParts.length - 1].split(' ')[0]; // Take last (largest) URL
+          }
+          
+          if (url && /images\.lululemon\.com/i.test(url)) {
+            out.add(url);
+            console.log(`[DEBUG] Lululemon: Added image: ${url.substring(url.lastIndexOf('/') + 1, url.indexOf('?') > 0 ? url.indexOf('?') : undefined)}`);
+          }
+        });
+      } catch (e) {
+        console.warn(`[DEBUG] Lululemon: Error with selector ${selector}:`, e.message);
+      }
+    });
+    
+    const result = [...out].filter(Boolean);
+    console.log(`[DEBUG] Lululemon: Collected ${result.length} product images`);
+    
+    return result.slice(0, 20);
+  }
+};
+
 const REGISTRY = [
   AMZ,
   BESTBUY,
@@ -1787,6 +1832,7 @@ const REGISTRY = [
   ASOS,
   URBAN_OUTFITTERS,
   ETSY,
+  LULULEMON,
 
 
 ];
