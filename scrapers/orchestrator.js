@@ -2462,6 +2462,9 @@
     
     // Phase 8: Universal ?width= upgrade for top 3 images (dual-version strategy)
     // Interleave upgraded versions immediately after originals so they survive slice(0,30)
+    debug(`🔧 PHASE 8: Checking ${finalUrls.length} URLs for ?width= upgrades...`);
+    debug(`🔍 First 3 URLs:`, finalUrls.slice(0, 3).map(u => u.slice(0, 100)));
+    
     const finalUrlsWithUpgrades = [];
     for (let i = 0; i < finalUrls.length; i++) {
       const url = finalUrls[i];
@@ -2470,8 +2473,10 @@
       // For first 3 images only, add upgraded version right after if applicable
       if (i < 3) {
         const widthMatch = url.match(/[?&]width=(\d+)/i);
+        debug(`🔍 URL #${i+1} width check: ${widthMatch ? `found width=${widthMatch[1]}` : 'no width param'}`);
         if (widthMatch) {
           const currentWidth = parseInt(widthMatch[1]);
+          debug(`🔍 Current width=${currentWidth}, threshold=800, eligible=${currentWidth <= 800}`);
           // Only upgrade if current width is small (≤800px)
           if (currentWidth <= 800) {
             const upgradedUrl = url.replace(/([?&])width=\d+/i, '$1width=1200');
@@ -2483,6 +2488,9 @@
         }
       }
     }
+    
+    debug(`✅ PHASE 8 COMPLETE: ${finalUrlsWithUpgrades.length} total URLs (original + upgrades)`);
+
     
     debug('🖼️ PROCESSING RESULTS:', filtered);
     debug('🖼️ FINAL IMAGES:', finalUrlsWithUpgrades.slice(0, 5).map(url => url.slice(0, 80)));
