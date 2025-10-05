@@ -1801,7 +1801,7 @@
       
       // Width patterns: _1100x, w_1100, w1100, ?w=1100, /1100/, width/1100, width_1100
       if (!dimension) {
-        const widthMatch = url.match(/_(\d{3,4})x|[w_](\d{3,4})|[?&]w=(\d{3,4})|\/(\d{3,4})\/|width[\/_](\d{3,4})/i);
+        const widthMatch = url.match(/_(\d{3,4})x|w_?(\d{3,4})|[?&]w=(\d{3,4})|\/(\d{3,4})\/|width[\/_](\d{3,4})/i);
         if (widthMatch) {
           dimension = parseInt(widthMatch[1] || widthMatch[2] || widthMatch[3] || widthMatch[4] || widthMatch[5]);
         }
@@ -1809,7 +1809,7 @@
       
       // Height patterns: _x1100, h_1100, h1100, ?h=1100, height/1100, height_1100
       if (!dimension) {
-        const heightMatch = url.match(/_x(\d{3,4})|h[_]?(\d{3,4})|[?&]h=(\d{3,4})|height[\/_](\d{3,4})/i);
+        const heightMatch = url.match(/_x(\d{3,4})|h_?(\d{3,4})|[?&]h=(\d{3,4})|height[\/_](\d{3,4})/i);
         if (heightMatch) {
           dimension = parseInt(heightMatch[1] || heightMatch[2] || heightMatch[3] || heightMatch[4]);
         }
