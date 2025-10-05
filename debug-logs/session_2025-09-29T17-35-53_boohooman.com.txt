@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759167353675_ttnozpxs9
+URL: https://www.boohooman.com/us/oversized-linen-blend-organza-shirt-relaxed-short-set/CMM09851.html?color=564&_gl=1*1ov32xo*_up*MQ..*_ga*MTY2OTg2MjMuMTc1MTI0NDAxMQ..*_ga_3W4EF6FBG0*czE3NTEyNDQwMTAkbzEkZzAkdDE3NTEyNDQwMTAkajYwJGwwJGg2Nzg5NTE2ODI.
+Hostname: boohooman.com
+Started: undefined
+Ended: 2025-09-29T17:35:53.697Z
+Total Logs: 4
+=========================
+
+[2025-09-29T17:35:53.682Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759167353675_ttnozpxs9 started for boohooman.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4499:9)
+
+[2025-09-29T17:35:53.682Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4502:7)
+
+[2025-09-29T17:35:53.697Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4777:7)
+
+[2025-09-29T17:35:53.697Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759167353675_ttnozpxs9, saving 3 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759446919149_gr6hmsdxn
+URL: https://thecommense.com/collections/matching-sets/products/cotton-linen-pants-set
+Hostname: thecommense.com
+Started: undefined
+Ended: 2025-10-02T23:15:19.168Z
+Total Logs: 4
+=========================
+
+[2025-10-02T23:15:19.155Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759446919149_gr6hmsdxn started for thecommense.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4847:9)
+
+[2025-10-02T23:15:19.156Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4850:7)
+
+[2025-10-02T23:15:19.167Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:5134:7)
+
+[2025-10-02T23:15:19.168Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759446919149_gr6hmsdxn, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,95 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759471472849_5bktk9z9n
+URL: https://www.aliexpress.us/item/3256807206780988.html?spm=a2g0o.tm1000009216.d4.1.6897474csKaqTq&sourceType=562&pvid=7a497d52-ae87-4fb7-a81f-b8361a3ee996&pdp_ext_f=%7B%22ship_from%22%3A%22CN%22%2C%22sku_id%22%3A%2212000040562616900%22%7D&scm=1007.28480.422277.0&scm-url=1007.28480.422277.0&scm_id=1007.28480.422277.0&pdp_npi=4%40dis%21USD%21US%20%2432.14%21US%20%2410.93%21%21%21229.11%2177.90%21%402103146f17512431227063580e7fe3%2112000040562616900%21gsd%21US%21160250367%21X&channel=sd&aecmd=true&gatewayAdapt=glo2usa
+Hostname: aliexpress.us
+Started: undefined
+Ended: 2025-10-03T06:04:32.866Z
+Total Logs: 28
+=========================
+
+[2025-10-03T06:04:32.849Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759471472849_5bktk9z9n started for aliexpress.us
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4893:9)
+
+[2025-10-03T06:04:32.849Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4896:7)
+
+[2025-10-03T06:04:32.850Z] INFO: [DEBUG] AliExpress title extraction starting...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.title (<anonymous>:1512:13) -> at scrapeProduct (<anonymous>:4937:62)
+
+[2025-10-03T06:04:32.850Z] INFO: [DEBUG] AliExpress title found via h1 selector 'h1[data-pl="product-title"]': "700ml Cocktail Shaker Whiskey Glass Cup Professional Cocktail Stirring Cup Wine Bar mixing cups Bartender Mixing Bar Tool"
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.title (<anonymous>:1549:21) -> at scrapeProduct (<anonymous>:4937:62)
+  Metadata: {
+  "selector": "h1[data-pl=\"product-title\"]"
+}
+
+[2025-10-03T06:04:32.854Z] INFO: [DEBUG] AliExpress custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1623:13) -> at scrapeProduct (<anonymous>:5029:63)
+
+[2025-10-03T06:04:32.854Z] INFO: [DEBUG] AliExpress collected 0 total images before filtering
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1648:13) -> at scrapeProduct (<anonymous>:5029:63)
+
+[2025-10-03T06:04:32.854Z] INFO: [DEBUG] AliExpress final results: 0 images (from 0 collected)
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1711:13) -> at scrapeProduct (<anonymous>:5029:63)
+
+[2025-10-03T06:04:32.854Z] INFO: [DEBUG] AliExpress top 5: 
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1712:13) -> at scrapeProduct (<anonymous>:5029:63)
+
+[2025-10-03T06:04:32.854Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.855Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.855Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.855Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.855Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.855Z] INFO: 🔍 PROCESSING IMAGES with selector: .product_media_item img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.855Z] INFO: 🔍 PROCESSING IMAGES with selector: .product__media-item img.image__img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.855Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image_img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.855Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image__img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.856Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*=gallery] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.856Z] INFO: 🔍 PROCESSING IMAGES with selector: .slider img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.856Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*="slider-image"] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.856Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*="slider-img"] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.856Z] INFO: 🔍 PROCESSING IMAGES with selector: .thumbnails img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.856Z] INFO: 🔍 PROCESSING IMAGES with selector: .pdp-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.856Z] INFO: 🔍 PROCESSING IMAGES with selector: [data-testid*=image] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.857Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T06:04:32.858Z] INFO: 🖼️ Raw enriched URLs collected: 72
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4486:5)
+
+[2025-10-03T06:04:32.866Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:5180:7)
+
+[2025-10-03T06:04:32.866Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759471472849_5bktk9z9n, saving 27 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

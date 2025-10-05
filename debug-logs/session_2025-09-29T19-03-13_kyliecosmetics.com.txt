@@ -1,0 +1,59 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759172581795_6bukkfd6l
+URL: https://kyliecosmetics.com/products/glossy-lip-kit-skin-tint-blurring-elixir-duo?variant=47644867199218
+Hostname: kyliecosmetics.com
+Started: undefined
+Ended: 2025-09-29T19:03:13.844Z
+Total Logs: 17
+=========================
+
+[2025-09-29T19:03:01.796Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759172581795_6bukkfd6l started for kyliecosmetics.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4875:9)
+
+[2025-09-29T19:03:01.796Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4878:7)
+
+[2025-09-29T19:03:01.801Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:02.396Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-29T19:03:03.005Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:03.709Z] INFO: ✅ Light scroll complete - lazy loading triggered!
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:31:13
+
+[2025-09-29T19:03:04.207Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:05.408Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:06.610Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:07.811Z] INFO: 🔍 PROCESSING IMAGES with selector: .product_media_item img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:09.013Z] INFO: 🔍 PROCESSING IMAGES with selector: .product__media-item img.image__img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:10.216Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image_img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:11.419Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image__img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:12.629Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*=gallery] img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:03:13.835Z] INFO: 🖼️ Raw enriched URLs collected: 28
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4472:5)
+
+[2025-09-29T19:03:13.844Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:5162:7)
+
+[2025-09-29T19:03:13.844Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759172581795_6bukkfd6l, saving 16 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

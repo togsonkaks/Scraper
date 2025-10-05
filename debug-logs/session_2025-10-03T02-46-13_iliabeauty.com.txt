@@ -1,0 +1,53 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759459573331_fxgupty16
+URL: https://iliabeauty.com/products/lip-sketch-hydrating-crayon-lipstick-lip-liner?variant=40816226304080
+Hostname: iliabeauty.com
+Started: undefined
+Ended: 2025-10-03T02:46:13.375Z
+Total Logs: 15
+=========================
+
+[2025-10-03T02:46:13.339Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759459573331_fxgupty16 started for iliabeauty.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4883:9)
+
+[2025-10-03T02:46:13.339Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4886:7)
+
+[2025-10-03T02:46:13.346Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.346Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.346Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.347Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.347Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.347Z] INFO: 🔍 PROCESSING IMAGES with selector: .product_media_item img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.348Z] INFO: 🔍 PROCESSING IMAGES with selector: .product__media-item img.image__img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.348Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image_img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.348Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image__img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.348Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*=gallery] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4324:5)
+
+[2025-10-03T02:46:13.355Z] INFO: 🖼️ Raw enriched URLs collected: 316
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4476:5)
+
+[2025-10-03T02:46:13.375Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:5170:7)
+
+[2025-10-03T02:46:13.375Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759459573331_fxgupty16, saving 14 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

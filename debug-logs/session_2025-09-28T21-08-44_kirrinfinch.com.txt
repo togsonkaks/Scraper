@@ -1,0 +1,293 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759093723229_xiai57miw
+URL: https://kirrinfinch.com/products/the-georgie-sky-gray-suit-blazer
+Hostname: kirrinfinch.com
+Started: undefined
+Ended: 2025-09-28T21:08:44.481Z
+Total Logs: 94
+=========================
+
+[2025-09-28T21:08:43.238Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759093723229_xiai57miw started for kirrinfinch.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4524:9)
+
+[2025-09-28T21:08:43.239Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4527:7)
+
+[2025-09-28T21:08:43.248Z] INFO: 🔍 GATHERING IMAGES with selector: .product-media img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:08:43.248Z] INFO: 🔍 GATHERING IMAGES with selector: .gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:08:43.249Z] INFO: 🔍 GATHERING IMAGES with selector: .image-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:08:43.250Z] INFO: 🔍 GATHERING IMAGES with selector: .product-images img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:08:43.250Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:08:43.253Z] INFO: 🔍 GATHERING IMAGES with selector: .product_media_item img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:08:43.255Z] INFO: 🔍 GATHERING IMAGES with selector: .product__media-item img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:08:43.257Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.258Z] INFO: ✅ Found image URL from srcset: //kirrinfinch.com/cdn/shop/files/2025_3_KirrinFinch_1943_88bd61d9-9a81-4fa2-9da2-506d94110631_1080x.
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:08:43.258Z] INFO: ✅ ALLOWED: Shopify files path (product image): 2025_3_KirrinFinch_1943_88bd61d9-9a81-4fa2-9da2-506d94110631_1080x.jpg?v=1748959700
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:08:43.259Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.259Z] INFO: ✅ Found image URL from srcset: //kirrinfinch.com/cdn/shop/files/2025_3_KirrinFinch_1937_f6c647e5-8528-4587-ba4c-d1baaf9135e7_1080x.
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:08:43.259Z] INFO: ✅ ALLOWED: Shopify files path (product image): 2025_3_KirrinFinch_1937_f6c647e5-8528-4587-ba4c-d1baaf9135e7_1080x.jpg?v=1748959701
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:08:43.259Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.259Z] INFO: ✅ Found image URL from srcset: //kirrinfinch.com/cdn/shop/files/2025_3_KirrinFinch_1893_72b1d128-08b2-42a7-8a3f-dcd0342c724d_1080x.
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:08:43.259Z] INFO: ✅ ALLOWED: Shopify files path (product image): 2025_3_KirrinFinch_1893_72b1d128-08b2-42a7-8a3f-dcd0342c724d_1080x.jpg?v=1748959701
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:08:43.259Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.259Z] INFO: ✅ Found image URL from srcset: //kirrinfinch.com/cdn/shop/files/2025_3_KirrinFinch_1924_7c7ddcfd-11ba-441d-a2c9-738166706aea_1080x.
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ ALLOWED: Shopify files path (product image): 2025_3_KirrinFinch_1924_7c7ddcfd-11ba-441d-a2c9-738166706aea_1080x.jpg?v=1748959701
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.260Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.261Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.262Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.263Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.264Z] INFO: ✅ Found image URL from attributes: //kirrinfinch.com/cdn/shop/t/287/assets/placeholder-440.jpg?v=35136897548132067051751539914
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:08:43.264Z] INFO: 🖼️ Raw enriched URLs collected: 73
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3929:5)
+
+[2025-09-28T21:08:43.270Z] INFO: 🖼️ After hybrid filtering: 4 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3931:5)
+
+[2025-09-28T21:08:43.834Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-28T21:08:44.106Z] INFO: 🔍 LAZY: New nested img found: https://bat.bing.com/action/0?ti=343146901&tm=gtm002&Ver=2&mid=3ad2cd1d-b53a-49a
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at <anonymous>:3959:19
+  Metadata: {
+  "extractedUrl": "https://bat.bing.com/action/0?ti=343146901&tm=gtm002&Ver=2&mid=3ad2cd1d-b53a-49a"
+}
+
+[2025-09-28T21:08:44.477Z] INFO: 🎯 LAZY LOADING: Found 1 additional images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3992:9)
+
+[2025-09-28T21:08:44.478Z] INFO: 🚀 LAZY LOADING COMPLETE: 4 immediate + 0 lazy = 4 total
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:4004:9)
+
+[2025-09-28T21:08:44.480Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4742:7)
+
+[2025-09-28T21:08:44.480Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759093723229_xiai57miw, saving 93 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

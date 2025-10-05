@@ -1,0 +1,149 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759093785932_y8tn03bhm
+URL: https://www.manieredevoir.com/collections/mens-best-sellers/products/foldover-trousers-sage
+Hostname: manieredevoir.com
+Started: undefined
+Ended: 2025-09-28T21:09:47.182Z
+Total Logs: 47
+=========================
+
+[2025-09-28T21:09:45.944Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759093785932_y8tn03bhm started for manieredevoir.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4524:9)
+
+[2025-09-28T21:09:45.944Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4527:7)
+
+[2025-09-28T21:09:45.962Z] INFO: 🔍 GATHERING IMAGES with selector: .product-media img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.962Z] INFO: 🔍 GATHERING IMAGES with selector: .gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.963Z] INFO: 🔍 GATHERING IMAGES with selector: .image-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.963Z] INFO: 🔍 GATHERING IMAGES with selector: .product-images img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.963Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.964Z] INFO: 🔍 GATHERING IMAGES with selector: .product_media_item img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.964Z] INFO: 🔍 GATHERING IMAGES with selector: .product__media-item img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.964Z] INFO: 🔍 GATHERING IMAGES with selector: img.image_img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.964Z] INFO: 🔍 GATHERING IMAGES with selector: img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.965Z] INFO: 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:09:45.965Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.966Z] INFO: ✅ ALLOWED: Shopify files path (product image): 11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.966Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.967Z] INFO: ✅ ALLOWED: Shopify files path (product image): 06.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.967Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.967Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.967Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.967Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.968Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.968Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.968Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV1-2.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.968Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV1-2.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.968Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.969Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.969Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.969Z] INFO: ✅ ALLOWED: Shopify files path (product image): 11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.969Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/06.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.969Z] INFO: ✅ ALLOWED: Shopify files path (product image): 06.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.969Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV5_bdf7dfc3-e9d5-425f-b777-9a3d04a16d3e.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV1_48d8f2c7-6dea-43be-a648-a1a2db2bd91c.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV3_64a4209b-984c-4de9-8e8d-836c176a37dc.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV1-2.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV1-2.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.970Z] INFO: ✅ ALLOWED: Shopify files path (product image): MDV4_ab6abea1-d759-4a53-9df7-8ff1c9c1bec1.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.971Z] INFO: ✅ Found image URL from attributes: //www.manieredevoir.com/cdn/shop/files/11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:09:45.971Z] INFO: ✅ ALLOWED: Shopify files path (product image): 11_72073c39-6435-470c-96a1-1f7225b6056a.jpg?v=1742393828
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:09:45.971Z] INFO: 🖼️ Raw enriched URLs collected: 15
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3929:5)
+
+[2025-09-28T21:09:45.979Z] INFO: 🖼️ After hybrid filtering: 7 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3931:5)
+
+[2025-09-28T21:09:46.531Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-28T21:09:47.182Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4742:7)
+
+[2025-09-28T21:09:47.182Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759093785932_y8tn03bhm, saving 46 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

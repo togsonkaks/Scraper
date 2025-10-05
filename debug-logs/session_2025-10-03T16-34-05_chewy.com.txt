@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759509245468_ewmelh0lk
+URL: https://www.chewy.com/sentry-calming-chews-supplement-cats/dp/802374
+Hostname: chewy.com
+Started: undefined
+Ended: 2025-10-03T16:34:05.475Z
+Total Logs: 4
+=========================
+
+[2025-10-03T16:34:05.469Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759509245468_ewmelh0lk started for chewy.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4956:9)
+
+[2025-10-03T16:34:05.469Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4959:7)
+
+[2025-10-03T16:34:05.474Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:5245:7)
+
+[2025-10-03T16:34:05.475Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759509245468_ewmelh0lk, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

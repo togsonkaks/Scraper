@@ -1,0 +1,1757 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759093850221_pgojbv6tg
+URL: https://www.acmetools.com/bosch-18v-brushless-9-inch-cutoff-saw-kit-gcs18v-230n212/S0000000088753.html
+Hostname: acmetools.com
+Started: undefined
+Ended: 2025-09-28T21:10:50.343Z
+Total Logs: 501
+=========================
+
+[2025-09-28T21:10:50.232Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759093850221_pgojbv6tg started for acmetools.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4524:9)
+
+[2025-09-28T21:10:50.233Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4527:7)
+
+[2025-09-28T21:10:50.249Z] INFO: 🔍 GATHERING IMAGES with selector: .product-media img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.251Z] INFO: 🔍 GATHERING IMAGES with selector: .gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.252Z] INFO: 🔍 GATHERING IMAGES with selector: .image-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.252Z] INFO: 🔍 GATHERING IMAGES with selector: .product-images img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.253Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.253Z] INFO: 🔍 GATHERING IMAGES with selector: .product_media_item img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.254Z] INFO: 🔍 GATHERING IMAGES with selector: .product__media-item img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.254Z] INFO: 🔍 GATHERING IMAGES with selector: img.image_img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.255Z] INFO: 🔍 GATHERING IMAGES with selector: img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.256Z] INFO: 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.258Z] INFO: 🔍 GATHERING IMAGES with selector: .slider img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.259Z] INFO: 🔍 GATHERING IMAGES with selector: [class*="slider-image"] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.260Z] INFO: 🔍 GATHERING IMAGES with selector: [class*="slider-img"] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.261Z] INFO: 🔍 GATHERING IMAGES with selector: .thumbnails img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.261Z] INFO: 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.262Z] INFO: 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.262Z] INFO: 🔍 GATHERING IMAGES with selector: img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:50.264Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/site/menu/duster.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.266Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.268Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites/default/dwa40dd5a8/images/AcmeToolsLogo.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites/default/dwa40dd5a8/images/AcmeToolsLogo.svg"
+}
+
+[2025-09-28T21:10:50.268Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.268Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.268Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.268Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.269Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.269Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.269Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.269Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.269Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.269Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.269Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/"
+}
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Sites-acme-sf-catalog-en/default/dwb21bb641/images/categories/catalog-icon.j
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.270Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v788d96ab345b98aea2f9b1cdc95632e0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.271Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.272Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwd006cb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwd006cb"
+}
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw9cf029
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw9cf029"
+}
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw4d971f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw4d971f"
+}
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.273Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw9b4e4e
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw9b4e4e"
+}
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/v88cea83029c4930f18902af2104a7638
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.274Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.275Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.276Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.277Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.278Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.279Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.280Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.281Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.282Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.283Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.284Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.285Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.286Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.286Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.286Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.286Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.286Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.286Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.286Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.287Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.287Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.287Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.287Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.287Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.287Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.287Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.287Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.288Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.288Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.288Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.288Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.288Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.288Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.288Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.288Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.289Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.290Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.291Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.292Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.293Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.294Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.295Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.296Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.297Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw4115db9b/images/img-na.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.298Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://i.ytimg.com/vi/ae5f3C-ShJw/default.jpg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://i.ytimg.com/vi/ae5f3C-ShJw/default.jpg"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://i.ytimg.com/vi/ae5f3C-ShJw/default.jpg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://i.ytimg.com/vi/ae5f3C-ShJw/default.jpg"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites/en_US/dw4b2d376e/images/miu/made-in-usa-emble
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites/en_US/dw4b2d376e/images/miu/made-in-usa-emble"
+}
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Sites-acme-sf-catalog-en/default/dw5a5d70f1/images/brands/bosch.jpg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Sites-acme-sf-catalog-en/default/dw5a5d70f1/images/brands/bosch.jpg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dwe37bbdd6/images/affirm.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw66452d5b/images/affirm-logo.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.299Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/Sites-AcmeTools-Site/-/default/dw66452d5b/images/affi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/Sites-AcmeTools-Site/-/default/dw66452d5b/images/affi"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/Sites-AcmeTools-Site/-/default/dw66452d5b/images/affi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/Sites-AcmeTools-Site/-/default/dw66452d5b/images/affi"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Sites-acme-sf-catalog-en/default/dw5a5d70f1/images/brands/bosch.jpg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.300Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Sites/en_US/dw4b2d376e/images/miu/made-in-usa-emble
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Sites/en_US/dw4b2d376e/images/miu/made-in-usa-emble"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Sites-acme-sf-catalog-en/default/dw5a5d70f1/images/brands/bosch.jpg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Sites-acme-sf-catalog-en/default/dw5a5d70f1/images/brands/bosch.jpg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dwe37bbdd6/images/affirm.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/Sites-AcmeTools-Site/-/default/dw66452d5b/images/affirm-logo.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.301Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/defaul"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/en_US/
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/dw/image/v2/BHBS_PRD/on/demandware.static/-/Sites-acme-catalog-m-en/en_US/"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw03b1ed
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw03b1ed"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw7963e2
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw7963e2"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw7c550d
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw7c550d"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw2ca23eba/site/footer/newsweek-2
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw924bfc
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw924bfc"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwb39bbc
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwb39bbc"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw6be102
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw6be102"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw260fa4
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw260fa4"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwbc0223
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwbc0223"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwabae01
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwabae01"
+}
+
+[2025-09-28T21:10:50.302Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw2b0c3d
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw2b0c3d"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwc75262
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwc75262"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw64b139
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw64b139"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwac8f65
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwac8f65"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw34c769
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw34c769"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwd1fb9e
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwd1fb9e"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw49cc83
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw49cc83"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw6bb207
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.acmetools.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dw6bb207"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://nova.collect.igodigital.com/c2/546002573/track_page_view?payload=%7B%22item%22%3A%22S0000000
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://nova.collect.igodigital.com/c2/546002573/track_page_view?payload=%7B%22item%22%3A%22S0000000"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://nova.collect.igodigital.com/c2/546002573/track_cart?payload=%7B%22clear_cart%22%3Atrue%2C%22
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://nova.collect.igodigital.com/c2/546002573/track_cart?payload=%7B%22clear_cart%22%3Atrue%2C%22"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://t.co/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%26255%263440%26144
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://t.co/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%26255%263440%26144"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://analytics.twitter.com/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%2
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://analytics.twitter.com/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%2"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://bat.bing.com/action/0?ti=4023999&tm=gtm002&Ver=2&mid=e695eb2f-2f04-41b9-bb2c-e62f7606ebbc&bo
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://bat.bing.com/action/0?ti=4023999&tm=gtm002&Ver=2&mid=e695eb2f-2f04-41b9-bb2c-e62f7606ebbc&bo"
+}
+
+[2025-09-28T21:10:50.303Z] INFO: ✅ Found image URL from attributes: https://bat.bing.com/action/0?ti=4023999&tm=gtm002&Ver=2&mid=e695eb2f-2f04-41b9-bb2c-e62f7606ebbc&bo
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://bat.bing.com/action/0?ti=4023999&tm=gtm002&Ver=2&mid=e695eb2f-2f04-41b9-bb2c-e62f7606ebbc&bo"
+}
+
+[2025-09-28T21:10:50.304Z] INFO: ✅ Found image URL from attributes: https://t.co/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%26255%263440%26144
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://t.co/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%26255%263440%26144"
+}
+
+[2025-09-28T21:10:50.304Z] INFO: ✅ Found image URL from attributes: https://analytics.twitter.com/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%2
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://analytics.twitter.com/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%2"
+}
+
+[2025-09-28T21:10:50.304Z] INFO: 🖼️ Raw enriched URLs collected: 478
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3929:5)
+
+[2025-09-28T21:10:50.336Z] INFO: 🖼️ After hybrid filtering: 50 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3931:5)
+
+[2025-09-28T21:10:50.343Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4742:7)
+
+[2025-09-28T21:10:50.343Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759093850221_pgojbv6tg, saving 500 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

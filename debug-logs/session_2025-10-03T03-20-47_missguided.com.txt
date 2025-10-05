@@ -1,0 +1,53 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759461647946_kfo3wo3y3
+URL: https://www.missguided.com/product/Floral-Crinkle-Crop-Top-Smocked-Summer-Festival-Tank-Sleeveless-Textured-Casual-Spring-Boho-11265692595241600
+Hostname: missguided.com
+Started: undefined
+Ended: 2025-10-03T03:20:47.967Z
+Total Logs: 15
+=========================
+
+[2025-10-03T03:20:47.952Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759461647946_kfo3wo3y3 started for missguided.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4893:9)
+
+[2025-10-03T03:20:47.952Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4896:7)
+
+[2025-10-03T03:20:47.958Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.958Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.958Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.959Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.959Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.959Z] INFO: 🔍 PROCESSING IMAGES with selector: .product_media_item img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.959Z] INFO: 🔍 PROCESSING IMAGES with selector: .product__media-item img.image__img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.959Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image_img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.960Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image__img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.960Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*=gallery] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4334:5)
+
+[2025-10-03T03:20:47.962Z] INFO: 🖼️ Raw enriched URLs collected: 7
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4486:5)
+
+[2025-10-03T03:20:47.967Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:5180:7)
+
+[2025-10-03T03:20:47.967Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759461647946_kfo3wo3y3, saving 14 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

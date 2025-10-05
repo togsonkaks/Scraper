@@ -1,0 +1,59 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759220096803_956csby42
+URL: https://www.crateandbarrel.com/marin-white-stoneware-dinner-plate/s141383
+Hostname: crateandbarrel.com
+Started: undefined
+Ended: 2025-09-30T08:15:08.882Z
+Total Logs: 17
+=========================
+
+[2025-09-30T08:14:56.804Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759220096803_956csby42 started for crateandbarrel.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4879:9)
+
+[2025-09-30T08:14:56.804Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4882:7)
+
+[2025-09-30T08:14:56.813Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:14:57.400Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-30T08:14:58.015Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:14:58.708Z] INFO: ✅ Light scroll complete - lazy loading triggered!
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:31:13
+
+[2025-09-30T08:14:59.217Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:15:00.420Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:15:01.624Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:15:02.826Z] INFO: 🔍 PROCESSING IMAGES with selector: .product_media_item img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:15:04.033Z] INFO: 🔍 PROCESSING IMAGES with selector: .product__media-item img.image__img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:15:05.238Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image_img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:15:06.441Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image__img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:15:07.643Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*=gallery] img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T08:15:08.859Z] INFO: 🖼️ Raw enriched URLs collected: 68
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4472:5)
+
+[2025-09-30T08:15:08.881Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:5166:7)
+
+[2025-09-30T08:15:08.881Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759220096803_956csby42, saving 16 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

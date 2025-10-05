@@ -1,0 +1,83 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759647852356_x6hc6i8uk
+URL: https://shop.lululemon.com/p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-Support-D-DDD-Cup/_/prod20000095?color=71188
+Hostname: shop.lululemon.com
+Started: undefined
+Ended: 2025-10-05T07:04:12.380Z
+Total Logs: 25
+=========================
+
+[2025-10-05T07:04:12.356Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759647852356_x6hc6i8uk started for shop.lululemon.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:4820:9)
+
+[2025-10-05T07:04:12.356Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:4823:7)
+
+[2025-10-05T07:04:12.358Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.358Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.359Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.359Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.359Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.359Z] INFO: 🔍 PROCESSING IMAGES with selector: .product_media_item img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.359Z] INFO: 🔍 PROCESSING IMAGES with selector: .product__media-item img.image__img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.360Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image_img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.360Z] INFO: 🔍 PROCESSING IMAGES with selector: img.image__img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.360Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*=gallery] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.363Z] INFO: 🖼️ Raw enriched URLs collected: 40
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4413:5)
+
+[2025-10-05T07:04:12.364Z] INFO: 🔍 PROCESSING IMAGES with selector: .slider img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.364Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*="slider-image"] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.365Z] INFO: 🔍 PROCESSING IMAGES with selector: [class*="slider-img"] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.365Z] INFO: 🔍 PROCESSING IMAGES with selector: .thumbnails img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.365Z] INFO: 🔍 PROCESSING IMAGES with selector: .pdp-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.366Z] INFO: 🖼️ Raw enriched URLs collected: 40
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4413:5)
+
+[2025-10-05T07:04:12.366Z] INFO: 🔍 PROCESSING IMAGES with selector: [data-testid*=image] img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.368Z] INFO: 🖼️ Raw enriched URLs collected: 200
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4413:5)
+
+[2025-10-05T07:04:12.369Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4261:5)
+
+[2025-10-05T07:04:12.372Z] INFO: 🖼️ Raw enriched URLs collected: 528
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4413:5)
+
+[2025-10-05T07:04:12.379Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:5127:7)
+
+[2025-10-05T07:04:12.380Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759647852356_x6hc6i8uk, saving 24 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

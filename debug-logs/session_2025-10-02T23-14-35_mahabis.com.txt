@@ -1,0 +1,38 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759446874974_5abaujaic
+URL: https://mahabis.com/products/solar-slippers?upper=nywh
+Hostname: mahabis.com
+Started: undefined
+Ended: 2025-10-02T23:14:35.006Z
+Total Logs: 10
+=========================
+
+[2025-10-02T23:14:34.985Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759446874974_5abaujaic started for mahabis.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4847:9)
+
+[2025-10-02T23:14:34.987Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4850:7)
+
+[2025-10-02T23:14:34.997Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4291:5)
+
+[2025-10-02T23:14:34.997Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4291:5)
+
+[2025-10-02T23:14:34.997Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4291:5)
+
+[2025-10-02T23:14:34.998Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4291:5)
+
+[2025-10-02T23:14:34.998Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4291:5)
+
+[2025-10-02T23:14:34.999Z] INFO: 🖼️ Raw enriched URLs collected: 8
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2391:15) -> at processImages (<anonymous>:4440:5)
+
+[2025-10-02T23:14:35.005Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:5134:7)
+
+[2025-10-02T23:14:35.005Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759446874974_5abaujaic, saving 9 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

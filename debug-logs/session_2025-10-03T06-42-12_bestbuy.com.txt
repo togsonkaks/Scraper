@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759473732135_96pymz91w
+URL: https://www.bestbuy.com/product/beats-studio-pro-wireless-noise-cancelling-over-the-ear-headphones-deep-brown/JJ8ZHR9KRW/sku/6501021
+Hostname: bestbuy.com
+Started: undefined
+Ended: 2025-10-03T06:42:12.173Z
+Total Logs: 4
+=========================
+
+[2025-10-03T06:42:12.147Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759473732135_96pymz91w started for bestbuy.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4906:9)
+
+[2025-10-03T06:42:12.151Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4909:7)
+
+[2025-10-03T06:42:12.171Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:5193:7)
+
+[2025-10-03T06:42:12.172Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759473732135_96pymz91w, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

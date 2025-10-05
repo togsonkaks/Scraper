@@ -1,0 +1,50 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759215373349_ht7honi2z
+URL: https://www.asos.com/us/nike/nike-shox-r4-sneakers-in-black-and-silver/prd/207494721#colourWayId-207494724
+Hostname: asos.com
+Started: undefined
+Ended: 2025-09-30T06:56:19.442Z
+Total Logs: 14
+=========================
+
+[2025-09-30T06:56:13.355Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759215373349_ht7honi2z started for asos.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4879:9)
+
+[2025-09-30T06:56:13.359Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4882:7)
+
+[2025-09-30T06:56:13.361Z] INFO: [DEBUG] ASOS trying 8 price selectors
+  Call Trace: at console.log (<anonymous>:102:14) -> at Object.price (<anonymous>:1872:13) -> at scrapeProduct (<anonymous>:4977:62)
+
+[2025-09-30T06:56:13.362Z] INFO: [DEBUG] ASOS price found with selector: [data-testid="current-price"] -> $155.00 (from: $155.00)
+  Call Trace: at console.log (<anonymous>:102:14) -> at Object.price (<anonymous>:1889:19) -> at scrapeProduct (<anonymous>:4977:62)
+
+[2025-09-30T06:56:13.363Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:13.949Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-30T06:56:14.571Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:15.270Z] INFO: ✅ Light scroll complete - lazy loading triggered!
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:31:13
+
+[2025-09-30T06:56:15.778Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:16.990Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:18.200Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:19.419Z] INFO: 🖼️ Raw enriched URLs collected: 34
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4472:5)
+
+[2025-09-30T06:56:19.441Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:5166:7)
+
+[2025-09-30T06:56:19.442Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759215373349_ht7honi2z, saving 13 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

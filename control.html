@@ -1757,8 +1757,9 @@
       if (urlLower.includes('sprite')) score -= 50;
       if (urlLower.includes('avatar')) score -= 50;
       if (urlLower.includes('flag')) score -= 50;
-      // Mobile icon detection: Only penalize .png files with icon keywords (more conservative)
-      if (urlLower.includes('.png') && /\b(truck|delivery|hanger)\b/.test(urlLower)) score -= 20;
+      if (urlLower.includes('truck')) score -= 50; // Delivery icons
+      if (urlLower.includes('hanger')) score -= 50; // Clothing rack icons
+      if (urlLower.includes('delivery')) score -= 50; // Delivery icons
       
       // Low quality indicators
       if (urlLower.includes('swatch')) score -= 20;

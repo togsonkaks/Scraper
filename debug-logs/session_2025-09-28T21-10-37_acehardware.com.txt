@@ -1,0 +1,170 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759093836201_aaacwosar
+URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359
+Hostname: acehardware.com
+Started: undefined
+Ended: 2025-09-28T21:10:37.451Z
+Total Logs: 51
+=========================
+
+[2025-09-28T21:10:36.203Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759093836201_aaacwosar started for acehardware.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4524:9)
+
+[2025-09-28T21:10:36.204Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4527:7)
+
+[2025-09-28T21:10:36.212Z] INFO: [DEBUG] ACE_HARDWARE custom image logic running...
+  Call Trace: at console.log (<anonymous>:102:14) -> at Object.images (<anonymous>:901:13) -> at scrapeProduct (<anonymous>:4660:63)
+
+[2025-09-28T21:10:36.212Z] INFO: [DEBUG] Found container: .product-detail-images, .product-images, .product-gallery
+  Call Trace: at console.log (<anonymous>:102:14) -> at Object.images (<anonymous>:917:17) -> at scrapeProduct (<anonymous>:4660:63)
+
+[2025-09-28T21:10:36.212Z] INFO: [DEBUG] Using scope: product-gallery mz-productimages mz-mobile-center mz-paint-productimages parent-item no-pad-l 
+  Call Trace: at console.log (<anonymous>:102:14) -> at Object.images (<anonymous>:923:13) -> at scrapeProduct (<anonymous>:4660:63)
+
+[2025-09-28T21:10:36.213Z] INFO: [DEBUG] ACE_HARDWARE found 0 images: 
+  Call Trace: at console.log (<anonymous>:102:14) -> at Object.images (<anonymous>:975:13) -> at scrapeProduct (<anonymous>:4660:63)
+
+[2025-09-28T21:10:36.214Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:36.215Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&max=4
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.216Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.216Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.216Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.216Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://vid.ly/1w5f2k/poster"
+}
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-sb.mozu.com/25884-42991/cms/42991/files/store-location-logo.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.217Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://vid.ly/1w5f2k/poster"
+}
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.218Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/resources/images/ace/gallery/video_badge.svg?_mzcb=_1756125248925
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: https://vid.ly/1w5f2k/poster
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://vid.ly/1w5f2k/poster"
+}
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fb79dbec-c972-4659-9b86-b5ddc41e3851?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2db5?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/fbc3257c-aa77-46d4-ba68-74727d6e30e1?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/91e49ac9-c0b3-477c-9906-297ccb14e35b?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/d26ca5ec-8457-4de6-b958-67e896c9a920?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: ✅ Found image URL from attributes: //cdn-tp3.mozu.com/24645-37138/cms/37138/files/721d40f9-ece8-4483-ad64-7d200df2765c?max=100&_mzcb=_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:10:36.219Z] INFO: 🖼️ Raw enriched URLs collected: 39
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3929:5)
+
+[2025-09-28T21:10:36.234Z] INFO: 🖼️ After hybrid filtering: 8 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3931:5)
+
+[2025-09-28T21:10:36.845Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-28T21:10:37.450Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4742:7)
+
+[2025-09-28T21:10:37.451Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759093836201_aaacwosar, saving 50 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

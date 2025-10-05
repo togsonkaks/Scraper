@@ -1,0 +1,110 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759093868636_ix6f1uuvu
+URL: https://www.adoredvintage.com/products/classic-effortless-blue-natural-striped-linen-shorts
+Hostname: adoredvintage.com
+Started: undefined
+Ended: 2025-09-28T21:11:09.850Z
+Total Logs: 34
+=========================
+
+[2025-09-28T21:11:08.636Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759093868636_ix6f1uuvu started for adoredvintage.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4524:9)
+
+[2025-09-28T21:11:08.637Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4527:7)
+
+[2025-09-28T21:11:08.639Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:11:08.639Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.639Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.pr
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:08.639Z] INFO: ✅ ALLOWED: Shopify files path (product image): ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_523x.progressive.jpg?v=1748895218
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.pr
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ ALLOWED: Shopify files path (product image): ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_523x.progressive.jpg?v=1748895218
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.640Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_97x.pro
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ ALLOWED: Shopify files path (product image): ClassiceffortlessbluenaturalstripedlinenshortsC415R_1_97x.progressive.jpg?v=1748895218
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_97x.pro
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ ALLOWED: Shopify files path (product image): ClassiceffortlessbluenaturalstripedlinenshortsC415R_3_97x.progressive.jpg?v=1748895218
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_97x.pro
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ ALLOWED: Shopify files path (product image): ClassiceffortlessbluenaturalstripedlinenshortsC415R_2_97x.progressive.jpg?v=1748895218
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:08.641Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:08.642Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_97x.pro
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:08.642Z] INFO: ✅ ALLOWED: Shopify files path (product image): ClassiceffortlessbluenaturalstripedlinenshortsC415R_4_97x.progressive.jpg?v=1748895218
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:08.642Z] INFO: 🖼️ Raw enriched URLs collected: 20
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3929:5)
+
+[2025-09-28T21:11:08.643Z] INFO: 🖼️ After hybrid filtering: 4 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3931:5)
+
+[2025-09-28T21:11:09.247Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-28T21:11:09.850Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4742:7)
+
+[2025-09-28T21:11:09.850Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759093868636_ix6f1uuvu, saving 33 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

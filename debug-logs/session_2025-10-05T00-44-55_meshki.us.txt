@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759625095669_aug7snlsm
+URL: https://www.meshki.us/products/alyssa-backless-shapewear-bodysuit-black
+Hostname: meshki.us
+Started: undefined
+Ended: 2025-10-05T00:44:55.675Z
+Total Logs: 5
+=========================
+
+[2025-10-05T00:44:55.670Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759625095669_aug7snlsm started for meshki.us
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:4801:9)
+
+[2025-10-05T00:44:55.670Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:4804:7)
+
+[2025-10-05T00:44:55.674Z] INFO: [MESHKI DEBUG] Found 22 images in product containers
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1285:15) -> at scrapeProduct (<anonymous>:4937:63)
+
+[2025-10-05T00:44:55.675Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:5108:7)
+
+[2025-10-05T00:44:55.675Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759625095669_aug7snlsm, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

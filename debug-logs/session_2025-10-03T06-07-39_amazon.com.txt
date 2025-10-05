@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759471659468_m5gnpz5ck
+URL: https://www.amazon.com/dp/B081CHLF46?smid=A6YRAKWGOWUE3&ref_=chk_typ_imgToDp&th=1
+Hostname: amazon.com
+Started: undefined
+Ended: 2025-10-03T06:07:39.488Z
+Total Logs: 4
+=========================
+
+[2025-10-03T06:07:39.468Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759471659468_m5gnpz5ck started for amazon.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4893:9)
+
+[2025-10-03T06:07:39.468Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:4896:7)
+
+[2025-10-03T06:07:39.488Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2358:17) -> at scrapeProduct (<anonymous>:5180:7)
+
+[2025-10-03T06:07:39.488Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759471659468_m5gnpz5ck, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,50 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759215397927_v0plfcj9r
+URL: https://www.asos.com/us/jack-jones/jack-jones-wide-leg-sweatpants-in-black/prd/208949257#ctaref-complementary%20items_1&featureref1-complementary%20items
+Hostname: asos.com
+Started: undefined
+Ended: 2025-09-30T06:56:44.008Z
+Total Logs: 14
+=========================
+
+[2025-09-30T06:56:37.927Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759215397927_v0plfcj9r started for asos.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4879:9)
+
+[2025-09-30T06:56:37.927Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4882:7)
+
+[2025-09-30T06:56:37.928Z] INFO: [DEBUG] ASOS trying 8 price selectors
+  Call Trace: at console.log (<anonymous>:102:14) -> at Object.price (<anonymous>:1872:13) -> at scrapeProduct (<anonymous>:4977:62)
+
+[2025-09-30T06:56:37.928Z] INFO: [DEBUG] ASOS price found with selector: [data-testid="current-price"] -> $45.00 (from: $45.00)
+  Call Trace: at console.log (<anonymous>:102:14) -> at Object.price (<anonymous>:1889:19) -> at scrapeProduct (<anonymous>:4977:62)
+
+[2025-09-30T06:56:37.929Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:38.535Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-30T06:56:39.138Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:39.862Z] INFO: ✅ Light scroll complete - lazy loading triggered!
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:31:13
+
+[2025-09-30T06:56:40.357Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:41.568Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-images img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:42.771Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-30T06:56:43.988Z] INFO: 🖼️ Raw enriched URLs collected: 34
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4472:5)
+
+[2025-09-30T06:56:44.007Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:5166:7)
+
+[2025-09-30T06:56:44.008Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759215397927_v0plfcj9r, saving 13 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

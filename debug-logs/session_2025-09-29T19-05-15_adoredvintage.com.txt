@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759172714093_7jy2wzrbt
+URL: https://www.adoredvintage.com/products/classic-effortless-blue-natural-striped-linen-shorts
+Hostname: adoredvintage.com
+Started: undefined
+Ended: 2025-09-29T19:05:15.332Z
+Total Logs: 7
+=========================
+
+[2025-09-29T19:05:14.101Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759172714093_7jy2wzrbt started for adoredvintage.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4875:9)
+
+[2025-09-29T19:05:14.104Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4878:7)
+
+[2025-09-29T19:05:14.111Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 1200
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-09-29T19:05:14.695Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-29T19:05:15.322Z] INFO: 🖼️ Raw enriched URLs collected: 20
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at processImages (<anonymous>:4472:5)
+
+[2025-09-29T19:05:15.331Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:5162:7)
+
+[2025-09-29T19:05:15.331Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759172714093_7jy2wzrbt, saving 6 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

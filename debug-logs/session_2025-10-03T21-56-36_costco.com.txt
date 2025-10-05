@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759528596382_iag2yvjg1
+URL: https://www.costco.com/saferacks-storage-bin-rack-5-tote-capacity-nsf-certified.product.100677580.html
+Hostname: costco.com
+Started: undefined
+Ended: 2025-10-03T21:56:36.469Z
+Total Logs: 8
+=========================
+
+[2025-10-03T21:56:36.384Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759528596382_iag2yvjg1 started for costco.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:4801:9)
+
+[2025-10-03T21:56:36.386Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:4804:7)
+
+[2025-10-03T21:56:36.431Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-media img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4242:5)
+
+[2025-10-03T21:56:36.433Z] INFO: 🔍 PROCESSING IMAGES with selector: .gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4242:5)
+
+[2025-10-03T21:56:36.438Z] INFO: 🔍 PROCESSING IMAGES with selector: .image-gallery img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4242:5)
+
+[2025-10-03T21:56:36.449Z] INFO: 🖼️ Raw enriched URLs collected: 18
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2260:15) -> at processImages (<anonymous>:4394:5)
+
+[2025-10-03T21:56:36.467Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2227:17) -> at scrapeProduct (<anonymous>:5108:7)
+
+[2025-10-03T21:56:36.468Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759528596382_iag2yvjg1, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

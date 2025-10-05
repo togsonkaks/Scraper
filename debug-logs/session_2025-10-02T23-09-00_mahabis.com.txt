@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759446540653_wtxzlf522
+URL: https://mahabis.com/products/solar-slippers?upper=nywh
+Hostname: mahabis.com
+Started: undefined
+Ended: 2025-10-02T23:09:00.660Z
+Total Logs: 4
+=========================
+
+[2025-10-02T23:09:00.654Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759446540653_wtxzlf522 started for mahabis.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2381:17) -> at scrapeProduct (<anonymous>:4870:9)
+
+[2025-10-02T23:09:00.654Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2381:17) -> at scrapeProduct (<anonymous>:4873:7)
+
+[2025-10-02T23:09:00.660Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2381:17) -> at scrapeProduct (<anonymous>:5157:7)
+
+[2025-10-02T23:09:00.660Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759446540653_wtxzlf522, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

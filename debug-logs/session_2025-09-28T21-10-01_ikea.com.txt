@@ -1,0 +1,383 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759093800091_qeo9uh8ca
+URL: https://www.ikea.com/us/en/p/vagstranda-pocket-spring-mattress-medium-firm-white-30511877/
+Hostname: ikea.com
+Started: undefined
+Ended: 2025-09-28T21:10:01.349Z
+Total Logs: 71
+=========================
+
+[2025-09-28T21:10:00.101Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759093800091_qeo9uh8ca started for ikea.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4524:9)
+
+[2025-09-28T21:10:00.102Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4527:7)
+
+[2025-09-28T21:10:00.109Z] INFO: 🔍 GATHERING IMAGES with selector: .product-media img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.109Z] INFO: 🔍 GATHERING IMAGES with selector: .gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.109Z] INFO: 🔍 GATHERING IMAGES with selector: .image-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.109Z] INFO: 🔍 GATHERING IMAGES with selector: .product-images img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.110Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.110Z] INFO: 🔍 GATHERING IMAGES with selector: .product_media_item img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.110Z] INFO: 🔍 GATHERING IMAGES with selector: .product__media-item img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.110Z] INFO: 🔍 GATHERING IMAGES with selector: img.image_img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.111Z] INFO: 🔍 GATHERING IMAGES with selector: img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.111Z] INFO: 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:10:00.113Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.115Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.116Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/pvid/1212570_fe002578.jpg?f=u
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/pvid/1212570_fe002578.jpg?f=u"
+}
+
+[2025-09-28T21:10:00.116Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/pvid/1212570_fe002578.jpg?f=xu
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/pvid/1212570_fe002578.jpg?f=xu"
+}
+
+[2025-09-28T21:10:00.116Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.116Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.116Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156"
+}
+
+[2025-09-28T21:10:00.116Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156"
+}
+
+[2025-09-28T21:10:00.117Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.117Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.117Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1370
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1370"
+}
+
+[2025-09-28T21:10:00.117Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1370
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1370"
+}
+
+[2025-09-28T21:10:00.117Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.118Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.119Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156"
+}
+
+[2025-09-28T21:10:00.119Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156"
+}
+
+[2025-09-28T21:10:00.119Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.119Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.119Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.119Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.119Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.119Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.120Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156"
+}
+
+[2025-09-28T21:10:00.120Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156"
+}
+
+[2025-09-28T21:10:00.120Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.120Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.120Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1370
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1370"
+}
+
+[2025-09-28T21:10:00.120Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1370
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1370"
+}
+
+[2025-09-28T21:10:00.120Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.120Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.121Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.121Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.121Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.121Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.121Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.121Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.121Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1156"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1152"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/us/en/images/products/vagstranda-pocket-spring-mattress-medium-firm-white__1142"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from attributes: https://www.ikea.com/ext/ingkadam/m/20220583404515d/original/PH189531.jpg?f=s
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/ext/ingkadam/m/20220583404515d/original/PH189531.jpg?f=s"
+}
+
+[2025-09-28T21:10:00.122Z] INFO: ✅ Found image URL from srcset: https://www.ikea.com/ext/ingkadam/m/20220583404515d/original/PH189531.jpg?f=xxxs
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+  Metadata: {
+  "extractedUrl": "https://www.ikea.com/ext/ingkadam/m/20220583404515d/original/PH189531.jpg?f=xxxs"
+}
+
+[2025-09-28T21:10:00.123Z] INFO: 🖼️ Raw enriched URLs collected: 54
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3929:5)
+
+[2025-09-28T21:10:00.133Z] INFO: 🖼️ After hybrid filtering: 14 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3931:5)
+
+[2025-09-28T21:10:00.703Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-28T21:10:01.349Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4742:7)
+
+[2025-09-28T21:10:01.349Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759093800091_qeo9uh8ca, saving 70 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

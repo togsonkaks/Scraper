@@ -1,0 +1,227 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759093925265_mg60s27xg
+URL: https://kyliecosmetics.com/products/glossy-lip-kit-skin-tint-blurring-elixir-duo?variant=47644867199218
+Hostname: kyliecosmetics.com
+Started: undefined
+Ended: 2025-09-28T21:12:06.582Z
+Total Logs: 57
+=========================
+
+[2025-09-28T21:12:05.276Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759093925265_mg60s27xg started for kyliecosmetics.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4524:9)
+
+[2025-09-28T21:12:05.277Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4527:7)
+
+[2025-09-28T21:12:05.286Z] INFO: 🔍 GATHERING IMAGES with selector: .product-media img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.288Z] INFO: 🔍 GATHERING IMAGES with selector: .gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.289Z] INFO: 🔍 GATHERING IMAGES with selector: .image-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.290Z] INFO: 🔍 GATHERING IMAGES with selector: .product-images img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.291Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.291Z] INFO: 🔍 GATHERING IMAGES with selector: .product_media_item img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.292Z] INFO: 🔍 GATHERING IMAGES with selector: .product__media-item img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.292Z] INFO: 🔍 GATHERING IMAGES with selector: img.image_img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.292Z] INFO: 🔍 GATHERING IMAGES with selector: img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.293Z] INFO: 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:12:05.294Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.294Z] INFO: ✅ ALLOWED: Shopify files path (product image): v2_Glossy-Lip-Kit_Bundle_1_37fb69a3-5575-4af9-9b8a-e3884e2bd997_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.295Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0e
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.296Z] INFO: ✅ ALLOWED: Shopify files path (product image): v1_Glossy-Lip-Kit_Bundle_swatches_f0e3114c-b904-42c1-ba13-35fe0ead65a6_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.296Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_800
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.296Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_GLK_25_PP_Armswatch_06d60487-f4e4-4ef9-aac2-4e4a10f46b84_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.297Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.297Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_SKT_24_ShadeGroups_Fair_c7b95c0d-a94e-4719-8258-bd22078edff3_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.297Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.297Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_SKT_24_ShadeGroups_Light_ee5aae04-82f9-4a6c-8824-d191b61ece15_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.297Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.297Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_SKT_24_ShadeGroups_Medium_4b27d14b-439f-4566-8539-b4ebccdcb01d_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.297Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.297Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_SKT_24_ShadeGroups_Tan_9292fcdb-e6c1-45e1-9287-255b853d998a_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.298Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.298Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_SKT_24_ShadeGroups_Deep_b02a1b95-2342-48e2-849a-9f4d5c0a4452_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.298Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_800x.j
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.298Z] INFO: ✅ ALLOWED: Shopify files path (product image): skin_tint_arm_swatch_eac6da35-447d-46b1-ad70-adef03d0579b_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.298Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.298Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_SKT_24_Infographic_MainClaims_e0bda193-45ed-4718-870f-010c01c7d960_800x.jpg?v=1750693037
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.298Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_GLK_25_LipMacro_Kylie_01_WS.jpg?v=1750692350&width=200&heigh
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.299Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_GLK_25_LipMacro_Kylie_01_WS.jpg?v=1750692350&width=200&height=200&crop=center
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.299Z] INFO: ✅ Found image URL from attributes: //kyliecosmetics.com/cdn/shop/files/KJC_SKT_24_US_Stylized_1WN_3f8924a4-fff3-4a1b-88c8-24090c69def0.
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:12:05.299Z] INFO: ✅ ALLOWED: Shopify files path (product image): KJC_SKT_24_US_Stylized_1WN_3f8924a4-fff3-4a1b-88c8-24090c69def0.jpg?v=1757706158&width=200&height=200&crop=center
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3870:11)
+
+[2025-09-28T21:12:05.299Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_400x.jpg?v=1741
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_kylie_friday_400x.jpg?v=1741"
+}
+
+[2025-09-28T21:12:05.299Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_400x.jpg?v=1741809265
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/products/matte_lip_kit_bare_400x.jpg?v=1741809265"
+}
+
+[2025-09-28T21:12:05.300Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/skin_tint_brush_e76f5c38-613d-4cbb-b688-26ffe"
+}
+
+[2025-09-28T21:12:05.300Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_SKT_24_Model_153_WS_630ff9c1-f1ac-4b34-9c"
+}
+
+[2025-09-28T21:12:05.300Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Smitten_Stylized_400x.jpg?v=1701
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Smitten_Stylized_400x.jpg?v=1701"
+}
+
+[2025-09-28T21:12:05.300Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Saturn_Stylized_400x.jpg?v=17018
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_LLPRP_23_Saturn_Stylized_400x.jpg?v=17018"
+}
+
+[2025-09-28T21:12:05.300Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/1N_400x.jpg?v=1695741517
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/1N_400x.jpg?v=1695741517"
+}
+
+[2025-09-28T21:12:05.300Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/1N_400x.jpg?v=1695741517
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/1N_400x.jpg?v=1695741517"
+}
+
+[2025-09-28T21:12:05.301Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/jnuywyanlfcrajpcpba2_400x.jpg?v=1690256428
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/products/jnuywyanlfcrajpcpba2_400x.jpg?v=1690256428"
+}
+
+[2025-09-28T21:12:05.301Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/tli4tbawu0cqowlxmd78_400x.jpg?v=1690256428
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/products/tli4tbawu0cqowlxmd78_400x.jpg?v=1690256428"
+}
+
+[2025-09-28T21:12:05.301Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?"
+}
+
+[2025-09-28T21:12:05.301Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_TBB_23_Pink_Me_Up_At_8_Stylized_400x.jpg?"
+}
+
+[2025-09-28T21:12:05.301Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=16
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=16"
+}
+
+[2025-09-28T21:12:05.301Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=16
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/products/KJC_VLK_22_LipMacros_Bare_02_400x.jpg?v=16"
+}
+
+[2025-09-28T21:12:05.301Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9a
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/KJC_FNDPBP_24_Stylized_b82747d1-310b-4d7c-a9a"
+}
+
+[2025-09-28T21:12:05.302Z] INFO: ✅ Found image URL from attributes: https://cdn.shopify.com/s/files/1/0662/4598/4498/files/PhotoNov022023_24433PM-2copy_400x.jpg?v=17054
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+  Metadata: {
+  "extractedUrl": "https://cdn.shopify.com/s/files/1/0662/4598/4498/files/PhotoNov022023_24433PM-2copy_400x.jpg?v=17054"
+}
+
+[2025-09-28T21:12:05.302Z] INFO: 🖼️ Raw enriched URLs collected: 28
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3929:5)
+
+[2025-09-28T21:12:05.316Z] INFO: 🖼️ After hybrid filtering: 25 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3931:5)
+
+[2025-09-28T21:12:05.866Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-28T21:12:06.581Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4742:7)
+
+[2025-09-28T21:12:06.582Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759093925265_mg60s27xg, saving 56 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

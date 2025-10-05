@@ -1,0 +1,203 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759165834077_g8dw3mqi7
+URL: https://www.kohls.com/product/prd-7663979/juniors-so-ruffle-tier-mini-dress.jsp?color=Red%20Aurora%20Floral&prdPV=1&isClearance=false
+Hostname: kohls.com
+Started: undefined
+Ended: 2025-09-29T17:10:34.262Z
+Total Logs: 49
+=========================
+
+[2025-09-29T17:10:34.087Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759165834077_g8dw3mqi7 started for kohls.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4446:9)
+
+[2025-09-29T17:10:34.088Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4449:7)
+
+[2025-09-29T17:10:34.098Z] INFO: 🔍 GATHERING IMAGES with selector: .product-media img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.098Z] INFO: 🔍 GATHERING IMAGES with selector: .gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.098Z] INFO: 🔍 GATHERING IMAGES with selector: .image-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.099Z] INFO: 🔍 GATHERING IMAGES with selector: .product-images img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.099Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.100Z] INFO: 🔍 GATHERING IMAGES with selector: .product_media_item img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.100Z] INFO: 🔍 GATHERING IMAGES with selector: .product__media-item img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.100Z] INFO: 🔍 GATHERING IMAGES with selector: img.image_img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.101Z] INFO: 🔍 GATHERING IMAGES with selector: img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.101Z] INFO: 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.101Z] INFO: 🔍 GATHERING IMAGES with selector: .slider img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.101Z] INFO: 🔍 GATHERING IMAGES with selector: [class*="slider-image"] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.102Z] INFO: 🔍 GATHERING IMAGES with selector: [class*="slider-img"] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.102Z] INFO: 🔍 GATHERING IMAGES with selector: .thumbnails img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.102Z] INFO: 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.103Z] INFO: 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.103Z] INFO: 🔍 GATHERING IMAGES with selector: img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:10:34.103Z] INFO: ✅ Found image URL from attributes: /snb/media/kds-web-core/assets/sephora/tags/small-k.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.104Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/order-status-icon?fmt=png-alpha
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/order-status-icon?fmt=png-alpha"
+}
+
+[2025-09-29T17:10:34.105Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/order-status-icon?fmt=png-alpha
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/order-status-icon?fmt=png-alpha"
+}
+
+[2025-09-29T17:10:34.105Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/content/kohls/logo_babies_r_us_17x80
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/content/kohls/logo_babies_r_us_17x80"
+}
+
+[2025-09-29T17:10:34.105Z] INFO: ✅ Found image URL from attributes: https://www.kohls.com/snb/media/kds-web-core/assets/sephora/tags/small.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.kohls.com/snb/media/kds-web-core/assets/sephora/tags/small.svg"
+}
+
+[2025-09-29T17:10:34.105Z] INFO: ✅ Found image URL from attributes: /snb/media/2.0.57/images/error-icon.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.105Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/7663979_Brown_Country_Ditsy?wid=805&hei=805&op_sharpen=1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/7663979_Brown_Country_Ditsy?wid=805&hei=805&op_sharpen=1"
+}
+
+[2025-09-29T17:10:34.106Z] INFO: ✅ Found image URL from srcset: https://media.kohlsimg.com/is/image/kohls/7663979_Brown_Country_Ditsy?wid=400&hei=400&op_sharpen=1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3800:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/7663979_Brown_Country_Ditsy?wid=400&hei=400&op_sharpen=1"
+}
+
+[2025-09-29T17:10:34.106Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/7663979_ALT?wid=390&hei=390&op_sharpen=1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/7663979_ALT?wid=390&hei=390&op_sharpen=1"
+}
+
+[2025-09-29T17:10:34.106Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/7663979_ALT2?wid=390&hei=390&op_sharpen=1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/7663979_ALT2?wid=390&hei=390&op_sharpen=1"
+}
+
+[2025-09-29T17:10:34.106Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/7663979_ALT3?wid=390&hei=390&op_sharpen=1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/7663979_ALT3?wid=390&hei=390&op_sharpen=1"
+}
+
+[2025-09-29T17:10:34.106Z] INFO: ✅ Found image URL from attributes: /snb/media/2.0.57/images/pdp/ic-play-circle.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.106Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/7663979_ALT4?wid=390&hei=390&op_sharpen=1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/7663979_ALT4?wid=390&hei=390&op_sharpen=1"
+}
+
+[2025-09-29T17:10:34.106Z] INFO: ✅ Found image URL from attributes: /snb/media/images/pdp/pdp-yp-icon.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: /snb/media/images/prequal-images/check-mark-icon.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: /snb/media/2.0.57/images/pdp/pdp-kohls-rewards.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: /snb/media/2.0.57/images/warning-glyph-black.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: https://designsystem.kohls.com/assets/2.34.0/icons/input-warning-icon.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://designsystem.kohls.com/assets/2.34.0/icons/input-warning-icon.svg"
+}
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: https://designsystem.kohls.com/assets/2.34.0/icons/alert/cross-icon.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://designsystem.kohls.com/assets/2.34.0/icons/alert/cross-icon.svg"
+}
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: /snb/media/2.0.57/images/loading.svg
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/03122022_mobile_about_so
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/03122022_mobile_about_so"
+}
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from picture source: https://media.kohlsimg.com/is/image/kohls/03122022_desktop_about_so
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/03122022_desktop_about_so"
+}
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from picture source: https://media.kohlsimg.com/is/image/kohls/03122022_mobile_about_so
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/03122022_mobile_about_so"
+}
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: /snb/media/images/pmp_imgs/pmp_search_loader.gif
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: /snb/media/images/pmp_imgs/pmp_search_loader.gif
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:10:34.107Z] INFO: ✅ Found image URL from attributes: https://media.kohlsimg.com/is/image/kohls/AppStore-qr_code2020?scl=1&fmt=png8&icid=ft-connect-learn-
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.kohlsimg.com/is/image/kohls/AppStore-qr_code2020?scl=1&fmt=png8&icid=ft-connect-learn-"
+}
+
+[2025-09-29T17:10:34.107Z] INFO: 🖼️ Raw enriched URLs collected: 26
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3851:5)
+
+[2025-09-29T17:10:34.209Z] INFO: 🖼️ After hybrid filtering: 8 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3853:5)
+
+[2025-09-29T17:10:34.262Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4744:7)
+
+[2025-09-29T17:10:34.262Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759165834077_g8dw3mqi7, saving 48 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

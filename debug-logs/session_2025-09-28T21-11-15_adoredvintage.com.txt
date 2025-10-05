@@ -1,0 +1,161 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759093874284_ji4xoerco
+URL: https://www.adoredvintage.com/products/classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts
+Hostname: adoredvintage.com
+Started: undefined
+Ended: 2025-09-28T21:11:15.510Z
+Total Logs: 51
+=========================
+
+[2025-09-28T21:11:14.285Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759093874284_ji4xoerco started for adoredvintage.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4524:9)
+
+[2025-09-28T21:11:14.285Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4527:7)
+
+[2025-09-28T21:11:14.287Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3796:5)
+
+[2025-09-28T21:11:14.288Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.288Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_523x.progressive.jpg?v=1709051080
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.288Z] INFO: ✅ ALLOWED: Shopify files path (product image): frankie-shorts-C1718R-2_523x.progressive.jpg?v=1709051080
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:14.288Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.288Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-1_523x.progressive.jpg?v=1709051080
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.288Z] INFO: ✅ ALLOWED: Shopify files path (product image): frankie-shorts-C1718R-1_523x.progressive.jpg?v=1709051080
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:14.288Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R_523x.progressive.jpg?v=1698370473
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ ALLOWED: Shopify files path (product image): frankie-shorts-C1718R_523x.progressive.jpg?v=1698370473
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/C1718R_Front_523x.progressive.jpg?v=1698370473
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/C1718R_back_523x.progressive.jpg?v=1698370473
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-hem-sho
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.289Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-hem-sho
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.290Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.290Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.290Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.290Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.290Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.290Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.290Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.290Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.291Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.291Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.291Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-2_97x.progressive.jpg?v=1709051080
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.291Z] INFO: ✅ ALLOWED: Shopify files path (product image): frankie-shorts-C1718R-2_97x.progressive.jpg?v=1709051080
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:14.291Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.291Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R-1_97x.progressive.jpg?v=1709051080
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.291Z] INFO: ✅ ALLOWED: Shopify files path (product image): frankie-shorts-C1718R-1_97x.progressive.jpg?v=1709051080
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:14.292Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.292Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/files/frankie-shorts-C1718R_97x.progressive.jpg?v=1698370473
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.292Z] INFO: ✅ ALLOWED: Shopify files path (product image): frankie-shorts-C1718R_97x.progressive.jpg?v=1698370473
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3891:11)
+
+[2025-09-28T21:11:14.292Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.292Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/C1718R_Front_97x.progressive.jpg?v=1698370473
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.292Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.292Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/C1718R_back_97x.progressive.jpg?v=1698370473
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.293Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.293Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-hem-sho
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.293Z] INFO: ✅ Found image URL from attributes: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3859:9)
+
+[2025-09-28T21:11:14.293Z] INFO: ✅ Found image URL from srcset: //www.adoredvintage.com/cdn/shop/products/Classic-vintage-inspired-high-waist-dark-olive-raw-hem-sho
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3880:9)
+
+[2025-09-28T21:11:14.293Z] INFO: 🖼️ Raw enriched URLs collected: 37
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3929:5)
+
+[2025-09-28T21:11:14.298Z] INFO: 🖼️ After hybrid filtering: 7 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2415:15) -> at gatherImagesBySelector (<anonymous>:3931:5)
+
+[2025-09-28T21:11:14.899Z] INFO: 🔄 Light product-area scroll starting...
+  Call Trace: at console.log (<anonymous>:102:14) -> at <anonymous>:17:13
+
+[2025-09-28T21:11:15.510Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4742:7)
+
+[2025-09-28T21:11:15.510Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759093874284_ji4xoerco, saving 50 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

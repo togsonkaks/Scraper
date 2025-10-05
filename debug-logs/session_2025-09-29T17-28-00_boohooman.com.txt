@@ -1,0 +1,431 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759166880319_d9b8stb7o
+URL: https://www.boohooman.com/us/oversized-linen-blend-organza-shirt-relaxed-short-set/CMM09851.html?color=564&_gl=1*1ov32xo*_up*MQ..*_ga*MTY2OTg2MjMuMTc1MTI0NDAxMQ..*_ga_3W4EF6FBG0*czE3NTEyNDQwMTAkbzEkZzAkdDE3NTEyNDQwMTAkajYwJGwwJGg2Nzg5NTE2ODI.
+Hostname: boohooman.com
+Started: undefined
+Ended: 2025-09-29T17:28:00.364Z
+Total Logs: 90
+=========================
+
+[2025-09-29T17:28:00.329Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759166880319_d9b8stb7o started for boohooman.com
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4446:9)
+
+[2025-09-29T17:28:00.330Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4449:7)
+
+[2025-09-29T17:28:00.341Z] INFO: 🔍 GATHERING IMAGES with selector: .product-media img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.342Z] INFO: 🔍 GATHERING IMAGES with selector: .gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.342Z] INFO: 🔍 GATHERING IMAGES with selector: .image-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.343Z] INFO: 🔍 GATHERING IMAGES with selector: .product-images img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.343Z] INFO: 🔍 GATHERING IMAGES with selector: .product-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.343Z] INFO: 🔍 GATHERING IMAGES with selector: .product_media_item img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.344Z] INFO: 🔍 GATHERING IMAGES with selector: .product__media-item img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.344Z] INFO: 🔍 GATHERING IMAGES with selector: img.image_img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.344Z] INFO: 🔍 GATHERING IMAGES with selector: img.image__img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.344Z] INFO: 🔍 GATHERING IMAGES with selector: [class*=gallery] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.345Z] INFO: 🔍 GATHERING IMAGES with selector: .slider img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.345Z] INFO: 🔍 GATHERING IMAGES with selector: [class*="slider-image"] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.346Z] INFO: 🔍 GATHERING IMAGES with selector: [class*="slider-img"] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.346Z] INFO: 🔍 GATHERING IMAGES with selector: .thumbnails img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.347Z] INFO: 🔍 GATHERING IMAGES with selector: .pdp-gallery img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.347Z] INFO: 🔍 GATHERING IMAGES with selector: [data-testid*=image] img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.347Z] INFO: 🔍 GATHERING IMAGES with selector: img
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3715:5)
+
+[2025-09-29T17:28:00.348Z] INFO: ✅ Found image URL from attributes: https://dummyimage.com/232x370?fmt=webp
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://dummyimage.com/232x370?fmt=webp"
+}
+
+[2025-09-29T17:28:00.350Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.350Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.350Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.350Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw50
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw50"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw0d
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw0d"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://dummyimage.com/232x370?fmt=webp
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://dummyimage.com/232x370?fmt=webp"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw50
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw50"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw0d
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw0d"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://dummyimage.com/232x370?fmt=webp
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://dummyimage.com/232x370?fmt=webp"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.351Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw50
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw50"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw0d
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw0d"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: /on/demandware.static/-/Sites-boohooman-navigation-US/default/dwa194495e/OCT24_NEW_ACTIVE_LOGO.png
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from picture source: x
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://dummyimage.com/232x370?fmt=webp
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://dummyimage.com/232x370?fmt=webp"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.352Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dw7f"
+}
+
+[2025-09-29T17:28:00.353Z] INFO: ✅ Found image URL from attributes: https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from attributes: https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from attributes: https://media.boohoo.com/i/boohooamplience/Mobile_Plain_Share_Button
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://media.boohoo.com/i/boohooamplience/Mobile_Plain_Share_Button"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from attributes: https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from picture source: https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from picture source: https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from attributes: https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from picture source: https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from picture source: https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl_1/light-blue-oversized-linen-blend-organza-s"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from attributes: https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from picture source: https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from picture source: https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3825:13)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl_2/light-blue-oversized-linen-blend-organza-s"
+}
+
+[2025-09-29T17:28:00.354Z] INFO: ✅ Found image URL from attributes: //mediahub.boohooman.com/cmm09851_light%20blue_xl_s.jpg?qlt=85&w=28&h=28&fit=ctn&fmt=webp
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAABUCAQAAACSe1eKAAAAO0lEQVR42u3NMQEAAAwCoNm/9Fr4CA
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: https://mediahub.boohooman.com/GIFT_CARD_ICON_5481_1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/GIFT_CARD_ICON_5481_1"
+}
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dwaa
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dwaa"
+}
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dwef
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dwef"
+}
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dwd0
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://www.boohooman.com/on/demandware.static/-/Library-Sites-boohooman-content-global/default/dwd0"
+}
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: https://lantern.roeye.com/track.php?fingerprint=a81d444c-cd83-40ee-8ec7-7ce4aee66e3e&referrer=&landi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://lantern.roeye.com/track.php?fingerprint=a81d444c-cd83-40ee-8ec7-7ce4aee66e3e&referrer=&landi"
+}
+
+[2025-09-29T17:28:00.355Z] INFO: ✅ Found image URL from attributes: https://ib.adnxs.com/setuid?entity=315&code=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM&consent=1
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://ib.adnxs.com/setuid?entity=315&code=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM&consent=1"
+}
+
+[2025-09-29T17:28:00.356Z] INFO: ✅ Found image URL from attributes: https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://mediahub.boohooman.com/cmm09851_light%20blue_xl/light-blue-oversized-linen-blend-organza-shi"
+}
+
+[2025-09-29T17:28:00.356Z] INFO: ✅ Found image URL from attributes: https://rt.udmserve.net/udm/fetch.pix?rtbh=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://rt.udmserve.net/udm/fetch.pix?rtbh=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-MkYLAyM"
+}
+
+[2025-09-29T17:28:00.356Z] INFO: ✅ Found image URL from attributes: https://pixel.rubiconproject.com/tap.php?v=58592&nid=3470&put=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-Mk
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3778:9)
+  Metadata: {
+  "extractedUrl": "https://pixel.rubiconproject.com/tap.php?v=58592&nid=3470&put=HMBFQ6yPZlpVOrK6-K9Bh-IAtvl6bfZ_wwR-Mk"
+}
+
+[2025-09-29T17:28:00.356Z] INFO: 🖼️ Raw enriched URLs collected: 67
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3851:5)
+
+[2025-09-29T17:28:00.362Z] INFO: 🖼️ After hybrid filtering: 4 immediate images
+  Call Trace: at console.log (<anonymous>:102:14) -> at dbg (<anonymous>:2418:15) -> at gatherImagesBySelector (<anonymous>:3853:5)
+
+[2025-09-29T17:28:00.364Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:102:14) -> at log (<anonymous>:2385:17) -> at scrapeProduct (<anonymous>:4724:7)
+
+[2025-09-29T17:28:00.364Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759166880319_d9b8stb7o, saving 89 logs
+  Call Trace: at console.log (<anonymous>:102:14) -> at DebugLogger.endSession (<anonymous>:70:13) -> at window.stopDebugLogging (<anonymous>:332:52)

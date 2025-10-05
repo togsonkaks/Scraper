@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759508728858_rp3it0by9
+URL: https://www.castlery.com/us/products/dalton-storage-bed
+Hostname: castlery.com
+Started: undefined
+Ended: 2025-10-03T16:25:28.874Z
+Total Logs: 4
+=========================
+
+[2025-10-03T16:25:28.865Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759508728858_rp3it0by9 started for castlery.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4956:9)
+
+[2025-10-03T16:25:28.865Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:4959:7)
+
+[2025-10-03T16:25:28.873Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2382:17) -> at scrapeProduct (<anonymous>:5245:7)
+
+[2025-10-03T16:25:28.874Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759508728858_rp3it0by9, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)
