@@ -1677,8 +1677,11 @@
         };
       });
       
-      // Sort by score (highest first)
-      imageObjects.sort((a, b) => b.totalScore - a.totalScore);
+      // Sort by score (highest first), preserve scraper order when tied
+      imageObjects.sort((a, b) => {
+        if (b.totalScore !== a.totalScore) return b.totalScore - a.totalScore;
+        return a.originalIndex - b.originalIndex; // Tiebreaker: maintain original order
+      });
       
       console.log(`📊 MOBILE PREVIEW: Pre-sorted ${imageObjects.length} images by score (highest first)`);
       
@@ -1705,7 +1708,7 @@
       }, 100);
     }
     
-    // FUNCTION 3: Sort by total score (highest first) as images load
+    // FUNCTION 3: Update badge when image loads (no re-sorting)
     function checkImageSize(imgElement) {
       const url = imgElement.src;
       const badge = imgElement.parentElement.querySelector('.quality-badge');
@@ -1716,36 +1719,16 @@
       const dimensionScore = scoreDimensions(url);
       const totalScore = keywordScore + dimensionScore;
       
-      // Store score on card for sorting
+      // Store score on card
       card.dataset.score = totalScore;
       
-      // Update badge to show score
-      badge.textContent = totalScore;
-      badge.className = 'quality-badge';
-      
-      // Sort by score - insert in correct position (highest first)
-      const mobileGrid = document.getElementById("mobileGrid");
-      if (mobileGrid && mobileGrid.contains(card)) {
-        const allCards = Array.from(mobileGrid.children);
-        let insertBeforeCard = null;
-        
-        for (let otherCard of allCards) {
-          if (otherCard === card) continue; // Skip self
-          const otherScore = parseInt(otherCard.dataset.score || '50');
-          if (totalScore > otherScore) {
-            insertBeforeCard = otherCard;
-            break;
-          }
-        }
-        
-        if (insertBeforeCard) {
-          mobileGrid.insertBefore(card, insertBeforeCard);
-          console.log(`📱 SORTED: score ${totalScore} (keywords:${keywordScore} + dimensions:${dimensionScore}) moved up`);
-        } else if (card !== mobileGrid.lastChild) {
-          mobileGrid.appendChild(card);
-          console.log(`📱 SORTED: score ${totalScore} (keywords:${keywordScore} + dimensions:${dimensionScore}) moved down`);
-        }
+      // Update badge to show final score
+      if (badge) {
+        badge.textContent = totalScore;
+        badge.className = 'quality-badge';
       }
+      
+      console.log(`✅ Score confirmed: ${totalScore} (keywords:${keywordScore} + dimensions:${dimensionScore})`);
     }
     
     // FUNCTION 1: Keyword Scoring (URL text analysis)
