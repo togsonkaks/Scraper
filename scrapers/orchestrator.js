@@ -2208,8 +2208,8 @@
         // Compute actual CSS path for better debugging (shows real container, not just 'img')
         const actualPath = getElementPath(el);
         
-        // Extract from main attributes - UPGRADE CDN FIRST, then check junk
-        const s1 = attrs.src || attrs['data-src'] || attrs['data-image'] || 
+        // Extract from main attributes - CHECK LAZY-LOAD FIRST (data-src, srcset), then src
+        const s1 = attrs['data-src'] || attrs.srcset || attrs.src || attrs['data-image'] || 
                    attrs['data-zoom-image'] || attrs['data-large'];
         if (s1) {
           const upgraded = upgradeCDNUrl(s1);  // ✨ UPGRADE FIRST - transforms URLs to best form
