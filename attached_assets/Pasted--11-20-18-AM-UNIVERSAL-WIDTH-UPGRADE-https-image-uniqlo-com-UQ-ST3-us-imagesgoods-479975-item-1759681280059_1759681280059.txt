@@ -1,0 +1,23 @@
+[11:20:18 AM] 🔄 UNIVERSAL WIDTH UPGRADE: https://image.uniqlo.com/UQ/ST3/us/imagesgoods/479975/item/usgoods_08_479975_3x4 -> width=1200 (dual-version)
+[11:20:18 AM] 🔄 UNIVERSAL WIDTH UPGRADE: https://image.uniqlo.com/UQ/ST3/us/imagesgoods/479975/sub/usgoods_479975_sub7_3x -> width=1200 (dual-version)
+[11:20:18 AM] 🔄 UNIVERSAL WIDTH UPGRADE: https://image.uniqlo.com/UQ/ST3/us/imagesgoods/479975/sub/usgoods_479975_sub13_3 -> width=1200 (dual-version)
+[11:20:18 AM] 🖼️ PROCESSING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":0,"duplicateGroups":0,"kept":4}
+[11:20:18 AM] 🖼️ FINAL IMAGES: ["https://image.uniqlo.com/UQ/ST3/us/imagesgoods/479975/item/usgoods_08_479975_3x4","https://image.uniqlo.com/UQ/ST3/us/imagesgoods/479975/sub/usgoods_479975_sub7_3x","https://image.uniqlo.com/UQ/ST3/
+[11:20:18 AM] ✅ Found 7 images with selector: '[class*=gallery] img'
+[11:20:18 AM] 🎯 Trying gallery selector: '.slider img'
+[11:20:18 AM] 🎯 Trying gallery selector: '[class*="slider-image"] img'
+[11:20:18 AM] 🎯 Trying gallery selector: '[class*="slider-img"] img'
+[11:20:18 AM] 🎯 Trying gallery selector: '.thumbnails img'
+[11:20:18 AM] 🎯 Trying gallery selector: '.pdp-gallery img'
+[11:20:18 AM] 🎯 Trying gallery selector: '[data-testid*=image] img'
+[11:20:18 AM] 🎯 Trying gallery selector: '.product-media picture source'
+[11:20:18 AM] 🎯 Trying gallery selector: '.gallery picture source'
+[11:20:18 AM] 🎯 Trying gallery selector: '.product-gallery picture source'
+[11:20:18 AM] 🎯 Trying gallery selector: '.pdp-gallery picture source'
+[11:20:18 AM] 🎯 Trying gallery selector: '[class*=gallery] picture source'
+[11:20:18 AM] 🎯 Trying gallery selector: '.slider picture source'
+[11:20:18 AM] 🎯 Trying gallery selector: '[class*="carousel"] picture source'
+[11:20:18 AM] ✅ Gallery selectors combined: 53 unique images from 2 selectors
+[11:20:18 AM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479975/chip/goods_08_479975_chip.jpg","https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479975/chip/goods_30_4
+[11:20:18 AM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479975/chip/goods_08_479975_chip.jpg","https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/479975/chip/goods_30_4
+[11:20:18 AM] 🎯 PRODUCT ID from URL: E479975-000

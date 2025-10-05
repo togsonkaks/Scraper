@@ -2458,26 +2458,28 @@
     }
     
     // Phase 8: Universal ?width= upgrade for top 3 images (dual-version strategy)
-    // Add upgraded versions AFTER all filtering to preserve both original + upgraded
-    const upgradedUrls = [];
-    for (let i = 0; i < Math.min(3, finalUrls.length); i++) {
+    // Interleave upgraded versions immediately after originals so they survive slice(0,30)
+    const finalUrlsWithUpgrades = [];
+    for (let i = 0; i < finalUrls.length; i++) {
       const url = finalUrls[i];
-      const widthMatch = url.match(/[?&]width=(\d+)/i);
-      if (widthMatch) {
-        const currentWidth = parseInt(widthMatch[1]);
-        // Only upgrade if current width is small (≤800px)
-        if (currentWidth <= 800) {
-          const upgradedUrl = url.replace(/([?&])width=\d+/i, '$1width=1200');
-          if (upgradedUrl !== url) {
-            upgradedUrls.push(upgradedUrl);
-            debug(`🔄 UNIVERSAL WIDTH UPGRADE: ${url.slice(0, 80)} -> width=1200 (dual-version)`);
+      finalUrlsWithUpgrades.push(url); // Add original
+      
+      // For first 3 images only, add upgraded version right after if applicable
+      if (i < 3) {
+        const widthMatch = url.match(/[?&]width=(\d+)/i);
+        if (widthMatch) {
+          const currentWidth = parseInt(widthMatch[1]);
+          // Only upgrade if current width is small (≤800px)
+          if (currentWidth <= 800) {
+            const upgradedUrl = url.replace(/([?&])width=\d+/i, '$1width=1200');
+            if (upgradedUrl !== url) {
+              finalUrlsWithUpgrades.push(upgradedUrl); // Insert immediately after original
+              debug(`🔄 UNIVERSAL WIDTH UPGRADE: ${url.slice(0, 80)} -> width=1200 (dual-version)`);
+            }
           }
         }
       }
     }
-    
-    // Add upgraded URLs to the final list (both versions preserved)
-    const finalUrlsWithUpgrades = [...finalUrls, ...upgradedUrls];
     
     debug('🖼️ PROCESSING RESULTS:', filtered);
     debug('🖼️ FINAL IMAGES:', finalUrlsWithUpgrades.slice(0, 5).map(url => url.slice(0, 80)));
