@@ -1687,7 +1687,7 @@
       
       // Create Pinterest-style masonry grid - sorted by score
       mobileGrid.innerHTML = imageObjects.map((item, index) => `
-        <div class="mobile-image-card" onclick="openMobileImageDetail('${item.url}', 'score-${item.totalScore}')" data-index="${index}" data-score="${item.totalScore}">
+        <div class="mobile-image-card" onclick="openMobileImageDetail('${item.url}', 'score-${item.totalScore}')" data-index="${index}" data-score="${item.totalScore}" data-original-order="${index}">
           <div class="quality-badge">${item.totalScore}</div>
           <img src="${item.url}" referrerpolicy="no-referrer" 
                onerror="this.parentElement.style.display='none'"
