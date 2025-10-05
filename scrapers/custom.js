@@ -1760,11 +1760,11 @@ const LULULEMON = {
     console.log("[DEBUG] Lululemon custom image logic running...");
     const out = new Set();
     
-    // Target Lululemon's specific gallery structure from their HTML
+    // Use stable carousel ID selectors (class names are dynamically generated)
     const selectors = [
-      '.product-media-slides_slide__1Uqc picture source',  // <picture><source> with srcset
-      '.image_picture__2GpZD source',                      // Backup picture selector
-      '.product-media-slides_slide__1Uqc img'              // Fallback to img elements
+      'li[id^="carousel-image"] picture source',  // <picture><source> with srcset (stable ID)
+      'li[id^="carousel-image"] img',             // Fallback to img elements
+      '[class*="product-media"] picture source'   // Additional fallback for other layouts
     ];
     
     selectors.forEach(selector => {

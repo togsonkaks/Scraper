@@ -1,0 +1,131 @@
+p\.lululemon\.com$/i.test(location.hostname.toLowerCase())
+true
+getCustomHandlers()
+{title: ƒ, brand: ƒ, price: ƒ, specs: ƒ, tags: ƒ, …}brand: () => nullimages: images(doc = document) {
+     console.log("[DEBUG] Lululemon custom image logic running...");
+     const out = new Set();
+     
+     // Target Lululemon's specific gallery structure from their HTML
+     const selectors = [
+       '.product-media-slides_slide__1Uqc picture source',  // <picture><source> with srcset
+       '.image_picture__2GpZD source',                      // Backup picture selector
+       '.product-media-slides_slide__1Uqc img'              // Fallback to img elements
+     ];
+     
+     selectors.forEach(selector => {…}price: () => nullspecs: () => nulltags: () => nulltitle: () => null[[Prototype]]: Object
+launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:6 No match for path: /p/women-sports-bras/FlexyFlex-Strappy-Yoga-Bra-Light-AC-Cups-MD/_/prod20002118
+sendEvent @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:6
+(anonymous) @ VM86:131
+Promise.then
+trackEvent @ VM86:128
+(anonymous) @ VM10731:2
+(anonymous) @ VM10731:2
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:10
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:10
+(anonymous) @ VM10731:1
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+n @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+s @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+c @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+i @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+n @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+Promise.then
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:25
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:25
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:25
+Promise.then
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:25
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:25
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:25
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:26
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:25
+we @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:26
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:25
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ launch-ENbde5763c75c445f1853ee4e59787fde6.min.js:9
+(anonymous) @ 191.274a8ffe8cf216cc.chunk.js:1
+e @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+Promise.then
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+Promise.then
+K @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+o @ mwa-analytics.js:1
+u @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+u @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+dispatch @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+f @ mwa-analytics.js:1
+a @ mwa-analytics.js:1
+Promise.then
+f @ mwa-analytics.js:1
+a @ mwa-analytics.js:1
+Promise.then
+f @ mwa-analytics.js:1
+a @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+b @ mwa-analytics.js:1
+track @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+Promise.then
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+Promise.then
+K @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+Promise.then
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+o @ mwa-analytics.js:1
+u @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+u @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+track @ mwa-analytics.js:1
+(anonymous) @ mwa-analytics.js:1
+value @ mwa-analytics.js:1
+(anonymous) @ 3134.f2647b7f273daaad.js:1
+c @ 3134.f2647b7f273daaad.js:1
+(anonymous) @ 924-3e3275d9f39a7af8.js:1
+uU @ framework.21516a4e33b7f2f0.js:1
+oV @ framework.21516a4e33b7f2f0.js:1
+o @ framework.21516a4e33b7f2f0.js:1
+x @ framework.21516a4e33b7f2f0.js:1
+T @ framework.21516a4e33b7f2f0.js:1
