@@ -728,6 +728,25 @@
       }
     }
     
+    // REFORMATION: Path-based width parameter upgrades
+    if (/thereformation\.com/i.test(url)) {
+      // Upgrade /w_500/ or smaller to /w_1000/ for higher quality
+      upgraded = upgraded.replace(/\/w_(\d+)\//g, (match, width) => {
+        const w = parseInt(width);
+        if (w <= 500) {
+          return '/w_1000/';
+        }
+        return match;
+      });
+      
+      // Upgrade device pixel ratio from 2.0 to 3.0 for sharper images
+      upgraded = upgraded.replace(/\/dpr_2\.0\//g, '/dpr_3.0/');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Reformation URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // ETSY CDN: Upgrade small thumbnail dimensions to high-quality
     if (/i\.etsystatic\.com/i.test(url)) {
       // Upgrade common small dimensions to 1200x1200
