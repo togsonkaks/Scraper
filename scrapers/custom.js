@@ -1775,21 +1775,20 @@ const LULULEMON = {
           // For <source> elements, check srcset first
           let srcset = el.getAttribute('srcset') || el.currentSrc || el.src || el.getAttribute('data-src');
           
-          if (srcset && srcset.includes(',')) {
-            // Srcset has multiple URLs separated by commas with newlines
-            // Format: "url1 320w,\nurl2 750w,\nurl3 2644w"
-            const srcsetParts = srcset.split(',').map(s => s.trim());
-            // Take last (largest) URL and split by any whitespace to get just the URL
-            const url = srcsetParts[srcsetParts.length - 1].split(/\s+/)[0];
+          if (srcset) {
+            // Use regex to extract URLs (URLs have commas in params, can't split by comma)
+            // Match all https:// URLs in the srcset
+            const urls = srcset.match(/https:\/\/[^\s]+/g);
             
-            if (url && /images\.lululemon\.com/i.test(url)) {
-              out.add(url);
-              console.log(`[DEBUG] Lululemon: Added image: ${url.substring(url.lastIndexOf('/') + 1, url.indexOf('?') > 0 ? url.indexOf('?') : undefined)}`);
+            if (urls && urls.length > 0) {
+              // Take the last URL (largest/highest quality, e.g., wid=2644)
+              const url = urls[urls.length - 1];
+              
+              if (url && /images\.lululemon\.com/i.test(url)) {
+                out.add(url);
+                console.log(`[DEBUG] Lululemon: Added image: ${url.substring(url.lastIndexOf('/') + 1, url.indexOf('?') > 0 ? url.indexOf('?') : undefined)}`);
+              }
             }
-          } else if (srcset && /images\.lululemon\.com/i.test(srcset)) {
-            // Single URL without srcset
-            out.add(srcset);
-            console.log(`[DEBUG] Lululemon: Added image: ${srcset.substring(srcset.lastIndexOf('/') + 1, srcset.indexOf('?') > 0 ? srcset.indexOf('?') : undefined)}`);
           }
         });
       } catch (e) {
