@@ -1728,7 +1728,7 @@
         badge.className = 'quality-badge';
       }
       
-      console.log(`✅ Score confirmed: ${totalScore} (keywords:${keywordScore} + dimensions:${dimensionScore})`);
+      console.log(`\n🔍 ${url.slice(-70)}\n  ═══════════════════\n  ✅ TOTAL: ${totalScore} pts`)
     }
     
     // FUNCTION 1: Keyword Scoring (URL text analysis)
@@ -1768,6 +1768,7 @@
       // File type penalties (only bad types)
       if (urlLower.includes('.gif') || urlLower.includes('.svg')) score -= 50;
       
+      console.log(`    🏷️  Keywords: base 50 = ${score} pts`)
       return score;
     }
     
@@ -1787,9 +1788,9 @@
       
       // Width patterns: _1100x, w_1100, w1100, ?w=1100, /1100/, width/1100, width_1100
       if (!dimension) {
-        const widthMatch = url.match(/_(\d{3,4})x|w_?(\d{3,4})|[?&]w=(\d{3,4})|\/(\d{3,4})\/|width[\/_](\d{3,4})/i);
+        const widthMatch = url.match(/_(\d{3,4})x|w_?(\d{3,4})|[?&]w=(\d{3,4})|[?&]width=(\d{3,4})|\/(\d{3,4})\/|width[\/_](\d{3,4})/i);
         if (widthMatch) {
-          dimension = parseInt(widthMatch[1] || widthMatch[2] || widthMatch[3] || widthMatch[4] || widthMatch[5]);
+          dimension = parseInt(widthMatch[1] || widthMatch[2] || widthMatch[3] || widthMatch[4] || widthMatch[5] || widthMatch[6]);
         }
       }
       
@@ -1822,6 +1823,7 @@
         if (aspectRatio >= 2.5) score -= 50;
       }
       
+      console.log(`    📐 Dimensions: ${dimension ? `${dimension}px = ${score} pts` : `none = ${score} pts`}`)
       return score;
     }
     
