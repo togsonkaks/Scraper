@@ -1060,6 +1060,9 @@
     if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;
     if (/\b(warranty|insurance|coverage|support|claim)\b/i.test(url)) score -= 55;
     
+    // Mobile icon penalty: Only penalize .png files with specific icon keywords (conservative)
+    if (/\.png/i.test(url) && /\b(truck|delivery|hanger)\b/i.test(url)) score -= 20;
+    
     // Community/review image penalties
     if (/aicid=community/i.test(url)) score -= 45;
     if (/community-reviews/i.test(url)) score -= 45;
@@ -2486,7 +2489,12 @@
         '#imageBlock img'
       ],
       'adidas.com': ['.product-image-container img', '.product-media img[src*="assets.adidas.com"]'],
-      'acehardware.com': ['.product-gallery img', '.mz-productimages img']
+      'acehardware.com': ['.product-gallery img', '.mz-productimages img'],
+      'shop.lululemon.com': [
+        '.product-media-slides_slide__1Uqc picture source',
+        '.image_picture__2GpZD source',
+        '.product-media-slides_slide__1Uqc img'
+      ]
     };
     
     // Try site-specific selectors first
