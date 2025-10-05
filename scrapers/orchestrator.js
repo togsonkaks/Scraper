@@ -2325,62 +2325,11 @@
     
     bestImages.sort((a, b) => a.index - b.index);
     
-    // Phase 4.5: Universal ?width= upgrade for top 3 images (dual-version strategy)
-    // Add both original + upgraded versions to protect against 404s
-    const top3WithUpgrades = [];
-    for (let i = 0; i < Math.min(3, bestImages.length); i++) {
-      const img = bestImages[i];
-      top3WithUpgrades.push(img); // Keep original
-      
-      // Check if URL has ?width= parameter and can be upgraded
-      const widthMatch = img.url.match(/[?&]width=(\d+)/i);
-      if (widthMatch) {
-        const currentWidth = parseInt(widthMatch[1]);
-        // Only upgrade if current width is small (≤800px)
-        if (currentWidth <= 800) {
-          const upgradedUrl = img.url.replace(/([?&])width=\d+/i, '$1width=1200');
-          if (upgradedUrl !== img.url) {
-            // Create upgraded version with same properties, slightly lower score so original is preferred if both work
-            top3WithUpgrades.push({ 
-              ...img, 
-              url: upgradedUrl, 
-              score: img.score - 5, // Slight penalty so original is kept if both exist
-              index: img.index + 0.1 // Slight index offset to maintain order
-            });
-            debug(`🔄 UNIVERSAL WIDTH UPGRADE: ${img.url.slice(0, 80)} -> width=1200 (dual-version)`);
-          }
-        }
-      }
-    }
-    
-    // Add remaining images (after top 3) without upgrades
-    for (let i = 3; i < bestImages.length; i++) {
-      top3WithUpgrades.push(bestImages[i]);
-    }
-    
-    // Re-deduplicate in case upgraded URLs match existing images
-    const deduplicatedGroups = new Map();
-    for (const img of top3WithUpgrades) {
-      const canonical = canonicalKey(img.url);
-      if (!deduplicatedGroups.has(canonical)) {
-        deduplicatedGroups.set(canonical, []);
-      }
-      deduplicatedGroups.get(canonical).push(img);
-    }
-    
-    const finalBestImages = [];
-    for (const [canonical, candidates] of deduplicatedGroups) {
-      const best = candidates.reduce((a, b) => a.score > b.score ? a : b);
-      finalBestImages.push(best);
-    }
-    
-    finalBestImages.sort((a, b) => a.index - b.index);
-    
     // Phase 5: File size filtering
     const sizeFilteredImages = [];
     const fileSizeCheckPromises = [];
     
-    for (const img of finalBestImages) {
+    for (const img of bestImages) {
       if (/(?:adoredvintage\.com|cdn-tp3\.mozu\.com|assets\.adidas\.com|cdn\.shop|shopify|cloudfront|amazonaws|scene7)/i.test(img.url)) {
         sizeFilteredImages.push(img);
         addImageDebugLog('debug', `🔒 TRUSTED CDN BYPASS: ${img.url.slice(0, 100)}`, img.url, img.score, true);
@@ -2508,10 +2457,32 @@
       addImageDebugLog('warn', `⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by ranking`, '', 0, false);
     }
     
-    debug('🖼️ PROCESSING RESULTS:', filtered);
-    debug('🖼️ FINAL IMAGES:', finalUrls.slice(0, 5).map(url => url.slice(0, 80)));
+    // Phase 8: Universal ?width= upgrade for top 3 images (dual-version strategy)
+    // Add upgraded versions AFTER all filtering to preserve both original + upgraded
+    const upgradedUrls = [];
+    for (let i = 0; i < Math.min(3, finalUrls.length); i++) {
+      const url = finalUrls[i];
+      const widthMatch = url.match(/[?&]width=(\d+)/i);
+      if (widthMatch) {
+        const currentWidth = parseInt(widthMatch[1]);
+        // Only upgrade if current width is small (≤800px)
+        if (currentWidth <= 800) {
+          const upgradedUrl = url.replace(/([?&])width=\d+/i, '$1width=1200');
+          if (upgradedUrl !== url) {
+            upgradedUrls.push(upgradedUrl);
+            debug(`🔄 UNIVERSAL WIDTH UPGRADE: ${url.slice(0, 80)} -> width=1200 (dual-version)`);
+          }
+        }
+      }
+    }
     
-    return finalUrls;
+    // Add upgraded URLs to the final list (both versions preserved)
+    const finalUrlsWithUpgrades = [...finalUrls, ...upgradedUrls];
+    
+    debug('🖼️ PROCESSING RESULTS:', filtered);
+    debug('🖼️ FINAL IMAGES:', finalUrlsWithUpgrades.slice(0, 5).map(url => url.slice(0, 80)));
+    
+    return finalUrlsWithUpgrades;
   }
 
   // NEW SIMPLIFIED ORCHESTRATOR: Selector strategy + lazy loading coordination
