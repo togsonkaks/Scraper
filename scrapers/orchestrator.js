@@ -2499,6 +2499,30 @@
     debug('🖼️ PROCESSING RESULTS:', filtered);
     debug('🖼️ FINAL IMAGES:', finalUrlsWithUpgrades.slice(0, 5).map(url => url.slice(0, 80)));
     
+    // 🆕 SMART FALLBACK: If ≤4 images, combine with img fallback and re-filter
+    if (finalUrlsWithUpgrades.length <= 4 && selector !== 'img') {
+      debug(`⚠️ SMART FALLBACK: Only ${finalUrlsWithUpgrades.length} images, triggering img fallback...`);
+      const imgFallbackUrls = await processImages('img', 0);
+      debug(`✅ IMG FALLBACK: Got ${imgFallbackUrls.length} additional images`);
+      
+      // Combine both results
+      const combinedUrls = [...finalUrlsWithUpgrades, ...imgFallbackUrls];
+      debug(`🔄 COMBINING: ${finalUrlsWithUpgrades.length} (gallery) + ${imgFallbackUrls.length} (img) = ${combinedUrls.length} total`);
+      
+      // Simple deduplication (both arrays already filtered)
+      const seen = new Set();
+      const dedupedUrls = [];
+      for (const url of combinedUrls) {
+        if (url && !seen.has(url)) {
+          seen.add(url);
+          dedupedUrls.push(url);
+        }
+      }
+      
+      debug(`✅ SMART FALLBACK COMPLETE: ${dedupedUrls.length} images after deduplication`);
+      return dedupedUrls.slice(0, 30);
+    }
+    
     return finalUrlsWithUpgrades;
   }
 
