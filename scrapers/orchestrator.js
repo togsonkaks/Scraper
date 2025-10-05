@@ -1034,8 +1034,8 @@
     if (/\b(womens?-clothing|mens?-clothing|best-sellers?|new-arrivals?|accessories|shop-by|featured-edit|wellness|searchburger)\b/i.test(url)) score -= 70;
     
     // Unified promotional content penalty - eliminates promotional images
-    // Compound terms (substring match): promo_upload, flyout_mens, etc.
-    if (/(promo|flyout|banner|advertisement|campaign|marketing|bullet-point|feedback)/i.test(url)) score -= 200;
+    // Compound terms (substring match): flyout_mens, etc.
+    if (/(flyout|banner|advertisement|campaign|marketing|bullet-point|feedback)/i.test(url)) score -= 200;
     // Short words (word boundary): avoid matching "adoredvintage.com" for "ad"
     if (/\b(ad|logo|bg|background|header|footer|nav|navigation|menu|sidebar)\b/i.test(url)) score -= 200;
     if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;
@@ -1060,7 +1060,7 @@
       if (/\b(gallery|product-thumb|media-item|slide-item|zoom-item)\b/i.test(combined)) score += 35;
       
       // Thumbnail penalties  
-      if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 30;
+      if (/\b(thumb|thumbnail|small|mini|icon)\b/i.test(combined)) score -= 10;
       
       // ENHANCED: Navigation container penalties (reduce cross-sell noise)
       if (/\b(banner|ad|sidebar|nav|navigation|header|footer|menu|cross-sell|upsell|related|recommended)\b/i.test(combined)) score -= 60;
