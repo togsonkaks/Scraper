@@ -2108,11 +2108,14 @@
 
   // ⚠️ NEW MERGED ARCHITECTURE: Complete image processing pipeline in single function ⚠️
   // Process images with complete pipeline: extraction → filtering → scoring → ranking
-  async function processImages(selector, observeMs = 1200) {
-    dbg('🔍 PROCESSING IMAGES with selector:', selector, 'observeMs:', observeMs);
+  // Accepts either a selector string OR an array of elements
+  async function processImages(selectorOrElements, observeMs = 1200) {
+    const isElementArray = Array.isArray(selectorOrElements);
+    const selector = isElementArray ? 'element-array' : selectorOrElements;
+    dbg('🔍 PROCESSING IMAGES with', isElementArray ? `${selectorOrElements.length} elements` : `selector: ${selector}`, 'observeMs:', observeMs);
     
-    // Phase 1: Lazy Loading (optional but recommended)
-    if (observeMs > 0) {
+    // Phase 1: Lazy Loading (optional but recommended, skip if pre-collected elements)
+    if (observeMs > 0 && !isElementArray) {
       dbg(`⏳ LAZY LOADING: Observing for ${observeMs}ms for lazy-loaded images...`);
       
       // Lightweight MutationObserver to catch lazy-loaded images
@@ -2164,7 +2167,7 @@
     }
     
     // Phase 2: Element finding and filtering
-    const allElements = qa(selector);
+    const allElements = isElementArray ? selectorOrElements : qa(selectorOrElements);
     const elements = allElements.filter(el => {
       let current = el;
       for (let i = 0; i < 3 && current; i++) {
@@ -2537,31 +2540,28 @@
       '[class*=gallery] picture source','.slider picture source','[class*="carousel"] picture source'
     ];
     
-    let allGalleryUrls = [];
+    // Step 1: Collect RAW elements from ALL selectors first (no processing yet)
+    let allGalleryElements = [];
     const usedSelectors = [];
     for (const sel of gallerySels) {
-      debug(`🎯 Trying gallery selector: '${sel}'`);
-      const urls = await processImages(sel, 0);
-      if (urls.length > 0) {
-        debug(`✅ Found ${urls.length} images with selector: '${sel}'`);
-        allGalleryUrls = allGalleryUrls.concat(urls);
+      debug(`🎯 Collecting elements with gallery selector: '${sel}'`);
+      const elements = Array.from(document.querySelectorAll(sel));
+      if (elements.length > 0) {
+        debug(`✅ Found ${elements.length} elements with selector: '${sel}'`);
+        allGalleryElements = allGalleryElements.concat(elements);
         usedSelectors.push(sel);
       }
     }
     
-    // Deduplicate gallery results
-    if (allGalleryUrls.length > 0) {
-      const seen = new Set();
-      const unique = [];
-      for (const url of allGalleryUrls) {
-        if (url && !seen.has(url)) {
-          seen.add(url);
-          unique.push(url);
-        }
+    // Step 2: Process ONCE on all collected elements (scores, filters, upgrades happen once)
+    if (allGalleryElements.length > 0) {
+      debug(`🔄 Processing ${allGalleryElements.length} total elements from ${usedSelectors.length} selectors...`);
+      const urls = await processImages(allGalleryElements, 0);
+      if (urls.length > 0) {
+        debug(`✅ Gallery processing complete: ${urls.length} images after scoring/filtering`);
+        mark('images', { selectors: usedSelectors, attr:'src', method:'gallery-combined', urls: urls.slice(0,30) });
+        return urls.slice(0,30);
       }
-      debug(`✅ Gallery selectors combined: ${unique.length} unique images from ${usedSelectors.length} selectors`);
-      mark('images', { selectors: usedSelectors, attr:'src', method:'gallery-combined', urls: unique.slice(0,30) });
-      return unique.slice(0,30);
     }
     
     // Final fallback to broad 'img' (only if gallery found nothing)
