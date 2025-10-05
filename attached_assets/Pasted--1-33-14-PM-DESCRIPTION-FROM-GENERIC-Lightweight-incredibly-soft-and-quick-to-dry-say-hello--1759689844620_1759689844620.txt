@@ -1,0 +1,358 @@
+[1:33:14 PM] 📄 DESCRIPTION FROM GENERIC: Lightweight, incredibly soft, and quick to dry, say hello to your new can’t-live-without staples. Loomed with an oversized waffle construction, these waffle towels are more breathable and absorbent than your run-of-the-mill versions. Always Free U.S. Shipping &amp;amp; Easy Returns.
+[1:33:14 PM] 🧩 PRICE: Trying custom handler...
+[1:33:14 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[1:33:14 PM] 💰 PRICE: Falling back to generic...
+[1:33:14 PM] 🔍 PRICE PARSING: {"input":"58","inputType":"string","inputLength":2}
+[1:33:14 PM] 🧹 CLEANED INPUT: {"original":"58","cleaned":"58"}
+[1:33:14 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"58","reconstructed":"58"}
+[1:33:14 PM] 💰 MONETARY TOKENS: []
+[1:33:14 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[58]}
+[1:33:14 PM] ✅ FINAL PRICE RESULT: {"result":58,"method":"MIN_FALLBACK","allNumbers":[58]}
+[1:33:14 PM] 💰 PRICE FROM GENERIC: 58
+[1:33:14 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[1:33:14 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[1:33:14 PM] 🧩 IMAGES: Trying custom handler...
+[1:33:14 PM] 🖼️ IMAGES: No custom/memory images, getting generic images...
+[1:33:14 PM] 🖼️ Getting generic images for hostname: the-citizenry.com
+[1:33:14 PM] 📍 CALL TRACE: at getImagesGeneric (<anonymous>:4734:23) -> at scrapeProduct (<anonymous>:5107:41) -> at async <anonymous>:5342:21
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.product-media img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.gallery img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.image-gallery img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.product-images img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.product-gallery img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.product_media_item img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.product__media-item img.image__img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: 'img.image_img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: 'img.image__img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '[class*=gallery] img'
+[1:33:14 PM] ✅ Found 86 elements with selector: '[class*=gallery] img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.slider img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '[class*="slider-image"] img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '[class*="slider-img"] img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.thumbnails img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.pdp-gallery img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '[data-testid*=image] img'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.product-media picture source'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.gallery picture source'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.product-gallery picture source'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.pdp-gallery picture source'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '[class*=gallery] picture source'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '.slider picture source'
+[1:33:14 PM] 🎯 Collecting elements with gallery selector: '[class*="carousel"] picture source'
+[1:33:14 PM] 🔄 Processing 86 total elements from 1 selectors...
+[1:33:14 PM] 🔍 Processing 86 image elements...
+[1:33:14 PM] Image element #1 <IMG#main-pdp_gallery-alt-image_1.image-loaded>
+[1:33:14 PM] Image element #2 <IMG#main-pdp_gallery-alt-image_2.image-loaded>
+[1:33:14 PM] Image element #3 <IMG#main-pdp_gallery-alt-image_3.image-loaded>
+[1:33:14 PM] 🔄 FILTERING & SCORING UNIQUE IMAGES... {"inputCount":86}
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_2.jpg?v=1686667372&width= | Found by: #main-pdp_gallery-alt-image_1
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_10_c3153144-85a4-4d0b-bed | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_11.jpg?format=webp&v=1686 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_4.jpg?format=webp&v=16866 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_White_22.jpg?format=webp&v=1713220 | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_17.jpg?format=webp&v=1713 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_20.jpg?format=webp&v=1713 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_19.jpg?format=webp&v=1713 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_18.jpg?format=webp&v=1713 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_White_21.jpg?format=webp&v=1713220 | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_2.jpg?format=webp&v=1656 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_11_54083bfa-5c58-45ef-8f | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_13.jpg?format=webp&v=165 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_4.jpg?format=webp&v=1656 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_17.jpg?format=webp&v=165 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_20.jpg?format=webp&v=165 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_19.jpg?format=webp&v=165 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_18.jpg?format=webp&v=165 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_2.jpg?format=webp&v=17132 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_1.jpg?format=webp&v=17132 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_4.jpg?format=webp&v=17132 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_5.jpg?format=webp&v=17132 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_6.jpg?format=webp&v=17132 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_10.jpg?format=webp&v=1713 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_11.jpg?format=webp&v=1713 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_12.jpg?format=webp&v=1713 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_2.jpg?format=webp&v=165611 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_15.jpg?format=webp&v=16561 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_13_b01a9374-0dcd-4cd6-9c10 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_4.jpg?format=webp&v=165611 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_21.jpg?format=webp&v=16561 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_24.jpg?format=webp&v=16561 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_23.jpg?format=webp&v=16561 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_22.jpg?format=webp&v=16561 | Found by: div.js-item > div.stage-wrap > img
+190
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Aegean_Cotton_Bath_Towel_Tan_14.jpg?format=webp&v=16866 | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_2_87137b9a-ac91-4503-9052- | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_10_f1787249-630a-492e-a1da | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_4_bd4f6192-1be1-4f46-817e- | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_9_506f2f9f-be43-4986-8fef- | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_8_5eaddef5-a3b9-4825-8d80- | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_7_9a7cc67f-e3e0-40e1-8e25- | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_6_6dd27493-48f7-42c1-acdd- | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] ✅ BEST OF 2 (score: 155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_5_e2cdf832-08d9-4d21-bcee- | Found by: div.js-item > div.stage-wrap > img
+155
+📋 Copy URL
+[1:33:14 PM] 📉 TOO SMALL (est: 8KB): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_2.jpg?v=1686667372&width=
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_10_c3153144-85a4-4d0b-bed
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_11.jpg?format=webp&v=1686
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_4.jpg?format=webp&v=16866
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_White_22.jpg?format=webp&v=1713220
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_17.jpg?format=webp&v=1713
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_20.jpg?format=webp&v=1713
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_19.jpg?format=webp&v=1713
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_18.jpg?format=webp&v=1713
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_White_21.jpg?format=webp&v=1713220
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_2.jpg?format=webp&v=1656
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_11_54083bfa-5c58-45ef-8f
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_13.jpg?format=webp&v=165
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_4.jpg?format=webp&v=1656
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_17.jpg?format=webp&v=165
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_20.jpg?format=webp&v=165
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_19.jpg?format=webp&v=165
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Indigo_18.jpg?format=webp&v=165
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_2.jpg?format=webp&v=17132
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_1.jpg?format=webp&v=17132
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_4.jpg?format=webp&v=17132
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_5.jpg?format=webp&v=17132
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_6.jpg?format=webp&v=17132
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_10.jpg?format=webp&v=1713
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_11.jpg?format=webp&v=1713
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Olive_12.jpg?format=webp&v=1713
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_2.jpg?format=webp&v=165611
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_15.jpg?format=webp&v=16561
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_13_b01a9374-0dcd-4cd6-9c10
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_4.jpg?format=webp&v=165611
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_21.jpg?format=webp&v=16561
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_24.jpg?format=webp&v=16561
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_23.jpg?format=webp&v=16561
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (190): https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_Grey_22.jpg?format=webp&v=16561
+190
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Aegean_Cotton_Bath_Towel_Tan_14.jpg?format=webp&v=16866
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_2_87137b9a-ac91-4503-9052-
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_10_f1787249-630a-492e-a1da
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_4_bd4f6192-1be1-4f46-817e-
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_9_506f2f9f-be43-4986-8fef-
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_8_5eaddef5-a3b9-4825-8d80-
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_7_9a7cc67f-e3e0-40e1-8e25-
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_6_6dd27493-48f7-42c1-acdd-
+155
+📋 Copy URL
+[1:33:14 PM] 🎯 HIGH SCORE + SIZE OK (155): https://www.the-citizenry.com/cdn/shop/files/Imabari_Waffle_Towel_Natural_5_e2cdf832-08d9-4d21-bcee-
+155
+📋 Copy URL
+[1:33:14 PM] 🏆 TOP SCORED IMAGES: ["Imabari_Waffle_Towel_White_10_c3153144-85a4-4d0b-bed5-a5f0f58bd1b0.jpg?format=webp&v=1686667372&width=800 (score: 190)","Imabari_Waffle_Towel_White_11.jpg?format=webp&v=1686667372&width=800 (score:
+[1:33:14 PM] 🔧 PHASE 8: Scanning 42 URLs to find first 3 with ?width= pattern...
+[1:33:14 PM] 🔍 Found ?width=800 at position 0 (match #1)
+[1:33:14 PM] 🔄 UPGRADE #1: ?width=800 → ?width=1200 (position 0)
+[1:33:14 PM] 🔍 Found ?width=800 at position 1 (match #2)
+[1:33:14 PM] 🔄 UPGRADE #2: ?width=800 → ?width=1200 (position 1)
+[1:33:14 PM] 🔍 Found ?width=800 at position 2 (match #3)
+[1:33:14 PM] 🔄 UPGRADE #3: ?width=800 → ?width=1200 (position 2)
+[1:33:14 PM] ✅ PHASE 8 COMPLETE: Added 3 upgrades, 45 total URLs
+[1:33:14 PM] 🖼️ PROCESSING RESULTS: {"empty":0,"invalid":0,"junk":0,"lowScore":0,"smallFile":1,"duplicateGroups":43,"kept":43}
+[1:33:14 PM] 🖼️ FINAL IMAGES: ["https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_10_c3","https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_10_c3","https://www.the-citizenry.com/cd
+[1:33:14 PM] ✅ Gallery processing complete: 45 images after scoring/filtering
+[1:33:14 PM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_10_c3153144-85a4-4d0b-bed5-a5f0f58bd1b0.jpg?format=webp&v=1686667372&width=800","https://www.the-citiz
+[1:33:14 PM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://www.the-citizenry.com/cdn/shop/products/Imabari_Waffle_Towel_White_10_c3153144-85a4-4d0b-bed5-a5f0f58bd1b0.jpg?format=webp&v=1686667372&width=800","https://www.the-citiz
+[1:33:14 PM] 🎯 PRODUCT ID from URL: imabari-waffle-towels
+[1:33:14 PM] 🔍 FINAL RELEVANCE CHECK: Running keyword matching on 30 final images
+[1:33:14 PM] 🔍 Keywords: [imabari, waffle, towels]
+[1:33:14 PM] 🔍 Main Product ID: "imabari-waffle-towels"
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | d0b-bed5-a5f0f58bd1b0.jpg?format=webp&v=1686667372&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | 0b-bed5-a5f0f58bd1b0.jpg?format=webp&v=1686667372&width=1200 | selector: unknown
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_White_11.jpg?format=webp&v=1686667372&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | affle_Towel_White_11.jpg?format=webp&v=1686667372&width=1200 | selector: unknown
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | _Waffle_Towel_White_4.jpg?format=webp&v=1686667372&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_White_4.jpg?format=webp&v=1686667372&width=1200 | selector: unknown
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_White_17.jpg?format=webp&v=1713220582&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_White_20.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_White_19.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_White_18.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_Indigo_2.jpg?format=webp&v=1656117959&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | 5ef-8f49-4597667a7144.jpg?format=webp&v=1656117894&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | affle_Towel_Indigo_13.jpg?format=webp&v=1656117889&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_Indigo_4.jpg?format=webp&v=1656117882&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | affle_Towel_Indigo_17.jpg?format=webp&v=1656117875&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | affle_Towel_Indigo_20.jpg?format=webp&v=1656117869&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | affle_Towel_Indigo_19.jpg?format=webp&v=1656117863&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | affle_Towel_Indigo_18.jpg?format=webp&v=1656117859&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | _Waffle_Towel_Olive_2.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | _Waffle_Towel_Olive_1.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | _Waffle_Towel_Olive_4.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | _Waffle_Towel_Olive_5.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | _Waffle_Towel_Olive_6.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_Olive_10.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_Olive_11.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | Waffle_Towel_Olive_12.jpg?format=webp&v=1713220576&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | i_Waffle_Towel_Grey_2.jpg?format=webp&v=1656117947&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | _Waffle_Towel_Grey_15.jpg?format=webp&v=1656117852&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | cd6-9c10-7f4db4fe3fa6.jpg?format=webp&v=1656117846&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 Score=100 [kw:+100] | i_Waffle_Towel_Grey_4.jpg?format=webp&v=1656117840&width=800 | selector: div.js-item > div.stage-wrap > img
+[1:33:14 PM] 🎯 RELEVANCE RANKING: 30 with matches, scores: [100, 100, 100, 100, 100]
+[1:33:14 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Imabari Waffle Towels","brand":"The Citizenry","description":"Lightweight, incredibly soft, and quick to dry, sa","price":"58","imageCount":30,"firstImages":["https://www.the-citizenry.com/c
+[1:33:14 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":30}
+[1:33:14 PM] 💾 DEBUG LOGGER: Session saved to database
+[1:33:14 PM] ✅ Debug trace complete
