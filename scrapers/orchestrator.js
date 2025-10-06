@@ -892,7 +892,7 @@
 
   // ⚠️ CRITICAL FUNCTION - Multi-layered image quality scoring algorithm ⚠️
   // Enhanced image quality scoring function with aggressive filtering  
-  function scoreImageURL(url, element = null, elementIndex = 0) {
+  function scoreImageURL(url, element = null, elementIndex = 0, isImgFallback = false) {
     if (!url) return 0;
     
     // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns and prioritize high-res
@@ -1052,6 +1052,9 @@
     // Aggressive semantic penalties for navigation/UI elements
     if (/\b(womens?-clothing|mens?-clothing|best-sellers?|new-arrivals?|accessories|shop-by|featured-edit|wellness|searchburger)\b/i.test(url)) score -= 70;
     
+    // Navigation URL patterns penalty - catches NAV images that escape element-based detection
+    if (/_NAV_|\/NAV\/|-NAV-|NAV_WOMEN|NAV_MEN|NAV_DESK|_DESK(?:TOP)?_|LIFESTYLE_DESK|JOURNAL_|STORES_NAV/i.test(url)) score -= 150;
+    
     // Unified promotional content penalty - eliminates promotional images
     // Compound terms (substring match): flyout_mens, etc.
     if (/(flyout|banner|advertisement|campaign|marketing|bullet-point|feedback)/i.test(url)) score -= 200;
@@ -1068,8 +1071,11 @@
     if (/community-reviews/i.test(url)) score -= 45;
     
     // Position-based bonuses (first images more likely to be main product)
-    if (elementIndex < 3) score += 20; // First few images get bonus
-    if (elementIndex < 1) score += 10; // Very first image gets extra bonus
+    // DISABLED during img fallback - position is meaningless when scraping entire page
+    if (!isImgFallback) {
+      if (elementIndex < 3) score += 20; // First few images get bonus
+      if (elementIndex < 1) score += 10; // Very first image gets extra bonus
+    }
     
     // Element-based bonuses if element provided
     if (element) {
@@ -1235,7 +1241,7 @@
       }
       
       // Apply score threshold (minimum 50 points)
-      const score = scoreImageURL(abs, enriched.element, enriched.index);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback);
       if (score < 50) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
@@ -2109,10 +2115,10 @@
   // ⚠️ NEW MERGED ARCHITECTURE: Complete image processing pipeline in single function ⚠️
   // Process images with complete pipeline: extraction → filtering → scoring → ranking
   // Accepts either a selector string OR an array of elements
-  async function processImages(selectorOrElements, observeMs = 1200) {
+  async function processImages(selectorOrElements, observeMs = 1200, isImgFallback = false) {
     const isElementArray = Array.isArray(selectorOrElements);
     const selector = isElementArray ? 'element-array' : selectorOrElements;
-    dbg('🔍 PROCESSING IMAGES with', isElementArray ? `${selectorOrElements.length} elements` : `selector: ${selector}`, 'observeMs:', observeMs);
+    dbg('🔍 PROCESSING IMAGES with', isElementArray ? `${selectorOrElements.length} elements` : `selector: ${selector}`, 'observeMs:', observeMs, isImgFallback ? '⚠️ IMG FALLBACK MODE' : '');
     
     // Phase 1: Lazy Loading (optional but recommended, skip if pre-collected elements)
     if (observeMs > 0 && !isElementArray) {
@@ -2291,7 +2297,7 @@
         continue;
       }
       
-      const score = scoreImageURL(abs, enriched.element, enriched.index);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback);
       if (score < 50) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
@@ -2502,7 +2508,7 @@
     // 🆕 SMART FALLBACK: If ≤4 images, combine with img fallback and re-filter
     if (finalUrlsWithUpgrades.length <= 4 && selector !== 'img') {
       debug(`⚠️ SMART FALLBACK: Only ${finalUrlsWithUpgrades.length} images, triggering img fallback...`);
-      const imgFallbackUrls = await processImages('img', 0);
+      const imgFallbackUrls = await processImages('img', 0, true); // true = img fallback mode
       debug(`✅ IMG FALLBACK: Got ${imgFallbackUrls.length} additional images`);
       
       // Combine both results
@@ -2603,7 +2609,7 @@
     // Final fallback to broad 'img' (only if gallery found nothing)
     debug(`🖼️ All gallery selectors found nothing, falling back to broad 'img'`);
     const og = q('meta[property="og:image"]')?.content;
-    const urls = await processImages('img', 0);
+    const urls = await processImages('img', 0, true); // true = img fallback mode (disable position bonuses)
     const combined = (og ? [upgradeCDNUrl(og)] : []).concat(urls);
     
     // Simple deduplication for final fallback

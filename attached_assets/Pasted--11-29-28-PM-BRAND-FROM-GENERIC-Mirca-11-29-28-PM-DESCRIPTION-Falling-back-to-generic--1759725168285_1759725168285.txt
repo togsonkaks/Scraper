@@ -1,0 +1,871 @@
+[11:29:28 PM] 🏷️ BRAND FROM GENERIC: Mirca
+[11:29:28 PM] 📄 DESCRIPTION: Falling back to generic...
+[11:29:28 PM] 📄 DESCRIPTION FROM GENERIC: Color: Black/White Stripe Lightweight fluid silk blend fabric Relaxed fit Wide leg Side seam hip pockets Embroidered logo at the front Elasticated waistband Back welt pocket Illusion zip fly placket Slip-on style Unlined 87% Viscose 13% Silk Dry Clean By The Frankie Shop
+[11:29:28 PM] 🧩 PRICE: Trying custom handler...
+[11:29:28 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[11:29:28 PM] 💰 PRICE: Falling back to generic...
+[11:29:28 PM] 💰 PRICE FROM GENERIC: null
+[11:29:28 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[11:29:28 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[11:29:28 PM] 🧩 IMAGES: Trying custom handler...
+[11:29:28 PM] 🖼️ IMAGES: No custom/memory images, getting generic images...
+[11:29:28 PM] 🖼️ Getting generic images for hostname: thefrankieshop.com
+[11:29:28 PM] 📍 CALL TRACE: at getImagesGeneric (<anonymous>:4734:23) -> at scrapeProduct (<anonymous>:5107:41) -> at async <anonymous>:5342:21
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.product-media img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.gallery img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.image-gallery img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.product-images img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.product-gallery img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.product_media_item img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.product__media-item img.image__img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: 'img.image_img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: 'img.image__img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '[class*=gallery] img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.slider img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '[class*="slider-image"] img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '[class*="slider-img"] img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.thumbnails img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.pdp-gallery img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '[data-testid*=image] img'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.product-media picture source'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.gallery picture source'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.product-gallery picture source'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.pdp-gallery picture source'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '[class*=gallery] picture source'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '.slider picture source'
+[11:29:28 PM] 🎯 Collecting elements with gallery selector: '[class*="carousel"] picture source'
+[11:29:28 PM] 🖼️ All gallery selectors found nothing, falling back to broad 'img'
+[11:29:28 PM] 🔍 Processing 141 image elements...
+[11:29:28 PM] Image element #1 <IMG.rsp-Image_Image>
+[11:29:28 PM] Image element #2 <IMG.rsp-Image_Image>
+[11:29:28 PM] Image element #3 <IMG.rsp-Image_Image>
+[11:29:28 PM] 🔄 FILTERING & SCORING UNIQUE IMAGES... {"inputCount":276}
+[11:29:28 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+0
+📋 Copy URL
+[11:29:28 PM] 🗑️ JUNK IMAGE: https://cookie-cdn.cookiepro.com/logos/static/cookiepro_logo.png
+0
+📋 Copy URL
+[11:29:28 PM] ❌ NOT IMAGE URL: https://cookie-cdn.cookiepro.com/logos/static/poweredBy_cp_logo.svg
+0
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 195): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_DESK_a290ddaf-7014-486a-86f6-bc6cac56 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+195
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 185): https://thefrankieshop.com/cdn/shop/files/TFS_250285_NAV_MEN_DESK.jpg?v=1756894147&width=2085 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+185
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 170): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LIFESTYLE_DESK_1.jpg?v=1747817225&width=201 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+170
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LIFESTYLE_DESK_2.jpg?v=1747817225&width=208 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_ABOUT_US_01.jpg?v=1757342107&width=2016 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_ABOUT_US_02_dac5a6c6-fcd2-427f-a5a7-21a603b | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/TFS_2509_NAV_JOURNAL_SARDAIGNE_DESK.jpg?v=1758902576&width | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/files/TFS_2509_NAV_JOURNAL_ASEKLAOUI_DESK.jpg?v=1758902575&width | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LOOKS_DESK_B.jpg?v=1747817225&width=2016 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LOOKS_DESK_A.jpg?v=1747817225&width=2085 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/STORES_NAV_140125.jpg?v=1737020092&width=2016 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/files/STORES_NAV_RIGHT_140125.jpg?v=1737020093&width=2085 | Found by: a.hd-PanelCard > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 5 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH | Found by: figure.prd-Detail_Zoom > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH | Found by: figure.prd-Detail_Zoom > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH | Found by: figure.prd-Detail_Zoom > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH | Found by: figure.prd-Detail_Zoom > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH | Found by: figure.prd-Detail_Zoom > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH | Found by: figure.prd-Detail_Zoom > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-PACKSH | Found by: figure.prd-Detail_Zoom > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 60): https://thefrankieshop.com/cdn/shop/files/LUI-SILK-STRIPED-SHIRT-BLACK-WHITE-STRIPE-SHAANTI-2729_075 | Found by: a > div.rsp-Image > img.rsp-Image_Image
+60
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 60): https://thefrankieshop.com/cdn/shop/files/A-EMERY-THE-KINTO-SANDAL-BLACK-PACKSHOT.jpg?v=1713520423&w | Found by: a > div.rsp-Image > img.rsp-Image_Image
+60
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-ELASTIC-PANTS-BLUE-MULTI-STRIPE-DIPTI-7494.jpg?v=168 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/MIRCA-ELASTIC-PANTS-BLUE-MULTI-STRIPE-KRISTIN-13jan-31989_ | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/ODENSE-RIBBED-FLARED-PANTS-BROWN-MINGMA-0845.jpg?v=1734966 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/ODENSE-RIBBED-FLARED-PANTS-BROWN-MINGMA-0880.jpg?v=1734966 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/BRENNA-DOUBLE-STRIPE-WIDE-PANTS-WHITE-BLACK-STRIPE-MEREL-1 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/BRENNA-DOUBLE-STRIPE-WIDE-PANTS-WHITE-BLACK-STRIPE-MEREL-1 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/TEKLA-POPLIN-PYJAMAS-PANTS-HOPPER-STRIPES-BRAND-WOMEN-1.jp | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/TEKLA-POPLIN-PYJAMAS-PANTS-HOPPER-STRIPES-02.jpg?v=1750977 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/TEKLA-POPLIN-PYJAMAS-PANTS-NEEDLE-STRIPES-BRAND-02.jpg?v=1 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/TEKLA-POPLIN-PYJAMAS-PANTS-NEEDLE-STRIPES-BRAND-03.jpg?v=1 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/BETTTER-ESSENTIAL-PANTS-CREAM-ARINA-3217.jpg?v=1753219611& | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/BETTTER-ESSENTIAL-PANTS-CREAM-ARINA-3213.jpg?v=1753219611& | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/Noor-Wide-Pants-GreyPinstripe3.jpg?v=1683619045&width=1380 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/Noor-Wide-Pants-GreyPinstripe2.jpg?v=1683619045&width=1380 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/RIPLEY-PLEATED-TROUSERS-GREY-TIFFANY-0957.jpg?v=1752847209 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/RIPLEY-PLEATED-TROUSERS-GREY-NABILA-32390.jpg?v=1752847209 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/LINNA-TROUSERS-LIGHT-GREY-KOREA-5_4dbe984b-40b9-4c9f-a284- | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/LINNA-TROUSERS-LIGHT-GREY-KOREA-6_7ce20d70-e229-4818-a252- | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/HAIKURE-STAR-JEANS-BLACK-DENIM-LEATHER-BIANCA-1028.jpg?v=1 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/HAIKURE-STAR-JEANS-BLACK-DENIM-LEATHER-BIANCA-1017.jpg?v=1 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 6 (score: 150): https://thefrankieshop.com/cdn/shop/files/RIVOLI-CAPRI-PANTS-BLACK-LILLI-0091.jpg?v=1757340081&width | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 6 (score: 150): https://thefrankieshop.com/cdn/shop/files/RIVOLI-CAPRI-PANTS-BLACK-LILLI-0105.jpg?v=1757459392&width | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/SONNY-RUFFLED-PANTS-BLACK-KOREA-1.jpg?v=1757515917&width=1 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/SONNY-RUFFLED-PANTS-BLACK-KOREA-2.jpg?v=1757515917&width=1 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/EMERSYN-CROPPED-PANTS-BLACK-ATIKAH-00589.jpg?v=1747745329& | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/EMERSYN-CROPPED-PANTS-BLACK-KOREA-03.jpg?v=1747745329&widt | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/DOYER-PLEATED-TROUSERS-BLACK-ATIKAH-1470.jpg?v=1754375304& | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/DOYER-PLEATED-TROUSERS-BLACK-ATIKAH-1510.jpg?v=1754375304& | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/DARKPARK-WENDY-ELASTIC-WAIST-WIDE-LEG-TROUSERS-BLACK-YARIN | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 150): https://thefrankieshop.com/cdn/shop/files/DARKPARK-WENDY-ELASTIC-WAIST-WIDE-LEG-TROUSERS-BLACK-YARIN | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+150
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-MOSS-GREEN-PACKSHOT.jpg?v=1758017968& | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/frankie-ribbed-socks-vanilla-socks-the-frankie-shop-893 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/frankie-ribbed-socks-vanilla-socks-the-frankie-shop-803 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Brown-packshot.jpg?v=167361 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Brown-21822_3.jpg?v=1673610 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-BROWN-947087.jpg?v=1714673068&width=1 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-BROWN-CHEN-XUE-202468042.jpg?v=171467 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Bordeaux-packshot_7eeebb97- | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Bordeaux-Camille-13jan-3175 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAPBURGUNDY-PACKSHOT_483193.jpg?v=1718188 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-BURGUNDY-CHEN-XUE-202468193-CROP.jpg? | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/The-Frankie_s-Shop5496-PACKSHOT.jpg?v=1675242491&width= | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/x1The-Frankie_s-Shop5496-PACKSHOT.jpg?v=1675273630&widt | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/summer-baseball-hat-pine-hat-the-frankie-shop-681681.jp | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/summer-baseball-hat-pine-hat-the-frankie-shop-947087.jp | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Thyme.jpg?v=1675250831&widt | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-ThymeX1.jpg?v=1675273651&wi | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/TFS-GLOSSY-BANGLE-LIGHT-KHAKI-RT-PACKSHOT_50893e6a-fb0d-48 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/ASHBURY-VEST-DRESS-TAUPE-ALUEL-00496_6d12bc96-149f-4ef5-a1 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-DARK-BROWN-PACKSHOT.jpg?v=1718722740& | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-DARK-BROWN-SANTANA-21049_959673cf-9f3 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/TFS-GLOSSY-BANGLE-DARK-BROWN-NYALUAK-2009_75ea5dfb-b4cc-42 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/TFS-GLOSSY-BANGLE-DARK-BROWN-BOYKA-ACS-2550-201-V1-DARK-BR | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/socks-IMG_8220.jpg?v=1673024453&width=1000 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/socks-IMG_8254.jpg?v=1673024453&width=1000 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-DEEP-NAVY-PACKSHOT_5b95a4f4-e255-485f | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-DEEP-NAVY-CHEN-XUE-202468128.jpg?v=17 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/TFS-GLOSSY-BANGLE-BLUE-HELENA-0521.jpg?v=1753450689&width= | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 130): https://thefrankieshop.com/cdn/shop/files/TFS-RESIN-BANGLE-GLOSSY-ACS-2550-300-V1-BLUE-RT.jpg?v=1753 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/summer-baseball-hat-navy-hat-the-frankie-shop-692457.jp | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 165): https://thefrankieshop.com/cdn/shop/products/summer-baseball-hat-navy-hat-the-frankie-shop-493760.jp | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+165
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 80): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_01_MOB.jpg?v=1757341835&width=548 | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+80
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 80): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_02_MOB.jpg?v=1757341835&width=548 | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+80
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 80): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_EDITS_01_MOB.jpg?v=1757341671&width=5 | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+80
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 80): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_EDITS_02_MOB.jpg?v=1757341671&width=5 | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+80
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 110): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_SHOES_MOB.jpg?v=1757342898&width=720 | Found by: div.crd-MobileMedia_Image > div.rsp-Image > img.rsp-Image_Image
+110
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 110): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_ACCESS_MOB.jpg?v=1757342898&width=720 | Found by: div.crd-MobileMedia_Image > div.rsp-Image > img.rsp-Image_Image
+110
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 80): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_38.jpg?v=1743607209& | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+80
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 80): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_34.jpg?v=1743607268& | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+80
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 95): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_01.jpg?v=1743607286& | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+95
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 110): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_30.jpg?v=1743607371& | Found by: div.crd-MobileMedia_Image > div.rsp-Image > img.rsp-Image_Image
+110
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 125): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_21.jpg?v=1743607408& | Found by: div.crd-MobileMedia_Image > div.rsp-Image > img.rsp-Image_Image
+125
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 110): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LIFESTYLE_MOB.jpg?v=1747817225&width=720 | Found by: div.crd-MobileMedia_Image > div.rsp-Image > img.rsp-Image_Image
+110
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 80): https://thefrankieshop.com/cdn/shop/files/TFS_2509_NAV_JOURNAL_ASEKLAOUI_MOB.jpg?v=1758902562&width= | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+80
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 2 (score: 80): https://thefrankieshop.com/cdn/shop/files/TFS_2509_NAV_JOURNAL_SARDAIGNE_MOB.jpg?v=1758902575&width= | Found by: div.car-MobileCarousel_Media > div.rsp-Image > img.rsp-Image_Image
+80
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/RAHENY-MINI-SKORT-OLIVE-YARIN-20251155.jpg?v=1753456281&wi | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/RAHENY-MINI-SKORT-OLIVE-YARIN-20251187_a62bd17e-98a7-40be- | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/RIVOLI-HOURGLASS-TOP-BLACK-LILLI-0085.jpg?v=1757459494&wid | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/RIVOLI-HOURGLASS-TOP-BLACK-LILLI-0075.jpg?v=1757459494&wid | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/BAXTER-TRACK-PANTS-TAUPE-NYALUAK-1055_11f1d518-2ccc-46e5-9 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/BAXTER-TRACK-JACKET-TAUPE-NYALUAK-1261_7aca3612-5181-4667- | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/TONI-LEATHER-BELT-BLACK-detail_2f475604-112f-46cd-8a7c-ee1 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/TONI-LEATHER-BELT-BLACK-WILMARY-2930.jpg?v=1751884120&widt | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/MERIEL-WOOL-POLO-SWEATER-GREY-MONICA-38870.jpg?v=174773027 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/MERIEL-WOOL-POLO-SWEATER-GREY-MONICA38569.jpg?v=1747730278 | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/BEO-SUIT-PANTS-CHARCOAL-WHITE-PINSTRIPE-ISMAIL-1633_101c75 | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/BEO-SUIT-PANTS-CHARCOAL-WHITE-PINSTRIPE-ISMAIL-1666.jpg?v= | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/MASON-WOOL-BUTTON-UP-SHIRT-BROWN-PIERRE-BENOIT-0240.jpg?v= | Found by: div.prd-Card_ImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ BEST OF 4 (score: 130): https://thefrankieshop.com/cdn/shop/files/MASON-WOOL-BUTTON-UP-SHIRT-BROWN-PIERRE-BENOIT-0206.jpg?v= | Found by: div.prd-Card_SecondaryImageContainer > div.rsp-Image > img.rsp-Image_Image
+130
+📋 Copy URL
+[11:29:28 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/1527/0993/files/TFS_0R9A0689_Ratio.jpg?v=1729676804&width=216 | Found by: div.drw-ProductStock_Result > div.drw-ProductStock_ResultImageContainer > img.drw-ProductStock_ResultImage
+90
+📋 Copy URL
+[11:29:28 PM] ✅ SINGLE IMAGE (score: 90): https://cdn.shopify.com/s/files/1/1527/0993/files/Frankie.crosby.storefront_2901_Ratio.jpg?v=1729676 | Found by: div.drw-ProductStock_Result > div.drw-ProductStock_ResultImageContainer > img.drw-ProductStock_ResultImage
+90
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (195): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_DESK_a290ddaf-7014-486a-86f6-bc6cac56
+195
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (185): https://thefrankieshop.com/cdn/shop/files/TFS_250285_NAV_MEN_DESK.jpg?v=1756894147&width=2085
+185
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (170): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LIFESTYLE_DESK_1.jpg?v=1747817225&width=201
+170
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LIFESTYLE_DESK_2.jpg?v=1747817225&width=208
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_ABOUT_US_01.jpg?v=1757342107&width=2016
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_ABOUT_US_02_dac5a6c6-fcd2-427f-a5a7-21a603b
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/TFS_2509_NAV_JOURNAL_SARDAIGNE_DESK.jpg?v=1758902576&width
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/files/TFS_2509_NAV_JOURNAL_ASEKLAOUI_DESK.jpg?v=1758902575&width
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LOOKS_DESK_B.jpg?v=1747817225&width=2016
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LOOKS_DESK_A.jpg?v=1747817225&width=2085
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/STORES_NAV_140125.jpg?v=1737020092&width=2016
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/files/STORES_NAV_RIGHT_140125.jpg?v=1737020093&width=2085
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-PACKSH
+150
+📋 Copy URL
+[11:29:28 PM] 📉 TOO SMALL (est: 8KB): https://thefrankieshop.com/cdn/shop/files/LUI-SILK-STRIPED-SHIRT-BLACK-WHITE-STRIPE-SHAANTI-2729_075
+60
+📋 Copy URL
+[11:29:28 PM] 📉 TOO SMALL (est: 8KB): https://thefrankieshop.com/cdn/shop/files/A-EMERY-THE-KINTO-SANDAL-BLACK-PACKSHOT.jpg?v=1713520423&w
+60
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-ELASTIC-PANTS-BLUE-MULTI-STRIPE-DIPTI-7494.jpg?v=168
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/MIRCA-ELASTIC-PANTS-BLUE-MULTI-STRIPE-KRISTIN-13jan-31989_
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/ODENSE-RIBBED-FLARED-PANTS-BROWN-MINGMA-0845.jpg?v=1734966
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/ODENSE-RIBBED-FLARED-PANTS-BROWN-MINGMA-0880.jpg?v=1734966
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/BRENNA-DOUBLE-STRIPE-WIDE-PANTS-WHITE-BLACK-STRIPE-MEREL-1
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/BRENNA-DOUBLE-STRIPE-WIDE-PANTS-WHITE-BLACK-STRIPE-MEREL-1
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/TEKLA-POPLIN-PYJAMAS-PANTS-HOPPER-STRIPES-BRAND-WOMEN-1.jp
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/TEKLA-POPLIN-PYJAMAS-PANTS-HOPPER-STRIPES-02.jpg?v=1750977
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/TEKLA-POPLIN-PYJAMAS-PANTS-NEEDLE-STRIPES-BRAND-02.jpg?v=1
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/TEKLA-POPLIN-PYJAMAS-PANTS-NEEDLE-STRIPES-BRAND-03.jpg?v=1
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/BETTTER-ESSENTIAL-PANTS-CREAM-ARINA-3217.jpg?v=1753219611&
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/BETTTER-ESSENTIAL-PANTS-CREAM-ARINA-3213.jpg?v=1753219611&
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/Noor-Wide-Pants-GreyPinstripe3.jpg?v=1683619045&width=1380
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/Noor-Wide-Pants-GreyPinstripe2.jpg?v=1683619045&width=1380
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/RIPLEY-PLEATED-TROUSERS-GREY-TIFFANY-0957.jpg?v=1752847209
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/RIPLEY-PLEATED-TROUSERS-GREY-NABILA-32390.jpg?v=1752847209
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/LINNA-TROUSERS-LIGHT-GREY-KOREA-5_4dbe984b-40b9-4c9f-a284-
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/LINNA-TROUSERS-LIGHT-GREY-KOREA-6_7ce20d70-e229-4818-a252-
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/HAIKURE-STAR-JEANS-BLACK-DENIM-LEATHER-BIANCA-1028.jpg?v=1
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/HAIKURE-STAR-JEANS-BLACK-DENIM-LEATHER-BIANCA-1017.jpg?v=1
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/RIVOLI-CAPRI-PANTS-BLACK-LILLI-0091.jpg?v=1757340081&width
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/RIVOLI-CAPRI-PANTS-BLACK-LILLI-0105.jpg?v=1757459392&width
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/SONNY-RUFFLED-PANTS-BLACK-KOREA-1.jpg?v=1757515917&width=1
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/SONNY-RUFFLED-PANTS-BLACK-KOREA-2.jpg?v=1757515917&width=1
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/EMERSYN-CROPPED-PANTS-BLACK-ATIKAH-00589.jpg?v=1747745329&
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/EMERSYN-CROPPED-PANTS-BLACK-KOREA-03.jpg?v=1747745329&widt
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/DOYER-PLEATED-TROUSERS-BLACK-ATIKAH-1470.jpg?v=1754375304&
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/DOYER-PLEATED-TROUSERS-BLACK-ATIKAH-1510.jpg?v=1754375304&
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/DARKPARK-WENDY-ELASTIC-WAIST-WIDE-LEG-TROUSERS-BLACK-YARIN
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (150): https://thefrankieshop.com/cdn/shop/files/DARKPARK-WENDY-ELASTIC-WAIST-WIDE-LEG-TROUSERS-BLACK-YARIN
+150
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-MOSS-GREEN-PACKSHOT.jpg?v=1758017968&
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/frankie-ribbed-socks-vanilla-socks-the-frankie-shop-893
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/frankie-ribbed-socks-vanilla-socks-the-frankie-shop-803
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Brown-packshot.jpg?v=167361
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Brown-21822_3.jpg?v=1673610
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-BROWN-947087.jpg?v=1714673068&width=1
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-BROWN-CHEN-XUE-202468042.jpg?v=171467
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Bordeaux-packshot_7eeebb97-
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Bordeaux-Camille-13jan-3175
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAPBURGUNDY-PACKSHOT_483193.jpg?v=1718188
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-BURGUNDY-CHEN-XUE-202468193-CROP.jpg?
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/The-Frankie_s-Shop5496-PACKSHOT.jpg?v=1675242491&width=
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/x1The-Frankie_s-Shop5496-PACKSHOT.jpg?v=1675273630&widt
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/summer-baseball-hat-pine-hat-the-frankie-shop-681681.jp
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/summer-baseball-hat-pine-hat-the-frankie-shop-947087.jp
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-Thyme.jpg?v=1675250831&widt
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/FrankieinEnglishRibbedSocks-ThymeX1.jpg?v=1675273651&wi
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/TFS-GLOSSY-BANGLE-LIGHT-KHAKI-RT-PACKSHOT_50893e6a-fb0d-48
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/ASHBURY-VEST-DRESS-TAUPE-ALUEL-00496_6d12bc96-149f-4ef5-a1
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-DARK-BROWN-PACKSHOT.jpg?v=1718722740&
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-DARK-BROWN-SANTANA-21049_959673cf-9f3
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/TFS-GLOSSY-BANGLE-DARK-BROWN-NYALUAK-2009_75ea5dfb-b4cc-42
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/TFS-GLOSSY-BANGLE-DARK-BROWN-BOYKA-ACS-2550-201-V1-DARK-BR
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/socks-IMG_8220.jpg?v=1673024453&width=1000
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/socks-IMG_8254.jpg?v=1673024453&width=1000
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-DEEP-NAVY-PACKSHOT_5b95a4f4-e255-485f
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/FRANKIE-BASEBALL-CAP-DEEP-NAVY-CHEN-XUE-202468128.jpg?v=17
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/TFS-GLOSSY-BANGLE-BLUE-HELENA-0521.jpg?v=1753450689&width=
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/TFS-RESIN-BANGLE-GLOSSY-ACS-2550-300-V1-BLUE-RT.jpg?v=1753
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/summer-baseball-hat-navy-hat-the-frankie-shop-692457.jp
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (165): https://thefrankieshop.com/cdn/shop/products/summer-baseball-hat-navy-hat-the-frankie-shop-493760.jp
+165
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (80): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_01_MOB.jpg?v=1757341835&width=548
+80
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (80): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_02_MOB.jpg?v=1757341835&width=548
+80
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (80): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_EDITS_01_MOB.jpg?v=1757341671&width=5
+80
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (80): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_EDITS_02_MOB.jpg?v=1757341671&width=5
+80
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (110): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_SHOES_MOB.jpg?v=1757342898&width=720
+110
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (110): https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_ACCESS_MOB.jpg?v=1757342898&width=720
+110
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (80): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_38.jpg?v=1743607209&
+80
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (80): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_34.jpg?v=1743607268&
+80
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (95): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_01.jpg?v=1743607286&
+95
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (110): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_30.jpg?v=1743607371&
+110
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (125): https://thefrankieshop.com/cdn/shop/files/TFS_2503_RCARMUEGA_ORIGINAL_CROP_SRGB_21.jpg?v=1743607408&
+125
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (110): https://thefrankieshop.com/cdn/shop/files/TFS_250515_NAV_LIFESTYLE_MOB.jpg?v=1747817225&width=720
+110
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (80): https://thefrankieshop.com/cdn/shop/files/TFS_2509_NAV_JOURNAL_ASEKLAOUI_MOB.jpg?v=1758902562&width=
+80
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (80): https://thefrankieshop.com/cdn/shop/files/TFS_2509_NAV_JOURNAL_SARDAIGNE_MOB.jpg?v=1758902575&width=
+80
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/RAHENY-MINI-SKORT-OLIVE-YARIN-20251187_a62bd17e-98a7-40be-
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/RAHENY-MINI-SKORT-OLIVE-YARIN-20251155.jpg?v=1753456281&wi
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/RIVOLI-HOURGLASS-TOP-BLACK-LILLI-0075.jpg?v=1757459494&wid
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/RIVOLI-HOURGLASS-TOP-BLACK-LILLI-0085.jpg?v=1757459494&wid
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/BAXTER-TRACK-JACKET-TAUPE-NYALUAK-1261_7aca3612-5181-4667-
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/BAXTER-TRACK-PANTS-TAUPE-NYALUAK-1055_11f1d518-2ccc-46e5-9
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/TONI-LEATHER-BELT-BLACK-WILMARY-2930.jpg?v=1751884120&widt
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/TONI-LEATHER-BELT-BLACK-detail_2f475604-112f-46cd-8a7c-ee1
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/MERIEL-WOOL-POLO-SWEATER-GREY-MONICA38569.jpg?v=1747730278
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/MERIEL-WOOL-POLO-SWEATER-GREY-MONICA-38870.jpg?v=174773027
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/BEO-SUIT-PANTS-CHARCOAL-WHITE-PINSTRIPE-ISMAIL-1666.jpg?v=
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/BEO-SUIT-PANTS-CHARCOAL-WHITE-PINSTRIPE-ISMAIL-1633_101c75
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/MASON-WOOL-BUTTON-UP-SHIRT-BROWN-PIERRE-BENOIT-0206.jpg?v=
+130
+📋 Copy URL
+[11:29:28 PM] 🎯 HIGH SCORE + SIZE OK (130): https://thefrankieshop.com/cdn/shop/files/MASON-WOOL-BUTTON-UP-SHIRT-BROWN-PIERRE-BENOIT-0240.jpg?v=
+130
+📋 Copy URL
+[11:29:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1527/0993/files/TFS_0R9A0689_Ratio.jpg?v=1729676804&width=216
+90
+📋 Copy URL
+[11:29:28 PM] 🔒 TRUSTED CDN BYPASS: https://cdn.shopify.com/s/files/1/1527/0993/files/Frankie.crosby.storefront_2901_Ratio.jpg?v=1729676
+90
+📋 Copy URL
+[11:29:28 PM] 🏆 TOP SCORED IMAGES: ["TFS_250908_NAV_WOMEN_DESK_a290ddaf-7014-486a-86f6-bc6cac569b29.jpg?v=1757508753&width=2085 (score: 195)","TFS_250285_NAV_MEN_DESK.jpg?v=1756894147&width=2085 (score: 185)","TFS_250515_NAV_LIFESTYLE_
+[11:29:28 PM] ⚠️ IMAGE LIMIT REACHED (50), keeping first 50 by ranking
+[11:29:28 PM] 🔧 PHASE 8: Scanning 50 URLs to find first 3 with ?width= pattern...
+[11:29:28 PM] 🔍 Found ?width=2085 at position 0 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2085 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2085 at position 1 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2085 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2016 at position 2 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2016 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2085 at position 3 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2085 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2085 at position 4 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2085 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2085 at position 5 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2085 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2085 at position 6 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2085 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 7 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 8 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 9 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 10 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 11 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 12 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 13 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 14 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 15 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 16 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 17 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 18 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 19 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 20 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 21 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1000 at position 22 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1000 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2085 at position 23 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2085 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2016 at position 24 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2016 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2016 at position 25 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2016 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2016 at position 26 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2016 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2016 at position 27 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2016 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2880 at position 28 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2880 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2880 at position 29 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2880 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2880 at position 30 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2880 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2880 at position 31 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2880 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2880 at position 32 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2880 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2880 at position 33 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2880 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=2880 at position 34 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=2880 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 35 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 36 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 37 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 38 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 39 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 40 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 41 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 42 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 43 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 44 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 45 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 46 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 47 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 48 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] 🔍 Found ?width=1380 at position 49 (match #1)
+[11:29:28 PM] ⏭️ Skipping ?width=1380 (already high-res)
+[11:29:28 PM] ✅ PHASE 8 COMPLETE: Added 0 upgrades, 50 total URLs
+[11:29:28 PM] 🖼️ PROCESSING RESULTS: {"empty":0,"invalid":2,"junk":1,"lowScore":0,"smallFile":2,"duplicateGroups":110,"kept":112}
+[11:29:28 PM] 🖼️ FINAL IMAGES: ["https://thefrankieshop.com/cdn/shop/files/TFS_250908_NAV_WOMEN_DESK_a290ddaf-701","https://thefrankieshop.com/cdn/shop/files/TFS_250285_NAV_MEN_DESK.jpg?v=17568941","https://thefrankieshop.com/cdn/s
+[11:29:28 PM] 🖼️ GENERIC IMAGES: {"count":30,"images":["http://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH-00242.jpg?v=1753267090","https://thefrankieshop.com/cdn/shop/files/TFS_250908
+[11:29:28 PM] 🖼️ FINAL IMAGES: {"count":30,"images":["http://thefrankieshop.com/cdn/shop/files/MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH-00242.jpg?v=1753267090","https://thefrankieshop.com/cdn/shop/files/TFS_250908
+[11:29:28 PM] 🎯 PRODUCT ID from URL: mirca-striped-silk-elastic-pants-black-white-stripe
+[11:29:28 PM] 🔍 FINAL RELEVANCE CHECK: Running keyword matching on 30 final images
+[11:29:28 PM] 🔍 Keywords: [mirca, striped, silk, elastic, pants, black, white, stripe]
+[11:29:28 PM] 🔍 Main Product ID: "mirca-striped-silk-elastic-pants-black-white-stripe"
+[11:29:28 PM] 🎯 Score=400 [kw:+400] | ASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH-00242.jpg?v=1753267090 | selector: unknown
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | ddaf-7014-486a-86f6-bc6cac569b29.jpg?v=1757508753&width=2085 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | op/files/TFS_250285_NAV_MEN_DESK.jpg?v=1756894147&width=2085 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | /TFS_250515_NAV_LIFESTYLE_DESK_1.jpg?v=1747817225&width=2016 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | a6c6-fcd2-427f-a5a7-21a603bf905c.jpg?v=1757508953&width=2085 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | _2509_NAV_JOURNAL_ASEKLAOUI_DESK.jpg?v=1758902575&width=2085 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | iles/TFS_250515_NAV_LOOKS_DESK_A.jpg?v=1747817225&width=2085 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | op/files/STORES_NAV_RIGHT_140125.jpg?v=1737020093&width=2085 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | la-socks-the-frankie-shop-893557.jpg?v=1656405000&width=1000 | selector: div.prd-Card_ImageContainer > div.rsp-Im
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | la-socks-the-frankie-shop-803671.jpg?v=1712942122&width=1000 | selector: div.prd-Card_SecondaryImageContainer > d
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | nglishRibbedSocks-Brown-packshot.jpg?v=1673610011&width=1000 | selector: div.prd-Card_ImageContainer > div.rsp-Im
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | EnglishRibbedSocks-Brown-21822_3.jpg?v=1673610011&width=1000 | selector: div.prd-Card_SecondaryImageContainer > d
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | bb97-f7d7-43ee-94ea-ce4862251449.jpg?v=1673630087&width=1000 | selector: div.prd-Card_ImageContainer > div.rsp-Im
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | s-Bordeaux-Camille-13jan-31752_4.jpg?v=1673630086&width=1000 | selector: div.prd-Card_SecondaryImageContainer > d
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | /The-Frankie_s-Shop5496-PACKSHOT.jpg?v=1675242491&width=1000 | selector: div.prd-Card_ImageContainer > div.rsp-Im
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | 1The-Frankie_s-Shop5496-PACKSHOT.jpg?v=1675273630&width=1000 | selector: div.prd-Card_SecondaryImageContainer > d
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | pine-hat-the-frankie-shop-681681.jpg?v=1667206595&width=1000 | selector: div.prd-Card_ImageContainer > div.rsp-Im
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | pine-hat-the-frankie-shop-947087.jpg?v=1667206595&width=1000 | selector: div.prd-Card_SecondaryImageContainer > d
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | rankieinEnglishRibbedSocks-Thyme.jpg?v=1675250831&width=1000 | selector: div.prd-Card_ImageContainer > div.rsp-Im
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | nkieinEnglishRibbedSocks-ThymeX1.jpg?v=1675273651&width=1000 | selector: div.prd-Card_SecondaryImageContainer > d
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | cdn/shop/products/socks-IMG_8220.jpg?v=1673024453&width=1000 | selector: div.prd-Card_ImageContainer > div.rsp-Im
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | cdn/shop/products/socks-IMG_8254.jpg?v=1673024453&width=1000 | selector: div.prd-Card_SecondaryImageContainer > d
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | navy-hat-the-frankie-shop-692457.jpg?v=1644927304&width=1000 | selector: div.prd-Card_ImageContainer > div.rsp-Im
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | navy-hat-the-frankie-shop-493760.jpg?v=1644927304&width=1000 | selector: div.prd-Card_SecondaryImageContainer > d
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | /TFS_250515_NAV_LIFESTYLE_DESK_2.jpg?v=1747817225&width=2085 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | files/TFS_250908_NAV_ABOUT_US_01.jpg?v=1757342107&width=2016 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | _2509_NAV_JOURNAL_SARDAIGNE_DESK.jpg?v=1758902576&width=2016 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | iles/TFS_250515_NAV_LOOKS_DESK_B.jpg?v=1747817225&width=2016 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=0 [no-match:0] | cdn/shop/files/STORES_NAV_140125.jpg?v=1737020092&width=2016 | selector: a.hd-PanelCard > div.rsp-Image > img.rsp
+[11:29:28 PM] 🎯 Score=475 [carousel:+75 kw:+400] | -BLACK-WHITE-STRIPE-ATIKAH-00242.jpg?v=1753267090&width=2880 | selector: figure.prd-Detail_Zoom > div.rsp-Image >
+[11:29:28 PM] 🎯 RELEVANCE RANKING: 2 with matches, scores: [475, 400, 0, 0, 0]
+[11:29:28 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Mirca Striped Silk Elastic Pants - Black/White Str","brand":"Mirca","description":"Color: Black/White Stripe Lightweight fluid silk b","price":null,"imageCount":30,"firstImages":["https://th
+[11:29:28 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":false,"images":30}
+[11:29:28 PM] 💾 DEBUG LOGGER: Session saved to database
+[11:29:28 PM] ✅ Debug trace complete
+Clear Debug
