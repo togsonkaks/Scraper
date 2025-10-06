@@ -1644,6 +1644,24 @@
         }
       });
     })();
+    
+    // Helper: Get canonical URL by removing width/size parameters for duplicate detection
+    function getCanonicalUrl(url) {
+      return url
+        .replace(/[?&]width=\d+/gi, '')
+        .replace(/[?&]w=\d+/gi, '')
+        .replace(/[?&]height=\d+/gi, '')
+        .replace(/[?&]h=\d+/gi, '')
+        .replace(/_\d{3,4}x\d{3,4}/g, '')
+        .replace(/_\d{3,4}x/g, '')
+        .replace(/_x\d{3,4}/g, '');
+    }
+    
+    // Helper: Extract width value from URL for comparison
+    function extractWidth(url) {
+      const widthMatch = url.match(/[?&]width=(\d+)/i) || url.match(/[?&]w=(\d+)/i) || url.match(/_(\d{3,4})x/);
+      return widthMatch ? parseInt(widthMatch[1]) : 0;
+    }
     // Mobile Preview Functions - Progressive quality check as images load
     function updateMobilePreview(imageUrls) {
       const mobileGrid = document.getElementById("mobileGrid");
@@ -1673,20 +1691,54 @@
         return {
           url: url,
           originalIndex: index,
-          totalScore: totalScore
+          totalScore: totalScore,
+          canonicalUrl: getCanonicalUrl(url),
+          width: extractWidth(url)
         };
       });
       
-      // Sort by score (highest first), preserve scraper order when tied
-      imageObjects.sort((a, b) => {
-        if (b.totalScore !== a.totalScore) return b.totalScore - a.totalScore;
-        return a.originalIndex - b.originalIndex; // Tiebreaker: maintain original order
+      
+      // Detect duplicate pairs (same canonical URL, different widths)
+      const canonicalMap = new Map();
+      const lowResDuplicates = new Set();
+      
+      imageObjects.forEach(img => {
+        const existing = canonicalMap.get(img.canonicalUrl);
+        if (existing) {
+          // Found duplicate - mark the lower-res version
+          if (img.width < existing.width) {
+            lowResDuplicates.add(img.url);
+            console.log(`🔄 DUPLICATE: ${img.url.slice(-60)} (w=${img.width}) → bottom`);
+          } else if (img.width > existing.width) {
+            lowResDuplicates.add(existing.url);
+            canonicalMap.set(img.canonicalUrl, img);
+            console.log(`🔄 DUPLICATE: ${existing.url.slice(-60)} (w=${existing.width}) → bottom`);
+          }
+        } else {
+          canonicalMap.set(img.canonicalUrl, img);
+        }
       });
       
-      console.log(`📊 MOBILE PREVIEW: Pre-sorted ${imageObjects.length} images by score (highest first)`);
+      // Split: main images vs low-res duplicates
+      const mainImages = imageObjects.filter(img => !lowResDuplicates.has(img.url));
+      const duplicateImages = imageObjects.filter(img => lowResDuplicates.has(img.url));
+      
+      // Sort main images by score, then original order
+      mainImages.sort((a, b) => {
+        if (b.totalScore !== a.totalScore) return b.totalScore - a.totalScore;
+        return a.originalIndex - b.originalIndex;
+      });
+      
+      // Keep duplicates in original order
+      duplicateImages.sort((a, b) => a.originalIndex - b.originalIndex);
+      
+      // Combine: main first, duplicates at bottom
+      const sortedImages = [...mainImages, ...duplicateImages];
+      
+      console.log(`📊 MOBILE PREVIEW: ${mainImages.length} main images, ${duplicateImages.length} duplicates → bottom`);
       
       // Create Pinterest-style masonry grid - sorted by score
-      mobileGrid.innerHTML = imageObjects.map((item, index) => `
+      mobileGrid.innerHTML = sortedImages.map((item, index) => `
         <div class="mobile-image-card" onclick="openMobileImageDetail('${item.url}', 'score-${item.totalScore}')" data-index="${index}" data-score="${item.totalScore}" data-original-order="${index}">
           <div class="quality-badge">${item.totalScore}</div>
           <img src="${item.url}" referrerpolicy="no-referrer" 
