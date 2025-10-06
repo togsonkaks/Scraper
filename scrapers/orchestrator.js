@@ -2577,9 +2577,10 @@
     const gallerySels = [
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
       '.product_media_item img','.product__media-item img.image__img','img.image_img','img.image__img',
-      '[class*=gallery] img','.slider img','[class*="slider-image"] img','[class*="slider-img"] img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img',
+      '[class*=gallery] img','[class*="slider-image"] img','[class*="slider-img"] img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img',
+      '#mainProductImage','#zoomImage',
       '.product-media picture source','.gallery picture source','.product-gallery picture source','.pdp-gallery picture source',
-      '[class*=gallery] picture source','.slider picture source','[class*="carousel"] picture source'
+      '[class*=gallery] picture source','[class*="carousel"] picture source'
     ];
     
     // Step 1: Collect RAW elements from ALL selectors first (no processing yet)
