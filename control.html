@@ -1465,7 +1465,8 @@
     }
 
     // Handle "Use AI Suggestion" button
-    useSuggestionBtn.onclick = async () => {
+    if (useSuggestionBtn) {
+      useSuggestionBtn.onclick = async () => {
       if (!currentSuggestionData || !currentHost) return;
       
       try {
@@ -1505,12 +1506,15 @@
         alert(`Error saving AI suggestion: ${error.message}`);
       }
     };
+  }
 
     // Handle "Keep Current" button
-    dismissSuggestionBtn.onclick = () => {
+    if (dismissSuggestionBtn) {
+      dismissSuggestionBtn.onclick = () => {
       suggestionPanel.style.display = 'none';
       currentSuggestionData = null;
     };
+  }
 
     // Image overlay and gallery
     let currentImageGallery = [];
