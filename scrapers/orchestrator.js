@@ -776,6 +776,19 @@
       }
     }
     
+    // WALGREENS: Upgrade all image sizes to highest quality (900.jpg)
+    if (/prodimg\/\d+\//i.test(url)) {
+      // Upgrade /155.jpg, /130.jpg, /100.jpg, /450.jpg, etc. → /900.jpg
+      upgraded = upgraded.replace(/\/(\d+)\.jpg$/i, '/900.jpg');
+      
+      // Also handle variant images like 2_100.jpg → 2_900.jpg
+      upgraded = upgraded.replace(/\/(\d+)_(\d+)\.jpg$/i, '/$1_900.jpg');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Walgreens CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // MISSGUIDED (LTWEBSTATIC): Remove thumbnail suffix and upgrade to full-size JPG
     if (/img\.ltwebstatic\.com/i.test(url)) {
       // Remove _thumbnail_XXXx suffix and change .webp to .jpg for full-size
