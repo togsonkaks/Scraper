@@ -1511,10 +1511,10 @@
     // Handle "Keep Current" button
     if (dismissSuggestionBtn) {
       dismissSuggestionBtn.onclick = () => {
-      suggestionPanel.style.display = 'none';
-      currentSuggestionData = null;
-    };
-  }
+        if (suggestionPanel) suggestionPanel.style.display = 'none';
+        currentSuggestionData = null;
+      };
+    }
 
     // Image overlay and gallery
     let currentImageGallery = [];
