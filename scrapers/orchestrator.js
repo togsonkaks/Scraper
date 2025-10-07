@@ -1202,7 +1202,25 @@
       const url = new URL(u, location.href);
       url.hash = ''; url.search='';
       let p = url.pathname;
+      
+      // Strip CDN path parameters (like /w_500/, /dpr_2.0/)
       p = p.replace(/\/((w|h|c|q|dpr|ar|f)_[^/]+)/g,'/');
+      
+      // Strip size-based suffixes from filename, but preserve view suffixes
+      // Strip: _640x, _1020x, _300x480 (dimensions)
+      // Keep: _V1, _V2, _V3 (view numbers), _front, _back (view names)
+      const lastSlash = p.lastIndexOf('/');
+      if (lastSlash !== -1) {
+        let filename = p.substring(lastSlash + 1);
+        const basename = filename.substring(0, filename.lastIndexOf('.')) || filename;
+        const ext = filename.substring(filename.lastIndexOf('.')) || '';
+        
+        // Strip dimension patterns: _640x, _1020x, _300x480, etc.
+        let normalizedBase = basename.replace(/_\d+x\d*/g, '');
+        
+        p = p.substring(0, lastSlash + 1) + normalizedBase + ext;
+      }
+      
       return url.origin + p;
     } catch { return u.replace(/[?#].*$/,''); }
   };
