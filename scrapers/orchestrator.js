@@ -1150,12 +1150,22 @@
       if (elementIndex < 1) score += 10; // Very first image gets extra bonus
     }
     
-    // Selector-based bonuses (check selector path for gallery keywords)
+    // Selector-based scoring (check selector path for gallery/cross-sell keywords)
     if (selector) {
       const selectorLower = selector.toLowerCase();
-      // +20 bonus for main gallery selectors (slidecount, mainimage, primary, slideshow)
-      if (/slidecount|mainimage|main-image|primary.*image|slideshow|carousel-main/i.test(selectorLower)) {
+      
+      // GOOD SELECTORS: Product gallery indicators (+25)
+      if (/modal-opener|product__modal|zoom-gallery|product-gallery|slideshow-main|carousel-product|media-viewer|product__media-viewer/i.test(selectorLower)) {
+        score += 25;
+      }
+      // GOOD SELECTORS: General gallery indicators (+20)
+      else if (/slidecount|mainimage|main-image|primary.*image|slideshow|carousel-main|gallery-container/i.test(selectorLower)) {
         score += 20;
+      }
+      
+      // BAD SELECTORS: Cross-sell/recommendation containers (-40)
+      if (/lb-spc|lightbox.*shop|recommendation|cross-sell|related-products|you-may-also|recently-viewed|upsell-product/i.test(selectorLower)) {
+        score -= 40;
       }
     }
     
