@@ -1200,10 +1200,11 @@
     if (/^https?:\/\//i.test(srcset) && !/\s+\d+w$/i.test(srcset)) {
       return srcset.trim();
     }
-    // Otherwise, parse as standard srcset with width descriptors
+    // Otherwise, parse as standard srcset with density descriptors (1x, 2x) or width descriptors
     const parts = srcset.split(',').map(s => s.trim());
-    const last = parts[parts.length-1] || '';
-    const url = last.split(' ')[0];
+    // Take the FIRST entry (often best quality for density descriptors like "URL 1x, URL 2x")
+    const first = parts[0] || '';
+    const url = first.split(' ')[0];
     return url || null;
   };
   const toAbs = (u) => { try { return new URL(u, location.href).toString(); } catch { return u; } };
