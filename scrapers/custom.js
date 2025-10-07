@@ -1803,6 +1803,55 @@ const LULULEMON = {
   }
 };
 
+const LTWEBSTATIC = {
+  match: (h) => /ltwebstatic\.com/i.test(h) || /musera\.com/i.test(h) || /shein\.com/i.test(h),
+  images(doc = document) {
+    console.log("[DEBUG] LTWEBSTATIC (SHEIN/MUSERA) custom image logic running...");
+    const out = new Set();
+    
+    // Target only main product images (not cross-sell/related products)
+    // Main product images are in .main-picture container
+    const mainContainer = doc.querySelector('.main-picture');
+    if (!mainContainer) {
+      console.warn("[DEBUG] LTWEBSTATIC: .main-picture container not found, falling back to generic");
+      return null; // Fall back to generic
+    }
+    
+    // Extract from data-before-crop-src (contains full uncropped image URLs)
+    const containers = mainContainer.querySelectorAll('[data-before-crop-src]');
+    console.log(`[DEBUG] LTWEBSTATIC: Found ${containers.length} containers with data-before-crop-src in main product area`);
+    
+    containers.forEach(el => {
+      try {
+        let url = el.getAttribute('data-before-crop-src');
+        if (!url) return;
+        
+        // Add protocol if missing
+        if (url.startsWith('//')) url = 'https:' + url;
+        if (!__looksHttp(url)) return;
+        
+        // Upgrade thumbnail sizes: _thumbnail_900x → _thumbnail_1200x (or remove for full size)
+        // Keep _1200x as good balance between quality and file size
+        url = url.replace(/_thumbnail_900x/g, '_thumbnail_1200x');
+        url = url.replace(/_thumbnail_220x293/g, '_thumbnail_1200x');
+        url = url.replace(/_thumbnail_405x552/g, '_thumbnail_1200x');
+        
+        if (/ltwebstatic\.com/i.test(url)) {
+          out.add(url);
+          console.log(`[DEBUG] LTWEBSTATIC: Added image: ${url.substring(url.lastIndexOf('/') + 1, Math.min(url.indexOf('?') > 0 ? url.indexOf('?') : 999, url.indexOf('_thumbnail') > 0 ? url.indexOf('_thumbnail') : 999))}`);
+        }
+      } catch (e) {
+        console.warn(`[DEBUG] LTWEBSTATIC: Error extracting URL:`, e.message);
+      }
+    });
+    
+    const result = [...out].filter(Boolean);
+    console.log(`[DEBUG] LTWEBSTATIC: Collected ${result.length} main product images (cross-sells eliminated)`);
+    
+    return result.slice(0, 20);
+  }
+};
+
 const REGISTRY = [
   AMZ,
   BESTBUY,
@@ -1837,6 +1886,7 @@ const REGISTRY = [
   URBAN_OUTFITTERS,
   ETSY,
   LULULEMON,
+  LTWEBSTATIC,
 
 
 ];
