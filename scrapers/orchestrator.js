@@ -799,6 +799,31 @@
       }
     }
     
+    // TEMU: Upgrade Alibaba Cloud imageView2 dimensions to high-quality
+    if (/kwcdn\.com/i.test(url)) {
+      // Upgrade width parameter: w/180 → w/1200, w/800 → w/1200, etc.
+      upgraded = upgraded.replace(/\/w\/(\d+)\//g, (match, width) => {
+        const w = parseInt(width);
+        if (w < 1200) {
+          return '/w/1200/';
+        }
+        return match;
+      });
+      
+      // Boost quality: q/70 → q/90 for sharper images
+      upgraded = upgraded.replace(/\/q\/(\d+)\//g, (match, quality) => {
+        const q = parseInt(quality);
+        if (q < 90) {
+          return '/q/90/';
+        }
+        return match;
+      });
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Temu CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // BARNES & NOBLE: Upgrade rectangular dimensions to square (full product image)
     if (/prodimage\.images-bn\.com/i.test(url)) {
       // Convert any sWxH to square using larger dimension

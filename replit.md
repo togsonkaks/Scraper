@@ -56,6 +56,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **American Eagle Outfitters**: Scene7 $pdp-mdg-opt$ → $pdp-md-opt$ quality upgrades (md is better quality)
 - **Etsy**: il_300x300 → il_1200x1200 dimension upgrades for high-quality product images
 - **IKEA**: ?f=u/xxl → ?f=xxxl upgrades for highest quality available
+- **Temu**: Alibaba Cloud imageView2 w/180 → w/1200, q/70 → q/90 quality boosts
 
 ### Custom Handler Registry (custom.js)
 - **Amazon (AMZ)**: Quality scoring, hi-res attributes, a-state JSON parsing
@@ -67,6 +68,9 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Temu CDN Support (Oct 2025)**: Added Alibaba Cloud imageView2 API upgrade patterns for Temu product images
+  - Automatic width upgrades: w/180 → w/1200 for 6.7x larger dimensions
+  - Quality boost: q/70 → q/90 for sharper product photos
 - **Electron Environment Fix (Sept 30, 2025)**: Fixed Electron startup in Replit NixOS environment
   - Installed required system dependencies: gtk3, gsettings-desktop-schemas, glib, dconf
   - Updated start-electron.sh to use xvfb-run wrapper for automatic X11 display management
