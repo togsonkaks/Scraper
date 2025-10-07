@@ -1,0 +1,38 @@
+[4:26:19 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[4:26:19 PM] 🧩 IMAGES: Trying custom handler...
+[4:26:19 PM] 🧩 CUSTOM IMAGES: {"count":0,"images":[]}
+[4:26:19 PM] 🖼️ IMAGES: No custom/memory images, getting generic images...
+[4:26:19 PM] 🖼️ Getting generic images for hostname: revolve.com
+[4:26:19 PM] 📍 CALL TRACE: at getImagesGeneric (<anonymous>:4888:23) -> at scrapeProduct (<anonymous>:5265:41) -> at async <anonymous>:5549:21
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.product-media img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.gallery img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.image-gallery img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.product-images img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.product-gallery img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.product_media_item img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.product__media-item img.image__img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: 'img.image_img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: 'img.image__img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '[class*=gallery] img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '[class*="slider-image"] img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '[class*="slider-img"] img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.thumbnails img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.pdp-gallery img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '[data-testid*=image] img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.big-picture img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '[class*="big-picture"] img'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '#mainProductImage'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '#zoomImage'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.product-media picture source'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.gallery picture source'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.product-gallery picture source'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.pdp-gallery picture source'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '.pdp-images__desktop picture source'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '[class*="pdp-image"] picture source'
+[4:26:19 PM] 🎯 Collecting elements with gallery selector: '[class*=gallery] picture source'
+[4:26:19 PM] 🖼️ All gallery selectors found nothing, falling back to broad 'img'
+[4:26:19 PM] 🔍 Processing 42 image elements...
+[4:26:19 PM] Image element #1 <IMG>
+[4:26:19 PM] Image element #2 <IMG>
+[4:26:19 PM] Image element #3 <IMG>
+[4:26:19 PM] 🔄 FILTERING & SCORING UNIQUE IMAGES... {"inputCount":63}

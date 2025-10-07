@@ -857,6 +857,16 @@
       }
     }
     
+    // REVOLVE: Upgrade /ct/ directory to /uv/ for higher quality images
+    if (/revolveassets\.com\/images\/p4\/n\/ct\//i.test(url)) {
+      // Convert /ct/ (compressed thumbnail) to /uv/ (uncompressed/high quality)
+      upgraded = upgraded.replace(/\/ct\//gi, '/uv/');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Revolve CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     
