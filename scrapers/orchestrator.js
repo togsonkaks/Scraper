@@ -961,7 +961,7 @@
 
   // ⚠️ CRITICAL FUNCTION - Multi-layered image quality scoring algorithm ⚠️
   // Enhanced image quality scoring function with aggressive filtering  
-  function scoreImageURL(url, element = null, elementIndex = 0, isImgFallback = false, selector = '') {
+  function scoreImageURL(url, element = null, elementIndex = 0, isImgFallback = false, selector = '', fromSrcset = false) {
     if (!url) return 0;
     
     // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns and prioritize high-res
@@ -1150,6 +1150,11 @@
       if (elementIndex < 5) score += 10;  // Top 5 images get extra
       if (elementIndex < 3) score += 10;  // Top 3 images get more
       if (elementIndex < 1) score += 10;  // First image gets most (total: +60)
+    }
+    
+    // Srcset quality bonus (images from srcset often higher quality)
+    if (fromSrcset) {
+      score += 15;
     }
     
     // Selector-based scoring (check selector path for gallery/cross-sell keywords)
@@ -1361,7 +1366,7 @@
       }
       
       // Apply score threshold (minimum 40 points)
-      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector, enriched.fromSrcset);
       if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
@@ -2363,7 +2368,7 @@
             const upgraded = upgradeCDNUrl(best);  // ✨ UPGRADE FIRST
             const junkCheck = isJunkImage(upgraded, el);
             if (!junkCheck.blocked) {
-              enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath });
+              enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath, fromSrcset: true });
               urlToSelectorMap.set(upgraded, actualPath);
             } else {
               dbg(`❌ BLOCKED [${junkCheck.reason}]:`, upgraded.substring(upgraded.lastIndexOf('/') + 1));
@@ -2379,7 +2384,7 @@
               const upgraded = upgradeCDNUrl(b);  // ✨ UPGRADE FIRST
               const junkCheck = isJunkImage(upgraded, src);
               if (!junkCheck.blocked) {
-                enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath });
+                enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath, fromSrcset: true });
                 urlToSelectorMap.set(upgraded, actualPath);
               }
             }
@@ -2419,7 +2424,7 @@
         continue;
       }
       
-      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector, enriched.fromSrcset);
       if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
