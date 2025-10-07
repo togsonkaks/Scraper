@@ -1651,7 +1651,7 @@
     
     // Helper: Get canonical URL by removing width/size parameters for duplicate detection
     function getCanonicalUrl(url) {
-      return url
+      let canonical = url
         .replace(/[?&]width=\d+/gi, '')
         .replace(/[?&]w=\d+/gi, '')
         .replace(/[?&]height=\d+/gi, '')
@@ -1659,10 +1659,27 @@
         .replace(/_\d{3,4}x\d{3,4}/g, '')
         .replace(/_\d{3,4}x/g, '')
         .replace(/_x\d{3,4}/g, '');
+      
+      // Strip Cloudinary path transformations (SSENSE, etc.)
+      // Pattern: /images/{transformations}/{product-id}/{filename}
+      // Transformations contain: f_auto, c_limit, h_2800, w_1725, b_white, c_scale, dpr_1.0, etc.
+      canonical = canonical.replace(
+        /\/images\/([^\/]+\/)*([A-Z0-9_-]+\/[^\/]+)$/i,
+        '/images/$2'
+      );
+      
+      return canonical;
     }
     
     // Helper: Extract width value from URL for comparison
     function extractWidth(url) {
+      // Cloudinary patterns: h_2800, w_1725, c_scale,h_960
+      const cloudinaryMatch = url.match(/[,\/]([hw])_(\d+)/i);
+      if (cloudinaryMatch) {
+        return parseInt(cloudinaryMatch[2]);
+      }
+      
+      // Standard patterns: ?width=1200, ?w=800, _640x
       const widthMatch = url.match(/[?&]width=(\d+)/i) || url.match(/[?&]w=(\d+)/i) || url.match(/_(\d{3,4})x/);
       return widthMatch ? parseInt(widthMatch[1]) : 0;
     }
