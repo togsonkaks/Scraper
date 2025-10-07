@@ -2965,7 +2965,8 @@
                 debug('🧩 IMAGES: Trying custom handler...');
                 const customResult = await Promise.resolve(ch.images(document));
                 if (customResult && Array.isArray(customResult)) {
-                  customImages = customResult.filter(Boolean);
+                  // Apply CDN upgrades to custom handler results
+                  customImages = customResult.filter(Boolean).map(url => upgradeCDNUrl(url));
                   mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
                   debug('🧩 CUSTOM IMAGES:', { count: customImages.length, images: customImages.slice(0, 3) });
                 }
