@@ -837,6 +837,25 @@
       }
     }
     
+    // SWAROVSKI: Upgrade dimensions to highest quality (2000px)
+    if (/asset\.swarovski\.com/i.test(url)) {
+      // Upgrade $size_XXX to $size_2000 (e.g., $size_360 → $size_2000)
+      upgraded = upgraded.replace(/\$size_\d+/gi, '$size_2000');
+      
+      // Upgrade width parameter: w_XXX to w_2000 (e.g., w_95 → w_2000)
+      upgraded = upgraded.replace(/\bw_(\d+)/gi, (match, width) => {
+        const w = parseInt(width);
+        if (w < 2000) {
+          return 'w_2000';
+        }
+        return match;
+      });
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Swarovski CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // Clean up trailing ? or &
     upgraded = upgraded.replace(/\?(&|$)/, '').replace(/&$/, '');
     

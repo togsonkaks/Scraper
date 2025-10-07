@@ -57,6 +57,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **Etsy**: il_300x300 → il_1200x1200 dimension upgrades for high-quality product images
 - **IKEA**: ?f=u/xxl → ?f=xxxl upgrades for highest quality available
 - **Temu**: Alibaba Cloud imageView2 w/180 → w/1200, q/70 → q/90 quality boosts
+- **Swarovski**: $size_360 → $size_2000, w_95 → w_2000 dimension upgrades
 
 ### Custom Handler Registry (custom.js)
 - **Amazon (AMZ)**: Quality scoring, hi-res attributes, a-state JSON parsing
