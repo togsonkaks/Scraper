@@ -2643,6 +2643,7 @@
       '[class*=gallery] img','[class*="slider-image"] img','[class*="slider-img"] img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img',
       '#mainProductImage','#zoomImage',
       '.product-media picture source','.gallery picture source','.product-gallery picture source','.pdp-gallery picture source',
+      '.pdp-images__desktop picture source','[class*="pdp-image"] picture source',
       '[class*=gallery] picture source'
     ];
     
