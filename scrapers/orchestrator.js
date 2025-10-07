@@ -2433,6 +2433,56 @@
       groups.get(canonical).push({ url: upgraded, element: enriched.element, index: enriched.index, score, selector: enriched.selector });
     }
     
+    // CONTAINER CONSENSUS: Apply bonuses based on top 10 container frequency
+    const allCandidates = Array.from(groups.values()).flat();
+    if (allCandidates.length > 0) {
+      // Analyze top 10 images (or all if less than 10)
+      const limit = Math.min(allCandidates.length, 10);
+      const topCandidates = allCandidates
+        .sort((a, b) => b.score - a.score)
+        .slice(0, limit);
+      
+      const containerCounts = {};
+      for (const candidate of topCandidates) {
+        if (candidate.selector) {
+          // Extract parent container (everything before last ' > ')
+          const lastSep = candidate.selector.lastIndexOf(' > ');
+          const container = lastSep > 0 ? candidate.selector.substring(0, lastSep) : candidate.selector;
+          containerCounts[container] = (containerCounts[container] || 0) + 1;
+        }
+      }
+      
+      // Find 1st and 2nd place containers
+      const sortedContainers = Object.entries(containerCounts)
+        .sort(([,a], [,b]) => b - a);
+      
+      const firstPlace = sortedContainers[0];
+      const secondPlace = sortedContainers[1];
+      
+      if (firstPlace) {
+        debug(`🏆 1ST PLACE CONTAINER: "${firstPlace[0]}" (${firstPlace[1]} images in top ${limit}) +30`);
+      }
+      if (secondPlace) {
+        debug(`🥈 2ND PLACE CONTAINER: "${secondPlace[0]}" (${secondPlace[1]} images in top ${limit}) +15`);
+      }
+      
+      // Apply container bonuses to all candidates
+      for (const candidates of groups.values()) {
+        for (const candidate of candidates) {
+          if (candidate.selector) {
+            const lastSep = candidate.selector.lastIndexOf(' > ');
+            const container = lastSep > 0 ? candidate.selector.substring(0, lastSep) : candidate.selector;
+            
+            if (firstPlace && container === firstPlace[0]) {
+              candidate.score += 30;
+            } else if (secondPlace && container === secondPlace[0]) {
+              candidate.score += 15;
+            }
+          }
+        }
+      }
+    }
+    
     // Select best scoring image from each group
     const bestImages = [];
     for (const [canonical, candidates] of groups) {
