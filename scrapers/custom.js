@@ -1875,7 +1875,7 @@ const REGISTRY = [
   // CUYANA, // TEMPORARILY DISABLED - testing generic vs custom
   // KIRRINFINCH, // TEMPORARILY DISABLED - testing generic vs custom  
   { match: (h) => /allies\.shop$/i.test(h), ...ALLIES },
-  MESHKI,
+  // MESHKI, // TEMPORARILY DISABLED - testing enhanced generic scraper with new scoring
   ALIEXPRESS,
   AE,
   ASOS,
