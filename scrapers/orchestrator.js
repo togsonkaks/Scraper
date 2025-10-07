@@ -2387,12 +2387,6 @@
     const groups = new Map();
     const filtered = { empty: 0, invalid: 0, junk: 0, lowScore: 0, smallFile: 0, duplicateGroups: 0, kept: 0 };
     
-    // Extract main product ID once for all images
-    const mainProductId = findMainProductId();
-    if (mainProductId) {
-      debug(`🎯 PRODUCT ID from URL: ${mainProductId}`);
-    }
-    
     for (const enriched of enrichedUrls) {
       if (!enriched.url) {
         filtered.empty++;
@@ -2413,23 +2407,14 @@
         continue;
       }
       
-      let score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector);
       if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
         continue;
       }
       
-      // ✅ SCORE PASSED! Check product ID match and boost score
-      if (mainProductId) {
-        const imageProductId = extractProductIdFromUrl(abs);
-        if (imageProductId === mainProductId) {
-          score += 50;
-          debug(`🎯 PRODUCT ID MATCH (+50): ${imageProductId} in ${abs.slice(-50)}`);
-        }
-      }
-      
-      // Upgrade CDN URL for high-quality images
+      // ✅ SCORE PASSED! Now upgrade CDN URL for high-quality images
       const upgraded = upgradeCDNUrl(abs);
       urlToSelectorMap.set(upgraded, enriched.selector || selector);
       
