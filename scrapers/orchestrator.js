@@ -1660,7 +1660,8 @@
         'data-image': el.getAttribute('data-image'),
         'data-zoom-image': el.getAttribute('data-zoom-image'),
         'data-large': el.getAttribute('data-large'),
-        srcset: el.getAttribute('srcset')
+        srcset: el.getAttribute('srcset'),
+        'data-srcset': el.getAttribute('data-srcset')
       };
       
       dbg('📋 Image attributes:', attrs);
@@ -1687,7 +1688,7 @@
         urlToSelectorMap.set(upgradedUrl, sel); // Track selector for this URL
       }
       
-      const ss = attrs.srcset;
+      const ss = attrs.srcset || attrs['data-srcset'];
       const best = pickFromSrcset(ss); 
       if (best) {
         dbg('✅ Found image URL from srcset:', best.slice(0, 100));
@@ -1713,7 +1714,7 @@
       if (el.parentElement && el.parentElement.tagName.toLowerCase()==='picture') {
         dbg('📸 Checking picture parent for sources...');
         for (const src of el.parentElement.querySelectorAll('source')) {
-          const b = pickFromSrcset(src.getAttribute('srcset')); 
+          const b = pickFromSrcset(src.getAttribute('srcset') || src.getAttribute('data-srcset')); 
           if (b) {
             dbg('✅ Found image URL from picture source:', b.slice(0, 100));
             
@@ -2275,7 +2276,8 @@
           'data-image': el.getAttribute('data-image'),
           'data-zoom-image': el.getAttribute('data-zoom-image'),
           'data-large': el.getAttribute('data-large'),
-          srcset: el.getAttribute('srcset')
+          srcset: el.getAttribute('srcset'),
+          'data-srcset': el.getAttribute('data-srcset')
         };
         
         // Compute actual CSS path for better debugging (shows real container, not just 'img')
@@ -2296,8 +2298,8 @@
         }
         
         // Extract from srcset - UPGRADE CDN FIRST, then check junk
-        if (attrs.srcset) {
-          const best = pickFromSrcset(attrs.srcset);
+        if (attrs.srcset || attrs['data-srcset']) {
+          const best = pickFromSrcset(attrs.srcset || attrs['data-srcset']);
           if (best) {
             const upgraded = upgradeCDNUrl(best);  // ✨ UPGRADE FIRST
             const junkCheck = isJunkImage(upgraded, el);
@@ -2313,7 +2315,7 @@
         // Check picture parent for additional sources - UPGRADE CDN FIRST, then check junk
         if (el.parentElement && el.parentElement.tagName.toLowerCase() === 'picture') {
           for (const src of el.parentElement.querySelectorAll('source')) {
-            const b = pickFromSrcset(src.getAttribute('srcset'));
+            const b = pickFromSrcset(src.getAttribute('srcset') || src.getAttribute('data-srcset'));
             if (b) {
               const upgraded = upgradeCDNUrl(b);  // ✨ UPGRADE FIRST
               const junkCheck = isJunkImage(upgraded, src);
