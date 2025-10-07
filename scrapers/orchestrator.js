@@ -2433,6 +2433,22 @@
       groups.get(canonical).push({ url: upgraded, element: enriched.element, index: enriched.index, score, selector: enriched.selector });
     }
     
+    // PRODUCT ID MATCHING: Bonus for images matching main product ID
+    const mainProductId = findMainProductId();
+    if (mainProductId) {
+      debug(`🎯 MAIN PRODUCT ID: ${mainProductId}`);
+      
+      for (const candidates of groups.values()) {
+        for (const candidate of candidates) {
+          const imageProductId = extractProductIdFromUrl(candidate.url);
+          if (imageProductId === mainProductId) {
+            candidate.score += 50;
+            debug(`🎯 PRODUCT ID MATCH (+50): ${imageProductId} in ${candidate.url.slice(-50)}`);
+          }
+        }
+      }
+    }
+    
     // CONTAINER CONSENSUS: Apply bonuses based on top 10 container frequency
     const allCandidates = Array.from(groups.values()).flat();
     if (allCandidates.length > 0) {
