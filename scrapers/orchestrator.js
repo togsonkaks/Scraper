@@ -1195,9 +1195,9 @@
   
   const pickFromSrcset = (srcset) => {
     if (!srcset) return null;
-    // If it's already a complete URL (no width descriptors), use it directly
+    // If it's already a complete URL (no width descriptors AND no commas), use it directly
     // This handles SSENSE-style data-srcset with commas in CDN params
-    if (/^https?:\/\//i.test(srcset) && !/\s+\d+w$/i.test(srcset)) {
+    if (/^https?:\/\//i.test(srcset) && !srcset.includes(',') && !/\s+\d+w$/i.test(srcset)) {
       return srcset.trim();
     }
     // Otherwise, parse as standard srcset with density descriptors (1x, 2x) or width descriptors
