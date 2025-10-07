@@ -1143,11 +1143,13 @@
     if (/aicid=community/i.test(url)) score -= 45;
     if (/community-reviews/i.test(url)) score -= 45;
     
-    // Position-based bonuses (first images more likely to be main product)
+    // Enhanced position-based bonuses (early images more likely to be main product)
     // DISABLED during img fallback - position is meaningless when scraping entire page
     if (!isImgFallback) {
-      if (elementIndex < 3) score += 20; // First few images get bonus
-      if (elementIndex < 1) score += 10; // Very first image gets extra bonus
+      if (elementIndex < 10) score += 30; // Top 10 images
+      if (elementIndex < 5) score += 10;  // Top 5 images get extra
+      if (elementIndex < 3) score += 10;  // Top 3 images get more
+      if (elementIndex < 1) score += 10;  // First image gets most (total: +60)
     }
     
     // Selector-based scoring (check selector path for gallery/cross-sell keywords)
