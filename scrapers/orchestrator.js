@@ -1694,7 +1694,7 @@
         urlToSelectorMap.set(upgradedUrl, sel); // Track selector for this URL
       }
       
-      const ss = attrs.srcset || attrs['data-srcset'];
+      const ss = attrs['data-srcset'] || attrs.srcset;
       const best = pickFromSrcset(ss); 
       if (best) {
         dbg('✅ Found image URL from srcset:', best.slice(0, 100));
@@ -1720,7 +1720,7 @@
       if (el.parentElement && el.parentElement.tagName.toLowerCase()==='picture') {
         dbg('📸 Checking picture parent for sources...');
         for (const src of el.parentElement.querySelectorAll('source')) {
-          const b = pickFromSrcset(src.getAttribute('srcset') || src.getAttribute('data-srcset')); 
+          const b = pickFromSrcset(src.getAttribute('data-srcset') || src.getAttribute('srcset')); 
           if (b) {
             dbg('✅ Found image URL from picture source:', b.slice(0, 100));
             
@@ -2304,8 +2304,8 @@
         }
         
         // Extract from srcset - UPGRADE CDN FIRST, then check junk
-        if (attrs.srcset || attrs['data-srcset']) {
-          const best = pickFromSrcset(attrs.srcset || attrs['data-srcset']);
+        if (attrs['data-srcset'] || attrs.srcset) {
+          const best = pickFromSrcset(attrs['data-srcset'] || attrs.srcset);
           if (best) {
             const upgraded = upgradeCDNUrl(best);  // ✨ UPGRADE FIRST
             const junkCheck = isJunkImage(upgraded, el);
@@ -2321,7 +2321,7 @@
         // Check picture parent for additional sources - UPGRADE CDN FIRST, then check junk
         if (el.parentElement && el.parentElement.tagName.toLowerCase() === 'picture') {
           for (const src of el.parentElement.querySelectorAll('source')) {
-            const b = pickFromSrcset(src.getAttribute('srcset') || src.getAttribute('data-srcset'));
+            const b = pickFromSrcset(src.getAttribute('data-srcset') || src.getAttribute('srcset'));
             if (b) {
               const upgraded = upgradeCDNUrl(b);  // ✨ UPGRADE FIRST
               const junkCheck = isJunkImage(upgraded, src);
