@@ -58,6 +58,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **IKEA**: ?f=u/xxl → ?f=xxxl upgrades for highest quality available
 - **Temu**: Alibaba Cloud imageView2 w/180 → w/1200, q/70 → q/90 quality boosts
 - **Swarovski**: $size_360 → $size_2000, w_95 → w_2000 dimension upgrades
+- **LTWEBSTATIC (SHEIN/MUSERA)**: Remove _thumbnail_XXXx suffixes for full-size images (preserves extension)
 
 ### Custom Handler Registry (custom.js)
 - **Amazon (AMZ)**: Quality scoring, hi-res attributes, a-state JSON parsing
@@ -66,9 +67,14 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **Home Depot**: Thumbnail upgrades (_100→_1000), spin profile upgrades
 - **AliExpress**: Multi-strategy title extraction, sophisticated filtering
 - **Etsy**: Container-targeted main product gallery (eliminates cross-sell noise)
+- **LTWEBSTATIC (SHEIN/MUSERA)**: Extracts from data-before-crop-src attributes, filters out cross-sell products
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **LTWEBSTATIC/SHEIN/MUSERA Support (Oct 2025)**: Added comprehensive support for ltwebstatic CDN and SHEIN/MUSERA sites
+  - Custom handler extracts from data-before-crop-src attributes (captures full uncropped URLs)
+  - CDN upgrade pattern removes _thumbnail_XXXx suffixes for full-size images
+  - Filters out cross-sell products by targeting .main-picture container only
 - **Temu CDN Support (Oct 2025)**: Added Alibaba Cloud imageView2 API upgrade patterns for Temu product images
   - Automatic width upgrades: w/180 → w/1200 for 6.7x larger dimensions
   - Quality boost: q/70 → q/90 for sharper product photos
