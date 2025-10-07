@@ -1848,6 +1848,37 @@ const LTWEBSTATIC = {
   }
 };
 
+const REVOLVE = {
+  match: (h) => /(^|\.)revolve\.com$/i.test(h),
+  
+  images(doc = document) {
+    const out = [];
+    
+    // Extract from slideshow thumbnail buttons with data-image attribute
+    doc.querySelectorAll('.js-primary-slideshow__page-thumb[data-image]').forEach(btn => {
+      try {
+        let url = btn.getAttribute('data-image');
+        if (!url) return;
+        
+        // Add protocol if missing
+        if (url.startsWith('//')) url = 'https:' + url;
+        if (!__looksHttp(url)) return;
+        
+        // Filter out navigation and junk images
+        if (/\/Nav_|\/dropdown|\/mini-bag/i.test(url)) return;
+        if (/dot\.png|tracking|analytics/i.test(url)) return;
+        
+        out.push(url);
+      } catch (e) {
+        console.warn('[DEBUG] REVOLVE: Error extracting URL:', e.message);
+      }
+    });
+    
+    console.log(`[DEBUG] REVOLVE: Collected ${out.length} product images from slideshow`);
+    return __uniq(out);
+  }
+};
+
 const REGISTRY = [
   AMZ,
   BESTBUY,
@@ -1883,6 +1914,7 @@ const REGISTRY = [
   ETSY,
   LULULEMON,
   LTWEBSTATIC,
+  REVOLVE,
 
 
 ];
