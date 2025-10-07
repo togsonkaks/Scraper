@@ -3050,6 +3050,55 @@
             }
           }
           
+          // CONTAINER CONSENSUS: Group images by parent container to filter cross-sell/history
+          if (images.length > 6) {
+            debug('🏛️ CONTAINER CONSENSUS: Analyzing top 6 images for main gallery...');
+            
+            // Step 1: Get selectors for top 6 images
+            const top6 = images.slice(0, 6);
+            const containerCounts = {};
+            
+            for (const url of top6) {
+              const selector = urlToSelectorMap.get(url);
+              if (selector) {
+                // Extract parent container (everything before the last ' > ')
+                const lastSep = selector.lastIndexOf(' > ');
+                const container = lastSep > 0 ? selector.substring(0, lastSep) : selector;
+                containerCounts[container] = (containerCounts[container] || 0) + 1;
+              }
+            }
+            
+            // Step 2: Find container with 2+ matches in top 6
+            let winningContainer = null;
+            for (const [container, count] of Object.entries(containerCounts)) {
+              if (count >= 2) {
+                winningContainer = container;
+                debug(`🏆 WINNING CONTAINER: "${container}" (${count} matches in top 6)`);
+                break;
+              }
+            }
+            
+            // Step 3: Reorder if winning container found
+            if (winningContainer) {
+              const mainGallery = [];
+              const others = [];
+              
+              for (const url of images) {
+                const selector = urlToSelectorMap.get(url);
+                if (selector && selector.startsWith(winningContainer)) {
+                  mainGallery.push(url);
+                } else {
+                  others.push(url);
+                }
+              }
+              
+              images = [...mainGallery, ...others];
+              debug(`🔄 CONTAINER REORDER: ${mainGallery.length} main gallery images, ${others.length} others`);
+            } else {
+              debug('⏭️ CONTAINER CONSENSUS: No dominant container (all <2 matches), keeping original order');
+            }
+          }
+          
           // LLM FALLBACK: If no images found, try AI-powered selector discovery
           if (images.length === 0 && mode !== 'memoryOnly') {
             debug('🤖 IMAGES: Zero images found, activating LLM fallback...');
