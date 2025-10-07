@@ -2618,7 +2618,7 @@
       '[class*=gallery] img','[class*="slider-image"] img','[class*="slider-img"] img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img',
       '#mainProductImage','#zoomImage',
       '.product-media picture source','.gallery picture source','.product-gallery picture source','.pdp-gallery picture source',
-      '[class*=gallery] picture source','[class*="carousel"] picture source'
+      '[class*=gallery] picture source'
     ];
     
     // Step 1: Collect RAW elements from ALL selectors first (no processing yet)
