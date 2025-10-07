@@ -1723,6 +1723,10 @@
         }
       });
       
+      // Filter out low-res duplicates, keep images in orchestrator's order
+      const displayImages = imageObjects.filter(img => !lowResDuplicates.has(img.url));
+      
+      /* COMMENTED OUT: Let orchestrator handle sorting via container consensus
       // Split: main images vs low-res duplicates
       const mainImages = imageObjects.filter(img => !lowResDuplicates.has(img.url));
       const duplicateImages = imageObjects.filter(img => lowResDuplicates.has(img.url));
@@ -1738,11 +1742,12 @@
       
       // Combine: main first, duplicates at bottom
       const sortedImages = [...mainImages, ...duplicateImages];
+      */
       
-      console.log(`📊 MOBILE PREVIEW: ${mainImages.length} main images, ${duplicateImages.length} duplicates → bottom`);
+      console.log(`📊 MOBILE PREVIEW: ${displayImages.length} images displayed (${lowResDuplicates.size} low-res duplicates hidden)`);
       
-      // Create Pinterest-style masonry grid - sorted by score
-      mobileGrid.innerHTML = sortedImages.map((item, index) => `
+      // Create Pinterest-style masonry grid - display in orchestrator's order
+      mobileGrid.innerHTML = displayImages.map((item, index) => `
         <div class="mobile-image-card" onclick="openMobileImageDetail('${item.url}', 'score-${item.totalScore}')" data-index="${index}" data-score="${item.totalScore}" data-original-order="${index}">
           <div class="quality-badge">${item.totalScore}</div>
           <img src="${item.url}" referrerpolicy="no-referrer" 
