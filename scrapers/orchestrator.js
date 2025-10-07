@@ -893,6 +893,7 @@
     // First try URL pattern extraction
     const urlPath = window.location.pathname;
     const urlPatterns = [
+      /\/([A-Z0-9]+)\.html/i,    // NastyGal/Debenhams: /BGG08376.html
       /\/prd-(\d+)\//,           // Kohl's: /prd-7663979/
       /\/product\/([^\/]+)/,     // Generic: /product/ABC123/  
       /\/dp\/([^\/]+)/,          // Amazon: /dp/B08XYZ/
