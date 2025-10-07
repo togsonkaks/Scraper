@@ -961,7 +961,7 @@
 
   // ⚠️ CRITICAL FUNCTION - Multi-layered image quality scoring algorithm ⚠️
   // Enhanced image quality scoring function with aggressive filtering  
-  function scoreImageURL(url, element = null, elementIndex = 0, isImgFallback = false, selector = '', fromSrcset = false) {
+  function scoreImageURL(url, element = null, elementIndex = 0, isImgFallback = false, selector = '', fromSrcset = false, fromZoomAttr = false, fromLargeAttr = false) {
     if (!url) return 0;
     
     // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns and prioritize high-res
@@ -1155,6 +1155,14 @@
     // Srcset quality bonus (images from srcset often higher quality)
     if (fromSrcset) {
       score += 15;
+    }
+    
+    // Data-attribute bonuses (special attributes indicate high-quality images)
+    if (fromZoomAttr) {
+      score += 25; // data-zoom-image, data-zoom-src are high-quality
+    }
+    if (fromLargeAttr) {
+      score += 20; // data-large, data-full-src are high-quality
     }
     
     // Selector-based scoring (check selector path for gallery/cross-sell keywords)
@@ -1366,7 +1374,7 @@
       }
       
       // Apply score threshold (minimum 40 points)
-      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector, enriched.fromSrcset);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector, enriched.fromSrcset, enriched.fromZoomAttr, enriched.fromLargeAttr);
       if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
@@ -2354,7 +2362,10 @@
           const upgraded = upgradeCDNUrl(s1);  // ✨ UPGRADE FIRST - transforms URLs to best form
           const junkCheck = isJunkImage(upgraded, el);  // Check upgraded URL for junk
           if (!junkCheck.blocked) {
-            enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath });
+            // Flag high-quality data attributes
+            const isZoomAttr = !!attrs['data-zoom-image'];
+            const isLargeAttr = !!attrs['data-large'];
+            enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath, fromZoomAttr: isZoomAttr, fromLargeAttr: isLargeAttr });
             urlToSelectorMap.set(upgraded, actualPath);
           } else {
             dbg(`❌ BLOCKED [${junkCheck.reason}]:`, upgraded.substring(upgraded.lastIndexOf('/') + 1));
@@ -2424,7 +2435,7 @@
         continue;
       }
       
-      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector, enriched.fromSrcset);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector, enriched.fromSrcset, enriched.fromZoomAttr, enriched.fromLargeAttr);
       if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
