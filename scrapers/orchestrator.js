@@ -2647,6 +2647,7 @@
       '.product-media img','.gallery img','.image-gallery img','.product-images img','.product-gallery img',
       '.product_media_item img','.product__media-item img.image__img','img.image_img','img.image__img',
       '[class*=gallery] img','[class*="slider-image"] img','[class*="slider-img"] img','.thumbnails img','.pdp-gallery img','[data-testid*=image] img',
+      '.big-picture img','[class*="big-picture"] img',
       '#mainProductImage','#zoomImage',
       '.product-media picture source','.gallery picture source','.product-gallery picture source','.pdp-gallery picture source',
       '.pdp-images__desktop picture source','[class*="pdp-image"] picture source',
