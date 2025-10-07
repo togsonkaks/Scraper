@@ -1118,6 +1118,10 @@
     // Short words (word boundary): avoid matching "adoredvintage.com" for "ad"
     if (/\b(ad|logo|bg|background|header|footer|nav|navigation|menu|sidebar)\b/i.test(url)) score -= 200;
     if (/\b(sprite|icon|badge|placeholder|loading|spinner|pixel\.gif|grey-pixel)\b/i.test(url)) score -= 80;
+    
+    // Soft penalty for any "logo" keyword (including product names like "LogoHalfZipSweater")
+    // Note: Hard filter already blocks /logo.png, /logo-header.jpg via JUNK_IMG regex
+    if (/logo/i.test(url)) score -= 50;
     if (/\b(warranty|insurance|coverage|support|claim)\b/i.test(url)) score -= 55;
     
     // Mobile icon penalty: Only penalize .png files with specific icon keywords (conservative)
