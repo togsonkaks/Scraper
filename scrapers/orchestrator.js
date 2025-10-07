@@ -789,13 +789,14 @@
       }
     }
     
-    // MISSGUIDED (LTWEBSTATIC): Remove thumbnail suffix and upgrade to full-size JPG
-    if (/img\.ltwebstatic\.com/i.test(url)) {
-      // Remove _thumbnail_XXXx suffix and change .webp to .jpg for full-size
-      upgraded = upgraded.replace(/_thumbnail_\d+x\.webp/gi, '.jpg');
+    // LTWEBSTATIC (SHEIN/MUSERA/MISSGUIDED): Remove thumbnail suffixes for full-size images
+    if (/ltwebstatic\.com/i.test(url)) {
+      // Remove all _thumbnail_XXXx patterns (e.g., _thumbnail_900x, _thumbnail_220x293, _thumbnail_405x552)
+      // Preserves file extension (.webp, .jpg, etc.)
+      upgraded = upgraded.replace(/_thumbnail_\d+x\d*(?=\.)/gi, '');
       
       if (upgraded !== url) {
-        debug(`✨ UPGRADED Missguided CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+        debug(`✨ UPGRADED LTWEBSTATIC CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
       }
     }
     

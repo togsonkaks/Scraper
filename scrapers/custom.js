@@ -1830,11 +1830,7 @@ const LTWEBSTATIC = {
         if (url.startsWith('//')) url = 'https:' + url;
         if (!__looksHttp(url)) return;
         
-        // Upgrade thumbnail sizes: _thumbnail_900x → _thumbnail_1200x (or remove for full size)
-        // Keep _1200x as good balance between quality and file size
-        url = url.replace(/_thumbnail_900x/g, '_thumbnail_1200x');
-        url = url.replace(/_thumbnail_220x293/g, '_thumbnail_1200x');
-        url = url.replace(/_thumbnail_405x552/g, '_thumbnail_1200x');
+        // CDN upgrade pattern in orchestrator will automatically remove _thumbnail_XXXx suffixes
         
         if (/ltwebstatic\.com/i.test(url)) {
           out.add(url);
