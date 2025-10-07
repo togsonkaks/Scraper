@@ -1121,7 +1121,7 @@
     
     // Soft penalty for any "logo" keyword (including product names like "LogoHalfZipSweater")
     // Note: Hard filter already blocks /logo.png, /logo-header.jpg via JUNK_IMG regex
-    if (/logo/i.test(url)) score -= 50;
+    if (/logo/i.test(url)) score -= 10;
     if (/\b(warranty|insurance|coverage|support|claim)\b/i.test(url)) score -= 55;
     
     // Mobile icon penalty: Only penalize .png files with specific icon keywords (conservative)
@@ -1301,9 +1301,9 @@
         continue;
       }
       
-      // Apply score threshold (minimum 50 points)
+      // Apply score threshold (minimum 40 points)
       const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback);
-      if (score < 50) {
+      if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
         continue;
@@ -2359,7 +2359,7 @@
       }
       
       const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback);
-      if (score < 50) {
+      if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
         continue;
