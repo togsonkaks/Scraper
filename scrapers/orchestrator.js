@@ -960,7 +960,7 @@
 
   // ⚠️ CRITICAL FUNCTION - Multi-layered image quality scoring algorithm ⚠️
   // Enhanced image quality scoring function with aggressive filtering  
-  function scoreImageURL(url, element = null, elementIndex = 0, isImgFallback = false) {
+  function scoreImageURL(url, element = null, elementIndex = 0, isImgFallback = false, selector = '') {
     if (!url) return 0;
     
     // FREE PEOPLE/URBAN OUTFITTERS: Filter bad patterns and prioritize high-res
@@ -1149,6 +1149,15 @@
       if (elementIndex < 1) score += 10; // Very first image gets extra bonus
     }
     
+    // Selector-based bonuses (check selector path for gallery keywords)
+    if (selector) {
+      const selectorLower = selector.toLowerCase();
+      // +20 bonus for main gallery selectors (slidecount, mainimage, primary, slideshow)
+      if (/slidecount|mainimage|main-image|primary.*image|slideshow|carousel-main/i.test(selectorLower)) {
+        score += 20;
+      }
+    }
+    
     // Element-based bonuses if element provided
     if (element) {
       const className = element.className || '';
@@ -1156,7 +1165,8 @@
       const combined = (className + ' ' + id).toLowerCase();
       
       // ENHANCED: Gallery container bonuses (prioritize product gallery images)
-      if (/\b(main|hero|primary|featured|product-image|gallery-main|product-gallery|media-gallery|image-gallery|product-media|slideshow|carousel|zoom-gallery)\b/i.test(combined)) score += 50;
+      // Removed "product-image" to prevent cross-sell bonus, kept main gallery keywords
+      if (/\b(main|hero|primary|featured|gallery-main|product-gallery|media-gallery|image-gallery|product-media|slideshow|carousel|zoom-gallery)\b/i.test(combined)) score += 50;
       if (/\b(gallery|product-thumb|media-item|slide-item|zoom-item)\b/i.test(combined)) score += 35;
       
       // Thumbnail penalties  
@@ -1337,7 +1347,7 @@
       }
       
       // Apply score threshold (minimum 40 points)
-      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector);
       if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;
@@ -2395,7 +2405,7 @@
         continue;
       }
       
-      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback);
+      const score = scoreImageURL(abs, enriched.element, enriched.index, isImgFallback, enriched.selector);
       if (score < 40) {
         addImageDebugLog('debug', `📉 LOW SCORE REJECTED (${score}): ${abs.slice(0, 100)} | Found by: ${enriched.selector}`, abs, score, false);
         filtered.lowScore++;

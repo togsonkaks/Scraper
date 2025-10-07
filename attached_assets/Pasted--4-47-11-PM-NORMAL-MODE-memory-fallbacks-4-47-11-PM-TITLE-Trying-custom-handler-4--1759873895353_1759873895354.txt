@@ -1,0 +1,577 @@
+[4:47:11 PM] 🔄 NORMAL MODE - memory + fallbacks
+[4:47:11 PM] 🧩 TITLE: Trying custom handler...
+[4:47:11 PM] 🧩 CUSTOM TITLE MISS: returned object null
+[4:47:11 PM] 📝 TITLE: Falling back to generic...
+[4:47:11 PM] 📝 TITLE FROM GENERIC: Geisha Maxi Dress Bronx and Banco
+[4:47:11 PM] 🏷️ BRAND: Falling back to generic...
+[4:47:11 PM] 🏷️ BRAND FROM GENERIC: Bronx and Banco
+[4:47:11 PM] 📄 DESCRIPTION: Falling back to generic...
+[4:47:11 PM] 📄 DESCRIPTION FROM GENERIC: Shop for Bronx and Banco Geisha Maxi Dress in Powder Blue at REVOLVE. Free 2-3 day shipping and returns, 30 day price match guarantee.
+[4:47:11 PM] 🧩 PRICE: Trying custom handler...
+[4:47:11 PM] 🧩 CUSTOM PRICE MISS: returned object null
+[4:47:11 PM] 💰 PRICE: Falling back to generic...
+[4:47:11 PM] 🎯 REFINING PRICE: {"baseVal":null,"fromMemory":false,"hasElement":true,"elementTag":"DIV"}
+[4:47:11 PM] Price element <DIV.price>
+[4:47:11 PM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[4:47:11 PM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[4:47:11 PM] 📍 ANCESTOR 0: <DIV.price>
+[4:47:11 PM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"","cleaned":"","reconstructed":""}
+[4:47:11 PM] 💰 ANCESTOR 0 SMART PRICE: null from tokens: []
+[4:47:11 PM] 📍 ANCESTOR 1: <DIV>
+[4:47:11 PM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"","cleaned":"","reconstructed":""}
+[4:47:11 PM] 💰 ANCESTOR 1 SMART PRICE: null from tokens: []
+[4:47:11 PM] 📍 ANCESTOR 2: <DIV.mini-bag__product-section>
+[4:47:11 PM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"Previous price:","cleaned":"Previous price:","reconstructed":"Previous price:"}
+[4:47:11 PM] 💰 ANCESTOR 2 SMART PRICE: null from tokens: []
+[4:47:11 PM] ✅ CONTEXT REFINEMENT RESULT: {"result":null,"originalBase":null}
+[4:47:11 PM] 🔍 PRICE PARSING: {"input":"1100","inputType":"string","inputLength":4}
+[4:47:11 PM] 🧹 CLEANED INPUT: {"original":"1100","cleaned":"1100"}
+[4:47:11 PM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"1100","reconstructed":"1100"}
+[4:47:11 PM] 💰 MONETARY TOKENS: []
+[4:47:11 PM] 🔢 CURRENCY-CONTEXT FALLBACK: {"hasCurrency":false,"numbers":[1100]}
+[4:47:11 PM] ✅ FINAL PRICE RESULT: {"result":1100,"method":"MIN_FALLBACK","allNumbers":[1100]}
+[4:47:11 PM] 💰 PRICE FROM GENERIC: 1100
+[4:47:11 PM] 🖼️ IMAGES: Skipping memory in normal mode
+[4:47:11 PM] 🖼️ IMAGES: Need more images (have 0, need 3+)
+[4:47:11 PM] 🧩 IMAGES: Trying custom handler...
+[4:47:11 PM] 🖼️ IMAGES: No custom/memory images, getting generic images...
+[4:47:11 PM] 🖼️ Getting generic images for hostname: revolve.com
+[4:47:11 PM] 📍 CALL TRACE: at getImagesGeneric (<anonymous>:4884:23) -> at scrapeProduct (<anonymous>:5261:41) -> at async <anonymous>:5545:21
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.product-media img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.gallery img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.image-gallery img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.product-images img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.product-gallery img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.product_media_item img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.product__media-item img.image__img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: 'img.image_img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: 'img.image__img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '[class*=gallery] img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '[class*="slider-image"] img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '[class*="slider-img"] img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.thumbnails img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.pdp-gallery img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '[data-testid*=image] img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.big-picture img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '[class*="big-picture"] img'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '#mainProductImage'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '#zoomImage'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.product-media picture source'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.gallery picture source'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.product-gallery picture source'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.pdp-gallery picture source'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '.pdp-images__desktop picture source'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '[class*="pdp-image"] picture source'
+[4:47:11 PM] 🎯 Collecting elements with gallery selector: '[class*=gallery] picture source'
+[4:47:11 PM] 🖼️ All gallery selectors found nothing, falling back to broad 'img'
+[4:47:11 PM] 🔍 Processing 65 image elements...
+[4:47:11 PM] Image element #1 <IMG>
+[4:47:11 PM] Image element #2 <IMG>
+[4:47:11 PM] Image element #3 <IMG>
+[4:47:11 PM] ✨ UPGRADED Revolve CDN URL: BROR-WD749_V1.jpg -> BROR-WD749_V1.jpg
+[4:47:11 PM] ✨ UPGRADED CDN URL: BROR-WD749_V1.jpg -> BROR-WD749_V1.jpg
+[4:47:11 PM] ✨ UPGRADED Revolve CDN URL: BROR-WD749_V1.jpg 2x -> BROR-WD749_V1.jpg 2x
+[4:47:11 PM] ✨ UPGRADED CDN URL: BROR-WD749_V1.jpg 2x -> BROR-WD749_V1.jpg 2x
+[4:47:11 PM] ✨ UPGRADED Revolve CDN URL: BROR-WD749_V2.jpg -> BROR-WD749_V2.jpg
+[4:47:11 PM] ✨ UPGRADED CDN URL: BROR-WD749_V2.jpg -> BROR-WD749_V2.jpg
+[4:47:11 PM] ✨ UPGRADED Revolve CDN URL: BROR-WD749_V2.jpg 2x -> BROR-WD749_V2.jpg 2x
+[4:47:11 PM] ✨ UPGRADED CDN URL: BROR-WD749_V2.jpg 2x -> BROR-WD749_V2.jpg 2x
+[4:47:11 PM] ✨ UPGRADED Revolve CDN URL: BROR-WD749_V3.jpg -> BROR-WD749_V3.jpg
+[4:47:11 PM] ✨ UPGRADED CDN URL: BROR-WD749_V3.jpg -> BROR-WD749_V3.jpg
+[4:47:11 PM] ✨ UPGRADED Revolve CDN URL: BROR-WD749_V3.jpg 2x -> BROR-WD749_V3.jpg 2x
+[4:47:11 PM] ✨ UPGRADED CDN URL: BROR-WD749_V3.jpg 2x -> BROR-WD749_V3.jpg 2x
+[4:47:11 PM] ✨ UPGRADED Revolve CDN URL: BROR-WD749_V4.jpg -> BROR-WD749_V4.jpg
+[4:47:11 PM] ✨ UPGRADED CDN URL: BROR-WD749_V4.jpg -> BROR-WD749_V4.jpg
+[4:47:11 PM] ✨ UPGRADED Revolve CDN URL: BROR-WD749_V4.jpg 2x -> BROR-WD749_V4.jpg 2x
+[4:47:11 PM] ✨ UPGRADED CDN URL: BROR-WD749_V4.jpg 2x -> BROR-WD749_V4.jpg 2x
+[4:47:11 PM] 🔄 FILTERING & SCORING UNIQUE IMAGES... {"inputCount":113}
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/092925_RW_Nav_NewToday_NewFromCamila_1x.jpg%2 | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/092925_RW_Nav_NewToday_GoingOutTops_1x.jpg%20 | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/092925_RW_Nav_NewToday_FallGetawayFits_1x.jpg | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/092925_RW_NAV_CLOTHING_ALWAYSCHIC_1x_R.jpg%20 | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/092925_RW_Nav_Clothing_FallTrendReport_1x.jpg | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/092925_RW_Nav_Dresses_StatementMakers_1x.jpg% | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/092925_RW_NAV_DRESSES_DATENIGHT_1x_r2.jpg%201 | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/090325_RW_NAV_SHOES_BOOTSTOBUY_1x.jpg%201x,%2 | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/090325_RW_NAV_NEW_ALLABOUTTHEMULE_1x.jpg%201x | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/September/090325_RW_NAV_SHOES_MOSTWANTEDSNEAKERS_1x.jpg | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/May/052725_RW_NAV_ACCESSORIES_COOLBAGS_1x.jpg%201x,%20h | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:11 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/July/070725_RW_NAV_DESIGNER_LAPOINTE_1x.jpg%201x,%20htt | Found by: div.dropdown-nav__list-gc--ab > a.image-badge--relative > img
+0[IMG ERROR]
+📋 Copy URL
+[4:47:11 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] 📉 LOW SCORE REJECTED (0): https://is4.revolveassets.com/images/up/2025/June/62325_rw_nav_dresses_sale_1x.jpg%201x,%20https://i | Found by: div.gc > a.wwu-thumb > img.wwu-thumb__image
+0[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: https://verifi.podscribe.com/tag?action=view&user_id=bda03f94-2be1-4281-8a34-26edd29ed16c&advertiser
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: https://t.co/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%26255%263440%26144
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: https://analytics.twitter.com/1/i/adsct?bci=4&dv=America%2FChicago%26en-US%26Google%20Inc.%26Win32%2
+0
+📋 Copy URL
+[4:47:12 PM] ❌ NOT IMAGE URL: https://bat.bing.com/action/0?ti=4003729&Ver=2&mid=224d2c59-f7e1-4892-9a35-49fd30728c78&bo=1&sid=712
+0[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ BEST OF 3 (score: 65): https://is4.revolveassets.com/r/i/dot.png | Found by: div.mini-bag__product-img > a > img
+65
+📋 Copy URL
+[4:47:12 PM] ✅ BEST OF 2 (score: 100): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V1.jpg | Found by: #js-primary-slideshow__image
+100
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 50): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V1.jpg%201x,%20https://is4.revolveassets.com | Found by: #img_$slideCount
+50[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 50): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V2.jpg | Found by: #img_$slideCount
+50
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 50): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V2.jpg%201x,%20https://is4.revolveassets.com | Found by: #img_$slideCount
+50[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 50): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V3.jpg | Found by: #img_$slideCount
+50
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 50): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V3.jpg%201x,%20https://is4.revolveassets.com | Found by: #img_$slideCount
+50[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 50): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V4.jpg | Found by: #img_$slideCount
+50
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 50): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V4.jpg%201x,%20https://is4.revolveassets.com | Found by: #img_$slideCount
+50[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V1.jpg%201x,%20https://is4.revolveassets.com | Found by: #js-primary-slideshow__image
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/ps/BSUE-WZ110_V1.jpg | Found by: div.js-qv-ctl--container > div > img.product-image
+100
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/ps/BSUE-WZ110_V1.jpg%201x,%20https://is4.revolveassets.com | Found by: div.js-qv-ctl--container > div > img.product-image
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/ps/JHEN-MA5_V1.jpg | Found by: div.js-qv-ctl--container > div > img.product-image
+100
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/ps/JHEN-MA5_V1.jpg%201x,%20https://is4.revolveassets.com/i | Found by: div.js-qv-ctl--container > div > img.product-image
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/ps/BCOS-WU462_V1.jpg | Found by: div.js-qv-ctl--container > div > img.product-image
+100
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/ps/BCOS-WU462_V1.jpg%201x,%20https://is4.revolveassets.com | Found by: div.js-qv-ctl--container > div > img.product-image
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/ps/BCOS-WU454_V1.jpg | Found by: div.js-qv-ctl--container > div > img.product-image
+100
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 100): https://is4.revolveassets.com/images/p4/n/ps/BCOS-WU454_V1.jpg%201x,%20https://is4.revolveassets.com | Found by: div.js-qv-ctl--container > div > img.product-image
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD800_V1.jpg%202x | Found by: a.u-center > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD757_V1.jpg%202x | Found by: a.u-center > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD688_V1.jpg%202x | Found by: a.u-center > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD877_V1.jpg%202x | Found by: a.u-center > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD682_V1.jpg%202x | Found by: a.u-center > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/DELR-WD87_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD813_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/ZHIR-WD356_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD597_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD689_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/ROFR-WD464_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD678_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/SOLA-WD352_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/SLEE-WD354_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD841_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD773_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/RONR-WD739_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/AREC-WD15_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/MILO-WD30_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/ZHIR-WD348_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/ROFR-WD975_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD803_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/SGUF-WD21_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD693_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD870_V1.jpg%202x | Found by: a.product-link > div > img.product-image
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ SINGLE IMAGE (score: 65): https://is4.revolveassets.com/images/up/2025/July/070925_RW_FWRD_CrossPromoFooter_B_r.png%201x,%20ht | Found by: div.site-footer__promo-container > a.cross-promo__footer-img-link > img.js-lazy-image
+65[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] ✅ BEST OF 9 (score: 50): https://is4.revolveassets.com/images/wwu/2017/january/womens/011017_f_popup.jpg | Found by: div.flag > div.modal__image > img
+50
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (65): https://is4.revolveassets.com/r/i/dot.png
+65
+📋 Copy URL
+[4:47:12 PM] 📏 SIZE OK (est: 50KB): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V1.jpg%201x,%20https://is4.revolveassets.com
+50[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 📏 SIZE OK (est: 80KB): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V2.jpg
+50
+📋 Copy URL
+[4:47:12 PM] 📏 SIZE OK (est: 50KB): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V2.jpg%201x,%20https://is4.revolveassets.com
+50[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 📏 SIZE OK (est: 80KB): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V3.jpg
+50
+📋 Copy URL
+[4:47:12 PM] 📏 SIZE OK (est: 50KB): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V3.jpg%201x,%20https://is4.revolveassets.com
+50[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 📏 SIZE OK (est: 80KB): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V4.jpg
+50
+📋 Copy URL
+[4:47:12 PM] 📏 SIZE OK (est: 50KB): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V4.jpg%201x,%20https://is4.revolveassets.com
+50[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V1.jpg
+100
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V1.jpg%201x,%20https://is4.revolveassets.com
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/ps/BSUE-WZ110_V1.jpg
+100
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/ps/BSUE-WZ110_V1.jpg%201x,%20https://is4.revolveassets.com
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/ps/JHEN-MA5_V1.jpg
+100
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/ps/JHEN-MA5_V1.jpg%201x,%20https://is4.revolveassets.com/i
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/ps/BCOS-WU462_V1.jpg
+100
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/ps/BCOS-WU462_V1.jpg%201x,%20https://is4.revolveassets.com
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/ps/BCOS-WU454_V1.jpg
+100
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (100): https://is4.revolveassets.com/images/p4/n/ps/BCOS-WU454_V1.jpg%201x,%20https://is4.revolveassets.com
+100[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD800_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD757_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD688_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD877_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD682_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/DELR-WD87_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD813_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/ZHIR-WD356_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD597_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD689_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/ROFR-WD464_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD678_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/SOLA-WD352_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/SLEE-WD354_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD841_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD773_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/RONR-WD739_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/AREC-WD15_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/MILO-WD30_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/ZHIR-WD348_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/ROFR-WD975_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD803_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/SGUF-WD21_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD693_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (115): https://is4.revolveassets.com/images/p4/n/uv/BROR-WD870_V1.jpg%202x
+115[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 🎯 HIGH SCORE + SIZE OK (65): https://is4.revolveassets.com/images/up/2025/July/070925_RW_FWRD_CrossPromoFooter_B_r.png%201x,%20ht
+65[IMG ERROR]
+📋 Copy URL
+[4:47:12 PM] 📏 SIZE OK (est: 80KB): https://is4.revolveassets.com/images/wwu/2017/january/womens/011017_f_popup.jpg
+50
+📋 Copy URL
+[4:47:12 PM] 🏆 TOP SCORED IMAGES: ["BROR-WD800_V1.jpg%202x (score: 115)","BROR-WD757_V1.jpg%202x (score: 115)","BROR-WD688_V1.jpg%202x (score: 115)","BROR-WD877_V1.jpg%202x (score: 115)","BROR-WD682_V1.jpg%202x (score: 115)"]
+[4:47:12 PM] 🔧 PHASE 8: Scanning 45 URLs to find first 3 with ?width= pattern...
+[4:47:12 PM] ✅ PHASE 8 COMPLETE: Added 0 upgrades, 45 total URLs
+[4:47:12 PM] 🖼️ PROCESSING RESULTS: {"empty":0,"invalid":44,"junk":0,"lowScore":13,"smallFile":0,"duplicateGroups":3,"kept":45}
+[4:47:12 PM] 🖼️ FINAL IMAGES: ["https://is4.revolveassets.com/images/p4/n/uv/BROR-WD800_V1.jpg%202x","https://is4.revolveassets.com/images/p4/n/uv/BROR-WD757_V1.jpg%202x","https://is4.revolveassets.com/images/p4/n/uv/BROR-WD688_V1
+[4:47:12 PM] 🖼️ GENERIC IMAGES: {"count":30,"images":["https://is4.revolveassets.com/images/p4/n/c/BROR-WD749_V1.jpg","https://is4.revolveassets.com/images/p4/n/uv/BROR-WD800_V1.jpg%202x","https://is4.revolveassets.com/images/p4/n/u
+[4:47:12 PM] 🖼️ FINAL IMAGES: {"count":30,"images":["https://is4.revolveassets.com/images/p4/n/c/BROR-WD749_V1.jpg","https://is4.revolveassets.com/images/p4/n/uv/BROR-WD800_V1.jpg%202x","https://is4.revolveassets.com/images/p4/n/u
+[4:47:12 PM] 🎯 PRODUCT ID from URL: BROR-WD749
+[4:47:12 PM] 🔍 FINAL RELEVANCE CHECK: Running keyword matching on 30 final images
+[4:47:12 PM] 🔍 Keywords: [bronx, banco, geisha, maxi, dress, powder, blue]
+[4:47:12 PM] 🔍 Main Product ID: "BROR-WD749"
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | ttps://is4.revolveassets.com/images/p4/n/c/BROR-WD749_V1.jpg | selector: unknown
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD800_V1.jpg%202x | selector: a.u-center > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD757_V1.jpg%202x | selector: a.u-center > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD688_V1.jpg%202x | selector: a.u-center > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD877_V1.jpg%202x | selector: a.u-center > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD682_V1.jpg%202x | selector: a.u-center > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | //is4.revolveassets.com/images/p4/n/uv/DELR-WD87_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD813_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/ZHIR-WD356_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD597_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD689_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/ROFR-WD464_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD678_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/SOLA-WD352_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/SLEE-WD354_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD841_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD773_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/RONR-WD739_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | //is4.revolveassets.com/images/p4/n/uv/AREC-WD15_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | //is4.revolveassets.com/images/p4/n/uv/MILO-WD30_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/ZHIR-WD348_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/ROFR-WD975_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD803_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | //is4.revolveassets.com/images/p4/n/uv/SGUF-WD21_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD693_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | /is4.revolveassets.com/images/p4/n/uv/BROR-WD870_V1.jpg%202x | selector: a.product-link > div > img.product-image
+[4:47:12 PM] 🎯 Score=75 [carousel:+75] | tps://is4.revolveassets.com/images/p4/n/uv/BROR-WD749_V1.jpg | selector: #js-primary-slideshow__image
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | tps://is4.revolveassets.com/images/p4/n/ps/BSUE-WZ110_V1.jpg | selector: div.js-qv-ctl--container > div > img.pro
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | https://is4.revolveassets.com/images/p4/n/ps/JHEN-MA5_V1.jpg | selector: div.js-qv-ctl--container > div > img.pro
+[4:47:12 PM] 🎯 Score=0 [no-match:0] | tps://is4.revolveassets.com/images/p4/n/ps/BCOS-WU462_V1.jpg | selector: div.js-qv-ctl--container > div > img.pro
+[4:47:12 PM] 🎯 RELEVANCE RANKING: 1 with matches, scores: [75, 0, 0, 0, 0]
+[4:47:12 PM] 🏛️ CONTAINER CONSENSUS: Analyzing top 6 images for main gallery...
+[4:47:12 PM] 🏆 WINNING CONTAINER: "a.u-center > div" (4 matches in top 6)
+[4:47:12 PM] 🔄 CONTAINER REORDER: 5 main gallery images, 25 others
+[4:47:12 PM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"Geisha Maxi Dress\n \n ","brand":"Bronx and Banco","description":"Shop for Bronx and Banco Geisha Maxi Dress in Powd","price":"1100","imageCount":30,"firstImages
+[4:47:12 PM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":30}
+[4:47:12 PM] 💾 DEBUG LOGGER: Session saved to database
+[4:47:12 PM] ✅ Debug trace complete
