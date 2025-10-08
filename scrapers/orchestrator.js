@@ -401,7 +401,7 @@
   /* ---------- MEMORY ---------- */
   function loadMemory(host) {
     try {
-      // First try injected memory data (new file-based system)
+      // Load from file-based system only (via injected memory)
       if (globalThis.__tg_injectedMemory && globalThis.__tg_injectedMemory[host]) {
         const v = globalThis.__tg_injectedMemory[host];
         const out = {};
@@ -417,21 +417,8 @@
         return out;
       }
       
-      // Fallback to localStorage for backwards compatibility during transition
-      const raw = localStorage.getItem('selector_memory_v2');
-      const all = raw ? JSON.parse(raw) : {};
-      const v = all[host] || {};
-      const out = {};
-      for (const k of Object.keys(v)) {
-        const val = v[k];
-        if (typeof val === 'string') out[k] = { selectors: [val], attr: 'text' };
-        else if (val && typeof val === 'object') {
-          const sels = Array.isArray(val.selectors) ? val.selectors.filter(Boolean)
-                       : (val.selector ? [val.selector] : []);
-          out[k] = { selectors: sels, attr: val.attr || 'text' };
-        }
-      }
-      return out;
+      // No memory found
+      return {};
     } catch { return {}; }
   }
 
