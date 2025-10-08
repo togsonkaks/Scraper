@@ -237,13 +237,13 @@ function ensureProduct(){
   return productWin;
 }
 
-// Migration from localStorage to file-based storage
-function migrateFromLocalStorage() {
+// Clear old localStorage data (fresh start)
+function clearOldLocalStorage() {
   try {
-    console.log('Starting localStorage migration check...');
+    console.log('Clearing old localStorage memory data...');
     
     // Create a hidden window to access localStorage
-    const migrationWin = new BrowserWindow({
+    const clearWin = new BrowserWindow({
       show: false,
       webPreferences: {
         contextIsolation: false,
@@ -252,66 +252,43 @@ function migrateFromLocalStorage() {
     });
     
     // Navigate to a data URL to have a valid origin for localStorage
-    migrationWin.loadURL('data:text/html,<html><body>Migration</body></html>');
+    clearWin.loadURL('data:text/html,<html><body>Clear</body></html>');
     
-    migrationWin.webContents.once('dom-ready', async () => {
+    clearWin.webContents.once('dom-ready', async () => {
       try {
-        const localStorageData = await migrationWin.webContents.executeJavaScript(`
+        const cleared = await clearWin.webContents.executeJavaScript(`
           (() => {
             try {
-              const raw = localStorage.getItem('selector_memory_v2');
-              return raw ? JSON.parse(raw) : null;
+              const existed = localStorage.getItem('selector_memory_v2') !== null;
+              localStorage.removeItem('selector_memory_v2');
+              return existed;
             } catch (e) {
-              console.error('Migration localStorage read error:', e);
-              return null;
+              console.error('localStorage clear error:', e);
+              return false;
             }
           })()
         `);
         
-        if (localStorageData && Object.keys(localStorageData).length > 0) {
-          console.log('Found localStorage data, migrating:', Object.keys(localStorageData));
-          let migratedCount = 0;
-          
-          for (const [host, hostData] of Object.entries(localStorageData)) {
-            try {
-              // Check if file already exists to avoid overwriting
-              if (!readSelectorFile(host)) {
-                const success = writeSelectorFile(host, {
-                  ...hostData,
-                  __migrated: true,
-                  __migrationDate: new Date().toISOString()
-                });
-                if (success) {
-                  migratedCount++;
-                  console.log(`Migrated data for host: ${host}`);
-                }
-              }
-            } catch (e) {
-              console.error(`Failed to migrate data for host ${host}:`, e);
-            }
-          }
-          
-          if (migratedCount > 0) {
-            console.log(`Successfully migrated ${migratedCount} host configurations`);
-          }
+        if (cleared) {
+          console.log('✅ Cleared old localStorage memory data');
         } else {
-          console.log('No localStorage data found to migrate');
+          console.log('No old localStorage data found');
         }
       } catch (e) {
-        console.error('Migration error:', e);
+        console.error('Clear error:', e);
       } finally {
-        migrationWin.destroy();
+        clearWin.destroy();
       }
     });
   } catch (e) {
-    console.error('Failed to start migration:', e);
+    console.error('Failed to clear localStorage:', e);
   }
 }
 
 /* ========= App lifecycle ========= */
 app.whenReady().then(() => {
-  // Run migration first
-  setTimeout(migrateFromLocalStorage, 1000);
+  // Clear old localStorage on startup
+  setTimeout(clearOldLocalStorage, 1000);
   
   createControl();
   try {

@@ -297,7 +297,6 @@
   <div class="row">
     <input id="urlInput" type="text" placeholder="Paste product URL" />
     <button id="visitBtn">Load</button>
-    <button id="memoryBtn" title="Scrape using saved selector memory only">Selector memory</button>
     <button id="saveBtn" disabled>Save (scrape)</button>
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
@@ -489,7 +488,6 @@
     
     const urlInput = document.getElementById('urlInput');
     const visitBtn = document.getElementById('visitBtn');
-    const memoryBtn = document.getElementById('memoryBtn');
     const saveBtn  = document.getElementById('saveBtn');
     const statusEl = document.getElementById('status');
 
@@ -709,90 +707,6 @@
           // setTimeout(autoValidateIfNeeded, 500);
         }
       }, 700);
-    };
-
-    // Selector memory only
-    memoryBtn.onclick = async () => {
-      const url = urlInput.value.trim();
-      if (!url) return alert('Paste a URL first.');
-      const host = hostFrom(url);
-      // First navigate to the target page to be in correct origin
-      statusEl.innerHTML = `<span class="pill">Loading ${host}</span>`;
-      panel.style.display = 'none'; images.innerHTML=''; summary.innerHTML=''; out.textContent='';
-      
-      await window.api.openProduct(url);
-      await new Promise(r => setTimeout(r, 1500)); // Wait for page load
-      
-      const hasMem = await window.api.hasSelectorMemory(host);
-      if (!hasMem) { 
-        statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">No Memory</span>`;
-        alert('❌ No selector memory for this host yet. Use "Save (Scrape)" first.');
-        return;
-      }
-      
-      statusEl.innerHTML = `<span class="pill">Memory-only</span>`;
-      try {
-        const { result, selectorsUsed } = await window.api.scrapeCurrent({ mode: 'memoryOnly' });
-        lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
-        const imgs = Array.isArray(result?.images) ? result.images : [];
-        summary.innerHTML = `
-          <div style="margin-bottom:4px;">
-            <b>Title:</b> ${result?.title || ''}
-          </div>
-          <div style="margin-bottom:4px;">
-            <b>Price:</b> ${result?.price || ''}
-          </div>
-          <div style="margin-bottom:4px;">
-            <b>Brand:</b> ${result?.brand || ''}
-          </div>
-          <div style="margin-bottom:4px;">
-            <b>URL:</b> ${result?.url || ''}
-          </div>
-          <div style="margin-bottom:4px;">
-            <b>Description:</b> ${(result?.description || '').slice(0,240)}
-          </div>
-          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> images)</button>`;
-        images.innerHTML = imgs.map((u, i) => `
-          <div style="position:relative; display:inline-block;">
-            <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
-            <img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')" style="display:block;">
-          </div>`).join('');
-        // Update mobile preview with scraped images
-        updateMobilePreview(imgs);
-        // Enhanced URL display with click-to-copy functionality (safe DOM approach)
-        out.innerHTML = ''; // Clear first
-        imgs.forEach((url, index) => {
-          const itemDiv = document.createElement('div');
-          itemDiv.className = 'image-url-item';
-          itemDiv.style.cssText = `display: flex; align-items: center; padding: 4px 0; border-bottom: 1px solid #eee; background: ${index % 2 === 0 ? '#f9f9f9' : 'white'};`;
-          
-          const urlSpan = document.createElement('span');
-          urlSpan.className = 'copy-url-span';
-          urlSpan.setAttribute('data-url', url);
-          urlSpan.style.cssText = 'flex: 1; font-family: monospace; font-size: 11px; word-break: break-all; cursor: pointer; padding: 4px;';
-          urlSpan.title = 'Click to copy full URL: ' + url;
-          urlSpan.textContent = '📋 ' + url;
-          
-          const copyBtn = document.createElement('button');
-          copyBtn.className = 'copy-url-btn';
-          copyBtn.setAttribute('data-url', url);
-          copyBtn.style.cssText = 'margin-left: 8px; padding: 4px 8px; font-size: 10px; cursor: pointer; border: 1px solid #ddd; border-radius: 3px; background: #f5f5f5;';
-          copyBtn.textContent = 'Copy';
-          
-          itemDiv.appendChild(urlSpan);
-          itemDiv.appendChild(copyBtn);
-          out.appendChild(itemDiv);
-        });
-        
-        // Wire up checkbox handlers
-        wireCheckboxHandlers();
-        
-        panel.style.display = 'grid';
-        statusEl.innerHTML = `<span class="pill">Done</span>`;
-      } catch (e) {
-        out.textContent = 'Error: ' + (e?.message || String(e));
-        statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
-      }
     };
 
     // Save (scrape)
