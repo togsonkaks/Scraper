@@ -551,11 +551,24 @@
       const countSpan = document.getElementById('selectedCount');
       const saveBtn = document.getElementById('saveSelectorBtn');
       
-      // Update count on change
+      // Update count on change - count text fields + images separately
       checkboxes.forEach(cb => {
         cb.addEventListener('change', () => {
-          const count = Array.from(checkboxes).filter(c => c.checked).length;
-          if (countSpan) countSpan.textContent = count;
+          const textFields = ['title', 'price', 'brand', 'description'];
+          const textFieldCount = Array.from(checkboxes).filter(c => c.checked && textFields.includes(c.dataset.field)).length;
+          const imageCount = Array.from(checkboxes).filter(c => c.checked && c.dataset.field === 'images').length;
+          const total = textFieldCount + imageCount;
+          if (countSpan) {
+            if (textFieldCount > 0 && imageCount > 0) {
+              countSpan.textContent = `${textFieldCount} field${textFieldCount > 1 ? 's' : ''} + ${imageCount} image${imageCount > 1 ? 's' : ''}`;
+            } else if (textFieldCount > 0) {
+              countSpan.textContent = `${textFieldCount} field${textFieldCount > 1 ? 's' : ''}`;
+            } else if (imageCount > 0) {
+              countSpan.textContent = `${imageCount} image${imageCount > 1 ? 's' : ''}`;
+            } else {
+              countSpan.textContent = '0';
+            }
+          }
         });
       });
       
