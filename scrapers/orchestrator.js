@@ -1982,6 +1982,48 @@
         debug(`🎯 TRYING SELECTOR [${field}]:`, sel);
         
         if (field === 'images') {
+          // Check if this is a metadata selector (meta tag or JSON-LD)
+          if (sel.includes('meta[property') || sel.includes('script[type="application/ld+json"]')) {
+            if (sel.includes('meta[property="og:image"]')) {
+              // Extract from og:image meta tag
+              const metaEl = q(sel);
+              if (metaEl) {
+                const url = metaEl.getAttribute('content');
+                if (url) {
+                  const finalUrl = upgradeCDNUrl(url.startsWith('//') ? 'https:' + url : url);
+                  urlToSelectorMap.set(finalUrl, sel);
+                  debug(`✅ SAVED SELECTOR SUCCESS [images]: Found og:image`);
+                  mark('images', { selectors:[sel], attr:'content', method:'saved' });
+                  return [finalUrl];
+                }
+              }
+            } else if (sel.includes('script[type="application/ld+json"]')) {
+              // Extract from JSON-LD
+              const scripts = qa('script[type="application/ld+json"]');
+              for (const script of scripts) {
+                try {
+                  const data = JSON.parse(script.textContent);
+                  const prod = Array.isArray(data) ? data.find(d => d['@type'] === 'Product') : (data['@type'] === 'Product' ? data : null);
+                  if (prod) {
+                    const arr = ldPickImages(prod);
+                    if (arr.length) {
+                      const urls = arr.map(url => {
+                        const finalUrl = upgradeCDNUrl(url.startsWith('//') ? 'https:' + url : url);
+                        urlToSelectorMap.set(finalUrl, sel);
+                        return finalUrl;
+                      });
+                      debug(`✅ SAVED SELECTOR SUCCESS [images]: Found ${urls.length} JSON-LD images`);
+                      mark('images', { selectors:[sel], attr:'text', method:'saved' });
+                      return urls.slice(0,30);
+                    }
+                  }
+                } catch (e) {}
+              }
+            }
+            debug(`❌ SAVED SELECTOR returned 0 images: ${sel}`);
+            continue;
+          }
+          
           // Direct extraction for saved image selectors (no scoring)
           const imgs = qa(sel);
           if (imgs && imgs.length > 0) {
