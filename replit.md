@@ -71,6 +71,16 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Individual Field Clear Buttons (Oct 8, 2025)**: Added granular selector memory management
+  - **Clear Button UI**: 🗑️ button next to each field (Description, Specs, Title, Price, Brand, Breadcrumbs)
+  - **Confirmation Dialog**: Browser confirm prompt before deletion ("Are you sure you want to delete saved selector for [field]?")
+  - **Backend IPC**: New `deleteSelectorField` handler in preload.js → main.js
+  - **Smart Cleanup**: Automatically deletes entire JSON file when no fields remain
+  - **Use Case**: Remove outdated meta tag selectors to force smart generic extraction
+- **Accordion Render Delay (Oct 8, 2025)**: 500ms post-load delay before extracting description/specs
+  - **Timing**: Delay added after brand extraction, before description/specs extraction
+  - **Purpose**: Allows accordion content already in DOM to fully render (no lazy-load triggers)
+  - **Debug Logs**: "⏳ Waiting 500ms for accordion content to render..." → "✅ Accordion render delay complete"
 - **Smart Description & Specs Extraction (Oct 8, 2025)**: Intelligent extraction targeting hidden accordion content
   - **Description Priority**: Data attributes → Semantic classes → Accordions → JSON-LD → Meta tags (last resort)
   - **Accordion Support**: Extracts from aria-expanded="false" sections already in DOM (no lazy-load triggers)
