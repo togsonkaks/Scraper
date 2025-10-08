@@ -784,6 +784,10 @@
             <input type="checkbox" id="okDesc" data-field="description" style="margin-right:8px;">
             <b>Description:</b> <span style="margin-left:8px;">${(result?.description || '').slice(0,240)}</span>
           </div>
+          <div style="margin-bottom:4px; display:flex; align-items:center;">
+            <input type="checkbox" id="okBreadcrumbs" data-field="breadcrumbs" style="margin-right:8px;">
+            <b>Breadcrumbs:</b> <span style="margin-left:8px;">${result?.breadcrumbs || ''}</span>
+          </div>
           <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
         images.innerHTML = imgs.map((u, i) => `
           <div style="position:relative; display:inline-block;">
