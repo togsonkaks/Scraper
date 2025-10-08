@@ -3044,7 +3044,7 @@
         });
       }
 
-      let title=null, brand=null, description=null, price=null, images=null;
+      let title=null, brand=null, description=null, price=null, breadcrumbs=null, images=null;
 
       if (mode === 'memoryOnly') {
         debug('🔒 MEMORY-ONLY MODE - using saved selectors only');
@@ -3052,6 +3052,7 @@
         brand = await fromMemory('brand', mem.brand);
         description = await fromMemory('description', mem.description);
         price = await fromMemory('price', mem.price);
+        breadcrumbs = await fromMemory('breadcrumbs', mem.breadcrumbs);
         // images = await fromMemory('images', mem.images);  // Skip memory for images
       } else {
         debug('🔄 NORMAL MODE - memory + fallbacks');
@@ -3109,6 +3110,16 @@
           debug('📄 DESCRIPTION: Falling back to generic...');
           description = getDescription();
           debug('📄 DESCRIPTION FROM GENERIC:', description);
+        }
+        
+        if (!DISABLE_MEMORY) {
+          breadcrumbs = await fromMemory('breadcrumbs', mem.breadcrumbs);
+          debug('🍞 BREADCRUMBS FROM MEMORY:', breadcrumbs);
+        }
+        if (!breadcrumbs) {
+          debug('🍞 BREADCRUMBS: Falling back to generic...');
+          breadcrumbs = getBreadcrumbs();
+          debug('🍞 BREADCRUMBS FROM GENERIC:', breadcrumbs);
         }
         
         if (!DISABLE_MEMORY) {
@@ -3383,6 +3394,7 @@
         title, 
         brand, 
         description, 
+        breadcrumbs,
         price, 
         url: location.href, 
         images, 
@@ -3395,6 +3407,7 @@
         title: title?.slice(0, 50),
         brand,
         description: description?.slice(0, 50),
+        breadcrumbs: breadcrumbs?.slice(0, 50),
         price,
         imageCount: images?.length || 0,
         firstImages: images?.slice(0, 3),
@@ -3405,6 +3418,7 @@
         title: !!title,
         brand: !!brand, 
         description: !!description,
+        breadcrumbs: !!breadcrumbs,
         price: !!price,
         images: images?.length || 0
       });
