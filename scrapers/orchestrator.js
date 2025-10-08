@@ -2004,7 +2004,10 @@
                 if (url.startsWith('//')) {
                   url = 'https:' + url;
                 }
-                urls.push(upgradeCDNUrl(url));
+                const finalUrl = upgradeCDNUrl(url);
+                urls.push(finalUrl);
+                // Track selector for this URL
+                urlToSelectorMap.set(finalUrl, sel);
               }
             }
             if (urls.length > 0) {
