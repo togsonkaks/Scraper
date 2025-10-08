@@ -2272,6 +2272,8 @@
     // PRIORITY 4: Structural pattern (consecutive links with separators near top)
     // Look for nav/ol/ul elements in the upper portion of the page with 2-6 consecutive links
     const containers = document.querySelectorAll('nav, ol, ul, div');
+    const candidates = [];
+    
     for (const container of containers) {
       // Position filter: skip elements too far down (beyond 3000px typically not breadcrumbs)
       const rect = container.getBoundingClientRect();
@@ -2280,20 +2282,67 @@
       
       if (absoluteTop > 3000) continue; // Skip elements too far down
       
+      // Skip footer/header navigation patterns
+      const containerClass = (container.className || '').toLowerCase();
+      const containerId = (container.id || '').toLowerCase();
+      const parentClass = (container.parentElement?.className || '').toLowerCase();
+      
+      if (/footer|header|sidebar|menu|nav-|navigation-main|site-nav/.test(containerClass + ' ' + containerId + ' ' + parentClass)) {
+        continue;
+      }
+      
       const links = container.querySelectorAll(':scope > a, :scope > li > a, :scope > span > a');
       if (links.length >= 2 && links.length <= 8) {
+        // Detect vertical navigation (links stacked vertically)
+        let isVertical = false;
+        if (links.length >= 3) {
+          const rects = Array.from(links).map(link => link.getBoundingClientRect());
+          // Check if links are vertically stacked (Y positions differ by more than 20px)
+          const yPositions = rects.map(r => Math.round(r.top));
+          const uniqueYPositions = new Set(yPositions);
+          
+          // If most links have different Y positions, it's vertical navigation
+          if (uniqueYPositions.size >= links.length * 0.7) {
+            isVertical = true;
+          }
+        }
+        
+        if (isVertical) continue; // Skip vertical navigation
+        
         const items = Array.from(links)
           .map(link => link.textContent.trim())
           .filter(text => text && text.length > 0 && text.length < 50);
         
         if (items.length >= 2) {
-          const breadcrumbText = items.join(' > ');
-          if (isValidBreadcrumb(breadcrumbText, items.length)) {
-            mark('breadcrumbs', { selectors:['structural-pattern'], attr:'text', method:'structural' });
-            return breadcrumbText;
+          // Reject diverse category lists that look like site navigation
+          // Real breadcrumbs have hierarchical progression, not diverse categories
+          const looksLikeNavigation = items.some(item => 
+            /^(new|sale|shop|gifts|accessories|about|contact|blog|account|cart|checkout)$/i.test(item)
+          );
+          
+          if (looksLikeNavigation) continue;
+          
+          const cleanedItems = cleanBreadcrumbItems(items);
+          if (cleanedItems.length >= 2) {
+            const breadcrumbText = cleanedItems.join(' > ');
+            if (isValidBreadcrumb(breadcrumbText, cleanedItems.length)) {
+              // Store candidate with priority based on position
+              candidates.push({
+                text: breadcrumbText,
+                position: absoluteTop,
+                score: absoluteTop < 500 ? 100 : (absoluteTop < 1000 ? 50 : 10)
+              });
+            }
           }
         }
       }
+    }
+    
+    // Return the highest-priority candidate (top-most position)
+    if (candidates.length > 0) {
+      candidates.sort((a, b) => b.score - a.score || a.position - b.position);
+      mark('breadcrumbs', { selectors:['structural-pattern'], attr:'text', method:'structural' });
+      return candidates[0].text;
     }
     
     return null;
