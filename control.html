@@ -589,7 +589,7 @@
             const imageSelectors = checkedUrls.map(url => {
               const enriched = enrichedImages.find(e => e.url === url);
               return enriched?.selector;
-            }).filter(Boolean);
+            }).filter(sel => sel && sel !== 'unknown'); // Filter out unknown selectors from custom handlers
             
             if (imageSelectors.length > 0) {
               // Find common pattern by removing nth-child and similar specific selectors
