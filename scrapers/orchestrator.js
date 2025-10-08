@@ -3160,6 +3160,54 @@
       `${img.url.substring(img.url.lastIndexOf('/') + 1)} (score: ${img.score})`));
     
     const finalImages = sizeFilteredImages.slice(0, 50);
+    
+    // Phase 6.5: Load images and check actual dimensions for small image penalty
+    debug(`📐 LOADING IMAGES: Checking dimensions for ${finalImages.length} images...`);
+    const dimensionCheckPromises = finalImages.map(async (img) => {
+      try {
+        const loadedImg = new Image();
+        loadedImg.crossOrigin = 'anonymous';
+        
+        await new Promise((resolve, reject) => {
+          loadedImg.onload = resolve;
+          loadedImg.onerror = reject;
+          setTimeout(reject, 3000); // 3s timeout per image
+          loadedImg.src = img.url;
+        });
+        
+        const width = loadedImg.naturalWidth;
+        const height = loadedImg.naturalHeight;
+        
+        // Apply -50 penalty for small images (<400x400)
+        if (width < 400 || height < 400) {
+          img.score -= 50;
+          debug(`📉 SMALL IMAGE PENALTY (-50): ${width}x${height} - ${img.url.substring(img.url.lastIndexOf('/') + 1)} (score now ${img.score})`);
+        } else {
+          debug(`✅ GOOD SIZE: ${width}x${height} - ${img.url.substring(img.url.lastIndexOf('/') + 1)}`);
+        }
+      } catch (e) {
+        // If image fails to load, keep original score
+        debug(`⚠️ DIMENSION CHECK FAILED (keeping score): ${img.url.substring(img.url.lastIndexOf('/') + 1)}`);
+      }
+      return img;
+    });
+    
+    await Promise.all(dimensionCheckPromises);
+    
+    // Re-sort after dimension penalties
+    finalImages.sort((a, b) => {
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      const sizeA = estimateFileSize(a.url);
+      const sizeB = estimateFileSize(b.url);
+      const sizeDiff = sizeB - sizeA;
+      if (sizeDiff !== 0) return sizeDiff;
+      return a.index - b.index;
+    });
+    
+    debug('🏆 TOP IMAGES AFTER DIMENSION CHECK:', finalImages.slice(0, 5).map(img => 
+      `${img.url.substring(img.url.lastIndexOf('/') + 1)} (score: ${img.score})`));
+    
     const finalUrls = finalImages.map(img => img.url);
     
     finalImages.forEach(img => {
