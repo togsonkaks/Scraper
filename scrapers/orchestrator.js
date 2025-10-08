@@ -2006,7 +2006,24 @@
           if (imgs && imgs.length > 0) {
             const urls = [];
             for (const img of imgs) {
-              const url = extractImageUrl(img);
+              // Extract URL from various attributes
+              const attrs = {
+                src: img.src,
+                'data-src': img.getAttribute('data-src'),
+                'data-image': img.getAttribute('data-image'),
+                'data-zoom-image': img.getAttribute('data-zoom-image'),
+                'data-large': img.getAttribute('data-large'),
+                srcset: img.getAttribute('srcset'),
+                'data-srcset': img.getAttribute('data-srcset')
+              };
+              
+              let url = attrs.src || attrs['data-src'] || attrs['data-image'] || 
+                        attrs['data-zoom-image'] || attrs['data-large'];
+              
+              if (!url && (attrs.srcset || attrs['data-srcset'])) {
+                url = pickFromSrcset(attrs.srcset || attrs['data-srcset']);
+              }
+              
               if (url) urls.push(upgradeCDNUrl(url));
             }
             if (urls.length > 0) {

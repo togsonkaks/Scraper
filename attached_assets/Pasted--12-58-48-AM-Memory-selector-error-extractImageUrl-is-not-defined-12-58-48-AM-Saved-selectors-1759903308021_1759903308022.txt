@@ -1,0 +1,86 @@
+[12:58:48 AM] Memory selector error: extractImageUrl is not defined
+[12:58:48 AM] ⚠️ Saved selectors returned 0 images
+[12:58:48 AM] 🔧 Trying custom handler...
+[12:58:48 AM] 🔍 Falling back to generic scraper...
+[12:58:48 AM] 🖼️ Getting generic images for hostname: joahbrown.com
+[12:58:48 AM] 📍 CALL TRACE: at getImagesGeneric (<anonymous>:4971:23) -> at scrapeProduct (<anonymous>:5356:41) -> at async <anonymous>:5645:21
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.product-media img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.gallery img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.image-gallery img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.product-images img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.product-gallery img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.product_media_item img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.product__media-item img.image__img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: 'img.image_img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: 'img.image__img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '[class*=gallery] img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '[class*="slider-image"] img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '[class*="slider-img"] img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.thumbnails img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.pdp-gallery img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '[data-testid*=image] img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.big-picture img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '[class*="big-picture"] img'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '#mainProductImage'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '#zoomImage'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.product-media picture source'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.gallery picture source'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.product-gallery picture source'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.pdp-gallery picture source'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '.pdp-images__desktop picture source'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '[class*="pdp-image"] picture source'
+[12:58:48 AM] 🎯 Collecting elements with gallery selector: '[class*=gallery] picture source'
+[12:58:48 AM] 🖼️ All gallery selectors found nothing, falling back to broad 'img'
+[12:58:48 AM] 🔍 Processing 49 image elements...
+[12:58:48 AM] Image element #1 <IMG.header__heading-logo>
+[12:58:48 AM] Image element #2 <IMG.motion-reduce>
+[12:58:48 AM] Image element #3 <IMG.motion-reduce>
+[12:58:48 AM] ✨ UPGRADED Shopify URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Back_bb24b428-6284-4d1d-aa61-a172d6afb32c_1_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Back_bb24b428-6284-4d1d-aa61-a172d6afb32c_1_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED CDN URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Back_bb24b428-6284-4d1d-aa61-a172d6afb32c_1_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Back_bb24b428-6284-4d1d-aa61-a172d6afb32c_1_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED Shopify URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Front_da4fe1f3-fac5-4cee-bd16-81beae910dfd_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Front_da4fe1f3-fac5-4cee-bd16-81beae910dfd_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED CDN URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Front_da4fe1f3-fac5-4cee-bd16-81beae910dfd_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Front_da4fe1f3-fac5-4cee-bd16-81beae910dfd_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED Shopify URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Back-Side_cc5d7a3b-7ca1-4424-aa0e-bd720a2535b8_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Back-Side_cc5d7a3b-7ca1-4424-aa0e-bd720a2535b8_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED CDN URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Back-Side_cc5d7a3b-7ca1-4424-aa0e-bd720a2535b8_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Back-Side_cc5d7a3b-7ca1-4424-aa0e-bd720a2535b8_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED Shopify URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Closeup_d0566f71-bf88-4c5c-a0bc-77fd9768b7af_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Closeup_d0566f71-bf88-4c5c-a0bc-77fd9768b7af_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED CDN URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Closeup_d0566f71-bf88-4c5c-a0bc-77fd9768b7af_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Closeup_d0566f71-bf88-4c5c-a0bc-77fd9768b7af_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED Shopify URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Lifestyle_e7859d03-9794-43f3-b23f-c16c972c8b37_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Lifestyle_e7859d03-9794-43f3-b23f-c16c972c8b37_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED CDN URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Lifestyle_e7859d03-9794-43f3-b23f-c16c972c8b37_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Lifestyle_e7859d03-9794-43f3-b23f-c16c972c8b37_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED Shopify URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Front-2_883a4dc1-91fc-42d3-ac0b-1ff2df6f120a_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Front-2_883a4dc1-91fc-42d3-ac0b-1ff2df6f120a_1020x.jpg?v=1753713618
+[12:58:48 AM] ✨ UPGRADED CDN URL: JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Front-2_883a4dc1-91fc-42d3-ac0b-1ff2df6f120a_100x.jpg?v=1753713618 -> JOAH-BROWN-Open-T-Back-Cami-Black-Modal-Front-2_883a4dc1-91fc-42d3-ac0b-1ff2df6f120a_1020x.jpg?v=1753713618
+[12:58:48 AM] 🔄 FILTERING & SCORING UNIQUE IMAGES... {"inputCount":90}
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): header.header > a.header__heading-link > img.header__heading-logo → +25
+[12:58:48 AM] 📉 LOW SCORE REJECTED (25): https://www.joahbrown.com/cdn/shop/files/JB_Logo_c9fd85f0-dd72-4a5b-af69-8c80e3fe3fda.png?v=17259116 | Found by: header.header > a.header__heading-link > img.header__heading-logo
+25
+📋 Copy URL
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): header.header > a.header__heading-link > img.header__heading-logo → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.lazyload → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.lazyload → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.lazyload → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.lazyload → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): #swiper-wrapper-b5ce10d761042b4595 > div.swiper-slide > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): div.product-images-thumbs > div.product-thumb > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): div.product-images-thumbs > div.product-thumb > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): div.product-images-thumbs > div.product-thumb > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): div.product-images-thumbs > div.product-thumb > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): div.product-images-thumbs > div.product-thumb > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): div.product-images-thumbs > div.product-thumb > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): div.rv-item > a > img.tw-w-32 → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): a.full-unstyled-link > div.media > img.lazyload → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): a.full-unstyled-link > div.media > img.lazyload → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): a.full-unstyled-link > div.media > img.lazyload → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): a.full-unstyled-link > div.media > img.lazyload → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): a.full-unstyled-link > div.media > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): a.full-unstyled-link > div.media > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): a.full-unstyled-link > div.media > img.motion-reduce → +25
+[12:58:48 AM] 🔒 SAVED SELECTOR MATCH (MEDIUM): a.full-unstyled-link > div.media > img.motion-reduce → +25
