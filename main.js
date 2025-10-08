@@ -617,6 +617,29 @@ ipcMain.handle('memory-clear', async (_e, host) => {
   return deleteSelectorFile(host);
 });
 
+ipcMain.handle('memory-delete-field', async (_e, { host, field }) => {
+  try {
+    const current = readSelectorFile(host);
+    if (!current) return false;
+    
+    // Remove the specified field
+    delete current[field];
+    
+    // Check if any fields remain (except __history, host, updated)
+    const remainingFields = Object.keys(current).filter(k => !['__history', 'host', 'updated'].includes(k));
+    if (remainingFields.length === 0) {
+      // If no fields left, delete the entire file
+      return deleteSelectorFile(host);
+    }
+    
+    // Otherwise, save the updated data
+    return writeSelectorFile(host, current);
+  } catch (error) {
+    console.error('Error deleting field:', error);
+    return false;
+  }
+});
+
 ipcMain.handle('memory-clear-fields', async (_e, { host, fields }) => {
   try {
     const current = readSelectorFile(host) || {};
