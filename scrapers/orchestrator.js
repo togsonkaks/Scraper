@@ -1215,7 +1215,31 @@
     }
     // Otherwise, parse as standard srcset with density descriptors (1x, 2x) or width descriptors
     const parts = srcset.split(',').map(s => s.trim());
-    // Take the FIRST entry (often best quality for density descriptors like "URL 1x, URL 2x")
+    
+    // Check if we have width descriptors (e.g., "700w", "1400w")
+    const hasWidthDescriptor = parts.some(p => /\s+\d+w$/i.test(p));
+    
+    if (hasWidthDescriptor) {
+      // Parse width descriptors and return the HIGHEST width URL
+      let maxWidth = 0;
+      let bestUrl = null;
+      
+      parts.forEach(part => {
+        const match = part.match(/^(.+?)\s+(\d+)w$/i);
+        if (match) {
+          const url = match[1].trim();
+          const width = parseInt(match[2], 10);
+          if (width > maxWidth) {
+            maxWidth = width;
+            bestUrl = url;
+          }
+        }
+      });
+      
+      if (bestUrl) return bestUrl;
+    }
+    
+    // For density descriptors (1x, 2x) or no descriptor, take the FIRST entry
     const first = parts[0] || '';
     const url = first.split(' ')[0];
     return url || null;
