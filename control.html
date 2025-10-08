@@ -223,194 +223,77 @@
     .mobile-modal-footer {
       padding: 12px 16px;
       border-top: 1px solid #eee;
-      background: #f9f9f9;
-      font-size: 12px;
-      color: #666;
+      background: #f8f9fa;
     }
     
-    .mobile-grid-item {
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.2s;
-      background: #f5f5f5;
-      position: relative;
-    }
-    
-    .mobile-grid-item:hover {
-      transform: translateY(-4px);
-    }
-    
-    .mobile-grid-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    .mobile-image-number {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-    
-    .mobile-section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    
-    .mobile-section-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: #333;
-    }
-    
-    .mobile-image-count {
-      font-size: 12px;
-      color: #666;
-    }
-  </style>
-  <style>
-    /* Debug Panel Styles */
-    .debug-panel {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      max-height: 40vh;
-      background: #1e1e1e;
-      border-top: 2px solid #333;
-      z-index: 1000;
-      display: none;
-      flex-direction: column;
-    }
-    
-    .debug-panel.show {
-      display: flex;
-    }
-    
-    .debug-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 16px;
-      background: #2d2d2d;
-      border-bottom: 1px solid #444;
-    }
-    
-    .debug-title {
-      color: #fff;
-      font-weight: 600;
-      font-size: 13px;
-    }
-    
-    .debug-controls {
-      display: flex;
-      gap: 8px;
-    }
-    
-    .debug-btn {
-      padding: 4px 12px;
-      font-size: 11px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      background: #444;
-      color: #fff;
-    }
-    
-    .debug-btn:hover {
-      background: #555;
-    }
-    
-    .debug-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 12px 16px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 12px;
-      line-height: 1.5;
-    }
-    
-    .debug-entry {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 8px;
-      padding: 6px 8px;
-      border-radius: 4px;
-      background: #252525;
-    }
-    
-    .debug-entry.info { border-left: 3px solid #2196F3; }
-    .debug-entry.success { border-left: 3px solid #4CAF50; }
-    .debug-entry.warning { border-left: 3px solid #FF9800; }
-    .debug-entry.error { border-left: 3px solid #f44336; }
-    .debug-entry.debug { border-left: 3px solid #9C27B0; }
-    
-    .debug-icon {
-      margin-right: 8px;
-      font-size: 14px;
-    }
-    
-    .debug-message {
-      flex: 1;
-      color: #e0e0e0;
-      word-break: break-word;
-    }
-    
-    .debug-image-preview {
-      margin-top: 8px;
+    .mobile-image-info {
       display: flex;
       align-items: center;
       gap: 12px;
-      background: #1a1a1a;
-      padding: 8px;
-      border-radius: 4px;
     }
     
-    .debug-image-preview img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      border: 1px solid #444;
-    }
-    
-    .debug-image-info {
-      flex: 1;
-      font-size: 11px;
-      color: #999;
-    }
-    
-    .debug-image-score {
-      font-size: 16px;
-      font-weight: 600;
+    .mobile-quality-indicator {
       padding: 4px 8px;
-      border-radius: 4px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
     }
     
-    .debug-image-score.kept {
-      color: #4CAF50;
-      background: rgba(76, 175, 80, 0.1);
+    .mobile-quality-indicator.high {
+      background: #4CAF50;
+      color: white;
     }
     
-    .debug-image-score.rejected {
-      color: #f44336;
-      background: rgba(244, 67, 54, 0.1);
+    .mobile-quality-indicator.medium {
+      background: #FF9800;
+      color: white;
     }
+    
+    .mobile-quality-indicator.low {
+      background: #f44336;
+      color: white;
+    }
+    
+    .mobile-image-url {
+      font-size: 10px;
+      color: #666;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+    }
+    
+    .mobile-image-card {
+      background: white; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      break-inside: avoid; position: relative;
+    }
+    .mobile-image-card:hover {
+      transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    
+    .mobile-image-card img {
+      width: 100%; height: auto; display: block; 
+      border-radius: 12px; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .mobile-image-card img.loaded {
+      opacity: 1;
+    }
+    
+    .quality-badge {
+      position: absolute; top: 6px; right: 6px;
+      padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 500;
+      background: rgba(255,255,255,0.9); color: #333; backdrop-filter: blur(4px);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .quality-high { background: rgba(76,175,80,0.9); color: white; }
+    .quality-medium { background: rgba(255,193,7,0.9); color: white; }
+    .quality-low { background: rgba(158,158,158,0.9); color: white; }
   </style>
 </head>
 <body>
-  <div class="row">
-    <span id="statusEl"><span class="pill">Ready</span></span>
-  </div>
   <div class="row">
     <input id="urlInput" type="text" placeholder="Paste product URL" />
     <button id="visitBtn">Load</button>
@@ -422,6 +305,83 @@
     <button id="copyDiagnosticsBtn" title="Copy structured diagnostic information for troubleshooting">📋 Copy Diagnostics</button>
     <span id="aiCacheStatus" class="ai-cache-status">🤖 AI cache: Not Ready</span>
   </div>
+
+  <div id="status"></div>
+
+
+  <!-- Image Preview Modal -->
+  <div id="imageModal" class="debug-image-modal" onclick="hideImageModal()">
+    <img id="modalImage" src="" alt="Full Size Preview">
+  </div>
+
+  <style>
+    .debug-image-preview {
+      display: inline-block;
+      margin: 2px 5px 2px 0;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+    }
+    
+    .debug-image-preview.kept {
+      border-color: #28a745;
+    }
+    
+    .debug-image-preview.rejected {
+      border-color: #dc3545;
+    }
+    
+    .debug-image-preview img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .debug-image-preview .score {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #007bff;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .debug-image-preview.rejected .score {
+      background: #dc3545;
+    }
+    
+    .debug-image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      cursor: pointer;
+    }
+    
+    .debug-image-modal img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90%;
+      max-height: 90%;
+      border: 2px solid white;
+    }
+  </style>
 
   <div id="panel" class="grid" style="display:none; margin-top:12px;">
     <div class="box">
@@ -438,47 +398,102 @@
             <!-- Images will be populated here -->
           </div>
           <!-- In-Container Image Detail Modal -->
-          <div id="mobileModal" class="mobile-image-modal">
+          <div id="mobileImageModal" class="mobile-image-modal">
             <div class="mobile-modal-header">
-              <button class="mobile-back-btn" onclick="closeMobileModal()">←</button>
+              <button id="mobileBackBtn" class="mobile-back-btn">←</button>
               <div class="mobile-header-space"></div>
-              <button class="mobile-save-btn">Save</button>
+              <button id="mobileSaveBtn" class="mobile-save-btn">Save</button>
             </div>
             <div class="mobile-modal-content">
-              <img id="mobileModalImage" class="mobile-modal-image" src="" alt="Product Image">
+              <img id="mobileModalImage" class="mobile-modal-image" src="" alt="Product image">
             </div>
             <div class="mobile-modal-footer">
-              <div id="mobileModalInfo"></div>
+              <div class="mobile-image-info">
+                <div id="mobileImageQuality" class="mobile-quality-indicator"></div>
+                <div id="mobileImageUrl" class="mobile-image-url"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      <button id="iphoneBtn" class="device-btn active" data-device="iphone" style="margin-right: 8px; padding: 4px 8px; background: #2196F3; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">📱 iPhone</button>
+      <button id="ipadBtn" class="device-btn" data-device="ipad" style="padding: 4px 8px; background: #ccc; color: #333; border: none; border-radius: 3px; cursor: pointer; font-size: 11px;">📱 iPad</button>
+      <span style="font-size: 12px; color: #666; margin-left: 12px;" id="imageCount">0 images</span>
 
-  <div id="out"></div>
-
-  <!-- Image Overlay Modal -->
-  <div id="imageOverlay" class="image-overlay">
-    <div class="overlay-content">
-      <button class="close-overlay" onclick="closeImageOverlay()">&times;</button>
-      <img id="overlayImage" class="overlay-image" src="" alt="Full Size Image">
-    </div>
-  </div>
-
-  <!-- Debug Panel -->
-  <div id="debugPanel" class="debug-panel">
-    <div class="debug-header">
-      <div class="debug-title">🐛 Debug Console</div>
-      <div class="debug-controls">
-        <button class="debug-btn" onclick="clearDebugOutput()">Clear</button>
-        <button class="debug-btn" onclick="hideDebugPanel()">Close</button>
+      <!-- COMMENTED OUT: Selector Memory section entirely
+      <div class="label">Selector Memory (approve to save)</div>
+      <div>
+        <label><input type="checkbox" id="okTitle"> Title OK</label>
+        <button class="ai-suggest-btn" data-field="title">🤖 AI</button>
+        <label style="margin-left:12px;"><input type="checkbox" id="okPrice"> Price OK</label>
+        <button class="ai-suggest-btn" data-field="price">🤖 AI</button>
+        <label style="margin-left:12px;"><input type="checkbox" id="okImages"> Images OK</label>
+        <button class="ai-suggest-btn" data-field="images">🤖 AI</button>
+        <br>
+        <label><input type="checkbox" id="okBrand"> Brand OK</label>
+        <button class="ai-suggest-btn" data-field="brand">🤖 AI</button>
+        <label style="margin-left:12px;"><input type="checkbox" id="okTags"> Tags OK</label>
+        <button class="ai-suggest-btn" data-field="tags">🤖 AI</button>
+        <label style="margin-left:12px;"><input type="checkbox" id="okDesc"> Description OK</label>
+        <button class="ai-suggest-btn" data-field="description">🤖 AI</button>
       </div>
+      <div id="memDebug" style="margin-top:8px; font-size:12px; opacity:.8;"></div>
+      <div style="margin-top:8px;">
+        <button id="saveMemBtn">Save selectors for this host</button>
+        <button id="clearMemBtn" style="background:#b22;">Clear memory (host)</button>
+        <button id="validateBtn" style="background:#4CAF50;">Test Saved Selectors</button>
+      </div>
+      -->
+      
     </div>
-    <div id="debugContent" class="debug-content"></div>
   </div>
+
+  <!-- Debug Panel (moved below scrape results) -->
+  <div id="debugPanel" style="display:none; background:#f0f8ff; border:1px solid #ccc; margin:10px 0; padding:10px; border-radius:4px;">
+    <h3 style="margin:0 0 10px 0;">🔍 Debug Information</h3>
+    <div id="debugOutput" style="font-family:monospace; font-size:12px; max-height:300px; overflow-y:auto; background:white; padding:8px; border:1px solid #ddd;"></div>
+    <button onclick="clearDebugOutput()" style="margin-top:5px;">Clear Debug</button>
+  </div>
+  <div class="label" style="margin-top:10px;">Image URLs (top 20)</div>
+  <div id="out" title="Only image URLs appear here"></div>
 
   <script>
+    // Copy image URL to clipboard with visual feedback
+    function copyImageURL(url, element) {
+      navigator.clipboard.writeText(url).then(() => {
+        const originalText = element.textContent;
+        const originalBg = element.style.backgroundColor;
+        element.style.backgroundColor = '#4CAF50';
+        element.style.color = 'white';
+        element.textContent = '✅ Copied!';
+        
+        setTimeout(() => {
+          element.style.backgroundColor = originalBg;
+          element.style.color = '';
+          element.textContent = originalText;
+        }, 1500);
+      }).catch(err => {
+        alert('Failed to copy URL: ' + err.message);
+      });
+    }
+
+    // Event delegation for copy URL functionality
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('copy-url-span') || e.target.classList.contains('copy-url-btn')) {
+        const url = e.target.getAttribute('data-url');
+        if (url) {
+          copyImageURL(url, e.target);
+        }
+      }
+    });
+    
+    const urlInput = document.getElementById('urlInput');
+    const visitBtn = document.getElementById('visitBtn');
+    const memoryBtn = document.getElementById('memoryBtn');
+    const saveBtn  = document.getElementById('saveBtn');
+    const statusEl = document.getElementById('status');
+
+    const panel = document.getElementById('panel');
     const summary = document.getElementById('summary');
     const images = document.getElementById('images');
     const out = document.getElementById('out');
@@ -487,58 +502,52 @@
     const okPrice = document.getElementById('okPrice');
     const okImages = document.getElementById('okImages');
     const okBrand = document.getElementById('okBrand');
-    const okDesc = document.getElementById('okDesc');
-    const panel = document.getElementById('panel');
-    const statusEl = document.getElementById('statusEl');
+    const okTags  = document.getElementById('okTags');
+    const okDesc  = document.getElementById('okDesc');
+    const saveMemBtn = document.getElementById('saveMemBtn');
+    const clearMemBtn = document.getElementById('clearMemBtn');
+    const memDebug = document.getElementById('memDebug');
+    const validateBtn = document.getElementById('validateBtn');
+    const validationResults = document.getElementById('validationResults');
 
-    const visitBtn = document.getElementById('visitBtn');
-    const memoryBtn = document.getElementById('memoryBtn');
-    const saveBtn = document.getElementById('saveBtn');
-
-    let currentUrl = '';
-    let currentHost = '';
-    let lastPayload = null;
-    let lastSelectorsUsed = null;
-    let aiCacheReady = false;
-
-    const hostFrom = (url) => {
-      try { return new URL(url).hostname.replace(/^www\./,''); }
-      catch { return ''; }
-    };
-
-    const setSaveState = (disabled, label) => {
+    function setSaveState(disabled, label) {
       saveBtn.disabled = disabled;
-      saveBtn.textContent = label || 'Save (scrape)';
-    };
-
-    // Image Overlay Modal Functions
-    function openImageOverlay(url) {
-      const overlay = document.getElementById('imageOverlay');
-      const image = document.getElementById('overlayImage');
-      image.src = url;
-      overlay.classList.add('show');
+      saveBtn.textContent = label || (disabled ? 'Waiting for page…' : 'Save (scrape)');
+    }
+    function hostFrom(url) {
+      try { 
+        // Use consistent domain normalization
+        const hostname = new URL(url).hostname;
+        return hostname.toLowerCase().replace(/^www\./, '');
+      } catch { return null; }
     }
 
-    function closeImageOverlay() {
-      const overlay = document.getElementById('imageOverlay');
-      overlay.classList.remove('show');
+    let currentHost = null;
+    let lastSelectorsUsed = null;
+    let lastPayload = null;
+    let currentUrl = ''; // Fixed: moved from line 808 to prevent initialization error
+
+    function normalizeSelectorInfo(selectorInfo) {
+      if (!selectorInfo) return null;
+      if (selectorInfo && Array.isArray(selectorInfo.selectors)) {
+        const sels = selectorInfo.selectors.filter(Boolean).slice(0, 8);
+        return { selectors: sels, attr: selectorInfo.attr || 'text', method: selectorInfo.method || 'tracked' };
+      }
+      if (selectorInfo && typeof selectorInfo.selector === 'string') {
+        const s = selectorInfo.selector;
+        if (/^(generic-text-selector|custom-handler|generic-images)$/i.test(s)) return null;
+        return { selectors: [s], attr: selectorInfo.attr || 'text', method: selectorInfo.method || 'tracked' };
+      }
+      if (typeof selectorInfo === 'string') {
+        const s = selectorInfo.trim();
+        const looksCss = /[#.\[\s>:]/.test(s) || s.startsWith('meta') || s.startsWith('img');
+        if (!looksCss) return null;
+        return { selectors: [s], attr: 'text', method: 'tracked' };
+      }
+      return null;
     }
 
-    // Close overlay when clicking outside the image
-    document.getElementById('imageOverlay').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeImageOverlay();
-      }
-    });
-
-    // ESC key to close overlay
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeImageOverlay();
-      }
-    });
-
-    // Visit button
+    // Load (navigate only)
     visitBtn.onclick = async () => {
       const url = urlInput.value.trim();
       if (!url) return;
@@ -562,14 +571,15 @@
             const price = document.querySelector("[itemprop='price'],[data-price],[class*='price'] .money");
             const imgs = document.querySelector("img[src], picture source[srcset], [data-zoom-image], [data-large-image]");
             return !!(h1 && (price || imgs));
-          })()
+          })();
         `);
         if (ok) {
           clearInterval(iv);
-          setSaveState(false, 'Save (scrape)');
-          statusEl.innerHTML = `<span class="pill">Ready to scrape</span>`;
+          statusEl.innerHTML = `<span class="pill">Ready</span>`;
+          setSaveState(false);
+          // setTimeout(autoValidateIfNeeded, 500);
         }
-      }, 500);
+      }, 700);
     };
 
     // Selector memory only
@@ -597,32 +607,12 @@
         lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
         const imgs = Array.isArray(result?.images) ? result.images : [];
         summary.innerHTML = `
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_title" data-field="title">
-            <label for="check_title" style="flex:1;"><b>Title:</b> ${result?.title || ''}</label>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_price" data-field="price">
-            <label for="check_price" style="flex:1;"><b>Price:</b> ${result?.price || ''}</label>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_brand" data-field="brand">
-            <label for="check_brand" style="flex:1;"><b>Brand:</b> ${result?.brand || ''}</label>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_url" data-field="url">
-            <label for="check_url" style="flex:1;"><b>URL:</b> ${result?.url || ''}</label>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_description" data-field="description">
-            <label for="check_description" style="flex:1;"><b>Description:</b> ${(result?.description || '').slice(0,240)}</label>
-          </div>
-          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
-        images.innerHTML = imgs.map((u, i) => `
-          <div style="position:relative; display:inline-block;">
-            <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
-            <img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')" style="display:block;">
-          </div>`).join('');
+          <div><b>Title:</b> ${result?.title || ''}</div>
+          <div><b>Price:</b> ${result?.price || ''}</div>
+          <div><b>Brand:</b> ${result?.brand || ''}</div>
+          <div><b>URL:</b> ${result?.url || ''}</div>
+          <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
+        images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
         // Update mobile preview with scraped images
         updateMobilePreview(imgs);
         // Enhanced URL display with click-to-copy functionality (safe DOM approach)
@@ -649,10 +639,6 @@
           itemDiv.appendChild(copyBtn);
           out.appendChild(itemDiv);
         });
-        
-        // Wire up checkbox counter and save button
-        wireCheckboxHandlers();
-        
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
@@ -661,8 +647,9 @@
       }
     };
 
-    // Save (scrape) button with debug panel support
+    // Save (scrape)
     saveBtn.onclick = async () => {
+      // Show debug panel and clear previous output
       showDebugPanel();
       clearDebugOutput();
       addDebugOutput('🚀 Starting scrape operation for: ' + (urlInput.value || 'current page'), 'info');
@@ -696,32 +683,12 @@
         }
         const imgs = Array.isArray(result?.images) ? result.images : [];
         summary.innerHTML = `
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_title" data-field="title">
-            <label for="check_title" style="flex:1;"><b>Title:</b> ${result?.title || ''}</label>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_price" data-field="price">
-            <label for="check_price" style="flex:1;"><b>Price:</b> ${result?.price || ''}</label>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_brand" data-field="brand">
-            <label for="check_brand" style="flex:1;"><b>Brand:</b> ${result?.brand || ''}</label>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_url" data-field="url">
-            <label for="check_url" style="flex:1;"><b>URL:</b> ${result?.url || ''}</label>
-          </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_description" data-field="description">
-            <label for="check_description" style="flex:1;"><b>Description:</b> ${(result?.description || '').slice(0,240)}</label>
-          </div>
-          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
-        images.innerHTML = imgs.map((u, i) => `
-          <div style="position:relative; display:inline-block;">
-            <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
-            <img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')" style="display:block;">
-          </div>`).join('');
+          <div><b>Title:</b> ${result?.title || ''}</div>
+          <div><b>Price:</b> ${result?.price || ''}</div>
+          <div><b>Brand:</b> ${result?.brand || ''}</div>
+          <div><b>URL:</b> ${result?.url || ''}</div>
+          <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
+        images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
         // Update mobile preview with scraped images
         updateMobilePreview(imgs);
         // Enhanced URL display with click-to-copy functionality (safe DOM approach)
@@ -748,10 +715,6 @@
           itemDiv.appendChild(copyBtn);
           out.appendChild(itemDiv);
         });
-        
-        // Wire up checkbox counter and save button
-        wireCheckboxHandlers();
-        
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
@@ -759,94 +722,6 @@
         statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
       }
     };
-
-    // Wire up checkbox handlers
-    function wireCheckboxHandlers() {
-      const checkboxes = document.querySelectorAll('input[type="checkbox"][data-field]');
-      const countSpan = document.getElementById('selectedCount');
-      const saveBtn = document.getElementById('saveSelectorBtn');
-      
-      // Update count on change
-      checkboxes.forEach(cb => {
-        cb.addEventListener('change', () => {
-          const count = Array.from(checkboxes).filter(c => c.checked).length;
-          countSpan.textContent = count;
-        });
-      });
-      
-      // Save button click
-      if (saveBtn) {
-        saveBtn.onclick = async () => {
-          const checked = Array.from(checkboxes).filter(cb => cb.checked);
-          if (checked.length === 0) {
-            alert('Please select at least one field to save');
-            return;
-          }
-          
-          // Group by field
-          const fieldMap = {};
-          checked.forEach(cb => {
-            const field = cb.dataset.field;
-            if (!fieldMap[field]) fieldMap[field] = [];
-            
-            if (field === 'images') {
-              // For images, collect selectors from lastSelectorsUsed
-              if (lastSelectorsUsed?.images) {
-                const selectors = Array.isArray(lastSelectorsUsed.images.selectors) 
-                  ? lastSelectorsUsed.images.selectors 
-                  : [lastSelectorsUsed.images.selectors];
-                fieldMap[field].push(...selectors);
-              }
-            } else {
-              // For other fields, get selector from lastSelectorsUsed
-              if (lastSelectorsUsed?.[field]) {
-                const selectors = Array.isArray(lastSelectorsUsed[field].selectors)
-                  ? lastSelectorsUsed[field].selectors
-                  : [lastSelectorsUsed[field].selectors];
-                fieldMap[field].push(...selectors);
-              }
-            }
-          });
-          
-          // Check for existing selectors and show priority dialog
-          const host = currentHost;
-          const existing = await window.api.getSelectorMemory(host);
-          
-          let priority = 'high';
-          if (existing && Object.keys(existing).some(k => !['__history', 'host', 'updated'].includes(k))) {
-            const choice = confirm('Found existing selectors for this domain.\n\nOK = Add as HIGH priority (new +50, old +25)\nCancel = Replace all (remove old)');
-            if (choice) {
-              priority = 'high';
-              // Keep old selectors, mark as medium
-              Object.keys(existing).forEach(field => {
-                if (!['__history', 'host', 'updated'].includes(field) && !fieldMap[field]) {
-                  existing[field].priority = 'medium';
-                  fieldMap[field] = existing[field].selectors || [];
-                }
-              });
-            }
-          }
-          
-          // Save with priority
-          const dataToSave = {};
-          Object.keys(fieldMap).forEach(field => {
-            dataToSave[field] = {
-              selectors: [...new Set(fieldMap[field])], // Dedupe
-              priority: priority,
-              attr: lastSelectorsUsed?.[field]?.attr || 'text'
-            };
-          });
-          
-          const saved = await window.api.setSelectorMemory(host, dataToSave, `Saved ${Object.keys(dataToSave).length} fields with ${priority} priority`);
-          
-          if (saved) {
-            alert(`✅ Saved selectors for: ${Object.keys(dataToSave).join(', ')}\nPriority: ${priority.toUpperCase()}`);
-          } else {
-            alert('❌ Failed to save selectors');
-          }
-        };
-      }
-    }
 
     // Save selector memory (unchanged)
     /* COMMENTED OUT: saveMemBtn.onclick - references removed UI elements (okTitle, okPrice, okImages checkboxes)
@@ -868,654 +743,1398 @@
           if (norm?.selectors?.length) {
             foundSelectors[field] = { selectors: norm.selectors, attr: norm.attr, method: norm.method };
             displayResults.push(`✓ ${field}: ${norm.selectors.join(', ')}`);
+          } else {
+            displayResults.push(`❌ ${field}: no valid selector`);
           }
         }
       }
       if (!Object.keys(foundSelectors).length) {
-        alert('❌ No selectors to save. Scrape first and check desired fields.');
+        memDebug.innerHTML = `<div style="color:#d32f2f;">❌ No tracked selectors available to save.</div>`;
         return;
       }
-      const ok = await window.api.setSelectorMemory(host, foundSelectors, 'Manual save via Save button');
-      if (ok) alert(`💾 Saved selectors for ${host}\n\n` + displayResults.join('\n'));
-      else alert('❌ Failed to save');
+      await window.api.setSelectorMemory(host, foundSelectors, `Saved ${new Date().toISOString()}`);
+      memDebug.innerHTML = `<div style="color:#2d5a27;">✅ Saved selectors.</div>`;
     };
     */
 
-    function normalizeSelectorInfo(raw) {
-      if (!raw) return null;
-      const selectors = Array.isArray(raw.selectors) ? raw.selectors.filter(Boolean)
-                       : (raw.selector ? [raw.selector] : []);
-      if (!selectors.length) return null;
-      return { selectors, attr: raw.attr || 'text', method: raw.method || 'unknown' };
-    }
+    /* COMMENTED OUT: clearMemBtn.onclick - references validationResults.innerHTML
+    clearMemBtn.onclick = async () => {
+      if (!currentHost) return;
+      const confirmed = confirm('Clear all saved selectors for this domain?');
+      if (!confirmed) return;
+      await window.api.clearSelectorMemory(currentHost);
+      memDebug.innerHTML = '<div style="color:#666;">No saved selectors for this domain</div>';
+      validationResults.innerHTML = '<div style="color:#666; font-style:italic;">No saved selectors found</div>';
+      alert('Cleared.');
+    */
+    /* COMMENTED OUT: validateBtn.onclick - triggers validation
 
-    // DEBUG OUTPUT FUNCTIONS
-    function showDebugPanel() {
-      document.getElementById('debugPanel').classList.add('show');
-    }
-
-    function hideDebugPanel() {
-      document.getElementById('debugPanel').classList.remove('show');
-    }
-
-    function clearDebugOutput() {
-      document.getElementById('debugContent').innerHTML = '';
-    }
-
-    function addDebugOutput(message, type = 'info') {
-      const debugContent = document.getElementById('debugContent');
-      const entry = document.createElement('div');
-      entry.className = `debug-entry ${type}`;
-      
-      const icons = {
-        info: 'ℹ️',
-        success: '✅',
-        warning: '⚠️',
-        error: '❌',
-        debug: '🐛'
-      };
-      
-      entry.innerHTML = `
-        <span class="debug-icon">${icons[type] || icons.info}</span>
-        <span class="debug-message">${message}</span>
-      `;
-      
-      debugContent.appendChild(entry);
-      debugContent.scrollTop = debugContent.scrollHeight;
-    }
-
-    function addDebugOutputWithImage(message, type, imageUrl, score, kept) {
-      const debugContent = document.getElementById('debugContent');
-      const entry = document.createElement('div');
-      entry.className = `debug-entry ${type}`;
-      
-      const icons = {
-        info: 'ℹ️',
-        success: '✅',
-        warning: '⚠️',
-        error: '❌',
-        debug: '🐛'
-      };
-      
-      entry.innerHTML = `
-        <span class="debug-icon">${icons[type] || icons.info}</span>
-        <div style="flex: 1;">
-          <div class="debug-message">${message}</div>
-          <div class="debug-image-preview">
-            <img src="${imageUrl}" alt="Debug preview" referrerpolicy="no-referrer">
-            <div class="debug-image-info">
-              <div>${imageUrl.substring(0, 80)}${imageUrl.length > 80 ? '...' : ''}</div>
-            </div>
-            <div class="debug-image-score ${kept ? 'kept' : 'rejected'}">${score}</div>
-          </div>
-        </div>
-      `;
-      
-      debugContent.appendChild(entry);
-      debugContent.scrollTop = debugContent.scrollHeight;
-    }
-
-    // MOBILE PREVIEW FUNCTIONS
-    function updateMobilePreview(imageUrls) {
-      const grid = document.getElementById('mobileGrid');
-      if (!grid || !Array.isArray(imageUrls)) return;
-      
-      grid.innerHTML = imageUrls.map((url, index) => `
-        <div class="mobile-grid-item" onclick="showMobileImage('${url}', ${index + 1}, ${imageUrls.length})">
-          <img src="${url}" alt="Product ${index + 1}" referrerpolicy="no-referrer">
-          <div class="mobile-image-number">${index + 1}</div>
-        </div>
-      `).join('');
-    }
-
-    function showMobileImage(url, imageNumber, totalImages) {
-      const modal = document.getElementById('mobileModal');
-      const image = document.getElementById('mobileModalImage');
-      const info = document.getElementById('mobileModalInfo');
-      
-      image.src = url;
-      info.textContent = `Image ${imageNumber} of ${totalImages}`;
-      modal.classList.add('show');
-    }
-
-    function closeMobileModal() {
-      const modal = document.getElementById('mobileModal');
-      modal.classList.remove('show');
-    }
-
-    // Click event handlers with delegation for dynamically added elements
-    document.addEventListener('click', function(e) {
-      // Handle copy URL span clicks
-      if (e.target.classList.contains('copy-url-span')) {
-        const url = e.target.getAttribute('data-url');
-        if (url) {
-          navigator.clipboard.writeText(url).then(() => {
-            const originalText = e.target.textContent;
-            e.target.textContent = '✅ Copied!';
-            e.target.style.color = '#4CAF50';
-            setTimeout(() => {
-              e.target.textContent = originalText;
-              e.target.style.color = '';
-            }, 1500);
-          });
-        }
+    validateBtn.onclick = async () => {
+      if (!currentHost) return;
+      validateBtn.textContent = 'Testing…'; validateBtn.disabled = true;
+      try {
+        const results = await window.api.validateSelectors(currentHost);
+        displayValidationResults(results);
+      } finally {
+        validateBtn.textContent = 'Test Saved Selectors'; validateBtn.disabled = false;
       }
-      
-      // Handle copy URL button clicks
-      if (e.target.classList.contains('copy-url-btn')) {
-        const url = e.target.getAttribute('data-url');
-        if (url) {
-          navigator.clipboard.writeText(url).then(() => {
-            const originalText = e.target.textContent;
-            e.target.textContent = '✓';
-            e.target.style.background = '#4CAF50';
-            e.target.style.color = 'white';
-            setTimeout(() => {
-              e.target.textContent = originalText;
-              e.target.style.background = '';
-              e.target.style.color = '';
-            }, 1500);
-          });
-        }
-      }
-    });
+    };
+    */
 
-    // Validation Panel Functions
-    function showValidationPanel() {
-      document.getElementById('validationPanel').style.display = 'block';
-    }
+    /* COMMENTED OUT: displayValidationResults - writes to validationResults element
 
-    function hideValidationPanel() {
-      document.getElementById('validationPanel').style.display = 'none';
-    }
-
-    async function validateAndSave() {
-      const host = currentHost;
-      if (!host) {
-        alert('No host detected. Please load a page first.');
+    function displayValidationResults(results) {
+      if (!results.savedSelectors || Object.keys(results.savedSelectors).length === 0) {
+      console.log("⚠️ Validation display disabled to prevent mobile preview conflict"); return; // DISABLED
+        validationResults.innerHTML = '<div style="color:#666; font-style:italic;">No saved selectors found for this domain</div>';
         return;
       }
-
-      statusEl.innerHTML = `<span class="pill">Validating...</span>`;
-      
-      try {
-        const results = await window.api.validateSelectors(host);
-        
-        if (!results || Object.keys(results).length === 0) {
-          alert('No selectors found to validate');
-          statusEl.innerHTML = `<span class="pill">Ready</span>`;
-          return;
+      const fieldResults = [];
+      Object.entries(results.savedSelectors).forEach(([field, selectorConfig]) => {
+        const testResult = results.testResults[field];
+        const status = testResult?.success || false;
+        const value = testResult?.value ?? '';
+        const error = testResult?.error || '';
+        const source = testResult?.source || 'unknown';
+        let icon, color, statusText;
+        if (status) {
+          icon = '✅'; color = '#2d5a27';
+          const valueStr = Array.isArray(value) ? `${value.length} items` : String(value);
+          const truncatedValue = valueStr.slice(0, 60) + (valueStr.length > 60 ? '...' : '');
+          const sourceInfo = source === 'memory' ? '(saved selector)' : source === 'generic-fallback' ? '(fallback)' : '';
+          statusText = `Found: "${truncatedValue}" ${sourceInfo}`;
+        } else {
+          icon = '❌'; color = '#d32f2f'; statusText = error || 'Not found';
         }
+        const selectors = Array.isArray(selectorConfig.selectors) ? selectorConfig.selectors : [selectorConfig.selectors];
+        fieldResults.push(`
+          <div style="margin-bottom:4px; padding:3px 0;">
+            <span style="color:${color};">${icon}</span>
+            <strong>${field}:</strong> 
+            <code style="background:#eee; padding:1px 4px; border-radius:2px; font-size:10px;">${selectors.join(', ')}</code>
+            <div style="font-size:10px; color:#666; margin-left:20px;">${statusText}</div>
+          </div>`);
+      });
+      const successCount = Object.values(results.testResults).filter(r => r && r.success).length;
+      const totalCount = Object.keys(results.savedSelectors).length;
+      validationResults.innerHTML = `
+        <div style="margin-bottom:6px; font-weight:bold; color:#333;">Results (${successCount}/${totalCount} working):</div>
+        ${fieldResults.join('')}`;
+    }
 
-        // Display results in validation panel
-        displayValidationResults(results, host);
-        showValidationPanel();
-        statusEl.innerHTML = `<span class="pill">Validation Complete</span>`;
+    */
+    /* COMMENTED OUT: autoValidateIfNeeded (first definition) - triggers automatic validation
+      if (!currentHost) return;
+      try {
+        const memory = await window.api.getSelectorMemory(currentHost);
+        if (memory && Object.keys(memory).length > 0) {
+          const results = await window.api.validateSelectors(currentHost);
+          displayValidationResults(results);
+        }
+      } catch {}
+    }
+
+    */
+    // AI Suggestion workflow
+    const suggestionPanel = document.getElementById('suggestionPanel');
+    const suggestionField = document.getElementById('suggestionField');
+    const currentSelector = document.getElementById('currentSelector');
+    const aiSuggestion = document.getElementById('aiSuggestion');
+    const currentPreview = document.getElementById('currentPreview');
+    const aiPreview = document.getElementById('aiPreview');
+    const useSuggestionBtn = document.getElementById('useSuggestionBtn');
+    const dismissSuggestionBtn = document.getElementById('dismissSuggestionBtn');
+    
+    let currentSuggestionData = null;
+
+    // Test selectors on current page to preview content
+    async function testExtractInProduct(field, selectors, attr) {
+      if (!selectors || !selectors.length) return null;
+      
+      const code = `(() => {
+        const qa = (s) => Array.from(document.querySelectorAll(s));
+        const txt = (el) => (el && (el.textContent||'').trim()) || null;
+        const pickFromSrcset = (ss) => { 
+          if(!ss) return null; 
+          const p = ss.split(',').map(s => s.trim()); 
+          const last = p[p.length-1] || ''; 
+          return (last.split(' ')[0]) || null; 
+        };
+        const uniq = (arr) => Array.from(new Set(arr.filter(Boolean)));
         
-      } catch (e) {
-        alert('Validation failed: ' + (e?.message || String(e)));
-        statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
+        const sels = ${JSON.stringify(selectors)};
+        const attrName = ${JSON.stringify(attr)};
+        const field = ${JSON.stringify(field)};
+        
+        for (const sel of sels) {
+          try {
+            if (field === 'images') {
+              const urls = [];
+              for (const el of qa(sel)) {
+                const s1 = el.getAttribute('src') || el.currentSrc || 
+                          el.getAttribute('data-src') || el.getAttribute('data-image') || 
+                          el.getAttribute('data-zoom-image') || el.getAttribute('data-large');
+                if (s1) urls.push(s1);
+                
+                const ss = el.getAttribute('srcset'); 
+                const best = pickFromSrcset(ss); 
+                if (best) urls.push(best);
+                
+                if (el.parentElement && el.parentElement.tagName.toLowerCase() === 'picture') {
+                  for (const src of el.parentElement.querySelectorAll('source')) {
+                    const b = pickFromSrcset(src.getAttribute('srcset')); 
+                    if (b) urls.push(b);
+                  }
+                }
+              }
+              const out = uniq(urls).slice(0, 6);
+              if (out.length) return out;
+            } else {
+              const el = document.querySelector(sel); 
+              if (!el) continue;
+              const v = attrName === 'text' ? txt(el) : el.getAttribute(attrName);
+              if (v && String(v).trim()) return String(v).trim();
+            }
+          } catch(_) {}
+        }
+        return null;
+      })()`;
+      
+      return await window.api.evalInProduct(code);
+    }
+
+    // Render preview content in UI
+    function renderPreview(element, field, value) {
+      if (!value || (Array.isArray(value) && !value.length)) {
+        element.innerHTML = '<span style="color:#999; font-style:italic;">No match</span>';
+        return;
+      }
+      
+      if (field === 'images') {
+        // Create unique gallery ID and store images globally
+        const galleryId = 'gallery_' + Math.random().toString(36).substr(2, 9);
+        imageGalleries[galleryId] = value;
+        
+        element.innerHTML = value.map((url, index) => 
+          `<img referrerpolicy="no-referrer" src="${url}" 
+           style="height:30px; width:auto; margin:2px; border:1px solid #ddd; border-radius:2px; vertical-align:top; cursor:pointer;" 
+           onclick="openImageGallery(imageGalleries['${galleryId}'], ${index})"
+           title="Click to enlarge (${index + 1}/${value.length})" 
+           onerror="this.style.display='none'">`
+        ).join('');
+      } else {
+        const displayValue = Array.isArray(value) ? String(value[0]) : String(value);
+        const truncated = displayValue.slice(0, 120) + (displayValue.length > 120 ? '...' : '');
+        element.textContent = truncated;
+        element.title = displayValue; // Full text on hover
       }
     }
 
-    function displayValidationResults(results, host) {
-      const content = document.getElementById('validationContent');
-      if (!content) return;
+    // AI cache state tracking
+    let aiCacheReady = false;
+    let llmCacheExists = false;
+    let cachedLLMResults = null;
+    
+    function updateAICacheStatus(ready) {
+      aiCacheReady = ready;
+      const statusEl = document.getElementById('aiCacheStatus');
+      const aiButtons = document.querySelectorAll('.ai-suggest-btn');
       
-      content.innerHTML = '';
+      if (ready) {
+        statusEl.textContent = '🤖 AI cache: Ready';
+        statusEl.className = 'ai-cache-status ready';
+        aiButtons.forEach(btn => btn.disabled = false);
+      } else {
+        statusEl.textContent = '🤖 AI cache: Not Ready';
+        statusEl.className = 'ai-cache-status';
+        aiButtons.forEach(btn => btn.disabled = true);
+      }
+    }
+    
+    // Check for persistent LLM cache when URL changes
+    async function checkLLMCache() {
+      if (!currentUrl) return;
       
-      let successCount = 0;
-      let failedCount = 0;
-
-      for (const [field, result] of Object.entries(results)) {
-        if (result.success) successCount++;
-        else failedCount++;
-
-        const card = document.createElement('div');
-        card.className = 'field-card';
+      try {
+        llmCacheExists = await window.api.checkLLMCache(currentUrl);
+        cachedLLMResults = llmCacheExists ? await window.api.getLLMCache(currentUrl) : null;
         
-        let bodyContent = '';
-        if (result.success) {
-          if (field === 'images') {
-            const urls = Array.isArray(result.value) ? result.value : [];
-            bodyContent = `
-              <div class="field-preview"><strong>Found ${urls.length} images</strong></div>
-              <div class="image-urls">
-                ${urls.map(url => `<div class="image-url">${url}</div>`).join('')}
-              </div>
-              <div class="field-selector">Selectors: ${result.selectors?.join(', ') || 'N/A'}</div>
-            `;
-          } else {
-            bodyContent = `
-              <div class="field-preview">${result.value || 'N/A'}</div>
-              <div class="field-selector">Selectors: ${result.selectors?.join(', ') || 'N/A'}</div>
-            `;
-          }
+        if (llmCacheExists && cachedLLMResults) {
+          console.log('LLM cache found for:', currentUrl);
+          updateAICacheStatus(true);
+          showLLMCacheWarning();
         } else {
-          bodyContent = `
-            <div class="field-preview" style="color: #c62828;">No results found</div>
-            <div class="field-selector">Attempted: ${result.selectors?.join(', ') || 'N/A'}</div>
-          `;
+          updateAICacheStatus(false);
+          hideLLMCacheWarning();
         }
-        
-        card.innerHTML = `
-          <div class="field-header">
-            <span>${field.charAt(0).toUpperCase() + field.slice(1)}</span>
-            <span class="field-status ${result.success ? 'success' : 'failed'}">
-              ${result.success ? '✓ Working' : '✗ Failed'}
-            </span>
-          </div>
-          <div class="field-body">${bodyContent}</div>
+      } catch (e) {
+        console.error('Error checking LLM cache:', e);
+        llmCacheExists = false;
+        cachedLLMResults = null;
+        updateAICacheStatus(false);
+      }
+    }
+    
+    function showLLMCacheWarning() {
+      let warning = document.getElementById('llm-cache-warning');
+      if (!warning) {
+        warning = document.createElement('div');
+        warning.id = 'llm-cache-warning';
+        warning.style.cssText = `
+          background: #fff3cd;
+          border: 1px solid #ffeaa7;
+          border-radius: 4px;
+          padding: 8px 12px;
+          margin: 8px 0;
+          font-size: 13px;
+          color: #856404;
         `;
         
-        content.appendChild(card);
-      }
-
-      // Update summary
-      const summary = document.getElementById('validationSummary');
-      if (summary) {
-        summary.textContent = `${successCount} working, ${failedCount} failed`;
-      }
-    }
-
-    async function clearSelectorMemory() {
-      const host = currentHost;
-      if (!host) {
-        alert('No host detected');
-        return;
-      }
-      
-      if (!confirm(`Clear all selector memory for ${host}?`)) return;
-      
-      const success = await window.api.clearSelectorMemory(host);
-      if (success) {
-        alert('✅ Selector memory cleared');
-        hideValidationPanel();
-      } else {
-        alert('❌ Failed to clear memory');
-      }
-    }
-
-    // AI SUGGESTION FUNCTIONS
-    let currentSuggestions = {};
-
-    async function suggestSelector(field) {
-      // Check if AI cache is ready
-      if (!aiCacheReady) {
-        alert('⚠️ Run 🤖 Batch AI All first!\n\nIndividual AI buttons work by retrieving from the batch AI cache. Please run Batch AI All to warm the cache, then use individual buttons to review specific fields.');
-        return;
-      }
-
-      const btn = event.target;
-      const panel = document.getElementById(`suggestion_${field}`);
-      
-      // Toggle panel visibility
-      if (panel.style.display === 'block') {
-        panel.style.display = 'none';
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = '...';
-
-      try {
-        const host = currentHost;
-        const response = await window.api.getAISuggestion(host, field);
+        const cacheTime = cachedLLMResults ? new Date(cachedLLMResults.timestamp).toLocaleString() : 'Unknown';
+        warning.innerHTML = `
+          ⚠️ <strong>LLM cache found</strong> - Using cached AI results from ${cacheTime}
+          <button onclick="clearLLMCache()" style="margin-left:10px; padding:2px 6px; font-size:11px;">Clear Cache</button>
+        `;
         
-        if (response.success && response.suggestion) {
-          currentSuggestions[field] = response.suggestion;
-          
-          // Get baseline (current) selector
-          const baseline = lastSelectorsUsed?.[field]?.selectors?.join(', ') || 'None';
-          
-          // Display comparison
-          const comparisonHtml = `
-            <div class="suggestion-comparison">
-              <div class="suggestion-box">
-                <strong>Current:</strong><br>
-                ${baseline}
-              </div>
-              <div class="suggestion-box">
-                <strong>AI Suggests:</strong><br>
-                ${response.suggestion.selectors.join(', ')}
-              </div>
-            </div>
-            <div style="margin-top: 6px; font-size: 11px; color: #666;">
-              Reason: ${response.suggestion.reasoning || 'N/A'}
-            </div>
-            <button class="use-suggestion-btn" onclick="useSuggestion('${field}')">Use AI Suggestion</button>
-          `;
-          
-          panel.innerHTML = comparisonHtml;
-          panel.style.display = 'block';
-        } else {
-          panel.innerHTML = `<div style="color: #c62828;">Failed: ${response.error || 'Unknown error'}</div>`;
-          panel.style.display = 'block';
+        // Insert after URL input row
+        const urlInput = document.getElementById('urlInput');
+        if (urlInput && urlInput.parentNode) {
+          const row = urlInput.parentNode;
+          row.parentNode.insertBefore(warning, row.nextSibling);
         }
-      } catch (e) {
-        panel.innerHTML = `<div style="color: #c62828;">Error: ${e.message}</div>`;
-        panel.style.display = 'block';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'AI';
+      }
+      warning.style.display = 'block';
+    }
+    
+    function hideLLMCacheWarning() {
+      const warning = document.getElementById('llm-cache-warning');
+      if (warning) {
+        warning.style.display = 'none';
       }
     }
-
-    async function useSuggestion(field) {
-      const suggestion = currentSuggestions[field];
-      if (!suggestion) {
-        alert('No suggestion available');
-        return;
-      }
-
-      const host = currentHost;
-      const dataToSave = {
-        [field]: {
-          selectors: suggestion.selectors,
-          attr: suggestion.attr || 'text'
-        }
-      };
-
-      const success = await window.api.setSelectorMemory(host, dataToSave, `AI suggestion for ${field}`);
+    
+    async function clearLLMCache() {
+      if (!currentUrl) return;
       
-      if (success) {
-        alert(`✅ Saved AI suggestion for ${field}`);
-        document.getElementById(`suggestion_${field}`).style.display = 'none';
-      } else {
-        alert('❌ Failed to save suggestion');
+      try {
+        await window.api.deleteLLMCache(currentUrl);
+        llmCacheExists = false;
+        cachedLLMResults = null;
+        updateAICacheStatus(false);
+        hideLLMCacheWarning();
+        console.log('LLM cache cleared for:', currentUrl);
+      } catch (e) {
+        console.error('Error clearing LLM cache:', e);
       }
     }
-
+    window.clearLLMCache = clearLLMCache; // Make globally accessible for onclick handlers
+    
+    // Debug panel functions
+    function showDebugPanel() {
+      document.getElementById('debugPanel').style.display = 'block';
+    }
+    
+    function hideDebugPanel() {
+      document.getElementById('debugPanel').style.display = 'none';
+    }
+    
+    function addDebugOutput(message, type = 'info') {
+      const output = document.getElementById('debugOutput');
+      const timestamp = new Date().toLocaleTimeString();
+      const colors = {
+        info: '#333',
+        success: '#28a745', 
+        warning: '#ffc107',
+        error: '#dc3545',
+        debug: '#6c757d'
+      };
+      
+      const div = document.createElement('div');
+      div.style.color = colors[type] || colors.info;
+      div.style.marginBottom = '2px';
+      div.textContent = `[${timestamp}] ${message}`;
+      
+      output.appendChild(div);
+      output.scrollTop = output.scrollHeight; // Auto-scroll to bottom
+    }
+    
+    function clearDebugOutput() {
+      document.getElementById('debugOutput').innerHTML = '';
+    }
+    
+    // Enhanced debug output with image preview
+    function addDebugOutputWithImage(message, type = 'info', imageUrl = null, score = null, kept = true) {
+      const output = document.getElementById('debugOutput');
+      const timestamp = new Date().toLocaleTimeString();
+      const colors = {
+        info: '#333',
+        success: '#28a745', 
+        warning: '#ffc107',
+        error: '#dc3545',
+        debug: '#6c757d'
+      };
+      
+      const div = document.createElement('div');
+      div.style.color = colors[type] || colors.info;
+      div.style.marginBottom = '5px';
+      div.style.display = 'flex';
+      div.style.alignItems = 'center';
+      
+      const textSpan = document.createElement('span');
+      textSpan.textContent = `[${timestamp}] ${message}`;
+      div.appendChild(textSpan);
+      
+      if (imageUrl) {
+        const previewDiv = document.createElement('div');
+        previewDiv.className = `debug-image-preview ${kept ? 'kept' : 'rejected'}`;
+        previewDiv.onclick = () => showImageModal(imageUrl);
+        
+        const img = document.createElement('img');
+        img.src = imageUrl;
+        img.onerror = () => {
+          img.style.display = 'none';
+          const errorSpan = document.createElement('span');
+          errorSpan.textContent = ' [IMG ERROR]';
+          errorSpan.style.color = '#dc3545';
+          previewDiv.appendChild(errorSpan);
+        };
+        previewDiv.appendChild(img);
+        
+        if (score !== null) {
+          const scoreDiv = document.createElement('div');
+          scoreDiv.className = 'score';
+          scoreDiv.textContent = score;
+          previewDiv.appendChild(scoreDiv);
+        }
+        
+        div.appendChild(previewDiv);
+        
+        // Add individual copy button for this image URL
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'debug-copy-btn';
+        copyBtn.style.cssText = 'margin-left: 8px; padding: 2px 6px; font-size: 10px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer;';
+        copyBtn.textContent = '📋 Copy URL';
+        copyBtn.title = 'Copy image URL: ' + imageUrl;
+        copyBtn.onclick = (e) => {
+          e.stopPropagation(); // Prevent triggering the modal
+          copyImageURL(imageUrl, copyBtn);
+        };
+        
+        div.appendChild(copyBtn);
+      }
+      
+      output.appendChild(div);
+      output.scrollTop = output.scrollHeight;
+    }
+    
+    // Image modal functions
+    function showImageModal(imageUrl) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modalImg.src = imageUrl;
+      modal.style.display = 'block';
+    }
+    
+    function hideImageModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+    
+    // Make debug functions globally accessible
+    window.showDebugPanel = showDebugPanel;
+    window.addDebugOutput = addDebugOutput;
+    window.addDebugOutputWithImage = addDebugOutputWithImage;
+    window.showImageModal = showImageModal;
+    window.hideImageModal = hideImageModal;
+    window.clearDebugOutput = clearDebugOutput;
+    
+    // Initialize with disabled state
+    updateAICacheStatus(false);
+    
+    // Add event listeners to all AI suggestion buttons
+    document.querySelectorAll('.ai-suggest-btn').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        if (!aiCacheReady) {
+          e.preventDefault();
+          alert('⚠️ Run 🤖 Batch AI All first!\n\nIndividual AI buttons work by retrieving from the batch AI cache. Please run Batch AI All to warm the cache, then use individual buttons to review specific fields.');
+          return;
+        }
+        
+        const field = btn.getAttribute('data-field');
+        await handleAISuggestion(field, btn);
+      });
+    });
+    
     // Add batch AI button functionality
     document.getElementById('batchAIBtn')?.addEventListener('click', async () => {
       await handleBatchAISuggestion();
     });
 
-    // Copy Diagnostics Button Handler
-    document.getElementById('copyDiagnosticsBtn')?.addEventListener('click', async () => {
-      try {
-        const diagnosticData = {
-          url: currentUrl,
-          host: currentHost,
-          timestamp: new Date().toISOString(),
-          scrapeResult: lastPayload,
-          selectorsUsed: lastSelectorsUsed,
-          userAgent: navigator.userAgent,
-          viewport: {
-            width: window.innerWidth,
-            height: window.innerHeight
-          }
-        };
-
-        const formattedDiagnostics = JSON.stringify(diagnosticData, null, 2);
-        
-        await navigator.clipboard.writeText(formattedDiagnostics);
-        
-        const btn = document.getElementById('copyDiagnosticsBtn');
-        const originalText = btn.textContent;
-        btn.textContent = '✅ Copied!';
-        btn.style.background = '#4CAF50';
-        
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-        }, 2000);
-        
-      } catch (e) {
-        alert('Failed to copy diagnostics: ' + e.message);
+    async function handleAISuggestion(field, button) {
+      if (!currentHost) {
+        alert('Please load a page first');
+        return;
       }
-    });
 
-    // Helper function to check AI cache readiness
-    async function checkAICacheStatus() {
-      if (!currentHost) return;
+      button.disabled = true;
+      button.textContent = '🤖 ...';
       
       try {
-        const status = await window.api.checkAICacheStatus(currentHost);
-        const statusEl = document.getElementById('aiCacheStatus');
+        const url = urlInput.value.trim();
+        let response;
         
-        if (status && status.ready) {
-          aiCacheReady = true;
-          statusEl.textContent = '🤖 AI cache: Ready (' + status.cachedFields.length + ' fields)';
-          statusEl.className = 'ai-cache-status ready';
-        } else {
-          aiCacheReady = false;
-          statusEl.textContent = '🤖 AI cache: Not Ready';
-          statusEl.className = 'ai-cache-status';
+        // Check if we have cached results first
+        if (llmCacheExists && cachedLLMResults && cachedLLMResults.results) {
+          const fieldResult = cachedLLMResults.results[field];
+          if (fieldResult && fieldResult.ok) {
+            console.log(`Using cached result for ${field}`);
+            response = fieldResult; // Use cached result directly
+          }
         }
-      } catch (e) {
-        console.error('Failed to check AI cache status:', e);
+        
+        // If no cached result, make new API call
+        if (!response) {
+          response = await window.api.llmPropose({
+            url: url,
+            label: field
+          });
+        }
+
+        // Handle new intelligent validation response format
+        let selectors = null;
+        let validatedContent = null;
+        let allCandidates = null;
+        
+        if (response.ok && response.selectors) {
+          // New validated format with tested selectors
+          selectors = Array.isArray(response.selectors) ? response.selectors : [response.selectors];
+          validatedContent = response.chosenValue;
+          allCandidates = response.allCandidates;
+        } else if (response.result && response.result.selectors) {
+          // Fallback for nested format
+          selectors = Array.isArray(response.result.selectors) ? response.result.selectors : [response.result.selectors];
+        } else if (Array.isArray(response)) {
+          // Legacy array format
+          selectors = response;
+        }
+        
+        if (!selectors || selectors.length === 0) {
+          const errorMsg = response.error || allCandidates?.length > 0 ? 
+            'AI found selectors but none passed validation on this page' : 
+            'AI could not find any selectors for this field';
+          alert(`${errorMsg}. Field: ${field}`);
+          return;
+        }
+
+        // Get current saved selector if any
+        const memory = await window.api.getSelectorMemory(currentHost);
+        const currentSelectorData = memory && memory[field] ? memory[field] : null;
+
+        // Show suggestion panel with validated content
+        await showSuggestionComparison(field, currentSelectorData, selectors, validatedContent, allCandidates);
+        
+      } catch (error) {
+        alert(`Error getting AI suggestions: ${error.message}`);
+      } finally {
+        button.disabled = false;
+        button.textContent = '🤖 AI';
       }
     }
-
-    // Check AI cache status when URL changes
-    let lastCheckedHost = '';
-    setInterval(() => {
-      if (currentHost && currentHost !== lastCheckedHost) {
-        lastCheckedHost = currentHost;
-        checkAICacheStatus();
-      }
-    }, 1000);
 
     async function handleBatchAISuggestion() {
       if (!currentHost) {
         alert('Please load a page first');
         return;
       }
-
-      const btn = document.getElementById('batchAIBtn');
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = '🤖 Processing...';
-      statusEl.innerHTML = `<span class="pill">AI Processing...</span>`;
-
+      
+      const batchBtn = document.getElementById('batchAIBtn');
+      const originalText = batchBtn.textContent;
+      batchBtn.textContent = '⏳ Processing...';
+      batchBtn.disabled = true;
+      
       try {
-        const response = await window.api.getBatchAISuggestions(currentHost);
+        const url = urlInput.value || 'unknown';
+        const allFields = ['title', 'price', 'images', 'brand', 'tags', 'description'];
+        
+        // Use the new batch API
+        const response = await window.api.llmPropose({
+          url: url,
+          fields: allFields // Multi-field batch request
+        });
         
         let resultMsg = '';
         let foundSuggestions = 0;
+        let tokensSaved = 0;
+        let results = null;  // Declare results outside the if statement
         
-        if (response.success && response.results) {
-          const results = response.results;
-          foundSuggestions = Object.keys(results).length;
+        if (response.ok && response.results) {
+          // Handle batch response format
+          results = response.results;
+          const optimization = response.optimization || {};
           
-          // Update AI cache status
-          aiCacheReady = true;
-          document.getElementById('aiCacheStatus').textContent = '🤖 AI cache: Ready (' + foundSuggestions + ' fields)';
-          document.getElementById('aiCacheStatus').className = 'ai-cache-status ready';
+          // Check if this is from cache
+          if (response.fromCache) {
+            const cacheTime = new Date(response.cacheTimestamp).toLocaleString();
+            resultMsg = `📄 Using cached AI results from ${cacheTime}`;
+            tokensSaved = 0; // No tokens used when using cache
+          } else {
+            tokensSaved = optimization.tokensSaved || 0;
+            const fieldsSkipped = optimization.fieldsSkipped || 0;
+            
+            resultMsg = `🎯 Optimization: ${Math.round(tokensSaved/1000)}K tokens saved`;
+            if (fieldsSkipped > 0) {
+              resultMsg += `, ${fieldsSkipped} fields found via heuristics`;
+            }
+          }
           
-          // Show validation-style panel with results
-          displayBatchAIResults(results, currentHost);
-          showValidationPanel();
-          
-          resultMsg = `✅ Found ${foundSuggestions} AI suggestions`;
-          statusEl.innerHTML = `<span class="pill">${resultMsg}</span>`;
+          // Process each field result
+          for (const [field, result] of Object.entries(results)) {
+            if (result.ok && result.selectors && result.selectors.length > 0) {
+              foundSuggestions++;
+              
+              // Get current saved selector
+              const memory = await window.api.getSelectorMemory(currentHost);
+              const currentSelectorData = memory && memory[field] ? memory[field] : null;
+              
+              // Auto-apply good heuristic results
+              if (result.source === 'heuristic' && result.chosenValue) {
+                await applyAISuggestion(field, result, currentSelectorData);
+                resultMsg += `\n✅ ${field}: Auto-applied (${result.source})`;
+              } else if (result.source === 'llm' && result.chosenValue) {
+                // For LLM results, show comparison (for now just apply the first one)
+                await applyAISuggestion(field, result, currentSelectorData);
+                resultMsg += `\n✅ ${field}: Applied (${result.source})`;
+              } else {
+                resultMsg += `\n❌ ${field}: ${result.error || 'No good selectors found'}`;
+              }
+            } else {
+              resultMsg += `\n❌ ${field}: ${result.error || 'No suggestions'}`;
+            }
+          }
           
         } else {
           resultMsg = `❌ Batch AI failed: ${response.error || 'Unknown error'}`;
         }
         
-        alert(resultMsg);
+        // Show validation panel instead of alert
+        showValidationPanel(results, resultMsg, foundSuggestions);
         
-      } catch (e) {
-        alert('Batch AI error: ' + (e?.message || String(e)));
-        statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
+        // Enable AI cache for individual buttons
+        if (foundSuggestions > 0) {
+          updateAICacheStatus(true);
+        }
+        
+        // Auto-validate to show results
+        // await autoValidateIfNeeded();
+        
+      } catch (error) {
+        alert(`Error with batch AI: ${error.message}`);
       } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
+        batchBtn.textContent = originalText;
+        batchBtn.disabled = false;
       }
     }
-
-    function displayBatchAIResults(results, host) {
-      const content = document.getElementById('validationContent');
-      if (!content) return;
-      
-      content.innerHTML = '';
-      
-      const fields = Object.keys(results);
-      
-      for (const field of fields) {
-        const result = results[field];
+    
+    // Helper function to apply an AI suggestion automatically
+    async function applyAISuggestion(field, aiResult, currentSelectorData) {
+      try {
+        const memory = await window.api.getSelectorMemory(currentHost) || {};
         
-        const card = document.createElement('div');
-        card.className = 'field-card';
+        const dataToSave = {
+          ...memory,
+          [field]: {
+            selectors: aiResult.selectors,
+            attr: getDefaultAttr(field)
+          }
+        };
         
-        let bodyContent = '';
-        if (result && result.selectors && result.selectors.length > 0) {
-          // Get baseline selector if available
-          const baseline = lastSelectorsUsed?.[field]?.selectors?.join(', ') || 'None';
-          
-          bodyContent = `
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
-              <div class="suggestion-box">
-                <strong>Current:</strong><br>
-                ${baseline}
-              </div>
-              <div class="suggestion-box">
-                <strong>AI Suggests:</strong><br>
-                ${result.selectors.join(', ')}
-              </div>
-            </div>
-            <div style="margin-top: 6px; font-size: 11px; color: #666;">
-              <strong>Reasoning:</strong> ${result.reasoning || 'N/A'}
-            </div>
-            <div style="margin-top: 8px;">
-              <input type="checkbox" id="ai_check_${field}" data-field="${field}">
-              <label for="ai_check_${field}">Apply this AI suggestion</label>
-            </div>
-          `;
-        } else {
-          bodyContent = `
-            <div class="field-preview" style="color: #666;">No AI suggestion available</div>
-          `;
-        }
-        
-        card.innerHTML = `
-          <div class="field-header">
-            <span>${field.charAt(0).toUpperCase() + field.slice(1)}</span>
-          </div>
-          <div class="field-body">${bodyContent}</div>
-        `;
-        
-        content.appendChild(card);
-      }
-
-      // Update footer with Apply button
-      const footer = document.querySelector('.validation-footer');
-      if (footer) {
-        footer.innerHTML = `
-          <button onclick="hideValidationPanel()" style="padding: 8px 16px; background: #ccc; border: none; border-radius: 4px; cursor: pointer;">
-            Cancel
-          </button>
-          <button onclick="applySelectedAISuggestions('${host}')" style="padding: 8px 16px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">
-            Apply Selected
-          </button>
-        `;
-      }
-    }
-
-    async function applySelectedAISuggestions(host) {
-      const checkboxes = document.querySelectorAll('[id^="ai_check_"]:checked');
-      
-      if (checkboxes.length === 0) {
-        alert('Please select at least one AI suggestion to apply');
-        return;
-      }
-
-      const dataToSave = {};
-      
-      for (const checkbox of checkboxes) {
-        const field = checkbox.dataset.field;
-        
-        // Get suggestion from AI cache
-        const response = await window.api.getAISuggestion(host, field);
-        
-        if (response.success && response.suggestion) {
-          dataToSave[field] = {
-            selectors: response.suggestion.selectors,
-            attr: response.suggestion.attr || 'text'
-          };
-        }
-      }
-
-      if (Object.keys(dataToSave).length > 0) {
-        const success = await window.api.setSelectorMemory(host, dataToSave, `Batch AI suggestion for ${Object.keys(dataToSave).join(', ')}`);
+        await window.api.setSelectorMemory(currentHost, dataToSave, `Batch AI suggestion for ${field}`);
         
         // Check the corresponding checkbox
-        Object.keys(dataToSave).forEach(field => {
-          const checkbox = document.getElementById(`check_${field}`);
-          if (checkbox) checkbox.checked = true;
-        });
+        const checkboxMap = {
+          'title': 'okTitle',
+          'price': 'okPrice', 
+          'images': 'okImages',
+          'brand': 'okBrand',
+          'tags': 'okTags',
+          'description': 'okDesc'
+        };
+        const checkbox = document.getElementById(checkboxMap[field]);
+        if (checkbox) checkbox.checked = true;
         
-        if (success) {
-          alert(`✅ Applied AI suggestions for: ${Object.keys(dataToSave).join(', ')}`);
-          hideValidationPanel();
-        } else {
-          alert('❌ Failed to apply suggestions');
+      } catch (error) {
+        console.error(`Error applying AI suggestion for ${field}:`, error);
+      }
+    }
+    
+    // Helper function to auto-validate selectors after changes
+    /* COMMENTED OUT: autoValidateIfNeeded (second definition) - triggers automatic validation
+    async function autoValidateIfNeeded() {
+      if (currentHost && validateBtn) {
+        try {
+          await new Promise(resolve => setTimeout(resolve, 500));
+          
+          // Trigger validation if button exists
+          validateBtn.click();
+        } catch (error) {
+          console.log('Auto-validation skipped:', error);
         }
       }
     }
+    */
 
+    async function showSuggestionComparison(field, current, suggestions, validatedContent = null, allCandidates = null) {
+      suggestionField.textContent = field;
+      
+      // Display current selector
+      if (current && current.selectors) {
+        const currentSelectors = Array.isArray(current.selectors) ? current.selectors : [current.selectors];
+        currentSelector.innerHTML = `
+          <code style="background:#f5f5f5; padding:2px 4px; border-radius:2px; font-size:10px;">
+            ${currentSelectors.join(', ')}
+          </code>
+          <div style="font-size:10px; color:#666; margin-top:2px;">Attribute: ${current.attr || 'text'}</div>
+        `;
+      } else {
+        currentSelector.innerHTML = '<div style="color:#999; font-style:italic;">None saved</div>';
+      }
+      
+      // Display AI suggestions
+      aiSuggestion.innerHTML = `
+        <code style="background:#e8f5e8; padding:2px 4px; border-radius:2px; font-size:10px;">
+          ${suggestions.join(', ')}
+        </code>
+        <div style="font-size:10px; color:#666; margin-top:2px;">Attribute: ${getDefaultAttr(field)}</div>
+      `;
+      
+      // Show panel and test current selectors
+      suggestionPanel.style.display = 'block';
+      currentPreview.innerHTML = 'Testing...';
+      
+      // Test current selectors only (AI selectors are already validated)
+      const currentSelectors = (current && current.selectors) ? 
+        (Array.isArray(current.selectors) ? current.selectors : [current.selectors]) : null;
+      const currentAttr = (current && current.attr) || getDefaultAttr(field);
+      
+      try {
+        // Test current selector
+        const currentValue = currentSelectors ? 
+          await testExtractInProduct(field, currentSelectors, currentAttr) : null;
+        
+        renderPreview(currentPreview, field, currentValue);
+        
+        // Show AI validated content (already tested and validated)
+        if (validatedContent) {
+          renderPreview(aiPreview, field, validatedContent);
+          useSuggestionBtn.disabled = false;
+          
+          // Show additional info about validation
+          if (allCandidates && allCandidates.length > 1) {
+            const validatedCount = allCandidates.filter(c => c.validated).length;
+            const testedCount = allCandidates.length;
+            aiPreview.innerHTML += `<div style="font-size:10px; color:#666; margin-top:4px;">✅ Validated (${validatedCount}/${testedCount} candidates tested)</div>`;
+          }
+        } else {
+          aiPreview.innerHTML = '<span style="color:#999;">Testing...</span>';
+          // Fallback to manual testing if no validated content provided
+          const aiValue = await testExtractInProduct(field, suggestions, getDefaultAttr(field));
+          renderPreview(aiPreview, field, aiValue);
+          const hasContent = Array.isArray(aiValue) ? aiValue.length > 0 : (aiValue && String(aiValue).trim());
+          useSuggestionBtn.disabled = !hasContent;
+        }
+        
+        // Store suggestion data
+        currentSuggestionData = {
+          field: field,
+          selectors: suggestions,
+          attr: getDefaultAttr(field),
+          validatedContent: validatedContent
+        };
+        
+      } catch (error) {
+        currentPreview.innerHTML = '<span style="color:#999;">Test failed</span>';
+        aiPreview.innerHTML = '<span style="color:#999;">Test failed</span>';
+        useSuggestionBtn.disabled = true;
+        console.error('Preview test failed:', error);
+      }
+    }
+
+    function getDefaultAttr(field) {
+      if (field === 'images') return 'src';
+      // Most elements use visible text, not meta content
+      return 'text';
+    }
+
+    // Handle "Use AI Suggestion" button
+    if (useSuggestionBtn) {
+      useSuggestionBtn.onclick = async () => {
+      if (!currentSuggestionData || !currentHost) return;
+      
+      try {
+        // Save the AI suggestion as the new selector
+        const dataToSave = {
+          [currentSuggestionData.field]: {
+            selectors: currentSuggestionData.selectors,
+            attr: currentSuggestionData.attr
+          }
+        };
+        
+        await window.api.setSelectorMemory(currentHost, dataToSave, `AI suggestion for ${currentSuggestionData.field}`);
+        
+        // Update UI
+        memDebug.innerHTML = `<div style="color:#4CAF50;">✅ Saved AI suggestion for ${currentSuggestionData.field}</div>`;
+        
+        // Check the corresponding checkbox
+        const checkboxMap = {
+          'title': 'okTitle',
+          'price': 'okPrice', 
+          'images': 'okImages',
+          'brand': 'okBrand',
+          'tags': 'okTags',
+          'description': 'okDesc'  // Special case - different from field name
+        };
+        const checkbox = document.getElementById(checkboxMap[currentSuggestionData.field]);
+        if (checkbox) checkbox.checked = true;
+        
+        // Hide suggestion panel
+        suggestionPanel.style.display = 'none';
+        currentSuggestionData = null;
+        
+        // Auto-validate to show the new selector working
+        // await autoValidateIfNeeded();
+        
+      } catch (error) {
+        alert(`Error saving AI suggestion: ${error.message}`);
+      }
+    };
+  }
+
+    // Handle "Keep Current" button
+    if (dismissSuggestionBtn) {
+      dismissSuggestionBtn.onclick = () => {
+        if (suggestionPanel) suggestionPanel.style.display = 'none';
+        currentSuggestionData = null;
+      };
+    }
+
+    // Image overlay and gallery
+    let currentImageGallery = [];
+    let currentImageIndex = 0;
+    let imageGalleries = {}; // Store galleries by ID to avoid JSON in attributes
+    window.imageGalleries = imageGalleries; // Make globally accessible for onclick handlers
+    
+    function openImageOverlay(imageUrl) {
+      const overlay = document.getElementById('imageOverlay');
+      const overlayImage = document.getElementById('overlayImage');
+      overlayImage.src = imageUrl;
+      overlay.classList.add('show');
+    }
+    
+    function openImageGallery(images, startIndex = 0) {
+      currentImageGallery = images;
+      currentImageIndex = startIndex;
+      showCurrentImage();
+      document.getElementById('imageOverlay').classList.add('show');
+    }
+    window.openImageGallery = openImageGallery; // Make globally accessible for onclick handlers
+    
+    function showCurrentImage() {
+      if (currentImageGallery.length === 0) return;
+      
+      const overlayImage = document.getElementById('overlayImage');
+      const imageUrl = currentImageGallery[currentImageIndex];
+      overlayImage.src = imageUrl;
+      
+      // Update image counter if we add one later
+      updateImageCounter();
+    }
+    
+    function nextImage() {
+      if (currentImageGallery.length === 0) return;
+      currentImageIndex = (currentImageIndex + 1) % currentImageGallery.length;
+      showCurrentImage();
+    }
+    
+    function prevImage() {
+      if (currentImageGallery.length === 0) return;
+      currentImageIndex = (currentImageIndex - 1 + currentImageGallery.length) % currentImageGallery.length;
+      showCurrentImage();
+    }
+    
+    function updateImageCounter() {
+      // Add image counter display
+      const overlay = document.getElementById('imageOverlay'); if (!overlay) return;
+      let counter = overlay.querySelector('.image-counter');
+      
+      if (!counter && currentImageGallery.length > 1) {
+        counter = document.createElement('div');
+        counter.className = 'image-counter';
+        counter.style.cssText = 'position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 4px; font-size: 14px; z-index: 1001;';
+        overlay.querySelector('.overlay-content').appendChild(counter);
+      }
+      
+      if (counter) {
+        if (currentImageGallery.length > 1) {
+          counter.textContent = `${currentImageIndex + 1} / ${currentImageGallery.length}`;
+          counter.style.display = 'block';
+        } else {
+          counter.style.display = 'none';
+        }
+      }
+    }
+    
+    function closeImageOverlay() {
+      const overlay = document.getElementById('imageOverlay'); if (overlay) overlay.classList.remove('show');
+      currentImageGallery = [];
+      currentImageIndex = 0;
+    }
+    
+    const overlay = document.getElementById('imageOverlay'); if (overlay) overlay.addEventListener('click', (e) => {
+      if (e.target.id === 'imageOverlay') closeImageOverlay();
+    });
+    
+    document.addEventListener('keydown', (e) => { 
+      if (e.key === 'Escape') {
+        closeImageOverlay();
+      } else if (e.key === 'ArrowRight') {
+        if (currentImageGallery.length > 0) {
+          e.preventDefault();
+          nextImage();
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (currentImageGallery.length > 0) {
+          e.preventDefault();
+          prevImage();
+        }
+      }
+    });
+    
+    // Event listener for validation panel image thumbnails
+    document.addEventListener('click', (e) => {
+      console.log('Click detected on:', e.target, 'Classes:', e.target.classList);
+      
+      if (e.target.classList.contains('validation-image-thumb')) {
+        console.log('Validation image thumb clicked!');
+        
+        const galleryId = e.target.getAttribute('data-gallery-id');
+        const imageIndex = parseInt(e.target.getAttribute('data-image-index'));
+        
+        console.log('Gallery ID:', galleryId);
+        console.log('Image index:', imageIndex);
+        
+        const galleryImages = imageGalleries[galleryId];
+        
+        if (galleryImages && galleryImages.length > 0) {
+          console.log('Opening gallery with', galleryImages.length, 'images');
+          openImageGallery(galleryImages, imageIndex);
+        } else {
+          console.error('Gallery not found:', galleryId);
+          alert('Image gallery not found');
+        }
+      }
+    });
     urlInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') visitBtn.click(); });
 
     /* === LLM (compare) minimal hook === */
     (function(){
       const btn = document.getElementById('llmCompareBtn');
       if (!btn) return;
-
-      btn.onclick = async () => {
-        const url = urlInput.value.trim() || currentUrl;
-        if (!url) return alert('Paste a URL first.');
-
-        statusEl.innerHTML = `<span class="pill">LLM compare...</span>`;
-        panel.style.display = 'none';
-        out.textContent = '';
-
+      btn.addEventListener('click', async () => {
+        const url = (document.getElementById('urlInput')?.value || '').trim();
+        if (!url) { alert('Paste a URL first.'); return; }
         try {
-          const { baseline, llm } = await window.api.scrapeWithLLMCompare(url);
-
-          // baseline: scraped from baseline orchestrator
-          // llm: scraped from LLM orchestrator
-          out.innerHTML = `
-<h3>Baseline (Normal)</h3>
-<div><b>Title:</b> ${baseline?.title || ''}</div>
-<div><b>Price:</b> ${baseline?.price || ''}</div>
-<div><b>Brand:</b> ${baseline?.brand || ''}</div>
-<div><b>Images:</b> ${baseline?.images?.length || 0}</div>
-
-<h3 style="margin-top:16px;">LLM (Experimental)</h3>
-<div><b>Title:</b> ${llm?.title || ''}</div>
-<div><b>Price:</b> ${llm?.price || ''}</div>
-<div><b>Brand:</b> ${llm?.brand || ''}</div>
-<div><b>Images:</b> ${llm?.images?.length || 0}</div>
-          `;
-
-          statusEl.innerHTML = `<span class="pill">LLM compare done</span>`;
+          await window.api.openCompare?.(url);
         } catch (e) {
-          out.textContent = 'LLM compare error: ' + (e?.message || String(e));
-          statusEl.innerHTML = `<span class="pill" style="background:#fdd;color:#900;">Error</span>`;
+          alert('Compare window failed. Make sure main_bridge.js is required from main.js');
         }
-      };
+      });
     })();
+    
+    // Helper: Get canonical URL by removing width/size parameters for duplicate detection
+    function getCanonicalUrl(url) {
+      let canonical = url
+        .replace(/[?&]width=\d+/gi, '')
+        .replace(/[?&]w=\d+/gi, '')
+        .replace(/[?&]height=\d+/gi, '')
+        .replace(/[?&]h=\d+/gi, '')
+        .replace(/_\d{3,4}x\d{3,4}/g, '')
+        .replace(/_\d{3,4}x/g, '')
+        .replace(/_x\d{3,4}/g, '');
+      
+      // Strip Cloudinary path transformations (SSENSE, etc.)
+      // Pattern: /images/{transformations}/{product-id}/{filename}
+      // Transformations contain: f_auto, c_limit, h_2800, w_1725, b_white, c_scale, dpr_1.0, etc.
+      canonical = canonical.replace(
+        /\/images\/([^\/]+\/)*([A-Z0-9_-]+\/[^\/]+)$/i,
+        '/images/$2'
+      );
+      
+      return canonical;
+    }
+    
+    // Helper: Extract width value from URL for comparison
+    function extractWidth(url) {
+      // Cloudinary patterns: h_2800, w_1725, c_scale,h_960
+      const cloudinaryMatch = url.match(/[,\/]([hw])_(\d+)/i);
+      if (cloudinaryMatch) {
+        return parseInt(cloudinaryMatch[2]);
+      }
+      
+      // Standard patterns: ?width=1200, ?w=800, _640x
+      const widthMatch = url.match(/[?&]width=(\d+)/i) || url.match(/[?&]w=(\d+)/i) || url.match(/_(\d{3,4})x/);
+      return widthMatch ? parseInt(widthMatch[1]) : 0;
+    }
+    // Mobile Preview Functions - Progressive quality check as images load
+    function updateMobilePreview(imageUrls) {
+      const mobileGrid = document.getElementById("mobileGrid");
+      const imageCount = document.getElementById("imageCount");
+      
+      // Null safety checks to prevent crashes
+      if (!mobileGrid || !imageCount) {
+        console.error('❌ Mobile preview elements not found in DOM:', { 
+          mobileGrid: !!mobileGrid, 
+          imageCount: !!imageCount 
+        });
+        return;
+      }
+      
+      if (!imageUrls || imageUrls.length === 0) {
+        mobileGrid.innerHTML = '<div style="text-align:center;color:#666;padding:40px;">No images to preview</div>';
+        imageCount.textContent = "0 images";
+        return;
+      }
+      
+      // Pre-sort images by URL analysis before display
+      const imageObjects = imageUrls.map((url, index) => {
+        const keywordScore = scoreKeywords(url);
+        const dimensionScore = scoreDimensions(url);
+        const totalScore = keywordScore + dimensionScore;
+        
+        return {
+          url: url,
+          originalIndex: index,
+          totalScore: totalScore,
+          canonicalUrl: getCanonicalUrl(url),
+          width: extractWidth(url)
+        };
+      });
+      
+      
+      // Detect duplicate pairs (same canonical URL, different widths)
+      const canonicalMap = new Map();
+      const lowResDuplicates = new Set();
+      
+      imageObjects.forEach(img => {
+        const existing = canonicalMap.get(img.canonicalUrl);
+        if (existing) {
+          // Found duplicate - mark the lower-res version
+          if (img.width < existing.width) {
+            lowResDuplicates.add(img.url);
+            console.log(`🔄 DUPLICATE: ${img.url.slice(-60)} (w=${img.width}) → bottom`);
+          } else if (img.width > existing.width) {
+            lowResDuplicates.add(existing.url);
+            canonicalMap.set(img.canonicalUrl, img);
+            console.log(`🔄 DUPLICATE: ${existing.url.slice(-60)} (w=${existing.width}) → bottom`);
+          }
+        } else {
+          canonicalMap.set(img.canonicalUrl, img);
+        }
+      });
+      
+      // Filter out low-res duplicates, keep images in orchestrator's order
+      const displayImages = imageObjects.filter(img => !lowResDuplicates.has(img.url));
+      
+      /* COMMENTED OUT: Let orchestrator handle sorting via container consensus
+      // Split: main images vs low-res duplicates
+      const mainImages = imageObjects.filter(img => !lowResDuplicates.has(img.url));
+      const duplicateImages = imageObjects.filter(img => lowResDuplicates.has(img.url));
+      
+      // Sort main images by score, then original order
+      mainImages.sort((a, b) => {
+        if (b.totalScore !== a.totalScore) return b.totalScore - a.totalScore;
+        return a.originalIndex - b.originalIndex;
+      });
+      
+      // Keep duplicates in original order
+      duplicateImages.sort((a, b) => a.originalIndex - b.originalIndex);
+      
+      // Combine: main first, duplicates at bottom
+      const sortedImages = [...mainImages, ...duplicateImages];
+      */
+      
+      console.log(`📊 MOBILE PREVIEW: ${displayImages.length} images displayed (${lowResDuplicates.size} low-res duplicates hidden)`);
+      
+      // Create Pinterest-style masonry grid - display in orchestrator's order
+      mobileGrid.innerHTML = displayImages.map((item, index) => `
+        <div class="mobile-image-card" onclick="openMobileImageDetail('${item.url}', 'score-${item.totalScore}')" data-index="${index}" data-score="${item.totalScore}" data-original-order="${index}">
+          <div class="quality-badge">${item.totalScore}</div>
+          <img src="${item.url}" referrerpolicy="no-referrer" 
+               onerror="this.parentElement.style.display='none'"
+               onload="this.classList.add('loaded'); checkImageSize(this)">
+        </div>
+      `).join("");
+      
+      imageCount.textContent = `${imageUrls.length} images`;
+      
+      // Scroll to top when updating
+      const mobileContainer = document.getElementById('mobileContainer');
+      if (mobileContainer) mobileContainer.scrollTop = 0;
+      
+      // Reinitialize device toggle and mobile modal to ensure they work
+      setTimeout(() => {
+        initDeviceToggle();
+        initMobileModal();
+      }, 100);
+    }
+    
+    // FUNCTION 3: Update badge when image loads (no re-sorting)
+    function checkImageSize(imgElement) {
+      const url = imgElement.src;
+      const badge = imgElement.parentElement.querySelector('.quality-badge');
+      const card = imgElement.parentElement;
+      
+      // Calculate combined score
+      const keywordScore = scoreKeywords(url);
+      const dimensionScore = scoreDimensions(url);
+      const totalScore = keywordScore + dimensionScore;
+      
+      // Store score on card
+      card.dataset.score = totalScore;
+      
+      // Update badge to show final score
+      if (badge) {
+        badge.textContent = totalScore;
+        badge.className = 'quality-badge';
+      }
+      
+      console.log(`\n🔍 ${url.slice(-70)}\n  ═══════════════════\n  ✅ TOTAL: ${totalScore} pts`)
+    }
+    
+    // FUNCTION 1: Keyword Scoring (URL text analysis)
+    function scoreKeywords(url) {
+      let score = 50; // Base score
+      const urlLower = url.toLowerCase();
+      
+      // Quality multipliers (check before zoom to avoid double-counting)
+      if (urlLower.includes('5x')) score += 30;
+      else if (urlLower.includes('4x')) score += 20;
+      else if (urlLower.includes('3x')) score += 10;
+      else if (urlLower.includes('2x')) score += 5;
+      
+      // Product keywords
+      if (urlLower.includes('gallery')) score += 20;
+      if (urlLower.includes('zoom')) score += 20;
+      if (urlLower.includes('large')) score += 15;
+      
+      // Banner/junk keywords
+      if (urlLower.includes('banner')) score -= 50;
+      if (/\bad\b/.test(urlLower)) score -= 50; // Word boundary to avoid "data"
+      if (urlLower.includes('logo')) score -= 50;
+      if (urlLower.includes('thumbnail')) score -= 50;
+      if (urlLower.includes('icon')) score -= 50;
+      if (urlLower.includes('sprite')) score -= 50;
+      if (urlLower.includes('avatar')) score -= 50;
+      if (urlLower.includes('flag')) score -= 50;
+      if (urlLower.includes('truck')) score -= 50; // Delivery icons
+      if (urlLower.includes('hanger')) score -= 50; // Clothing rack icons
+      if (urlLower.includes('delivery')) score -= 50; // Delivery icons
+      
+      // Low quality indicators
+      if (urlLower.includes('swatch')) score -= 20;
+      if (urlLower.includes('variant')) score -= 20;
+      
+      // File type penalties (only bad types)
+      if (urlLower.includes('.gif') || urlLower.includes('.svg')) score -= 50;
+      
+      console.log(`    🏷️  Keywords: base 50 = ${score} pts`)
+      return score;
+    }
+    
+    // FUNCTION 2: Dimension Scoring (extract from URL patterns)
+    function scoreDimensions(url) {
+      let score = 0;
+      const urlLower = url.toLowerCase();
+      
+      // Extract dimension from URL patterns
+      let dimension = 0;
+      
+      // eBay patterns: s-l1600, s-l1300, s-l1200, s-l1140
+      const ebayMatch = url.match(/s-l(\d{3,4})/i);
+      if (ebayMatch) {
+        dimension = parseInt(ebayMatch[1]);
+      }
+      
+      // Width patterns: _1100x, w_1100, w1100, ?w=1100, /1100/, width/1100, width_1100
+      if (!dimension) {
+        const widthMatch = url.match(/_(\d{3,4})x|w_?(\d{3,4})|[?&]w=(\d{3,4})|[?&]width=(\d{3,4})|\/(\d{3,4})\/|width[\/_](\d{3,4})/i);
+        if (widthMatch) {
+          dimension = parseInt(widthMatch[1] || widthMatch[2] || widthMatch[3] || widthMatch[4] || widthMatch[5] || widthMatch[6]);
+        }
+      }
+      
+      // Height patterns: _x1100, h_1100, h1100, ?h=1100, height/1100, height_1100
+      if (!dimension) {
+        const heightMatch = url.match(/_x(\d{3,4})|h_?(\d{3,4})|[?&]h=(\d{3,4})|height[\/_](\d{3,4})/i);
+        if (heightMatch) {
+          dimension = parseInt(heightMatch[1] || heightMatch[2] || heightMatch[3] || heightMatch[4]);
+        }
+      }
+      
+      // Size tier scoring
+      if (dimension >= 1100) score += 20;
+      else if (dimension >= 750) score += 15;
+      else if (dimension >= 400) score += 10;
+      else if (dimension >= 300) score += 5;
+      else if (dimension > 0 && dimension < 300) score -= 20;
+      
+      // Folder scoring
+      if (urlLower.includes('/small/')) score -= 50;
+      if (urlLower.includes('/medium/')) score -= 20;
+      if (urlLower.includes('/large/')) score += 15;
+      
+      // Aspect ratio from URL patterns (if we can extract both dimensions)
+      const dimMatch = url.match(/_?(\d{3,4})x(\d{3,4})/i);
+      if (dimMatch) {
+        const width = parseInt(dimMatch[1]);
+        const height = parseInt(dimMatch[2]);
+        const aspectRatio = Math.max(width / height, height / width);
+        if (aspectRatio >= 2.5) score -= 50;
+      }
+      
+      console.log(`    📐 Dimensions: ${dimension ? `${dimension}px = ${score} pts` : `none = ${score} pts`}`)
+      return score;
+    }
+    
+    // Initialize device toggle functionality  
+    function initDeviceToggle() {
+      const iphoneBtn = document.getElementById("iphoneBtn");
+      const ipadBtn = document.getElementById("ipadBtn");
+      const mobileContainer = document.getElementById("mobileContainer");
+      
+      if (iphoneBtn && ipadBtn && mobileContainer) {
+        // Remove any existing listeners
+        iphoneBtn.onclick = null;
+        ipadBtn.onclick = null;
+        
+        iphoneBtn.onclick = () => {
+          console.log('iPhone clicked');
+          mobileContainer.className = "mobile-container iphone";
+          iphoneBtn.className = "device-btn active";
+          ipadBtn.className = "device-btn";
+          iphoneBtn.style.background = "#2196F3";
+          iphoneBtn.style.color = "white";
+          ipadBtn.style.background = "#ccc";
+          ipadBtn.style.color = "#333";
+          mobileContainer.scrollTop = 0;
+        };
+        
+        ipadBtn.onclick = () => {
+          console.log('iPad clicked - switching to 3 columns');
+          mobileContainer.className = "mobile-container ipad";
+          ipadBtn.className = "device-btn active";
+          iphoneBtn.className = "device-btn";
+          ipadBtn.style.background = "#2196F3";
+          ipadBtn.style.color = "white";
+          iphoneBtn.style.background = "#ccc";
+          iphoneBtn.style.color = "#333";
+          mobileContainer.scrollTop = 0;
+        };
+      }
+    }
+    
+    // Initialize on DOM ready and after mobile preview updates
+    document.addEventListener("DOMContentLoaded", initDeviceToggle);
+    
+    // Mobile Image Detail Modal Functions (Pinterest-style)
+    function openMobileImageDetail(imageUrl, quality) {
+      console.log('Opening mobile image detail:', imageUrl);
+      
+      const modal = document.getElementById('mobileImageModal');
+      const modalImage = document.getElementById('mobileModalImage');
+      const qualityIndicator = document.getElementById('mobileImageQuality');
+      const imageUrlDisplay = document.getElementById('mobileImageUrl');
+      
+      if (modal && modalImage) {
+        modalImage.src = imageUrl;
+        qualityIndicator.textContent = quality.toUpperCase();
+        qualityIndicator.className = `mobile-quality-indicator ${quality}`;
+        imageUrlDisplay.textContent = imageUrl.length > 50 ? imageUrl.substring(0, 50) + '...' : imageUrl;
+        
+        modal.classList.add('show');
+        
+        // Scroll mobile container to top
+        const mobileContainer = document.getElementById('mobileContainer');
+        if (mobileContainer) mobileContainer.scrollTop = 0;
+      }
+    }
+    
+    function closeMobileImageDetail() {
+      console.log('Closing mobile image detail');
+      const modal = document.getElementById('mobileImageModal');
+      if (modal) {
+        modal.classList.remove('show');
+      }
+    }
+    
+    // Initialize mobile modal controls
+    function initMobileModal() {
+      const backBtn = document.getElementById('mobileBackBtn');
+      const saveBtn = document.getElementById('mobileSaveBtn');
+      
+      if (backBtn) {
+        backBtn.onclick = closeMobileImageDetail;
+      }
+      
+      if (saveBtn) {
+        saveBtn.onclick = () => {
+          console.log('Save clicked in mobile modal');
+          // Could implement save functionality here
+          closeMobileImageDetail();
+        };
+      }
+    }
+    
+    // Initialize mobile modal on DOM ready
+    document.addEventListener("DOMContentLoaded", initMobileModal);
+
+
+    // Validation Panel Functions
+    function showValidationPanel(results, summaryMsg, foundSuggestions) {
+      const panel = document.getElementById('validationPanel');
+      const content = document.getElementById('validationContent');
+      
+      // Clear previous content
+      content.innerHTML = '';
+      
+      // Add summary header
+      const summary = document.createElement('div');
+      summary.style.cssText = 'background: #f0f7ff; border: 1px solid #b3d7ff; border-radius: 4px; padding: 10px; margin-bottom: 16px; font-size: 13px;';
+      summary.innerHTML = `<strong>Summary:</strong> ${summaryMsg}<br><strong>Found:</strong> ${foundSuggestions} fields with suggestions`;
+      content.appendChild(summary);
+      
+      // Generate field cards
+      const fields = ['title', 'price', 'images', 'brand', 'tags', 'description'];
+      
+      for (const field of fields) {
+        const result = results ? results[field] : null;
+        const card = createFieldCard(field, result);
+        content.appendChild(card);
+      }
+      
+      // Show panel
+      panel.style.display = 'block';
+    }
+    
+    function createFieldCard(field, result) {
+      const card = document.createElement('div');
+      card.className = 'field-card';
+      
+      const isSuccess = result && result.ok && result.selectors && result.selectors.length > 0;
+      const statusClass = isSuccess ? 'success' : 'failed';
+      const statusText = isSuccess ? 'Found' : 'Not Found';
+      
+      let previewContent = '';
+      let selectorText = '';
+      
+      if (isSuccess) {
+        const topResult = result.testedSelectors && result.testedSelectors[0];
+        if (topResult) {
+          selectorText = topResult.selector;
+          
+          if (field === 'images' && Array.isArray(topResult.validatedValue)) {
+            previewContent = `
+              <div class="field-preview"><strong>Found ${topResult.validatedValue.length} images:</strong></div>
+              <div class="image-thumbnails" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-height: 120px; overflow-y: auto;">
+                ${topResult.validatedValue.slice(0, 10).map((url, index) => 
+                  `<img src="${url}" alt="Product image ${index + 1}" 
+                       style="width: 48px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; cursor: pointer;" 
+                       data-gallery-images='${JSON.stringify(topResult.validatedValue)}' 
+                       data-image-index="${index}"
+                       class="validation-image-thumb"
+                       onerror="this.style.display='none'" />`
+                ).join('')}
+                ${topResult.validatedValue.length > 10 ? `<div style="font-size: 10px; color: #666; margin-top: 4px;">... and ${topResult.validatedValue.length - 10} more</div>` : ''}
+              </div>
+            `;
+          } else if (topResult.validatedValue) {
+            const value = String(topResult.validatedValue);
+            const truncated = value.length > 80 ? value.substring(0, 80) + '...' : value;
+            previewContent = `<div class="field-preview"><strong>Value:</strong> ${truncated}</div>`;
+          }
+        }
+      } else {
+        const reason = result && result.error ? result.error : 'No valid selectors found';
+        previewContent = `<div class="field-preview" style="color: #666;">Reason: ${reason}</div>`;
+      }
+      
+      card.innerHTML = `
+        <div class="field-header">
+          <span>${field.charAt(0).toUpperCase() + field.slice(1)}</span>
+          <span class="field-status ${statusClass}">${statusText}</span>
+        </div>
+        <div class="field-body">
+          ${previewContent}
+          ${selectorText ? `<div class="field-selector">Selector: ${selectorText}</div>` : ''}
+          ${isSuccess ? `<label style="margin-top: 8px; display: block;"><input type="checkbox" class="field-apply-checkbox" data-field="${field}" checked> Apply this field</label>` : ''}
+        </div>
+      `;
+      
+      return card;
+    }
+    
+    function hideValidationPanel() {
+      document.getElementById('validationPanel').style.display = 'none';
+    }
+    
+    async function applyAllValidated() {
+      const checkboxes = document.querySelectorAll('.field-apply-checkbox:checked');
+      let appliedCount = 0;
+      
+      for (const checkbox of checkboxes) {
+        const field = checkbox.getAttribute('data-field');
+        // Apply the field (this would trigger the same logic as clicking "Use AI Suggestion")
+        // For now, just mark the checkbox as OK
+        const okCheckbox = document.getElementById(`ok${field.charAt(0).toUpperCase() + field.slice(1)}`);
+        if (okCheckbox) {
+          okCheckbox.checked = true;
+          appliedCount++;
+        }
+      }
+      
+      hideValidationPanel();
+      
+      if (appliedCount > 0) {
+        alert(`✅ Applied ${appliedCount} fields successfully!\n\nThe selectors have been marked as validated. Use "Save (scrape)" to save them to memory.`);
+        
+        // Auto-validate to refresh the UI
+        // await autoValidateIfNeeded();
+      }
+    }
   </script>
 
-  <!-- Validation Panel Structure -->
+  <!-- Image Overlay Modal -->
+  <div id="imageOverlay" class="image-overlay">
+    <div class="overlay-content">
+      <button class="close-overlay" onclick="closeImageOverlay()">&times;</button>
+      <img id="overlayImage" class="overlay-image" src="" alt="Full size image">
+    </div>
+  </div>
+
+  <!-- Validation Panel -->
   <div class="validation-panel" id="validationPanel">
     <div class="validation-header">
       <span>🤖 Batch AI Results - Review & Apply</span>
       <button onclick="hideValidationPanel()" style="background: none; border: none; font-size: 18px; cursor: pointer;">&times;</button>
     </div>
     <div class="validation-content" id="validationContent">
-      <!-- Results will be populated here -->
+      <!-- Field cards will be dynamically generated here -->
     </div>
     <div class="validation-footer">
-      <button onclick="hideValidationPanel()" style="padding: 8px 16px; background: #ccc; border: none; border-radius: 4px; cursor: pointer;">
-        Cancel
-      </button>
-      <button onclick="clearSelectorMemory()" style="padding: 8px 16px; background: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">
-        Clear Memory
-      </button>
+      <button onclick="applyAllValidated()" style="background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Apply All Selected</button>
+      <button onclick="hideValidationPanel()" style="background: #666; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Cancel</button>
     </div>
   </div>
+  <!-- Load debug logger and diagnostics functionality -->
+  <script src="scrapers/debug_logger.js"></script>
+  <script src="diagnostics.js"></script>
 </body>
 </html>
