@@ -1,0 +1,25 @@
+[10:14:57 AM] 🎯 TRYING SELECTOR [price]: .price
+[10:14:57 AM] ✅ SELECTOR SUCCESS [Memory price]: .price found: 1 elements
+[10:14:57 AM] Single element <DIV.price>
+[10:14:57 AM] 📋 RAW VALUE: {"selector":".price","attr":"text","rawValue":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t\n\t\t\n\t\t\tRetailers like Acme
+[10:14:57 AM] 🔍 PRICE PARSING: {"input":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t\n\t\t\n\t\t\tRetailers like Acme Tools have the legal right to set th
+[10:14:57 AM] 🛒 CART-ONLY PRICING detected, returning null
+[10:14:57 AM] 💰 AFTER NORMALIZATION: null
+[10:14:57 AM] 🎯 REFINING PRICE: {"baseVal":null,"fromMemory":true,"hasElement":true,"elementTag":"DIV"}
+[10:14:57 AM] Price element <DIV.price>
+[10:14:57 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[10:14:57 AM] 🔍 GENERIC MODE - hunting for better prices in ancestors...
+[10:14:57 AM] 📍 ANCESTOR 0: <DIV.price>
+[10:14:57 AM] 🧹 ANCESTOR 0 CLEANED & RECONSTRUCTED: {"original":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t","cleaned":"See Price in Cart\n\n\n\tDiscounted Price Shown in Car
+[10:14:57 AM] 💰 ANCESTOR 0 SMART PRICE: 1049 from tokens: [1049]
+[10:14:57 AM] 🔄 NEW BEST PRICE: 1049 (was Infinity)
+[10:14:57 AM] 📍 ANCESTOR 1: <DIV.prices>
+[10:14:57 AM] 🧹 ANCESTOR 1 CLEANED & RECONSTRUCTED: {"original":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t","cleaned":"See Price in Cart\n\n\n\tDiscounted Price Shown in Car
+[10:14:57 AM] 💰 ANCESTOR 1 SMART PRICE: 1049 from tokens: [1049]
+[10:14:57 AM] 📍 ANCESTOR 2: <DIV.col-12>
+[10:14:57 AM] 🧹 ANCESTOR 2 CLEANED & RECONSTRUCTED: {"original":"See Price in Cart\n\n\n\tDiscounted Price Shown in Cart\n\t\n\t\t\n\t\t\tSee Price in Cart\n\n Close  \n\n\n\t\t","cleaned":"See Price in Cart\n\n\n\tDiscounted Price Shown in Car
+[10:14:57 AM] 💰 ANCESTOR 2 SMART PRICE: 1049 from tokens: [1049]
+[10:14:57 AM] ✅ CONTEXT REFINEMENT RESULT: {"result":"1049","originalBase":null}
+[10:14:57 AM] 💰 AFTER CONTEXT REFINEMENT: 1049
+[10:14:57 AM] ✅ MEMORY SUCCESS [price]: 1049
+[10:14:57 AM] 💰 PRICE FROM MEMORY: 1049
