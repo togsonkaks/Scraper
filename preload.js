@@ -55,6 +55,7 @@ contextBridge.exposeInMainWorld('api', {
   getSelectorMemory: (host) => call('memory-get', host),
   setSelectorMemory: (host, data, note) => call('memory-set', { host, data, note }),
   clearSelectorMemory: (host) => call('memory-clear', host),
+  deleteSelectorField: (host, field) => call('memory-delete-field', { host, field }),
   validateSelectors: (host) => call('validate-selectors', host),
   clearSpecificSelectors: (host, fields) => call('memory-clear-fields', { host, fields }),
 
