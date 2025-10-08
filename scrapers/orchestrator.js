@@ -1182,31 +1182,6 @@
       if (/lb-spc|lightbox.*shop|recommendation|cross-sell|related-products|you-may-also|recently-viewed|upsell-product|prd-card|card_imagecontainer|product-card|item-card/i.test(selectorLower)) {
         score -= 40;
       }
-      
-      // SAVED SELECTOR PRIORITY MATCHING (images field)
-      if (globalThis.__tg_currentMemory?.images) {
-        const savedImages = globalThis.__tg_currentMemory.images;
-        const savedSelectors = savedImages.selectors || [];
-        const priority = savedImages.priority || 'medium';
-        
-        // Clean selector for comparison (remove trailing >)
-        const cleanSelector = selector.trim().replace(/\s*>\s*$/, '');
-        
-        // Check if current selector matches any saved selector
-        for (const saved of savedSelectors) {
-          const cleanSaved = (saved || '').trim().replace(/\s*>\s*$/, '');
-          if (cleanSelector.includes(cleanSaved) || cleanSaved.includes(cleanSelector)) {
-            if (priority === 'high') {
-              score += 50;
-              debug(`🔒 SAVED SELECTOR MATCH (HIGH): ${cleanSelector} → +50`);
-            } else {
-              score += 25;
-              debug(`🔒 SAVED SELECTOR MATCH (MEDIUM): ${cleanSelector} → +25`);
-            }
-            break; // Only apply once
-          }
-        }
-      }
     }
     
     // Element-based bonuses if element provided
