@@ -71,6 +71,13 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Smart Description & Specs Extraction (Oct 8, 2025)**: Intelligent extraction targeting hidden accordion content
+  - **Description Priority**: Data attributes → Semantic classes → Accordions → JSON-LD → Meta tags (last resort)
+  - **Accordion Support**: Extracts from aria-expanded="false" sections already in DOM (no lazy-load triggers)
+  - **Fluff Filtering**: Removes promotional text ("Shop now!", "Free shipping!") from descriptions
+  - **New Specs Field**: Extracts product specifications from bullet lists and tables
+  - **Specs Sources**: Data attributes ([data-testid*="spec"]) → Class patterns (.specifications) → Accordion sections
+  - **Raw Format**: Preserves original key-value pairs (no normalization for cross-site compatibility)
 - **Breadcrumb Text Splitting & Expanded Filtering (Oct 8, 2025)**: Enhanced breadcrumb cleaning for concatenated text and navigation junk
   - **Text Splitting**: Automatically splits concatenated strings like "BackHome/Women/Shoes" → ["Women", "Shoes"]
   - **Concatenation Detection**: Recognizes and splits patterns like "BackHome", "HomeShop", "ReturnStore"

@@ -2436,14 +2436,190 @@
     return null;
   }
   function getDescription() {
-    const pairs = [
-      ['meta[name="description"]','content'],
-      ['meta[property="og:description"]','content'],
-      ['.product-description, [itemprop="description"], #description','text']
+    // Helper: Filter out promotional fluff
+    function isPromotionalFluff(text) {
+      if (!text || text.length < 20) return true; // Too short to be real description
+      const fluffPatterns = /^(shop |buy |get |order |see all |view all |free shipping|sale|limited time|exclusive)/i;
+      return fluffPatterns.test(text.trim());
+    }
+    
+    // Helper: Extract text from element (including hidden accordion content)
+    function extractText(el) {
+      if (!el) return null;
+      // Get all text content, even from hidden elements (aria-expanded="false")
+      const text = el.textContent.trim();
+      return text || null;
+    }
+    
+    let metaDescription = null; // Save meta as last resort
+    
+    // PRIORITY 1: Data attributes (most reliable for modern sites)
+    const dataAttributeSelectors = [
+      '[data-testid*="description" i]',
+      '[id*="description" i]:not(meta)',
+      '[data-test*="description" i]',
+      '[data-content*="description" i]'
     ];
-    for (const [sel,at] of pairs) { const v = at==='text' ? txt(q(sel)) : attr(q(sel),at); if (v) { mark('description', { selectors:[sel], attr:at, method:'generic' }); return v; } }
+    
+    for (const sel of dataAttributeSelectors) {
+      const el = q(sel);
+      const text = extractText(el);
+      if (text && !isPromotionalFluff(text) && text.length > 50) {
+        debug(`✅ DESCRIPTION from data attribute: ${sel.slice(0, 50)}`);
+        mark('description', { selectors:[sel], attr:'text', method:'data-attribute' });
+        return text;
+      }
+    }
+    
+    // PRIORITY 2: Semantic classes and itemprop
+    const semanticSelectors = [
+      '.product-description',
+      '[itemprop="description"]',
+      '.description',
+      '#description',
+      '.product-details',
+      '.product-info'
+    ];
+    
+    for (const sel of semanticSelectors) {
+      const el = q(sel);
+      const text = extractText(el);
+      if (text && !isPromotionalFluff(text) && text.length > 50) {
+        debug(`✅ DESCRIPTION from semantic selector: ${sel}`);
+        mark('description', { selectors:[sel], attr:'text', method:'semantic' });
+        return text;
+      }
+    }
+    
+    // PRIORITY 3: Check accordion/tab sections specifically
+    const accordionSelectors = [
+      '[role="region"]',
+      '.accordion-content',
+      '.tab-content',
+      '[aria-expanded]'
+    ];
+    
+    for (const sel of accordionSelectors) {
+      const elements = qa(sel);
+      for (const el of elements) {
+        const text = extractText(el);
+        // Look for description keywords in parent or nearby elements
+        const container = el.closest('[class*="description" i], [id*="description" i]');
+        if (container && text && !isPromotionalFluff(text) && text.length > 50) {
+          debug(`✅ DESCRIPTION from accordion: ${sel}`);
+          mark('description', { selectors:[sel], attr:'text', method:'accordion' });
+          return text;
+        }
+      }
+    }
+    
+    // PRIORITY 4: JSON-LD structured data
     const prod = scanJSONLDProducts()[0];
-    if (prod && prod.description) { mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld-fallback' }); return prod.description; }
+    if (prod && prod.description) {
+      const text = String(prod.description).trim();
+      if (!isPromotionalFluff(text) && text.length > 50) {
+        debug('✅ DESCRIPTION from JSON-LD');
+        mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
+        return text;
+      }
+    }
+    
+    // PRIORITY 5: Meta tags (last resort, usually SEO fluff)
+    const metaPairs = [
+      ['meta[name="description"]','content'],
+      ['meta[property="og:description"]','content']
+    ];
+    
+    for (const [sel,at] of metaPairs) {
+      const v = attr(q(sel),at);
+      if (v && v.length > 30) {
+        metaDescription = v;
+        debug(`⚠️ DESCRIPTION from meta tag (fallback): ${sel}`);
+        mark('description', { selectors:[sel], attr:at, method:'meta-fallback' });
+        return v;
+      }
+    }
+    
+    return null;
+  }
+  
+  function getSpecs() {
+    // Helper: Extract specs from list elements
+    function extractSpecsList(container) {
+      const specs = [];
+      const items = container.querySelectorAll('li, tr');
+      
+      for (const item of items) {
+        const text = item.textContent.trim();
+        if (text && text.length > 3 && text.length < 200) {
+          // Skip promotional/navigation items
+          if (!/^(shop|buy|add to|view|see|free|sale|limited)/i.test(text)) {
+            specs.push(text);
+          }
+        }
+      }
+      
+      return specs.length >= 2 ? specs.join('\n') : null;
+    }
+    
+    // PRIORITY 1: Data attributes (most reliable)
+    const dataAttributeSelectors = [
+      '[data-testid*="spec" i]',
+      '[data-testid*="specification" i]',
+      '[id*="specification" i]',
+      '[data-test*="spec" i]'
+    ];
+    
+    for (const sel of dataAttributeSelectors) {
+      const el = q(sel);
+      if (el) {
+        const specs = extractSpecsList(el);
+        if (specs) {
+          debug(`✅ SPECS from data attribute: ${sel.slice(0, 50)}`);
+          mark('specs', { selectors:[sel], attr:'text', method:'data-attribute' });
+          return specs;
+        }
+      }
+    }
+    
+    // PRIORITY 2: Common class patterns
+    const classSelectors = [
+      '.specifications',
+      '.specs',
+      '.product-specs',
+      '.product-specifications',
+      '[class*="specification" i]',
+      '[class*="specs" i]',
+      '.product-attributes',
+      '.product-features'
+    ];
+    
+    for (const sel of classSelectors) {
+      const el = q(sel);
+      if (el) {
+        const specs = extractSpecsList(el);
+        if (specs) {
+          debug(`✅ SPECS from class selector: ${sel}`);
+          mark('specs', { selectors:[sel], attr:'text', method:'class-pattern' });
+          return specs;
+        }
+      }
+    }
+    
+    // PRIORITY 3: Look for bullet lists in accordion sections
+    const accordions = qa('[role="region"], .accordion-content, [aria-expanded]');
+    for (const accordion of accordions) {
+      const container = accordion.closest('[class*="spec" i], [id*="spec" i]');
+      if (container) {
+        const specs = extractSpecsList(accordion);
+        if (specs) {
+          debug('✅ SPECS from accordion section');
+          mark('specs', { selectors:['accordion-specs'], attr:'text', method:'accordion' });
+          return specs;
+        }
+      }
+    }
+    
     return null;
   }
   function getPriceGeneric() {
@@ -3260,6 +3436,18 @@
           debug('🍞 BREADCRUMBS FROM GENERIC:', breadcrumbs);
         }
         
+        // Extract specs (new field)
+        let specs = null;
+        if (!DISABLE_MEMORY) {
+          specs = await fromMemory('specs', mem.specs);
+          debug('📋 SPECS FROM MEMORY:', specs);
+        }
+        if (!specs) {
+          debug('📋 SPECS: Falling back to generic...');
+          specs = getSpecs();
+          debug('📋 SPECS FROM GENERIC:', specs);
+        }
+        
         if (!DISABLE_MEMORY) {
           price = await fromMemory('price', mem.price);
           debug('💰 PRICE FROM MEMORY:', price);
@@ -3532,6 +3720,7 @@
         title, 
         brand, 
         description, 
+        specs,
         breadcrumbs,
         price, 
         url: location.href, 
@@ -3545,6 +3734,7 @@
         title: title?.slice(0, 50),
         brand,
         description: description?.slice(0, 50),
+        specs: specs?.slice(0, 50),
         breadcrumbs: breadcrumbs?.slice(0, 50),
         price,
         imageCount: images?.length || 0,
@@ -3556,6 +3746,7 @@
         title: !!title,
         brand: !!brand, 
         description: !!description,
+        specs: !!specs,
         breadcrumbs: !!breadcrumbs,
         price: !!price,
         images: images?.length || 0

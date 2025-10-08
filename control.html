@@ -554,7 +554,7 @@
       // Update count on change - count text fields + images separately
       checkboxes.forEach(cb => {
         cb.addEventListener('change', () => {
-          const textFields = ['title', 'price', 'brand', 'description', 'breadcrumbs'];
+          const textFields = ['title', 'price', 'brand', 'description', 'breadcrumbs', 'specs'];
           const textFieldCount = Array.from(checkboxes).filter(c => c.checked && textFields.includes(c.dataset.field)).length;
           const imageCount = Array.from(checkboxes).filter(c => c.checked && c.dataset.field === 'images').length;
           const total = textFieldCount + imageCount;
@@ -586,7 +586,8 @@
             'price': 'okPrice',
             'brand': 'okBrand',
             'description': 'okDesc',
-            'breadcrumbs': 'okBreadcrumbs'
+            'breadcrumbs': 'okBreadcrumbs',
+            'specs': 'okSpecs'
           };
           
           Object.keys(fieldCheckboxMap).forEach(field => {
@@ -788,6 +789,10 @@
           <div style="margin-bottom:4px; display:flex; align-items:center;">
             <input type="checkbox" id="okBreadcrumbs" data-field="breadcrumbs" style="margin-right:8px;">
             <b>Breadcrumbs:</b> <span style="margin-left:8px;">${result?.breadcrumbs || ''}</span>
+          </div>
+          <div style="margin-bottom:4px; display:flex; align-items:center;">
+            <input type="checkbox" id="okSpecs" data-field="specs" style="margin-right:8px;">
+            <b>Specs:</b> <span style="margin-left:8px; white-space:pre-wrap;">${(result?.specs || '').slice(0,240)}</span>
           </div>
           <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
         images.innerHTML = imgs.map((u, i) => `
