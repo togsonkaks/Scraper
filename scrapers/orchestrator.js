@@ -1999,7 +1999,13 @@
                 url = pickFromSrcset(attrs.srcset || attrs['data-srcset']);
               }
               
-              if (url) urls.push(upgradeCDNUrl(url));
+              if (url) {
+                // Normalize protocol-relative URLs
+                if (url.startsWith('//')) {
+                  url = 'https:' + url;
+                }
+                urls.push(upgradeCDNUrl(url));
+              }
             }
             if (urls.length > 0) {
               debug(`✅ SAVED SELECTOR SUCCESS [images]: Found ${urls.length} images`);

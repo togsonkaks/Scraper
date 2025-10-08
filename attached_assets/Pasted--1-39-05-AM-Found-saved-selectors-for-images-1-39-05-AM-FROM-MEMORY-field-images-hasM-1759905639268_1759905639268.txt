@@ -1,0 +1,44 @@
+[1:39:05 AM] ✅ Found saved selectors for images
+[1:39:05 AM] 🧠 FROM MEMORY: {"field":"images","hasMemEntry":true,"selectors":["div.swiper-slide > div.swiper-zoom-container > img.swiper-lazy"],"attr":"src"}
+[1:39:05 AM] 🔍 TRYING CSS SELECTORS: ["div.swiper-slide > div.swiper-zoom-container > img.swiper-lazy"]
+[1:39:05 AM] 🎯 TRYING SELECTOR [images]: div.swiper-slide > div.swiper-zoom-container > img.swiper-lazy
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1759845386909 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1759845386909 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1759845386909 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1759845386909 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1759845386909 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1759845386909 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1759845386909 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1759845386909 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1759845386909 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1759845386909 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1759845386909 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1759845386909 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1759845386909 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1759845386909 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1759845386909 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60&_mzcb=_1759845386909 -> fb79dbec-c972-4659-9b86-b5ddc41e3851?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1759845386909 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: e857fdb1-6878-4357-812c-400b886c482b?quality=60&_mzcb=_1759845386909 -> e857fdb1-6878-4357-812c-400b886c482b?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1759845386909 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60&_mzcb=_1759845386909 -> ffd28359-099f-4ba1-a364-fafc222c2db5?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1759845386909 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60&_mzcb=_1759845386909 -> 4a0f5a7e-5014-40b3-8b86-1a4dba8d564b?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1759845386909 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60&_mzcb=_1759845386909 -> fbc3257c-aa77-46d4-ba68-74727d6e30e1?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1759845386909 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60&_mzcb=_1759845386909 -> 91e49ac9-c0b3-477c-9906-297ccb14e35b?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1759845386909 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60&_mzcb=_1759845386909 -> d26ca5ec-8457-4de6-b958-67e896c9a920?quality=60
+[1:39:05 AM] ✨ UPGRADED Mozu CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1759845386909 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[1:39:05 AM] ✨ UPGRADED CDN URL: 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60&_mzcb=_1759845386909 -> 721d40f9-ece8-4483-ad64-7d200df2765c?quality=60
+[1:39:05 AM] ✅ SAVED SELECTOR SUCCESS [images]: Found 15 images
+[1:39:05 AM] 🎯 Extracted 8 images from saved selectors
+[1:39:05 AM] 🖼️ FINAL IMAGES: {"count":8,"images":["//cdn-tp3.mozu.com/24645-37138/cms/37138/files/e857fdb1-6878-4357-812c-400b886c482b?quality=60","//cdn-tp3.mozu.com/24645-37138/cms/37138/files/ffd28359-099f-4ba1-a364-fafc222c2d
+[1:39:05 AM] 🎯 PRODUCT ID from frequency analysis: assembly (2 occurrences)
+[1:39:05 AM] 🏛️ CONTAINER CONSENSUS: Analyzing top 6 images for main gallery...
+[1:39:05 AM] ⏭️ CONTAINER CONSENSUS: No dominant container (all <2 matches), keeping original order
+[1:39:05 AM] ✅ SCRAPE COMPLETE - FINAL RESULTS: {"title":"STIHL 36V TSA 230 Cutquik 9 in. Cordless Brushless","brand":"STIHL","description":"STIHL introduces another worlds first a cutoff mac","price":"539.99","imageCount":8,"firstImages":["//cdn-t
+[1:39:05 AM] ✅ SCRAPE SUCCESS: {"title":true,"brand":true,"description":true,"price":true,"images":8}
+[1:39:05 AM] 💾 DEBUG LOGGER: Session saved to database
+[1:39:05 AM] ✅ Debug trace complete
