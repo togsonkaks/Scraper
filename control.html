@@ -554,7 +554,7 @@
       // Update count on change - count text fields + images separately
       checkboxes.forEach(cb => {
         cb.addEventListener('change', () => {
-          const textFields = ['title', 'price', 'brand', 'description'];
+          const textFields = ['title', 'price', 'brand', 'description', 'breadcrumbs'];
           const textFieldCount = Array.from(checkboxes).filter(c => c.checked && textFields.includes(c.dataset.field)).length;
           const imageCount = Array.from(checkboxes).filter(c => c.checked && c.dataset.field === 'images').length;
           const total = textFieldCount + imageCount;
@@ -585,7 +585,8 @@
             'title': 'okTitle',
             'price': 'okPrice',
             'brand': 'okBrand',
-            'description': 'okDesc'
+            'description': 'okDesc',
+            'breadcrumbs': 'okBreadcrumbs'
           };
           
           Object.keys(fieldCheckboxMap).forEach(field => {
