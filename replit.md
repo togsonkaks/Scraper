@@ -58,6 +58,7 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **IKEA**: ?f=u/xxl → ?f=xxxl upgrades for highest quality available
 - **Temu**: Alibaba Cloud imageView2 w/180 → w/1200, q/70 → q/90 quality boosts
 - **Swarovski**: $size_360 → $size_2000, w_95 → w_2000 dimension upgrades
+- **Demandware/SFCC**: Remove sw/sh/width/height parameters for full-size (fixes Aesop, Brooks Brothers, etc.)
 - **LTWEBSTATIC (SHEIN/MUSERA)**: Remove _thumbnail_XXXx suffixes for full-size images (preserves extension)
 
 ### Custom Handler Registry (custom.js)
@@ -71,6 +72,12 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Universal Srcset Width Parsing + Demandware CDN Support (Oct 8, 2025)**: Fixed srcset extraction to select highest width images across all sites
+  - **Width Descriptor Intelligence**: Now parses width descriptors (700w, 1400w) and returns the HIGHEST width URL instead of first
+  - **Demandware/SFCC CDN Upgrade**: Removes sw/sh/width/height size constraints for full-size images (fixes Aesop, Brooks Brothers, etc.)
+  - **Universal Fix**: Benefits ANY site using srcset width descriptors (Shopify, Scene7, Demandware, custom implementations)
+  - **Backward Compatible**: Maintains existing behavior for density descriptors (1x, 2x)
+  - **AESOP Handler Disabled**: Generic scraper now handles Aesop better with new srcset parsing + CDN upgrades
 - **Smart Lazy-Loading Image Support (Oct 8, 2025)**: Intelligent attribute fallback for saved image selectors
   - **Placeholder Detection**: Validates URLs to detect data:image placeholders vs real image URLs
   - **Smart Attribute Fallback**: If saved attribute returns placeholder, automatically tries: srcset → data-srcset → data-src → currentSrc → data-image → data-zoom-image → data-large
