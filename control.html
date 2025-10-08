@@ -547,6 +547,94 @@
       return null;
     }
 
+    // Wire up checkbox handlers
+    function wireCheckboxHandlers() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"][data-field]');
+      const countSpan = document.getElementById('selectedCount');
+      const saveBtn = document.getElementById('saveSelectorBtn');
+      
+      // Update count on change
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+          const count = Array.from(checkboxes).filter(c => c.checked).length;
+          if (countSpan) countSpan.textContent = count;
+        });
+      });
+      
+      // Save button click
+      if (saveBtn) {
+        saveBtn.onclick = async () => {
+          const checked = Array.from(checkboxes).filter(cb => cb.checked);
+          if (checked.length === 0) {
+            alert('Please select at least one field to save');
+            return;
+          }
+          
+          // Group by field
+          const fieldMap = {};
+          checked.forEach(cb => {
+            const field = cb.dataset.field;
+            if (!fieldMap[field]) fieldMap[field] = [];
+            
+            if (field === 'images') {
+              // For images, collect selectors from lastSelectorsUsed
+              if (lastSelectorsUsed?.images) {
+                const selectors = Array.isArray(lastSelectorsUsed.images.selectors) 
+                  ? lastSelectorsUsed.images.selectors 
+                  : [lastSelectorsUsed.images.selectors];
+                fieldMap[field].push(...selectors);
+              }
+            } else {
+              // For other fields, get selector from lastSelectorsUsed
+              if (lastSelectorsUsed?.[field]) {
+                const selectors = Array.isArray(lastSelectorsUsed[field].selectors)
+                  ? lastSelectorsUsed[field].selectors
+                  : [lastSelectorsUsed[field].selectors];
+                fieldMap[field].push(...selectors);
+              }
+            }
+          });
+          
+          // Check for existing selectors and show priority dialog
+          const host = currentHost;
+          const existing = await window.api.getSelectorMemory(host);
+          
+          let priority = 'high';
+          if (existing && Object.keys(existing).some(k => !['__history', 'host', 'updated'].includes(k))) {
+            const choice = confirm('Found existing selectors for this domain.\n\nOK = Add as HIGH priority (new +50, old +25)\nCancel = Replace all (remove old)');
+            if (choice) {
+              priority = 'high';
+              // Keep old selectors, mark as medium
+              Object.keys(existing).forEach(field => {
+                if (!['__history', 'host', 'updated'].includes(field) && !fieldMap[field]) {
+                  existing[field].priority = 'medium';
+                  fieldMap[field] = existing[field].selectors || [];
+                }
+              });
+            }
+          }
+          
+          // Save with priority
+          const dataToSave = {};
+          Object.keys(fieldMap).forEach(field => {
+            dataToSave[field] = {
+              selectors: [...new Set(fieldMap[field])], // Dedupe
+              priority: priority,
+              attr: lastSelectorsUsed?.[field]?.attr || 'text'
+            };
+          });
+          
+          const saved = await window.api.setSelectorMemory(host, dataToSave, `Saved ${Object.keys(dataToSave).length} fields with ${priority} priority`);
+          
+          if (saved) {
+            alert(`✅ Saved selectors for: ${Object.keys(dataToSave).join(', ')}\nPriority: ${priority.toUpperCase()}`);
+          } else {
+            alert('❌ Failed to save selectors');
+          }
+        };
+      }
+    }
+
     // Load (navigate only)
     visitBtn.onclick = async () => {
       const url = urlInput.value.trim();
@@ -607,12 +695,32 @@
         lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
         const imgs = Array.isArray(result?.images) ? result.images : [];
         summary.innerHTML = `
-          <div><b>Title:</b> ${result?.title || ''}</div>
-          <div><b>Price:</b> ${result?.price || ''}</div>
-          <div><b>Brand:</b> ${result?.brand || ''}</div>
-          <div><b>URL:</b> ${result?.url || ''}</div>
-          <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
-        images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_title" data-field="title">
+            <label for="check_title" style="flex:1;"><b>Title:</b> ${result?.title || ''}</label>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_price" data-field="price">
+            <label for="check_price" style="flex:1;"><b>Price:</b> ${result?.price || ''}</label>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_brand" data-field="brand">
+            <label for="check_brand" style="flex:1;"><b>Brand:</b> ${result?.brand || ''}</label>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_url" data-field="url">
+            <label for="check_url" style="flex:1;"><b>URL:</b> ${result?.url || ''}</label>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_description" data-field="description">
+            <label for="check_description" style="flex:1;"><b>Description:</b> ${(result?.description || '').slice(0,240)}</label>
+          </div>
+          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
+        images.innerHTML = imgs.map((u, i) => `
+          <div style="position:relative; display:inline-block;">
+            <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
+            <img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')" style="display:block;">
+          </div>`).join('');
         // Update mobile preview with scraped images
         updateMobilePreview(imgs);
         // Enhanced URL display with click-to-copy functionality (safe DOM approach)
@@ -639,6 +747,10 @@
           itemDiv.appendChild(copyBtn);
           out.appendChild(itemDiv);
         });
+        
+        // Wire up checkbox handlers
+        wireCheckboxHandlers();
+        
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
@@ -683,12 +795,32 @@
         }
         const imgs = Array.isArray(result?.images) ? result.images : [];
         summary.innerHTML = `
-          <div><b>Title:</b> ${result?.title || ''}</div>
-          <div><b>Price:</b> ${result?.price || ''}</div>
-          <div><b>Brand:</b> ${result?.brand || ''}</div>
-          <div><b>URL:</b> ${result?.url || ''}</div>
-          <div><b>Description:</b> ${(result?.description || '').slice(0,240)}</div>`;
-        images.innerHTML = imgs.map(u => `<img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')">`).join('');
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_title" data-field="title">
+            <label for="check_title" style="flex:1;"><b>Title:</b> ${result?.title || ''}</label>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_price" data-field="price">
+            <label for="check_price" style="flex:1;"><b>Price:</b> ${result?.price || ''}</label>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_brand" data-field="brand">
+            <label for="check_brand" style="flex:1;"><b>Brand:</b> ${result?.brand || ''}</label>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_url" data-field="url">
+            <label for="check_url" style="flex:1;"><b>URL:</b> ${result?.url || ''}</label>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <input type="checkbox" id="check_description" data-field="description">
+            <label for="check_description" style="flex:1;"><b>Description:</b> ${(result?.description || '').slice(0,240)}</label>
+          </div>
+          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
+        images.innerHTML = imgs.map((u, i) => `
+          <div style="position:relative; display:inline-block;">
+            <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
+            <img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')" style="display:block;">
+          </div>`).join('');
         // Update mobile preview with scraped images
         updateMobilePreview(imgs);
         // Enhanced URL display with click-to-copy functionality (safe DOM approach)
@@ -715,6 +847,10 @@
           itemDiv.appendChild(copyBtn);
           out.appendChild(itemDiv);
         });
+        
+        // Wire up checkbox handlers
+        wireCheckboxHandlers();
+        
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
