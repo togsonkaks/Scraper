@@ -2123,6 +2123,44 @@
     const v = (document.title || '').trim(); if (v) mark('title', { selectors:['document.title'], attr:'text', method:'fallback' });
     return v || null;
   }
+  
+  function getBreadcrumbs() {
+    const sels = [
+      'nav[aria-label*="breadcrumb" i]',
+      '.breadcrumb, .breadcrumbs',
+      '[class*="breadcrumb"]',
+      'nav[class*="breadcrumb"]',
+      '[aria-label*="breadcrumb" i]'
+    ];
+    
+    for (const sel of sels) {
+      const el = q(sel);
+      if (el) {
+        // Extract all text from breadcrumb links/items
+        const links = el.querySelectorAll('a, li, span[itemprop="name"]');
+        if (links.length > 0) {
+          const breadcrumbText = Array.from(links)
+            .map(link => link.textContent.trim())
+            .filter(text => text && text.length > 0)
+            .join(' > ');
+          
+          if (breadcrumbText) {
+            mark('breadcrumbs', { selectors:[sel], attr:'text', method:'generic' });
+            return breadcrumbText;
+          }
+        }
+        
+        // Fallback: just get all text from breadcrumb element
+        const v = txt(el);
+        if (v) {
+          mark('breadcrumbs', { selectors:[sel], attr:'text', method:'generic' });
+          return v;
+        }
+      }
+    }
+    return null;
+  }
+  
   function getBrand() {
     // First try JSON-LD structured data - FOCUSED ON MAIN PRODUCT AREA
     const productContainers = ['#ivImageBlock', '#iv-tab-view-container', '.iv-box'];
