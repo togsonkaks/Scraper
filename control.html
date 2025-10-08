@@ -582,12 +582,48 @@
             }
           });
           
-          // Save checked images only
-          if (checkedImages.length > 0 && lastSelectorsUsed?.images) {
-            const selectors = Array.isArray(lastSelectorsUsed.images.selectors) 
-              ? lastSelectorsUsed.images.selectors 
-              : [lastSelectorsUsed.images.selectors];
-            fieldMap['images'] = selectors;
+          // Save checked images only - find common selector pattern
+          if (checkedImages.length > 0) {
+            const checkedUrls = checkedImages.map(cb => cb.dataset.url);
+            
+            // Get selectors for checked images from enrichedImages
+            const enrichedImages = lastPayload?.enrichedImages || [];
+            const imageSelectors = checkedUrls.map(url => {
+              const enriched = enrichedImages.find(e => e.url === url);
+              return enriched?.selector;
+            }).filter(Boolean);
+            
+            if (imageSelectors.length > 0) {
+              // Find common pattern by removing nth-child and similar specific selectors
+              const commonPattern = findCommonSelectorPattern(imageSelectors);
+              fieldMap['images'] = [commonPattern];
+            }
+          }
+          
+          // Helper: Find common selector pattern
+          function findCommonSelectorPattern(selectors) {
+            if (selectors.length === 1) return selectors[0];
+            
+            // Remove nth-child and specific indices to find common ancestor pattern
+            const normalized = selectors.map(sel => 
+              sel.replace(/:nth-child\(\d+\)/gi, '')
+                 .replace(/:nth-of-type\(\d+\)/gi, '')
+                 .replace(/#[a-z0-9_-]+\s*>\s*/gi, '') // Remove dynamic IDs followed by >
+                 .trim()
+                 .replace(/\s*>\s*$/, '') // Clean trailing >
+            );
+            
+            // Find the most common pattern
+            const counts = {};
+            normalized.forEach(sel => {
+              counts[sel] = (counts[sel] || 0) + 1;
+            });
+            
+            const mostCommon = Object.keys(counts).reduce((a, b) => 
+              counts[a] > counts[b] ? a : b
+            );
+            
+            return mostCommon;
           }
           
           if (Object.keys(fieldMap).length === 0) {
