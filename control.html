@@ -769,30 +769,36 @@
         summary.innerHTML = `
           <div style="margin-bottom:4px; display:flex; align-items:center;">
             <input type="checkbox" id="okTitle" data-field="title" style="margin-right:8px;">
-            <b>Title:</b> <span style="margin-left:8px;">${result?.title || ''}</span>
+            <b>Title:</b> <span style="margin-left:8px; flex:1;">${result?.title || ''}</span>
+            <button class="clear-field-btn" data-field="title" style="margin-left:8px; padding:2px 8px; font-size:12px; cursor:pointer; border:1px solid #ddd; border-radius:3px; background:#fff;">🗑️ Clear</button>
           </div>
           <div style="margin-bottom:4px; display:flex; align-items:center;">
             <input type="checkbox" id="okPrice" data-field="price" style="margin-right:8px;">
-            <b>Price:</b> <span style="margin-left:8px;">${result?.price || ''}</span>
+            <b>Price:</b> <span style="margin-left:8px; flex:1;">${result?.price || ''}</span>
+            <button class="clear-field-btn" data-field="price" style="margin-left:8px; padding:2px 8px; font-size:12px; cursor:pointer; border:1px solid #ddd; border-radius:3px; background:#fff;">🗑️ Clear</button>
           </div>
           <div style="margin-bottom:4px; display:flex; align-items:center;">
             <input type="checkbox" id="okBrand" data-field="brand" style="margin-right:8px;">
-            <b>Brand:</b> <span style="margin-left:8px;">${result?.brand || ''}</span>
+            <b>Brand:</b> <span style="margin-left:8px; flex:1;">${result?.brand || ''}</span>
+            <button class="clear-field-btn" data-field="brand" style="margin-left:8px; padding:2px 8px; font-size:12px; cursor:pointer; border:1px solid #ddd; border-radius:3px; background:#fff;">🗑️ Clear</button>
           </div>
           <div style="margin-bottom:4px;">
             <b>URL:</b> ${result?.url || ''}
           </div>
           <div style="margin-bottom:4px; display:flex; align-items:center;">
             <input type="checkbox" id="okDesc" data-field="description" style="margin-right:8px;">
-            <b>Description:</b> <span style="margin-left:8px;">${(result?.description || '').slice(0,240)}</span>
+            <b>Description:</b> <span style="margin-left:8px; flex:1;">${(result?.description || '').slice(0,240)}</span>
+            <button class="clear-field-btn" data-field="description" style="margin-left:8px; padding:2px 8px; font-size:12px; cursor:pointer; border:1px solid #ddd; border-radius:3px; background:#fff;">🗑️ Clear</button>
           </div>
           <div style="margin-bottom:4px; display:flex; align-items:center;">
             <input type="checkbox" id="okBreadcrumbs" data-field="breadcrumbs" style="margin-right:8px;">
-            <b>Breadcrumbs:</b> <span style="margin-left:8px;">${result?.breadcrumbs || ''}</span>
+            <b>Breadcrumbs:</b> <span style="margin-left:8px; flex:1;">${result?.breadcrumbs || ''}</span>
+            <button class="clear-field-btn" data-field="breadcrumbs" style="margin-left:8px; padding:2px 8px; font-size:12px; cursor:pointer; border:1px solid #ddd; border-radius:3px; background:#fff;">🗑️ Clear</button>
           </div>
           <div style="margin-bottom:4px; display:flex; align-items:center;">
             <input type="checkbox" id="okSpecs" data-field="specs" style="margin-right:8px;">
-            <b>Specs:</b> <span style="margin-left:8px; white-space:pre-wrap;">${(result?.specs || '').slice(0,240)}</span>
+            <b>Specs:</b> <span style="margin-left:8px; flex:1; white-space:pre-wrap;">${(result?.specs || '').slice(0,240)}</span>
+            <button class="clear-field-btn" data-field="specs" style="margin-left:8px; padding:2px 8px; font-size:12px; cursor:pointer; border:1px solid #ddd; border-radius:3px; background:#fff;">🗑️ Clear</button>
           </div>
           <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
         images.innerHTML = imgs.map((u, i) => `
