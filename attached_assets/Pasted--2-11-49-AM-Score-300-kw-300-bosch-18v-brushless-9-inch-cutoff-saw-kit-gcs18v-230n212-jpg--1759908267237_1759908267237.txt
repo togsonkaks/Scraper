@@ -1,0 +1,30 @@
+[2:11:49 AM] 🎯 Score=300 [kw:+300] | bosch-18v-brushless-9-inch-cutoff-saw-kit-gcs18v-230n212.jpg | selector: unknown
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | sch-12v-leveling-and-alignment-laser-gll330-42cgl.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | v-max-wallfloor-scanner-with-radar-kit-d-tect200c.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | ling-cross-line-laser-reconditioned-gcl100-40g-rt.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | nder-paddle-switch-with-one-key-bare-tool-3672-20.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | /bosch-profactor-18v-blower-bare-tool-gbl18v-450n.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | 0346657883/bosch-tuckpoint-grinder-5in-gws13-52tg.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=100 [kw:+100] | -15-amp-14-inch-abrasive-cut-off-machine-gco15-14.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | profactor-18v-5-12in-track-saw-kit-gkt18v-20gcl14.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=100 [kw:+100] | 6/bosch-10-inch-dual-bevel-glide-miter-saw-cm10gd.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | urgeon-12in-glide-miter-saw-kit-gcm18v-12gdcn-kit.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=250 [kw:+250] | brushless-9-inch-cutoff-saw-bare-tool-gcs18v-230n.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=100 [kw:+100] | osch-18v-14-inch-dry-cut-saw-bare-tool-gcd18v-14n.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | bosch-18v12v-dual-bay-battery-charger-gax1218v-30.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | -plus-bulldog-1in-rotary-hammer-kit-gbh18v-26dk25.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=100 [kw:+100] | ore18v-4-ah-advanced-power-battery-gsb18v-800cb14.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=50 [kw:+50] | ected-5ft-handheld-inspection-camera-kit-gic4-23c.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=100 [kw:+100] | -wrench-with-friction-ring-bare-tool-gds18v-230cn.jpg?sw=380 | selector: div.image-container > a > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | /Sites-AcmeTools-Site/-/default/dw5d0d0469/images/img-na.png | selector: #account-manager-form > div.account-mana
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | c/-/Sites/en_US/dw4b2d376e/images/miu/made-in-usa-emblem.png | selector: div.html-slot-container > div.madeInUSA
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | a2f9b1cdc95632e05e80b981/images/Navbar/tools-power-tools.jpg | selector: #powetoolsd > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | ea2f9b1cdc95632e05e80b981/images/Navbar/tools-hand-tools.jpg | selector: #handtoolsd > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | 5632e05e80b981/images/Navbar/tools-air-tools-compressors.jpg | selector: #airtoolscompressorsd > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | f9b1cdc95632e05e80b981/images/Navbar/tools-machine-tools.jpg | selector: #machinetoolsd > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | 32e05e80b981/images/Navbar/tools-measuring-marking-tools.jpg | selector: #measuringmarkingd > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | e7e1338/images/Navbar/storage-workspace-shelving-racking.jpg | selector: #shelvingrackingd > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | 104a76384e7e1338/images/Navbar/storage-workspace-storage.jpg | selector: #storaged > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | mages/Navbar/storage-workspace-tool-bags-backpacks-totes.jpg | selector: #toolbagsbackpackstotesd > img.tile-imag
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | a76384e7e1338/images/Navbar/storage-workspace-tool-boxes.jpg | selector: #toolboxesd > img.tile-image
+[2:11:49 AM] 🎯 Score=0 [no-match:0] | 6384e7e1338/images/Navbar/storage-workspace-tool-storage.jpg | selector: #toolstoraged > img.tile-image

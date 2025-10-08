@@ -1955,11 +1955,17 @@
             if (url && !seen.has(url)) {
               seen.add(url);
               unique.push(url);
+              // Track selector for JSON-LD images
+              urlToSelectorMap.set(url, 'script[type="application/ld+json"]');
             }
           }
           return unique.slice(0,30);
         }
         const og = q('meta[property="og:image"]')?.content;
+        if (og) {
+          // Track selector for og:image
+          urlToSelectorMap.set(og, 'meta[property="og:image"]');
+        }
         return og ? [og] : null;
       }
     }
@@ -2799,7 +2805,12 @@
     debug(`🖼️ All gallery selectors found nothing, falling back to broad 'img'`);
     const og = q('meta[property="og:image"]')?.content;
     const urls = await processImages('img', 0, true); // true = img fallback mode (disable position bonuses)
-    const combined = (og ? [upgradeCDNUrl(og)] : []).concat(urls);
+    const ogUpgraded = og ? upgradeCDNUrl(og) : null;
+    if (ogUpgraded) {
+      // Track selector for og:image fallback
+      urlToSelectorMap.set(ogUpgraded, 'meta[property="og:image"]');
+    }
+    const combined = (ogUpgraded ? [ogUpgraded] : []).concat(urls);
     
     // Simple deduplication for final fallback
     const seen = new Set();
