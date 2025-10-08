@@ -564,36 +564,36 @@
       // Save button click
       if (saveBtn) {
         saveBtn.onclick = async () => {
-          const checked = Array.from(checkboxes).filter(cb => cb.checked);
-          if (checked.length === 0) {
-            alert('Please select at least one field to save');
-            return;
-          }
+          const checkedImages = Array.from(checkboxes).filter(cb => cb.checked && cb.dataset.field === 'images');
           
           // Group by field
           const fieldMap = {};
-          checked.forEach(cb => {
-            const field = cb.dataset.field;
-            if (!fieldMap[field]) fieldMap[field] = [];
-            
-            if (field === 'images') {
-              // For images, collect selectors from lastSelectorsUsed
-              if (lastSelectorsUsed?.images) {
-                const selectors = Array.isArray(lastSelectorsUsed.images.selectors) 
-                  ? lastSelectorsUsed.images.selectors 
-                  : [lastSelectorsUsed.images.selectors];
-                fieldMap[field].push(...selectors);
-              }
-            } else {
-              // For other fields, get selector from lastSelectorsUsed
-              if (lastSelectorsUsed?.[field]) {
-                const selectors = Array.isArray(lastSelectorsUsed[field].selectors)
-                  ? lastSelectorsUsed[field].selectors
-                  : [lastSelectorsUsed[field].selectors];
-                fieldMap[field].push(...selectors);
+          
+          // Auto-save text fields if they worked
+          const textFields = ['title', 'price', 'brand', 'url', 'description'];
+          textFields.forEach(field => {
+            if (lastSelectorsUsed?.[field]) {
+              const selectors = Array.isArray(lastSelectorsUsed[field].selectors)
+                ? lastSelectorsUsed[field].selectors
+                : [lastSelectorsUsed[field].selectors];
+              if (selectors.length > 0 && selectors[0]) {
+                fieldMap[field] = selectors;
               }
             }
           });
+          
+          // Save checked images only
+          if (checkedImages.length > 0 && lastSelectorsUsed?.images) {
+            const selectors = Array.isArray(lastSelectorsUsed.images.selectors) 
+              ? lastSelectorsUsed.images.selectors 
+              : [lastSelectorsUsed.images.selectors];
+            fieldMap['images'] = selectors;
+          }
+          
+          if (Object.keys(fieldMap).length === 0) {
+            alert('No selectors to save. Please check some images or ensure text fields were extracted successfully.');
+            return;
+          }
           
           // Check for existing selectors and show priority dialog
           const host = currentHost;
@@ -627,7 +627,12 @@
           const saved = await window.api.setSelectorMemory(host, dataToSave, `Saved ${Object.keys(dataToSave).length} fields with ${priority} priority`);
           
           if (saved) {
-            alert(`✅ Saved selectors for: ${Object.keys(dataToSave).join(', ')}\nPriority: ${priority.toUpperCase()}`);
+            const imageCount = checkedImages.length;
+            const textFields = Object.keys(dataToSave).filter(f => f !== 'images');
+            const parts = [];
+            if (imageCount > 0) parts.push(`${imageCount} image selector(s)`);
+            if (textFields.length > 0) parts.push(`${textFields.length} text field(s) (auto-saved)`);
+            alert(`✅ Saved: ${parts.join(', ')}\nFields: ${Object.keys(dataToSave).join(', ')}\nPriority: ${priority.toUpperCase()}`);
           } else {
             alert('❌ Failed to save selectors');
           }
@@ -710,7 +715,7 @@
           <div style="margin-bottom:4px;">
             <b>Description:</b> ${(result?.description || '').slice(0,240)}
           </div>
-          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
+          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> images)</button>`;
         images.innerHTML = imgs.map((u, i) => `
           <div style="position:relative; display:inline-block;">
             <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
@@ -805,7 +810,7 @@
           <div style="margin-bottom:4px;">
             <b>Description:</b> ${(result?.description || '').slice(0,240)}
           </div>
-          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
+          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> images)</button>`;
         images.innerHTML = imgs.map((u, i) => `
           <div style="position:relative; display:inline-block;">
             <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
