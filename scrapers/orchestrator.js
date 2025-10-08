@@ -1170,16 +1170,16 @@
       const selectorLower = selector.toLowerCase();
       
       // GOOD SELECTORS: Product gallery indicators (+25)
-      if (/modal-opener|product__modal|zoom-gallery|product-gallery|slideshow-main|carousel-product|media-viewer|product__media-viewer/i.test(selectorLower)) {
+      if (/modal-opener|product__modal|zoom-gallery|product-gallery|slideshow-main|carousel-product|media-viewer|product__media-viewer|detail_zoom|prd-detail|detail.*zoom/i.test(selectorLower)) {
         score += 25;
       }
       // GOOD SELECTORS: General gallery indicators (+20)
-      else if (/slidecount|mainimage|main-image|primary.*image|slideshow|carousel-main|gallery-container/i.test(selectorLower)) {
+      else if (/slidecount|mainimage|main-image|primary.*image|slideshow|carousel-main|gallery-container|detail|zoom/i.test(selectorLower)) {
         score += 20;
       }
       
       // BAD SELECTORS: Cross-sell/recommendation containers (-40)
-      if (/lb-spc|lightbox.*shop|recommendation|cross-sell|related-products|you-may-also|recently-viewed|upsell-product/i.test(selectorLower)) {
+      if (/lb-spc|lightbox.*shop|recommendation|cross-sell|related-products|you-may-also|recently-viewed|upsell-product|prd-card|card_imagecontainer|product-card|item-card/i.test(selectorLower)) {
         score -= 40;
       }
     }
