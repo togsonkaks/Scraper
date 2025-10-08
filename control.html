@@ -420,20 +420,20 @@
       <span style="font-size: 12px; color: #666; margin-left: 12px;" id="imageCount">0 images</span>
 
       <!-- COMMENTED OUT: Selector Memory section entirely
-      <div class="label">Selector Memory (approve to save)</div>
+      <div class="label">Selector Memory (check fields to save)</div>
       <div>
-        <label><input type="checkbox" id="okTitle"> Title OK</label>
+        <label><input type="checkbox" id="okTitle"> Save Title</label>
         <button class="ai-suggest-btn" data-field="title">🤖 AI</button>
-        <label style="margin-left:12px;"><input type="checkbox" id="okPrice"> Price OK</label>
+        <label style="margin-left:12px;"><input type="checkbox" id="okPrice"> Save Price</label>
         <button class="ai-suggest-btn" data-field="price">🤖 AI</button>
-        <label style="margin-left:12px;"><input type="checkbox" id="okImages"> Images OK</label>
+        <label style="margin-left:12px;"><input type="checkbox" id="okImages"> Save Images</label>
         <button class="ai-suggest-btn" data-field="images">🤖 AI</button>
         <br>
-        <label><input type="checkbox" id="okBrand"> Brand OK</label>
+        <label><input type="checkbox" id="okBrand"> Save Brand</label>
         <button class="ai-suggest-btn" data-field="brand">🤖 AI</button>
-        <label style="margin-left:12px;"><input type="checkbox" id="okTags"> Tags OK</label>
+        <label style="margin-left:12px;"><input type="checkbox" id="okTags"> Save Tags</label>
         <button class="ai-suggest-btn" data-field="tags">🤖 AI</button>
-        <label style="margin-left:12px;"><input type="checkbox" id="okDesc"> Description OK</label>
+        <label style="margin-left:12px;"><input type="checkbox" id="okDesc"> Save Description</label>
         <button class="ai-suggest-btn" data-field="description">🤖 AI</button>
       </div>
       <div id="memDebug" style="margin-top:8px; font-size:12px; opacity:.8;"></div>
@@ -567,10 +567,17 @@
           // Group by field
           const fieldMap = {};
           
-          // Auto-save text fields if they worked
-          const textFields = ['title', 'price', 'brand', 'url', 'description'];
-          textFields.forEach(field => {
-            if (lastSelectorsUsed?.[field]) {
+          // Only save text fields if their checkbox is checked
+          const fieldCheckboxMap = {
+            'title': 'okTitle',
+            'price': 'okPrice',
+            'brand': 'okBrand',
+            'description': 'okDesc'
+          };
+          
+          Object.keys(fieldCheckboxMap).forEach(field => {
+            const checkbox = document.getElementById(fieldCheckboxMap[field]);
+            if (checkbox && checkbox.checked && lastSelectorsUsed?.[field]) {
               const selectors = Array.isArray(lastSelectorsUsed[field].selectors)
                 ? lastSelectorsUsed[field].selectors
                 : [lastSelectorsUsed[field].selectors];
@@ -625,7 +632,7 @@
           }
           
           if (Object.keys(fieldMap).length === 0) {
-            alert('No selectors to save. Please check some images or ensure text fields were extracted successfully.');
+            alert('No selectors to save. Please check at least one checkbox (Title, Price, Brand, Description, or Images).');
             return;
           }
           
@@ -745,22 +752,26 @@
         }
         const imgs = Array.isArray(result?.images) ? result.images : [];
         summary.innerHTML = `
-          <div style="margin-bottom:4px;">
-            <b>Title:</b> ${result?.title || ''}
+          <div style="margin-bottom:4px; display:flex; align-items:center;">
+            <input type="checkbox" id="okTitle" data-field="title" style="margin-right:8px;">
+            <b>Title:</b> <span style="margin-left:8px;">${result?.title || ''}</span>
           </div>
-          <div style="margin-bottom:4px;">
-            <b>Price:</b> ${result?.price || ''}
+          <div style="margin-bottom:4px; display:flex; align-items:center;">
+            <input type="checkbox" id="okPrice" data-field="price" style="margin-right:8px;">
+            <b>Price:</b> <span style="margin-left:8px;">${result?.price || ''}</span>
           </div>
-          <div style="margin-bottom:4px;">
-            <b>Brand:</b> ${result?.brand || ''}
+          <div style="margin-bottom:4px; display:flex; align-items:center;">
+            <input type="checkbox" id="okBrand" data-field="brand" style="margin-right:8px;">
+            <b>Brand:</b> <span style="margin-left:8px;">${result?.brand || ''}</span>
           </div>
           <div style="margin-bottom:4px;">
             <b>URL:</b> ${result?.url || ''}
           </div>
-          <div style="margin-bottom:4px;">
-            <b>Description:</b> ${(result?.description || '').slice(0,240)}
+          <div style="margin-bottom:4px; display:flex; align-items:center;">
+            <input type="checkbox" id="okDesc" data-field="description" style="margin-right:8px;">
+            <b>Description:</b> <span style="margin-left:8px;">${(result?.description || '').slice(0,240)}</span>
           </div>
-          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> images)</button>`;
+          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
         images.innerHTML = imgs.map((u, i) => `
           <div style="position:relative; display:inline-block;">
             <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
