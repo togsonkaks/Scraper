@@ -2125,39 +2125,129 @@
   }
   
   function getBreadcrumbs() {
-    const sels = [
+    // Helper: Validate breadcrumb structure
+    function isValidBreadcrumb(text, itemCount) {
+      if (!text || text.length < 5) return false;
+      // Check for separators (›, /, |, >, »)
+      const hasSeparator = /[›>\/|»]/.test(text);
+      // Check item count (typically 2-6 items)
+      const validCount = itemCount >= 2 && itemCount <= 8;
+      return hasSeparator && validCount;
+    }
+    
+    // Helper: Extract and format breadcrumb text from links
+    function extractFromLinks(container) {
+      const links = container.querySelectorAll('a, li > span, [itemprop="name"]');
+      if (links.length < 2) return null;
+      
+      const items = Array.from(links)
+        .map(link => link.textContent.trim())
+        .filter(text => text && text.length > 0 && text.length < 50); // Reasonable item length
+      
+      if (items.length < 2) return null;
+      const breadcrumbText = items.join(' > ');
+      
+      return isValidBreadcrumb(breadcrumbText, items.length) ? breadcrumbText : null;
+    }
+    
+    // PRIORITY 1: JSON-LD BreadcrumbList (most reliable, hidden structured data)
+    try {
+      const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
+      for (const script of jsonLdScripts) {
+        try {
+          const data = JSON.parse(script.textContent.trim());
+          const arr = Array.isArray(data) ? data : [data];
+          
+          for (const node of arr) {
+            const types = [].concat(node?.["@type"]||[]).map(String);
+            
+            // Check for BreadcrumbList
+            if (types.some(t => /breadcrumb/i.test(t))) {
+              const items = node.itemListElement || [];
+              if (Array.isArray(items) && items.length >= 2) {
+                const breadcrumbText = items
+                  .map(item => item.name || item.item?.name || '')
+                  .filter(Boolean)
+                  .join(' > ');
+                
+                if (breadcrumbText) {
+                  mark('breadcrumbs', { selectors:['script[type="application/ld+json"]'], attr:'json', method:'jsonld' });
+                  return breadcrumbText;
+                }
+              }
+            }
+          }
+        } catch {}
+      }
+    } catch {}
+    
+    // PRIORITY 2: Semantic attributes (aria-label, role, itemprop)
+    const semanticSelectors = [
+      '[aria-label*="breadcrumb" i]',
+      '[role="navigation"][aria-label*="breadcrumb" i]',
       'nav[aria-label*="breadcrumb" i]',
-      '.breadcrumb, .breadcrumbs',
-      '[class*="breadcrumb"]',
-      'nav[class*="breadcrumb"]',
-      '[aria-label*="breadcrumb" i]'
+      '[itemprop="breadcrumb"]',
+      'nav[role="navigation"] ol, nav[role="navigation"] ul'
     ];
     
-    for (const sel of sels) {
+    for (const sel of semanticSelectors) {
       const el = q(sel);
       if (el) {
-        // Extract all text from breadcrumb links/items
-        const links = el.querySelectorAll('a, li, span[itemprop="name"]');
-        if (links.length > 0) {
-          const breadcrumbText = Array.from(links)
-            .map(link => link.textContent.trim())
-            .filter(text => text && text.length > 0)
-            .join(' > ');
-          
-          if (breadcrumbText) {
-            mark('breadcrumbs', { selectors:[sel], attr:'text', method:'generic' });
-            return breadcrumbText;
-          }
-        }
-        
-        // Fallback: just get all text from breadcrumb element
-        const v = txt(el);
-        if (v) {
-          mark('breadcrumbs', { selectors:[sel], attr:'text', method:'generic' });
-          return v;
+        const result = extractFromLinks(el);
+        if (result) {
+          mark('breadcrumbs', { selectors:[sel], attr:'text', method:'semantic' });
+          return result;
         }
       }
     }
+    
+    // PRIORITY 3: Class patterns (.breadcrumb*)
+    const classSelectors = [
+      '.breadcrumb, .breadcrumbs',
+      '[class*="breadcrumb"]',
+      'nav[class*="breadcrumb"]',
+      '.woocommerce-breadcrumb',
+      '.yoast-breadcrumb'
+    ];
+    
+    for (const sel of classSelectors) {
+      const el = q(sel);
+      if (el) {
+        const result = extractFromLinks(el);
+        if (result) {
+          mark('breadcrumbs', { selectors:[sel], attr:'text', method:'class-pattern' });
+          return result;
+        }
+      }
+    }
+    
+    // PRIORITY 4: Structural pattern (consecutive links with separators near top)
+    // Look for nav/ol/ul elements in the upper portion of the page with 2-6 consecutive links
+    const containers = document.querySelectorAll('nav, ol, ul, div');
+    for (const container of containers) {
+      // Position filter: skip elements too far down (beyond 3000px typically not breadcrumbs)
+      const rect = container.getBoundingClientRect();
+      const scrollY = window.scrollY || window.pageYOffset;
+      const absoluteTop = rect.top + scrollY;
+      
+      if (absoluteTop > 3000) continue; // Skip elements too far down
+      
+      const links = container.querySelectorAll(':scope > a, :scope > li > a, :scope > span > a');
+      if (links.length >= 2 && links.length <= 8) {
+        const items = Array.from(links)
+          .map(link => link.textContent.trim())
+          .filter(text => text && text.length > 0 && text.length < 50);
+        
+        if (items.length >= 2) {
+          const breadcrumbText = items.join(' > ');
+          if (isValidBreadcrumb(breadcrumbText, items.length)) {
+            mark('breadcrumbs', { selectors:['structural-pattern'], attr:'text', method:'structural' });
+            return breadcrumbText;
+          }
+        }
+      }
+    }
+    
     return null;
   }
   
