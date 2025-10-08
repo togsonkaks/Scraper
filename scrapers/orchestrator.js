@@ -844,6 +844,22 @@
       }
     }
     
+    // DEMANDWARE/SFCC (AESOP, BROOKS BROTHERS, etc): Remove size constraints
+    if (/\/dw\/image\/|demandware\.static/i.test(url)) {
+      // Remove sw/sh (width/height) parameters completely for full-size images
+      upgraded = upgraded.replace(/[?&](sw|sh)=\d+/gi, '');
+      
+      // Remove other common size constraints
+      upgraded = upgraded.replace(/[?&](width|height)=\d+/gi, '');
+      
+      // Clean up orphaned & or ?
+      upgraded = upgraded.replace(/\?&/g, '?').replace(/&&+/g, '&');
+      
+      if (upgraded !== url) {
+        debug(`✨ UPGRADED Demandware CDN URL: ${url.substring(url.lastIndexOf('/') + 1)} -> ${upgraded.substring(upgraded.lastIndexOf('/') + 1)}`);
+      }
+    }
+    
     // REVOLVE: Upgrade /ct/ directory to /uv/ for higher quality images
     if (/revolveassets\.com\/images\/p4\/n\/ct\//i.test(url)) {
       // Convert /ct/ (compressed thumbnail) to /uv/ (uncompressed/high quality)
