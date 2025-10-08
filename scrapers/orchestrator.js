@@ -3417,6 +3417,11 @@
           debug('🏷️ BRAND FROM GENERIC:', brand);
         }
         
+        // Wait 500ms for accordion content to render before extracting description/specs
+        debug('⏳ Waiting 500ms for accordion content to render...');
+        await new Promise(resolve => setTimeout(resolve, 500));
+        debug('✅ Accordion render delay complete');
+        
         if (!DISABLE_MEMORY) {
           description = await fromMemory('description', mem.description);
           debug('📄 DESCRIPTION FROM MEMORY:', description);
