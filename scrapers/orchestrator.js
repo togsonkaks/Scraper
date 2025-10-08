@@ -2016,22 +2016,57 @@
           if (imgs && imgs.length > 0) {
             const urls = [];
             for (const img of imgs) {
-              // Extract URL from various attributes
-              const attrs = {
-                src: img.src,
-                'data-src': img.getAttribute('data-src'),
-                'data-image': img.getAttribute('data-image'),
-                'data-zoom-image': img.getAttribute('data-zoom-image'),
-                'data-large': img.getAttribute('data-large'),
-                srcset: img.getAttribute('srcset'),
-                'data-srcset': img.getAttribute('data-srcset')
-              };
+              // Smart attribute extraction with placeholder detection
+              let url = null;
               
-              let url = attrs.src || attrs['data-src'] || attrs['data-image'] || 
-                        attrs['data-zoom-image'] || attrs['data-large'];
+              // STEP 1: Try saved attribute first (backward compatibility)
+              const savedAttr = memEntry.attr || 'src';
+              const primaryUrl = savedAttr === 'src' ? img.src : img.getAttribute(savedAttr);
               
-              if (!url && (attrs.srcset || attrs['data-srcset'])) {
-                url = pickFromSrcset(attrs.srcset || attrs['data-srcset']);
+              // STEP 2: Check if it's a real URL (not a placeholder)
+              if (isRealImageUrl(primaryUrl)) {
+                url = primaryUrl;
+                debug(`✅ Primary attribute (${savedAttr}) has real URL`);
+              } else {
+                // STEP 3: Placeholder detected - try alternatives
+                if (primaryUrl) {
+                  debug(`⚠️ Placeholder detected in ${savedAttr}: ${primaryUrl.substring(0, 50)}...`);
+                }
+                
+                // Try alternative attributes in priority order
+                const alternatives = [
+                  { name: 'srcset', value: img.getAttribute('srcset') },
+                  { name: 'data-srcset', value: img.getAttribute('data-srcset') },
+                  { name: 'data-src', value: img.getAttribute('data-src') },
+                  { name: 'currentSrc', value: img.currentSrc },
+                  { name: 'data-image', value: img.getAttribute('data-image') },
+                  { name: 'data-zoom-image', value: img.getAttribute('data-zoom-image') },
+                  { name: 'data-large', value: img.getAttribute('data-large') }
+                ];
+                
+                for (const alt of alternatives) {
+                  if (!alt.value) continue;
+                  
+                  // Handle srcset specially (pick best quality)
+                  if (alt.name === 'srcset' || alt.name === 'data-srcset') {
+                    const srcsetUrl = pickFromSrcset(alt.value);
+                    if (isRealImageUrl(srcsetUrl)) {
+                      url = srcsetUrl;
+                      debug(`✅ Found real URL in ${alt.name}`);
+                      break;
+                    }
+                  } else {
+                    if (isRealImageUrl(alt.value)) {
+                      url = alt.value;
+                      debug(`✅ Found real URL in ${alt.name}`);
+                      break;
+                    }
+                  }
+                }
+                
+                if (!url) {
+                  debug(`❌ No real URL found in any attribute for this image`);
+                }
               }
               
               if (url) {
@@ -2105,6 +2140,21 @@
   }
 
   /* ---------- HELPER FUNCTIONS ---------- */
+  // Validate if URL is a real image (not a placeholder)
+  function isRealImageUrl(url) {
+    if (!url || typeof url !== 'string') return false;
+    
+    // Reject data URLs (base64 placeholders)
+    if (url.startsWith('data:')) return false;
+    
+    // Accept real URLs:
+    // - http:// or https://
+    // - // (protocol-relative)
+    // - www. (with or without protocol)
+    // - / (relative paths)
+    return /^(https?:)?\/\/|^www\.|^\//.test(url);
+  }
+  
   function getTextOnly(element) {
     if (!element) return "";
     // Clone element to avoid modifying original
