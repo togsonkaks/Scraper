@@ -3358,7 +3358,7 @@
         });
       }
 
-      let title=null, brand=null, description=null, price=null, breadcrumbs=null, images=null;
+      let title=null, brand=null, description=null, price=null, breadcrumbs=null, specs=null, images=null;
 
       if (mode === 'memoryOnly') {
         debug('🔒 MEMORY-ONLY MODE - using saved selectors only');
@@ -3367,6 +3367,7 @@
         description = await fromMemory('description', mem.description);
         price = await fromMemory('price', mem.price);
         breadcrumbs = await fromMemory('breadcrumbs', mem.breadcrumbs);
+        specs = await fromMemory('specs', mem.specs);
         // images = await fromMemory('images', mem.images);  // Skip memory for images
       } else {
         debug('🔄 NORMAL MODE - memory + fallbacks');
@@ -3437,7 +3438,6 @@
         }
         
         // Extract specs (new field)
-        let specs = null;
         if (!DISABLE_MEMORY) {
           specs = await fromMemory('specs', mem.specs);
           debug('📋 SPECS FROM MEMORY:', specs);
