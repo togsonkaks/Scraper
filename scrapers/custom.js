@@ -1866,7 +1866,7 @@ const REGISTRY = [
   EDGE_BY_XS,
   ACE_HARDWARE,
   ALLBIRDS,
-  AESOP,
+  // AESOP, // DISABLED - generic scraper now handles srcset width descriptors + Demandware CDN upgrades
   // BARNES_NOBLE,
   BONBONBON,
   CHEWY,
