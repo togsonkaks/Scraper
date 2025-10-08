@@ -695,25 +695,20 @@
         lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
         const imgs = Array.isArray(result?.images) ? result.images : [];
         summary.innerHTML = `
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_title" data-field="title">
-            <label for="check_title" style="flex:1;"><b>Title:</b> ${result?.title || ''}</label>
+          <div style="margin-bottom:4px;">
+            <b>Title:</b> ${result?.title || ''}
           </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_price" data-field="price">
-            <label for="check_price" style="flex:1;"><b>Price:</b> ${result?.price || ''}</label>
+          <div style="margin-bottom:4px;">
+            <b>Price:</b> ${result?.price || ''}
           </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_brand" data-field="brand">
-            <label for="check_brand" style="flex:1;"><b>Brand:</b> ${result?.brand || ''}</label>
+          <div style="margin-bottom:4px;">
+            <b>Brand:</b> ${result?.brand || ''}
           </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_url" data-field="url">
-            <label for="check_url" style="flex:1;"><b>URL:</b> ${result?.url || ''}</label>
+          <div style="margin-bottom:4px;">
+            <b>URL:</b> ${result?.url || ''}
           </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_description" data-field="description">
-            <label for="check_description" style="flex:1;"><b>Description:</b> ${(result?.description || '').slice(0,240)}</label>
+          <div style="margin-bottom:4px;">
+            <b>Description:</b> ${(result?.description || '').slice(0,240)}
           </div>
           <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
         images.innerHTML = imgs.map((u, i) => `
@@ -795,25 +790,20 @@
         }
         const imgs = Array.isArray(result?.images) ? result.images : [];
         summary.innerHTML = `
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_title" data-field="title">
-            <label for="check_title" style="flex:1;"><b>Title:</b> ${result?.title || ''}</label>
+          <div style="margin-bottom:4px;">
+            <b>Title:</b> ${result?.title || ''}
           </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_price" data-field="price">
-            <label for="check_price" style="flex:1;"><b>Price:</b> ${result?.price || ''}</label>
+          <div style="margin-bottom:4px;">
+            <b>Price:</b> ${result?.price || ''}
           </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_brand" data-field="brand">
-            <label for="check_brand" style="flex:1;"><b>Brand:</b> ${result?.brand || ''}</label>
+          <div style="margin-bottom:4px;">
+            <b>Brand:</b> ${result?.brand || ''}
           </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_url" data-field="url">
-            <label for="check_url" style="flex:1;"><b>URL:</b> ${result?.url || ''}</label>
+          <div style="margin-bottom:4px;">
+            <b>URL:</b> ${result?.url || ''}
           </div>
-          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-            <input type="checkbox" id="check_description" data-field="description">
-            <label for="check_description" style="flex:1;"><b>Description:</b> ${(result?.description || '').slice(0,240)}</label>
+          <div style="margin-bottom:4px;">
+            <b>Description:</b> ${(result?.description || '').slice(0,240)}
           </div>
           <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
         images.innerHTML = imgs.map((u, i) => `
