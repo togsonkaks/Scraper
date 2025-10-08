@@ -2626,9 +2626,17 @@
       const elements = qa(sel);
       for (const el of elements) {
         const text = extractText(el);
-        // Look for description keywords in parent or nearby elements
+        if (!text || isPromotionalFluff(text) || text.length <= 50) continue;
+        
+        // Check if element itself has description keywords
+        const elClass = el.className || '';
+        const elId = el.id || '';
+        const hasDescriptionKeyword = /description/i.test(elClass + ' ' + elId);
+        
+        // Or check if it has a parent with description keywords
         const container = el.closest('[class*="description" i], [id*="description" i]');
-        if (container && text && !isPromotionalFluff(text) && text.length > 50) {
+        
+        if (hasDescriptionKeyword || container) {
           debug(`✅ DESCRIPTION from accordion: ${sel}`);
           mark('description', { selectors:[sel], attr:'text', method:'accordion' });
           return text;
