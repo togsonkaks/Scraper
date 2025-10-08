@@ -71,6 +71,21 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Image Dimension Quality Filter (Oct 8, 2025)**: Added actual image dimension checking to filter marketing badges
+  - **Load & Measure**: Loads each image to check naturalWidth/naturalHeight before final ranking
+  - **Small Image Penalty**: -50 score penalty for images smaller than 400x400px (filters badges, icons, trust seals)
+  - **Re-sort After Penalty**: Images re-sorted by score after dimension penalties applied
+  - **Timeout Protection**: 3s timeout per image to prevent slow CDNs from blocking pipeline
+  - **Use Case**: Filters Albany Park marketing badges (shipping, warranty icons) that passed URL scoring
+- **Description Cart/Bag Filter (Oct 8, 2025)**: Rejects description elements inside shopping cart containers
+  - **Container Detection**: Checks for cart/bag/checkout/minicart ancestors using closest()
+  - **Prevents False Positives**: Stops extracting "Added to Cart" messages as product descriptions
+  - **Use Case**: Fixes Albany Park extracting cart confirmation text instead of product descriptions
+- **Marketing Badge Keyword Filter (Oct 8, 2025)**: Expanded junk image regex to catch marketing badges
+  - **New Keywords**: shipping, warranty, trial, interest_free, premium_materials, hypoallergenic
+  - **Pattern Matching**: Matches badge/icon/logo/img/image with marketing terms in URL
+  - **Early Blocking**: Caught at URL regex stage before scoring begins
+  - **Use Case**: Blocks Albany Park "Free Shipping", "100 Day Trial" badge images from extraction
 - **Universal Srcset Width Parsing (Oct 8, 2025)**: Fixed srcset extraction to select highest width images across all sites
   - **Width Descriptor Intelligence**: Now parses width descriptors (700w, 1400w) and returns the HIGHEST width URL instead of first
   - **Universal Fix**: Benefits ANY site using srcset width descriptors (Shopify, Scene7, Demandware, custom implementations)
