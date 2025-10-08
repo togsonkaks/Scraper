@@ -836,6 +836,28 @@
         // Wire up checkbox handlers
         wireCheckboxHandlers();
         
+        // Wire up clear button handlers
+        const clearButtons = document.querySelectorAll('.clear-field-btn');
+        clearButtons.forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const field = btn.dataset.field;
+            const confirmed = confirm(`Are you sure you want to delete the saved selector for "${field}"?`);
+            if (!confirmed) return;
+            
+            try {
+              const success = await window.api.deleteSelectorField(currentHost, field);
+              if (success) {
+                alert(`✅ Cleared saved selector for "${field}"`);
+              } else {
+                alert(`❌ Failed to clear selector for "${field}"`);
+              }
+            } catch (error) {
+              console.error('Error clearing selector:', error);
+              alert(`❌ Error: ${error.message}`);
+            }
+          });
+        });
+        
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
       } catch (e) {
