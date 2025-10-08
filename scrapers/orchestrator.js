@@ -2569,6 +2569,14 @@
     // Helper: Extract text from element (including hidden accordion content)
     function extractText(el) {
       if (!el) return null;
+      
+      // Reject elements inside cart/bag/checkout containers
+      const cartContainer = el.closest('[class*="cart" i], [id*="cart" i], [class*="bag" i], [id*="bag" i], [class*="checkout" i], [id*="checkout" i], [class*="minicart" i], [id*="minicart" i]');
+      if (cartContainer) {
+        debug(`🚫 REJECTED: Description element inside cart/bag/checkout container`);
+        return null;
+      }
+      
       // Get all text content, even from hidden elements (aria-expanded="false")
       const text = el.textContent.trim();
       return text || null;
