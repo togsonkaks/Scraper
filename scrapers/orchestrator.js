@@ -2137,8 +2137,23 @@
     
     // Helper: Clean and filter breadcrumb items
     function cleanBreadcrumbItems(items) {
-      // Filter junk and normalize
-      const cleaned = items
+      // STEP 1: Text splitting for concatenated strings like "BackHome/Women/Shoes"
+      const splitItems = items.flatMap(item => {
+        if (!item) return [];
+        
+        // Detect concatenated navigation terms (BackHome, HomeShop, etc.)
+        // Split "BackHome" → ["Back", "Home"], "HomeShop" → ["Home", "Shop"]
+        let processed = item.replace(/\b(Back|Return|Previous)(Home|Shop|Store)\b/gi, '$1/$2');
+        
+        // Split by common separators: /, >, |, ›, »
+        const parts = processed.split(/\s*[/>|›»]\s*/);
+        
+        // If we got multiple parts from splitting, return them; otherwise return original
+        return parts.filter(Boolean);
+      });
+      
+      // STEP 2: Normalize and filter junk
+      const cleaned = splitItems
         .map(item => {
           // Normalize separators - remove literal "/" and clean up
           let clean = item.replace(/^\/+|\/+$/g, '').trim();
@@ -2149,7 +2164,7 @@
         .filter(Boolean)
         .filter((item, index) => {
           // Remove navigation junk terms (exact match only, case insensitive)
-          const junkTerms = /^(back|return|go back|← back|‹ back|previous)$/i;
+          const junkTerms = /^(back|return|go back|← back|‹ back|previous|shop|shop all|store|all products|products|all categories|categories|main menu|menu|start|index|root|←|→|‹|›)$/i;
           if (junkTerms.test(item)) return false;
           
           // Remove "Home" only if it's exactly that word (not "Home-Goods", "Homeware", etc.)

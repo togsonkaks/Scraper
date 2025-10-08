@@ -71,6 +71,12 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Breadcrumb Text Splitting & Expanded Filtering (Oct 8, 2025)**: Enhanced breadcrumb cleaning for concatenated text and navigation junk
+  - **Text Splitting**: Automatically splits concatenated strings like "BackHome/Women/Shoes" → ["Women", "Shoes"]
+  - **Concatenation Detection**: Recognizes and splits patterns like "BackHome", "HomeShop", "ReturnStore"
+  - **Expanded Junk Filter**: Removes navigation terms (exact match): Back, Return, Previous, Home (first only), Shop, Store, All Products, Products, All Categories, Categories, Main Menu, Menu, Start, Index, Root, arrow symbols (←, →, ‹, ›)
+  - **Smart Filtering**: Only exact matches filtered - preserves "Home-Goods", "Shop Tools", "Store Locator", etc.
+  - **Multi-separator Support**: Handles /, >, |, ›, » separators with normalization
 - **Selector Memory Simplification (Oct 8, 2025)**: Streamlined selector memory system for cleaner UX and better performance
   - **Image Extraction Flow**: Priority-based extraction - saved selectors (direct, no scoring) → custom handler → generic scraper
   - **UI Cleanup**: Removed checkboxes from text fields (Title, Price, Brand, URL, Description) - now auto-saved
