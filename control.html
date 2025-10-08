@@ -800,7 +800,8 @@
             <b>Specs:</b> <span style="margin-left:8px; flex:1; white-space:pre-wrap;">${(result?.specs || '').slice(0,240)}</span>
             <button class="clear-field-btn" data-field="specs" style="margin-left:8px; padding:2px 8px; font-size:12px; cursor:pointer; border:1px solid #ddd; border-radius:3px; background:#fff;">🗑️ Clear</button>
           </div>
-          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>`;
+          <button id="saveSelectorBtn" style="margin-top:8px; padding:6px 12px; background:#4CAF50; color:white; border:none; border-radius:4px; cursor:pointer;">💾 Save Selectors (<span id="selectedCount">0</span> selected)</button>
+          <button id="clearImagesBtn" style="margin-top:8px; margin-left:8px; padding:6px 12px; background:#ff5722; color:white; border:none; border-radius:4px; cursor:pointer;">🗑️ Clear Saved Images</button>`;
         images.innerHTML = imgs.map((u, i) => `
           <div style="position:relative; display:inline-block;">
             <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
@@ -857,6 +858,27 @@
             }
           });
         });
+        
+        // Wire up Clear Saved Images button
+        const clearImagesBtn = document.getElementById('clearImagesBtn');
+        if (clearImagesBtn) {
+          clearImagesBtn.addEventListener('click', async () => {
+            const confirmed = confirm('Are you sure you want to delete all saved image selectors? This will force the scraper to use the generic image extraction on the next scrape.');
+            if (!confirmed) return;
+            
+            try {
+              const success = await window.api.deleteSelectorField(currentHost, 'images');
+              if (success) {
+                alert('✅ Cleared all saved image selectors');
+              } else {
+                alert('❌ Failed to clear image selectors');
+              }
+            } catch (error) {
+              console.error('Error clearing image selectors:', error);
+              alert(`❌ Error: ${error.message}`);
+            }
+          });
+        }
         
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
