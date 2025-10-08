@@ -3279,6 +3279,16 @@
         }
       }
 
+      // Normalize all image URLs (fix protocol-relative URLs)
+      if (Array.isArray(images)) {
+        images = images.map(url => {
+          if (url && url.startsWith('//')) {
+            return 'https:' + url;
+          }
+          return url;
+        });
+      }
+      
       // Create enriched images data with selector information
       const enrichedImages = [];
       if (Array.isArray(images)) {
