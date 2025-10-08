@@ -71,6 +71,13 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Smart Lazy-Loading Image Support (Oct 8, 2025)**: Intelligent attribute fallback for saved image selectors
+  - **Placeholder Detection**: Validates URLs to detect data:image placeholders vs real image URLs
+  - **Smart Attribute Fallback**: If saved attribute returns placeholder, automatically tries: srcset → data-srcset → data-src → currentSrc → data-image → data-zoom-image → data-large
+  - **URL Validation**: Accepts http://, https://, //, www., and / (relative paths) - rejects data: URLs
+  - **Clear Images Button**: New 🗑️ "Clear Saved Images" button to remove broken image selectors
+  - **Backward Compatible**: Still tries saved attribute first, only falls back if placeholder detected
+  - **Use Case**: Fixes Adored Vintage and other Shopify sites with lazy loading returning data:image/gif placeholders
 - **Enhanced Breadcrumb Navigation Filtering (Oct 8, 2025)**: Improved breadcrumb extraction to prevent false positives from navigation menus
   - **Vertical Navigation Detection**: Detects and rejects vertically-stacked links (footer/sidebar menus) by analyzing Y-positions
   - **Navigation Pattern Filtering**: Skips elements with footer/header/menu/sidebar class/ID patterns
