@@ -71,6 +71,13 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Selector Memory Simplification (Oct 8, 2025)**: Streamlined selector memory system for cleaner UX and better performance
+  - **Image Extraction Flow**: Priority-based extraction - saved selectors (direct, no scoring) → custom handler → generic scraper
+  - **UI Cleanup**: Removed checkboxes from text fields (Title, Price, Brand, URL, Description) - now auto-saved
+  - **Manual Curation**: Image checkboxes only - users manually select which images to save selectors for
+  - **Clear Console Messages**: Shows exact flow - "Found saved selectors" / "No saved selector" / "Falling back to..."
+  - **Auto-save Text Fields**: If text fields are successfully extracted, their selectors are automatically saved
+  - **Saved Selectors Bypass Scoring**: Saved image selectors extract directly without competing in scoring system
 - **LTWEBSTATIC/SHEIN/MUSERA Support (Oct 2025)**: Added comprehensive support for ltwebstatic CDN and SHEIN/MUSERA sites
   - Custom handler extracts from data-before-crop-src attributes (captures full uncropped URLs)
   - CDN upgrade pattern removes _thumbnail_XXXx suffixes for full-size images
