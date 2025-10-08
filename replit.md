@@ -71,6 +71,13 @@ This is a desktop Electron application called "Tagglo" that provides web scrapin
 - **20+ other major retailers** with specialized price/image/title logic
 
 ## Recent Changes
+- **Enhanced Breadcrumb Navigation Filtering (Oct 8, 2025)**: Improved breadcrumb extraction to prevent false positives from navigation menus
+  - **Vertical Navigation Detection**: Detects and rejects vertically-stacked links (footer/sidebar menus) by analyzing Y-positions
+  - **Navigation Pattern Filtering**: Skips elements with footer/header/menu/sidebar class/ID patterns
+  - **Category List Detection**: Rejects diverse category lists (New, Sale, Shop, Gifts, etc.) that look like site navigation
+  - **Position-based Scoring**: Prioritizes breadcrumbs in top 500px (score: 100) over those further down (score: 50/10)
+  - **Multi-candidate System**: Collects all potential breadcrumbs and selects the highest-scoring one
+  - **Use Case**: Fixes Adored Vintage extracting "New! > Modern > Vintage..." footer menu instead of "HOME / THOMASIN STRIPED SHORTS"
 - **Individual Field Clear Buttons (Oct 8, 2025)**: Added granular selector memory management
   - **Clear Button UI**: 🗑️ button next to each field (Description, Specs, Title, Price, Brand, Breadcrumbs)
   - **Confirmation Dialog**: Browser confirm prompt before deletion ("Are you sure you want to delete saved selector for [field]?")
