@@ -2001,8 +2001,30 @@
         debug(`🎯 TRYING SELECTOR [${field}]:`, sel);
         
         if (field === 'images') {
-          // Skip memory selector for images - it will be tried later with other selectors
-          debug('⏩ SKIPPING MEMORY for images - will try with site-specific/generic');
+          // Direct extraction for saved image selectors (no scoring)
+          const imgs = qa(sel);
+          if (imgs && imgs.length > 0) {
+            const urls = [];
+            for (const img of imgs) {
+              const url = extractImageUrl(img);
+              if (url) urls.push(upgradeCDNUrl(url));
+            }
+            if (urls.length > 0) {
+              debug(`✅ SAVED SELECTOR SUCCESS [images]: Found ${urls.length} images`);
+              mark('images', { selectors:[sel], attr:'src', method:'saved' });
+              // Simple deduplication
+              const seen = new Set();
+              const unique = [];
+              for (const url of urls) {
+                if (url && !seen.has(url)) {
+                  seen.add(url);
+                  unique.push(url);
+                }
+              }
+              return unique.slice(0,30);
+            }
+          }
+          debug(`❌ SAVED SELECTOR returned 0 images: ${sel}`);
           continue;
         } else {
           const el = q(sel); 
@@ -3044,44 +3066,54 @@
           }
         }
         
-        // images = await fromMemory('images', mem.images);  // Skip memory for images
-        debug('🖼️ IMAGES: Skipping memory in normal mode');
+        // PRIORITY 1: Try saved selectors (direct extraction, no scoring)
         images = [];
+        if (mem.images) {
+          debug('✅ Found saved selectors for images');
+          images = await fromMemory('images', mem.images);
+          if (images && images.length > 0) {
+            debug(`🎯 Extracted ${images.length} images from saved selectors`);
+          } else {
+            debug('⚠️ Saved selectors returned 0 images');
+            images = [];
+          }
+        } else {
+          debug('❌ No saved selector for images');
+        }
         
-        // ALWAYS try custom handlers (regardless of memory count)
-        {
-          debug('🖼️ IMAGES: Need more images (have ' + (images?.length || 0) + ', need 3+)');
-          const memoryImages = images || [];
-          // Try custom handlers first
+        // PRIORITY 2: If no saved images, try custom handler
+        if (images.length === 0) {
+          debug('🔧 Trying custom handler...');
           let customImages = [];
           if (typeof getCustomHandlers === 'function') {
             try {
               const ch = getCustomHandlers();
               if (ch?.images && typeof ch.images === 'function') {
-                debug('🧩 IMAGES: Trying custom handler...');
                 const customResult = await Promise.resolve(ch.images(document));
                 if (customResult && Array.isArray(customResult)) {
-                  // Apply CDN upgrades to custom handler results
                   customImages = customResult.filter(Boolean).map(url => upgradeCDNUrl(url));
                   mark('images', { selectors: ['custom'], attr: 'custom', method: 'custom-handler' });
-                  debug('🧩 CUSTOM IMAGES:', { count: customImages.length, images: customImages.slice(0, 3) });
+                  debug('✅ Custom handler found ' + customImages.length + ' images');
+                  images = customImages;
                 }
               }
             } catch (e) { 
-              debug('❌ Custom image handler error:', e.message); 
+              debug('❌ Custom handler error:', e.message); 
             }
           }
           
-          // Simplified single-path logic: combine all sources then fallback if needed
-          let allSources = memoryImages.concat(customImages);
-          
-          // If no images from custom/memory sources, get generic images
-          if (allSources.length === 0) {
-            debug('🖼️ IMAGES: No custom/memory images, getting generic images...');
+          // PRIORITY 3: If still no images, use generic scraper with scoring
+          if (images.length === 0) {
+            debug('🔍 Falling back to generic scraper...');
             const genericImages = await getImagesGeneric();
-            debug('🖼️ GENERIC IMAGES:', { count: genericImages.length, images: genericImages.slice(0, 3) });
-            allSources = genericImages; // Use generic images directly, no concat needed
+            debug('✅ Generic scraper found ' + genericImages.length + ' images');
+            images = genericImages;
           }
+        }
+        
+        // Process and dedupe all sources
+        {
+          let allSources = images;
           
           // Process and dedupe all sources
           if (allSources.length === 0) {
