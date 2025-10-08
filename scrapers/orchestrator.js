@@ -2135,6 +2135,33 @@
       return hasSeparator && validCount;
     }
     
+    // Helper: Clean and filter breadcrumb items
+    function cleanBreadcrumbItems(items) {
+      // Filter junk and normalize
+      const cleaned = items
+        .map(item => {
+          // Normalize separators - remove literal "/" and clean up
+          let clean = item.replace(/^\/+|\/+$/g, '').trim();
+          // Remove empty or very short items
+          if (clean.length === 0 || clean === '/' || clean === '|' || clean === '>') return null;
+          return clean;
+        })
+        .filter(Boolean)
+        .filter((item, index) => {
+          // Remove navigation junk terms (exact match only, case insensitive)
+          const junkTerms = /^(back|return|go back|← back|‹ back|previous)$/i;
+          if (junkTerms.test(item)) return false;
+          
+          // Remove "Home" only if it's exactly that word (not "Home-Goods", "Homeware", etc.)
+          // Only filter first item if it's exactly "Home"
+          if (index === 0 && /^home$/i.test(item)) return false;
+          
+          return true;
+        });
+      
+      return cleaned;
+    }
+    
     // Helper: Extract and format breadcrumb text from links
     function extractFromLinks(container) {
       const links = container.querySelectorAll('a, li > span, [itemprop="name"]');
@@ -2144,10 +2171,13 @@
         .map(link => link.textContent.trim())
         .filter(text => text && text.length > 0 && text.length < 50); // Reasonable item length
       
-      if (items.length < 2) return null;
-      const breadcrumbText = items.join(' > ');
+      // Clean up junk items
+      const cleanedItems = cleanBreadcrumbItems(items);
       
-      return isValidBreadcrumb(breadcrumbText, items.length) ? breadcrumbText : null;
+      if (cleanedItems.length < 2) return null;
+      const breadcrumbText = cleanedItems.join(' > ');
+      
+      return isValidBreadcrumb(breadcrumbText, cleanedItems.length) ? breadcrumbText : null;
     }
     
     // PRIORITY 1: JSON-LD BreadcrumbList (most reliable, hidden structured data)
@@ -2165,12 +2195,15 @@
             if (types.some(t => /breadcrumb/i.test(t))) {
               const items = node.itemListElement || [];
               if (Array.isArray(items) && items.length >= 2) {
-                const breadcrumbText = items
+                const rawItems = items
                   .map(item => item.name || item.item?.name || '')
-                  .filter(Boolean)
-                  .join(' > ');
+                  .filter(Boolean);
                 
-                if (breadcrumbText) {
+                // Apply same cleanup logic
+                const cleanedItems = cleanBreadcrumbItems(rawItems);
+                
+                if (cleanedItems.length >= 2) {
+                  const breadcrumbText = cleanedItems.join(' > ');
                   mark('breadcrumbs', { selectors:['script[type="application/ld+json"]'], attr:'json', method:'jsonld' });
                   return breadcrumbText;
                 }
