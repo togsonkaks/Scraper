@@ -1865,7 +1865,7 @@ const REGISTRY = [
   BANANA_FACTORY,
   EDGE_BY_XS,
   ACE_HARDWARE,
-  ALLBIRDS,
+  // ALLBIRDS, // DISABLED - generic scraper now handles Shopify sites with dimension filters, srcset parsing, and badge filtering
   // AESOP, // DISABLED - generic scraper now handles srcset width descriptors + Demandware CDN upgrades
   // BARNES_NOBLE,
   BONBONBON,
