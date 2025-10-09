@@ -1,0 +1,98 @@
+​ Database Schema for Scraped + Enriched Products
+1. products_raw
+
+This is the raw intake bucket — everything scraped goes here first. No fancy processing.
+
+CREATE TABLE products_raw (
+    raw_id SERIAL PRIMARY KEY,
+    source_url TEXT NOT NULL,
+    raw_title TEXT,
+    raw_description TEXT,
+    raw_breadcrumbs TEXT[],
+    raw_price TEXT,
+    raw_images TEXT[],
+    scraped_at TIMESTAMP DEFAULT NOW()
+);
+
+    Purpose: Preserve original source.
+
+    Why: If scraping logic changes, you can always re-process from here.
+
+2. products
+
+This is the main “live” table your app queries. It merges keyword rules + enrichment when available.
+
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    raw_id INT REFERENCES products_raw(raw_id) ON DELETE CASCADE,
+    title TEXT,
+    brand TEXT,
+    price NUMERIC(12,2),
+    category TEXT,          -- broad (Clothing, Beauty, Electronics, etc.)
+    gender TEXT,            -- Men's / Women's / Unisex / N/A
+    tags TEXT[],            -- style, features, etc.
+    specs JSONB,            -- structured specs (key:value pairs)
+    image_urls TEXT[],
+    confidence_score NUMERIC(3,2),  -- how confident processing is
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW()
+);
+
+    Purpose: Finalized product record for use in app.
+
+    Why: Keeps everything normalized and query-friendly.
+
+3. products_enriched
+
+This is where your LLM output lands. It’s separate so you can re-run, audit, or even swap models later.
+
+CREATE TABLE products_enriched (
+    enrich_id SERIAL PRIMARY KEY,
+    raw_id INT REFERENCES products_raw(raw_id) ON DELETE CASCADE,
+    normalized_category TEXT,
+    extra_tags TEXT[],
+    structured_specs JSONB,
+    llm_model_used TEXT,
+    enriched_at TIMESTAMP DEFAULT NOW()
+);
+
+    Purpose: Store AI-generated insights.
+
+    Why: Avoid mixing machine outputs with rule outputs until you merge into products.
+
+🔹 Flow in Practice
+
+    Scrape → insert into products_raw
+
+        Example: "Nike Air Zoom Pegasus 39 Men’s Running Shoes"
+
+    Rule Engine → insert/update products
+
+        Brand = Nike (keyword match)
+
+        Category = Shoes (from breadcrumb/title)
+
+        Gender = Men’s (regex on title)
+
+    LLM Batch → insert into products_enriched
+
+        LLM extracts: extra_tags = ["running", "cushioned", "road"]
+
+        structured_specs = {"material":"mesh", "midsole":"ZoomX foam"}
+
+    Merge → update products with enriched data
+
+        Tags in products = union of keyword tags + AI tags
+
+        Specs = richer JSON than rules alone
+
+🔹 Why This Is Strong
+
+    Flexibility: You can run without LLM at all, but add it later seamlessly.
+
+    Auditability: If an LLM tags something wrong, you know which model + when.
+
+    Scalability: Can re-process thousands of items in batches without touching live app data.
+
+    App-Friendly: Frontend queries products only — always clean and consistent.
+
