@@ -298,11 +298,22 @@
     <input id="urlInput" type="text" placeholder="Paste product URL" />
     <button id="visitBtn">Load</button>
     <button id="saveBtn" disabled>Save (scrape)</button>
+    <button id="saveToDbBtn" disabled style="background:#2196F3;">💾 Save to Database</button>
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
     <button id="batchAIBtn" title="Get AI suggestions for all fields at once (saves tokens)">🤖 Batch AI All</button>
     <button id="copyDiagnosticsBtn" title="Copy structured diagnostic information for troubleshooting">📋 Copy Diagnostics</button>
     <span id="aiCacheStatus" class="ai-cache-status">🤖 AI cache: Not Ready</span>
+  </div>
+  
+  <div id="tagPreview" style="display:none; margin-top:10px; padding:12px; background:#f0f7ff; border:1px solid #b3d7ff; border-radius:6px;">
+    <div style="font-weight:bold; margin-bottom:8px;">Auto-Tagged Product:</div>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; font-size:12px;">
+      <div><strong>Category:</strong> <span id="tagCategory">-</span></div>
+      <div><strong>Gender:</strong> <span id="tagGender">-</span></div>
+      <div><strong>Confidence:</strong> <span id="tagConfidence">-</span></div>
+    </div>
+    <div style="margin-top:8px;"><strong>Tags:</strong> <div id="tagList" style="margin-top:4px;"></div></div>
   </div>
 
   <div id="status"></div>
@@ -882,9 +893,56 @@
         
         panel.style.display = 'grid';
         statusEl.innerHTML = `<span class="pill">Done</span>`;
+        
+        document.getElementById('saveToDbBtn').disabled = false;
       } catch (e) {
         out.textContent = 'Error: ' + (e?.message || String(e));
         statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
+      }
+    };
+
+    // Save to Database with Auto-Tagging
+    const saveToDbBtn = document.getElementById('saveToDbBtn');
+    let currentTagResults = null;
+    
+    saveToDbBtn.onclick = async () => {
+      if (!lastPayload) {
+        alert('⚠️ Please scrape a product first');
+        return;
+      }
+      
+      try {
+        saveToDbBtn.disabled = true;
+        saveToDbBtn.textContent = '🔄 Tagging & Saving...';
+        
+        const tagResults = await window.api.autoTagProduct(lastPayload);
+        currentTagResults = tagResults;
+        
+        document.getElementById('tagCategory').textContent = tagResults.primaryCategory || 'None';
+        document.getElementById('tagGender').textContent = tagResults.gender || 'None';
+        document.getElementById('tagConfidence').textContent = `${(tagResults.confidenceScore * 100).toFixed(0)}% ${tagResults.needsLLMEnrichment ? '⚠️ Low' : '✅ High'}`;
+        
+        const tagListEl = document.getElementById('tagList');
+        tagListEl.innerHTML = tagResults.tags.map(t => 
+          `<span class="pill" style="background:#e3f2fd; color:#1976d2;">${t.name}</span>`
+        ).join('');
+        
+        document.getElementById('tagPreview').style.display = 'block';
+        
+        const saveResult = await window.api.saveToDatabase(lastPayload, tagResults);
+        
+        if (saveResult.success) {
+          alert(`✅ Product saved successfully!\n\nProduct ID: ${saveResult.productId}\nConfidence: ${(tagResults.confidenceScore * 100).toFixed(0)}%\n${saveResult.needsEnrichment ? '\n⚠️ Low confidence - consider LLM enrichment' : ''}`);
+        } else {
+          alert('❌ Failed to save product to database');
+        }
+        
+      } catch (error) {
+        console.error('Error saving to database:', error);
+        alert(`❌ Error: ${error.message}`);
+      } finally {
+        saveToDbBtn.disabled = false;
+        saveToDbBtn.textContent = '💾 Save to Database';
       }
     };
 
