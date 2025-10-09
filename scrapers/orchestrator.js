@@ -1955,6 +1955,11 @@
         if (v) mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
         return v;
       }
+      if (field === 'sku') {
+        const v = prod.sku || prod.productID || prod.gtin13 || prod.mpn || null;
+        if (v) mark('sku', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
+        return v;
+      }
       if (field === 'images') {
         const arr = ldPickImages(prod);
         if (arr.length) {

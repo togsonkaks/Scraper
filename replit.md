@@ -54,6 +54,11 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **Cost Strategy**: Keyword matching (free, 70-80% coverage) + LLM batch processing for low-confidence products (~$0.0001/product with GPT-4o-mini)
 
 ## Recent Changes
+- **SKU Memory Fix (Oct 9, 2025)**: Fixed JSON-LD SKU extraction from saved selectors
+  - **Issue**: Memory system saved JSON-LD selector but couldn't retrieve SKU value, always fell back to generic
+  - **Root Cause**: `fromMemory()` had hardcoded cases for price/brand/description but missing SKU case
+  - **Solution**: Added SKU case to JSON-LD extraction logic with priority: `sku → productID → gtin13 → mpn`
+  - **Result**: Saved JSON-LD SKU selectors now work correctly on subsequent page visits
 - **SKU Extraction System (Oct 9, 2025)**: Comprehensive SKU extraction with multi-strategy approach
   - **Priority Extraction**: JSON-LD (sku/productID/gtin13/mpn) → meta tags → DOM attributes → URL parsing
   - **Brand-Aware Validation**: Cross-validates SKU with product brand to avoid recommendation carousel SKUs
