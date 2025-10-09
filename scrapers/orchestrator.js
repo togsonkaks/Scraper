@@ -2565,6 +2565,121 @@
     
     return null;
   }
+  
+  function getSKU() {
+    // PRIORITY 1: JSON-LD structured data (most reliable)
+    try {
+      const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
+      for (const script of jsonLdScripts) {
+        try {
+          const data = JSON.parse(script.textContent.trim());
+          const arr = Array.isArray(data) ? data : [data];
+          
+          for (const node of arr) {
+            const types = [].concat(node?.["@type"]||[]).map(String);
+            if (types.some(t => /product/i.test(t))) {
+              // Check for multiple SKU field names
+              const sku = node.sku || node.productID || node.gtin13 || node.mpn || node.itemID;
+              if (sku && typeof sku === 'string' && sku.trim()) {
+                mark('sku', { selectors:['script[type="application/ld+json"]'], attr:'json', method:'jsonld' });
+                return sku.trim();
+              }
+            }
+          }
+        } catch {}
+      }
+    } catch {}
+    
+    // PRIORITY 2: Meta tags & Microdata
+    const metaSelectors = [
+      'meta[itemprop="sku"]',
+      'meta[itemprop="productID"]',
+      'meta[property="product:sku"]',
+      'meta[name="sku"]',
+      '[itemprop="sku"]',
+      '[itemprop="productID"]'
+    ];
+    
+    for (const sel of metaSelectors) {
+      const el = q(sel);
+      if (el) {
+        const sku = el.getAttribute('content') || el.textContent.trim();
+        if (sku && sku.length > 0) {
+          mark('sku', { selectors:[sel], attr: el.hasAttribute('content') ? 'content' : 'text', method:'meta' });
+          return sku;
+        }
+      }
+    }
+    
+    // PRIORITY 3: DOM data attributes (narrow to product container)
+    const productContainer = q('.product, .product-detail, #product, [data-product-id], .product-info, .product-main') || document.body;
+    
+    const dataSelectors = [
+      '[data-sku]',
+      '[data-product-id]',
+      '[data-itemid]',
+      '[data-pid]',
+      '[data-product-sku]',
+      'input[name="sku"]',
+      'input[name="productId"]',
+      'input[type="hidden"][name*="sku" i]',
+      'input[type="hidden"][name*="product" i][name*="id" i]'
+    ];
+    
+    for (const sel of dataSelectors) {
+      const el = productContainer.querySelector(sel);
+      if (el) {
+        const sku = el.getAttribute('data-sku') || 
+                    el.getAttribute('data-product-id') || 
+                    el.getAttribute('data-itemid') || 
+                    el.getAttribute('data-pid') || 
+                    el.getAttribute('data-product-sku') ||
+                    el.value;
+        if (sku && sku.trim() && sku.length > 0 && sku.length < 100) {
+          mark('sku', { selectors:[sel], attr:'data', method:'dom-attr' });
+          return sku.trim();
+        }
+      }
+    }
+    
+    // PRIORITY 4: Text pattern matching (SKU:, Item #, Model #, etc.)
+    const textContainers = productContainer.querySelectorAll('.product-details, .product-info, .sku, .item-number, .model-number, [class*="sku" i]');
+    const skuPatterns = [
+      /(?:SKU|Item\s*#?|Product\s*Code|Article\s*#?|Model\s*#?|UPC|MPN)[\s:]+([A-Z0-9-]{3,30})/i,
+      /(?:Style\s*#?)[\s:]+([A-Z0-9-]{3,20})/i
+    ];
+    
+    for (const container of textContainers) {
+      const text = container.textContent.trim();
+      for (const pattern of skuPatterns) {
+        const match = text.match(pattern);
+        if (match && match[1]) {
+          mark('sku', { selectors:['.product-info'], attr:'text', method:'pattern' });
+          return match[1].trim();
+        }
+      }
+    }
+    
+    // PRIORITY 5: URL-based extraction (product URLs often have SKU)
+    const urlPatterns = [
+      /\/product\/([A-Z0-9-]+)/i,
+      /\/item\/([A-Z0-9-]+)/i,
+      /\/p\/([A-Z0-9-]+)/i,
+      /[?&]sku=([A-Z0-9-]+)/i,
+      /[?&]pid=([A-Z0-9-]+)/i
+    ];
+    
+    for (const pattern of urlPatterns) {
+      const match = location.href.match(pattern);
+      if (match && match[1] && match[1].length >= 3) {
+        mark('sku', { selectors:['url'], attr:'text', method:'url' });
+        return match[1];
+      }
+    }
+    
+    return null;
+  }
+  
   function getDescription() {
     // Helper: Filter out promotional fluff
     function isPromotionalFluff(text) {
@@ -3552,7 +3667,7 @@
         });
       }
 
-      let title=null, brand=null, description=null, price=null, breadcrumbs=null, specs=null, images=null;
+      let title=null, brand=null, description=null, price=null, breadcrumbs=null, specs=null, sku=null, images=null;
 
       if (mode === 'memoryOnly') {
         debug('🔒 MEMORY-ONLY MODE - using saved selectors only');
@@ -3645,6 +3760,17 @@
           debug('📋 SPECS: Falling back to generic...');
           specs = getSpecs();
           debug('📋 SPECS FROM GENERIC:', specs);
+        }
+        
+        // Extract SKU (new field)
+        if (!DISABLE_MEMORY) {
+          sku = await fromMemory('sku', mem.sku);
+          debug('🔢 SKU FROM MEMORY:', sku);
+        }
+        if (!sku) {
+          debug('🔢 SKU: Falling back to generic...');
+          sku = getSKU();
+          debug('🔢 SKU FROM GENERIC:', sku);
         }
         
         if (!DISABLE_MEMORY) {
@@ -3920,6 +4046,7 @@
         brand, 
         description, 
         specs,
+        sku,
         breadcrumbs,
         price, 
         url: location.href, 
