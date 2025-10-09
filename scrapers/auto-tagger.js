@@ -44,10 +44,25 @@ function calculateConfidence(results) {
 }
 
 function autoTag(productData) {
+  // Normalize breadcrumbs to handle both string and array formats
+  let breadcrumbsText = '';
+  let breadcrumbsArray = [];
+  
+  if (productData.breadcrumbs) {
+    if (Array.isArray(productData.breadcrumbs)) {
+      breadcrumbsArray = productData.breadcrumbs;
+      breadcrumbsText = productData.breadcrumbs.join(' ');
+    } else if (typeof productData.breadcrumbs === 'string') {
+      breadcrumbsText = productData.breadcrumbs;
+      // Try to split string breadcrumbs by common separators
+      breadcrumbsArray = productData.breadcrumbs.split(/\s*[/>|›»]\s*/).filter(Boolean);
+    }
+  }
+  
   const searchText = [
     productData.title || '',
     productData.description || '',
-    productData.breadcrumbs ? productData.breadcrumbs.join(' ') : '',
+    breadcrumbsText,
     productData.brand || '',
     productData.tags || '',
     productData.specs || ''
@@ -66,9 +81,9 @@ function autoTag(productData) {
   let primaryCategory = null;
   let categoryHierarchy = [];
   
-  if (productData.breadcrumbs && productData.breadcrumbs.length > 0) {
-    const filteredBreadcrumbs = productData.breadcrumbs.filter((crumb, idx) => {
-      const isLastCrumb = idx === productData.breadcrumbs.length - 1;
+  if (breadcrumbsArray.length > 0) {
+    const filteredBreadcrumbs = breadcrumbsArray.filter((crumb, idx) => {
+      const isLastCrumb = idx === breadcrumbsArray.length - 1;
       const matchesTitle = productData.title && 
         normalizeText(crumb) === normalizeText(productData.title);
       return !(isLastCrumb && matchesTitle);
