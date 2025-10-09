@@ -2219,6 +2219,10 @@
         // Split "BackHome" → ["Back", "Home"], "HomeShop" → ["Home", "Shop"]
         let processed = item.replace(/\b(Back|Return|Previous)(Home|Shop|Store)\b/gi, '$1/$2');
         
+        // Smart split for concatenated words using capital letters (HomeTool → Home/Tool)
+        // Match: uppercase letter followed by lowercase, then another uppercase (camelCase/PascalCase)
+        processed = processed.replace(/([a-z])([A-Z])/g, '$1/$2');
+        
         // Split by common separators: /, >, |, ›, »
         const parts = processed.split(/\s*[/>|›»]\s*/);
         
@@ -2266,7 +2270,8 @@
       if (cleanedItems.length < 2) return null;
       const breadcrumbText = cleanedItems.join(' > ');
       
-      return isValidBreadcrumb(breadcrumbText, cleanedItems.length) ? breadcrumbText : null;
+      // Return array instead of string for better tag matching
+      return isValidBreadcrumb(breadcrumbText, cleanedItems.length) ? cleanedItems : null;
     }
     
     // PRIORITY 1: JSON-LD BreadcrumbList (most reliable, hidden structured data)
@@ -2292,9 +2297,9 @@
                 const cleanedItems = cleanBreadcrumbItems(rawItems);
                 
                 if (cleanedItems.length >= 2) {
-                  const breadcrumbText = cleanedItems.join(' > ');
                   mark('breadcrumbs', { selectors:['script[type="application/ld+json"]'], attr:'json', method:'jsonld' });
-                  return breadcrumbText;
+                  // Return array instead of string for better tag matching
+                  return cleanedItems;
                 }
               }
             }
@@ -2402,6 +2407,7 @@
             if (isValidBreadcrumb(breadcrumbText, cleanedItems.length)) {
               // Store candidate with priority based on position
               candidates.push({
+                items: cleanedItems, // Store array, not string
                 text: breadcrumbText,
                 position: absoluteTop,
                 score: absoluteTop < 500 ? 100 : (absoluteTop < 1000 ? 50 : 10)
@@ -2416,7 +2422,8 @@
     if (candidates.length > 0) {
       candidates.sort((a, b) => b.score - a.score || a.position - b.position);
       mark('breadcrumbs', { selectors:['structural-pattern'], attr:'text', method:'structural' });
-      return candidates[0].text;
+      // Return array instead of string for better tag matching
+      return candidates[0].items;
     }
     
     return null;
