@@ -32,6 +32,27 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **Third-party CDNs**: Integrated with specific upgrade patterns and handlers for: Shopify, Scene7 (Urban Outfitters, American Eagle Outfitters), Mozu (BBQ Guys/Shocho), Etsy, IKEA, Alibaba Cloud (Temu), LTWEBSTATIC (SHEIN/MUSERA), Swarovski, Cloudinary, Imgix, ImageKit, Fastly.
 - **Gtk3, gsettings-desktop-schemas, glib, dconf**: System dependencies for Electron to run in NixOS.
 
+## Auto-Tagging & Database Architecture (Oct 9, 2025)
+- **Database Schema**: 7-table PostgreSQL architecture with Drizzle ORM
+  - `products_raw` - Archive of original scraped data
+  - `products` - Main queryable product table with auto-tags
+  - `products_enriched` - LLM-enhanced metadata (optional)
+  - `categories` - Hierarchical taxonomy (30 seed categories)
+  - `tags` - Flat cross-cutting labels with type classification
+  - `product_tags` & `product_categories` - Junction tables
+- **Keyword Dictionary**: 400+ keywords organized by gender, materials, colors, styles, features, occasions, categories
+- **Auto-Tagger Engine** (`scrapers/auto-tagger.js`):
+  - Priority matching: breadcrumbs → keyword detection → confidence scoring
+  - Skips last breadcrumb if matches title (avoids product-specific names)
+  - Confidence calculation: gender (15%) + category (30%) + materials (10%) + styles (15%) + features (15%) + colors (10%) + occasions (5%)
+  - Flags products <70% confidence for LLM enrichment
+- **Database Operations** (`server/storage.js`):
+  - 3-stage save pipeline: raw → keyword-tagged → (optional LLM-enriched)
+  - Auto-creates tags/categories with slug normalization
+  - Junction table population for many-to-many relationships
+- **UI Integration**: "Save to Database" button with real-time tag preview showing category, gender, confidence, and extracted tags
+- **Cost Strategy**: Keyword matching (free, 70-80% coverage) + LLM batch processing for low-confidence products (~$0.0001/product with GPT-4o-mini)
+
 ## Recent Changes
 - **Allbirds Handler Re-enabled (Oct 9, 2025)**: Re-enabled Allbirds custom handler after generic scraper failed
   - **Issue**: Generic scraper could not reach images in Swiper carousel structure (.swiper-slide > .slide-content > img)
