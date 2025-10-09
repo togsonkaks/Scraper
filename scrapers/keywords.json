@@ -1,0 +1,130 @@
+{
+  "gender": {
+    "men": ["men", "men's", "mens", "male", "guys", "gentleman", "gents"],
+    "women": ["women", "women's", "womens", "female", "ladies", "girls", "gal"],
+    "kids": ["kids", "children", "boys", "girls", "youth", "junior"],
+    "baby": ["baby", "infant", "toddler", "newborn"],
+    "unisex": ["unisex", "all-gender", "everyone", "neutral", "universal"]
+  },
+  
+  "categories": {
+    "shoes": ["shoes", "shoe", "sneaker", "sneakers", "boot", "boots", "heel", "heels", "sandal", "sandals", "trainer", "trainers", "loafer", "loafers", "slipper", "slippers", "footwear"],
+    "tops": ["shirt", "shirts", "t-shirt", "tshirt", "tee", "blouse", "blouses", "polo", "tank", "top", "tops"],
+    "bottoms": ["pants", "pant", "trousers", "jeans", "jean", "shorts", "short", "leggings", "legging", "joggers"],
+    "dresses": ["dress", "dresses", "gown", "gowns", "maxi", "midi", "mini dress"],
+    "outerwear": ["jacket", "jackets", "coat", "coats", "blazer", "blazers", "parka", "parkas", "hoodie", "hoodies", "cardigan", "sweater"],
+    "activewear": ["sportswear", "athletic", "gym", "workout", "activewear", "athleisure", "performance"],
+    "bags": ["bag", "bags", "backpack", "backpacks", "handbag", "handbags", "tote", "totes", "clutch", "purse", "satchel"],
+    "jewelry": ["ring", "rings", "necklace", "necklaces", "bracelet", "bracelets", "earring", "earrings", "pendant"],
+    "accessories": ["belt", "belts", "scarf", "scarves", "hat", "hats", "cap", "caps", "sunglasses", "watch", "watches", "wallet", "wallets", "glove", "gloves"],
+    
+    "furniture": ["sofa", "sofas", "couch", "bed", "beds", "table", "tables", "chair", "chairs", "desk", "desks", "dresser", "cabinet"],
+    "kitchen": ["cookware", "pot", "pots", "pan", "pans", "utensils", "knife", "knives", "plate", "plates", "bowl", "bowls", "cup", "cups"],
+    "appliances": ["microwave", "fridge", "refrigerator", "oven", "dishwasher", "coffee maker", "toaster", "blender", "mixer"],
+    "bedding": ["pillow", "pillows", "mattress", "duvet", "sheet", "sheets", "comforter", "blanket", "blankets"],
+    "decor": ["lamp", "lamps", "rug", "rugs", "curtain", "curtains", "art", "artwork", "mirror", "mirrors", "frame", "frames", "vase"],
+    "storage": ["box", "boxes", "organizer", "shelf", "shelves", "basket", "baskets", "bin", "bins"],
+    
+    "phones": ["phone", "smartphone", "iphone", "android", "mobile", "cell phone"],
+    "laptops": ["laptop", "laptops", "notebook", "macbook", "chromebook", "ultrabook"],
+    "tablets": ["tablet", "tablets", "ipad", "kindle", "e-reader"],
+    "tvs": ["tv", "television", "oled", "lcd", "qled", "smart tv"],
+    "audio": ["headphones", "headphone", "earbuds", "earbud", "speaker", "speakers", "soundbar", "airpods"],
+    "gaming": ["console", "gaming console", "xbox", "playstation", "ps5", "switch", "controller", "gamepad"],
+    "wearables": ["smartwatch", "smart watch", "fitbit", "apple watch", "fitness tracker"],
+    "cameras": ["camera", "cameras", "dslr", "mirrorless", "lens", "lenses", "gopro"],
+    
+    "makeup": ["lipstick", "foundation", "mascara", "eyeliner", "eyeshadow", "blush", "concealer", "bronzer"],
+    "skincare": ["serum", "serums", "moisturizer", "cleanser", "toner", "mask", "face mask", "cream", "lotion"],
+    "haircare": ["shampoo", "conditioner", "hair oil", "styling gel", "hair spray", "hair mask"],
+    "fragrance": ["perfume", "cologne", "eau de toilette", "fragrance", "scent"],
+    "grooming": ["razor", "razors", "trimmer", "shaving cream", "aftershave"],
+    
+    "snacks": ["chips", "nuts", "cookies", "cookie", "candy", "chocolate", "popcorn", "crackers"],
+    "drinks": ["soda", "juice", "coffee", "tea", "water", "energy drink", "smoothie"],
+    "alcohol": ["wine", "beer", "whiskey", "vodka", "rum", "gin", "tequila", "bourbon"],
+    "pantry": ["rice", "pasta", "flour", "sugar", "spices", "sauce", "oil"],
+    
+    "fitness": ["dumbbell", "weights", "yoga mat", "resistance band", "treadmill", "exercise equipment"],
+    "outdoor": ["tent", "sleeping bag", "backpack", "hiking", "camping", "fishing"],
+    "cycling": ["bike", "bicycle", "cycling", "helmet", "cycle"],
+    "running": ["running", "runner", "jogging", "marathon"],
+    
+    "toys": ["toy", "toys", "doll", "dolls", "action figure", "lego", "puzzle", "game"],
+    "baby_essentials": ["diaper", "diapers", "bottle", "stroller", "car seat", "crib"]
+  },
+  
+  "materials": {
+    "leather": ["leather", "genuine leather", "vegan leather", "faux leather", "pleather"],
+    "cotton": ["cotton", "organic cotton", "100% cotton"],
+    "wool": ["wool", "merino wool", "cashmere"],
+    "silk": ["silk", "pure silk"],
+    "denim": ["denim", "jean"],
+    "polyester": ["polyester", "poly"],
+    "linen": ["linen", "flax"],
+    "metal": ["metal", "stainless steel", "aluminum", "brass", "silver", "gold"],
+    "wood": ["wood", "wooden", "oak", "pine", "teak", "bamboo"],
+    "plastic": ["plastic", "polymer"],
+    "glass": ["glass", "crystal"],
+    "ceramic": ["ceramic", "porcelain"],
+    "rubber": ["rubber", "silicone"]
+  },
+  
+  "styles": {
+    "casual": ["casual", "everyday", "relaxed"],
+    "formal": ["formal", "dress", "professional", "business"],
+    "vintage": ["vintage", "retro", "classic"],
+    "luxury": ["luxury", "premium", "high-end", "designer"],
+    "minimal": ["minimal", "minimalist", "simple", "clean"],
+    "sporty": ["sporty", "athletic", "sport"],
+    "streetwear": ["streetwear", "urban", "street style"],
+    "boho": ["boho", "bohemian", "hippie"],
+    "modern": ["modern", "contemporary"],
+    "athleisure": ["athleisure", "activewear"]
+  },
+  
+  "features": {
+    "waterproof": ["waterproof", "water-resistant", "weatherproof"],
+    "wireless": ["wireless", "bluetooth", "cordless"],
+    "vegan": ["vegan", "cruelty-free", "plant-based"],
+    "organic": ["organic", "natural", "eco-friendly"],
+    "rechargeable": ["rechargeable", "usb charging"],
+    "foldable": ["foldable", "collapsible", "folding"],
+    "portable": ["portable", "travel-size", "compact"],
+    "smart": ["smart", "wifi", "app-controlled"],
+    "ergonomic": ["ergonomic", "comfortable"],
+    "breathable": ["breathable", "ventilated", "mesh"],
+    "oversized": ["oversized", "loose fit"],
+    "slim_fit": ["slim fit", "fitted", "tailored"],
+    "sustainable": ["sustainable", "recycled", "eco"],
+    "limited_edition": ["limited edition", "exclusive", "rare"],
+    "bestseller": ["bestseller", "best seller", "top rated", "popular"],
+    "trending": ["trending", "new arrival", "latest"]
+  },
+  
+  "colors": {
+    "black": ["black", "noir"],
+    "white": ["white", "ivory", "cream", "off-white"],
+    "red": ["red", "crimson", "burgundy", "maroon"],
+    "blue": ["blue", "navy", "royal blue", "sky blue"],
+    "green": ["green", "olive", "forest green", "lime"],
+    "yellow": ["yellow", "gold", "mustard"],
+    "pink": ["pink", "rose", "blush"],
+    "grey": ["grey", "gray", "charcoal", "slate"],
+    "brown": ["brown", "tan", "beige", "camel", "khaki"],
+    "orange": ["orange", "rust", "terracotta"],
+    "purple": ["purple", "violet", "lavender"],
+    "metallic": ["metallic", "silver", "gold", "bronze"]
+  },
+  
+  "occasions": {
+    "casual": ["casual", "everyday"],
+    "formal": ["formal", "wedding", "black tie", "ceremony"],
+    "party": ["party", "club", "nightout"],
+    "work": ["work", "office", "professional", "business"],
+    "travel": ["travel", "vacation", "trip"],
+    "outdoor": ["outdoor", "hiking", "camping"],
+    "school": ["school", "college", "campus"],
+    "sport": ["sport", "gym", "workout", "running", "training"]
+  }
+}
