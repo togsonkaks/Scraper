@@ -8,7 +8,7 @@ async function saveProduct(productData, tagResults) {
     const rawResult = await sql`
       INSERT INTO products_raw (
         source_url, raw_title, raw_description, raw_breadcrumbs, 
-        raw_price, raw_brand, raw_specs, raw_tags, raw_images
+        raw_price, raw_brand, raw_specs, raw_sku, raw_tags, raw_images
       ) VALUES (
         ${productData.url || ''},
         ${productData.title || null},
@@ -17,6 +17,7 @@ async function saveProduct(productData, tagResults) {
         ${productData.price || null},
         ${productData.brand || null},
         ${productData.specs || null},
+        ${productData.sku || null},
         ${productData.tags || null},
         ${productData.images || []}
       )
@@ -29,13 +30,14 @@ async function saveProduct(productData, tagResults) {
     
     const productResult = await sql`
       INSERT INTO products (
-        raw_id, title, brand, price, category, gender, 
+        raw_id, title, brand, price, sku, category, gender, 
         tags, specs, image_urls, confidence_score
       ) VALUES (
         ${rawId},
         ${productData.title || null},
         ${productData.brand || null},
         ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
+        ${productData.sku || null},
         ${tagResults.primaryCategory || null},
         ${tagResults.gender || null},
         ${tagNames},
