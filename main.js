@@ -871,3 +871,47 @@ ipcMain.handle('memory-get-all', async () => {
     return {};
   }
 });
+
+// Auto-tagging handler
+ipcMain.handle('auto-tag-product', async (_e, productData) => {
+  try {
+    const { autoTag } = require(path.join(__dirname, 'scrapers', 'auto-tagger'));
+    return autoTag(productData);
+  } catch (e) {
+    console.error('Error auto-tagging product:', e);
+    throw e;
+  }
+});
+
+// Database save handler
+ipcMain.handle('save-to-database', async (_e, productData, tagResults) => {
+  try {
+    const { saveProduct } = require(path.join(__dirname, 'server', 'storage'));
+    return await saveProduct(productData, tagResults);
+  } catch (e) {
+    console.error('Error saving to database:', e);
+    throw e;
+  }
+});
+
+// Database query handler
+ipcMain.handle('get-products', async (_e, filters) => {
+  try {
+    const { getProducts } = require(path.join(__dirname, 'server', 'storage'));
+    return await getProducts(filters);
+  } catch (e) {
+    console.error('Error getting products:', e);
+    throw e;
+  }
+});
+
+// Database stats handler
+ipcMain.handle('get-product-stats', async (_e) => {
+  try {
+    const { getProductStats } = require(path.join(__dirname, 'server', 'storage'));
+    return await getProductStats();
+  } catch (e) {
+    console.error('Error getting stats:', e);
+    throw e;
+  }
+});

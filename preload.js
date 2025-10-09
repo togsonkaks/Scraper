@@ -70,7 +70,13 @@ contextBridge.exposeInMainWorld('api', {
   // ---- Debug logging
   debugSaveLogs: (query) => call('debug-save-logs', { query }),
   debugQueryLogs: (query) => call('debug-query-logs', { query }),
-  saveDebugFile: (filename, content) => call('save-debug-file', { filename, content })
+  saveDebugFile: (filename, content) => call('save-debug-file', { filename, content }),
+
+  // ---- Auto-tagging and Database
+  autoTagProduct: (productData) => call('auto-tag-product', productData),
+  saveToDatabase: (productData, tagResults) => call('save-to-database', productData, tagResults),
+  getProducts: (filters) => call('get-products', filters),
+  getProductStats: () => call('get-product-stats')
 });
 
 // Right-click context menu with Inspect Element option
