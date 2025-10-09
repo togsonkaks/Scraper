@@ -1,167 +1,33 @@
 # Tagglo Electron App
 
-## Project Overview
-This is a desktop Electron application called "Tagglo" that provides web scraping capabilities for e-commerce product data. The app creates two Electron windows:
-
-1. **Control Window** - Main interface for managing scraping operations
-2. **Product Window** - Browser window for viewing target websites
-
-## Project Architecture
-- **Main Process**: `main.js` - Handles window management, IPC, and selector memory persistence  
-- **Control Interface**: `control.html` - User interface for scraping controls and results
-- **Preload Script**: `preload.js` - Secure IPC bridge between renderer and main process
-- **Scrapers Directory**: Contains specialized scrapers for different data types:
-  - `orchestrator.js` - Main scraping coordinator
-  - `title.js`, `price.js`, `images.js` - Field-specific scrapers
-  - `specs_tags.js` - Product specifications and tags
-  - `custom.js` - Site-specific custom handlers
-  - `utils.js` - Utility functions
-
-## Key Features
-- **Selector Memory**: Persistent storage of CSS selectors per domain
-- **Multi-field Scraping**: Extracts title, price, images, specs, tags, brand, description
-- **History Tracking**: Maintains change history for selector configurations
-- **Pinterest-style Flow**: Optimized for product detail page scraping
-- **Custom Handlers**: Site-specific scraping logic
-
-## Development Setup
-- Node.js with Electron framework
-- Configured for Replit environment with virtual display (Xvfb)
-- Uses VNC output for desktop app display
-- Graphics acceleration disabled for compatibility
-
-## Startup Configuration
-- Custom startup script: `start-electron.sh`
-- Runs with virtual display on :99
-- Electron flags: `--no-sandbox --disable-dev-shm-usage --disable-gpu`
-
-## Critical System Architecture
-⚠️ **PROTECTION NOTICE**: These systems are CRITICAL - any modifications must preserve core functionality
-
-### Core Scraping Systems (orchestrator.js)
-1. **Price Detection** - Multi-strategy extraction with 20+ custom handlers and refinement algorithms
-2. **Title & Brand Extraction** - JSON-LD, meta tags, breadcrumbs, URL patterns, title analysis
-3. **Image Discovery** - Site-specific selectors + generic fallbacks for 20+ major e-commerce sites
-4. **Image Scoring** - Sophisticated algorithm: size detection, quality bonuses, semantic penalties
-5. **Custom Handlers** - Specialized logic for Amazon, Nike, Adidas, Home Depot, AliExpress, etc.
-6. **Selector Memory** - File-based persistence with history tracking and automatic migration
-7. **Filtering Systems** - Multi-stage junk detection, Shopify intelligence, quality thresholds
-8. **Deduplication** - Canonical URL grouping with score-based selection
-
-### CDN Upgrade Patterns (CRITICAL - DO NOT REMOVE)
-- **Shopify**: _640x → _1020x dimension upgrades
-- **Urban Outfitters**: Scene7 $redesign-zoom-5x$ template upgrades  
-- **BBQ Guys/Shocho**: Remove resize parameters for full-size
-- **Mozu**: ?max=100 → ?quality=60 conversions (RECENTLY RESTORED)
-- **American Eagle Outfitters**: Scene7 $pdp-mdg-opt$ → $pdp-md-opt$ quality upgrades (md is better quality)
-- **Etsy**: il_300x300 → il_1200x1200 dimension upgrades for high-quality product images
-- **IKEA**: ?f=u/xxl → ?f=xxxl upgrades for highest quality available
-- **Temu**: Alibaba Cloud imageView2 w/180 → w/1200, q/70 → q/90 quality boosts
-- **Swarovski**: $size_360 → $size_2000, w_95 → w_2000 dimension upgrades
-- **LTWEBSTATIC (SHEIN/MUSERA)**: Remove _thumbnail_XXXx suffixes for full-size images (preserves extension)
-
-### Custom Handler Registry (custom.js)
-- **Amazon (AMZ)**: Quality scoring, hi-res attributes, a-state JSON parsing
-- **Nike**: t_PDP_1728_v1 high-res template conversions
-- **Adidas**: [data-testid*="image"] targeting, w_600→w_1200 upgrades
-- **Home Depot**: Thumbnail upgrades (_100→_1000), spin profile upgrades
-- **AliExpress**: Multi-strategy title extraction, sophisticated filtering
-- **Etsy**: Container-targeted main product gallery (eliminates cross-sell noise)
-- **LTWEBSTATIC (SHEIN/MUSERA)**: Extracts from data-before-crop-src attributes, filters out cross-sell products
-- **20+ other major retailers** with specialized price/image/title logic
-
-## Recent Changes
-- **Image Dimension Quality Filter (Oct 8, 2025)**: Added actual image dimension checking to filter marketing badges
-  - **Load & Measure**: Loads each image to check naturalWidth/naturalHeight before final ranking
-  - **Small Image Penalty**: -50 score penalty for images smaller than 400x400px (filters badges, icons, trust seals)
-  - **Re-sort After Penalty**: Images re-sorted by score after dimension penalties applied
-  - **Timeout Protection**: 3s timeout per image to prevent slow CDNs from blocking pipeline
-  - **Use Case**: Filters Albany Park marketing badges (shipping, warranty icons) that passed URL scoring
-- **Description Cart/Bag Filter (Oct 8, 2025)**: Rejects description elements inside shopping cart containers
-  - **Container Detection**: Checks for cart/bag/checkout/minicart ancestors using closest()
-  - **Prevents False Positives**: Stops extracting "Added to Cart" messages as product descriptions
-  - **Use Case**: Fixes Albany Park extracting cart confirmation text instead of product descriptions
-- **Marketing Badge Keyword Filter (Oct 8, 2025)**: Expanded junk image regex to catch marketing badges
-  - **New Keywords**: shipping, warranty, trial, interest_free, premium_materials, hypoallergenic
-  - **Pattern Matching**: Matches badge/icon/logo/img/image with marketing terms in URL
-  - **Early Blocking**: Caught at URL regex stage before scoring begins
-  - **Use Case**: Blocks Albany Park "Free Shipping", "100 Day Trial" badge images from extraction
-- **Universal Srcset Width Parsing (Oct 8, 2025)**: Fixed srcset extraction to select highest width images across all sites
-  - **Width Descriptor Intelligence**: Now parses width descriptors (700w, 1400w) and returns the HIGHEST width URL instead of first
-  - **Universal Fix**: Benefits ANY site using srcset width descriptors (Shopify, Scene7, Demandware, custom implementations)
-  - **Backward Compatible**: Maintains existing behavior for density descriptors (1x, 2x)
-  - **AESOP Handler Disabled**: Generic scraper now handles Aesop with new srcset parsing (selects 2000x2000px images)
-- **Smart Lazy-Loading Image Support (Oct 8, 2025)**: Intelligent attribute fallback for saved image selectors
-  - **Placeholder Detection**: Validates URLs to detect data:image placeholders vs real image URLs
-  - **Smart Attribute Fallback**: If saved attribute returns placeholder, automatically tries: srcset → data-srcset → data-src → currentSrc → data-image → data-zoom-image → data-large
-  - **URL Validation**: Accepts http://, https://, //, www., and / (relative paths) - rejects data: URLs
-  - **Clear Images Button**: New 🗑️ "Clear Saved Images" button to remove broken image selectors
-  - **Backward Compatible**: Still tries saved attribute first, only falls back if placeholder detected
-  - **Use Case**: Fixes Adored Vintage and other Shopify sites with lazy loading returning data:image/gif placeholders
-- **Enhanced Breadcrumb Navigation Filtering (Oct 8, 2025)**: Improved breadcrumb extraction to prevent false positives from navigation menus
-  - **Vertical Navigation Detection**: Detects and rejects vertically-stacked links (footer/sidebar menus) by analyzing Y-positions
-  - **Navigation Pattern Filtering**: Skips elements with footer/header/menu/sidebar class/ID patterns
-  - **Category List Detection**: Rejects diverse category lists (New, Sale, Shop, Gifts, etc.) that look like site navigation
-  - **Position-based Scoring**: Prioritizes breadcrumbs in top 500px (score: 100) over those further down (score: 50/10)
-  - **Multi-candidate System**: Collects all potential breadcrumbs and selects the highest-scoring one
-  - **Use Case**: Fixes Adored Vintage extracting "New! > Modern > Vintage..." footer menu instead of "HOME / THOMASIN STRIPED SHORTS"
-- **Individual Field Clear Buttons (Oct 8, 2025)**: Added granular selector memory management
-  - **Clear Button UI**: 🗑️ button next to each field (Description, Specs, Title, Price, Brand, Breadcrumbs)
-  - **Confirmation Dialog**: Browser confirm prompt before deletion ("Are you sure you want to delete saved selector for [field]?")
-  - **Backend IPC**: New `deleteSelectorField` handler in preload.js → main.js
-  - **Smart Cleanup**: Automatically deletes entire JSON file when no fields remain
-  - **Use Case**: Remove outdated meta tag selectors to force smart generic extraction
-- **Accordion Render Delay (Oct 8, 2025)**: 500ms post-load delay before extracting description/specs
-  - **Timing**: Delay added after brand extraction, before description/specs extraction
-  - **Purpose**: Allows accordion content already in DOM to fully render (no lazy-load triggers)
-  - **Debug Logs**: "⏳ Waiting 500ms for accordion content to render..." → "✅ Accordion render delay complete"
-- **Smart Description & Specs Extraction (Oct 8, 2025)**: Intelligent extraction targeting hidden accordion content
-  - **Description Priority**: Data attributes → Semantic classes → Accordions → JSON-LD → Meta tags (last resort)
-  - **Accordion Support**: Extracts from aria-expanded="false" sections already in DOM (no lazy-load triggers)
-  - **Fluff Filtering**: Removes promotional text ("Shop now!", "Free shipping!") from descriptions
-  - **New Specs Field**: Extracts product specifications from bullet lists and tables
-  - **Specs Sources**: Data attributes ([data-testid*="spec"]) → Class patterns (.specifications) → Accordion sections
-  - **Raw Format**: Preserves original key-value pairs (no normalization for cross-site compatibility)
-- **Breadcrumb Text Splitting & Expanded Filtering (Oct 8, 2025)**: Enhanced breadcrumb cleaning for concatenated text and navigation junk
-  - **Text Splitting**: Automatically splits concatenated strings like "BackHome/Women/Shoes" → ["Women", "Shoes"]
-  - **Concatenation Detection**: Recognizes and splits patterns like "BackHome", "HomeShop", "ReturnStore"
-  - **Expanded Junk Filter**: Removes navigation terms (exact match): Back, Return, Previous, Home (first only), Shop, Store, All Products, Products, All Categories, Categories, Main Menu, Menu, Start, Index, Root, arrow symbols (←, →, ‹, ›)
-  - **Smart Filtering**: Only exact matches filtered - preserves "Home-Goods", "Shop Tools", "Store Locator", etc.
-  - **Multi-separator Support**: Handles /, >, |, ›, » separators with normalization
-- **Selector Memory Simplification (Oct 8, 2025)**: Streamlined selector memory system for cleaner UX and better performance
-  - **Image Extraction Flow**: Priority-based extraction - saved selectors (direct, no scoring) → custom handler → generic scraper
-  - **UI Cleanup**: Removed checkboxes from text fields (Title, Price, Brand, URL, Description) - now auto-saved
-  - **Manual Curation**: Image checkboxes only - users manually select which images to save selectors for
-  - **Clear Console Messages**: Shows exact flow - "Found saved selectors" / "No saved selector" / "Falling back to..."
-  - **Auto-save Text Fields**: If text fields are successfully extracted, their selectors are automatically saved
-  - **Saved Selectors Bypass Scoring**: Saved image selectors extract directly without competing in scoring system
-- **LTWEBSTATIC/SHEIN/MUSERA Support (Oct 2025)**: Added comprehensive support for ltwebstatic CDN and SHEIN/MUSERA sites
-  - Custom handler extracts from data-before-crop-src attributes (captures full uncropped URLs)
-  - CDN upgrade pattern removes _thumbnail_XXXx suffixes for full-size images
-  - Filters out cross-sell products by targeting .main-picture container only
-- **Temu CDN Support (Oct 2025)**: Added Alibaba Cloud imageView2 API upgrade patterns for Temu product images
-  - Automatic width upgrades: w/180 → w/1200 for 6.7x larger dimensions
-  - Quality boost: q/70 → q/90 for sharper product photos
-- **Electron Environment Fix (Sept 30, 2025)**: Fixed Electron startup in Replit NixOS environment
-  - Installed required system dependencies: gtk3, gsettings-desktop-schemas, glib, dconf
-  - Updated start-electron.sh to use xvfb-run wrapper for automatic X11 display management
-  - Set XDG_DATA_DIRS for GSettings schemas to prevent file dialog crashes
-  - Resolved sandbox permissions with ELECTRON_DISABLE_SANDBOX=1
-- **System Integrity Audit (Sept 2025)**: Comprehensive audit revealed all core systems intact except missing Mozu CDN upgrade logic
-- **Mozu CDN Restoration**: Fixed missing ?max=100 → ?quality=60 conversion for Ace Hardware product images
-- **Code Protection Measures**: Added comprehensive system documentation and change tracking safeguards
-- **Mobile Preview Interface**: Pinterest-style mobile testing interface with device simulation
-- **Enhanced Image Pipeline**: Early-exit optimization, production debug toggle, observer consistency fixes
-- **Scoring Improvements**: Threshold adjustments (500px→300px), flexible pattern matching, container tracking fixes
-- **Custom Handler Expansion**: Urban Outfitters PWA targeting, hi-res augmentation, LQIP detection
-- **Brand Detection Overhaul**: Multi-strategy approach with JSON-LD, meta tags, breadcrumbs, URL analysis
-- **CDN Support Expansion**: 12+ major CDNs including Cloudinary, Imgix, ImageKit, Fastly platforms
+## Overview
+Tagglo is a desktop Electron application designed for web scraping e-commerce product data. It operates with a Control Window for managing scraping operations and a Product Window for viewing target websites. The project aims to provide robust, multi-field data extraction (title, price, images, specs, tags, brand, description) with persistent selector memory, history tracking, and custom site-specific handlers, optimized for product detail page scraping.
 
 ## User Preferences
 - Prefers existing project structure and conventions
 - Focus on functionality over documentation
 
-## Deployment
-- Target: VM (always running)
-- Command: `./start-electron.sh`
-- Suitable for desktop applications requiring persistent state
+## System Architecture
+The application is built on the Electron framework, utilizing a main process (`main.js`) for window management and IPC, and a renderer process (`control.html`) for the user interface. A `preload.js` script provides a secure IPC bridge. Scraping logic is modularized within a `scrapers` directory, featuring an `orchestrator.js` for coordination and specialized modules for different data types (e.g., `title.js`, `price.js`, `images.js`).
+
+**Key Architectural Decisions & Features:**
+- **Selector Memory**: Persistent, file-based storage of CSS selectors per domain with history and auto-migration.
+- **Core Scraping Systems**:
+    - **Price Detection**: Multi-strategy extraction with custom handlers and refinement.
+    - **Title & Brand Extraction**: Utilizes JSON-LD, meta tags, breadcrumbs, and URL patterns.
+    - **Image Discovery & Scoring**: Site-specific selectors, generic fallbacks, and a sophisticated scoring algorithm considering size, quality, and semantic penalties. Includes intelligent lazy-loading image support with attribute fallbacks and dimension-based quality filtering.
+    - **Custom Handlers**: Specialized logic for major retailers (e.g., Amazon, Nike, Adidas, Home Depot, AliExpress) for enhanced extraction and CDN upgrades.
+    - **Filtering Systems**: Multi-stage junk detection, Shopify intelligence, and quality thresholds.
+    - **Deduplication**: Canonical URL grouping with score-based selection.
+- **CDN Upgrade Patterns**: Specific rules for optimizing image quality and dimensions across various CDNs (e.g., Shopify, Urban Outfitters, Temu, IKEA, Swarovski).
+- **Description & Specs Extraction**: Intelligent extraction targeting hidden accordion content, with fluff filtering and dedicated specs fields.
+- **Breadcrumb Processing**: Enhanced cleaning for concatenated text, expanded junk filtering, and position-based scoring.
+- **UI/UX**: Features a Pinterest-style flow optimized for product detail page scraping, individual field clear buttons for granular selector management, and a mobile preview interface.
+- **Deployment**: Configured for Replit environment using Node.js with a custom `start-electron.sh` script, leveraging Xvfb for virtual display and VNC for output.
+
+## External Dependencies
+- **Electron Framework**: Core application framework.
+- **Xvfb**: Virtual display server for headless Electron execution in Replit.
+- **VNC**: For displaying the desktop application output in the Replit environment.
+- **Third-party CDNs**: Integrated with specific upgrade patterns and handlers for: Shopify, Scene7 (Urban Outfitters, American Eagle Outfitters), Mozu (BBQ Guys/Shocho), Etsy, IKEA, Alibaba Cloud (Temu), LTWEBSTATIC (SHEIN/MUSERA), Swarovski, Cloudinary, Imgix, ImageKit, Fastly.
+- **Gtk3, gsettings-desktop-schemas, glib, dconf**: System dependencies for Electron to run in NixOS.
