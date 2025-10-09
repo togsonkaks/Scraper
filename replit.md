@@ -54,6 +54,18 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **Cost Strategy**: Keyword matching (free, 70-80% coverage) + LLM batch processing for low-confidence products (~$0.0001/product with GPT-4o-mini)
 
 ## Recent Changes
+- **SKU Extraction System (Oct 9, 2025)**: Comprehensive SKU extraction with multi-strategy approach
+  - **Priority Extraction**: JSON-LD (sku/productID/gtin13/mpn) → meta tags → DOM attributes → URL parsing
+  - **Brand-Aware Validation**: Cross-validates SKU with product brand to avoid recommendation carousel SKUs
+  - **Context Filtering**: Checks parent containers to exclude SKUs from "Related Products" sections
+  - **Database Integration**: SKU stored in both `products_raw.raw_sku` and `products.sku` for deduplication
+  - **UI Field**: New SKU field with checkbox under Specs for selector memory
+  - **Use Case**: Enables product matching across different sites and duplicate detection
+- **Breadcrumb Word Splitting (Oct 9, 2025)**: Smart breadcrumb parsing prevents concatenation in auto-tagger
+  - **Capital Letter Boundaries**: Splits "HomeTool" → ["Home", "Tool"] for proper keyword matching
+  - **Dictionary Validation**: Uses keyword dictionary to validate split words before applying
+  - **Crash Prevention**: Auto-tagger now defensive against string breadcrumbs, converts to arrays if needed
+  - **Use Case**: Fixes keyword matching failures on concatenated breadcrumbs (e.g., "Tool" keyword now matches)
 - **Allbirds Handler Re-enabled (Oct 9, 2025)**: Re-enabled Allbirds custom handler after generic scraper failed
   - **Issue**: Generic scraper could not reach images in Swiper carousel structure (.swiper-slide > .slide-content > img)
   - **Root Cause**: Carousel slides hidden/offscreen, deep nested structure, lazy-loading behavior
