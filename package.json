@@ -5,7 +5,9 @@
   "type": "commonjs",
   "scripts": {
     "electron": "electron .",
-    "replit": "node scripts/print-help.js"
+    "replit": "node scripts/print-help.js",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "dotenv": "^17.2.2",
