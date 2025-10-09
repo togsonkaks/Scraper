@@ -31,3 +31,26 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **VNC**: For displaying the desktop application output in the Replit environment.
 - **Third-party CDNs**: Integrated with specific upgrade patterns and handlers for: Shopify, Scene7 (Urban Outfitters, American Eagle Outfitters), Mozu (BBQ Guys/Shocho), Etsy, IKEA, Alibaba Cloud (Temu), LTWEBSTATIC (SHEIN/MUSERA), Swarovski, Cloudinary, Imgix, ImageKit, Fastly.
 - **Gtk3, gsettings-desktop-schemas, glib, dconf**: System dependencies for Electron to run in NixOS.
+
+## Recent Changes
+- **Allbirds Handler Re-enabled (Oct 9, 2025)**: Re-enabled Allbirds custom handler after generic scraper failed
+  - **Issue**: Generic scraper could not reach images in Swiper carousel structure (.swiper-slide > .slide-content > img)
+  - **Root Cause**: Carousel slides hidden/offscreen, deep nested structure, lazy-loading behavior
+  - **Solution**: Allbirds handler specifically targets .swiper-slide elements regardless of visibility
+  - **Lesson Learned**: Custom handlers ARE justified for unique carousel/slider implementations
+  - **Philosophy Refined**: Generic first, but custom handlers needed for: unique DOM patterns (carousels), proprietary data sources, CDN-specific upgrades
+- **Image Dimension Quality Filter (Oct 8, 2025)**: Added actual image dimension checking to filter marketing badges
+  - **Load & Measure**: Loads each image to check naturalWidth/naturalHeight before final ranking
+  - **Small Image Penalty**: -50 score penalty for images smaller than 400x400px (filters badges, icons, trust seals)
+  - **Re-sort After Penalty**: Images re-sorted by score after dimension penalties applied
+  - **Timeout Protection**: 3s timeout per image to prevent slow CDNs from blocking pipeline
+  - **Use Case**: Filters Albany Park marketing badges (shipping, warranty icons) that passed URL scoring
+- **Description Cart/Bag Filter (Oct 8, 2025)**: Rejects description elements inside shopping cart containers
+  - **Container Detection**: Checks for cart/bag/checkout/minicart ancestors using closest()
+  - **Prevents False Positives**: Stops extracting "Added to Cart" messages as product descriptions
+  - **Use Case**: Fixes Albany Park extracting cart confirmation text instead of product descriptions
+- **Marketing Badge Keyword Filter (Oct 8, 2025)**: Expanded junk image regex to catch marketing badges
+  - **New Keywords**: shipping, warranty, trial, interest_free, premium_materials, hypoallergenic
+  - **Pattern Matching**: Matches badge/icon/logo/img/image with marketing terms in URL
+  - **Early Blocking**: Caught at URL regex stage before scoring begins
+  - **Use Case**: Blocks Albany Park "Free Shipping", "100 Day Trial" badge images from extraction
