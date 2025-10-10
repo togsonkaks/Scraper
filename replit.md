@@ -37,9 +37,10 @@ The application is built on the Electron framework, utilizing a main process (`m
   - `products_raw` - Archive of original scraped data
   - `products` - Main queryable product table with auto-tags
   - `products_enriched` - LLM-enhanced metadata (optional)
-  - `categories` - Hierarchical taxonomy (30 seed categories)
+  - `categories` - Hierarchical taxonomy (30 seed categories - **must be seeded before tagging works**)
   - `tags` - Flat cross-cutting labels with type classification
   - `product_tags` & `product_categories` - Junction tables
+- **Database Setup**: Before using auto-tagging, seed the categories table with `node scripts/seed-categories.js`
 - **Keyword Dictionary**: 400+ keywords organized by gender, materials, colors, styles, features, occasions, categories
 - **Auto-Tagger Engine** (`scrapers/auto-tagger.js`):
   - Priority matching: breadcrumbs → keyword detection → confidence scoring
