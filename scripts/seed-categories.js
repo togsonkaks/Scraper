@@ -1,7 +1,5 @@
 require('dotenv').config();
-const { drizzle } = require('drizzle-orm/postgres-js');
 const postgres = require('postgres');
-const { categories } = require('../shared/schema.ts');
 
 const categoryData = [
   { name: 'Fashion', slug: 'fashion', parent_id: null, level: 0 },
@@ -42,7 +40,6 @@ const categoryData = [
 
 async function seedCategories() {
   const client = postgres(process.env.DATABASE_URL);
-  const db = drizzle(client);
   
   try {
     const existingCount = await client`SELECT COUNT(*) FROM categories`;
