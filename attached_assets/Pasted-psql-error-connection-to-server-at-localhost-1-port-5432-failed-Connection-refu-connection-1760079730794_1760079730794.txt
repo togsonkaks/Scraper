@@ -1,0 +1,74 @@
+psql: error: connection to server at "localhost" (::1), port 5432 failed: Connection refu
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x
+        Is the server running on that host and accepting TCP/IP connections?
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> psql -U postgres
+psql: error: connection to server at "localhost" (::1), port 5432 failed: Connection refu
+        Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x
+        Is the server running on that host and accepting TCP/IP connections?
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> y
+the path is correct and try again.
+At line:1 char:1
++ y
++ ~
+    + FullyQualifiedErrorId : CommandNotFoundException
+psql: error: connection to server at "localhost" (::1), port 5432 failed: Connection refu
+        Is the server running on that host and accepting TCP/IP connections?
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> pg_config --version
+PostgreSQL 18.0
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> pg_ctl -D "C:\Program Files\PostgreSQL\18
+pg_ctl: directory "C:/Program Files/PostgreSQL/18/data" is not a database cluster directo
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> cd "C:\Program Files\PostgreSQL\18\bin"
+>> 
+PS C:\Program Files\PostgreSQL\18\bin> pg_ctl -D "C:\Program Files\PostgreSQL\18\data" st
+pg_ctl: directory "C:/Program Files/PostgreSQL/18/data" is not a database cluster directo
+PS C:\Program Files\PostgreSQL\18\bin> # Still in C:\Program Files\PostgreSQL\18\bin
+>> initdb -D "C:\Program Files\PostgreSQL\18\data" -U postgres -W
+The files belonging to this database system will be owned by user "Admin".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "English_United States.1252".
+The default database encoding has accordingly been set to "WIN1252".
+The default text search configuration will be set to "english".
+
+Data page checksums are enabled.
+
+Enter new superuser password:
+Enter it again: 
+
+fixing permissions on existing directory C:/Program Files/PostgreSQL/18/data ... ok
+creating subdirectories ... ok
+selecting default "max_connections" ... 100
+selecting default time zone ... America/Chicago
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... child process was terminated by exception 0x
+initdb: removing contents of data directory "C:/Program Files/PostgreSQL/18/data"
+PS C:\Program Files\PostgreSQL\18\bin> pg_ctl -D "C:\Program Files\PostgreSQL\18\data" st
+pg_ctl: directory "C:/Program Files/PostgreSQL/18/data" is not a database cluster directo
+PS C:\Program Files\PostgreSQL\18\bin> psql -U postgres
+psql: error: connection to server at "localhost" (::1), port 5432 failed: Connection refu
+        Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused (0x
+        Is the server running on that host and accepting TCP/IP connections?
+PS C:\Program Files\PostgreSQL\18\bin> 
+ *  History restored 
+
+PS C:\Users\Admin\Desktop\PostHog> cd mvp_electron
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> psql -U postgres
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ psql -U postgres
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (psql:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> psql -U postgres
+psql : The term 'psql' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ psql -U postgres
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (psql:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
