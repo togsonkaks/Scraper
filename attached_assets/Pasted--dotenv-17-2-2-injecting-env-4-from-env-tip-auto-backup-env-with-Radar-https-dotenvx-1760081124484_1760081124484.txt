@@ -1,0 +1,64 @@
+[dotenv@17.2.2] injecting env (4) from .env -- tip: ≡ƒôí auto-backup env with Radar: https://dotenvx.com/radar
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-10T07-24-37_acehardware.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ encrypt with Dotenvx: https://dotenvx.com
+Error saving product: PostgresError: column "raw_sku" of relation "products_raw" does not exist
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:8:32) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '142',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+Error saving to database: PostgresError: column "raw_sku" of relation "products_raw" does not exist
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:8:32) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '142',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+Error occurred in handler for 'save-to-database': PostgresError: column "raw_sku" of relation "products_raw" does not exist
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:8:32) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '142',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
