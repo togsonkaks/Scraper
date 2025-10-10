@@ -2207,8 +2207,8 @@
     // Helper: Validate breadcrumb structure
     function isValidBreadcrumb(text, itemCount) {
       if (!text || text.length < 5) return false;
-      // Check for separators (›, /, |, >, »)
-      const hasSeparator = /[›>\/|»]/.test(text);
+      // Check for separators (›, /, |, >, », comma)
+      const hasSeparator = /[›>\/|»,]/.test(text);
       // Check item count (typically 2-6 items)
       const validCount = itemCount >= 2 && itemCount <= 8;
       return hasSeparator && validCount;
@@ -2228,8 +2228,8 @@
         // Match: uppercase letter followed by lowercase, then another uppercase (camelCase/PascalCase)
         processed = processed.replace(/([a-z])([A-Z])/g, '$1/$2');
         
-        // Split by common separators: /, >, |, ›, »
-        const parts = processed.split(/\s*[/>|›»]\s*/);
+        // Split by common separators: /, >, |, ›, », and commas
+        const parts = processed.split(/\s*[/>|›»,]\s*/);
         
         // If we got multiple parts from splitting, return them; otherwise return original
         return parts.filter(Boolean);
