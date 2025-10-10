@@ -55,7 +55,8 @@ The application is built on the Electron framework, utilizing a main process (`m
 
 ## Recent Changes
 - **Breadcrumb & Description Fixes (Oct 10, 2025)**: Fixed malformed breadcrumb and description extraction issues
-  - **Breadcrumb Normalizer**: Updated to handle comma-separated strings (e.g., "Ace,Hardware,Tools") and filter product titles
+  - **Comma-Separated Breadcrumbs**: Added comma to split regex in breadcrumb scraper to handle formats like "Ace,Hardware,Tools,Product Name"
+  - **Breadcrumb Normalizer**: Detects comma format vs space format, auto-filters product title from end of breadcrumb array
   - **Breadcrumb Extraction**: Improved link text extraction to use direct text nodes and reject concatenated strings
   - **Description Accordion Filter**: Added header/title element filtering to avoid extracting accordion headers (e.g., "Description" header on Adidas)
   - **Word Count Validation**: Rejects single-word descriptions to prevent header extraction
