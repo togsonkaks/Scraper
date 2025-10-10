@@ -2778,12 +2778,26 @@
     for (const sel of accordionSelectors) {
       const elements = qa(sel);
       for (const el of elements) {
+        // Skip accordion headers (h1-h6, buttons, elements with "header" or "title" in class)
+        const tagName = el.tagName.toLowerCase();
+        const elClass = el.className || '';
+        const elId = el.id || '';
+        
+        if (/^h[1-6]$/.test(tagName) || tagName === 'button') {
+          continue; // Skip headers and buttons
+        }
+        
+        if (/header|title/i.test(elClass + ' ' + elId)) {
+          continue; // Skip elements with "header" or "title" in class/id
+        }
+        
         const text = extractText(el);
         if (!text || isPromotionalFluff(text) || text.length <= 50) continue;
         
+        // Reject if text is just a single word (likely a header like "Description")
+        if (text.split(/\s+/).length < 3) continue;
+        
         // Check if element itself has description keywords
-        const elClass = el.className || '';
-        const elId = el.id || '';
         const hasDescriptionKeyword = /description/i.test(elClass + ' ' + elId);
         
         // Or check if it has a parent with description keywords
