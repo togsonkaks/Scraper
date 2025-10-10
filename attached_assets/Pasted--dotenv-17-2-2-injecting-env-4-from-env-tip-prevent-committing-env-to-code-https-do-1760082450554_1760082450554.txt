@@ -1,0 +1,159 @@
+[dotenv@17.2.2] injecting env (4) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-10T07-39-23_acehardware.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ prevent building .env in docker: https://dotenvx.com/prebuild
+[11680:1010/024609.272:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024609.273:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024609.273:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024609.273:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024609.273:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024609.273:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024609.274:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024609.274:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024609.274:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.461:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.461:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.462:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.501:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.502:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.502:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.502:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.502:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[11680:1010/024611.503:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-10T07-46-13_acmetools.com.txt
+Error saving product: PostgresError: malformed array literal: "Home
+
+
+
+
+
+
+
+                            Tools
+
+
+
+
+
+
+
+                            Concrete Tools
+
+
+
+
+
+
+
+                            Concrete Masonry Saws"
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:8:32) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '22P02',
+  detail: 'Array value must start with "{" or dimension information.',
+  where: "unnamed portal parameter $4 = '...'",
+  file: 'arrayfuncs.c',
+  line: '265',
+  routine: 'array_in'
+}
+Error saving to database: PostgresError: malformed array literal: "Home
+
+
+
+
+
+
+
+                            Tools
+
+
+
+
+
+
+
+                            Concrete Tools
+
+
+
+
+
+
+
+                            Concrete Masonry Saws"
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:8:32) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '22P02',
+  detail: 'Array value must start with "{" or dimension information.',
+  where: "unnamed portal parameter $4 = '...'",
+  file: 'arrayfuncs.c',
+  line: '265',
+  routine: 'array_in'
+}
+Error occurred in handler for 'save-to-database': PostgresError: malformed array literal: "Home
+
+
+
+
+
+
+
+                            Tools
+
+
+
+
+
+
+
+                            Concrete Tools
+
+
+
+
+
+
+
+                            Concrete Masonry Saws"
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:8:32) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '22P02',
+  detail: 'Array value must start with "{" or dimension information.',
+  where: "unnamed portal parameter $4 = '...'",
+  file: 'arrayfuncs.c',
+  line: '265',
+  routine: 'array_in'
+}

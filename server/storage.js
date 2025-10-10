@@ -3,8 +3,19 @@ const postgres = require('postgres');
 
 const sql = postgres(process.env.DATABASE_URL);
 
+function normalizeBreadcrumbs(breadcrumbs) {
+  if (!breadcrumbs) return [];
+  if (Array.isArray(breadcrumbs)) return breadcrumbs;
+  if (typeof breadcrumbs === 'string') {
+    return breadcrumbs.split(/\s{2,}|\n+/).map(s => s.trim()).filter(s => s.length > 0);
+  }
+  return [];
+}
+
 async function saveProduct(productData, tagResults) {
   try {
+    const normalizedBreadcrumbs = normalizeBreadcrumbs(productData.breadcrumbs);
+    
     const rawResult = await sql`
       INSERT INTO products_raw (
         source_url, raw_title, raw_description, raw_breadcrumbs, 
@@ -13,7 +24,7 @@ async function saveProduct(productData, tagResults) {
         ${productData.url || ''},
         ${productData.title || null},
         ${productData.description || null},
-        ${productData.breadcrumbs || []},
+        ${normalizedBreadcrumbs},
         ${productData.price || null},
         ${productData.brand || null},
         ${productData.specs || null},
