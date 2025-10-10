@@ -3,18 +3,46 @@ const postgres = require('postgres');
 
 const sql = postgres(process.env.DATABASE_URL);
 
-function normalizeBreadcrumbs(breadcrumbs) {
+function normalizeBreadcrumbs(breadcrumbs, productTitle = null) {
   if (!breadcrumbs) return [];
-  if (Array.isArray(breadcrumbs)) return breadcrumbs;
+  if (Array.isArray(breadcrumbs)) {
+    // Filter out product title if it matches last breadcrumb
+    if (productTitle && breadcrumbs.length > 0) {
+      const lastCrumb = breadcrumbs[breadcrumbs.length - 1];
+      if (lastCrumb && lastCrumb.toLowerCase().includes(productTitle.toLowerCase().substring(0, 30))) {
+        return breadcrumbs.slice(0, -1);
+      }
+    }
+    return breadcrumbs;
+  }
   if (typeof breadcrumbs === 'string') {
-    return breadcrumbs.split(/\s{2,}|\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    // Handle comma-separated strings (e.g., "Ace,Hardware,Tools,Power Tools")
+    // OR multiple spaces/newlines
+    let parts;
+    if (breadcrumbs.includes(',') && !breadcrumbs.includes('/') && !breadcrumbs.includes('>')) {
+      // Comma-separated format
+      parts = breadcrumbs.split(',').map(s => s.trim()).filter(s => s.length > 0);
+    } else {
+      // Space/newline separated format
+      parts = breadcrumbs.split(/\s{2,}|\n+/).map(s => s.trim()).filter(s => s.length > 0);
+    }
+    
+    // Filter out product title if it matches last item
+    if (productTitle && parts.length > 0) {
+      const lastPart = parts[parts.length - 1];
+      if (lastPart && lastPart.toLowerCase().includes(productTitle.toLowerCase().substring(0, 30))) {
+        parts = parts.slice(0, -1);
+      }
+    }
+    
+    return parts;
   }
   return [];
 }
 
 async function saveProduct(productData, tagResults) {
   try {
-    const normalizedBreadcrumbs = normalizeBreadcrumbs(productData.breadcrumbs);
+    const normalizedBreadcrumbs = normalizeBreadcrumbs(productData.breadcrumbs, productData.title);
     
     const rawResult = await sql`
       INSERT INTO products_raw (
