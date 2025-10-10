@@ -2266,8 +2266,26 @@
       if (links.length < 2) return null;
       
       const items = Array.from(links)
-        .map(link => link.textContent.trim())
+        .map(link => {
+          // Get only direct text content, not nested elements
+          let text = '';
+          for (const node of link.childNodes) {
+            if (node.nodeType === Node.TEXT_NODE) {
+              text += node.textContent;
+            }
+          }
+          // If no text nodes found, fall back to innerText (better than textContent for visible text)
+          if (!text.trim()) {
+            text = link.innerText || link.textContent;
+          }
+          return text.trim();
+        })
         .filter(text => text && text.length > 0 && text.length < 50); // Reasonable item length
+      
+      // Reject if items look like comma-separated concatenated string
+      if (items.length === 1 && items[0].includes(',')) {
+        return null;
+      }
       
       // Clean up junk items
       const cleanedItems = cleanBreadcrumbItems(items);
