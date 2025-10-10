@@ -54,6 +54,12 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **Cost Strategy**: Keyword matching (free, 70-80% coverage) + LLM batch processing for low-confidence products (~$0.0001/product with GPT-4o-mini)
 
 ## Recent Changes
+- **Breadcrumb & Description Fixes (Oct 10, 2025)**: Fixed malformed breadcrumb and description extraction issues
+  - **Breadcrumb Normalizer**: Updated to handle comma-separated strings (e.g., "Ace,Hardware,Tools") and filter product titles
+  - **Breadcrumb Extraction**: Improved link text extraction to use direct text nodes and reject concatenated strings
+  - **Description Accordion Filter**: Added header/title element filtering to avoid extracting accordion headers (e.g., "Description" header on Adidas)
+  - **Word Count Validation**: Rejects single-word descriptions to prevent header extraction
+  - **Use Cases**: Fixes Ace Hardware comma-separated breadcrumbs and Adidas accordion header extraction
 - **SKU Memory Fix (Oct 9, 2025)**: Fixed JSON-LD SKU extraction from saved selectors
   - **Issue**: Memory system saved JSON-LD selector but couldn't retrieve SKU value, always fell back to generic
   - **Root Cause**: `fromMemory()` had hardcoded cases for price/brand/description but missing SKU case
