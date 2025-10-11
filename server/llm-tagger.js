@@ -1,4 +1,4 @@
-import OpenAI from 'openai';
+const OpenAI = require('openai');
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -14,7 +14,7 @@ const openai = new OpenAI({
  * @param {string} productData.brand - Product brand
  * @returns {Promise<Object>} { categories: string[], keywords: string[], confidence: number }
  */
-export async function extractTagsWithLLM(productData) {
+async function extractTagsWithLLM(productData) {
   const { title, description, specs, breadcrumbs, brand } = productData;
 
   const prompt = `Analyze this e-commerce product and extract:
@@ -89,7 +89,7 @@ Respond in JSON format:
  * @param {string} feedback - User's feedback about what was wrong
  * @returns {Promise<Object>} New suggestions
  */
-export async function retryWithFeedback(productData, feedback) {
+async function retryWithFeedback(productData, feedback) {
   const { title, description, specs, breadcrumbs, brand } = productData;
 
   const prompt = `The previous tagging attempt was rejected with this feedback: "${feedback}"
@@ -135,3 +135,8 @@ Respond in JSON format:
     throw new Error(`LLM retry failed: ${error.message}`);
   }
 }
+
+module.exports = {
+  extractTagsWithLLM,
+  retryWithFeedback
+};
