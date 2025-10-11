@@ -13,6 +13,7 @@ export const productsRaw = pgTable('products_raw', {
   rawSpecs: text('raw_specs'),
   rawTags: text('raw_tags'),
   rawImages: text('raw_images').array(),
+  rawJsonLd: jsonb('raw_json_ld'),
   scrapedAt: timestamp('scraped_at').defaultNow()
 });
 
