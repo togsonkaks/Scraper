@@ -9,6 +9,90 @@ const openai = new OpenAI({
 const sql = postgres(process.env.DATABASE_URL);
 
 /**
+ * Master Tag Taxonomy - Comprehensive reference for LLM keyword extraction
+ * Organized by type for intelligent tag selection
+ */
+const MASTER_TAG_TAXONOMY = {
+  // ACTIVITIES & USE CASES (50+)
+  activities: [
+    'workout', 'gym', 'training', 'running', 'jogging', 'hiking', 'walking', 'yoga', 'pilates',
+    'cycling', 'biking', 'swimming', 'golf', 'tennis', 'basketball', 'soccer', 'climbing',
+    'skiing', 'snowboarding', 'surfing', 'skateboarding', 'travel', 'commute', 'office',
+    'casual-wear', 'everyday', 'loungewear', 'sleepwear', 'formal', 'business', 'party',
+    'wedding', 'date-night', 'beach', 'poolside', 'outdoor', 'indoor', 'gardening',
+    'crossfit', 'boxing', 'martial-arts', 'dance', 'athleisure', 'streetwear'
+  ],
+  
+  // MATERIALS & FABRICS (60+)
+  materials: [
+    'cotton', 'organic-cotton', 'polyester', 'wool', 'merino-wool', 'cashmere', 'alpaca',
+    'leather', 'genuine-leather', 'vegan-leather', 'suede', 'nubuck', 'mesh', 'canvas',
+    'denim', 'chambray', 'silk', 'satin', 'linen', 'fleece', 'nylon', 'spandex', 'elastane',
+    'lycra', 'rubber', 'eva-foam', 'memory-foam', 'latex', 'bamboo', 'tencel', 'modal',
+    'rayon', 'acrylic', 'microfiber', 'neoprene', 'gore-tex', 'ripstop', 'corduroy',
+    'flannel', 'jersey', 'terry-cloth', 'velvet', 'tweed', 'twill', 'poplin', 'oxford',
+    'down', 'feather', 'synthetic-fill', 'recycled-polyester', 'recycled-nylon',
+    'hemp', 'jute', 'cork', 'wood', 'metal', 'plastic', 'glass', 'ceramic', 'stone'
+  ],
+  
+  // COLORS & PATTERNS (50+)
+  colors: [
+    'black', 'white', 'gray', 'grey', 'charcoal', 'slate', 'silver', 'beige', 'tan', 'khaki',
+    'brown', 'chocolate', 'camel', 'navy', 'blue', 'royal-blue', 'sky-blue', 'teal', 'turquoise',
+    'red', 'burgundy', 'maroon', 'crimson', 'pink', 'rose', 'blush', 'coral', 'orange',
+    'rust', 'peach', 'yellow', 'gold', 'mustard', 'green', 'olive', 'forest-green', 'sage',
+    'mint', 'emerald', 'purple', 'lavender', 'plum', 'violet', 'cream', 'ivory', 'ecru',
+    'striped', 'plaid', 'checkered', 'gingham', 'solid', 'floral', 'geometric', 'abstract',
+    'camo', 'camouflage', 'tie-dye', 'ombre', 'gradient', 'colorblock', 'multi-color'
+  ],
+  
+  // STYLES & AESTHETICS (60+)
+  styles: [
+    'casual', 'athletic', 'sporty', 'minimalist', 'modern', 'contemporary', 'classic',
+    'traditional', 'vintage', 'retro', 'bohemian', 'boho', 'preppy', 'streetwear',
+    'urban', 'edgy', 'grunge', 'punk', 'elegant', 'sophisticated', 'chic', 'luxe',
+    'rustic', 'farmhouse', 'industrial', 'scandinavian', 'mid-century', 'coastal',
+    'nautical', 'tropical', 'western', 'southwestern', 'eastern', 'zen', 'minimalistic',
+    'maximalist', 'eclectic', 'artisan', 'handcrafted', 'designer', 'premium', 'budget',
+    'performance', 'technical', 'tactical', 'outdoor', 'adventure', 'expedition',
+    'professional', 'smart-casual', 'business-casual', 'dressy', 'feminine', 'masculine',
+    'unisex', 'androgynous', 'oversized', 'fitted', 'tailored', 'relaxed', 'slim'
+  ],
+  
+  // FEATURES & ATTRIBUTES (70+)
+  features: [
+    'waterproof', 'water-resistant', 'weatherproof', 'breathable', 'moisture-wicking',
+    'quick-dry', 'insulated', 'thermal', 'windproof', 'lightweight', 'heavy-duty',
+    'durable', 'sturdy', 'flexible', 'stretchy', 'elastic', 'cushioned', 'padded',
+    'supportive', 'arch-support', 'shock-absorbing', 'anti-slip', 'non-slip', 'grip',
+    'traction', 'eco-friendly', 'sustainable', 'recycled', 'organic', 'natural',
+    'biodegradable', 'vegan', 'cruelty-free', 'hypoallergenic', 'antimicrobial',
+    'odor-resistant', 'stain-resistant', 'wrinkle-free', 'easy-care', 'machine-washable',
+    'adjustable', 'convertible', 'reversible', 'foldable', 'collapsible', 'portable',
+    'compact', 'stackable', 'modular', 'extendable', 'wireless', 'bluetooth', 'usb',
+    'rechargeable', 'battery-powered', 'solar', 'smart', 'connected', 'app-controlled',
+    'touchscreen', 'voice-activated', 'energy-efficient', 'high-performance', 'premium',
+    'handmade', 'artisan', 'limited-edition', 'exclusive', 'imported', 'made-in-usa'
+  ],
+  
+  // FIT & SIZING (20+)
+  fit: [
+    'slim-fit', 'skinny-fit', 'regular-fit', 'relaxed-fit', 'loose-fit', 'oversized',
+    'plus-size', 'petite', 'tall', 'maternity', 'big-and-tall', 'athletic-fit',
+    'tailored-fit', 'comfort-fit', 'true-to-size', 'runs-small', 'runs-large',
+    'adjustable-fit', 'custom-fit', 'one-size-fits-all'
+  ],
+  
+  // OCCASIONS (25+)
+  occasions: [
+    'work', 'office', 'business', 'meeting', 'presentation', 'interview', 'wedding',
+    'party', 'cocktail', 'formal-event', 'date-night', 'dinner', 'brunch', 'vacation',
+    'travel', 'holiday', 'festival', 'concert', 'sport-event', 'everyday', 'weekend',
+    'special-occasion', 'gift', 'housewarming', 'baby-shower'
+  ]
+};
+
+/**
  * Load existing categories from database and build hierarchical paths
  * @returns {Promise<string[]>} Array of category paths like ["Men > Fashion > Footwear", ...]
  */
