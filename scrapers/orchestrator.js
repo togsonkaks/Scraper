@@ -2652,15 +2652,21 @@
     for (const sel of dataSelectors) {
       const el = productContainer.querySelector(sel);
       if (el) {
-        const sku = el.getAttribute('data-sku') || 
-                    el.getAttribute('data-product-id') || 
-                    el.getAttribute('data-itemid') || 
-                    el.getAttribute('data-pid') || 
-                    el.getAttribute('data-product-sku') ||
-                    el.value;
-        if (sku && sku.trim() && sku.length > 0 && sku.length < 100) {
-          mark('sku', { selectors:[sel], attr:'data', method:'dom-attr' });
-          return sku.trim();
+        // Check each attribute individually to track which one worked
+        const attrChecks = [
+          { attr: 'data-sku', value: el.getAttribute('data-sku') },
+          { attr: 'data-product-id', value: el.getAttribute('data-product-id') },
+          { attr: 'data-itemid', value: el.getAttribute('data-itemid') },
+          { attr: 'data-pid', value: el.getAttribute('data-pid') },
+          { attr: 'data-product-sku', value: el.getAttribute('data-product-sku') },
+          { attr: 'value', value: el.value }
+        ];
+        
+        for (const check of attrChecks) {
+          if (check.value && check.value.trim() && check.value.length > 0 && check.value.length < 100) {
+            mark('sku', { selectors:[sel], attr: check.attr, method:'dom-attr' });
+            return check.value.trim();
+          }
         }
       }
     }
