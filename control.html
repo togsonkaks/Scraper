@@ -1064,9 +1064,12 @@
       // Show reasoning
       document.getElementById('llmReasoning').textContent = result.reasoning || '-';
       
-      // Show and populate category path
+      // Show and populate category path with status indicator
       const categoryPath = result.categories.join(' > ');
-      document.getElementById('llmCategoryPath').textContent = categoryPath;
+      const pathStatus = result.isNewPath 
+        ? '<span style="background:#fff3cd; color:#856404; padding:2px 8px; border-radius:4px; font-size:11px; margin-left:8px;">🆕 NEW PATH</span>'
+        : '<span style="background:#d4edda; color:#155724; padding:2px 8px; border-radius:4px; font-size:11px; margin-left:8px;">✓ EXISTING</span>';
+      document.getElementById('llmCategoryPath').innerHTML = categoryPath + pathStatus;
       document.getElementById('llmCategoryInput').value = categoryPath;
       
       // Show keywords as editable tags
