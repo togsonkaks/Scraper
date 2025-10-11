@@ -55,6 +55,13 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **Cost Strategy**: Keyword matching (free, 70-80% coverage) + LLM batch processing for low-confidence products (~$0.0001/product with GPT-4o-mini)
 
 ## Recent Changes
+- **Category-Aware LLM Tagging (Oct 11, 2025)**: Taxonomy-first categorization with existing category matching
+  - **Database Integration**: LLM queries existing category hierarchy before tagging
+  - **Smart Matching**: AI attempts to match products to existing category paths first (e.g., "Men > Fashion > Footwear > Shoes > Sneakers")
+  - **Expandable Taxonomy**: Can suggest new paths if no good match exists (>70% confidence threshold)
+  - **Tag vs Category Clarity**: Style descriptors (casual, running, athletic) are TAGS not categories
+  - **UI Indicator**: Shows "✓ EXISTING" (green) or "🆕 NEW PATH" (yellow) badge in review modal
+  - **Use Case**: Prevents AI from inventing "Men > Footwear > Casual Shoes" when "Men > Fashion > Footwear > Shoes > Sneakers" exists
 - **JSON-LD Priority Tagging (Oct 11, 2025)**: Enhanced LLM tagger to prioritize structured data over breadcrumbs
   - **JSON-LD Extraction**: Scraper now extracts full JSON-LD structured data (category, gender, color, material, style, model)
   - **UI Display**: New blue info panel shows JSON-LD fields below URL for transparency
