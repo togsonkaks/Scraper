@@ -2744,6 +2744,19 @@
     function extractText(el) {
       if (!el) return null;
       
+      // Reject form inputs, textareas, search fields
+      const tagName = el.tagName.toLowerCase();
+      if (tagName === 'input' || tagName === 'textarea' || tagName === 'select') {
+        debug(`🚫 REJECTED: Description from form input/textarea`);
+        return null;
+      }
+      
+      // Reject elements with placeholder attributes (search boxes, etc.)
+      if (el.hasAttribute('placeholder')) {
+        debug(`🚫 REJECTED: Description from element with placeholder`);
+        return null;
+      }
+      
       // Reject elements inside cart/bag/checkout containers
       const cartContainer = el.closest('[class*="cart" i], [id*="cart" i], [class*="bag" i], [id*="bag" i], [class*="checkout" i], [id*="checkout" i], [class*="minicart" i], [id*="minicart" i]');
       if (cartContainer) {
@@ -2753,6 +2766,13 @@
       
       // Get all text content, even from hidden elements (aria-expanded="false")
       const text = el.textContent.trim();
+      
+      // Reject search-related text
+      if (/search|browse search|type and press|autocomplete/i.test(text)) {
+        debug(`🚫 REJECTED: Description looks like search UI text`);
+        return null;
+      }
+      
       return text || null;
     }
     
@@ -2779,6 +2799,7 @@
     // PRIORITY 2: Semantic classes and itemprop
     const semanticSelectors = [
       '.product-description',
+      '.product-info-description',  // Costco
       '[itemprop="description"]',
       '.description',
       '#description',
@@ -2889,6 +2910,34 @@
       return specs.length >= 2 ? specs.join('\n') : null;
     }
     
+    // Helper: Extract specs from table with label/value pairs (Costco format)
+    function extractSpecsTable(container) {
+      const specs = [];
+      const rows = container.querySelectorAll('tr, .row');
+      
+      for (const row of rows) {
+        // Look for label/value pattern
+        const label = row.querySelector('.spec-name, [class*="spec-label"], [class*="attr-name"], th');
+        const value = row.querySelector('.spec-value, [class*="spec-value"], [class*="attr-value"], td');
+        
+        if (label && value) {
+          const labelText = label.textContent.trim();
+          const valueText = value.textContent.trim();
+          if (labelText && valueText) {
+            specs.push(`${labelText}: ${valueText}`);
+          }
+        } else {
+          // Fallback: just get row text if it looks like "Label: Value"
+          const text = row.textContent.trim();
+          if (text && text.includes(':') && text.length > 3 && text.length < 200) {
+            specs.push(text);
+          }
+        }
+      }
+      
+      return specs.length >= 2 ? specs.join('\n') : null;
+    }
+    
     // PRIORITY 1: Data attributes (most reliable)
     const dataAttributeSelectors = [
       '[data-testid*="spec" i]',
@@ -2915,6 +2964,7 @@
       '.specs',
       '.product-specs',
       '.product-specifications',
+      '.product-info-specs',  // Costco
       '[class*="specification" i]',
       '[class*="specs" i]',
       '.product-attributes',
@@ -2924,7 +2974,12 @@
     for (const sel of classSelectors) {
       const el = q(sel);
       if (el) {
-        const specs = extractSpecsList(el);
+        // Try table extraction first (for Costco-style label/value tables)
+        let specs = extractSpecsTable(el);
+        if (!specs) {
+          // Fallback to list extraction
+          specs = extractSpecsList(el);
+        }
         if (specs) {
           debug(`✅ SPECS from class selector: ${sel}`);
           mark('specs', { selectors:[sel], attr:'text', method:'class-pattern' });
