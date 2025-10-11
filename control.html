@@ -620,10 +620,21 @@
             
             // Get selectors for checked images from enrichedImages
             const enrichedImages = lastPayload?.enrichedImages || [];
+            
+            // DEBUG: Log selector matching
+            console.log('🔍 SELECTOR SAVE MATCHING:', {
+              checkedUrls: checkedUrls.map(u => u.slice(-60)),
+              enrichedCount: enrichedImages.length,
+              firstEnriched: enrichedImages[0]
+            });
+            
             const imageSelectors = checkedUrls.map(url => {
               const enriched = enrichedImages.find(e => e.url === url);
+              console.log(`  Matching ${url.slice(-60)}: ${enriched ? enriched.selector : 'NOT FOUND'}`);
               return enriched?.selector;
             }).filter(sel => sel && sel !== 'unknown'); // Filter out unknown selectors from custom handlers
+            
+            console.log('💾 SELECTORS TO SAVE:', imageSelectors);
             
             if (imageSelectors.length > 0) {
               // Find common pattern by removing nth-child and similar specific selectors
@@ -755,6 +766,14 @@
       try {
         const { result, selectorsUsed } = await window.api.scrapeCurrent({ mode: 'normal' });
         lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
+        
+        // DEBUG: Log what we received from scraper
+        console.log('📥 CONTROL WINDOW RECEIVED:', {
+          images: result?.images?.length || 0,
+          enrichedImages: result?.enrichedImages?.length || 0,
+          firstImage: result?.images?.[0]?.slice(-60),
+          firstEnriched: result?.enrichedImages?.[0]
+        });
         
         // Display debug log if available
         if (result && result.__debugLog && Array.isArray(result.__debugLog)) {
