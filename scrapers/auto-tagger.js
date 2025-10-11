@@ -78,9 +78,11 @@ function autoTag(productData) {
     occasions: matchKeywords(searchText, keywords.occasions)
   };
   
-  let primaryCategory = null;
+  // Use keyword-matched categories as primary source (matches seeded categories)
+  let primaryCategory = results.categories.length > 0 ? results.categories[0] : null;
   let categoryHierarchy = [];
   
+  // Use breadcrumbs for additional context/hierarchy (but not as literal category names)
   if (breadcrumbsArray.length > 0) {
     const filteredBreadcrumbs = breadcrumbsArray.filter((crumb, idx) => {
       const isLastCrumb = idx === breadcrumbsArray.length - 1;
@@ -89,18 +91,11 @@ function autoTag(productData) {
       return !(isLastCrumb && matchesTitle);
     });
     
+    // Create hierarchy from breadcrumbs (for display/context purposes)
     categoryHierarchy = filteredBreadcrumbs.map(crumb => ({
       name: crumb,
       slug: createSlug(crumb)
     }));
-    
-    if (categoryHierarchy.length > 0) {
-      primaryCategory = categoryHierarchy[categoryHierarchy.length - 1].slug;
-    }
-  }
-  
-  if (!primaryCategory && results.categories.length > 0) {
-    primaryCategory = results.categories[0];
   }
   
   const allTags = [
