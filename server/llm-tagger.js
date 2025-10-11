@@ -12,10 +12,26 @@ const openai = new OpenAI({
  * @param {string} productData.specs - Product specifications
  * @param {Array<string>} productData.breadcrumbs - Breadcrumb array
  * @param {string} productData.brand - Product brand
+ * @param {Object} productData.jsonLd - JSON-LD structured data (prioritized source)
  * @returns {Promise<Object>} { categories: string[], keywords: string[], confidence: number }
  */
 async function extractTagsWithLLM(productData) {
-  const { title, description, specs, breadcrumbs, brand } = productData;
+  const { title, description, specs, breadcrumbs, brand, jsonLd } = productData;
+
+  // Format JSON-LD data for better readability in prompt
+  let jsonLdInfo = 'N/A';
+  if (jsonLd && typeof jsonLd === 'object') {
+    const relevantFields = {};
+    const priorityKeys = ['name', 'category', 'gender', 'color', 'material', 'brand', 'sku', 'productID', 'model', 'style', 'audience'];
+    for (const key of priorityKeys) {
+      if (jsonLd[key]) {
+        relevantFields[key] = jsonLd[key];
+      }
+    }
+    if (Object.keys(relevantFields).length > 0) {
+      jsonLdInfo = JSON.stringify(relevantFields, null, 2);
+    }
+  }
 
   const prompt = `Analyze this e-commerce product and extract:
 1. HIERARCHICAL CATEGORIES - Full category path from general to specific (e.g., Women > Shoes > Sneakers > Running)
@@ -24,40 +40,43 @@ async function extractTagsWithLLM(productData) {
 Product Data:
 - Title: ${title || 'N/A'}
 - Brand: ${brand || 'N/A'}
+- JSON-LD Structured Data (⭐ PRIORITIZE THIS): ${jsonLdInfo}
 - Breadcrumbs: ${Array.isArray(breadcrumbs) ? breadcrumbs.join(' > ') : (breadcrumbs || 'N/A')}
 - Description: ${description?.substring(0, 500) || 'N/A'}
 - Specs: ${specs?.substring(0, 300) || 'N/A'}
 
 CATEGORY EXTRACTION RULES:
-1. Extract the FULL category path with all intermediate levels (don't skip levels)
-2. Order: Gender/Age → Type → Style → Specific Use
-3. Examples:
+1. PRIORITIZE JSON-LD structured data (category, gender, audience fields) - this is the most reliable source
+2. Extract the FULL category path with all intermediate levels (don't skip levels)
+3. Order: Gender/Age → Type → Style → Specific Use
+4. Examples:
    - Women > Shoes > Sneakers > Running (not Women > Shoes > Running)
    - Men > Clothing > Tops > T-Shirts (not Men > Clothing > T-Shirts)
    - Home > Furniture > Bedroom > Beds (not Home > Bedroom > Beds)
-4. Use breadcrumbs as primary source but validate with title/description
-5. Return as array: ["Women", "Shoes", "Sneakers", "Running"]
+5. If JSON-LD is incomplete, use breadcrumbs/title/description as fallback
+6. Return as array: ["Women", "Shoes", "Sneakers", "Running"]
 
 KEYWORD EXTRACTION RULES:
 1. MUST include (if available):
    - Brand name (e.g., "Nike")
    - Product line + model combined (e.g., "Air Force 270", not separate)
-2. Fill remaining 3-4 slots with:
+2. PRIORITIZE extracting from JSON-LD fields (color, material, style, model)
+3. Fill remaining 3-4 slots with:
    - Materials (mesh, leather, cotton)
    - Colors (white, black, blue)
    - Style/use case (athletic, casual, running)
    - Key features (cushioned, waterproof, lightweight)
-3. Skip generic words (shoes, product, item)
-4. Skip words already in category path
-5. Order by confidence (most certain first)
-6. Max 6 keywords total
+4. Skip generic words (shoes, product, item)
+5. Skip words already in category path
+6. Order by confidence (most certain first)
+7. Max 6 keywords total
 
 Respond in JSON format:
 {
   "categories": ["Level1", "Level2", "Level3", "Level4"],
   "keywords": ["brand", "product-line-model", "attribute1", "attribute2", "attribute3", "attribute4"],
   "confidence": 0.85,
-  "reasoning": "Brief explanation of choices"
+  "reasoning": "Brief explanation of choices (mention if JSON-LD was used)"
 }`;
 
   try {
@@ -90,7 +109,22 @@ Respond in JSON format:
  * @returns {Promise<Object>} New suggestions
  */
 async function retryWithFeedback(productData, feedback) {
-  const { title, description, specs, breadcrumbs, brand } = productData;
+  const { title, description, specs, breadcrumbs, brand, jsonLd } = productData;
+
+  // Format JSON-LD data for better readability in prompt
+  let jsonLdInfo = 'N/A';
+  if (jsonLd && typeof jsonLd === 'object') {
+    const relevantFields = {};
+    const priorityKeys = ['name', 'category', 'gender', 'color', 'material', 'brand', 'sku', 'productID', 'model', 'style', 'audience'];
+    for (const key of priorityKeys) {
+      if (jsonLd[key]) {
+        relevantFields[key] = jsonLd[key];
+      }
+    }
+    if (Object.keys(relevantFields).length > 0) {
+      jsonLdInfo = JSON.stringify(relevantFields, null, 2);
+    }
+  }
 
   const prompt = `The previous tagging attempt was rejected with this feedback: "${feedback}"
 
@@ -99,11 +133,12 @@ Please re-analyze this product and provide better suggestions.
 Product Data:
 - Title: ${title || 'N/A'}
 - Brand: ${brand || 'N/A'}
+- JSON-LD Structured Data (⭐ PRIORITIZE THIS): ${jsonLdInfo}
 - Breadcrumbs: ${Array.isArray(breadcrumbs) ? breadcrumbs.join(' > ') : (breadcrumbs || 'N/A')}
 - Description: ${description?.substring(0, 500) || 'N/A'}
 - Specs: ${specs?.substring(0, 300) || 'N/A'}
 
-Apply the same rules as before but consider the user's feedback.
+Apply the same rules as before but consider the user's feedback. Remember to prioritize JSON-LD structured data if available.
 
 Respond in JSON format:
 {
