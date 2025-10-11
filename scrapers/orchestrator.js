@@ -4174,6 +4174,10 @@
         });
       }
       
+      // Extract JSON-LD structured data for LLM categorization
+      const jsonLdProducts = scanJSONLDProducts();
+      const jsonLd = jsonLdProducts[0] || null;
+      
       const payload = { 
         title, 
         brand, 
@@ -4185,6 +4189,7 @@
         url: location.href, 
         images, 
         enrichedImages,  // New field with selector information
+        jsonLd,  // JSON-LD structured data for categorization
         timestamp: new Date().toISOString(), 
         mode 
       };
