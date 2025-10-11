@@ -536,6 +536,17 @@
     let lastPayload = null;
     let currentUrl = ''; // Fixed: moved from line 808 to prevent initialization error
 
+    // Helper: HTML escape for safe attribute insertion
+    function htmlEscape(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+    
     function normalizeSelectorInfo(selectorInfo) {
       if (!selectorInfo) return null;
       if (selectorInfo && Array.isArray(selectorInfo.selectors)) {
@@ -840,8 +851,8 @@
           <button id="clearImagesBtn" style="margin-top:8px; margin-left:8px; padding:6px 12px; background:#ff5722; color:white; border:none; border-radius:4px; cursor:pointer;">🗑️ Clear Saved Images</button>`;
         images.innerHTML = imgs.map((u, i) => `
           <div style="position:relative; display:inline-block;">
-            <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${u}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
-            <img referrerpolicy="no-referrer" src="${u}" title="${u}" onclick="openImageOverlay('${u}')" style="display:block;">
+            <input type="checkbox" class="img-checkbox" data-field="images" data-index="${i}" data-url="${htmlEscape(u)}" style="position:absolute; top:4px; left:4px; z-index:1; width:16px; height:16px; cursor:pointer;">
+            <img referrerpolicy="no-referrer" src="${htmlEscape(u)}" title="${htmlEscape(u)}" onclick="openImageOverlay('${htmlEscape(u)}')" style="display:block;">
           </div>`).join('');
         // Update mobile preview with scraped images
         updateMobilePreview(imgs);
