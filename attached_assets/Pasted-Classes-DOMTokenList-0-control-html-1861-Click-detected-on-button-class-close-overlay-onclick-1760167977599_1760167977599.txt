@@ -1,0 +1,26 @@
+Classes: DOMTokenList(0)
+control.html:1861 Click detected on: <button class=​"close-overlay" onclick=​"closeImageOverlay()​">​×​</button>​ Classes: DOMTokenList(1)
+control.html:625 🔍 SELECTOR SAVE MATCHING: Object
+control.html:633   Matching bp&format=jpg&width=600&height=600&fit=bounds&canvas=600,600: NOT FOUND
+control.html:637 💾 SELECTORS TO SAVE: Array(0)
+control.html:1861 Click detected on: <button id=​"saveSelectorBtn" style=​"margin-top:​8px;​ padding:​6px 12px;​ background:​#4CAF50;​ color:​white;​ border:​none;​ border-radius:​4px;​ cursor:​pointer;​">​…​</button>​ Classes: DOMTokenList(0)
+control.html:1861 Click detected on: <div class=​"box">​…​</div>​ Classes: DOMTokenList(1)
+control.html:625 🔍 SELECTOR SAVE MATCHING: {checkedUrls: Array(1), enrichedCount: 10, firstEnriched: {…}}
+control.html:633   Matching bp&format=jpg&width=600&height=600&fit=bounds&canvas=600,600: NOT FOUND
+control.html:637 💾 SELECTORS TO SAVE: []
+control.html:1861 Click detected on: <span id=​"selectedCount">​1 image​</span>​ Classes: DOMTokenList [value: '']
+control.html:1861 Click detected on: <div class=​"box">​…​</div>​ Classes: DOMTokenList ['box', value: 'box']
+control.html:625 🔍 SELECTOR SAVE MATCHING: {checkedUrls: Array(1), enrichedCount: 10, firstEnriched: {…}}
+control.html:633   Matching bp&format=jpg&width=600&height=600&fit=bounds&canvas=600,600: NOT FOUND
+control.html:637 💾 SELECTORS TO SAVE: []
+control.html:1861 Click detected on: <span id=​"selectedCount">​1 image​</span>​ Classes: DOMTokenList [value: '']
+control.html:625 🔍 SELECTOR SAVE MATCHING: {checkedUrls: Array(1), enrichedCount: 10, firstEnriched: {…}}
+control.html:633   Matching bp&format=jpg&width=600&height=600&fit=bounds&canvas=600,600: NOT FOUND
+control.html:637 💾 SELECTORS TO SAVE: []
+control.html:1861 Click detected on: <button id=​"saveSelectorBtn" style=​"margin-top:​8px;​ padding:​6px 12px;​ background:​#4CAF50;​ color:​white;​ border:​none;​ border-radius:​4px;​ cursor:​pointer;​">​…​</button>​ Classes: DOMTokenList [value: '']
+control.html:1861 Click detected on: <b>​SKU:​</b>​ Classes: DOMTokenList [value: '']
+control.html:1861 Click detected on: <input type=​"checkbox" id=​"okSKU" data-field=​"sku" style=​"margin-right:​8px;​">​ Classes: DOMTokenList [value: '']
+control.html:625 🔍 SELECTOR SAVE MATCHING: {checkedUrls: Array(1), enrichedCount: 10, firstEnriched: {…}}
+control.html:633   Matching bp&format=jpg&width=600&height=600&fit=bounds&canvas=600,600: NOT FOUND
+control.html:637 💾 SELECTORS TO SAVE: []
+control.html:1861 Click detected on: <span id=​"selectedCount">​1 field + 1 image​</span>​ Classes: DOMTokenList [value: '']
