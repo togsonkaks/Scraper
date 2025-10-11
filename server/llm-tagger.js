@@ -178,6 +178,9 @@ Respond in JSON format:
  */
 async function retryWithFeedback(productData, feedback) {
   const { title, description, specs, breadcrumbs, brand, jsonLd } = productData;
+  
+  // Load existing category structure from database
+  const existingPaths = await loadExistingCategoryPaths();
 
   // Format JSON-LD data for better readability in prompt
   let jsonLdInfo = 'N/A';
@@ -194,6 +197,11 @@ async function retryWithFeedback(productData, feedback) {
     }
   }
 
+  // Format existing category paths for LLM
+  const categoryContext = existingPaths.length > 0 
+    ? `\n📂 EXISTING CATEGORY TAXONOMY (${existingPaths.length} paths):\n${existingPaths.map(p => `   - ${p}`).join('\n')}`
+    : '\n📂 EXISTING CATEGORY TAXONOMY: None (you can create new paths)';
+
   const prompt = `The previous tagging attempt was rejected with this feedback: "${feedback}"
 
 Please re-analyze this product and provide better suggestions.
@@ -205,15 +213,21 @@ Product Data:
 - Breadcrumbs: ${Array.isArray(breadcrumbs) ? breadcrumbs.join(' > ') : (breadcrumbs || 'N/A')}
 - Description: ${description?.substring(0, 500) || 'N/A'}
 - Specs: ${specs?.substring(0, 300) || 'N/A'}
+${categoryContext}
 
-Apply the same rules as before but consider the user's feedback. Remember to prioritize JSON-LD structured data if available.
+IMPORTANT RULES:
+1. **MATCH EXISTING CATEGORY PATHS** from the taxonomy above - don't invent new ones unless no match exists
+2. Style words like "casual", "running", "athletic" are TAGS, not categories
+3. Consider the user's feedback when making corrections
+4. Prioritize JSON-LD structured data if available
 
 Respond in JSON format:
 {
   "categories": ["Level1", "Level2", "Level3", "Level4"],
-  "keywords": ["brand", "product-line-model", "attribute1", "attribute2", "attribute3"],
+  "keywords": ["brand", "product-model", "style-tag", "material", "color"],
   "confidence": 0.85,
-  "reasoning": "How this addresses the feedback"
+  "reasoning": "How this addresses the feedback and matches existing taxonomy",
+  "isNewPath": false
 }`;
 
   try {
