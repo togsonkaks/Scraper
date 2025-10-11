@@ -2247,8 +2247,14 @@
         .filter(Boolean)
         .filter((item, index) => {
           // Remove navigation junk terms (exact match only, case insensitive)
-          const junkTerms = /^(back|return|go back|← back|‹ back|previous|shop|shop all|store|all products|products|all categories|categories|main menu|menu|start|index|root|←|→|‹|›)$/i;
+          const junkTerms = /^(back|return|go back|go to|goto|← back|‹ back|previous|shop|shop all|store|all products|products|all categories|categories|main menu|menu|start|index|root|←|→|‹|›)$/i;
           if (junkTerms.test(item)) return false;
+          
+          // Remove items with HTML entities (Go to&nbsp;, etc.)
+          if (/&[a-z]+;/i.test(item)) return false;
+          
+          // Remove items containing error messages
+          if (/404|not found|error|page not found|oops|sorry/i.test(item)) return false;
           
           // Remove "Home" only if it's exactly that word (not "Home-Goods", "Homeware", etc.)
           // Only filter first item if it's exactly "Home"
@@ -2262,10 +2268,23 @@
     
     // Helper: Extract and format breadcrumb text from links
     function extractFromLinks(container) {
-      const links = container.querySelectorAll('a, li > span, [itemprop="name"]');
-      if (links.length < 2) return null;
+      // Prioritize: li > span (category names) over nested a > span (helper text)
+      const prioritySelectors = [
+        'li > span[itemprop="name"]',  // Direct li children (Costco pattern)
+        'li > a',                       // Standard link breadcrumbs
+        'a[itemprop="item"]',          // Semantic breadcrumb links
+        'a, span[itemprop="name"]'     // Fallback
+      ];
       
-      const items = Array.from(links)
+      let elements = [];
+      for (const sel of prioritySelectors) {
+        elements = container.querySelectorAll(sel);
+        if (elements.length >= 2) break;
+      }
+      
+      if (elements.length < 2) return null;
+      
+      const items = Array.from(elements)
         .map(link => {
           // Get only direct text content, not nested elements
           let text = '';
