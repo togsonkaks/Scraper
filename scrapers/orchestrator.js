@@ -2240,6 +2240,13 @@
         .map(item => {
           // Normalize separators - remove literal "/" and clean up
           let clean = item.replace(/^\/+|\/+$/g, '').trim();
+          
+          // Strip navigation prefixes (Go to, Back to, etc.)
+          clean = clean.replace(/^(go to|goto|back to|return to)\s*/gi, '').trim();
+          
+          // Remove HTML entities
+          clean = clean.replace(/&[a-z]+;/gi, '').trim();
+          
           // Remove empty or very short items
           if (clean.length === 0 || clean === '/' || clean === '|' || clean === '>') return null;
           return clean;
@@ -2247,11 +2254,8 @@
         .filter(Boolean)
         .filter((item, index) => {
           // Remove navigation junk terms (exact match only, case insensitive)
-          const junkTerms = /^(back|return|go back|go to|goto|← back|‹ back|previous|shop|shop all|store|all products|products|all categories|categories|main menu|menu|start|index|root|←|→|‹|›)$/i;
+          const junkTerms = /^(back|return|previous|shop|shop all|store|all products|products|all categories|categories|main menu|menu|start|index|root|←|→|‹|›)$/i;
           if (junkTerms.test(item)) return false;
-          
-          // Remove items with HTML entities (Go to&nbsp;, etc.)
-          if (/&[a-z]+;/i.test(item)) return false;
           
           // Remove items containing error messages
           if (/404|not found|error|page not found|oops|sorry/i.test(item)) return false;
