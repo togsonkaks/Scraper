@@ -47,7 +47,7 @@ async function saveProduct(productData, tagResults) {
     const rawResult = await sql`
       INSERT INTO products_raw (
         source_url, raw_title, raw_description, raw_breadcrumbs, 
-        raw_price, raw_brand, raw_specs, raw_sku, raw_tags, raw_images
+        raw_price, raw_brand, raw_specs, raw_sku, raw_tags, raw_images, raw_json_ld
       ) VALUES (
         ${productData.url || ''},
         ${productData.title || null},
@@ -58,7 +58,8 @@ async function saveProduct(productData, tagResults) {
         ${productData.specs || null},
         ${productData.sku || null},
         ${productData.tags || null},
-        ${productData.images || []}
+        ${productData.images || []},
+        ${productData.jsonLd ? JSON.stringify(productData.jsonLd) : null}
       )
       RETURNING raw_id
     `;
