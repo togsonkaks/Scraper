@@ -4073,8 +4073,18 @@
       const enrichedImages = [];
       if (Array.isArray(images)) {
         images.forEach(url => {
-          const selector = urlToSelectorMap.get(url) || 'unknown';
-          enrichedImages.push({ url, selector });
+          // Try to find selector with both normalized and original URL
+          // (urlToSelectorMap might have URLs before/after CDN upgrades)
+          let selector = urlToSelectorMap.get(url);
+          if (!selector && url.startsWith('https://')) {
+            // Try without https: prefix (protocol-relative version)
+            selector = urlToSelectorMap.get(url.replace(/^https:/, ''));
+          }
+          if (!selector && url.startsWith('//')) {
+            // Try with https: prefix
+            selector = urlToSelectorMap.get('https:' + url);
+          }
+          enrichedImages.push({ url, selector: selector || 'unknown' });
         });
       }
       
