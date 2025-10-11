@@ -310,6 +310,24 @@ async function retryWithFeedback(productData, feedback) {
     ? `\n📂 EXISTING CATEGORY TAXONOMY (${existingPaths.length} paths):\n${existingPaths.map(p => `   - ${p}`).join('\n')}`
     : '\n📂 EXISTING CATEGORY TAXONOMY: None (you can create new paths)';
 
+  // Format master tag taxonomy for LLM
+  const tagTaxonomy = `
+🏷️ MASTER TAG REFERENCE (350+ tags organized by type):
+
+ACTIVITIES/USE-CASES: ${MASTER_TAG_TAXONOMY.activities.join(', ')}
+
+MATERIALS: ${MASTER_TAG_TAXONOMY.materials.join(', ')}
+
+COLORS/PATTERNS: ${MASTER_TAG_TAXONOMY.colors.join(', ')}
+
+STYLES: ${MASTER_TAG_TAXONOMY.styles.join(', ')}
+
+FEATURES: ${MASTER_TAG_TAXONOMY.features.join(', ')}
+
+FIT/SIZING: ${MASTER_TAG_TAXONOMY.fit.join(', ')}
+
+OCCASIONS: ${MASTER_TAG_TAXONOMY.occasions.join(', ')}`;
+
   const prompt = `The previous tagging attempt was rejected with this feedback: "${feedback}"
 
 Please re-analyze this product and provide better suggestions.
@@ -319,20 +337,23 @@ Product Data:
 - Brand: ${brand || 'N/A'}
 - JSON-LD Structured Data (⭐ PRIORITIZE THIS): ${jsonLdInfo}
 - Breadcrumbs: ${Array.isArray(breadcrumbs) ? breadcrumbs.join(' > ') : (breadcrumbs || 'N/A')}
-- Description: ${description?.substring(0, 500) || 'N/A'}
-- Specs: ${specs?.substring(0, 300) || 'N/A'}
+- Description: ${description?.substring(0, 800) || 'N/A'}
+- Specs: ${specs?.substring(0, 400) || 'N/A'}
 ${categoryContext}
+${tagTaxonomy}
 
 IMPORTANT RULES:
 1. **MATCH EXISTING CATEGORY PATHS** from the taxonomy above - don't invent new ones unless no match exists
-2. Style words like "casual", "running", "athletic" are TAGS, not categories
-3. Consider the user's feedback when making corrections
-4. Prioritize JSON-LD structured data if available
+2. Style/activity words like "casual", "running", "workout", "athletic" are TAGS, not categories
+3. Use the Master Tag Reference above to extract 6-8 descriptive tags
+4. Check DESCRIPTION for activity keywords (workout, running, etc.)
+5. Consider the user's feedback when making corrections
+6. Prioritize JSON-LD structured data if available
 
 Respond in JSON format:
 {
-  "categories": ["Level1", "Level2", "Level3", "Level4"],
-  "keywords": ["brand", "product-model", "style-tag", "material", "color"],
+  "categories": ["Level1", "Level2", "Level3", "Level4", "Level5"],
+  "keywords": ["brand", "product-model", "activity-tag", "material", "color", "style", "feature", "occasion"],
   "confidence": 0.85,
   "reasoning": "How this addresses the feedback and matches existing taxonomy",
   "isNewPath": false
