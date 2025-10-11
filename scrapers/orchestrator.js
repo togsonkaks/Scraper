@@ -3106,14 +3106,6 @@
             const isLargeAttr = !!attrs['data-large'];
             enrichedUrls.push({ url: upgraded, element: el, index: i, selector: actualPath, fromZoomAttr: isZoomAttr, fromLargeAttr: isLargeAttr });
             urlToSelectorMap.set(upgraded, actualPath);
-            // DEBUG: Log first 3 selector captures
-            if (i < 3) {
-              console.log(`🔍 SELECTOR CAPTURE #${i}:`, {
-                url: upgraded.slice(-60),
-                selector: actualPath,
-                element: el.tagName + (el.className ? '.' + el.className.split(' ')[0] : '')
-              });
-            }
           } else {
             dbg(`❌ BLOCKED [${junkCheck.reason}]:`, upgraded.substring(upgraded.lastIndexOf('/') + 1));
           }
@@ -4099,19 +4091,8 @@
             selector = urlToSelectorMap.get('https:' + url);
           }
           enrichedImages.push({ url, selector: selector || 'unknown' });
-          
-          // DEBUG: Log first 3 enriched image mappings
-          if (idx < 3) {
-            console.log(`📦 ENRICHED IMAGE #${idx}:`, {
-              url: url.slice(-60),
-              selector: selector || 'unknown',
-              found: !!selector
-            });
-          }
         });
       }
-      
-      console.log(`✅ ENRICHED IMAGES BUILT: ${enrichedImages.length} total, ${enrichedImages.filter(e => e.selector !== 'unknown').length} with selectors`);
       
       const payload = { 
         title, 
