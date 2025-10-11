@@ -1137,20 +1137,33 @@
       }
     };
 
+    // Helper function to generate slugs
+    function generateSlug(text) {
+      return text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
     // Save to database with LLM tags
     document.getElementById('llmSaveBtn').onclick = async () => {
       try {
         document.getElementById('llmSaveBtn').disabled = true;
         document.getElementById('llmSaveBtn').textContent = '💾 Saving...';
         
-        // Format tags for database
+        // Format tags for database with slugs
         const tagResults = {
           primaryCategory: currentLLMTags.categories[currentLLMTags.categories.length - 1] || 'Uncategorized',
           categories: currentLLMTags.categories,
-          tags: currentLLMTags.keywords.map(kw => ({ name: kw, type: 'llm' })),
+          allCategories: currentLLMTags.categories.map(cat => generateSlug(cat)),
+          tags: currentLLMTags.keywords.map(kw => ({ 
+            name: kw, 
+            slug: generateSlug(kw),
+            type: 'llm' 
+          })),
           confidenceScore: currentLLMTags.confidence || 1.0,
           needsLLMEnrichment: false,
-          gender: null
+          gender: currentLLMTags.categories.find(c => ['men', 'women', 'unisex', 'kids'].includes(c.toLowerCase())) || null
         };
         
         const saveResult = await window.api.saveToDatabase(lastPayload, tagResults);
