@@ -865,6 +865,17 @@
           <div style="margin-bottom:4px;">
             <b>URL:</b> ${result?.url || ''}
           </div>
+          ${result?.jsonLd ? `
+          <div style="margin-bottom:8px; padding:8px; background:#f0f7ff; border-left:3px solid #2196F3; border-radius:4px;">
+            <b style="color:#1976D2;">📊 JSON-LD Structured Data:</b>
+            <div style="margin-top:6px; font-size:12px; font-family:monospace; max-height:120px; overflow-y:auto;">
+              ${Object.entries(result.jsonLd)
+                .filter(([k]) => !k.startsWith('@') && ['name', 'category', 'gender', 'color', 'material', 'brand', 'sku'].includes(k))
+                .map(([k, v]) => `<div style="margin:2px 0;"><strong>${k}:</strong> ${typeof v === 'object' ? JSON.stringify(v) : v}</div>`)
+                .join('')}
+            </div>
+          </div>
+          ` : ''}
           <div style="margin-bottom:4px; display:flex; align-items:center;">
             <input type="checkbox" id="okDesc" data-field="description" style="margin-right:8px;">
             <b>Description:</b> <span style="margin-left:8px; flex:1;">${(result?.description || '').slice(0,240)}</span>
