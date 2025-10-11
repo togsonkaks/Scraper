@@ -162,7 +162,8 @@ Respond in JSON format:
       categories: result.categories || [],
       keywords: result.keywords || [],
       confidence: result.confidence || 0.7,
-      reasoning: result.reasoning || ''
+      reasoning: result.reasoning || '',
+      isNewPath: result.isNewPath || false
     };
   } catch (error) {
     console.error('LLM tagging error:', error);
@@ -245,7 +246,8 @@ Respond in JSON format:
       categories: result.categories || [],
       keywords: result.keywords || [],
       confidence: result.confidence || 0.7,
-      reasoning: result.reasoning || ''
+      reasoning: result.reasoning || '',
+      isNewPath: result.isNewPath || false
     };
   } catch (error) {
     console.error('LLM retry error:', error);
