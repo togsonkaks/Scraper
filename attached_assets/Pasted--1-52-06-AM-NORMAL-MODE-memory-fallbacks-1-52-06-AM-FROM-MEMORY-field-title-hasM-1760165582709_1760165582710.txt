@@ -1,0 +1,81 @@
+[1:52:06 AM] 🔄 NORMAL MODE - memory + fallbacks
+[1:52:06 AM] 🧠 FROM MEMORY: {"field":"title","hasMemEntry":true,"selectors":["h1"],"attr":"text"}
+[1:52:06 AM] 🔍 TRYING CSS SELECTORS: ["h1"]
+[1:52:06 AM] 🎯 TRYING SELECTOR [title]: h1
+[1:52:06 AM] ✅ SELECTOR SUCCESS [Memory title]: h1 found: 1 elements
+[1:52:06 AM] Single element <H1>
+[1:52:06 AM] 📋 RAW VALUE: {"selector":"h1","attr":"text","rawValue":"SafeRacks Storage Bin Rack, 5 Tote Capacity, NSF Certified","element":"H1"}
+[1:52:06 AM] 💰 AFTER NORMALIZATION: SafeRacks Storage Bin Rack, 5 Tote Capacity, NSF Certified
+[1:52:06 AM] ✅ MEMORY SUCCESS [title]: SafeRacks Storage Bin Rack, 5 Tote Capacity, NSF Certified
+[1:52:06 AM] 📝 TITLE FROM MEMORY: SafeRacks Storage Bin Rack, 5 Tote Capacity, NSF Certified
+[1:52:06 AM] 🧠 FROM MEMORY: {"field":"brand","hasMemEntry":true,"selectors":["[itemprop=\"brand\"]"],"attr":"text"}
+[1:52:06 AM] 🔍 TRYING CSS SELECTORS: ["[itemprop=\"brand\"]"]
+[1:52:06 AM] 🎯 TRYING SELECTOR [brand]: [itemprop="brand"]
+[1:52:06 AM] ✅ SELECTOR SUCCESS [Memory brand]: [itemprop="brand"] found: 1 elements
+[1:52:06 AM] Single element <DIV.col-xs-6>
+[1:52:06 AM] 📋 RAW VALUE: {"selector":"[itemprop=\"brand\"]","attr":"text","rawValue":"SafeRacks","element":"DIV.col-xs-6"}
+[1:52:06 AM] 💰 AFTER NORMALIZATION: SafeRacks
+[1:52:06 AM] ✅ MEMORY SUCCESS [brand]: SafeRacks
+[1:52:06 AM] 🏷️ BRAND FROM MEMORY: SafeRacks
+[1:52:06 AM] ⏳ Waiting 500ms for accordion content to render...
+[1:52:06 AM] ✅ Accordion render delay complete
+[1:52:06 AM] 🧠 FROM MEMORY: {"field":"description","hasMemEntry":true,"selectors":["[id*=\"description\" i]:not(meta)"],"attr":"text"}
+[1:52:06 AM] 🔍 TRYING CSS SELECTORS: ["[id*=\"description\" i]:not(meta)"]
+[1:52:06 AM] 🎯 TRYING SELECTOR [description]: [id*="description" i]:not(meta)
+[1:52:06 AM] ✅ SELECTOR SUCCESS [Memory description]: [id*="description" i]:not(meta) found: 1 elements
+[1:52:06 AM] Single element <SPAN#search-field-description.sr-only>
+[1:52:06 AM] 📋 RAW VALUE: {"selector":"[id*=\"description\" i]:not(meta)","attr":"text","rawValue":"Type and press the down arrow to browse search suggestions","element":"SPAN#search-field-description.sr-only"}
+[1:52:06 AM] 💰 AFTER NORMALIZATION: Type and press the down arrow to browse search suggestions
+[1:52:06 AM] ✅ MEMORY SUCCESS [description]: Type and press the down arrow to browse search suggestions
+[1:52:06 AM] 📄 DESCRIPTION FROM MEMORY: Type and press the down arrow to browse search suggestions
+[1:52:06 AM] 🧠 FROM MEMORY: {"field":"breadcrumbs","hasMemEntry":true,"selectors":["[role=\"navigation\"][aria-label*=\"breadcrumb\" i]"],"attr":"text"}
+[1:52:06 AM] 🔍 TRYING CSS SELECTORS: ["[role=\"navigation\"][aria-label*=\"breadcrumb\" i]"]
+[1:52:06 AM] 🎯 TRYING SELECTOR [breadcrumbs]: [role="navigation"][aria-label*="breadcrumb" i]
+[1:52:06 AM] ✅ SELECTOR SUCCESS [Memory breadcrumbs]: [role="navigation"][aria-label*="breadcrumb" i] found: 1 elements
+[1:52:06 AM] Single element <DIV>
+[1:52:06 AM] 📋 RAW VALUE: {"selector":"[role=\"navigation\"][aria-label*=\"breadcrumb\" i]","attr":"text","rawValue":"Home\n\t\t\t\t \n\t\t\t\n\t\n\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t404 - Product Not Found","element":"DIV"}
+[1:52:06 AM] 💰 AFTER NORMALIZATION: Home 404 - Product Not Found
+[1:52:06 AM] ✅ MEMORY SUCCESS [breadcrumbs]: Home 404 - Product Not Found
+[1:52:06 AM] 🍞 BREADCRUMBS FROM MEMORY: Home 404 - Product Not Found
+[1:52:06 AM] 🧠 FROM MEMORY: {"field":"specs","hasMemEntry":false}
+[1:52:06 AM] ❌ NO MEMORY ENTRY or invalid selectors for field: specs
+[1:52:06 AM] 📋 SPECS FROM MEMORY: null
+[1:52:06 AM] 📋 SPECS: Falling back to generic...
+[1:52:06 AM] 📋 SPECS FROM GENERIC: null
+[1:52:06 AM] 🧠 FROM MEMORY: {"field":"sku","hasMemEntry":true,"selectors":["[data-sku]"],"attr":"data"}
+[1:52:06 AM] 🔍 TRYING CSS SELECTORS: ["[data-sku]"]
+[1:52:06 AM] 🎯 TRYING SELECTOR [sku]: [data-sku]
+[1:52:06 AM] ✅ SELECTOR SUCCESS [Memory sku]: [data-sku] found: 1 elements
+[1:52:06 AM] Single element <SPAN>
+[1:52:06 AM] 📋 RAW VALUE: {"selector":"[data-sku]","attr":"data","rawValue":null,"element":"SPAN"}
+[1:52:06 AM] 💰 AFTER NORMALIZATION: null
+[1:52:06 AM] ❌ NO VALUE after processing for [sku]
+[1:52:06 AM] 🔢 SKU FROM MEMORY: null
+[1:52:06 AM] 🔢 SKU: Falling back to generic...
+[1:52:06 AM] 🔢 SKU FROM GENERIC: 1558000
+[1:52:06 AM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":true,"selectors":[".price"],"attr":"text"}
+[1:52:06 AM] 🔍 TRYING CSS SELECTORS: [".price"]
+[1:52:06 AM] 🎯 TRYING SELECTOR [price]: .price
+[1:52:06 AM] ✅ SELECTOR SUCCESS [Memory price]: .price found: 1 elements
+[1:52:06 AM] Single element <SPAN.price>
+[1:52:06 AM] 📋 RAW VALUE: {"selector":".price","attr":"text","rawValue":"$169.99","element":"SPAN.price"}
+[1:52:06 AM] 🔍 PRICE PARSING: {"input":"$169.99","inputType":"string","inputLength":7}
+[1:52:06 AM] 🧹 CLEANED INPUT: {"original":"$169.99","cleaned":"$169.99"}
+[1:52:06 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$169.99","reconstructed":"$169.99"}
+[1:52:06 AM] 💰 MONETARY TOKENS: [169.99]
+[1:52:06 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[169.99],"integerTokens":[],"preferDecimals":true}
+[1:52:06 AM] ✅ PRICE FROM MONETARY: {"result":169.99,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[169.99]}
+[1:52:06 AM] 💰 AFTER NORMALIZATION: 169.99
+[1:52:06 AM] 🎯 REFINING PRICE: {"baseVal":"169.99","fromMemory":true,"hasElement":true,"elementTag":"SPAN"}
+[1:52:06 AM] Price element <SPAN.price>
+[1:52:06 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[1:52:06 AM] 🔒 MEMORY MODE - trusting user selector, returning: 169.99
+[1:52:06 AM] 💰 AFTER CONTEXT REFINEMENT: 169.99
+[1:52:06 AM] ✅ MEMORY SUCCESS [price]: 169.99
+[1:52:06 AM] 💰 PRICE FROM MEMORY: 169.99
+[1:52:06 AM] ❌ No saved selector for images
+[1:52:06 AM] 🔧 Trying custom handler...
+[1:52:06 AM] 🔍 Falling back to generic scraper...
+[1:52:06 AM] 🖼️ Getting generic images for hostname: costco.com
+[1:52:06 AM] 📍 CALL TRACE: at getImagesGeneric (<anonymous>:5708:23) -> at scrapeProduct (<anonymous>:6137:41) -> at async <anonymous>:6453:21
+[1:52:06 AM] 🎯 Collecting elements with gallery selector: '.product-media img'
