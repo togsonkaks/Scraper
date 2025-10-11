@@ -344,6 +344,21 @@
                style="width:100%; padding:10px; border:2px solid #9C27B0; border-radius:6px; font-size:14px;">
       </div>
       
+      <!-- Feedback Area (hidden by default) -->
+      <div id="llmFeedbackArea" style="display:none; margin-bottom:20px; padding:16px; background:#fff3e0; border-radius:8px; border:2px solid #FF9800;">
+        <label style="display:block; font-weight:bold; margin-bottom:8px; color:#FF9800;">💬 Tell AI what to improve:</label>
+        <textarea id="llmFeedbackInput" placeholder="e.g., 'Wrong category - these are shoes, not clothing. Should be Men > Shoes > Sneakers'" 
+                  style="width:100%; min-height:80px; padding:10px; border:2px solid #FF9800; border-radius:6px; font-size:14px; font-family:inherit; resize:vertical;"></textarea>
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <button id="llmSubmitFeedback" style="background:#FF9800; color:white; padding:8px 16px; border:none; border-radius:6px; cursor:pointer; font-size:13px; font-weight:bold;">
+            ✓ Submit Feedback
+          </button>
+          <button id="llmCancelFeedback" style="background:#999; color:white; padding:8px 16px; border:none; border-radius:6px; cursor:pointer; font-size:13px;">
+            Cancel
+          </button>
+        </div>
+      </div>
+      
       <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:20px;">
         <button id="llmRetryBtn" style="background:#FF9800; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer; font-size:14px;">
           🔄 Retry AI
@@ -1082,24 +1097,43 @@
       document.getElementById('llmTagModal').style.display = 'none';
     };
 
-    // Retry with feedback
-    document.getElementById('llmRetryBtn').onclick = async () => {
-      const feedback = prompt('What should the AI improve? (e.g., "Wrong category, should be Men\'s Shoes")');
-      if (!feedback) return;
+    // Retry with feedback - show feedback input area
+    document.getElementById('llmRetryBtn').onclick = () => {
+      document.getElementById('llmFeedbackArea').style.display = 'block';
+      document.getElementById('llmFeedbackInput').focus();
+    };
+
+    // Cancel feedback input
+    document.getElementById('llmCancelFeedback').onclick = () => {
+      document.getElementById('llmFeedbackArea').style.display = 'none';
+      document.getElementById('llmFeedbackInput').value = '';
+    };
+
+    // Submit feedback and retry
+    document.getElementById('llmSubmitFeedback').onclick = async () => {
+      const feedback = document.getElementById('llmFeedbackInput').value.trim();
+      if (!feedback) {
+        alert('Please enter some feedback for the AI');
+        return;
+      }
       
       try {
-        document.getElementById('llmRetryBtn').disabled = true;
-        document.getElementById('llmRetryBtn').textContent = '🔄 Retrying...';
+        document.getElementById('llmSubmitFeedback').disabled = true;
+        document.getElementById('llmSubmitFeedback').textContent = '🔄 Retrying...';
         
         const result = await window.api.llmRetryWithFeedback(lastPayload, feedback);
         currentLLMTags = result;
         showLLMReviewModal(result);
         
+        // Hide and reset feedback area
+        document.getElementById('llmFeedbackArea').style.display = 'none';
+        document.getElementById('llmFeedbackInput').value = '';
+        
       } catch (error) {
         alert(`❌ Error: ${error.message}`);
       } finally {
-        document.getElementById('llmRetryBtn').disabled = false;
-        document.getElementById('llmRetryBtn').textContent = '🔄 Retry AI';
+        document.getElementById('llmSubmitFeedback').disabled = false;
+        document.getElementById('llmSubmitFeedback').textContent = '✓ Submit Feedback';
       }
     };
 
