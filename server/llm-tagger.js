@@ -24,7 +24,7 @@ async function extractTagsWithLLM(productData) {
 Product Data:
 - Title: ${title || 'N/A'}
 - Brand: ${brand || 'N/A'}
-- Breadcrumbs: ${breadcrumbs?.join(' > ') || 'N/A'}
+- Breadcrumbs: ${Array.isArray(breadcrumbs) ? breadcrumbs.join(' > ') : (breadcrumbs || 'N/A')}
 - Description: ${description?.substring(0, 500) || 'N/A'}
 - Specs: ${specs?.substring(0, 300) || 'N/A'}
 
@@ -99,7 +99,7 @@ Please re-analyze this product and provide better suggestions.
 Product Data:
 - Title: ${title || 'N/A'}
 - Brand: ${brand || 'N/A'}
-- Breadcrumbs: ${breadcrumbs?.join(' > ') || 'N/A'}
+- Breadcrumbs: ${Array.isArray(breadcrumbs) ? breadcrumbs.join(' > ') : (breadcrumbs || 'N/A')}
 - Description: ${description?.substring(0, 500) || 'N/A'}
 - Specs: ${specs?.substring(0, 300) || 'N/A'}
 
