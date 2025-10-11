@@ -176,18 +176,37 @@ async function extractTagsWithLLM(productData) {
     ? `\n📂 EXISTING CATEGORY TAXONOMY (${existingPaths.length} paths):\n${existingPaths.map(p => `   - ${p}`).join('\n')}`
     : '\n📂 EXISTING CATEGORY TAXONOMY: None (you can create new paths)';
 
+  // Format master tag taxonomy for LLM
+  const tagTaxonomy = `
+🏷️ MASTER TAG REFERENCE (350+ tags organized by type):
+
+ACTIVITIES/USE-CASES: ${MASTER_TAG_TAXONOMY.activities.join(', ')}
+
+MATERIALS: ${MASTER_TAG_TAXONOMY.materials.join(', ')}
+
+COLORS/PATTERNS: ${MASTER_TAG_TAXONOMY.colors.join(', ')}
+
+STYLES: ${MASTER_TAG_TAXONOMY.styles.join(', ')}
+
+FEATURES: ${MASTER_TAG_TAXONOMY.features.join(', ')}
+
+FIT/SIZING: ${MASTER_TAG_TAXONOMY.fit.join(', ')}
+
+OCCASIONS: ${MASTER_TAG_TAXONOMY.occasions.join(', ')}`;
+
   const prompt = `Analyze this e-commerce product and extract:
 1. HIERARCHICAL CATEGORIES - Full category path from general to specific
-2. 5-6 HIGH-QUALITY KEYWORDS/TAGS - Brand, product line, and descriptive attributes
+2. 6-8 HIGH-QUALITY KEYWORDS/TAGS - Brand, product line, and descriptive attributes
 
 Product Data:
 - Title: ${title || 'N/A'}
 - Brand: ${brand || 'N/A'}
 - JSON-LD Structured Data (⭐ PRIORITIZE THIS): ${jsonLdInfo}
 - Breadcrumbs: ${Array.isArray(breadcrumbs) ? breadcrumbs.join(' > ') : (breadcrumbs || 'N/A')}
-- Description: ${description?.substring(0, 500) || 'N/A'}
-- Specs: ${specs?.substring(0, 300) || 'N/A'}
+- Description: ${description?.substring(0, 800) || 'N/A'}
+- Specs: ${specs?.substring(0, 400) || 'N/A'}
 ${categoryContext}
+${tagTaxonomy}
 
 CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
 1. **PRIORITY 1**: Match product to EXISTING category paths above
@@ -204,30 +223,34 @@ CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
 
 4. Return as array: ["Men", "Fashion", "Footwear", "Shoes", "Sneakers"]
 
-KEYWORD/TAG EXTRACTION RULES (FLEXIBLE ATTRIBUTES):
+KEYWORD/TAG EXTRACTION RULES (USE MASTER TAG REFERENCE):
 1. MUST include (if available):
    - Brand name (e.g., "Allbirds")
    - Product line/model (e.g., "Tree-Glider")
 
-2. Add 3-4 DESCRIPTIVE TAGS (these are NOT categories):
-   - Style descriptors: "casual-shoes", "running-shoe", "athletic", "minimalist"
+2. Add 4-6 DESCRIPTIVE TAGS from the Master Tag Reference above:
+   - Extract from DESCRIPTION and JSON-LD fields
+   - Activities/use-cases: "workout", "running", "casual-wear" (check description for activity keywords!)
    - Materials: "merino-wool", "mesh", "leather", "recycled"
-   - Colors: "black", "white", "natural"
-   - Features: "lightweight", "waterproof", "breathable"
+   - Colors/patterns: "black", "natural", "solid"
+   - Styles: "athletic", "minimalist", "casual"
+   - Features: "lightweight", "breathable", "eco-friendly"
+   - Occasions: "everyday", "gym", "travel"
 
-3. IMPORTANT: Style words like "casual", "running", "athletic" are TAGS, not categories
+3. IMPORTANT: 
+   - Style/activity words like "casual", "running", "workout", "athletic" are TAGS, not categories
    - ❌ WRONG: Category = "Men > Footwear > Casual Shoes"
-   - ✅ RIGHT: Category = "Men > Fashion > Footwear > Shoes > Sneakers", Tags = ["casual-shoes", "athletic"]
+   - ✅ RIGHT: Category = "Men > Fashion > Footwear > Shoes > Sneakers", Tags = ["casual", "workout", "athletic"]
 
 4. Skip generic words (shoes, product, item) and words already in category path
-5. Max 6 keywords total
+5. Extract 6-8 keywords total (brand + model + 4-6 descriptive tags)
 
 Respond in JSON format:
 {
-  "categories": ["Level1", "Level2", "Level3", "Level4"],
-  "keywords": ["brand", "product-model", "style-tag", "material", "color", "feature"],
+  "categories": ["Level1", "Level2", "Level3", "Level4", "Level5"],
+  "keywords": ["brand", "product-model", "activity-tag", "material", "color", "style", "feature", "occasion"],
   "confidence": 0.85,
-  "reasoning": "Brief explanation - mention if existing path matched or new path suggested",
+  "reasoning": "Brief explanation - mention if existing path matched or new path suggested, and which tags came from description",
   "isNewPath": false
 }`;
 
