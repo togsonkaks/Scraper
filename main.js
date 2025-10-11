@@ -883,6 +883,28 @@ ipcMain.handle('auto-tag-product', async (_e, productData) => {
   }
 });
 
+// LLM tagging handler
+ipcMain.handle('llm-tag-product', async (_e, productData) => {
+  try {
+    const { extractTagsWithLLM } = require(path.join(__dirname, 'server', 'llm-tagger'));
+    return await extractTagsWithLLM(productData);
+  } catch (e) {
+    console.error('Error LLM tagging product:', e);
+    throw e;
+  }
+});
+
+// LLM retry with feedback handler
+ipcMain.handle('llm-retry-with-feedback', async (_e, productData, feedback) => {
+  try {
+    const { retryWithFeedback } = require(path.join(__dirname, 'server', 'llm-tagger'));
+    return await retryWithFeedback(productData, feedback);
+  } catch (e) {
+    console.error('Error LLM retry:', e);
+    throw e;
+  }
+});
+
 // Database save handler
 ipcMain.handle('save-to-database', async (_e, productData, tagResults) => {
   try {

@@ -55,6 +55,21 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **Cost Strategy**: Keyword matching (free, 70-80% coverage) + LLM batch processing for low-confidence products (~$0.0001/product with GPT-4o-mini)
 
 ## Recent Changes
+- **LLM-Powered Tagging System (Oct 11, 2025)**: AI-assisted categorization with human review workflow
+  - **OpenAI Integration**: Uses GPT-4o-mini for intelligent tag/category extraction (~$0.001-0.003/product)
+  - **Smart Extraction** (`server/llm-tagger.js`): 
+    - Hierarchical categories with full path (Women > Shoes > Sneakers > Running)
+    - 5-6 curated keywords: Brand (must) + Product Line/Model + 3-4 attributes (material, color, style)
+    - Skips generic/redundant words, validates against category path
+  - **Review & Edit UI**: Modal interface allows users to:
+    - Review AI reasoning and suggestions
+    - Edit category path inline (e.g., "Women > Shoes > Sneakers > Running")
+    - Add/remove keywords with visual tag chips
+    - Retry with feedback if AI misunderstood
+    - Save approved tags to database
+  - **IPC Handlers**: `llm-tag-product`, `llm-retry-with-feedback` for main/renderer communication
+  - **UI Elements**: "🤖 Get AI Tags" button → review modal → save with confirmation
+  - **Cost Optimization**: Uses JSON response format, 0.3 temperature, 500 token limit for consistent results
 - **Breadcrumb & Description Fixes (Oct 10, 2025)**: Fixed malformed breadcrumb and description extraction issues
   - **Comma-Separated Breadcrumbs**: Added comma to split regex in breadcrumb scraper to handle formats like "Ace,Hardware,Tools,Product Name"
   - **Breadcrumb Normalizer**: Detects comma format vs space format, auto-filters product title from end of breadcrumb array

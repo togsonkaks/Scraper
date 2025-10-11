@@ -74,6 +74,8 @@ contextBridge.exposeInMainWorld('api', {
 
   // ---- Auto-tagging and Database
   autoTagProduct: (productData) => call('auto-tag-product', productData),
+  llmTagProduct: (productData) => call('llm-tag-product', productData),
+  llmRetryWithFeedback: (productData, feedback) => call('llm-retry-with-feedback', productData, feedback),
   saveToDatabase: (productData, tagResults) => call('save-to-database', productData, tagResults),
   getProducts: (filters) => call('get-products', filters),
   getProductStats: () => call('get-product-stats')

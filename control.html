@@ -299,6 +299,7 @@
     <button id="visitBtn">Load</button>
     <button id="saveBtn" disabled>Save (scrape)</button>
     <button id="saveToDbBtn" disabled style="background:#2196F3;">💾 Save to Database</button>
+    <button id="llmTagBtn" disabled style="background:#9C27B0; color:white;">🤖 Get AI Tags</button>
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
     <button id="batchAIBtn" title="Get AI suggestions for all fields at once (saves tokens)">🤖 Batch AI All</button>
@@ -314,6 +315,47 @@
       <div><strong>Confidence:</strong> <span id="tagConfidence">-</span></div>
     </div>
     <div style="margin-top:8px;"><strong>Tags:</strong> <div id="tagList" style="margin-top:4px;"></div></div>
+  </div>
+
+  <!-- LLM Tag Review Modal -->
+  <div id="llmTagModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index:10000; padding:20px; overflow-y:auto;">
+    <div style="max-width:800px; margin:40px auto; background:white; border-radius:12px; padding:24px; box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+      <h2 style="margin:0 0 16px 0; color:#9C27B0;">🤖 AI Suggested Tags & Categories</h2>
+      
+      <div style="background:#f3e5f5; padding:12px; border-radius:8px; margin-bottom:16px; font-size:13px;">
+        <strong>AI Reasoning:</strong> <span id="llmReasoning">-</span>
+      </div>
+      
+      <div style="margin-bottom:20px;">
+        <label style="display:block; font-weight:bold; margin-bottom:8px;">Hierarchical Categories (edit path below):</label>
+        <div id="llmCategoryPath" style="background:#f5f5f5; padding:12px; border-radius:6px; margin-bottom:8px; font-family:monospace; color:#666;">
+          -
+        </div>
+        <input id="llmCategoryInput" type="text" placeholder="e.g. Women > Shoes > Sneakers > Running" 
+               style="width:100%; padding:10px; border:2px solid #9C27B0; border-radius:6px; font-size:14px;">
+      </div>
+      
+      <div style="margin-bottom:20px;">
+        <label style="display:block; font-weight:bold; margin-bottom:8px;">Keywords (5-6 curated tags):</label>
+        <div id="llmKeywordTags" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+          <!-- Editable tags will appear here -->
+        </div>
+        <input id="llmKeywordInput" type="text" placeholder="Add new keyword and press Enter" 
+               style="width:100%; padding:10px; border:2px solid #9C27B0; border-radius:6px; font-size:14px;">
+      </div>
+      
+      <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:20px;">
+        <button id="llmRetryBtn" style="background:#FF9800; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer; font-size:14px;">
+          🔄 Retry AI
+        </button>
+        <button id="llmCancelBtn" style="background:#666; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer; font-size:14px;">
+          Cancel
+        </button>
+        <button id="llmSaveBtn" style="background:#9C27B0; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer; font-size:14px; font-weight:bold;">
+          💾 Save to Database
+        </button>
+      </div>
+    </div>
   </div>
 
   <div id="status"></div>
@@ -912,6 +954,7 @@
         statusEl.innerHTML = `<span class="pill">Done</span>`;
         
         document.getElementById('saveToDbBtn').disabled = false;
+        document.getElementById('llmTagBtn').disabled = false;
       } catch (e) {
         out.textContent = 'Error: ' + (e?.message || String(e));
         statusEl.innerHTML = `<span class="pill" style="background:#fdd; color:#900;">Error</span>`;
@@ -960,6 +1003,137 @@
       } finally {
         saveToDbBtn.disabled = false;
         saveToDbBtn.textContent = '💾 Save to Database';
+      }
+    };
+
+    // LLM Tag Product
+    const llmTagBtn = document.getElementById('llmTagBtn');
+    let currentLLMTags = { categories: [], keywords: [] };
+    
+    llmTagBtn.onclick = async () => {
+      if (!lastPayload) {
+        alert('⚠️ Please scrape a product first');
+        return;
+      }
+      
+      try {
+        llmTagBtn.disabled = true;
+        llmTagBtn.textContent = '🔄 AI Analyzing...';
+        
+        const result = await window.api.llmTagProduct(lastPayload);
+        
+        currentLLMTags = result;
+        showLLMReviewModal(result);
+        
+      } catch (error) {
+        console.error('Error with LLM tagging:', error);
+        alert(`❌ Error: ${error.message}`);
+      } finally {
+        llmTagBtn.disabled = false;
+        llmTagBtn.textContent = '🤖 Get AI Tags';
+      }
+    };
+
+    function showLLMReviewModal(result) {
+      // Show reasoning
+      document.getElementById('llmReasoning').textContent = result.reasoning || '-';
+      
+      // Show and populate category path
+      const categoryPath = result.categories.join(' > ');
+      document.getElementById('llmCategoryPath').textContent = categoryPath;
+      document.getElementById('llmCategoryInput').value = categoryPath;
+      
+      // Show keywords as editable tags
+      const keywordTagsEl = document.getElementById('llmKeywordTags');
+      keywordTagsEl.innerHTML = result.keywords.map((kw, idx) => `
+        <div style="display:inline-flex; align-items:center; background:#9C27B0; color:white; padding:6px 12px; border-radius:20px; font-size:13px;">
+          <span>${kw}</span>
+          <button onclick="removeLLMKeyword(${idx})" style="background:none; border:none; color:white; margin-left:8px; cursor:pointer; font-size:16px; padding:0;">×</button>
+        </div>
+      `).join('');
+      
+      // Show modal
+      document.getElementById('llmTagModal').style.display = 'block';
+    }
+
+    // Remove keyword from LLM tags
+    window.removeLLMKeyword = (index) => {
+      currentLLMTags.keywords.splice(index, 1);
+      showLLMReviewModal(currentLLMTags);
+    };
+
+    // Add new keyword on Enter
+    document.getElementById('llmKeywordInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && e.target.value.trim()) {
+        currentLLMTags.keywords.push(e.target.value.trim());
+        showLLMReviewModal(currentLLMTags);
+        e.target.value = '';
+      }
+    });
+
+    // Update category path on edit
+    document.getElementById('llmCategoryInput').addEventListener('input', (e) => {
+      const path = e.target.value.split('>').map(s => s.trim()).filter(Boolean);
+      currentLLMTags.categories = path;
+    });
+
+    // Cancel LLM review
+    document.getElementById('llmCancelBtn').onclick = () => {
+      document.getElementById('llmTagModal').style.display = 'none';
+    };
+
+    // Retry with feedback
+    document.getElementById('llmRetryBtn').onclick = async () => {
+      const feedback = prompt('What should the AI improve? (e.g., "Wrong category, should be Men\'s Shoes")');
+      if (!feedback) return;
+      
+      try {
+        document.getElementById('llmRetryBtn').disabled = true;
+        document.getElementById('llmRetryBtn').textContent = '🔄 Retrying...';
+        
+        const result = await window.api.llmRetryWithFeedback(lastPayload, feedback);
+        currentLLMTags = result;
+        showLLMReviewModal(result);
+        
+      } catch (error) {
+        alert(`❌ Error: ${error.message}`);
+      } finally {
+        document.getElementById('llmRetryBtn').disabled = false;
+        document.getElementById('llmRetryBtn').textContent = '🔄 Retry AI';
+      }
+    };
+
+    // Save to database with LLM tags
+    document.getElementById('llmSaveBtn').onclick = async () => {
+      try {
+        document.getElementById('llmSaveBtn').disabled = true;
+        document.getElementById('llmSaveBtn').textContent = '💾 Saving...';
+        
+        // Format tags for database
+        const tagResults = {
+          primaryCategory: currentLLMTags.categories[currentLLMTags.categories.length - 1] || 'Uncategorized',
+          categories: currentLLMTags.categories,
+          tags: currentLLMTags.keywords.map(kw => ({ name: kw, type: 'llm' })),
+          confidenceScore: currentLLMTags.confidence || 1.0,
+          needsLLMEnrichment: false,
+          gender: null
+        };
+        
+        const saveResult = await window.api.saveToDatabase(lastPayload, tagResults);
+        
+        if (saveResult.success) {
+          alert(`✅ Product saved successfully!\n\nProduct ID: ${saveResult.productId}\nCategories: ${currentLLMTags.categories.join(' > ')}\nKeywords: ${currentLLMTags.keywords.join(', ')}`);
+          document.getElementById('llmTagModal').style.display = 'none';
+        } else {
+          alert('❌ Failed to save product to database');
+        }
+        
+      } catch (error) {
+        console.error('Error saving with LLM tags:', error);
+        alert(`❌ Error: ${error.message}`);
+      } finally {
+        document.getElementById('llmSaveBtn').disabled = false;
+        document.getElementById('llmSaveBtn').textContent = '💾 Save to Database';
       }
     };
 
