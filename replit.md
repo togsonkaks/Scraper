@@ -55,6 +55,13 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **Cost Strategy**: Keyword matching (free, 70-80% coverage) + LLM batch processing for low-confidence products (~$0.0001/product with GPT-4o-mini)
 
 ## Recent Changes
+- **Master Tag Taxonomy (Oct 11, 2025)**: Comprehensive 350+ tag reference for LLM keyword extraction
+  - **Tag Library**: Activities (50+), Materials (60+), Colors (50+), Styles (60+), Features (70+), Fit (20+), Occasions (25+)
+  - **Intelligent Extraction**: LLM references master taxonomy to extract 6-8 relevant tags per product
+  - **Activity Keywords**: Now captures workout, gym, running, hiking, yoga, casual-wear, etc. from descriptions
+  - **Increased Limit**: Tag limit raised from 6 to 8 for richer product tagging
+  - **Description Parsing**: Extended to 800 chars (from 500) to capture more activity/style keywords
+  - **Use Case**: Extracts "workout" + "athletic" + "casual" from description "workouts or hangouts, elevated active style"
 - **Category-Aware LLM Tagging (Oct 11, 2025)**: Taxonomy-first categorization with existing category matching
   - **Database Integration**: LLM queries existing category hierarchy before tagging
   - **Smart Matching**: AI attempts to match products to existing category paths first (e.g., "Men > Fashion > Footwear > Shoes > Sneakers")
