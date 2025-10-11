@@ -330,6 +330,8 @@ const BOOHOO = {
   },
 };
 // ---------- Costco ----------
+// DISABLED FOR TESTING - Using generic scrapers for all fields
+/*
 const COSTCO = {
   match: (h) => /\bcostco\.com$/i.test(h),
   price(doc = document) {
@@ -340,6 +342,7 @@ const COSTCO = {
     return __pickJSONLDProductPrice(doc);
   },
 };
+*/
 
 // ---------- Home Depot ----------
 const HOMEDEPOT = {
@@ -1855,7 +1858,7 @@ const REGISTRY = [
   ADIDAS,
   LARQ,
   BOOHOO,
-  COSTCO,
+  // COSTCO, // DISABLED FOR TESTING - Using generic scrapers
   HOMEDEPOT,
   MACYS,
   DSW,

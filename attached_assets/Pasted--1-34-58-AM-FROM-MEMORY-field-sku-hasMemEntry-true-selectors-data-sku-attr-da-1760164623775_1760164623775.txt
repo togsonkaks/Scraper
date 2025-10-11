@@ -1,0 +1,33 @@
+[1:34:58 AM] 🧠 FROM MEMORY: {"field":"sku","hasMemEntry":true,"selectors":["[data-sku]"],"attr":"data"}
+[1:34:58 AM] 🔍 TRYING CSS SELECTORS: ["[data-sku]"]
+[1:34:58 AM] 🎯 TRYING SELECTOR [sku]: [data-sku]
+[1:34:58 AM] ✅ SELECTOR SUCCESS [Memory sku]: [data-sku] found: 1 elements
+[1:34:58 AM] Single element <SPAN>
+[1:34:58 AM] 📋 RAW VALUE: {"selector":"[data-sku]","attr":"data","rawValue":null,"element":"SPAN"}
+[1:34:58 AM] 💰 AFTER NORMALIZATION: null
+[1:34:58 AM] ❌ NO VALUE after processing for [sku]
+[1:34:58 AM] 🔢 SKU FROM MEMORY: null
+[1:34:58 AM] 🔢 SKU: Falling back to generic...
+[1:34:58 AM] 🔢 SKU FROM GENERIC: 1558000
+[1:34:58 AM] 🧠 FROM MEMORY: {"field":"price","hasMemEntry":true,"selectors":[".price"],"attr":"text"}
+[1:34:58 AM] 🔍 TRYING CSS SELECTORS: [".price"]
+[1:34:58 AM] 🎯 TRYING SELECTOR [price]: .price
+[1:34:58 AM] ✅ SELECTOR SUCCESS [Memory price]: .price found: 1 elements
+[1:34:58 AM] Single element <SPAN.price>
+[1:34:58 AM] 📋 RAW VALUE: {"selector":".price","attr":"text","rawValue":"$169.99","element":"SPAN.price"}
+[1:34:58 AM] 🔍 PRICE PARSING: {"input":"$169.99","inputType":"string","inputLength":7}
+[1:34:58 AM] 🧹 CLEANED INPUT: {"original":"$169.99","cleaned":"$169.99"}
+[1:34:58 AM] 🔧 RECONSTRUCTED INPUT: {"cleaned":"$169.99","reconstructed":"$169.99"}
+[1:34:58 AM] 💰 MONETARY TOKENS: [169.99]
+[1:34:58 AM] 🔢 TOKEN BREAKDOWN: {"decimalTokens":[169.99],"integerTokens":[],"preferDecimals":true}
+[1:34:58 AM] ✅ PRICE FROM MONETARY: {"result":169.99,"method":"MINIMUM_SMART","chosenFrom":"DECIMAL_TOKENS","allTokens":[169.99]}
+[1:34:58 AM] 💰 AFTER NORMALIZATION: 169.99
+[1:34:58 AM] 🎯 REFINING PRICE: {"baseVal":"169.99","fromMemory":true,"hasElement":true,"elementTag":"SPAN"}
+[1:34:58 AM] Price element <SPAN.price>
+[1:34:58 AM] 📋 CHECKING ATTRIBUTES: {"content":null,"data-price":null,"data-js-pricelabel":null,"aria-label":null,"attrFirst":null}
+[1:34:58 AM] 🔒 MEMORY MODE - trusting user selector, returning: 169.99
+[1:34:58 AM] 💰 AFTER CONTEXT REFINEMENT: 169.99
+[1:34:58 AM] ✅ MEMORY SUCCESS [price]: 169.99
+[1:34:58 AM] 💰 PRICE FROM MEMORY: 169.99
+[1:34:58 AM] ❌ No saved selector for images
+[1:34:58 AM] 🔧 Trying custom handler...
