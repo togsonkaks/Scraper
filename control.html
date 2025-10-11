@@ -1175,7 +1175,7 @@
         imageGalleries[galleryId] = value;
         
         element.innerHTML = value.map((url, index) => 
-          `<img referrerpolicy="no-referrer" src="${url}" 
+          `<img referrerpolicy="no-referrer" src="${htmlEscape(url)}" 
            style="height:30px; width:auto; margin:2px; border:1px solid #ddd; border-radius:2px; vertical-align:top; cursor:pointer;" 
            onclick="openImageGallery(imageGalleries['${galleryId}'], ${index})"
            title="Click to enlarge (${index + 1}/${value.length})" 
@@ -2024,9 +2024,9 @@
       
       // Create Pinterest-style masonry grid - display in orchestrator's order
       mobileGrid.innerHTML = displayImages.map((item, index) => `
-        <div class="mobile-image-card" onclick="openMobileImageDetail('${item.url}', 'score-${item.totalScore}')" data-index="${index}" data-score="${item.totalScore}" data-original-order="${index}">
+        <div class="mobile-image-card" onclick="openMobileImageDetail('${htmlEscape(item.url)}', 'score-${item.totalScore}')" data-index="${index}" data-score="${item.totalScore}" data-original-order="${index}">
           <div class="quality-badge">${item.totalScore}</div>
-          <img src="${item.url}" referrerpolicy="no-referrer" 
+          <img src="${htmlEscape(item.url)}" referrerpolicy="no-referrer" 
                onerror="this.parentElement.style.display='none'"
                onload="this.classList.add('loaded'); checkImageSize(this)">
         </div>
