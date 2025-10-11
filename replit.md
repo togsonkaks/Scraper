@@ -55,6 +55,13 @@ The application is built on the Electron framework, utilizing a main process (`m
 - **Cost Strategy**: Keyword matching (free, 70-80% coverage) + LLM batch processing for low-confidence products (~$0.0001/product with GPT-4o-mini)
 
 ## Recent Changes
+- **JSON-LD Priority Tagging (Oct 11, 2025)**: Enhanced LLM tagger to prioritize structured data over breadcrumbs
+  - **JSON-LD Extraction**: Scraper now extracts full JSON-LD structured data (category, gender, color, material, style, model)
+  - **UI Display**: New blue info panel shows JSON-LD fields below URL for transparency
+  - **LLM Integration**: Prompt prioritizes JSON-LD data (⭐) over breadcrumbs for category extraction
+  - **Database Storage**: `raw_json_ld` field added to products_raw table to preserve original structured data
+  - **Slug Generation**: Fixed bug - frontend now auto-generates slugs for LLM tags (lowercase, hyphens)
+  - **Use Case**: Fixes Allbirds categorization - JSON-LD contains "gender: mens" + proper category vs useless breadcrumbs
 - **LLM-Powered Tagging System (Oct 11, 2025)**: AI-assisted categorization with human review workflow
   - **OpenAI Integration**: Uses GPT-4o-mini for intelligent tag/category extraction (~$0.001-0.003/product)
   - **Smart Extraction** (`server/llm-tagger.js`): 
