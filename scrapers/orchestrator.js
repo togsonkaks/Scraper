@@ -3006,7 +3006,9 @@
   }
   function getPriceGeneric() {
     const pairs = [
+      ['[automation-id="productPriceOutput"]','text'], // Costco - prioritize this
       ['[itemprop="price"]','content'],
+      ['.value[automation-id*="price" i]','text'], // Costco .value span
       ['[data-js-pricelabel]','data-js-pricelabel'], // Aesop and similar sites
       ['[data-test*=price]','text'],
       ['[data-testid*=price]','text'],
