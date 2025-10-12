@@ -28,6 +28,12 @@ async function initializeTaxonomy() {
     
     isInitialized = true;
     console.log(`✅ Auto-tagger initialized: ${tagTaxonomy.length} tags, ${categoryTree.length} categories`);
+    
+    // DEBUG: Check if "indigo" and "Jeans" exist
+    const hasIndigo = tagTaxonomy.some(t => t.name.toLowerCase() === 'indigo');
+    const hasJeans = categoryTree.some(c => c.name.toLowerCase() === 'jeans');
+    console.log(`  🎨 Has "indigo" tag: ${hasIndigo}`);
+    console.log(`  👖 Has "Jeans" category: ${hasJeans} (${categoryTree.filter(c => c.name.toLowerCase() === 'jeans').length} instances)`);
   } catch (error) {
     console.error('❌ Auto-tagger initialization failed:', error.message);
   }
@@ -162,8 +168,22 @@ async function autoTag(productData) {
     productData.specs || ''
   ].join(' ');
   
+  console.log('🔍 AUTO-TAGGER DEBUG:');
+  console.log('  📝 Title:', productData.title?.substring(0, 80));
+  console.log('  📄 Description:', productData.description?.substring(0, 100));
+  console.log('  🏷️ Breadcrumbs:', filteredBreadcrumbs.join(' > '));
+  console.log('  🔤 Search text length:', searchText.length, 'chars');
+  
+  // DEBUG: Check for specific color
+  if (searchText.toLowerCase().includes('indigo')) {
+    console.log('  🎨 "indigo" FOUND in search text!');
+  } else {
+    console.log('  ❌ "indigo" NOT in search text');
+  }
+  
   // Match all tags from search text
   const allMatchedTags = matchTags(searchText);
+  console.log('  ✅ Matched tags:', allMatchedTags.length, '→', allMatchedTags.map(t => t.name).join(', '));
   
   // Group tags by semantic type
   const tagsByType = {
@@ -178,6 +198,8 @@ async function autoTag(productData) {
   
   // Match categories from ALL product data (same as tags)
   const matchedCategories = matchCategories(searchText);
+  console.log('  📂 Matched categories:', matchedCategories.length, '→', 
+    matchedCategories.map(c => `${c.name} (lvl ${c.level})`).join(', '));
   
   // Find primary category (deepest level category)
   let primaryCategory = null;
@@ -188,10 +210,16 @@ async function autoTag(productData) {
       (current.level > prev.level) ? current : prev
     );
     
+    console.log('  🎯 Deepest category:', deepestCategory.name, `(lvl ${deepestCategory.level}, id: ${deepestCategory.id})`);
+    
     categoryPath = buildCategoryPath(deepestCategory.id);
     
     // Store full hierarchy path as string (consistent with LLM format)
     primaryCategory = categoryPath.map(c => c.name).join(' > ');
+    
+    console.log('  ✨ FINAL PATH:', primaryCategory);
+  } else {
+    console.log('  ⚠️ NO CATEGORIES MATCHED!');
   }
   
   // Detect gender from tags or text
