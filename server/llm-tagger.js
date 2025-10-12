@@ -429,13 +429,17 @@ ${tagTaxonomy}
 
 IMPORTANT RULES:
 1. **MATCH EXISTING CATEGORY PATHS** from the taxonomy above in EXACT order
-   - Find path like "Fashion > Men > Shoes" and return ["Fashion", "Men", "Shoes"] 
-   - DO NOT reorder - use the exact hierarchy shown
+   - Find COMPLETE path like "Fashion > Men > Clothing > Bottoms > Jeans" and return ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"]
+   - Include ALL parent levels - don't skip any (Department > Gender > Section > Category > Type)
+   - DO NOT reorder or modify - use the exact hierarchy shown
    - ONLY mark isNewPath=false if EXACT path exists
-2. Extract the brand name and put it in the "brand" field - DO NOT include as tag
-3. Style/activity words like "casual", "running", "workout", "athletic" are TAGS, not categories
-4. Return tags with their type classification (match to existing taxonomy types)
-5. Check DESCRIPTION for activity keywords (workout, running, etc.)
+2. **Categories END at product type** (Jeans, Shoes, Drill, etc.)
+   - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
+   - ❌ WRONG: ["Men", "Bottoms", "Jeans", "Tapered"]
+   - ✅ RIGHT: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] + tag: {name: "tapered", type: "fit"}
+3. Extract the brand name and put it in the "brand" field - DO NOT include as tag
+4. **READ DESCRIPTION for ALL attributes**: colors (indigo, navy), materials (denim), fit (tapered, slim-fit), styles (casual)
+5. Return tags with their type classification (match to existing taxonomy types)
 6. Consider the user's feedback when making corrections
 7. Prioritize JSON-LD structured data if available
 
