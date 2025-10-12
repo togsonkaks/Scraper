@@ -40,6 +40,153 @@ function normalizeBreadcrumbs(breadcrumbs, productTitle = null) {
   return [];
 }
 
+/**
+ * Save raw product data without tags (Phase 1: Initial Save)
+ * LLM will add tags later via updateProductTags()
+ */
+async function saveRawProduct(productData) {
+  try {
+    const normalizedBreadcrumbs = normalizeBreadcrumbs(productData.breadcrumbs, productData.title);
+    
+    // Step 1: Save raw archive
+    const rawResult = await sql`
+      INSERT INTO products_raw (
+        source_url, raw_title, raw_description, raw_breadcrumbs, 
+        raw_price, raw_brand, raw_specs, raw_sku, raw_tags, raw_images, raw_json_ld
+      ) VALUES (
+        ${productData.url || ''},
+        ${productData.title || null},
+        ${productData.description || null},
+        ${normalizedBreadcrumbs},
+        ${productData.price || null},
+        ${productData.brand || null},
+        ${productData.specs || null},
+        ${productData.sku || null},
+        ${productData.tags || null},
+        ${productData.images || []},
+        ${productData.jsonLd ? JSON.stringify(productData.jsonLd) : null}
+      )
+      RETURNING raw_id
+    `;
+    
+    const rawId = rawResult[0].raw_id;
+    
+    // Step 2: Save product with NULL tags (LLM will add them later)
+    const productResult = await sql`
+      INSERT INTO products (
+        raw_id, title, brand, price, sku, category, gender, 
+        tags, specs, image_urls, confidence_score
+      ) VALUES (
+        ${rawId},
+        ${productData.title || null},
+        ${productData.brand || null},
+        ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
+        ${productData.sku || null},
+        ${null},  -- category NULL (LLM will add)
+        ${null},  -- gender NULL (LLM will add)
+        ${[]},    -- tags empty (LLM will add)
+        ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
+        ${productData.images || []},
+        ${0}      -- confidence 0 (no tags yet)
+      )
+      RETURNING product_id
+    `;
+    
+    const productId = productResult[0].product_id;
+    
+    return {
+      success: true,
+      productId,
+      rawId
+    };
+    
+  } catch (error) {
+    console.error('Error saving raw product:', error);
+    throw error;
+  }
+}
+
+/**
+ * Update existing product with LLM tags (Phase 2: After AI Analysis)
+ */
+async function updateProductTags(productId, tagResults) {
+  try {
+    const tagNames = tagResults.tags.map(t => t.name);
+    
+    // Step 1: Update product table with tags/categories
+    await sql`
+      UPDATE products
+      SET 
+        category = ${tagResults.primaryCategory || null},
+        gender = ${tagResults.gender || null},
+        tags = ${tagNames},
+        confidence_score = ${tagResults.confidenceScore || 1.0},
+        updated_at = NOW()
+      WHERE product_id = ${productId}
+    `;
+    
+    // Step 2: Delete old tag associations
+    await sql`
+      DELETE FROM product_tags WHERE product_id = ${productId}
+    `;
+    
+    // Step 3: Delete old category associations
+    await sql`
+      DELETE FROM product_categories WHERE product_id = ${productId}
+    `;
+    
+    // Step 4: Insert new tags and create associations
+    for (const tag of tagResults.tags) {
+      let tagIdResult = await sql`
+        SELECT tag_id FROM tags WHERE slug = ${tag.slug}
+      `;
+      
+      let tagId;
+      if (tagIdResult.length === 0) {
+        const newTag = await sql`
+          INSERT INTO tags (name, slug, tag_type)
+          VALUES (${tag.name}, ${tag.slug}, ${tag.type})
+          RETURNING tag_id
+        `;
+        tagId = newTag[0].tag_id;
+      } else {
+        tagId = tagIdResult[0].tag_id;
+      }
+      
+      await sql`
+        INSERT INTO product_tags (product_id, tag_id)
+        VALUES (${productId}, ${tagId})
+      `;
+    }
+    
+    // Step 5: Insert new category associations
+    for (const categorySlug of [tagResults.primaryCategory, ...tagResults.allCategories]) {
+      if (!categorySlug) continue;
+      
+      const categoryResult = await sql`
+        SELECT category_id FROM categories WHERE slug = ${categorySlug}
+      `;
+      
+      if (categoryResult.length > 0) {
+        await sql`
+          INSERT INTO product_categories (product_id, category_id)
+          VALUES (${productId}, ${categoryResult[0].category_id})
+          ON CONFLICT DO NOTHING
+        `;
+      }
+    }
+    
+    return {
+      success: true,
+      productId
+    };
+    
+  } catch (error) {
+    console.error('Error updating product tags:', error);
+    throw error;
+  }
+}
+
 async function saveProduct(productData, tagResults) {
   try {
     const normalizedBreadcrumbs = normalizeBreadcrumbs(productData.breadcrumbs, productData.title);
@@ -223,6 +370,8 @@ async function getProductStats() {
 }
 
 module.exports = {
+  saveRawProduct,
+  updateProductTags,
   saveProduct,
   getProducts,
   getProductStats

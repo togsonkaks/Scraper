@@ -905,13 +905,35 @@ ipcMain.handle('llm-retry-with-feedback', async (_e, productData, feedback) => {
   }
 });
 
-// Database save handler
+// Database save handler (legacy - with tags)
 ipcMain.handle('save-to-database', async (_e, productData, tagResults) => {
   try {
     const { saveProduct } = require(path.join(__dirname, 'server', 'storage'));
     return await saveProduct(productData, tagResults);
   } catch (e) {
     console.error('Error saving to database:', e);
+    throw e;
+  }
+});
+
+// Save raw product (Phase 1: No tags - LLM will add later)
+ipcMain.handle('save-raw-product', async (_e, productData) => {
+  try {
+    const { saveRawProduct } = require(path.join(__dirname, 'server', 'storage'));
+    return await saveRawProduct(productData);
+  } catch (e) {
+    console.error('Error saving raw product:', e);
+    throw e;
+  }
+});
+
+// Update product with LLM tags (Phase 2: After AI analysis)
+ipcMain.handle('update-product-tags', async (_e, productId, tagResults) => {
+  try {
+    const { updateProductTags } = require(path.join(__dirname, 'server', 'storage'));
+    return await updateProductTags(productId, tagResults);
+  } catch (e) {
+    console.error('Error updating product tags:', e);
     throw e;
   }
 });
