@@ -64,46 +64,30 @@ function matchTags(text, tagType = null) {
   return matches;
 }
 
-function matchCategories(breadcrumbs) {
-  if (!breadcrumbs || breadcrumbs.length === 0) return [];
+function matchCategories(text) {
+  if (!text) return [];
   
+  const normalizedText = normalizeText(text);
   const matches = [];
   
-  // Build all possible category paths from database
-  const categoryPaths = categoryTree.map(cat => {
-    const path = buildCategoryPath(cat.category_id);
-    return {
-      categoryId: cat.category_id,
-      path: path,
-      pathString: path.map(p => p.name).join(' > ').toLowerCase(),
-      depth: path.length
-    };
-  });
-  
-  // Build breadcrumb path string
-  const breadcrumbPath = breadcrumbs.join(' > ').toLowerCase();
-  
-  // Try to match full paths or partial paths
-  for (const catPath of categoryPaths) {
-    // Check if breadcrumb path contains this category path
-    // Example: breadcrumb "Home > Tools > Concrete Tools" matches path "Tools > Concrete Tools"
-    if (breadcrumbPath.includes(catPath.pathString)) {
-      const category = categoryTree.find(c => c.category_id === catPath.categoryId);
-      if (category) {
-        matches.push({
-          id: category.category_id,
-          name: category.name,
-          slug: category.slug,
-          parent_id: category.parent_id,
-          level: category.level,
-          matchedPath: catPath.pathString,
-          pathDepth: catPath.depth
-        });
-      }
+  // Search for category NAMES in product data (like tag matching)
+  for (const category of categoryTree) {
+    const pattern = new RegExp(`\\b${category.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+    if (pattern.test(normalizedText)) {
+      const fullPath = buildCategoryPath(category.category_id);
+      matches.push({
+        id: category.category_id,
+        name: category.name,
+        slug: category.slug,
+        parent_id: category.parent_id,
+        level: category.level,
+        matchedPath: fullPath.map(p => p.name).join(' > ').toLowerCase(),
+        pathDepth: fullPath.length
+      });
     }
   }
   
-  // Sort by path depth (prefer deeper/more specific matches)
+  // Sort by path depth (prefer deeper/most specific matches)
   matches.sort((a, b) => b.pathDepth - a.pathDepth);
   
   return matches;
@@ -178,7 +162,7 @@ async function autoTag(productData) {
     productData.specs || ''
   ].join(' ');
   
-  // Match all tags
+  // Match all tags from search text
   const allMatchedTags = matchTags(searchText);
   
   // Group tags by semantic type
@@ -192,8 +176,8 @@ async function autoTag(productData) {
     occasions: allMatchedTags.filter(t => t.type === 'occasions')
   };
   
-  // Match categories from breadcrumbs
-  const matchedCategories = matchCategories(filteredBreadcrumbs);
+  // Match categories from ALL product data (same as tags)
+  const matchedCategories = matchCategories(searchText);
   
   // Find primary category (deepest level category)
   let primaryCategory = null;
