@@ -504,12 +504,9 @@ async function seedFullTaxonomy() {
     
     const tagsObj = eval(`({${tagObjectMatch[1]}})`);
     
-    // Clear existing data
+    // Clear existing data using TRUNCATE CASCADE (faster and resets sequences)
     console.log('🗑️  Clearing existing taxonomy...');
-    await sql`DELETE FROM product_tags`;
-    await sql`DELETE FROM product_categories`;
-    await sql`DELETE FROM tag_taxonomy`;
-    await sql`DELETE FROM categories`;
+    await sql`TRUNCATE TABLE product_tags, product_categories, tag_taxonomy, categories RESTART IDENTITY CASCADE`;
     
     // Insert categories in order (parents first)
     console.log(`📂 Inserting ${categories.length} categories...`);
