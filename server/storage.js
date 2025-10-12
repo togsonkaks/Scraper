@@ -475,11 +475,99 @@ async function getProductStats() {
   }
 }
 
+async function seedFullTaxonomy() {
+  console.log('🌱 Starting full taxonomy seed...');
+  
+  try {
+    // Load the comprehensive seed data
+    const fs = require('fs');
+    const path = require('path');
+    
+    // Extract categories array from seed file
+    const catFileContent = fs.readFileSync(path.join(__dirname, '../scripts/seed-categories-comprehensive.js'), 'utf8');
+    const catArrayMatch = catFileContent.match(/const COMPREHENSIVE_CATEGORIES = \[([\s\S]*?)\];/);
+    
+    if (!catArrayMatch) {
+      throw new Error('Could not extract categories from seed file');
+    }
+    
+    // Eval the array safely (it's our own trusted code)
+    const categories = eval(`[${catArrayMatch[1]}]`);
+    
+    // Extract tags from seed file
+    const tagFileContent = fs.readFileSync(path.join(__dirname, '../scripts/seed-tags-comprehensive.js'), 'utf8');
+    const tagObjectMatch = tagFileContent.match(/const COMPREHENSIVE_TAGS = \{([\s\S]*?)\};/);
+    
+    if (!tagObjectMatch) {
+      throw new Error('Could not extract tags from seed file');
+    }
+    
+    const tagsObj = eval(`({${tagObjectMatch[1]}})`);
+    
+    // Clear existing data
+    console.log('🗑️  Clearing existing taxonomy...');
+    await sql`DELETE FROM product_tags`;
+    await sql`DELETE FROM product_categories`;
+    await sql`DELETE FROM tag_taxonomy`;
+    await sql`DELETE FROM categories`;
+    
+    // Insert categories in order (parents first)
+    console.log(`📂 Inserting ${categories.length} categories...`);
+    const categoryMap = new Map();
+    
+    for (const cat of categories) {
+      const parentId = cat.parent ? categoryMap.get(cat.parent) : null;
+      
+      const result = await sql`
+        INSERT INTO categories (name, parent_id, level, slug)
+        VALUES (${cat.name}, ${parentId}, ${cat.level}, ${cat.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')})
+        RETURNING category_id
+      `;
+      
+      categoryMap.set(cat.name, result[0].category_id);
+    }
+    
+    console.log(`✅ ${categories.length} categories inserted`);
+    
+    // Insert tags by type
+    console.log('🏷️  Inserting tags...');
+    let totalTags = 0;
+    
+    for (const [tagType, tagArray] of Object.entries(tagsObj)) {
+      for (const tagName of tagArray) {
+        await sql`
+          INSERT INTO tag_taxonomy (name, tag_type, slug)
+          VALUES (${tagName}, ${tagType}, ${tagName.toLowerCase().replace(/\s+/g, '-')})
+          ON CONFLICT (name) DO NOTHING
+        `;
+        totalTags++;
+      }
+    }
+    
+    console.log(`✅ ${totalTags} tags inserted`);
+    console.log('🎉 Full taxonomy seeded successfully!');
+    
+    return {
+      success: true,
+      categoriesCount: categories.length,
+      tagsCount: totalTags
+    };
+    
+  } catch (error) {
+    console.error('❌ Error seeding taxonomy:', error);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+}
+
 module.exports = {
   saveRawProduct,
   updateProductTags,
   saveProduct,
   getProducts,
   getProductStats,
-  buildCategoryPath
+  buildCategoryPath,
+  seedFullTaxonomy
 };
