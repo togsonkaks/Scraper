@@ -8,7 +8,7 @@
   },
   
   "categories": {
-    "shoes": ["shoes", "shoe", "sneaker", "sneakers", "boot", "boots", "heel", "heels", "sandal", "sandals", "trainer", "trainers", "loafer", "loafers", "slipper", "slippers", "footwear"],
+    "shoes": ["shoes", "shoe", "loafers", "sneaker", "sneakers", "boot", "boots", "heel", "heels", "sandal", "sandals", "trainer", "trainers", "loafer", "loafers", "slipper", "slippers", "footwear"],
     "tops": ["shirt", "shirts", "t-shirt", "tshirt", "tee", "blouse", "blouses", "polo", "tank", "top", "tops"],
     "bottoms": ["pants", "pant", "trousers", "jeans", "jean", "shorts", "short", "leggings", "legging", "joggers"],
     "dresses": ["dress", "dresses", "gown", "gowns", "maxi", "midi", "mini dress"],
