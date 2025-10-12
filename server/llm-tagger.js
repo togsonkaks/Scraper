@@ -210,18 +210,19 @@ ${tagTaxonomy}
 
 CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
 1. **PRIORITY 1**: Match product to EXISTING category paths above
-   - Look for the closest matching path in the existing taxonomy
-   - Use the EXACT path format (e.g., "Men > Fashion > Footwear > Shoes > Sneakers")
-   - Match as deeply as possible (prefer full path over partial)
+   - Find an EXACT path match from the taxonomy (e.g., "Fashion > Men > Shoes")
+   - DO NOT reorder or modify the path - use it exactly as shown
+   - If you find "Fashion > Men > Shoes", return ["Fashion", "Men", "Shoes"] in that exact order
+   - ONLY mark isNewPath=false if the EXACT path exists in the order shown
 
-2. **PRIORITY 2**: If NO good match exists (>70% certainty), suggest a NEW path
-   - Follow hierarchy: Gender/Age → Department → Category → Subcategory
-   - Example NEW path: ["Unisex", "Accessories", "Tech", "Phone Cases"]
-   - Mark confidence lower (0.6-0.7) when suggesting new paths
+2. **PRIORITY 2**: If NO exact match exists, suggest a NEW path
+   - Follow hierarchy: Department → Gender/Age → Category → Subcategory
+   - Example: ["Fashion", "Women", "Footwear", "Heels"]
+   - Mark isNewPath=true and confidence lower (0.6-0.7)
 
 3. Extract from JSON-LD first, then breadcrumbs, then title/description
 
-4. Return as array: ["Men", "Fashion", "Footwear", "Shoes", "Sneakers"]
+4. Return as array in hierarchical order: ["Level1", "Level2", "Level3", "Level4"]
 
 KEYWORD/TAG EXTRACTION RULES (USE MASTER TAG REFERENCE):
 1. MUST include (if available):
@@ -343,7 +344,10 @@ ${categoryContext}
 ${tagTaxonomy}
 
 IMPORTANT RULES:
-1. **MATCH EXISTING CATEGORY PATHS** from the taxonomy above - don't invent new ones unless no match exists
+1. **MATCH EXISTING CATEGORY PATHS** from the taxonomy above in EXACT order
+   - Find path like "Fashion > Men > Shoes" and return ["Fashion", "Men", "Shoes"] 
+   - DO NOT reorder - use the exact hierarchy shown
+   - ONLY mark isNewPath=false if EXACT path exists
 2. Style/activity words like "casual", "running", "workout", "athletic" are TAGS, not categories
 3. Use the Master Tag Reference above to extract 6-8 descriptive tags
 4. Check DESCRIPTION for activity keywords (workout, running, etc.)
