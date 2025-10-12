@@ -284,6 +284,8 @@ const COMPREHENSIVE_CATEGORIES = [
   { name: 'Footwear', parent: 'Men', level: 2 },
   { name: 'Sneakers', parent: 'Footwear', level: 3 },
   { name: 'Boots', parent: 'Footwear', level: 3 },
+  { name: 'Loafers', parent: 'Footwear', level: 3 },
+  { name: 'Slippers', parent: 'Footwear', level: 3 },
   { name: 'Dress Shoes', parent: 'Footwear', level: 3 },
   { name: 'Accessories', parent: 'Men', level: 2 },
   { name: 'Watches', parent: 'Accessories', level: 3 },
