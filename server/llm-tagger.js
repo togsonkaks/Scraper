@@ -230,19 +230,27 @@ ${tagTaxonomy}
 
 CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
 1. **PRIORITY 1**: Match product to EXISTING category paths above
-   - Find an EXACT path match from the taxonomy (e.g., "Fashion > Men > Shoes")
+   - Find an EXACT path match from the taxonomy (e.g., "Fashion > Men > Clothing > Bottoms > Jeans")
+   - Use the COMPLETE path including ALL parent levels (Department > Gender > Section > Category > Type)
    - DO NOT reorder or modify the path - use it exactly as shown
-   - If you find "Fashion > Men > Shoes", return ["Fashion", "Men", "Shoes"] in that exact order
+   - If you find "Fashion > Men > Clothing > Bottoms > Jeans", return ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"]
    - ONLY mark isNewPath=false if the EXACT path exists in the order shown
 
 2. **PRIORITY 2**: If NO exact match exists, suggest a NEW path
    - Follow hierarchy: Department → Gender/Age → Category → Subcategory
-   - Example: ["Fashion", "Women", "Footwear", "Heels"]
+   - Include ALL parent levels, don't skip any
+   - Example: ["Fashion", "Women", "Clothing", "Tops", "Blouses"]
    - Mark isNewPath=true and confidence lower (0.6-0.7)
 
-3. Extract from JSON-LD first, then breadcrumbs, then title/description
+3. **CRITICAL RULES**:
+   - Categories END at product type (Jeans, Shoes, Drill, Saw)
+   - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
+   - ❌ WRONG: ["Men", "Bottoms", "Jeans", "Tapered"] - "Tapered" is a fit term
+   - ✅ RIGHT: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] + tag: {name: "tapered", type: "fit"}
 
-4. Return as array in hierarchical order: ["Level1", "Level2", "Level3", "Level4"]
+4. Extract from JSON-LD first, then breadcrumbs, then title/description
+
+5. Return as array in hierarchical order: ["Level1", "Level2", "Level3", "Level4", "Level5"]
 
 BRAND EXTRACTION:
 1. Extract the brand name and put it in the "brand" field (e.g., "GUESS", "Nike", "Adidas")
@@ -254,21 +262,23 @@ TAG EXTRACTION RULES (USE EXISTING TAG TAXONOMY):
    - If tag exists, use it exactly as shown
    - If NEW tag (not in taxonomy), identify its type from available types: activities, materials, colors, styles, features, fit, occasions, tool-types, automotive, kitchen, beauty
    
-2. Extract from DESCRIPTION and JSON-LD fields:
-   - Activities/use-cases: "workout", "running", "casual-wear" (check description for activity keywords!)
-   - Materials: "cotton", "denim", "leather", "recycled"
-   - Colors/patterns: "black", "indigo", "solid"
-   - Styles: "athletic", "minimalist", "casual", "slim-fit"
-   - Features: "lightweight", "breathable", "stretchy", "eco-friendly"
-   - Fit: "slim-fit", "relaxed-fit", "tapered"
-   - Occasions: "everyday", "gym", "travel"
+2. **READ THE DESCRIPTION CAREFULLY** - Extract ALL relevant attributes:
+   - Colors/patterns: Look for color words like "indigo", "black", "navy", "striped", "solid"
+   - Materials: "cotton", "denim", "leather", "stretch", "recycled"
+   - Fit: "slim-fit", "relaxed-fit", "tapered", "loose", "athletic-fit"
+   - Styles: "athletic", "minimalist", "casual", "modern"
+   - Features: "lightweight", "breathable", "stretchy", "eco-friendly", "moisture-wicking"
+   - Activities/use-cases: "workout", "running", "casual-wear", "everyday"
+   - Occasions: "everyday", "gym", "travel", "work"
 
-3. IMPORTANT: 
-   - Style/activity words like "casual", "running", "slim-fit" are TAGS, not categories
-   - ❌ WRONG: Category = "Men > Footwear > Casual Shoes"
-   - ✅ RIGHT: Category = "Men > Fashion > Footwear > Shoes > Sneakers", Tags = ["casual", "workout"]
+3. **EXAMPLE from "Indigo denim wash. Tapered leg. Slim fit."**:
+   - ✅ Extract: "indigo" (color), "denim" (material), "tapered" (fit), "slim-fit" (fit)
+   - ❌ Don't skip color words! "Indigo" is a valid color tag
 
-4. Skip generic words (shoes, product, item) and words already in category path
+4. IMPORTANT: 
+   - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
+   - Skip generic words (product, item) and words already in category path (don't tag "jeans" if category is "Jeans")
+   - Include the brand in the "brand" field, NOT as a tag
 
 Respond in JSON format:
 {
