@@ -824,6 +824,20 @@
         const { result, selectorsUsed } = await window.api.scrapeCurrent({ mode: 'normal' });
         lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
         
+        // Auto-tag product with keyword matching
+        let autoTagResult = null;
+        if (lastPayload && Object.keys(lastPayload).length > 0) {
+          try {
+            autoTagResult = await window.api.autoTagProduct(lastPayload);
+            console.log('Auto-tag results:', autoTagResult);
+            
+            // Display tag preview
+            displayTagPreview(autoTagResult);
+          } catch (err) {
+            console.error('Auto-tagging failed:', err);
+          }
+        }
+        
         // Display debug log if available
         if (result && result.__debugLog && Array.isArray(result.__debugLog)) {
           result.__debugLog.forEach(entry => {
@@ -999,27 +1013,47 @@
       
       try {
         saveToDbBtn.disabled = true;
-        saveToDbBtn.textContent = '🔄 Saving Raw Data...';
+        saveToDbBtn.textContent = '🔄 Saving Product...';
         
-        // Save raw product data WITHOUT tags (LLM will add them later)
+        // Step 1: Save raw product data
         const saveResult = await window.api.saveRawProduct(lastPayload);
         
-        if (saveResult.success) {
-          lastSavedProductId = saveResult.productId;
-          
-          alert(`✅ Product saved successfully!\n\nProduct ID: ${saveResult.productId}\n\nNext: Click "🤖 Get AI Tags" to categorize this product with LLM`);
-          
-          // Enable AI Tags button now that product is saved
-          document.getElementById('llmTagBtn').disabled = false;
-          
-          // Disable save button (already saved)
-          saveToDbBtn.disabled = true;
-          saveToDbBtn.textContent = '✅ Saved';
-        } else {
+        if (!saveResult.success) {
           alert('❌ Failed to save product to database');
           saveToDbBtn.disabled = false;
           saveToDbBtn.textContent = '💾 Save to Database';
+          return;
         }
+        
+        lastSavedProductId = saveResult.productId;
+        
+        // Step 2: Save auto-tags if available
+        if (window.currentAutoTagResult) {
+          saveToDbBtn.textContent = '🔄 Saving Auto-Tags...';
+          
+          try {
+            await window.api.updateProductTags(lastSavedProductId, window.currentAutoTagResult);
+            console.log('✅ Auto-tags saved successfully');
+          } catch (tagError) {
+            console.error('⚠️ Failed to save auto-tags:', tagError);
+          }
+        }
+        
+        const confidencePercent = window.currentAutoTagResult ? 
+          (window.currentAutoTagResult.confidenceScore * 100).toFixed(0) : 0;
+        
+        const message = window.currentAutoTagResult ?
+          `✅ Product saved with auto-tags!\n\nProduct ID: ${saveResult.productId}\nConfidence: ${confidencePercent}%\n\n${window.currentAutoTagResult.needsLLMEnrichment ? '💡 Optional: Click "🤖 Get AI Tags" to enhance with AI' : ''}` :
+          `✅ Product saved!\n\nProduct ID: ${saveResult.productId}\n\n💡 Click "🤖 Get AI Tags" to add tags`;
+        
+        alert(message);
+        
+        // Enable AI Tags button for optional enhancement
+        document.getElementById('llmTagBtn').disabled = false;
+        
+        // Disable save button (already saved)
+        saveToDbBtn.disabled = true;
+        saveToDbBtn.textContent = '✅ Saved';
         
       } catch (error) {
         console.error('Error saving to database:', error);
@@ -1543,6 +1577,55 @@
     
     function clearDebugOutput() {
       document.getElementById('debugOutput').innerHTML = '';
+    }
+    
+    // Display auto-tag preview
+    function displayTagPreview(tagResult) {
+      if (!tagResult) return;
+      
+      const preview = document.getElementById('tagPreview');
+      const categoryEl = document.getElementById('tagCategory');
+      const genderEl = document.getElementById('tagGender');
+      const confidenceEl = document.getElementById('tagConfidence');
+      const tagListEl = document.getElementById('tagList');
+      
+      // Display category path or primary category
+      if (tagResult.categoryPath && tagResult.categoryPath.length > 0) {
+        categoryEl.textContent = tagResult.categoryPath.map(c => c.name).join(' > ');
+      } else if (tagResult.primaryCategory) {
+        categoryEl.textContent = tagResult.primaryCategory.name;
+      } else {
+        categoryEl.textContent = '-';
+      }
+      
+      genderEl.textContent = tagResult.gender || '-';
+      
+      const confidencePercent = (tagResult.confidenceScore * 100).toFixed(0);
+      confidenceEl.textContent = `${confidencePercent}%`;
+      confidenceEl.style.color = tagResult.needsLLMEnrichment ? '#f57c00' : '#2e7d32';
+      
+      // Display tags grouped by type
+      tagListEl.innerHTML = '';
+      if (tagResult.tags && tagResult.tags.length > 0) {
+        tagResult.tags.forEach(tag => {
+          const span = document.createElement('span');
+          span.style.display = 'inline-block';
+          span.style.padding = '2px 8px';
+          span.style.margin = '2px';
+          span.style.background = '#e3f2fd';
+          span.style.borderRadius = '12px';
+          span.style.fontSize = '11px';
+          span.textContent = `${tag.name} (${tag.type})`;
+          tagListEl.appendChild(span);
+        });
+      } else {
+        tagListEl.textContent = 'No tags detected';
+      }
+      
+      preview.style.display = 'block';
+      
+      // Store auto-tag result for save
+      window.currentAutoTagResult = tagResult;
     }
     
     // Enhanced debug output with image preview
