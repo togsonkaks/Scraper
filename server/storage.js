@@ -159,20 +159,40 @@ async function updateProductTags(productId, tagResults) {
       `;
     }
     
-    // Step 5: Insert new category associations
-    for (const categorySlug of [tagResults.primaryCategory, ...tagResults.allCategories]) {
-      if (!categorySlug) continue;
+    // Step 5: Insert category associations (hierarchical path matching)
+    // tagResults.categories should be an array like ["Men", "Fashion", "Footwear", "Shoes"]
+    // We need to walk the path and verify parent-child relationships
+    if (tagResults.categories && tagResults.categories.length > 0) {
+      let parentId = null;
       
-      const categoryResult = await sql`
-        SELECT category_id FROM categories WHERE slug = ${categorySlug}
-      `;
-      
-      if (categoryResult.length > 0) {
-        await sql`
-          INSERT INTO product_categories (product_id, category_id)
-          VALUES (${productId}, ${categoryResult[0].category_id})
-          ON CONFLICT DO NOTHING
+      for (let i = 0; i < tagResults.categories.length; i++) {
+        const categoryName = tagResults.categories[i];
+        const categorySlug = categoryName.toLowerCase().replace(/\s+/g, '-');
+        
+        // Find category by slug AND parent_id to ensure correct hierarchy
+        const categoryResult = await sql`
+          SELECT category_id FROM categories 
+          WHERE slug = ${categorySlug}
+          ${parentId !== null ? sql`AND parent_id = ${parentId}` : sql`AND parent_id IS NULL`}
         `;
+        
+        if (categoryResult.length > 0) {
+          const categoryId = categoryResult[0].category_id;
+          
+          // Insert product-category association
+          await sql`
+            INSERT INTO product_categories (product_id, category_id)
+            VALUES (${productId}, ${categoryId})
+            ON CONFLICT DO NOTHING
+          `;
+          
+          // This category becomes the parent for the next level
+          parentId = categoryId;
+        } else {
+          // Path broken - category doesn't exist at this level with this parent
+          console.warn(`Category path broken at "${categoryName}" (expected parent: ${parentId})`);
+          break;
+        }
       }
     }
     
