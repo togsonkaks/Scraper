@@ -68,20 +68,43 @@ function matchCategories(breadcrumbs) {
   if (!breadcrumbs || breadcrumbs.length === 0) return [];
   
   const matches = [];
-  const breadcrumbText = breadcrumbs.join(' ').toLowerCase();
   
-  for (const category of categoryTree) {
-    const categoryName = category.name.toLowerCase();
-    if (breadcrumbText.includes(categoryName)) {
-      matches.push({
-        id: category.category_id,
-        name: category.name,
-        slug: category.slug,
-        parent_id: category.parent_id,
-        level: category.level
-      });
+  // Build all possible category paths from database
+  const categoryPaths = categoryTree.map(cat => {
+    const path = buildCategoryPath(cat.category_id);
+    return {
+      categoryId: cat.category_id,
+      path: path,
+      pathString: path.map(p => p.name).join(' > ').toLowerCase(),
+      depth: path.length
+    };
+  });
+  
+  // Build breadcrumb path string
+  const breadcrumbPath = breadcrumbs.join(' > ').toLowerCase();
+  
+  // Try to match full paths or partial paths
+  for (const catPath of categoryPaths) {
+    // Check if breadcrumb path contains this category path
+    // Example: breadcrumb "Home > Tools > Concrete Tools" matches path "Tools > Concrete Tools"
+    if (breadcrumbPath.includes(catPath.pathString)) {
+      const category = categoryTree.find(c => c.category_id === catPath.categoryId);
+      if (category) {
+        matches.push({
+          id: category.category_id,
+          name: category.name,
+          slug: category.slug,
+          parent_id: category.parent_id,
+          level: category.level,
+          matchedPath: catPath.pathString,
+          pathDepth: catPath.depth
+        });
+      }
     }
   }
+  
+  // Sort by path depth (prefer deeper/more specific matches)
+  matches.sort((a, b) => b.pathDepth - a.pathDepth);
   
   return matches;
 }

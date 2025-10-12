@@ -267,12 +267,16 @@ Respond in JSON format:
 
     const result = JSON.parse(response.choices[0].message.content);
     
+    // VERIFY if path actually exists (don't trust LLM)
+    const suggestedPath = (result.categories || []).join(' > ');
+    const actuallyExists = existingPaths.some(path => path === suggestedPath);
+    
     return {
       categories: result.categories || [],
       keywords: result.keywords || [],
       confidence: result.confidence || 0.7,
       reasoning: result.reasoning || '',
-      isNewPath: result.isNewPath || false
+      isNewPath: !actuallyExists  // Override LLM - use actual database check
     };
   } catch (error) {
     console.error('LLM tagging error:', error);
@@ -375,12 +379,16 @@ Respond in JSON format:
 
     const result = JSON.parse(response.choices[0].message.content);
     
+    // VERIFY if path actually exists (don't trust LLM)
+    const suggestedPath = (result.categories || []).join(' > ');
+    const actuallyExists = existingPaths.some(path => path === suggestedPath);
+    
     return {
       categories: result.categories || [],
       keywords: result.keywords || [],
       confidence: result.confidence || 0.7,
       reasoning: result.reasoning || '',
-      isNewPath: result.isNewPath || false
+      isNewPath: !actuallyExists  // Override LLM - use actual database check
     };
   } catch (error) {
     console.error('LLM retry error:', error);
