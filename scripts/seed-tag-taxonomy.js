@@ -84,7 +84,7 @@ async function seedTagTaxonomy() {
     database: process.env.PGDATABASE,
     username: process.env.PGUSER,
     password: process.env.PGPASSWORD,
-    ssl: 'require'
+    ssl: false
   });
   
   try {

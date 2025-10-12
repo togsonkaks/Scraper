@@ -1,0 +1,29 @@
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ prevent building .env in docker: https://dotenvx.com/prebuild
+Error saving raw product: TypeError: Invalid URL
+    at new URL (node:internal/url:825:25)
+    at parseUrl (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:544:18)
+    at parseOptions (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:436:30)      
+    at Postgres (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:50:19)
+    at Object.<anonymous> (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:5:13)
+    at Module._compile (node:internal/modules/cjs/loader:1714:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1848:10)
+    at Module.load (node:internal/modules/cjs/loader:1448:32)
+    at Module._load (node:internal/modules/cjs/loader:1270:12)
+    at c._load (node:electron/js2c/node_init:2:17993) {
+  code: 'ERR_INVALID_URL',
+  input: 'postgresql://undefined:undefined@undefined:undefined/undefined?sslmode=require'
+}
+Error occurred in handler for 'save-raw-product': TypeError: Invalid URL
+    at new URL (node:internal/url:825:25)
+    at parseUrl (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:544:18)
+    at parseOptions (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:436:30)      
+    at Postgres (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:50:19)
+    at Object.<anonymous> (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:5:13)
+    at Module._compile (node:internal/modules/cjs/loader:1714:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1848:10)
+    at Module.load (node:internal/modules/cjs/loader:1448:32)
+    at Module._load (node:internal/modules/cjs/loader:1270:12)
+    at c._load (node:electron/js2c/node_init:2:17993) {
+  code: 'ERR_INVALID_URL',
+  input: 'postgresql://undefined:undefined@undefined:undefined/undefined?sslmode=require'
+}
