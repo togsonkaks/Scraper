@@ -77,6 +77,8 @@ contextBridge.exposeInMainWorld('api', {
   llmTagProduct: (productData) => call('llm-tag-product', productData),
   llmRetryWithFeedback: (productData, feedback) => call('llm-retry-with-feedback', productData, feedback),
   saveToDatabase: (productData, tagResults) => call('save-to-database', productData, tagResults),
+  saveRawProduct: (productData) => call('save-raw-product', productData),
+  updateProductTags: (productId, tagResults) => call('update-product-tags', productId, tagResults),
   getProducts: (filters) => call('get-products', filters),
   getProductStats: () => call('get-product-stats')
 });
