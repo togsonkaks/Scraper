@@ -204,13 +204,10 @@ async function autoTag(productData) {
       (current.level > prev.level) ? current : prev
     );
     
-    primaryCategory = {
-      id: deepestCategory.id,
-      name: deepestCategory.name,
-      slug: deepestCategory.slug
-    };
-    
     categoryPath = buildCategoryPath(deepestCategory.id);
+    
+    // Store full hierarchy path as string (consistent with LLM format)
+    primaryCategory = categoryPath.map(c => c.name).join(' > ');
   }
   
   // Detect gender from tags or text

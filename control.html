@@ -1208,7 +1208,7 @@
         
         // Format tags for database with slugs
         const tagResults = {
-          primaryCategory: currentLLMTags.categories[currentLLMTags.categories.length - 1] || 'Uncategorized',
+          primaryCategory: currentLLMTags.categories.join(' > ') || 'Uncategorized',  // Full hierarchy path
           categories: currentLLMTags.categories,
           allCategories: currentLLMTags.categories.map(cat => generateSlug(cat)),
           tags: currentLLMTags.keywords.map(kw => ({ 
@@ -1593,7 +1593,8 @@
       if (tagResult.categoryPath && tagResult.categoryPath.length > 0) {
         categoryEl.textContent = tagResult.categoryPath.map(c => c.name).join(' > ');
       } else if (tagResult.primaryCategory) {
-        categoryEl.textContent = tagResult.primaryCategory.name;
+        // primaryCategory is now a string (full path)
+        categoryEl.textContent = tagResult.primaryCategory;
       } else {
         categoryEl.textContent = '-';
       }
