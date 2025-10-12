@@ -338,18 +338,20 @@ async function seedTags() {
     for (const [tagType, tags] of Object.entries(COMPREHENSIVE_TAGS)) {
       console.log(`\n   Inserting ${tagType} (${tags.length} tags)...`);
       
-      for (const tagName of tags) {
-        const slug = tagName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-        
-        await sql`
-          INSERT INTO tag_taxonomy (name, slug, tag_type)
-          VALUES (${tagName}, ${slug}, ${tagType})
-          ON CONFLICT (slug) DO NOTHING
-        `;
-        
-        totalCount++;
-      }
+      // Prepare batch data
+      const batchData = tags.map(tagName => ({
+        name: tagName,
+        slug: tagName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+        tag_type: tagType
+      }));
       
+      // Batch insert
+      await sql`
+        INSERT INTO tag_taxonomy ${sql(batchData, 'name', 'slug', 'tag_type')}
+        ON CONFLICT (slug) DO NOTHING
+      `;
+      
+      totalCount += tags.length;
       console.log(`   ✅ Inserted ${tags.length} ${tagType} tags`);
     }
 
