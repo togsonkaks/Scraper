@@ -37,10 +37,20 @@ The application is built on the Electron framework, using a main process (`main.
         - **Tags by Type**: features (154), materials (114), colors (116), styles (123), activities (138), fit (57), occasions (65), tool-types (79), automotive (68), kitchen (39), beauty (53)
         - Hierarchical categories with 4-5 levels (e.g., Tools & Hardware > Power Tools > Saws > Concrete Masonry Saws)
         - Specialized tags for power tools (cordless, brushless-motor, lithium-ion, masonry), automotive (OEM, aftermarket, performance), kitchen (non-stick, dishwasher-safe), beauty (SPF, cruelty-free), and all major product types
-    - Auto-tagger engine (`scrapers/auto-tagger.js`) uses hierarchical path matching (breadcrumbs → full path matching → confidence scoring) to achieve 80%+ auto-tag success rate
+    - **Auto-tagger engine** (`scrapers/auto-tagger.js`):
+        - **Category Matching**: Searches for category NAMES (not paths) in ALL product data (title, description, breadcrumbs, specs, JSON-LD) - identical logic to tag matching
+        - **Tag Matching**: Word-boundary regex matching across all product text for 955+ tags
+        - When category name found (e.g., "Jeans") → Automatically builds FULL hierarchical path from database ("Fashion > Men > Clothing > Bottoms > Jeans")
+        - Works with OR without breadcrumbs - finds categories anywhere in product data
+        - Achieves 80%+ auto-tag success rate with confidence scoring
     - Integrated workflow: Scrape → Auto-Tag → Preview → Save
     - Optional LLM enhancement for low-confidence products (manual trigger only)
-    - LLM-powered tagging system using GPT-4o-mini with database verification - validates suggested paths against existing taxonomy before marking as "EXISTING"
+    - **LLM-powered tagging system** using GPT-4o-mini:
+        - Loads complete taxonomy from database (358 categories + 955 tags) and sends as context
+        - Enforces strict rules: Categories END at product type (Jeans, Shoes), fit/style terms (tapered, slim-fit) are TAGS
+        - Returns COMPLETE category paths with ALL parent levels (Fashion > Men > Clothing > Bottoms > Jeans)
+        - Self-learning: Auto-adds new tags to database with correct type classification (e.g., "indigo" → type: colors)
+        - Validates suggested paths against existing taxonomy before marking as "EXISTING"
     - LLM caching system prevents duplicate API calls for same product URL (saves to AppData/Roaming/Tagglo/llm_cache)
     - Database operations (`server/storage.js`) include a 3-stage save pipeline with full hierarchy path storage
 
