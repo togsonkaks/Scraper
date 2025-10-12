@@ -1,7 +1,37 @@
-const fs = require('fs');
-const path = require('path');
+require('dotenv').config();
+const postgres = require('postgres');
 
-const keywords = JSON.parse(fs.readFileSync(path.join(__dirname, 'keywords.json'), 'utf8'));
+const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}?sslmode=require`;
+const sql = postgres(connectionString);
+
+let tagTaxonomy = [];
+let categoryTree = [];
+let isInitialized = false;
+
+async function initializeTaxonomy() {
+  if (isInitialized) return;
+  
+  try {
+    // Load all tags with their semantic types
+    tagTaxonomy = await sql`
+      SELECT name, slug, tag_type 
+      FROM tag_taxonomy 
+      ORDER BY tag_type, name
+    `;
+    
+    // Load all categories with hierarchy
+    categoryTree = await sql`
+      SELECT category_id, name, slug, parent_id, level
+      FROM categories
+      ORDER BY level, name
+    `;
+    
+    isInitialized = true;
+    console.log(`✅ Auto-tagger initialized: ${tagTaxonomy.length} tags, ${categoryTree.length} categories`);
+  } catch (error) {
+    console.error('❌ Auto-tagger initialization failed:', error.message);
+  }
+}
 
 function normalizeText(text) {
   if (!text) return '';
@@ -12,128 +42,173 @@ function createSlug(text) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-function matchKeywords(text, keywordGroup) {
+function matchTags(text, tagType = null) {
   const normalizedText = normalizeText(text);
-  const matches = new Set();
+  const matches = [];
   
-  for (const [key, terms] of Object.entries(keywordGroup)) {
-    for (const term of terms) {
-      const pattern = new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-      if (pattern.test(normalizedText)) {
-        matches.add(key);
-        break;
-      }
+  const tagsToCheck = tagType 
+    ? tagTaxonomy.filter(t => t.tag_type === tagType)
+    : tagTaxonomy;
+  
+  for (const tag of tagsToCheck) {
+    const pattern = new RegExp(`\\b${tag.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+    if (pattern.test(normalizedText)) {
+      matches.push({
+        name: tag.name,
+        slug: tag.slug,
+        type: tag.tag_type
+      });
     }
   }
   
-  return Array.from(matches);
+  return matches;
 }
 
-function calculateConfidence(results) {
+function matchCategories(breadcrumbs) {
+  if (!breadcrumbs || breadcrumbs.length === 0) return [];
+  
+  const matches = [];
+  const breadcrumbText = breadcrumbs.join(' ').toLowerCase();
+  
+  for (const category of categoryTree) {
+    const categoryName = category.name.toLowerCase();
+    if (breadcrumbText.includes(categoryName)) {
+      matches.push({
+        id: category.category_id,
+        name: category.name,
+        slug: category.slug,
+        parent_id: category.parent_id,
+        level: category.level
+      });
+    }
+  }
+  
+  return matches;
+}
+
+function buildCategoryPath(categoryId) {
+  const path = [];
+  let currentId = categoryId;
+  
+  while (currentId) {
+    const category = categoryTree.find(c => c.category_id === currentId);
+    if (!category) break;
+    
+    path.unshift({
+      id: category.category_id,
+      name: category.name,
+      slug: category.slug,
+      level: category.level
+    });
+    
+    currentId = category.parent_id;
+  }
+  
+  return path;
+}
+
+function calculateConfidence(tagsByType) {
   let score = 0;
   
-  if (results.gender.length > 0) score += 0.15;
-  if (results.primaryCategory) score += 0.30;
-  if (results.materials.length > 0) score += 0.10;
-  if (results.styles.length > 0) score += 0.15;
-  if (results.features.length > 0) score += 0.15;
-  if (results.colors.length > 0) score += 0.10;
-  if (results.occasions.length > 0) score += 0.05;
+  if (tagsByType.colors?.length > 0) score += 0.10;
+  if (tagsByType.materials?.length > 0) score += 0.15;
+  if (tagsByType.activities?.length > 0) score += 0.10;
+  if (tagsByType.styles?.length > 0) score += 0.15;
+  if (tagsByType.features?.length > 0) score += 0.15;
+  if (tagsByType.fit?.length > 0) score += 0.10;
+  if (tagsByType.occasions?.length > 0) score += 0.10;
+  if (tagsByType.categories?.length > 0) score += 0.15;
   
   return Math.min(score, 0.95).toFixed(2);
 }
 
-function autoTag(productData) {
-  // Normalize breadcrumbs to handle both string and array formats
-  let breadcrumbsText = '';
+async function autoTag(productData) {
+  // Initialize taxonomy if needed
+  await initializeTaxonomy();
+  
+  // Normalize breadcrumbs
   let breadcrumbsArray = [];
   
   if (productData.breadcrumbs) {
     if (Array.isArray(productData.breadcrumbs)) {
       breadcrumbsArray = productData.breadcrumbs;
-      breadcrumbsText = productData.breadcrumbs.join(' ');
     } else if (typeof productData.breadcrumbs === 'string') {
-      breadcrumbsText = productData.breadcrumbs;
-      // Try to split string breadcrumbs by common separators
       breadcrumbsArray = productData.breadcrumbs.split(/\s*[/>|›»]\s*/).filter(Boolean);
     }
   }
   
+  // Filter out product title from breadcrumbs
+  const filteredBreadcrumbs = breadcrumbsArray.filter((crumb, idx) => {
+    const isLastCrumb = idx === breadcrumbsArray.length - 1;
+    const matchesTitle = productData.title && 
+      normalizeText(crumb).includes(normalizeText(productData.title.substring(0, 30)));
+    return !(isLastCrumb && matchesTitle);
+  });
+  
+  // Build search text
   const searchText = [
     productData.title || '',
     productData.description || '',
-    breadcrumbsText,
+    filteredBreadcrumbs.join(' '),
     productData.brand || '',
     productData.tags || '',
     productData.specs || ''
   ].join(' ');
   
-  const results = {
-    gender: matchKeywords(searchText, keywords.gender),
-    categories: matchKeywords(searchText, keywords.categories),
-    materials: matchKeywords(searchText, keywords.materials),
-    styles: matchKeywords(searchText, keywords.styles),
-    features: matchKeywords(searchText, keywords.features),
-    colors: matchKeywords(searchText, keywords.colors),
-    occasions: matchKeywords(searchText, keywords.occasions)
+  // Match all tags
+  const allMatchedTags = matchTags(searchText);
+  
+  // Group tags by semantic type
+  const tagsByType = {
+    colors: allMatchedTags.filter(t => t.type === 'colors'),
+    materials: allMatchedTags.filter(t => t.type === 'materials'),
+    activities: allMatchedTags.filter(t => t.type === 'activities'),
+    styles: allMatchedTags.filter(t => t.type === 'styles'),
+    features: allMatchedTags.filter(t => t.type === 'features'),
+    fit: allMatchedTags.filter(t => t.type === 'fit'),
+    occasions: allMatchedTags.filter(t => t.type === 'occasions')
   };
   
-  // Use keyword-matched categories as primary source (matches seeded categories)
-  let primaryCategory = results.categories.length > 0 ? results.categories[0] : null;
-  let categoryHierarchy = [];
+  // Match categories from breadcrumbs
+  const matchedCategories = matchCategories(filteredBreadcrumbs);
   
-  // Use breadcrumbs for additional context/hierarchy (but not as literal category names)
-  if (breadcrumbsArray.length > 0) {
-    const filteredBreadcrumbs = breadcrumbsArray.filter((crumb, idx) => {
-      const isLastCrumb = idx === breadcrumbsArray.length - 1;
-      const matchesTitle = productData.title && 
-        normalizeText(crumb) === normalizeText(productData.title);
-      return !(isLastCrumb && matchesTitle);
-    });
+  // Find primary category (deepest level category)
+  let primaryCategory = null;
+  let categoryPath = [];
+  
+  if (matchedCategories.length > 0) {
+    const deepestCategory = matchedCategories.reduce((prev, current) => 
+      (current.level > prev.level) ? current : prev
+    );
     
-    // Create hierarchy from breadcrumbs (for display/context purposes)
-    categoryHierarchy = filteredBreadcrumbs.map(crumb => ({
-      name: crumb,
-      slug: createSlug(crumb)
-    }));
+    primaryCategory = {
+      id: deepestCategory.id,
+      name: deepestCategory.name,
+      slug: deepestCategory.slug
+    };
+    
+    categoryPath = buildCategoryPath(deepestCategory.id);
   }
   
-  const allTags = [
-    ...results.gender,
-    ...results.materials,
-    ...results.styles,
-    ...results.features,
-    ...results.colors,
-    ...results.occasions
-  ];
+  // Detect gender from tags or text
+  let gender = null;
+  const genderMatches = searchText.match(/\b(men|women|unisex|boys|girls|kids)\b/gi);
+  if (genderMatches && genderMatches.length > 0) {
+    gender = genderMatches[0].toLowerCase();
+  }
   
-  const uniqueTags = Array.from(new Set(allTags)).map(tag => ({
-    name: tag.replace(/_/g, ' '),
-    slug: createSlug(tag),
-    type: getTagType(tag)
-  }));
-  
-  const confidence = calculateConfidence(results);
+  const confidence = calculateConfidence(tagsByType);
   
   return {
     primaryCategory,
-    categoryHierarchy,
-    gender: results.gender.length > 0 ? results.gender[0] : null,
-    tags: uniqueTags,
-    allCategories: results.categories,
+    categoryPath,
+    gender,
+    tags: allMatchedTags,
+    tagsByType,
+    matchedCategories,
     confidenceScore: parseFloat(confidence),
     needsLLMEnrichment: parseFloat(confidence) < 0.70
   };
 }
 
-function getTagType(tag) {
-  for (const [type, group] of Object.entries(keywords)) {
-    if (type === 'categories') continue;
-    for (const [key, terms] of Object.entries(group)) {
-      if (key === tag) return type;
-    }
-  }
-  return 'general';
-}
-
-module.exports = { autoTag };
+module.exports = { autoTag, initializeTaxonomy };
