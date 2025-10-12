@@ -987,9 +987,9 @@
       }
     };
 
-    // Save to Database with Auto-Tagging
+    // Save to Database (Raw Data Only - No Tags)
     const saveToDbBtn = document.getElementById('saveToDbBtn');
-    let currentTagResults = null;
+    let lastSavedProductId = null;
     
     saveToDbBtn.onclick = async () => {
       if (!lastPayload) {
@@ -999,46 +999,48 @@
       
       try {
         saveToDbBtn.disabled = true;
-        saveToDbBtn.textContent = '🔄 Tagging & Saving...';
+        saveToDbBtn.textContent = '🔄 Saving Raw Data...';
         
-        const tagResults = await window.api.autoTagProduct(lastPayload);
-        currentTagResults = tagResults;
-        
-        document.getElementById('tagCategory').textContent = tagResults.primaryCategory || 'None';
-        document.getElementById('tagGender').textContent = tagResults.gender || 'None';
-        document.getElementById('tagConfidence').textContent = `${(tagResults.confidenceScore * 100).toFixed(0)}% ${tagResults.needsLLMEnrichment ? '⚠️ Low' : '✅ High'}`;
-        
-        const tagListEl = document.getElementById('tagList');
-        tagListEl.innerHTML = tagResults.tags.map(t => 
-          `<span class="pill" style="background:#e3f2fd; color:#1976d2;">${t.name}</span>`
-        ).join('');
-        
-        document.getElementById('tagPreview').style.display = 'block';
-        
-        const saveResult = await window.api.saveToDatabase(lastPayload, tagResults);
+        // Save raw product data WITHOUT tags (LLM will add them later)
+        const saveResult = await window.api.saveRawProduct(lastPayload);
         
         if (saveResult.success) {
-          alert(`✅ Product saved successfully!\n\nProduct ID: ${saveResult.productId}\nConfidence: ${(tagResults.confidenceScore * 100).toFixed(0)}%\n${saveResult.needsEnrichment ? '\n⚠️ Low confidence - consider LLM enrichment' : ''}`);
+          lastSavedProductId = saveResult.productId;
+          
+          alert(`✅ Product saved successfully!\n\nProduct ID: ${saveResult.productId}\n\nNext: Click "🤖 Get AI Tags" to categorize this product with LLM`);
+          
+          // Enable AI Tags button now that product is saved
+          document.getElementById('llmTagBtn').disabled = false;
+          
+          // Disable save button (already saved)
+          saveToDbBtn.disabled = true;
+          saveToDbBtn.textContent = '✅ Saved';
         } else {
           alert('❌ Failed to save product to database');
+          saveToDbBtn.disabled = false;
+          saveToDbBtn.textContent = '💾 Save to Database';
         }
         
       } catch (error) {
         console.error('Error saving to database:', error);
         alert(`❌ Error: ${error.message}`);
-      } finally {
         saveToDbBtn.disabled = false;
         saveToDbBtn.textContent = '💾 Save to Database';
       }
     };
 
-    // LLM Tag Product
+    // LLM Tag Product (Requires Saved Product)
     const llmTagBtn = document.getElementById('llmTagBtn');
     let currentLLMTags = { categories: [], keywords: [] };
     
     llmTagBtn.onclick = async () => {
       if (!lastPayload) {
         alert('⚠️ Please scrape a product first');
+        return;
+      }
+      
+      if (!lastSavedProductId) {
+        alert('⚠️ Please save the product to database first!\n\nClick "💾 Save to Database" before using AI Tags.');
         return;
       }
       
@@ -1159,11 +1161,16 @@
         .replace(/^-+|-+$/g, '');
     }
 
-    // Save to database with LLM tags
+    // Update product with LLM tags (UPDATE existing product)
     document.getElementById('llmSaveBtn').onclick = async () => {
+      if (!lastSavedProductId) {
+        alert('⚠️ No saved product to update. Please save the product first.');
+        return;
+      }
+      
       try {
         document.getElementById('llmSaveBtn').disabled = true;
-        document.getElementById('llmSaveBtn').textContent = '💾 Saving...';
+        document.getElementById('llmSaveBtn').textContent = '💾 Updating...';
         
         // Format tags for database with slugs
         const tagResults = {
@@ -1180,17 +1187,18 @@
           gender: currentLLMTags.categories.find(c => ['men', 'women', 'unisex', 'kids'].includes(c.toLowerCase())) || null
         };
         
-        const saveResult = await window.api.saveToDatabase(lastPayload, tagResults);
+        // UPDATE existing product with LLM tags
+        const updateResult = await window.api.updateProductTags(lastSavedProductId, tagResults);
         
-        if (saveResult.success) {
-          alert(`✅ Product saved successfully!\n\nProduct ID: ${saveResult.productId}\nCategories: ${currentLLMTags.categories.join(' > ')}\nKeywords: ${currentLLMTags.keywords.join(', ')}`);
+        if (updateResult.success) {
+          alert(`✅ Product updated with LLM tags!\n\nProduct ID: ${lastSavedProductId}\nCategories: ${currentLLMTags.categories.join(' > ')}\nKeywords: ${currentLLMTags.keywords.join(', ')}`);
           document.getElementById('llmTagModal').style.display = 'none';
         } else {
-          alert('❌ Failed to save product to database');
+          alert('❌ Failed to update product tags');
         }
         
       } catch (error) {
-        console.error('Error saving with LLM tags:', error);
+        console.error('Error updating product with LLM tags:', error);
         alert(`❌ Error: ${error.message}`);
       } finally {
         document.getElementById('llmSaveBtn').disabled = false;
