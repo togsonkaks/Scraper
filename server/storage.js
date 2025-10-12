@@ -514,10 +514,15 @@ async function seedFullTaxonomy() {
     
     for (const cat of categories) {
       const parentId = cat.parent ? categoryMap.get(cat.parent) : null;
+      const slug = cat.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
       
       const result = await sql`
         INSERT INTO categories (name, parent_id, level, slug)
-        VALUES (${cat.name}, ${parentId}, ${cat.level}, ${cat.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')})
+        VALUES (${cat.name}, ${parentId}, ${cat.level}, ${slug})
+        ON CONFLICT (slug) DO UPDATE SET
+          name = EXCLUDED.name,
+          parent_id = EXCLUDED.parent_id,
+          level = EXCLUDED.level
         RETURNING category_id
       `;
       
