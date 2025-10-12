@@ -141,6 +141,33 @@ async function loadExistingCategoryPaths() {
 }
 
 /**
+ * Load existing tags from database organized by type
+ * @returns {Promise<Object>} Tag taxonomy organized by type
+ */
+async function loadExistingTags() {
+  try {
+    const tags = await sql`
+      SELECT name, tag_type
+      FROM tag_taxonomy
+      ORDER BY tag_type, name
+    `;
+    
+    const taxonomy = {};
+    tags.forEach(tag => {
+      if (!taxonomy[tag.tag_type]) {
+        taxonomy[tag.tag_type] = [];
+      }
+      taxonomy[tag.tag_type].push(tag.name);
+    });
+    
+    return taxonomy;
+  } catch (error) {
+    console.error('Error loading tags:', error);
+    return {};
+  }
+}
+
+/**
  * Extract hierarchical categories and 5-6 high-quality keywords from product data using LLM
  * @param {Object} productData - The scraped product data
  * @param {string} productData.title - Product title
@@ -154,8 +181,9 @@ async function loadExistingCategoryPaths() {
 async function extractTagsWithLLM(productData) {
   const { title, description, specs, breadcrumbs, brand, jsonLd } = productData;
   
-  // Load existing category structure from database
+  // Load existing category structure and tags from database
   const existingPaths = await loadExistingCategoryPaths();
+  const existingTags = await loadExistingTags();
 
   // Format JSON-LD data for better readability in prompt
   let jsonLdInfo = 'N/A';
@@ -177,23 +205,14 @@ async function extractTagsWithLLM(productData) {
     ? `\n📂 EXISTING CATEGORY TAXONOMY (${existingPaths.length} paths):\n${existingPaths.map(p => `   - ${p}`).join('\n')}`
     : '\n📂 EXISTING CATEGORY TAXONOMY: None (you can create new paths)';
 
-  // Format master tag taxonomy for LLM
-  const tagTaxonomy = `
-🏷️ MASTER TAG REFERENCE (350+ tags organized by type):
-
-ACTIVITIES/USE-CASES: ${MASTER_TAG_TAXONOMY.activities.join(', ')}
-
-MATERIALS: ${MASTER_TAG_TAXONOMY.materials.join(', ')}
-
-COLORS/PATTERNS: ${MASTER_TAG_TAXONOMY.colors.join(', ')}
-
-STYLES: ${MASTER_TAG_TAXONOMY.styles.join(', ')}
-
-FEATURES: ${MASTER_TAG_TAXONOMY.features.join(', ')}
-
-FIT/SIZING: ${MASTER_TAG_TAXONOMY.fit.join(', ')}
-
-OCCASIONS: ${MASTER_TAG_TAXONOMY.occasions.join(', ')}`;
+  // Format tag taxonomy from database for LLM
+  const tagTaxonomyLines = Object.entries(existingTags)
+    .map(([type, tags]) => `${type.toUpperCase()}: ${tags.join(', ')}`)
+    .join('\n\n');
+  
+  const tagTaxonomy = existingTags && Object.keys(existingTags).length > 0
+    ? `🏷️ EXISTING TAG TAXONOMY (${Object.values(existingTags).flat().length} tags organized by type):\n\n${tagTaxonomyLines}`
+    : '🏷️ EXISTING TAG TAXONOMY: None (you can suggest new tags)';
 
   const prompt = `Analyze this e-commerce product and extract:
 1. HIERARCHICAL CATEGORIES - Full category path from general to specific
@@ -225,32 +244,41 @@ CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
 
 4. Return as array in hierarchical order: ["Level1", "Level2", "Level3", "Level4"]
 
-KEYWORD/TAG EXTRACTION RULES (USE MASTER TAG REFERENCE):
-1. MUST include (if available):
-   - Brand name (e.g., "Allbirds")
-   - Product line/model (e.g., "Tree-Glider")
+BRAND EXTRACTION:
+1. Extract the brand name and put it in the "brand" field (e.g., "GUESS", "Nike", "Adidas")
+2. DO NOT include brand as a tag - it goes in the brand field only
 
-2. Add 4-6 DESCRIPTIVE TAGS from the Master Tag Reference above:
-   - Extract from DESCRIPTION and JSON-LD fields
+TAG EXTRACTION RULES (USE EXISTING TAG TAXONOMY):
+1. Extract 5-8 DESCRIPTIVE TAGS with their TYPE classification:
+   - Match to EXISTING tags from the taxonomy above when possible
+   - If tag exists, use it exactly as shown
+   - If NEW tag (not in taxonomy), identify its type from available types: activities, materials, colors, styles, features, fit, occasions, tool-types, automotive, kitchen, beauty
+   
+2. Extract from DESCRIPTION and JSON-LD fields:
    - Activities/use-cases: "workout", "running", "casual-wear" (check description for activity keywords!)
-   - Materials: "merino-wool", "mesh", "leather", "recycled"
-   - Colors/patterns: "black", "natural", "solid"
-   - Styles: "athletic", "minimalist", "casual"
-   - Features: "lightweight", "breathable", "eco-friendly"
+   - Materials: "cotton", "denim", "leather", "recycled"
+   - Colors/patterns: "black", "indigo", "solid"
+   - Styles: "athletic", "minimalist", "casual", "slim-fit"
+   - Features: "lightweight", "breathable", "stretchy", "eco-friendly"
+   - Fit: "slim-fit", "relaxed-fit", "tapered"
    - Occasions: "everyday", "gym", "travel"
 
 3. IMPORTANT: 
-   - Style/activity words like "casual", "running", "workout", "athletic" are TAGS, not categories
+   - Style/activity words like "casual", "running", "slim-fit" are TAGS, not categories
    - ❌ WRONG: Category = "Men > Footwear > Casual Shoes"
-   - ✅ RIGHT: Category = "Men > Fashion > Footwear > Shoes > Sneakers", Tags = ["casual", "workout", "athletic"]
+   - ✅ RIGHT: Category = "Men > Fashion > Footwear > Shoes > Sneakers", Tags = ["casual", "workout"]
 
 4. Skip generic words (shoes, product, item) and words already in category path
-5. Extract 6-8 keywords total (brand + model + 4-6 descriptive tags)
 
 Respond in JSON format:
 {
   "categories": ["Level1", "Level2", "Level3", "Level4", "Level5"],
-  "keywords": ["brand", "product-model", "activity-tag", "material", "color", "style", "feature", "occasion"],
+  "brand": "BRAND_NAME",
+  "tags": [
+    {"name": "slim-fit", "type": "fit", "isNew": false},
+    {"name": "indigo", "type": "colors", "isNew": true},
+    {"name": "casual", "type": "styles", "isNew": false}
+  ],
   "confidence": 0.85,
   "reasoning": "Brief explanation - mention if existing path matched or new path suggested, and which tags came from description",
   "isNewPath": false
@@ -271,12 +299,61 @@ Respond in JSON format:
     const suggestedPath = (result.categories || []).join(' > ');
     const actuallyExists = existingPaths.some(path => path === suggestedPath);
     
+    // Process tags and learn new ones
+    const processedTags = [];
+    const newTagsToLearn = [];
+    
+    if (result.tags && Array.isArray(result.tags)) {
+      for (const tag of result.tags) {
+        if (typeof tag === 'object' && tag.name) {
+          // Check if tag actually exists in our database
+          const tagType = tag.type || 'features'; // Default to features if no type
+          const existsInDb = existingTags[tagType]?.some(t => t.toLowerCase() === tag.name.toLowerCase());
+          
+          processedTags.push({
+            name: tag.name,
+            slug: tag.name.toLowerCase().replace(/\s+/g, '-'),
+            type: tagType
+          });
+          
+          // If tag is truly new (not in our database), mark it for learning
+          if (!existsInDb) {
+            newTagsToLearn.push({
+              name: tag.name,
+              slug: tag.name.toLowerCase().replace(/\s+/g, '-'),
+              type: tagType,
+              llm_discovered: 1
+            });
+          }
+        }
+      }
+    }
+    
+    // Auto-learn new tags by adding them to tag_taxonomy
+    if (newTagsToLearn.length > 0) {
+      try {
+        for (const newTag of newTagsToLearn) {
+          await sql`
+            INSERT INTO tag_taxonomy (name, slug, tag_type, llm_discovered)
+            VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
+            ON CONFLICT (slug) DO NOTHING
+          `;
+        }
+        console.log(`✨ Learned ${newTagsToLearn.length} new tags: ${newTagsToLearn.map(t => t.name).join(', ')}`);
+      } catch (error) {
+        console.error('Error learning new tags:', error);
+      }
+    }
+    
     return {
       categories: result.categories || [],
-      keywords: result.keywords || [],
+      tags: processedTags,
+      keywords: processedTags.map(t => t.name), // For backward compatibility
+      brand: result.brand || productData.brand || null,
       confidence: result.confidence || 0.7,
       reasoning: result.reasoning || '',
-      isNewPath: !actuallyExists  // Override LLM - use actual database check
+      isNewPath: !actuallyExists,  // Override LLM - use actual database check
+      learnedTags: newTagsToLearn.length
     };
   } catch (error) {
     console.error('LLM tagging error:', error);
@@ -293,8 +370,9 @@ Respond in JSON format:
 async function retryWithFeedback(productData, feedback) {
   const { title, description, specs, breadcrumbs, brand, jsonLd } = productData;
   
-  // Load existing category structure from database
+  // Load existing category structure and tags from database
   const existingPaths = await loadExistingCategoryPaths();
+  const existingTags = await loadExistingTags();
 
   // Format JSON-LD data for better readability in prompt
   let jsonLdInfo = 'N/A';
@@ -316,23 +394,14 @@ async function retryWithFeedback(productData, feedback) {
     ? `\n📂 EXISTING CATEGORY TAXONOMY (${existingPaths.length} paths):\n${existingPaths.map(p => `   - ${p}`).join('\n')}`
     : '\n📂 EXISTING CATEGORY TAXONOMY: None (you can create new paths)';
 
-  // Format master tag taxonomy for LLM
-  const tagTaxonomy = `
-🏷️ MASTER TAG REFERENCE (350+ tags organized by type):
-
-ACTIVITIES/USE-CASES: ${MASTER_TAG_TAXONOMY.activities.join(', ')}
-
-MATERIALS: ${MASTER_TAG_TAXONOMY.materials.join(', ')}
-
-COLORS/PATTERNS: ${MASTER_TAG_TAXONOMY.colors.join(', ')}
-
-STYLES: ${MASTER_TAG_TAXONOMY.styles.join(', ')}
-
-FEATURES: ${MASTER_TAG_TAXONOMY.features.join(', ')}
-
-FIT/SIZING: ${MASTER_TAG_TAXONOMY.fit.join(', ')}
-
-OCCASIONS: ${MASTER_TAG_TAXONOMY.occasions.join(', ')}`;
+  // Format tag taxonomy from database for LLM
+  const tagTaxonomyLines = Object.entries(existingTags)
+    .map(([type, tags]) => `${type.toUpperCase()}: ${tags.join(', ')}`)
+    .join('\n\n');
+  
+  const tagTaxonomy = existingTags && Object.keys(existingTags).length > 0
+    ? `🏷️ EXISTING TAG TAXONOMY (${Object.values(existingTags).flat().length} tags organized by type):\n\n${tagTaxonomyLines}`
+    : '🏷️ EXISTING TAG TAXONOMY: None (you can suggest new tags)';
 
   const prompt = `The previous tagging attempt was rejected with this feedback: "${feedback}"
 
@@ -353,16 +422,21 @@ IMPORTANT RULES:
    - Find path like "Fashion > Men > Shoes" and return ["Fashion", "Men", "Shoes"] 
    - DO NOT reorder - use the exact hierarchy shown
    - ONLY mark isNewPath=false if EXACT path exists
-2. Style/activity words like "casual", "running", "workout", "athletic" are TAGS, not categories
-3. Use the Master Tag Reference above to extract 6-8 descriptive tags
-4. Check DESCRIPTION for activity keywords (workout, running, etc.)
-5. Consider the user's feedback when making corrections
-6. Prioritize JSON-LD structured data if available
+2. Extract the brand name and put it in the "brand" field - DO NOT include as tag
+3. Style/activity words like "casual", "running", "workout", "athletic" are TAGS, not categories
+4. Return tags with their type classification (match to existing taxonomy types)
+5. Check DESCRIPTION for activity keywords (workout, running, etc.)
+6. Consider the user's feedback when making corrections
+7. Prioritize JSON-LD structured data if available
 
 Respond in JSON format:
 {
   "categories": ["Level1", "Level2", "Level3", "Level4", "Level5"],
-  "keywords": ["brand", "product-model", "activity-tag", "material", "color", "style", "feature", "occasion"],
+  "brand": "BRAND_NAME",
+  "tags": [
+    {"name": "slim-fit", "type": "fit", "isNew": false},
+    {"name": "indigo", "type": "colors", "isNew": true}
+  ],
   "confidence": 0.85,
   "reasoning": "How this addresses the feedback and matches existing taxonomy",
   "isNewPath": false
@@ -383,12 +457,59 @@ Respond in JSON format:
     const suggestedPath = (result.categories || []).join(' > ');
     const actuallyExists = existingPaths.some(path => path === suggestedPath);
     
+    // Process tags and learn new ones (same logic as extractTagsWithLLM)
+    const processedTags = [];
+    const newTagsToLearn = [];
+    
+    if (result.tags && Array.isArray(result.tags)) {
+      for (const tag of result.tags) {
+        if (typeof tag === 'object' && tag.name) {
+          const tagType = tag.type || 'features';
+          const existsInDb = existingTags[tagType]?.some(t => t.toLowerCase() === tag.name.toLowerCase());
+          
+          processedTags.push({
+            name: tag.name,
+            slug: tag.name.toLowerCase().replace(/\s+/g, '-'),
+            type: tagType
+          });
+          
+          if (!existsInDb) {
+            newTagsToLearn.push({
+              name: tag.name,
+              slug: tag.name.toLowerCase().replace(/\s+/g, '-'),
+              type: tagType,
+              llm_discovered: 1
+            });
+          }
+        }
+      }
+    }
+    
+    // Auto-learn new tags
+    if (newTagsToLearn.length > 0) {
+      try {
+        for (const newTag of newTagsToLearn) {
+          await sql`
+            INSERT INTO tag_taxonomy (name, slug, tag_type, llm_discovered)
+            VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
+            ON CONFLICT (slug) DO NOTHING
+          `;
+        }
+        console.log(`✨ Learned ${newTagsToLearn.length} new tags from retry: ${newTagsToLearn.map(t => t.name).join(', ')}`);
+      } catch (error) {
+        console.error('Error learning new tags:', error);
+      }
+    }
+    
     return {
       categories: result.categories || [],
-      keywords: result.keywords || [],
+      tags: processedTags,
+      keywords: processedTags.map(t => t.name),
+      brand: result.brand || productData.brand || null,
       confidence: result.confidence || 0.7,
       reasoning: result.reasoning || '',
-      isNewPath: !actuallyExists  // Override LLM - use actual database check
+      isNewPath: !actuallyExists,
+      learnedTags: newTagsToLearn.length
     };
   } catch (error) {
     console.error('LLM retry error:', error);

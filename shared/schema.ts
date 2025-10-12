@@ -78,5 +78,6 @@ export const tagTaxonomy = pgTable('tag_taxonomy', {
   name: text('name').notNull().unique(),
   slug: text('slug').notNull().unique(),
   tagType: text('tag_type').notNull(),
+  llmDiscovered: integer('llm_discovered').default(0),
   createdAt: timestamp('created_at').defaultNow()
 });
