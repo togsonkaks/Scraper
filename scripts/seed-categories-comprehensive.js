@@ -2,7 +2,7 @@ require('dotenv').config();
 const postgres = require('postgres');
 
 const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
-const sql = postgres(connectionString);
+const sql = postgres(connectionString, { ssl: 'require' });
 
 const COMPREHENSIVE_CATEGORIES = [
   // TOOLS & HARDWARE
@@ -406,8 +406,20 @@ async function seedCategories() {
     
     // First pass: insert all categories and build ID map
     console.log('📊 Inserting categories...');
+    const slugCounter = {};
+    
     for (const cat of COMPREHENSIVE_CATEGORIES) {
-      const slug = cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      // Create base slug
+      let slug = cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      
+      // Add counter suffix if duplicate exists
+      if (slugCounter[slug] !== undefined) {
+        slugCounter[slug]++;
+        slug = `${slug}-${slugCounter[slug]}`;
+      } else {
+        slugCounter[slug] = 0;
+      }
+      
       const parentId = cat.parent ? categoryIdMap[cat.parent] : null;
       
       const result = await sql`
