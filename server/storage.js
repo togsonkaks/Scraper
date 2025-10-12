@@ -329,9 +329,64 @@ async function saveProduct(productData, tagResults) {
   }
 }
 
+/**
+ * Build full category path from category ID by walking up parent chain
+ */
+async function buildCategoryPath(categoryId) {
+  try {
+    const result = await sql`
+      WITH RECURSIVE category_path AS (
+        -- Start with the target category
+        SELECT category_id, name, parent_id, 0 as depth
+        FROM categories
+        WHERE category_id = ${categoryId}
+        
+        UNION ALL
+        
+        -- Recursively get parent categories
+        SELECT c.category_id, c.name, c.parent_id, cp.depth + 1
+        FROM categories c
+        INNER JOIN category_path cp ON c.category_id = cp.parent_id
+      )
+      SELECT string_agg(name, ' > ' ORDER BY depth DESC) as full_path
+      FROM category_path
+    `;
+    
+    return result[0]?.full_path || null;
+  } catch (error) {
+    console.error('Error building category path:', error);
+    return null;
+  }
+}
+
 async function getProducts(filters = {}) {
   try {
     let query = `
+      WITH category_paths AS (
+        SELECT 
+          pc.product_id,
+          c.category_id,
+          c.name,
+          c.level,
+          -- Recursive CTE to build full path
+          (
+            WITH RECURSIVE path AS (
+              SELECT category_id, name, parent_id, 0 as depth
+              FROM categories
+              WHERE category_id = c.category_id
+              
+              UNION ALL
+              
+              SELECT cat.category_id, cat.name, cat.parent_id, p.depth + 1
+              FROM categories cat
+              INNER JOIN path p ON cat.category_id = p.parent_id
+            )
+            SELECT string_agg(name, ' > ' ORDER BY depth DESC)
+            FROM path
+          ) as full_path
+        FROM product_categories pc
+        LEFT JOIN categories c ON pc.category_id = c.category_id
+      )
       SELECT 
         p.*,
         pr.source_url,
@@ -342,16 +397,27 @@ async function getProducts(filters = {}) {
           '[]'
         ) as tag_details,
         COALESCE(
-          json_agg(DISTINCT jsonb_build_object('name', c.name, 'slug', c.slug, 'level', c.level)) 
-          FILTER (WHERE c.category_id IS NOT NULL), 
+          json_agg(DISTINCT jsonb_build_object(
+            'name', cp.name, 
+            'level', cp.level,
+            'full_path', cp.full_path
+          )) 
+          FILTER (WHERE cp.category_id IS NOT NULL), 
           '[]'
-        ) as category_details
+        ) as category_details,
+        -- Get the deepest (most specific) category's full path
+        (
+          SELECT cp2.full_path 
+          FROM category_paths cp2 
+          WHERE cp2.product_id = p.product_id 
+          ORDER BY cp2.level DESC 
+          LIMIT 1
+        ) as category_full_path
       FROM products p
       LEFT JOIN products_raw pr ON p.raw_id = pr.raw_id
       LEFT JOIN product_tags pt ON p.product_id = pt.product_id
       LEFT JOIN tags t ON pt.tag_id = t.tag_id
-      LEFT JOIN product_categories pc ON p.product_id = pc.product_id
-      LEFT JOIN categories c ON pc.category_id = c.category_id
+      LEFT JOIN category_paths cp ON p.product_id = cp.product_id
     `;
     
     const conditions = [];
@@ -414,5 +480,6 @@ module.exports = {
   updateProductTags,
   saveProduct,
   getProducts,
-  getProductStats
+  getProductStats,
+  buildCategoryPath
 };
