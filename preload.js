@@ -79,6 +79,7 @@ contextBridge.exposeInMainWorld('api', {
   saveToDatabase: (productData, tagResults) => call('save-to-database', productData, tagResults),
   saveRawProduct: (productData) => call('save-raw-product', productData),
   updateProductTags: (productId, tagResults) => call('update-product-tags', productId, tagResults),
+  seedFullTaxonomy: () => call('seed-full-taxonomy'),
   getProducts: (filters) => call('get-products', filters),
   getProductStats: () => call('get-product-stats')
 });

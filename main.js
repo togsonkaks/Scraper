@@ -938,6 +938,17 @@ ipcMain.handle('update-product-tags', async (_e, productId, tagResults) => {
   }
 });
 
+// Seed full taxonomy (358 categories + 955 tags)
+ipcMain.handle('seed-full-taxonomy', async (_e) => {
+  try {
+    const { seedFullTaxonomy } = require(path.join(__dirname, 'server', 'storage'));
+    return await seedFullTaxonomy();
+  } catch (e) {
+    console.error('Error seeding taxonomy:', e);
+    throw e;
+  }
+});
+
 // Database query handler
 ipcMain.handle('get-products', async (_e, filters) => {
   try {

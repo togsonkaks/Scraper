@@ -299,6 +299,7 @@
     <button id="visitBtn">Load</button>
     <button id="saveBtn" disabled>Save (scrape)</button>
     <button id="saveToDbBtn" disabled style="background:#2196F3;">💾 Save to Database</button>
+    <button id="seedDbBtn" style="background:#FF9800; color:white;">🌱 Seed Taxonomy</button>
     <button id="llmTagBtn" disabled style="background:#9C27B0; color:white;">🤖 Get AI Tags</button>
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
@@ -1060,6 +1061,35 @@
         alert(`❌ Error: ${error.message}`);
         saveToDbBtn.disabled = false;
         saveToDbBtn.textContent = '💾 Save to Database';
+      }
+    };
+
+    // Seed Database Taxonomy (358 Categories + 955 Tags)
+    const seedDbBtn = document.getElementById('seedDbBtn');
+    seedDbBtn.onclick = async () => {
+      if (!confirm('🌱 This will populate your database with:\n\n✅ 358 Categories (all 19 verticals)\n✅ 955 Tags (11 semantic types)\n\nContinue?')) {
+        return;
+      }
+      
+      try {
+        seedDbBtn.disabled = true;
+        seedDbBtn.textContent = '🔄 Seeding...';
+        
+        const result = await window.api.seedFullTaxonomy();
+        
+        if (result.success) {
+          alert(`🎉 Taxonomy seeded successfully!\n\n✅ ${result.categoriesCount} Categories\n✅ ${result.tagsCount} Tags`);
+          seedDbBtn.textContent = '✅ Seeded';
+        } else {
+          alert(`❌ Seeding failed: ${result.error}`);
+          seedDbBtn.disabled = false;
+          seedDbBtn.textContent = '🌱 Seed Taxonomy';
+        }
+      } catch (error) {
+        console.error('Error seeding database:', error);
+        alert(`❌ Error: ${error.message}`);
+        seedDbBtn.disabled = false;
+        seedDbBtn.textContent = '🌱 Seed Taxonomy';
       }
     };
 
