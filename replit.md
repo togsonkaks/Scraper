@@ -53,6 +53,7 @@ The application is built on the Electron framework, using a main process (`main.
         - Validates suggested paths against existing taxonomy before marking as "EXISTING"
     - LLM caching system prevents duplicate API calls for same product URL (saves to AppData/Roaming/Tagglo/llm_cache)
     - Database operations (`server/storage.js`) include a 3-stage save pipeline with full hierarchy path storage
+    - **Database Seeding**: One-click "🌱 Seed Taxonomy" button in Control Window populates database with complete 358 categories + 955 tags using app's stable database connection (bypasses standalone script connection issues)
 
 ## External Dependencies
 - **Electron Framework**: Core application framework.
