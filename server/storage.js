@@ -564,6 +564,51 @@ async function seedFullTaxonomy() {
   }
 }
 
+async function viewTaxonomy() {
+  try {
+    console.log('📋 Fetching taxonomy from database...');
+    
+    // Get all categories ordered by level
+    const categories = await sql`
+      SELECT category_id, name, parent_id, level
+      FROM categories
+      ORDER BY level, name
+    `;
+    
+    // Get all tags grouped by type
+    const tags = await sql`
+      SELECT name, tag_type
+      FROM tag_taxonomy
+      ORDER BY tag_type, name
+    `;
+    
+    // Group tags by type
+    const tagsByType = {};
+    tags.forEach(tag => {
+      if (!tagsByType[tag.tag_type]) {
+        tagsByType[tag.tag_type] = [];
+      }
+      tagsByType[tag.tag_type].push(tag.name);
+    });
+    
+    console.log(`✅ Retrieved ${categories.length} categories and ${tags.length} tags`);
+    
+    return {
+      success: true,
+      categories: categories,
+      tagsByType: tagsByType,
+      totalTags: tags.length
+    };
+    
+  } catch (error) {
+    console.error('❌ Error viewing taxonomy:', error);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+}
+
 module.exports = {
   saveRawProduct,
   updateProductTags,
@@ -571,5 +616,6 @@ module.exports = {
   getProducts,
   getProductStats,
   buildCategoryPath,
-  seedFullTaxonomy
+  seedFullTaxonomy,
+  viewTaxonomy
 };

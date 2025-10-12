@@ -949,6 +949,17 @@ ipcMain.handle('seed-full-taxonomy', async (_e) => {
   }
 });
 
+// View taxonomy from database
+ipcMain.handle('view-taxonomy', async (_e) => {
+  try {
+    const { viewTaxonomy } = require(path.join(__dirname, 'server', 'storage'));
+    return await viewTaxonomy();
+  } catch (e) {
+    console.error('Error viewing taxonomy:', e);
+    throw e;
+  }
+});
+
 // Database query handler
 ipcMain.handle('get-products', async (_e, filters) => {
   try {

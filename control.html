@@ -300,6 +300,7 @@
     <button id="saveBtn" disabled>Save (scrape)</button>
     <button id="saveToDbBtn" disabled style="background:#2196F3;">💾 Save to Database</button>
     <button id="seedDbBtn" style="background:#FF9800; color:white;">🌱 Seed Taxonomy</button>
+    <button id="viewTaxonomyBtn" style="background:#00BCD4; color:white;">📋 View Taxonomy</button>
     <button id="llmTagBtn" disabled style="background:#9C27B0; color:white;">🤖 Get AI Tags</button>
     <!-- LLM (compare) button — added -->
     <button id="llmCompareBtn" title="Side-by-side baseline vs LLM">LLM (compare)</button>
@@ -380,6 +381,34 @@
   <!-- Image Preview Modal -->
   <div id="imageModal" class="debug-image-modal" onclick="hideImageModal()">
     <img id="modalImage" src="" alt="Full Size Preview">
+  </div>
+
+  <!-- Taxonomy Viewer Modal -->
+  <div id="taxonomyModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); z-index:10000; padding:20px; overflow-y:auto;">
+    <div style="max-width:1200px; margin:40px auto; background:white; border-radius:12px; padding:24px; box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h2 style="margin:0; color:#00BCD4;">📋 Database Taxonomy</h2>
+        <button onclick="document.getElementById('taxonomyModal').style.display='none'" style="background:#dc3545; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer;">✕ Close</button>
+      </div>
+      
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+        <!-- Categories Panel -->
+        <div>
+          <h3 style="color:#FF9800; margin-bottom:12px;">📂 Categories (<span id="categoryCount">0</span>)</h3>
+          <div id="categoryTree" style="background:#f9f9f9; padding:16px; border-radius:8px; max-height:600px; overflow-y:auto; font-family:monospace; font-size:12px; line-height:1.8;">
+            Loading...
+          </div>
+        </div>
+        
+        <!-- Tags Panel -->
+        <div>
+          <h3 style="color:#9C27B0; margin-bottom:12px;">🏷️ Tags (<span id="tagCount">0</span>)</h3>
+          <div id="tagList" style="background:#f9f9f9; padding:16px; border-radius:8px; max-height:600px; overflow-y:auto; font-size:12px;">
+            Loading...
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <style>
@@ -1090,6 +1119,62 @@
         alert(`❌ Error: ${error.message}`);
         seedDbBtn.disabled = false;
         seedDbBtn.textContent = '🌱 Seed Taxonomy';
+      }
+    };
+
+    // View Taxonomy (Categories + Tags from Database)
+    const viewTaxonomyBtn = document.getElementById('viewTaxonomyBtn');
+    viewTaxonomyBtn.onclick = async () => {
+      try {
+        const modal = document.getElementById('taxonomyModal');
+        const categoryTree = document.getElementById('categoryTree');
+        const tagListEl = document.getElementById('tagList');
+        const categoryCount = document.getElementById('categoryCount');
+        const tagCount = document.getElementById('tagCount');
+        
+        // Show modal with loading state
+        modal.style.display = 'block';
+        categoryTree.innerHTML = '🔄 Loading categories...';
+        tagListEl.innerHTML = '🔄 Loading tags...';
+        
+        // Fetch taxonomy from database
+        const result = await window.api.viewTaxonomy();
+        
+        if (!result.success) {
+          categoryTree.innerHTML = `❌ Error: ${result.error}`;
+          tagListEl.innerHTML = `❌ Error: ${result.error}`;
+          return;
+        }
+        
+        // Display categories as hierarchical tree
+        categoryCount.textContent = result.categories.length;
+        let categoryHTML = '';
+        
+        result.categories.forEach(cat => {
+          const indent = '  '.repeat(cat.level);
+          const color = cat.level === 0 ? '#FF6B6B' : cat.level === 1 ? '#4ECDC4' : cat.level === 2 ? '#45B7D1' : '#95E1D3';
+          categoryHTML += `<div style="color:${color}; margin:2px 0;">${indent}${cat.name}</div>`;
+        });
+        
+        categoryTree.innerHTML = categoryHTML || 'No categories found';
+        
+        // Display tags grouped by type
+        tagCount.textContent = result.totalTags;
+        let tagHTML = '';
+        
+        Object.keys(result.tagsByType).sort().forEach(type => {
+          const tags = result.tagsByType[type];
+          tagHTML += `<div style="margin-bottom:16px;">
+            <strong style="color:#9C27B0; text-transform:uppercase;">${type} (${tags.length})</strong>
+            <div style="margin-top:6px; color:#666;">${tags.join(', ')}</div>
+          </div>`;
+        });
+        
+        tagListEl.innerHTML = tagHTML || 'No tags found';
+        
+      } catch (error) {
+        console.error('Error viewing taxonomy:', error);
+        alert(`❌ Error: ${error.message}`);
       }
     };
 
