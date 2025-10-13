@@ -1197,10 +1197,11 @@
         llmTagBtn.disabled = true;
         llmTagBtn.textContent = '🔄 AI Analyzing...';
         
-        // Pass current auto-tag result so LLM can merge with existing AUTO tags
+        // Pass current auto-tag result so LLM can merge with existing AUTO tags and use detected gender
         const productDataWithAutoTags = {
           ...lastPayload,
-          __existingAutoTags: window.currentAutoTagResult?.tags || []
+          __existingAutoTags: window.currentAutoTagResult?.tags || [],
+          __detectedGender: window.currentAutoTagResult?.gender || null
         };
         
         const result = await window.api.llmTagProduct(productDataWithAutoTags);

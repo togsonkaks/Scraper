@@ -182,7 +182,7 @@ async function loadExistingTags() {
  * @returns {Promise<Object>} { categories: string[], keywords: string[], confidence: number }
  */
 async function extractTagsWithLLM(productData) {
-  const { title, description, specs, breadcrumbs, brand, jsonLd, url, __existingAutoTags } = productData;
+  const { title, description, specs, breadcrumbs, brand, jsonLd, url, __existingAutoTags, __detectedGender } = productData;
   
   // Use provided AUTO tags from UI, or check database for existing tags
   let existingProductTags = [];
@@ -239,9 +239,15 @@ async function extractTagsWithLLM(productData) {
     ? `🏷️ EXISTING TAG TAXONOMY (${Object.values(existingTags).flat().length} tags organized by type):\n\n${tagTaxonomyLines}`
     : '🏷️ EXISTING TAG TAXONOMY: None (you can suggest new tags)';
 
+  // Add detected gender context if available
+  const genderContext = __detectedGender 
+    ? `\n⚠️ **DETECTED GENDER: ${__detectedGender.toUpperCase()}** ⚠️\nThis product is for ${__detectedGender}. You MUST suggest categories under "Fashion > ${__detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1)}" path.`
+    : '';
+
   const prompt = `Analyze this e-commerce product and extract:
 1. HIERARCHICAL CATEGORIES - Full category path from general to specific
 2. 6-8 HIGH-QUALITY KEYWORDS/TAGS - Brand, product line, and descriptive attributes
+${genderContext}
 
 Product Data:
 - Title: ${title || 'N/A'}
