@@ -137,6 +137,24 @@ async function updateProductTags(productId, tagResults) {
       DELETE FROM product_categories WHERE product_id = ${productId}
     `;
     
+    // Step 3.5: Insert new LLM-discovered tags to the database (only when user clicks Save)
+    if (tagResults.newTagsToLearn && tagResults.newTagsToLearn.length > 0) {
+      const { initializeTaxonomy } = require('./auto-tagger');
+      
+      for (const newTag of tagResults.newTagsToLearn) {
+        await sql`
+          INSERT INTO tags (name, slug, tag_type, llm_discovered)
+          VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
+          ON CONFLICT (slug) DO NOTHING
+        `;
+      }
+      console.log(`✨ Saved ${tagResults.newTagsToLearn.length} new LLM tags: ${tagResults.newTagsToLearn.map(t => t.name).join(', ')}`);
+      
+      // Refresh auto-tagger taxonomy so new tags are immediately available
+      await initializeTaxonomy(true);
+      console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
+    }
+    
     // Step 4: Insert new tags and create associations
     for (const tag of tagResults.tags) {
       let tagIdResult = await sql`
@@ -259,6 +277,24 @@ async function saveProduct(productData, tagResults) {
     `;
     
     const productId = productResult[0].product_id;
+    
+    // Insert new LLM-discovered tags to the database (only when user clicks Save)
+    if (tagResults.newTagsToLearn && tagResults.newTagsToLearn.length > 0) {
+      const { initializeTaxonomy } = require('./auto-tagger');
+      
+      for (const newTag of tagResults.newTagsToLearn) {
+        await sql`
+          INSERT INTO tags (name, slug, tag_type, llm_discovered)
+          VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
+          ON CONFLICT (slug) DO NOTHING
+        `;
+      }
+      console.log(`✨ Saved ${tagResults.newTagsToLearn.length} new LLM tags: ${tagResults.newTagsToLearn.map(t => t.name).join(', ')}`);
+      
+      // Refresh auto-tagger taxonomy so new tags are immediately available
+      await initializeTaxonomy(true);
+      console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
+    }
     
     for (const tag of tagResults.tags) {
       let tagIdResult = await sql`
