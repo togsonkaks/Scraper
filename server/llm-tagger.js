@@ -268,10 +268,13 @@ CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
    - Mark isNewPath=true and confidence lower (0.6-0.7)
 
 3. **CRITICAL RULES**:
-   - Categories END at product type (Jeans, Shoes, Drill, Saw)
+   - Categories END at product type (Jeans, Shoes, Drill, Saw, Headphones, Earbuds)
    - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
+   - Product model names/numbers (Method 360 ANC, iPhone 15 Pro) are NEVER categories
    - ❌ WRONG: ["Men", "Bottoms", "Jeans", "Tapered"] - "Tapered" is a fit term
+   - ❌ WRONG: ["Electronics", "Audio", "Headphones", "Wireless Headphones", "Method 360 ANC"] - model name
    - ✅ RIGHT: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] + tag: {name: "tapered", type: "fit"}
+   - ✅ RIGHT: ["Electronics", "Audio", "Headphones", "Wireless Headphones"] (stop at product type)
 
 4. Extract from JSON-LD first, then breadcrumbs, then title/description
 
@@ -543,10 +546,13 @@ IMPORTANT RULES:
    - Include ALL parent levels - don't skip any (Department > Gender > Section > Category > Type)
    - DO NOT reorder or modify - use the exact hierarchy shown
    - ONLY mark isNewPath=false if EXACT path exists
-2. **Categories END at product type** (Jeans, Shoes, Drill, etc.)
+2. **Categories END at product type** (Jeans, Shoes, Drill, Headphones, Earbuds, etc.)
    - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
+   - Product model names/numbers (Method 360 ANC, iPhone 15 Pro, etc.) are NEVER categories
    - ❌ WRONG: ["Men", "Bottoms", "Jeans", "Tapered"]
+   - ❌ WRONG: ["Electronics", "Audio", "Headphones", "Wireless Headphones", "Method 360 ANC"]
    - ✅ RIGHT: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] + tag: {name: "tapered", type: "fit"}
+   - ✅ RIGHT: ["Electronics", "Audio", "Headphones", "Wireless Headphones"] (stop at product type)
 3. Extract the brand name and put it in the "brand" field - DO NOT include as tag
 4. **READ DESCRIPTION for ALL attributes**: colors (indigo, navy), materials (denim), fit (tapered, slim-fit), styles (casual)
 5. Return tags with their type classification (match to existing taxonomy types)

@@ -70,17 +70,42 @@ function matchTags(text, tagType = null) {
   return matches;
 }
 
-function matchCategories(text) {
+function matchCategories(text, productData = {}) {
   if (!text) return [];
   
   const normalizedText = normalizeText(text);
   const matches = [];
   
-  // Search for category NAMES in product data (like tag matching)
+  // Prepare weighted text sources for frequency counting
+  const textSources = {
+    breadcrumbs: normalizeText(Array.isArray(productData.breadcrumbs) 
+      ? productData.breadcrumbs.join(' ') 
+      : (productData.breadcrumbs || '')),
+    title: normalizeText(productData.title || ''),
+    url: normalizeText(productData.url || ''),
+    description: normalizeText(productData.description || ''),
+    specs: normalizeText(productData.specs || '')
+  };
+  
+  // Search for category NAMES in product data with frequency counting
   for (const category of categoryTree) {
-    const pattern = new RegExp(`\\b${category.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+    const pattern = new RegExp(`\\b${category.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi');
+    
     if (pattern.test(normalizedText)) {
       const fullPath = buildCategoryPath(category.category_id);
+      
+      // Count frequency across weighted sources
+      let frequencyScore = 0;
+      const breadcrumbMatches = (textSources.breadcrumbs.match(pattern) || []).length;
+      const titleMatches = (textSources.title.match(pattern) || []).length;
+      const urlMatches = (textSources.url.match(pattern) || []).length;
+      const descriptionMatches = (textSources.description.match(pattern) || []).length;
+      const specsMatches = (textSources.specs.match(pattern) || []).length;
+      
+      // Weighted scoring: breadcrumbs (5x) > title (3x) > url (2x) > specs (1.5x) > description (1x)
+      frequencyScore = (breadcrumbMatches * 5) + (titleMatches * 3) + (urlMatches * 2) + 
+                       (specsMatches * 1.5) + (descriptionMatches * 1);
+      
       matches.push({
         id: category.category_id,
         name: category.name,
@@ -88,13 +113,20 @@ function matchCategories(text) {
         parent_id: category.parent_id,
         level: category.level,
         matchedPath: fullPath.map(p => p.name).join(' > ').toLowerCase(),
-        pathDepth: fullPath.length
+        pathDepth: fullPath.length,
+        frequencyScore: frequencyScore,
+        matchDetails: { breadcrumbMatches, titleMatches, urlMatches, descriptionMatches, specsMatches }
       });
     }
   }
   
-  // Sort by path depth (prefer deeper/most specific matches)
-  matches.sort((a, b) => b.pathDepth - a.pathDepth);
+  // Sort by frequency score first, then by path depth as tiebreaker
+  matches.sort((a, b) => {
+    if (b.frequencyScore !== a.frequencyScore) {
+      return b.frequencyScore - a.frequencyScore;
+    }
+    return b.pathDepth - a.pathDepth;
+  });
   
   return matches;
 }
@@ -247,8 +279,8 @@ async function autoTag(productData) {
   
   // Priority 3: Infer from product keywords if no explicit gender found
   if (!gender) {
-    const womenKeywords = /\b(cowgirl|miss|mrs|her|bridal|bride|femme|feminine|goddess|lady|gown|dress|blouse|skirt|heels|bra|pink|rose-gold|mauve|lavender)\b/gi;
-    const menKeywords = /\b(cowboy|mr|his|groom|masculine|tie|necktie|tuxedo|beard|shave|razor)\b/gi;
+    const womenKeywords = /\b(woman|women|girl|girls|lady|ladies|female|miss|mrs|ms|her|hers|she|bridal|bride|femme|feminine|goddess|gown|dress|blouse|skirt|heels|bra|pink|rose-gold|mauve|lavender|cowgirl)\b/gi;
+    const menKeywords = /\b(man|men|boy|boys|male|gentleman|gentlemen|mr|his|him|he|groom|masculine|tie|necktie|tuxedo|beard|shave|razor|cowboy)\b/gi;
     
     if (womenKeywords.test(searchText)) {
       gender = 'women';
@@ -259,10 +291,10 @@ async function autoTag(productData) {
     }
   }
   
-  // Match categories from ALL product data (same as tags)
-  let matchedCategories = matchCategories(searchText);
+  // Match categories from ALL product data with frequency scoring
+  let matchedCategories = matchCategories(searchText, productData);
   console.log('  📂 Matched categories:', matchedCategories.length, '→', 
-    matchedCategories.map(c => `${c.name} (lvl ${c.level})`).join(', '));
+    matchedCategories.map(c => `${c.name} (score: ${c.frequencyScore}, lvl ${c.level})`).join(', '));
   
   // FILTER categories by detected gender (if we have one)
   if (gender && matchedCategories.length > 1) {
@@ -285,14 +317,14 @@ async function autoTag(productData) {
   let categoryPath = [];
   
   if (matchedCategories.length > 0) {
-    // Pick the deepest (most specific) category match from filtered list
-    const deepestCategory = matchedCategories.reduce((prev, current) => 
-      (current.level > prev.level) ? current : prev
-    );
+    // Pick the HIGHEST SCORING category (already sorted by frequency score + depth)
+    const bestMatch = matchedCategories[0];
     
-    console.log('  🎯 Deepest category:', deepestCategory.name, `(lvl ${deepestCategory.level}, id: ${deepestCategory.id})`);
+    console.log('  🎯 Best category match:', bestMatch.name, 
+      `(score: ${bestMatch.frequencyScore}, lvl ${bestMatch.level}, id: ${bestMatch.id})`);
+    console.log('    Match details:', JSON.stringify(bestMatch.matchDetails));
     
-    categoryPath = buildCategoryPath(deepestCategory.id);
+    categoryPath = buildCategoryPath(bestMatch.id);
     
     // Store full hierarchy path as string (consistent with LLM format)
     primaryCategory = categoryPath.map(c => c.name).join(' > ');
