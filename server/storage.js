@@ -235,15 +235,29 @@ async function updateProductTags(productId, tagResults) {
         if (categoryResult.length > 0) {
           categoryId = categoryResult[0].category_id;
         } else {
-          // Category doesn't exist - CREATE IT with llm_discovered flag
+          // Category doesn't exist - CREATE IT with llm_discovered flag (if column exists)
           console.log(`📦 Creating missing category: "${categoryName}" (parent: ${parentId})`);
           
-          const newCategory = await sql`
-            INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
-            VALUES (${categoryName}, ${categorySlug}, ${parentId}, ${i}, 1)
-            RETURNING category_id
-          `;
-          categoryId = newCategory[0].category_id;
+          try {
+            const newCategory = await sql`
+              INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
+              VALUES (${categoryName}, ${categorySlug}, ${parentId}, ${i}, 1)
+              RETURNING category_id
+            `;
+            categoryId = newCategory[0].category_id;
+          } catch (err) {
+            // If llm_discovered column doesn't exist, create without it
+            if (err.message && err.message.includes('llm_discovered')) {
+              const newCategory = await sql`
+                INSERT INTO categories (name, slug, parent_id, level)
+                VALUES (${categoryName}, ${categorySlug}, ${parentId}, ${i})
+                RETURNING category_id
+              `;
+              categoryId = newCategory[0].category_id;
+            } else {
+              throw err;
+            }
+          }
           
           console.log(`✅ Created category ID ${categoryId}: ${categoryName}`);
           
