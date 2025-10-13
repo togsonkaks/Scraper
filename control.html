@@ -329,12 +329,11 @@
       </div>
       
       <div style="margin-bottom:20px;">
-        <label style="display:block; font-weight:bold; margin-bottom:8px;">Hierarchical Categories (edit path below):</label>
-        <div id="llmCategoryPath" style="background:#f5f5f5; padding:12px; border-radius:6px; margin-bottom:8px; font-family:monospace; color:#666;">
-          -
+        <label style="display:block; font-weight:bold; margin-bottom:8px;">Hierarchical Categories (remove incorrect one):</label>
+        <div id="llmCategoryChips" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+          <!-- Category chips will appear here -->
         </div>
-        <input id="llmCategoryInput" type="text" placeholder="e.g. Women > Shoes > Sneakers > Running" 
-               style="width:100%; padding:10px; border:2px solid #9C27B0; border-radius:6px; font-size:14px;">
+        <div style="font-size:12px; color:#666; font-style:italic;">⚠️ You must have exactly ONE category before saving</div>
       </div>
       
       <div style="margin-bottom:20px;">
@@ -1222,13 +1221,28 @@
       // Show reasoning
       document.getElementById('llmReasoning').textContent = result.reasoning || '-';
       
-      // Show and populate category path with status indicator
-      const categoryPath = result.categories.join(' > ');
-      const pathStatus = result.isNewPath 
-        ? '<span style="background:#fff3cd; color:#856404; padding:2px 8px; border-radius:4px; font-size:11px; margin-left:8px;">🆕 NEW PATH</span>'
-        : '<span style="background:#d4edda; color:#155724; padding:2px 8px; border-radius:4px; font-size:11px; margin-left:8px;">✓ EXISTING</span>';
-      document.getElementById('llmCategoryPath').innerHTML = categoryPath + pathStatus;
-      document.getElementById('llmCategoryInput').value = categoryPath;
+      // Prepare category array with sources (AUTO + AI)
+      currentLLMTags.availableCategories = [];
+      
+      // Add AUTO category if available
+      if (window.currentAutoTagResult && window.currentAutoTagResult.category) {
+        currentLLMTags.availableCategories.push({
+          path: window.currentAutoTagResult.category,
+          source: 'AUTO',
+          isNewPath: false
+        });
+      }
+      
+      // Add AI category
+      const aiCategoryPath = result.categories.join(' > ');
+      currentLLMTags.availableCategories.push({
+        path: aiCategoryPath,
+        source: 'AI',
+        isNewPath: result.isNewPath || false
+      });
+      
+      // Display category chips
+      renderCategoryChips();
       
       // Show keywords as editable tags with source badges
       const keywordTagsEl = document.getElementById('llmKeywordTags');
