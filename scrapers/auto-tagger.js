@@ -135,6 +135,28 @@ function calculateConfidence(tagsByType) {
   return Math.min(score, 0.95).toFixed(2);
 }
 
+function extractUrlKeywords(url) {
+  if (!url) return '';
+  
+  try {
+    // Extract path from URL (e.g., "/women/apparel/jackets/eco-myles-canvas-field-jacket-green/W5BL0BWL372.html")
+    const urlObj = new URL(url);
+    const pathParts = urlObj.pathname.split('/').filter(Boolean);
+    
+    // Remove common file extensions and product codes
+    const cleanedParts = pathParts
+      .map(part => part.replace(/\.(html|php|aspx)$/i, ''))
+      .filter(part => !/^[A-Z0-9]{8,}$/i.test(part)); // Remove product codes like "W5BL0BWL372"
+    
+    // Join with spaces and replace hyphens/underscores with spaces
+    const urlText = cleanedParts.join(' ').replace(/[-_]/g, ' ');
+    
+    return urlText;
+  } catch (e) {
+    return '';
+  }
+}
+
 async function autoTag(productData) {
   // Initialize taxonomy if needed
   await initializeTaxonomy();
@@ -158,20 +180,31 @@ async function autoTag(productData) {
     return !(isLastCrumb && matchesTitle);
   });
   
-  // Build search text
-  const searchText = [
+  // Extract keywords from URL
+  const urlKeywords = extractUrlKeywords(productData.url);
+  
+  // Build search text with weighted priority (title and URL first, then breadcrumbs, then rest)
+  const tier1Text = [
     productData.title || '',
-    productData.description || '',
-    filteredBreadcrumbs.join(' '),
-    productData.brand || '',
-    productData.tags || '',
-    productData.specs || ''
+    urlKeywords,
+    filteredBreadcrumbs.join(' ')
   ].join(' ');
+  
+  const tier2Text = [
+    productData.specs || '',
+    productData.brand || ''
+  ].join(' ');
+  
+  const tier3Text = productData.description || '';
+  
+  // Combine all tiers (tier 1 gets weighted by appearing multiple times in matching)
+  const searchText = `${tier1Text} ${tier2Text} ${tier3Text}`;
   
   console.log('🔍 AUTO-TAGGER DEBUG:');
   console.log('  📝 Title:', productData.title?.substring(0, 80));
-  console.log('  📄 Description:', productData.description?.substring(0, 100));
+  console.log('  🔗 URL keywords:', urlKeywords?.substring(0, 80));
   console.log('  🏷️ Breadcrumbs:', filteredBreadcrumbs.join(' > '));
+  console.log('  📄 Description:', productData.description?.substring(0, 100));
   console.log('  🔤 Search text length:', searchText.length, 'chars');
   
   // DEBUG: Check for specific color
