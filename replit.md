@@ -66,6 +66,7 @@ The application is built on the Electron framework, using a main process (`main.
     - LLM caching system prevents duplicate API calls for same product URL (saves to AppData/Roaming/Tagglo/llm_cache)
     - Database operations (`server/storage.js`) include a 3-stage save pipeline with full hierarchy path storage
     - **Database Seeding**: One-click "🌱 Seed Taxonomy" button in Control Window populates database with complete 358 categories + 955 tags using app's stable database connection (bypasses standalone script connection issues); preserves LLM-discovered tags on re-seed (DELETE WHERE llm_discovered = 0)
+    - **Category Path Uniqueness Fix** (Oct 2025): Fixed seed script to use full ancestral paths (Fashion:Men:Clothing vs Fashion:Women:Clothing) as unique keys to prevent parent_id mismatches; added ON CONFLICT handling in storage.js for graceful duplicate slug management
 
 ## External Dependencies
 - **Electron Framework**: Core application framework.
