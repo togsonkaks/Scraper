@@ -1461,15 +1461,32 @@
         return;
       }
       
+      // VALIDATION: Check that exactly 1 category exists
+      if (!currentLLMTags.availableCategories || currentLLMTags.availableCategories.length === 0) {
+        alert('⚠️ Error: No category selected!\n\nPlease ensure you have at least one category before saving.');
+        return;
+      }
+      
+      if (currentLLMTags.availableCategories.length > 1) {
+        alert('⚠️ Error: Multiple categories selected!\n\nPlease remove one category before saving.\n\nYou currently have ' + currentLLMTags.availableCategories.length + ' categories selected.');
+        return;
+      }
+      
       try {
         document.getElementById('llmSaveBtn').disabled = true;
         document.getElementById('llmSaveBtn').textContent = '💾 Updating...';
         
+        // Get the selected category (only 1 remains)
+        const selectedCategory = currentLLMTags.availableCategories[0];
+        const categorySegments = selectedCategory.path.split('>').map(s => s.trim()).filter(Boolean);
+        
+        console.log('📁 Using category:', selectedCategory.path, '(source:', selectedCategory.source + ')');
+        
         // Format tags for database with proper types from LLM
         const tagResults = {
-          primaryCategory: currentLLMTags.categories.join(' > ') || 'Uncategorized',  // Full hierarchy path
-          categories: currentLLMTags.categories,
-          allCategories: currentLLMTags.categories.map(cat => generateSlug(cat)),
+          primaryCategory: selectedCategory.path,  // Full hierarchy path
+          categories: categorySegments,
+          allCategories: categorySegments.map(cat => generateSlug(cat)),
           tags: currentLLMTags.tags || currentLLMTags.keywords.map(kw => ({ 
             name: kw, 
             slug: generateSlug(kw),
@@ -1477,7 +1494,7 @@
           })),
           confidenceScore: currentLLMTags.confidence || 1.0,
           needsLLMEnrichment: false,
-          gender: currentLLMTags.categories.find(c => ['men', 'women', 'unisex', 'kids'].includes(c.toLowerCase())) || null,
+          gender: categorySegments.find(c => ['men', 'women', 'unisex', 'kids'].includes(c.toLowerCase())) || null,
           newTagsToLearn: currentLLMTags.newTagsToLearn || [] // Pass LLM-discovered tags for insertion
         };
         
@@ -1488,7 +1505,8 @@
         const updateResult = await window.api.updateProductTags(lastSavedProductId, tagResults);
         
         if (updateResult.success) {
-          alert(`✅ Product updated with LLM tags!\n\nProduct ID: ${lastSavedProductId}\nCategories: ${currentLLMTags.categories.join(' > ')}\nKeywords: ${currentLLMTags.keywords.join(', ')}`);
+          const tagNames = (currentLLMTags.tags || currentLLMTags.keywords.map(kw => typeof kw === 'string' ? kw : kw.name)).join(', ');
+          alert(`✅ Product updated!\n\nProduct ID: ${lastSavedProductId}\nCategory: ${selectedCategory.path} (${selectedCategory.source})\nTags: ${tagNames}`);
           document.getElementById('llmTagModal').style.display = 'none';
         } else {
           alert('❌ Failed to update product tags');
