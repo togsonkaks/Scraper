@@ -246,12 +246,28 @@ async function autoTag(productData) {
   console.log('  📂 Matched categories:', matchedCategories.length, '→', 
     matchedCategories.map(c => `${c.name} (lvl ${c.level})`).join(', '));
   
+  // FILTER categories by detected gender (if we have one)
+  if (gender && matchedCategories.length > 1) {
+    const genderKeyword = gender === 'boys' || gender === 'girls' ? 'kids' : gender;
+    
+    // Split path into segments and check for EXACT match (avoid "men" matching "women")
+    const genderedCategories = matchedCategories.filter(cat => {
+      const pathSegments = cat.matchedPath.split(' > ').map(s => s.trim().toLowerCase());
+      return pathSegments.includes(genderKeyword);
+    });
+    
+    if (genderedCategories.length > 0) {
+      console.log(`  🎯 Filtered ${matchedCategories.length} → ${genderedCategories.length} categories using gender: ${gender}`);
+      matchedCategories = genderedCategories;
+    }
+  }
+  
   // Find primary category (deepest/most specific level category)
   let primaryCategory = null;
   let categoryPath = [];
   
   if (matchedCategories.length > 0) {
-    // Always pick the deepest (most specific) category match
+    // Pick the deepest (most specific) category match from filtered list
     const deepestCategory = matchedCategories.reduce((prev, current) => 
       (current.level > prev.level) ? current : prev
     );
