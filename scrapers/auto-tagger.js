@@ -126,7 +126,7 @@ function matchTags(text, tagType = null) {
   return matches;
 }
 
-function matchCategories(text, productData = {}) {
+function matchCategories(text, productData = {}, detectedGender = null) {
   if (!text) return [];
   
   const normalizedText = normalizeText(text);
@@ -143,8 +143,20 @@ function matchCategories(text, productData = {}) {
     specs: normalizeText(productData.specs || '')
   };
   
+  // Filter categories by gender BEFORE matching (if gender detected)
+  let categoriesToSearch = categoryTree;
+  if (detectedGender) {
+    const genderKeyword = detectedGender === 'boys' || detectedGender === 'girls' ? 'kids' : detectedGender;
+    categoriesToSearch = categoryTree.filter(category => {
+      const fullPath = buildCategoryPath(category.category_id);
+      const pathSegments = fullPath.map(p => p.name.toLowerCase());
+      return pathSegments.includes(genderKeyword);
+    });
+    console.log(`  🔍 Pre-filtered categories: ${categoryTree.length} → ${categoriesToSearch.length} (gender: ${genderKeyword})`);
+  }
+  
   // Search for category NAMES in product data with frequency counting
-  for (const category of categoryTree) {
+  for (const category of categoriesToSearch) {
     const escapedName = category.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     
     // Match both singular and plural forms (e.g., "Float" and "Floats")
@@ -380,36 +392,14 @@ async function autoTag(productData) {
   const phraseOverride = checkPhraseOverrides(productData);
   
   // Match categories from ALL product data with frequency scoring
+  // Pass detected gender to FILTER categories BEFORE matching (not after)
   let matchedCategories = [];
   if (!phraseOverride) {
-    matchedCategories = matchCategories(searchText, productData);
+    matchedCategories = matchCategories(searchText, productData, gender);
     console.log('  📂 Matched categories:', matchedCategories.length, '→', 
       matchedCategories.map(c => `${c.name} (score: ${c.frequencyScore}, lvl ${c.level})`).join(', '));
   } else {
     console.log('  📂 Using phrase override, skipping normal category matching');
-  }
-  
-  // FILTER categories by detected gender (if we have one)
-  if (gender && matchedCategories.length > 1) {
-    const genderKeyword = gender === 'boys' || gender === 'girls' ? 'kids' : gender;
-    
-    console.log(`  🔍 DEBUG: Gender filter checking for "${genderKeyword}"`);
-    matchedCategories.forEach(cat => {
-      console.log(`    Category: ${cat.name}, Path: "${cat.matchedPath}"`);
-    });
-    
-    // Split path into segments and check for EXACT match (avoid "men" matching "women")
-    const genderedCategories = matchedCategories.filter(cat => {
-      const pathSegments = cat.matchedPath.split(' > ').map(s => s.trim().toLowerCase());
-      const hasGender = pathSegments.includes(genderKeyword);
-      console.log(`    → ${cat.name}: segments=[${pathSegments.join(', ')}], hasGender=${hasGender}`);
-      return hasGender;
-    });
-    
-    if (genderedCategories.length > 0) {
-      console.log(`  🎯 Filtered ${matchedCategories.length} → ${genderedCategories.length} categories using gender: ${gender}`);
-      matchedCategories = genderedCategories;
-    }
   }
   
   // Find primary category (phrase override OR best match from frequency scoring)
