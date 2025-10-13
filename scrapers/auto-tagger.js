@@ -290,6 +290,56 @@ async function autoTag(productData) {
     console.log('  ⚠️ NO CATEGORIES MATCHED!');
   }
   
+  // Category-aware tag filtering: Remove nonsense tags based on department
+  if (primaryCategory) {
+    const department = primaryCategory.split(' > ')[0].toLowerCase();
+    
+    // Define valid tag types for each department
+    const departmentTagRules = {
+      'fashion': ['colors', 'materials', 'fit', 'styles', 'occasions'],
+      'tools & hardware': ['tool-types', 'materials', 'features', 'activities'],
+      'automotive': ['automotive', 'materials', 'features'],
+      'sports & outdoors': ['activities', 'materials', 'features', 'colors', 'styles'],
+      'kitchen & dining': ['kitchen', 'materials', 'features', 'colors'],
+      'home & garden': ['materials', 'features', 'colors', 'styles'],
+      'beauty & personal care': ['beauty', 'features', 'occasions'],
+      'electronics': ['features', 'materials'],
+      'pet supplies': ['materials', 'features'],
+      'toys & games': ['features', 'materials', 'occasions'],
+      'office & school': ['materials', 'features'],
+      'health & wellness': ['features', 'occasions'],
+      'baby & kids': ['materials', 'features', 'occasions', 'fit'],
+      'books & media': ['features', 'occasions'],
+      'grocery & food': ['features', 'occasions'],
+      'jewelry & watches': ['materials', 'styles', 'occasions'],
+      'luggage & travel': ['materials', 'features', 'styles'],
+      'musical instruments': ['features', 'materials'],
+      'arts & crafts': ['materials', 'features']
+    };
+    
+    const allowedTypes = departmentTagRules[department] || [];
+    
+    if (allowedTypes.length > 0) {
+      const originalTagCount = allMatchedTags.length;
+      
+      // Filter tags by allowed types
+      allMatchedTags = allMatchedTags.filter(tag => allowedTypes.includes(tag.type));
+      
+      // Update tagsByType
+      tagsByType.colors = allMatchedTags.filter(t => t.type === 'colors');
+      tagsByType.materials = allMatchedTags.filter(t => t.type === 'materials');
+      tagsByType.activities = allMatchedTags.filter(t => t.type === 'activities');
+      tagsByType.styles = allMatchedTags.filter(t => t.type === 'styles');
+      tagsByType.features = allMatchedTags.filter(t => t.type === 'features');
+      tagsByType.fit = allMatchedTags.filter(t => t.type === 'fit');
+      tagsByType.occasions = allMatchedTags.filter(t => t.type === 'occasions');
+      
+      if (originalTagCount > allMatchedTags.length) {
+        console.log(`  🚫 Filtered ${originalTagCount} → ${allMatchedTags.length} tags for department: ${department}`);
+      }
+    }
+  }
+  
   const confidence = calculateConfidence(tagsByType);
   
   return {
