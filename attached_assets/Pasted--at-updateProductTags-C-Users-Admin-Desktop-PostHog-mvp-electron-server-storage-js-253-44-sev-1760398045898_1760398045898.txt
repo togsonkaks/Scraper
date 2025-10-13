@@ -1,0 +1,57 @@
+ at updateProductTags (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:253:44) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '23505',
+  detail: 'Key (slug)=(clothing) already exists.',
+  schema_name: 'public',
+  table_name: 'categories',
+  constraint_name: 'categories_slug_unique',
+  file: 'nbtinsert.c',
+  line: '673',
+  routine: '_bt_check_unique'
+}
+Error updating product tags: PostgresError: duplicate key value violates unique constraint "categories_slug_unique"
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at updateProductTags (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:253:44) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '23505',
+  detail: 'Key (slug)=(clothing) already exists.',
+  schema_name: 'public',
+  table_name: 'categories',
+  constraint_name: 'categories_slug_unique',
+  file: 'nbtinsert.c',
+  line: '673',
+  routine: '_bt_check_unique'
+}
+Error occurred in handler for 'update-product-tags': PostgresError: duplicate key value violates unique constraint "categories_slug_unique"
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at updateProductTags (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:253:44) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '23505',
+  detail: 'Key (slug)=(clothing) already exists.',
+  schema_name: 'public',
+  table_name: 'categories',
+  constraint_name: 'categories_slug_unique',
+  file: 'nbtinsert.c',
+  line: '673',
+  routine: '_bt_check_unique'
