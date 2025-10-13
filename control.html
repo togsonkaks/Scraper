@@ -1291,6 +1291,45 @@
       
       showLLMReviewModal(currentLLMTags);
     };
+    
+    // Render category chips with X buttons
+    function renderCategoryChips() {
+      const chipsContainer = document.getElementById('llmCategoryChips');
+      
+      if (!currentLLMTags.availableCategories || currentLLMTags.availableCategories.length === 0) {
+        chipsContainer.innerHTML = '<div style="color:#666; font-style:italic;">No categories available</div>';
+        return;
+      }
+      
+      chipsContainer.innerHTML = currentLLMTags.availableCategories.map((cat, idx) => {
+        const badgeColor = cat.source === 'AUTO' ? '#4CAF50' : '#9C27B0';
+        const badgeText = cat.source === 'AUTO' ? 'AUTO' : 'AI';
+        const statusBadge = cat.isNewPath 
+          ? '<span style="background:#fff3cd; color:#856404; padding:2px 6px; border-radius:8px; font-size:10px; margin-left:6px;">🆕 NEW</span>'
+          : '';
+        
+        return `
+        <div style="display:inline-flex; align-items:center; background:${badgeColor}; color:white; padding:8px 14px; border-radius:20px; font-size:13px;">
+          <span style="background:rgba(0,0,0,0.2); padding:2px 6px; border-radius:10px; font-size:10px; font-weight:bold; margin-right:8px;">${badgeText}</span>
+          <span style="font-family:monospace;">${cat.path}</span>
+          ${statusBadge}
+          <button onclick="removeCategoryByIndex(${idx})" style="background:rgba(255,255,255,0.3); border:none; color:white; margin-left:10px; cursor:pointer; font-size:16px; padding:2px 6px; border-radius:50%; font-weight:bold;">×</button>
+        </div>
+      `;
+      }).join('');
+    }
+    
+    // Remove category by index
+    window.removeCategoryByIndex = (index) => {
+      if (currentLLMTags.availableCategories && currentLLMTags.availableCategories.length > 1) {
+        currentLLMTags.availableCategories.splice(index, 1);
+        console.log('Removed category at index', index);
+        console.log('Remaining categories:', currentLLMTags.availableCategories);
+        renderCategoryChips();
+      } else {
+        alert('⚠️ You must keep at least one category!');
+      }
+    };
 
     // Add new keyword on Enter with smart classification
     document.getElementById('llmKeywordInput').addEventListener('keypress', async (e) => {
