@@ -1,0 +1,143 @@
+Alright — here’s how we build **Tagglo’s Rule-Based Categorization Engine** without AI, and still achieve near-AI accuracy. This is the system that solves “tanning bed float” and every similar edge case.
+
+---
+
+# 🎯 Goal
+
+Categorize products using **deterministic logic + exceptions**, so 99% of uploads get correctly tagged **without needing AI**.
+
+---
+
+# 🧱 Core Components of the Rule Engine
+
+| Component                          | Purpose                                                              |
+| ---------------------------------- | -------------------------------------------------------------------- |
+| **Keyword Map**                    | Basic category tagging (what you already have)                       |
+| **Phrase Overrides**               | Fix phrases that break keyword logic (“tanning bed”)                 |
+| **Context Rules (Disambiguators)** | Handle words with multiple meanings (“bed”, “band”, “case”, “cover”) |
+| **Negation & Cleanup Rules**       | Remove incorrect tags (“bed sheet” is bedding, not bed)              |
+
+---
+
+# 🧪 Real Example: “Tanning Bed Float”
+
+| Engine Step                                       | Result                         |
+| ------------------------------------------------- | ------------------------------ |
+| Keyword: “bed” → Furniture                        | ❌ Wrong                        |
+| Phrase Check: “tanning bed”                       | ✅ Beauty override              |
+| Context: “float, uv, tanning” keyword set present | ✅ Confirms Beauty              |
+| Output                                            | Category: **Beauty → Tanning** |
+
+---
+
+# 🧭 System Logic Flow
+
+```
+Input → Normalize → Phrase Rules (Exact Match) → Context Rules (Disambiguate) → Keyword Fallback → Clean Up (Negations)
+```
+
+---
+
+# 🛠 Rule Structures (Simple JSON or DB Format)
+
+### 1️⃣ Phrase Overrides (Absolute Priority)
+
+```json
+{
+  "phrase": "tanning bed",
+  "category": "beauty.tanning"
+}
+```
+
+### 2️⃣ Disambiguation Rules (Context Logic)
+
+```json
+{
+  "word": "bed",
+  "routes": [
+    { "if_any": ["tanning","uv","bronzer"], "category": "beauty.tanning" },
+    { "if_any": ["dog","pet","kennel"], "category": "pets.beds" },
+    { "if_any": ["inflatable","pool","float"], "category": "outdoors.water" },
+    { "default": "home.furniture.beds" }
+  ]
+}
+```
+
+### 3️⃣ Negation Rules (To Clean Wrong Tags)
+
+```json
+{
+  "pattern": "bed sheet|bedding",
+  "remove": ["home.furniture.beds"],
+  "add": ["home.textiles.bedding"]
+}
+```
+
+---
+
+# 🚦 Batch Processing Model (No AI Needed)
+
+| Step                                     | Runs When?                      |
+| ---------------------------------------- | ------------------------------- |
+| 🟢 Real-time basic keyword tagging       | On upload                       |
+| 🟡 Batch rule refinement (edge handling) | Nightly                         |
+| 🔴 Manual intervention                   | Only if confidence fails (rare) |
+
+---
+
+# 🧾 Important: Edge Case Bank (Tagglo’s Secret Weapon)
+
+We keep a **growing list of word collisions**, such as:
+
+| Colliding Word | Fix with Context           |
+| -------------- | -------------------------- |
+| Bed            | tanning / pet / pool       |
+| Band           | watch / music / wedding    |
+| Case           | phone / guitar / legal     |
+| Cover          | sofa / book / phone / bed  |
+| Float          | tanning / parade / fishing |
+| Slide          | footwear / playground      |
+| Cloud          | shoes / storage            |
+
+---
+
+# 🏗️ Implementation Plan (Lightweight & Scalable)
+
+### Phase 1 – Set the Foundation
+
+* Build rule tables (phrase, disambiguation, negation)
+* Populate with top **50 edge cases**
+
+### Phase 2 – Nightly Batch Tagger
+
+* Run rule engine in batch mode
+* Update stored categories only when changed
+
+### Phase 3 – User Override Loop
+
+* If user corrects category → store it as a new rule
+
+---
+
+# 🔥 Why This Works (And Scales to Millions)
+
+| Feature          | Benefit                  |
+| ---------------- | ------------------------ |
+| 100% Explainable | No black box             |
+| Ultra Fast       | Milliseconds per product |
+| Cheap            | $0 cost                  |
+| Evolves          | Users train it naturally |
+
+---
+
+### 👇 Ready Below?
+
+I’ll now:
+✔ Draft your **initial edge case list** (beds, bands, covers, etc.)
+✔ Provide a **Rule Engine Template** (so devs can build it tomorrow)
+
+---
+
+Say:
+👉 **“Show me the edge cases list.”**
+And we’ll start feeding your rule brain.

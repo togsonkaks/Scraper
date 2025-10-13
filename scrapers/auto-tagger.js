@@ -48,6 +48,45 @@ function createSlug(text) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
+// Phrase Override System: Handles edge cases BEFORE keyword matching
+const PHRASE_OVERRIDES = [
+  // Beds (multiple contexts)
+  { phrase: 'tanning bed', categoryPath: 'Beauty & Personal Care > Tanning > Tanning Beds' },
+  { phrase: 'dog bed', categoryPath: 'Pet Supplies > Dog > Beds & Furniture' },
+  { phrase: 'cat bed', categoryPath: 'Pet Supplies > Cat > Beds & Furniture' },
+  { phrase: 'pet bed', categoryPath: 'Pet Supplies > Beds & Furniture' },
+  { phrase: 'truck bed', categoryPath: 'Automotive > Truck Accessories > Bed Accessories' },
+  { phrase: 'flower bed', categoryPath: 'Home & Garden > Garden & Outdoor > Landscaping' },
+  
+  // Other common collisions
+  { phrase: 'watch band', categoryPath: 'Jewelry & Watches > Watch Accessories > Bands' },
+  { phrase: 'phone case', categoryPath: 'Electronics > Mobile Accessories > Cases' },
+  { phrase: 'guitar case', categoryPath: 'Musical Instruments > Instrument Accessories > Cases' },
+  { phrase: 'sofa cover', categoryPath: 'Home & Garden > Furniture > Living Room > Slipcovers' },
+  { phrase: 'book cover', categoryPath: 'Books & Media > Book Accessories > Book Covers' }
+];
+
+function checkPhraseOverrides(productData) {
+  // Combine all text for phrase checking
+  const allText = [
+    productData.title || '',
+    productData.description || '',
+    Array.isArray(productData.breadcrumbs) ? productData.breadcrumbs.join(' ') : (productData.breadcrumbs || ''),
+    productData.url || ''
+  ].join(' ').toLowerCase();
+  
+  // Check each phrase override
+  for (const override of PHRASE_OVERRIDES) {
+    const pattern = new RegExp(`\\b${override.phrase}\\b`, 'i');
+    if (pattern.test(allText)) {
+      console.log(`  🎯 PHRASE OVERRIDE: Found "${override.phrase}" → ${override.categoryPath}`);
+      return override.categoryPath;
+    }
+  }
+  
+  return null; // No override found
+}
+
 function matchTags(text, tagType = null) {
   const normalizedText = normalizeText(text);
   const matches = [];
@@ -89,18 +128,42 @@ function matchCategories(text, productData = {}) {
   
   // Search for category NAMES in product data with frequency counting
   for (const category of categoryTree) {
-    const pattern = new RegExp(`\\b${category.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi');
+    const escapedName = category.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     
-    if (pattern.test(normalizedText)) {
+    // Match both singular and plural forms (e.g., "Float" and "Floats")
+    const patterns = [
+      new RegExp(`\\b${escapedName}\\b`, 'gi'),
+      new RegExp(`\\b${escapedName}s\\b`, 'gi'), // Plural with 's'
+      new RegExp(`\\b${escapedName}es\\b`, 'gi')  // Plural with 'es'
+    ];
+    
+    let hasMatch = false;
+    for (const pattern of patterns) {
+      if (pattern.test(normalizedText)) {
+        hasMatch = true;
+        break;
+      }
+    }
+    
+    if (hasMatch) {
       const fullPath = buildCategoryPath(category.category_id);
       
-      // Count frequency across weighted sources
+      // Count frequency across weighted sources (using all plural patterns)
       let frequencyScore = 0;
-      const breadcrumbMatches = (textSources.breadcrumbs.match(pattern) || []).length;
-      const titleMatches = (textSources.title.match(pattern) || []).length;
-      const urlMatches = (textSources.url.match(pattern) || []).length;
-      const descriptionMatches = (textSources.description.match(pattern) || []).length;
-      const specsMatches = (textSources.specs.match(pattern) || []).length;
+      let breadcrumbMatches = 0;
+      let titleMatches = 0;
+      let urlMatches = 0;
+      let descriptionMatches = 0;
+      let specsMatches = 0;
+      
+      // Count matches for all patterns (singular + plurals)
+      for (const pattern of patterns) {
+        breadcrumbMatches += (textSources.breadcrumbs.match(pattern) || []).length;
+        titleMatches += (textSources.title.match(pattern) || []).length;
+        urlMatches += (textSources.url.match(pattern) || []).length;
+        descriptionMatches += (textSources.description.match(pattern) || []).length;
+        specsMatches += (textSources.specs.match(pattern) || []).length;
+      }
       
       // Weighted scoring: breadcrumbs (5x) > title (3x) > url (2x) > specs (1.5x) > description (1x)
       frequencyScore = (breadcrumbMatches * 5) + (titleMatches * 3) + (urlMatches * 2) + 
@@ -291,10 +354,18 @@ async function autoTag(productData) {
     }
   }
   
+  // STEP 1: Check for phrase overrides FIRST (handles edge cases)
+  const phraseOverride = checkPhraseOverrides(productData);
+  
   // Match categories from ALL product data with frequency scoring
-  let matchedCategories = matchCategories(searchText, productData);
-  console.log('  📂 Matched categories:', matchedCategories.length, '→', 
-    matchedCategories.map(c => `${c.name} (score: ${c.frequencyScore}, lvl ${c.level})`).join(', '));
+  let matchedCategories = [];
+  if (!phraseOverride) {
+    matchedCategories = matchCategories(searchText, productData);
+    console.log('  📂 Matched categories:', matchedCategories.length, '→', 
+      matchedCategories.map(c => `${c.name} (score: ${c.frequencyScore}, lvl ${c.level})`).join(', '));
+  } else {
+    console.log('  📂 Using phrase override, skipping normal category matching');
+  }
   
   // FILTER categories by detected gender (if we have one)
   if (gender && matchedCategories.length > 1) {
@@ -312,11 +383,15 @@ async function autoTag(productData) {
     }
   }
   
-  // Find primary category (deepest/most specific level category)
+  // Find primary category (phrase override OR best match from frequency scoring)
   let primaryCategory = null;
   let categoryPath = [];
   
-  if (matchedCategories.length > 0) {
+  if (phraseOverride) {
+    // Use phrase override directly
+    primaryCategory = phraseOverride;
+    console.log('  ✨ FINAL PATH (OVERRIDE):', primaryCategory);
+  } else if (matchedCategories.length > 0) {
     // Pick the HIGHEST SCORING category (already sorted by frequency score + depth)
     const bestMatch = matchedCategories[0];
     
