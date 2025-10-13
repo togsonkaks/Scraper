@@ -1240,13 +1240,29 @@
     // Remove keyword from LLM tags
     window.removeLLMKeyword = (index) => {
       currentLLMTags.keywords.splice(index, 1);
+      
+      // ALSO remove from tags array to ensure it's not saved
+      if (currentLLMTags.tags && currentLLMTags.tags[index]) {
+        currentLLMTags.tags.splice(index, 1);
+      }
+      
       showLLMReviewModal(currentLLMTags);
     };
 
     // Add new keyword on Enter
     document.getElementById('llmKeywordInput').addEventListener('keypress', (e) => {
       if (e.key === 'Enter' && e.target.value.trim()) {
-        currentLLMTags.keywords.push(e.target.value.trim());
+        const newKeyword = e.target.value.trim();
+        currentLLMTags.keywords.push(newKeyword);
+        
+        // ALSO add to tags array so it gets saved to database
+        if (!currentLLMTags.tags) currentLLMTags.tags = [];
+        currentLLMTags.tags.push({
+          name: newKeyword,
+          slug: generateSlug(newKeyword),
+          type: 'features' // Default to features for custom tags
+        });
+        
         showLLMReviewModal(currentLLMTags);
         e.target.value = '';
       }
