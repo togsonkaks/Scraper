@@ -230,53 +230,113 @@ async function updateProductTags(productId, tagResults) {
 async function saveProduct(productData, tagResults) {
   try {
     const normalizedBreadcrumbs = normalizeBreadcrumbs(productData.breadcrumbs, productData.title);
-    
-    const rawResult = await sql`
-      INSERT INTO products_raw (
-        source_url, raw_title, raw_description, raw_breadcrumbs, 
-        raw_price, raw_brand, raw_specs, raw_sku, raw_tags, raw_images, raw_json_ld
-      ) VALUES (
-        ${productData.url || ''},
-        ${productData.title || null},
-        ${productData.description || null},
-        ${normalizedBreadcrumbs},
-        ${productData.price || null},
-        ${productData.brand || null},
-        ${productData.specs || null},
-        ${productData.sku || null},
-        ${productData.tags || null},
-        ${productData.images || []},
-        ${productData.jsonLd ? JSON.stringify(productData.jsonLd) : null}
-      )
-      RETURNING raw_id
-    `;
-    
-    const rawId = rawResult[0].raw_id;
-    
     const tagNames = tagResults.tags.map(t => t.name);
+    const productUrl = productData.url || '';
     
-    const productResult = await sql`
-      INSERT INTO products (
-        raw_id, title, brand, price, sku, category, gender, description,
-        tags, specs, image_urls, confidence_score
-      ) VALUES (
-        ${rawId},
-        ${productData.title || null},
-        ${productData.brand || null},
-        ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
-        ${productData.sku || null},
-        ${tagResults.primaryCategory || null},
-        ${tagResults.gender || null},
-        ${productData.description || null},
-        ${tagNames},
-        ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
-        ${productData.images || []},
-        ${tagResults.confidenceScore || 0}
-      )
-      RETURNING product_id
+    // Check if product exists by URL
+    const existingProduct = await sql`
+      SELECT product_id, raw_id FROM products 
+      WHERE url = ${productUrl} 
+      LIMIT 1
     `;
     
-    const productId = productResult[0].product_id;
+    let productId;
+    let rawId;
+    
+    if (existingProduct.length > 0) {
+      // UPDATE existing product
+      productId = existingProduct[0].product_id;
+      rawId = existingProduct[0].raw_id;
+      
+      console.log(`🔄 Updating existing product (ID: ${productId})...`);
+      
+      // Update products_raw
+      await sql`
+        UPDATE products_raw SET
+          raw_title = ${productData.title || null},
+          raw_description = ${productData.description || null},
+          raw_breadcrumbs = ${normalizedBreadcrumbs},
+          raw_price = ${productData.price || null},
+          raw_brand = ${productData.brand || null},
+          raw_specs = ${productData.specs || null},
+          raw_sku = ${productData.sku || null},
+          raw_tags = ${productData.tags || null},
+          raw_images = ${productData.images || []},
+          raw_json_ld = ${productData.jsonLd ? JSON.stringify(productData.jsonLd) : null}
+        WHERE raw_id = ${rawId}
+      `;
+      
+      // Update products table
+      await sql`
+        UPDATE products SET
+          title = ${productData.title || null},
+          brand = ${productData.brand || null},
+          price = ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
+          sku = ${productData.sku || null},
+          category = ${tagResults.primaryCategory || null},
+          gender = ${tagResults.gender || null},
+          description = ${productData.description || null},
+          tags = ${tagNames},
+          specs = ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
+          image_urls = ${productData.images || []},
+          confidence_score = ${tagResults.confidenceScore || 0}
+        WHERE product_id = ${productId}
+      `;
+      
+      // Clear existing tag and category associations for update
+      await sql`DELETE FROM product_tags WHERE product_id = ${productId}`;
+      await sql`DELETE FROM product_categories WHERE product_id = ${productId}`;
+      
+    } else {
+      // INSERT new product
+      console.log(`✨ Creating new product...`);
+      
+      const rawResult = await sql`
+        INSERT INTO products_raw (
+          source_url, raw_title, raw_description, raw_breadcrumbs, 
+          raw_price, raw_brand, raw_specs, raw_sku, raw_tags, raw_images, raw_json_ld
+        ) VALUES (
+          ${productUrl},
+          ${productData.title || null},
+          ${productData.description || null},
+          ${normalizedBreadcrumbs},
+          ${productData.price || null},
+          ${productData.brand || null},
+          ${productData.specs || null},
+          ${productData.sku || null},
+          ${productData.tags || null},
+          ${productData.images || []},
+          ${productData.jsonLd ? JSON.stringify(productData.jsonLd) : null}
+        )
+        RETURNING raw_id
+      `;
+      
+      rawId = rawResult[0].raw_id;
+      
+      const productResult = await sql`
+        INSERT INTO products (
+          raw_id, url, title, brand, price, sku, category, gender, description,
+          tags, specs, image_urls, confidence_score
+        ) VALUES (
+          ${rawId},
+          ${productUrl},
+          ${productData.title || null},
+          ${productData.brand || null},
+          ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
+          ${productData.sku || null},
+          ${tagResults.primaryCategory || null},
+          ${tagResults.gender || null},
+          ${productData.description || null},
+          ${tagNames},
+          ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
+          ${productData.images || []},
+          ${tagResults.confidenceScore || 0}
+        )
+        RETURNING product_id
+      `;
+      
+      productId = productResult[0].product_id;
+    }
     
     // Insert new LLM-discovered tags to the database (only when user clicks Save)
     if (tagResults.newTagsToLearn && tagResults.newTagsToLearn.length > 0) {
