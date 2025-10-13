@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759865874128_d8g21xn45
+URL: https://us.supreme.com/products/ngerv-ww-qkvbq4g
+Hostname: us.supreme.com
+Started: undefined
+Ended: 2025-10-07T19:37:54.215Z
+Total Logs: 6
+=========================
+
+[2025-10-07T19:37:54.152Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759865874128_d8g21xn45 started for us.supreme.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5030:9)
+
+[2025-10-07T19:37:54.153Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5033:7)
+
+[2025-10-07T19:37:54.177Z] INFO: 🔍 PROCESSING IMAGES with 12 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4391:5)
+
+[2025-10-07T19:37:54.180Z] INFO: 🖼️ Raw enriched URLs collected: 12
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4544:5)
+
+[2025-10-07T19:37:54.213Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5386:7)
+
+[2025-10-07T19:37:54.214Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759865874128_d8g21xn45, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

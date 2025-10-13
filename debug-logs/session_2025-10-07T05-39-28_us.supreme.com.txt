@@ -1,0 +1,38 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759815568220_s3h7ucfai
+URL: https://us.supreme.com/products/xancerwt8rq8t-ow
+Hostname: us.supreme.com
+Started: undefined
+Ended: 2025-10-07T05:39:28.256Z
+Total Logs: 10
+=========================
+
+[2025-10-07T05:39:28.228Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759815568220_s3h7ucfai started for us.supreme.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5017:9)
+
+[2025-10-07T05:39:28.228Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5020:7)
+
+[2025-10-07T05:39:28.238Z] INFO: 🔍 PROCESSING IMAGES with 8 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4380:5)
+
+[2025-10-07T05:39:28.240Z] INFO: 🖼️ Raw enriched URLs collected: 8
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4532:5)
+
+[2025-10-07T05:39:28.241Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4380:5)
+
+[2025-10-07T05:39:28.244Z] INFO: 🖼️ Raw enriched URLs collected: 42
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4532:5)
+
+[2025-10-07T05:39:28.249Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4380:5)
+
+[2025-10-07T05:39:28.250Z] INFO: 🖼️ Raw enriched URLs collected: 42
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4532:5)
+
+[2025-10-07T05:39:28.255Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5373:7)
+
+[2025-10-07T05:39:28.256Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759815568220_s3h7ucfai, saving 9 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

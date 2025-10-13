@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759908814006_gse2zchxo
+URL: https://www.acmetools.com/bosch-12v-max-wall-floor-scanner-with-radar-kit-d-tect200c/000346655766.html
+Hostname: acmetools.com
+Started: undefined
+Ended: 2025-10-08T07:33:34.094Z
+Total Logs: 6
+=========================
+
+[2025-10-08T07:33:34.015Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759908814006_gse2zchxo started for acmetools.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5205:9)
+
+[2025-10-08T07:33:34.016Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5208:7)
+
+[2025-10-08T07:33:34.055Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4557:5)
+
+[2025-10-08T07:33:34.061Z] INFO: 🖼️ Raw enriched URLs collected: 546
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4713:5)
+
+[2025-10-08T07:33:34.094Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5585:7)
+
+[2025-10-08T07:33:34.094Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759908814006_gse2zchxo, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

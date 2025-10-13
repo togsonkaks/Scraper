@@ -1,0 +1,1316 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759963311218_mr4m5buf7
+URL: https://www.aliexpress.us/?spm=a2g0o.detail.logo.1.977ch48gh48guS
+Hostname: aliexpress.us
+Started: undefined
+Ended: 2025-10-08T22:41:51.795Z
+Total Logs: 436
+=========================
+
+[2025-10-08T22:41:51.218Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759963311218_mr4m5buf7 started for aliexpress.us
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5773:9)
+
+[2025-10-08T22:41:51.218Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5776:7)
+
+[2025-10-08T22:41:51.219Z] INFO: [DEBUG] AliExpress title extraction starting...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.title (<anonymous>:1512:13) -> at scrapeProduct (<anonymous>:5822:62)
+
+[2025-10-08T22:41:51.220Z] INFO: [DEBUG] AliExpress title extraction failed - no valid title found anywhere
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.title (<anonymous>:1618:13) -> at scrapeProduct (<anonymous>:5822:62)
+
+[2025-10-08T22:41:51.519Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-08T22:41:51.756Z] INFO: [DEBUG] AliExpress custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1623:13) -> at scrapeProduct (<anonymous>:5948:63)
+
+[2025-10-08T22:41:51.756Z] INFO: [DEBUG] AliExpress collected: S614d9c5806924b2e8f97e8dbea3442b5Y.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.756Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.757Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: Sd0e56077bb304f87baf23987e494e88a1.jpg_960x960q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.758Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.759Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.759Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.759Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.759Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.759Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.759Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.759Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.760Z] INFO: [DEBUG] AliExpress collected: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: S28ae40eb830145fb98d1c9f820458ccb9.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: S60a64b5fad2e412db8faec67a6014df9n.gif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: S5365b5c4ecd54603a696b86443c2711aT.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: S49ef5bfce2a74bd39d911a64247722ddj.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: S28ae40eb830145fb98d1c9f820458ccb9.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: S60a64b5fad2e412db8faec67a6014df9n.gif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: S49ef5bfce2a74bd39d911a64247722ddj.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: S28ae40eb830145fb98d1c9f820458ccb9.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: 54x54.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: 54x54.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: 54x54.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.761Z] INFO: [DEBUG] AliExpress collected: Sfd904b7d15b74bca8489166fb54ccf87u.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: 48x48.gif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: Sff8cef8519f34522b6551d17d8528332J.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: S0dbc84b4ab3e47f89795ff3b222a9b28I.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: S56a42d21548c4a0b8dddf3c57a3fd5195.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: Sff8cef8519f34522b6551d17d8528332J.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: S0dbc84b4ab3e47f89795ff3b222a9b28I.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: S56a42d21548c4a0b8dddf3c57a3fd5195.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: 48x48.gif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: S7807a7a3732b4b23b9ad44b60ba72df2G.png_480x480.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.762Z] INFO: [DEBUG] AliExpress collected: S1cd7439730144428a67288ad99d4b236B.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S24c70ece64244d44943c5fce52dc4172m.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S7807a7a3732b4b23b9ad44b60ba72df2G.png_480x480.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S1cd7439730144428a67288ad99d4b236B.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S24c70ece64244d44943c5fce52dc4172m.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: 201x62.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S0ae3371069a141aea092a55fbbf377c8G.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S7991b1c92e324333b18ebf423a7eb2f8p.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: Scb02072a83334639a1611d0f1856362cg.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S01cc052babf143f8aff61bb4e1f423c0h.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S0ae3371069a141aea092a55fbbf377c8G.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S7991b1c92e324333b18ebf423a7eb2f8p.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: Scb02072a83334639a1611d0f1856362cg.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.763Z] INFO: [DEBUG] AliExpress collected: S01cc052babf143f8aff61bb4e1f423c0h.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: S9efb5fcbfc034dd8a3e5b976bff12c738.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: S16a8fd66858440c98f790d3591434c48P.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: Sad97ebbdadca4dc8b0376347fab1faf9t.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: S9efb5fcbfc034dd8a3e5b976bff12c738.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: S16a8fd66858440c98f790d3591434c48P.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: Sad97ebbdadca4dc8b0376347fab1faf9t.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: S9efb5fcbfc034dd8a3e5b976bff12c738.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: S16a8fd66858440c98f790d3591434c48P.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: Sad97ebbdadca4dc8b0376347fab1faf9t.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: 591x82.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: 40x40.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: 40x40.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.764Z] INFO: [DEBUG] AliExpress collected: 40x40.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: S620e7dca53d64e87bd65da7c2674190cv.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: S4e77619a8fa240e5b7370155cb9febeai.png_480x480.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: S01c5936675384d33b8b8c6e005210329B.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: S667bca5d567b47fcb9d013d4e4c33965A.png_480x480.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: S4b632e74f33140bfa11484c83f477d1aC.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: Seb4fe041d236490ab134e074915f99634.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: Sed2aed1be222422883b0d0f46377e6a5g.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: S2a8f8a1ad4a44eb7a2b9f783c6da4595S.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: S3aee2b1b88fe4e63baf0d86f6a5948cbo.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: 14x14.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: 14x14.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: 14x14.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.765Z] INFO: [DEBUG] AliExpress collected: 14x14.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 14x14.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 14x14.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 14x14.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 14x14.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.766Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.767Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: Sbd36ca6043d0446dbe96b6263eded7fcC.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 116x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.768Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.769Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.769Z] INFO: [DEBUG] AliExpress collected: Sa6dfa4ec1ae34f9aad15fc579d3c8bf2T.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.769Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.769Z] INFO: [DEBUG] AliExpress collected: Sbd36ca6043d0446dbe96b6263eded7fcC.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.770Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.770Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.770Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.770Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.770Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.770Z] INFO: [DEBUG] AliExpress collected: Sa6dfa4ec1ae34f9aad15fc579d3c8bf2T.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.770Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.770Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.771Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 234x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.772Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.773Z] INFO: [DEBUG] AliExpress collected: Sbd36ca6043d0446dbe96b6263eded7fcC.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 116x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: Sa6dfa4ec1ae34f9aad15fc579d3c8bf2T.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.774Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.775Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.776Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.777Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 60x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.778Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.779Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 60x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.780Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.781Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 60x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.782Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 116x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: Sa6dfa4ec1ae34f9aad15fc579d3c8bf2T.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 42x60.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: 64x65.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.783Z] INFO: [DEBUG] AliExpress collected: Se0104ccc8eba48aea520d1c5ad3b8000D.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress collected: Se0104ccc8eba48aea520d1c5ad3b8000D.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress collected: 24x24.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress collected: S3e732596725d476196925416cdfe8da8W.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress collected: Seb2296f17f5747a8891d42013acdab67B.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress collected: 48x49.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress collected: 48x48.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress collected 100 total images before filtering
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1648:13) -> at scrapeProduct (<anonymous>:5948:63)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress KEPT: S614d9c5806924b2e8f97e8dbea3442b5Y.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.784Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.785Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 27x27.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress KEPT: Sd0e56077bb304f87baf23987e494e88a1.jpg_960x960q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.786Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: 800x800.png_960x960.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress KEPT: S28ae40eb830145fb98d1c9f820458ccb9.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.787Z] INFO: [DEBUG] AliExpress KEPT: S60a64b5fad2e412db8faec67a6014df9n.gif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.788Z] INFO: [DEBUG] AliExpress KEPT: S5365b5c4ecd54603a696b86443c2711aT.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.788Z] INFO: [DEBUG] AliExpress KEPT: S49ef5bfce2a74bd39d911a64247722ddj.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.788Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 54x54
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.788Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 54x54
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.788Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 54x54
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.788Z] INFO: [DEBUG] AliExpress KEPT: Sfd904b7d15b74bca8489166fb54ccf87u.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.789Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x48
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.789Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x48
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.789Z] INFO: [DEBUG] AliExpress KEPT: Sff8cef8519f34522b6551d17d8528332J.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.789Z] INFO: [DEBUG] AliExpress KEPT: S0dbc84b4ab3e47f89795ff3b222a9b28I.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.789Z] INFO: [DEBUG] AliExpress KEPT: S56a42d21548c4a0b8dddf3c57a3fd5195.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.789Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x48
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.789Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x48
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.789Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: S7807a7a3732b4b23b9ad44b60ba72df2G.png_480x480.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.790Z] INFO: [DEBUG] AliExpress KEPT: S1cd7439730144428a67288ad99d4b236B.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.790Z] INFO: [DEBUG] AliExpress KEPT: S24c70ece64244d44943c5fce52dc4172m.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.790Z] INFO: [DEBUG] AliExpress KEPT: 201x62.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.790Z] INFO: [DEBUG] AliExpress KEPT: S0ae3371069a141aea092a55fbbf377c8G.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.790Z] INFO: [DEBUG] AliExpress KEPT: S7991b1c92e324333b18ebf423a7eb2f8p.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.790Z] INFO: [DEBUG] AliExpress KEPT: Scb02072a83334639a1611d0f1856362cg.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.790Z] INFO: [DEBUG] AliExpress KEPT: S01cc052babf143f8aff61bb4e1f423c0h.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.790Z] INFO: [DEBUG] AliExpress KEPT: S9efb5fcbfc034dd8a3e5b976bff12c738.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress KEPT: S16a8fd66858440c98f790d3591434c48P.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress KEPT: Sad97ebbdadca4dc8b0376347fab1faf9t.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress KEPT: 591x82.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 40x40
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 40x40
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 40x40
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress KEPT: S620e7dca53d64e87bd65da7c2674190cv.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: S4e77619a8fa240e5b7370155cb9febeai.png_480x480.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.791Z] INFO: [DEBUG] AliExpress KEPT: S01c5936675384d33b8b8c6e005210329B.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress BLOCKED junk pattern: S667bca5d567b47fcb9d013d4e4c33965A.png_480x480.png_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1654:17 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress KEPT: S4b632e74f33140bfa11484c83f477d1aC.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress KEPT: Seb4fe041d236490ab134e074915f99634.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress KEPT: Sed2aed1be222422883b0d0f46377e6a5g.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress KEPT: S2a8f8a1ad4a44eb7a2b9f783c6da4595S.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress KEPT: S3aee2b1b88fe4e63baf0d86f6a5948cbo.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 14x14
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress KEPT: 154x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x48
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x48
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 42x60
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress KEPT: Sbd36ca6043d0446dbe96b6263eded7fcC.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.792Z] INFO: [DEBUG] AliExpress KEPT: 116x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress KEPT: Sa6dfa4ec1ae34f9aad15fc579d3c8bf2T.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x48
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress KEPT: 234x64.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 60x60
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 64x65
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress KEPT: Se0104ccc8eba48aea520d1c5ad3b8000D.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 24x24
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress KEPT: S3e732596725d476196925416cdfe8da8W.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress KEPT: Seb2296f17f5747a8891d42013acdab67B.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x49
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.793Z] INFO: [DEBUG] AliExpress BLOCKED tiny size: 48x48
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1670:19 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:41:51.794Z] INFO: [DEBUG] AliExpress final results: 36 images (from 100 collected)
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1711:13) -> at scrapeProduct (<anonymous>:5948:63)
+
+[2025-10-08T22:41:51.794Z] INFO: [DEBUG] AliExpress top 5: Sd0e56077bb304f87baf23987e494e88a1.jpg_960x960q75.jpg_.avif,S28ae40eb830145fb98d1c9f820458ccb9.jpg_480x480q75.jpg_.avif,S5365b5c4ecd54603a696b86443c2711aT.jpg_480x480q75.jpg_.avif,Sff8cef8519f34522b6551d17d8528332J.jpg_480x480q75.jpg_.avif,S0dbc84b4ab3e47f89795ff3b222a9b28I.jpg_480x480q75.jpg_.avif
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1712:13) -> at scrapeProduct (<anonymous>:5948:63)
+
+[2025-10-08T22:41:51.795Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6185:7)
+
+[2025-10-08T22:41:51.795Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759963311218_mr4m5buf7, saving 435 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

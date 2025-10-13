@@ -1,0 +1,116 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759964362885_9nmos3h6p
+URL: https://www.aliexpress.us/item/3256807206780988.html?spm=a2g0o.tm1000009216.d4.1.6897474csKaqTq&sourceType=562&pvid=7a497d52-ae87-4fb7-a81f-b8361a3ee996&pdp_ext_f=%7B%22ship_from%22%3A%22CN%22%2C%22sku_id%22%3A%2212000040562616900%22%7D&scm=1007.28480.422277.0&scm-url=1007.28480.422277.0&scm_id=1007.28480.422277.0&pdp_npi=4%40dis%21USD%21US%20%2432.14%21US%20%2410.93%21%21%21229.11%2177.90%21%402103146f17512431227063580e7fe3%2112000040562616900%21gsd%21US%21160250367%21X&channel=sd&aecmd=true&gatewayAdapt=glo2usa
+Hostname: aliexpress.us
+Started: undefined
+Ended: 2025-10-08T22:59:23.421Z
+Total Logs: 35
+=========================
+
+[2025-10-08T22:59:22.894Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759964362885_9nmos3h6p started for aliexpress.us
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5773:9)
+
+[2025-10-08T22:59:22.894Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5776:7)
+
+[2025-10-08T22:59:22.896Z] INFO: [DEBUG] AliExpress title extraction starting...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.title (<anonymous>:1512:13) -> at scrapeProduct (<anonymous>:5822:62)
+
+[2025-10-08T22:59:22.896Z] INFO: [DEBUG] AliExpress title found via h1 selector 'h1[data-pl="product-title"]': "700ml Cocktail Shaker Whiskey Glass Cup Professional Cocktail Stirring Cup Wine Bar mixing cups Bartender Mixing Bar Tool"
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.title (<anonymous>:1549:21) -> at scrapeProduct (<anonymous>:5822:62)
+  Metadata: {
+  "selector": "h1[data-pl=\"product-title\"]"
+}
+
+[2025-10-08T22:59:23.191Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-08T22:59:23.415Z] INFO: [DEBUG] AliExpress custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1623:13) -> at scrapeProduct (<anonymous>:5948:63)
+
+[2025-10-08T22:59:23.416Z] INFO: [DEBUG] AliExpress collected: S3947bdbad7274f24bebf7c1435e673dbR.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.416Z] INFO: [DEBUG] AliExpress collected: S76c5827438354e2d93484f2d5a762738G.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.416Z] INFO: [DEBUG] AliExpress collected: S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.416Z] INFO: [DEBUG] AliExpress collected: S08c37fc597e5475a8bb325db59ddb895t.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.416Z] INFO: [DEBUG] AliExpress collected: S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.416Z] INFO: [DEBUG] AliExpress collected: S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.416Z] INFO: [DEBUG] AliExpress collected: S13b2bf19445f4a50a9b241b4ccc17432i.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.416Z] INFO: [DEBUG] AliExpress collected: Sa086040e8fc840e88b543e31fbe27ea8u.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.417Z] INFO: [DEBUG] AliExpress collected: S1d477daed72c4196841c413900bd9d0by.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.417Z] INFO: [DEBUG] AliExpress collected: Sf9fcd89a27cf4f04b8b24156972c35561.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.417Z] INFO: [DEBUG] AliExpress collected: S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.417Z] INFO: [DEBUG] AliExpress collected: S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1643:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-08T22:59:23.417Z] INFO: [DEBUG] AliExpress collected 12 total images before filtering
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1648:13) -> at scrapeProduct (<anonymous>:5948:63)
+
+[2025-10-08T22:59:23.417Z] INFO: [DEBUG] AliExpress KEPT: S3947bdbad7274f24bebf7c1435e673dbR.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.417Z] INFO: [DEBUG] AliExpress KEPT: S76c5827438354e2d93484f2d5a762738G.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.418Z] INFO: [DEBUG] AliExpress KEPT: S0bf8c8df76e049a49f2602cdd2938a6dd.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.418Z] INFO: [DEBUG] AliExpress KEPT: S08c37fc597e5475a8bb325db59ddb895t.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.418Z] INFO: [DEBUG] AliExpress KEPT: S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.418Z] INFO: [DEBUG] AliExpress KEPT: S6ebb88635f8c4d3aaa97595f7b26dee1j.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.418Z] INFO: [DEBUG] AliExpress KEPT: S13b2bf19445f4a50a9b241b4ccc17432i.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.418Z] INFO: [DEBUG] AliExpress KEPT: Sa086040e8fc840e88b543e31fbe27ea8u.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.418Z] INFO: [DEBUG] AliExpress KEPT: S1d477daed72c4196841c413900bd9d0by.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.418Z] INFO: [DEBUG] AliExpress KEPT: Sf9fcd89a27cf4f04b8b24156972c35561.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.419Z] INFO: [DEBUG] AliExpress KEPT: S70fd5755864342ea99ef1dfdfb9cb393A.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.419Z] INFO: [DEBUG] AliExpress KEPT: S35d8ca17dbd04f7f8b9d7d26da493c23U.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1676:15 -> at Array.filter (<anonymous>)
+
+[2025-10-08T22:59:23.419Z] INFO: [DEBUG] AliExpress final results: 12 images (from 12 collected)
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1711:13) -> at scrapeProduct (<anonymous>:5948:63)
+
+[2025-10-08T22:59:23.419Z] INFO: [DEBUG] AliExpress top 5: S3947bdbad7274f24bebf7c1435e673dbR.jpg,S76c5827438354e2d93484f2d5a762738G.jpg,S0bf8c8df76e049a49f2602cdd2938a6dd.jpg,S08c37fc597e5475a8bb325db59ddb895t.jpg,S0f538f7a2b6645ab9f7654c617d2ea1fy.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1712:13) -> at scrapeProduct (<anonymous>:5948:63)
+
+[2025-10-08T22:59:23.420Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6185:7)
+
+[2025-10-08T22:59:23.421Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759964362885_9nmos3h6p, saving 34 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,80 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760318729206_gie5my4z7
+URL: https://www.uniqlo.com/us/en/products/E479975-000/00?colorDisplayCode=08&sizeDisplayCode=006&utm_campaign=shopping_broad_product_shirts_google_cpc_sales_us_evergreen_en&utm_source=google&utm_medium=cpc&utm_term=479975-08-006-000&utm_content=pla&campaignid=22786299514&adgroupid=179183974781&device=c&merchant_id=10097310&product_partition_id=2416511005423&gad_source=1&gad_campaignid=22786299514&gclid=Cj0KCQjwrojHBhDdARIsAJdEJ_dz8pT9229G5vMTEIm3Lmm009u-b3RCCXFHmoIVSlD79Ak5ZizAATgaAkPcEALw_wcB
+Hostname: uniqlo.com
+Started: undefined
+Ended: 2025-10-13T01:25:32.210Z
+Total Logs: 24
+=========================
+
+[2025-10-13T01:25:29.207Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760318729206_gie5my4z7 started for uniqlo.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6021:9)
+
+[2025-10-13T01:25:29.207Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6024:7)
+
+[2025-10-13T01:25:29.447Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-13T01:25:29.485Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-13T01:25:29.719Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-13T01:25:29.720Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-13T01:25:29.722Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-13T01:25:29.835Z] INFO: 🔍 PROCESSING IMAGES with 539 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5325:5)
+
+[2025-10-13T01:25:29.843Z] INFO: 🖼️ Raw enriched URLs collected: 539
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5481:5)
+
+[2025-10-13T01:25:30.073Z] INFO: 🔍 PROCESSING IMAGES with 539 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5325:5)
+
+[2025-10-13T01:25:30.082Z] INFO: 🖼️ Raw enriched URLs collected: 539
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5481:5)
+
+[2025-10-13T01:25:30.303Z] INFO: 🔍 PROCESSING IMAGES with 539 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5325:5)
+
+[2025-10-13T01:25:30.310Z] INFO: 🖼️ Raw enriched URLs collected: 539
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5481:5)
+
+[2025-10-13T01:25:30.490Z] INFO: 🔍 PROCESSING IMAGES with 539 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5325:5)
+
+[2025-10-13T01:25:30.496Z] INFO: 🖼️ Raw enriched URLs collected: 539
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5481:5)
+
+[2025-10-13T01:25:30.682Z] INFO: 🔍 PROCESSING IMAGES with 539 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5325:5)
+
+[2025-10-13T01:25:30.689Z] INFO: 🖼️ Raw enriched URLs collected: 539
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5481:5)
+
+[2025-10-13T01:25:31.798Z] INFO: ✅ Scroll complete - lazy loading triggered! (1000ms total)
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:27:13
+
+[2025-10-13T01:25:31.798Z] INFO: ✅ Scroll complete - lazy loading triggered! (1000ms total)
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:27:13
+
+[2025-10-13T01:25:31.798Z] INFO: ✅ Scroll complete - lazy loading triggered! (1000ms total)
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:27:13
+
+[2025-10-13T01:25:31.798Z] INFO: ✅ Scroll complete - lazy loading triggered! (1000ms total)
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:27:13
+
+[2025-10-13T01:25:31.798Z] INFO: ✅ Scroll complete - lazy loading triggered! (1000ms total)
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:27:13
+
+[2025-10-13T01:25:32.200Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6460:7)
+
+[2025-10-13T01:25:32.201Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760318729206_gie5my4z7, saving 23 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

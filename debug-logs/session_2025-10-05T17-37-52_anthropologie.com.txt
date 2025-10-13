@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759685872632_1sogrmhkf
+URL: https://www.anthropologie.com/shop/hybrid/de-loreta-kiara-long-sleeve-midi-dress?color=079&recommendation=pdp-hpp-sfrectray-expansionpla
+Hostname: anthropologie.com
+Started: undefined
+Ended: 2025-10-05T17:37:52.665Z
+Total Logs: 6
+=========================
+
+[2025-10-05T17:37:52.641Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759685872632_1sogrmhkf started for anthropologie.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4929:9)
+
+[2025-10-05T17:37:52.657Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4932:7)
+
+[2025-10-05T17:37:52.662Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T17:37:52.663Z] INFO: 🖼️ Raw enriched URLs collected: 1
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T17:37:52.665Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5236:7)
+
+[2025-10-05T17:37:52.665Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759685872632_1sogrmhkf, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

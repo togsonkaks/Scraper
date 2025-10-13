@@ -1,0 +1,125 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760230605062_bnma427og
+URL: https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki
+Hostname: allbirds.com
+Started: undefined
+Ended: 2025-10-12T00:56:45.601Z
+Total Logs: 39
+=========================
+
+[2025-10-12T00:56:45.063Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760230605062_bnma427og started for allbirds.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6021:9)
+
+[2025-10-12T00:56:45.063Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6024:7)
+
+[2025-10-12T00:56:45.343Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-12T00:56:45.590Z] INFO: [DEBUG] Allbirds custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:983:13) -> at scrapeProduct (<anonymous>:6207:63)
+
+[2025-10-12T00:56:45.592Z] INFO: [DEBUG] Allbirds found 1 containers for: [data-product-hero-carousel]
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1000:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.593Z] INFO: [DEBUG] Allbirds adding image from [data-product-hero-carousel][0]: A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_LEFT.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.594Z] INFO: [DEBUG] Allbirds adding image from [data-product-hero-carousel][0]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.594Z] INFO: [DEBUG] Allbirds adding image from [data-product-hero-carousel][0]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_TD-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.594Z] INFO: [DEBUG] Allbirds adding image from [data-product-hero-carousel][0]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_SOLE-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.594Z] INFO: [DEBUG] Allbirds adding image from [data-product-hero-carousel][0]: A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_PAIR_3Q.png?v=1751323587&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.594Z] INFO: [DEBUG] Allbirds found 20 containers for: .swiper-slide
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1000:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[1]: A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_LEFT.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[2]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[3]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_TD-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[4]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_SOLE-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[5]: A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_PAIR_3Q.png?v=1751323587&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[6]: 25Q2_BAU_Site_TreeGlider-Men_PDPStyling-01_Lifestyle_Desktop_1x1_576c708e-3dfa-4fe6-a2ba-88d67aa5aac2.jpg?v=1752085733&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[7]: 25Q2_BAU_Site_TreeGlider-Men_PDPStyling-02_Lifestyle_Desktop_1x1_700f51d2-96c9-479d-9319-3b4ad3d53012.jpg?v=1752085732&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[8]: 25Q2_BAU_Site_TreeGlider-Men_PDPStyling-03_Lifestyle_Desktop_1x1_50e7b123-e224-438e-9594-20fc81e801da.jpg?v=1752085733&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[9]: 792502ba9beb4508a2624553cc8dd4e0.thumbnail.0000000000.jpg?v=1751420408&width=1920
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[10]: 25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-01_Lifestyle_Desktop_1x1_59fbcc42-0b2e-4889-8d95-1dc29a76f066.jpg?v=1752083429&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.595Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[10]: 25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-02_Texture_Desktop_16x9_1fe87ea4-3e9a-449e-8887-9c2b37cacff4.jpg?v=1752083424&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.596Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[10]: 25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-03_Lifestyle_Desktop-Mobile_9x16_3d6653e0-1fc8-4006-a9da-12406163098e.jpg?v=1752087926&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.596Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[10]: 25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-04_Lifestyle_Desktop_9x16_59ea80cf-d384-4eb2-b604-9fc676fd29e0.jpg?v=1752083428&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.596Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[10]: 25Q2_BAU_Site_TreeGlider-Men_PDPColorGrid-05_Lifestyle_Desktop_16x9_6cb9fd4d-75f8-4961-a522-89f5a339ef18.jpg?v=1752083426&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.596Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[15]: Tree_Landscape_e7d71ddb-fbf5-426c-860a-1daec6e541d2.png?v=1751420373&width=2400
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.596Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[16]: A11035_24Q4_Tree_Dasher_2_Natural_Black_Multi_Stony_Cream_PDP_LEFT-1000x1000.png?w=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.596Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[17]: AA0023W_Shoe_Left_Global_Womens_Tree_Dasher_2_Natural_Black_Natural_Black.png?w=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.596Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[18]: A11485_25Q2_Tree-Runner-Go-Utility-Blizzard-Hazy-Pine-Natural-White_PDP_LEFT.png?w=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.596Z] INFO: [DEBUG] Allbirds adding image from .swiper-slide[19]: AA000UM_SHOE_LEFT_GLOBAL_MENS_TREE_DASHER_2.0_Medium_Grey_Light_Grey.png?w=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.597Z] INFO: [DEBUG] Allbirds found 1 containers for: [data-section-type="product-hero"]
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1000:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.597Z] INFO: [DEBUG] Allbirds adding image from [data-section-type="product-hero"][0]: A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_LEFT.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.597Z] INFO: [DEBUG] Allbirds adding image from [data-section-type="product-hero"][0]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_BACK-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.597Z] INFO: [DEBUG] Allbirds adding image from [data-section-type="product-hero"][0]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_TD-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.597Z] INFO: [DEBUG] Allbirds adding image from [data-section-type="product-hero"][0]: A11187_24Q4_Tree_Glider_Natural_Black_Rugged_Khaki_PDP_SOLE-1000x1000.png?v=1751323586&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.597Z] INFO: [DEBUG] Allbirds adding image from [data-section-type="product-hero"][0]: A11187_24Q4_Tree-Glider-Natural-Black-Rugged-Khaki_PDP_PAIR_3Q.png?v=1751323587&width=1024
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1009:23 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T00:56:45.597Z] INFO: [DEBUG] Allbirds found 19 total product images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1045:13) -> at scrapeProduct (<anonymous>:6207:63)
+
+[2025-10-12T00:56:45.601Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6460:7)
+
+[2025-10-12T00:56:45.601Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760230605062_bnma427og, saving 38 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

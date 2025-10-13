@@ -1,0 +1,44 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760085965183_570mn7dgt
+URL: https://edgebyks.com/products/z-back-washed-denim-micro-shorts
+Hostname: edgebyks.com
+Started: undefined
+Ended: 2025-10-10T08:46:08.096Z
+Total Logs: 12
+=========================
+
+[2025-10-10T08:46:05.184Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760085965183_570mn7dgt started for edgebyks.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:46:05.184Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:46:05.485Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:46:05.750Z] INFO: 🔍 PROCESSING IMAGES with 20 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5236:5)
+
+[2025-10-10T08:46:05.757Z] INFO: 🖼️ Raw enriched URLs collected: 40
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5392:5)
+
+[2025-10-10T08:46:06.219Z] INFO: ✅ Scroll complete - lazy loading triggered! (1000ms total)
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:27:13
+
+[2025-10-10T08:46:06.887Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5236:5)
+
+[2025-10-10T08:46:06.892Z] INFO: ❌ BLOCKED [Shopify theme asset]: logo_6eb9661f-ce1d-456d-ae49-52a508083d8e_1020x.png?v=1712153191
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5366:15)
+
+[2025-10-10T08:46:06.911Z] INFO: ❌ BLOCKED [Shopify theme asset]: logo_1020x.png?v=1710942203
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5366:15)
+
+[2025-10-10T08:46:06.912Z] INFO: 🖼️ Raw enriched URLs collected: 143
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5392:5)
+
+[2025-10-10T08:46:08.096Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:46:08.096Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760085965183_570mn7dgt, saving 11 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759689181713_dyms03mj1
+URL: https://www.thesupermade.com/products/the-supermade-hundred-high-street-board-shoes-couple-shoes?pr_prod_strat=jac&pr_rec_id=29a5354b4&pr_rec_pid=8054477848802&pr_ref_pid=8562834997474&pr_seq=uniform
+Hostname: thesupermade.com
+Started: undefined
+Ended: 2025-10-05T18:33:01.742Z
+Total Logs: 6
+=========================
+
+[2025-10-05T18:33:01.713Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759689181713_dyms03mj1 started for thesupermade.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4953:9)
+
+[2025-10-05T18:33:01.713Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4956:7)
+
+[2025-10-05T18:33:01.727Z] INFO: 🔍 PROCESSING IMAGES with 39 elements observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:33:01.730Z] INFO: 🖼️ Raw enriched URLs collected: 78
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:33:01.742Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5260:7)
+
+[2025-10-05T18:33:01.742Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759689181713_dyms03mj1, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

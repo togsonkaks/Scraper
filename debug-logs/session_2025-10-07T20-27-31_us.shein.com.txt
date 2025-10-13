@@ -1,0 +1,65 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759868851213_shc7msqfk
+URL: https://us.shein.com/MUSERA-Mid-Waist-Wide-Leg-Mid-Blue-Wash-Silver-Button-Detail-Denim-Jeans-Mid-Rise-Casual-Fall-Autumn-Winter-Night-Out-Back-To-School-Office-Work-Date-Night-Core-Denim-p-178491125.html?imgRatio=3-4
+Hostname: us.shein.com
+Started: undefined
+Ended: 2025-10-07T20:27:31.220Z
+Total Logs: 19
+=========================
+
+[2025-10-07T20:27:31.213Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759868851213_shc7msqfk started for us.shein.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2327:17) -> at scrapeProduct (<anonymous>:5081:9)
+
+[2025-10-07T20:27:31.213Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2327:17) -> at scrapeProduct (<anonymous>:5084:7)
+
+[2025-10-07T20:27:31.217Z] INFO: [DEBUG] LTWEBSTATIC (SHEIN/MUSERA) custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2142:13) -> at scrapeProduct (<anonymous>:5217:63)
+
+[2025-10-07T20:27:31.217Z] INFO: [DEBUG] LTWEBSTATIC: Found 12 containers with data-before-crop-src in main product area
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2155:13) -> at scrapeProduct (<anonymous>:5217:63)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17574983645b4f88c670d3e92eb2a9d8c446eda9a7
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 1757498366b3773dd96e637aa8f9b1ffa249a8a303
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17574983681193f93c944941e21023e36fdefd08ab
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17574983704d3a930db52299f8f74e958d01d81470
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 175749837128d48bd30ecb69c4acf52dae3b87e8ac
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17574983737f9d336904aa8da0493d58e6feb61914
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17574983645b4f88c670d3e92eb2a9d8c446eda9a7
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 1757498366b3773dd96e637aa8f9b1ffa249a8a303
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17574983681193f93c944941e21023e36fdefd08ab
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17574983704d3a930db52299f8f74e958d01d81470
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 175749837128d48bd30ecb69c4acf52dae3b87e8ac
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17574983737f9d336904aa8da0493d58e6feb61914
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2174:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:27:31.218Z] INFO: [DEBUG] LTWEBSTATIC: Collected 6 main product images (cross-sells eliminated)
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2182:13) -> at scrapeProduct (<anonymous>:5217:63)
+
+[2025-10-07T20:27:31.219Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2327:17) -> at scrapeProduct (<anonymous>:5437:7)
+
+[2025-10-07T20:27:31.219Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759868851213_shc7msqfk, saving 18 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

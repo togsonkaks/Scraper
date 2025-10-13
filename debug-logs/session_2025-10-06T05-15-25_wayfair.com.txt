@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759727725445_6fz7r5tcd
+URL: https://www.wayfair.com/outdoor/pdp/george-oliver-enloe-2875-patio-bar-stool-w005933448.html?piid=471934440
+Hostname: wayfair.com
+Started: undefined
+Ended: 2025-10-06T05:15:25.504Z
+Total Logs: 6
+=========================
+
+[2025-10-06T05:15:25.453Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759727725445_6fz7r5tcd started for wayfair.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4959:9)
+
+[2025-10-06T05:15:25.454Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4962:7)
+
+[2025-10-06T05:15:25.473Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:15:25.479Z] INFO: 🖼️ Raw enriched URLs collected: 420
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:15:25.504Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5266:7)
+
+[2025-10-06T05:15:25.504Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759727725445_6fz7r5tcd, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

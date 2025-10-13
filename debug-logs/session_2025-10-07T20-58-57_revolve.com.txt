@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759870737901_8qlzeqm3w
+URL: https://www.revolve.com/bronx-and-banco-geisha-maxi-dress-in-powder-blue/dp/BROR-WD749/?d=Womens&page=1&lc=2&itrownum=1&itcurrpage=1&itview=05&hsclk23191=2
+Hostname: revolve.com
+Started: undefined
+Ended: 2025-10-07T20:58:57.926Z
+Total Logs: 6
+=========================
+
+[2025-10-07T20:58:57.902Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759870737901_8qlzeqm3w started for revolve.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5078:9)
+
+[2025-10-07T20:58:57.902Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5081:7)
+
+[2025-10-07T20:58:57.912Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4438:5)
+
+[2025-10-07T20:58:57.916Z] INFO: 🖼️ Raw enriched URLs collected: 113
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4591:5)
+
+[2025-10-07T20:58:57.926Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5435:7)
+
+[2025-10-07T20:58:57.926Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759870737901_8qlzeqm3w, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

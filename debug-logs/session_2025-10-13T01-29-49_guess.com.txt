@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760318988968_b5owx75d0
+URL: https://www.guess.com/us/en/men/apparel/jeans-and-denim/tapered/finnley-slim-fit-tapered-jeans-black/M3YAS2D4QQ1-JBCT.html
+Hostname: guess.com
+Started: undefined
+Ended: 2025-10-13T01:29:49.508Z
+Total Logs: 5
+=========================
+
+[2025-10-13T01:29:48.978Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760318988968_b5owx75d0 started for guess.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6021:9)
+
+[2025-10-13T01:29:48.978Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6024:7)
+
+[2025-10-13T01:29:49.273Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-13T01:29:49.508Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6460:7)
+
+[2025-10-13T01:29:49.508Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760318988968_b5owx75d0, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760194907612_rc82bxv7s
+URL: https://www.costco.com/.product.11738132.html
+Hostname: costco.com
+Started: undefined
+Ended: 2025-10-11T15:01:48.265Z
+Total Logs: 7
+=========================
+
+[2025-10-11T15:01:47.621Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760194907612_rc82bxv7s started for costco.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6021:9)
+
+[2025-10-11T15:01:47.622Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6024:7)
+
+[2025-10-11T15:01:47.917Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-11T15:01:48.221Z] INFO: 🔍 PROCESSING IMAGES with 46 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5325:5)
+
+[2025-10-11T15:01:48.226Z] INFO: 🖼️ Raw enriched URLs collected: 46
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5481:5)
+
+[2025-10-11T15:01:48.264Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6455:7)
+
+[2025-10-11T15:01:48.264Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760194907612_rc82bxv7s, saving 6 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

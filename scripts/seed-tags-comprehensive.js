@@ -47,7 +47,7 @@ const COMPREHENSIVE_TAGS = {
     
     // Fitness Features
     'heart-rate-monitor', 'calorie-tracking', 'gps', 'step-counter', 'sleep-tracking',
-    'water-resistant', 'shock-resistant', 'impact-resistant'
+    'water-resistant', 'shock-resistant', 'impact-resistant', 'five-pocket'
   ],
 
   // MATERIALS (250+ tags)
@@ -80,7 +80,7 @@ const COMPREHENSIVE_TAGS = {
     'carbon-composite', 'alloy', 'galvanized-steel', 'reinforced-rubber', 'synthetic-rubber',
     
     // Beauty Materials
-    'mineral', 'plant-based', 'botanical', 'chemical-free', 'synthetic', 'natural-ingredients'
+    'mineral', 'plant-based', 'botanical', 'chemical-free', 'synthetic', 'natural-ingredients', 'stretch-denim'
   ],
 
   // COLORS & PATTERNS (200+ tags)
@@ -203,7 +203,7 @@ const COMPREHENSIVE_TAGS = {
     
     // Universal Sizing
     'adjustable-sizing', 'universal-fit', 'versatile-sizing', 'expandable',
-    'telescoping', 'retractable', 'variable-length'
+    'telescoping', 'retractable', 'variable-length', 'tapered', 'boxy', 'cropped'
   ],
 
   // OCCASIONS (100+ tags)

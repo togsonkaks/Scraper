@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759876008037_96hogsfjh
+URL: https://www.prettylittlething.us/cream-abstract-printed-halterneck-puffball-mini-dress.html
+Hostname: prettylittlething.us
+Started: undefined
+Ended: 2025-10-07T22:26:48.074Z
+Total Logs: 6
+=========================
+
+[2025-10-07T22:26:48.038Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759876008037_96hogsfjh started for prettylittlething.us
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5131:9)
+
+[2025-10-07T22:26:48.039Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5134:7)
+
+[2025-10-07T22:26:48.054Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4476:5)
+
+[2025-10-07T22:26:48.057Z] INFO: 🖼️ Raw enriched URLs collected: 26
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4629:5)
+
+[2025-10-07T22:26:48.073Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5488:7)
+
+[2025-10-07T22:26:48.074Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759876008037_96hogsfjh, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

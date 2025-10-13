@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760084214524_8grx086gy
+URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359
+Hostname: acehardware.com
+Started: undefined
+Ended: 2025-10-10T08:16:55.035Z
+Total Logs: 5
+=========================
+
+[2025-10-10T08:16:54.525Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760084214524_8grx086gy started for acehardware.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:16:54.525Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:16:54.832Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:16:55.035Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:16:55.035Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760084214524_8grx086gy, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

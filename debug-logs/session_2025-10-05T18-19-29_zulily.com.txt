@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759688369238_rnm79i4f5
+URL: https://www.zulily.com/products/alexandre-birman-clarita-summer-sandal
+Hostname: zulily.com
+Started: undefined
+Ended: 2025-10-05T18:19:29.268Z
+Total Logs: 6
+=========================
+
+[2025-10-05T18:19:29.246Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759688369238_rnm79i4f5 started for zulily.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4953:9)
+
+[2025-10-05T18:19:29.247Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4956:7)
+
+[2025-10-05T18:19:29.258Z] INFO: 🔍 PROCESSING IMAGES with 5 elements observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:19:29.261Z] INFO: 🖼️ Raw enriched URLs collected: 10
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:19:29.268Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5260:7)
+
+[2025-10-05T18:19:29.268Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759688369238_rnm79i4f5, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

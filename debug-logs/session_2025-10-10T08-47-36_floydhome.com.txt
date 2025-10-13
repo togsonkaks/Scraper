@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760086056104_55k0vn431
+URL: https://floydhome.com/products/sink-down-lounge-chair?variant=42934735798434
+Hostname: floydhome.com
+Started: undefined
+Ended: 2025-10-10T08:47:36.768Z
+Total Logs: 7
+=========================
+
+[2025-10-10T08:47:36.105Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760086056104_55k0vn431 started for floydhome.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:47:36.106Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:47:36.403Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:47:36.710Z] INFO: 🔍 PROCESSING IMAGES with 45 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5236:5)
+
+[2025-10-10T08:47:36.713Z] INFO: 🖼️ Raw enriched URLs collected: 43
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5392:5)
+
+[2025-10-10T08:47:36.767Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:47:36.768Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760086056104_55k0vn431, saving 6 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

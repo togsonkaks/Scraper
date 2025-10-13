@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759727570866_qlujrd7ci
+URL: https://www.theoutnet.com/en-us/shop/product/thom-browne/jackets/blazers/cotton-oxford-blazer/1647597350158618
+Hostname: theoutnet.com
+Started: undefined
+Ended: 2025-10-06T05:12:50.885Z
+Total Logs: 8
+=========================
+
+[2025-10-06T05:12:50.867Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759727570866_qlujrd7ci started for theoutnet.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4959:9)
+
+[2025-10-06T05:12:50.867Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4962:7)
+
+[2025-10-06T05:12:50.875Z] INFO: 🔍 PROCESSING IMAGES with 8 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:12:50.877Z] INFO: 🖼️ Raw enriched URLs collected: 10
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:12:50.881Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:12:50.882Z] INFO: 🖼️ Raw enriched URLs collected: 26
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:12:50.885Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5266:7)
+
+[2025-10-06T05:12:50.885Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759727570866_qlujrd7ci, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

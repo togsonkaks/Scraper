@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759688994563_1o5pxag1b
+URL: https://velourbeauty.com/products/velour-lash-adhesive-white-latex-free
+Hostname: velourbeauty.com
+Started: undefined
+Ended: 2025-10-05T18:29:54.636Z
+Total Logs: 8
+=========================
+
+[2025-10-05T18:29:54.571Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759688994563_1o5pxag1b started for velourbeauty.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4953:9)
+
+[2025-10-05T18:29:54.571Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4956:7)
+
+[2025-10-05T18:29:54.580Z] INFO: 🔍 PROCESSING IMAGES with 32 elements observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:29:54.584Z] INFO: ❌ BLOCKED [Shopify theme asset]: ICON_TYPE_OverProductIcon_Allure2019.png?v=1664565229&width=60
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4429:13)
+
+[2025-10-05T18:29:54.584Z] INFO: ❌ BLOCKED [Shopify theme asset]: ICON_TYPE_OverProductIcon_Allure2019.png?v=1664565229&width=60
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4429:13)
+
+[2025-10-05T18:29:54.584Z] INFO: 🖼️ Raw enriched URLs collected: 50
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:29:54.635Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5260:7)
+
+[2025-10-05T18:29:54.636Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759688994563_1o5pxag1b, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

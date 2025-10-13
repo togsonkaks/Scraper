@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759727594670_45cgnmein
+URL: https://www.thereformation.com/products/parma-silk-dress/1308597HYM.html?dwvar_1308597HYM_color=HYM
+Hostname: thereformation.com
+Started: undefined
+Ended: 2025-10-06T05:13:14.701Z
+Total Logs: 6
+=========================
+
+[2025-10-06T05:13:14.678Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759727594670_45cgnmein started for thereformation.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4959:9)
+
+[2025-10-06T05:13:14.679Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4962:7)
+
+[2025-10-06T05:13:14.690Z] INFO: 🔍 PROCESSING IMAGES with 18 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:13:14.693Z] INFO: 🖼️ Raw enriched URLs collected: 25
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:13:14.701Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5266:7)
+
+[2025-10-06T05:13:14.701Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759727594670_45cgnmein, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

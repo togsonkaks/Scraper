@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759878168839_p1g2z2ed7
+URL: https://www.missguided.com/product/Floral-Crinkle-Crop-Top-Smocked-Summer-Festival-Tank-Sleeveless-Textured-Casual-Spring-Boho-11265692595241600
+Hostname: missguided.com
+Started: undefined
+Ended: 2025-10-07T23:02:48.862Z
+Total Logs: 6
+=========================
+
+[2025-10-07T23:02:48.845Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759878168839_p1g2z2ed7 started for missguided.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5118:9)
+
+[2025-10-07T23:02:48.846Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5121:7)
+
+[2025-10-07T23:02:48.854Z] INFO: 🔍 PROCESSING IMAGES with 7 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4478:5)
+
+[2025-10-07T23:02:48.856Z] INFO: 🖼️ Raw enriched URLs collected: 7
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4631:5)
+
+[2025-10-07T23:02:48.862Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5475:7)
+
+[2025-10-07T23:02:48.862Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759878168839_p1g2z2ed7, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759729222717_wpk9oinjr
+URL: https://www.walgreens.com/store/c/tide-laundry-detergent,-3-in-1-stain-remover,-odor-fighter,-color-protector-original/ID=prod6283422-product
+Hostname: walgreens.com
+Started: undefined
+Ended: 2025-10-06T05:40:22.749Z
+Total Logs: 8
+=========================
+
+[2025-10-06T05:40:22.725Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759729222717_wpk9oinjr started for walgreens.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4960:9)
+
+[2025-10-06T05:40:22.725Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4963:7)
+
+[2025-10-06T05:40:22.735Z] INFO: 🔍 PROCESSING IMAGES with 2 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:40:22.737Z] INFO: 🖼️ Raw enriched URLs collected: 2
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:40:22.742Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:40:22.744Z] INFO: 🖼️ Raw enriched URLs collected: 59
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:40:22.749Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5267:7)
+
+[2025-10-06T05:40:22.749Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759729222717_wpk9oinjr, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

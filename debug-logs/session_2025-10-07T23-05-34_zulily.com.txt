@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759878334696_j4k9v7eeo
+URL: https://www.zulily.com/products/balenciaga-tourist-sandal
+Hostname: zulily.com
+Started: undefined
+Ended: 2025-10-07T23:05:34.741Z
+Total Logs: 6
+=========================
+
+[2025-10-07T23:05:34.706Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759878334696_j4k9v7eeo started for zulily.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5118:9)
+
+[2025-10-07T23:05:34.706Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5121:7)
+
+[2025-10-07T23:05:34.724Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4478:5)
+
+[2025-10-07T23:05:34.727Z] INFO: 🖼️ Raw enriched URLs collected: 28
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4631:5)
+
+[2025-10-07T23:05:34.740Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5475:7)
+
+[2025-10-07T23:05:34.741Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759878334696_j4k9v7eeo, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,62 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759943019172_8i4y98hzv
+URL: https://www.adidas.com/us/gazelle-indoor-shoes/IH5484.html?pr=pdpctl_rr&slot=4&rec=ds
+Hostname: adidas.com
+Started: undefined
+Ended: 2025-10-08T17:03:39.179Z
+Total Logs: 12
+=========================
+
+[2025-10-08T17:03:39.172Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759943019172_8i4y98hzv started for adidas.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5586:9)
+
+[2025-10-08T17:03:39.173Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5589:7)
+
+[2025-10-08T17:03:39.177Z] INFO: [DEBUG] Adidas custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1379:13) -> at scrapeProduct (<anonymous>:5756:63)
+
+[2025-10-08T17:03:39.177Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d059a37859e540e0a05ef26bbc9c8b35_9366/Gazelle_Indoor_Shoes_Pink_IH5484_01_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d059a37859e540e0a05ef26bbc9c8b35_9366/Gazelle_Indoor_Shoes_Pink_IH5484_01_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d059a37859e540e0a05ef26bbc9c8b35_9366/Gazelle_Indoor_Shoes_Pink_IH5484_01_standard.jpg"
+}
+
+[2025-10-08T17:03:39.177Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/948e961ff6494e2da823c77fbc7fc4b1_9366/Gazelle_Indoor_Shoes_Pink_IH5484_02_standard_hover.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/948e961ff6494e2da823c77fbc7fc4b1_9366/Gazelle_Indoor_Shoes_Pink_IH5484_02_standard_hover.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/948e961ff6494e2da823c77fbc7fc4b1_9366/Gazelle_Indoor_Shoes_Pink_IH5484_02_standard_hover.jpg"
+}
+
+[2025-10-08T17:03:39.177Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/4c68077a733d47eea53c8c588242e3a4_9366/Gazelle_Indoor_Shoes_Pink_IH5484_03_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/4c68077a733d47eea53c8c588242e3a4_9366/Gazelle_Indoor_Shoes_Pink_IH5484_03_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/4c68077a733d47eea53c8c588242e3a4_9366/Gazelle_Indoor_Shoes_Pink_IH5484_03_standard.jpg"
+}
+
+[2025-10-08T17:03:39.177Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d059a37859e540e0a05ef26bbc9c8b35_9366/Gazelle_Indoor_Shoes_Pink_IH5484_01_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d059a37859e540e0a05ef26bbc9c8b35_9366/Gazelle_Indoor_Shoes_Pink_IH5484_01_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d059a37859e540e0a05ef26bbc9c8b35_9366/Gazelle_Indoor_Shoes_Pink_IH5484_01_standard.jpg"
+}
+
+[2025-10-08T17:03:39.177Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/948e961ff6494e2da823c77fbc7fc4b1_9366/Gazelle_Indoor_Shoes_Pink_IH5484_02_standard_hover.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/948e961ff6494e2da823c77fbc7fc4b1_9366/Gazelle_Indoor_Shoes_Pink_IH5484_02_standard_hover.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/948e961ff6494e2da823c77fbc7fc4b1_9366/Gazelle_Indoor_Shoes_Pink_IH5484_02_standard_hover.jpg"
+}
+
+[2025-10-08T17:03:39.178Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/4c68077a733d47eea53c8c588242e3a4_9366/Gazelle_Indoor_Shoes_Pink_IH5484_03_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/4c68077a733d47eea53c8c588242e3a4_9366/Gazelle_Indoor_Shoes_Pink_IH5484_03_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/4c68077a733d47eea53c8c588242e3a4_9366/Gazelle_Indoor_Shoes_Pink_IH5484_03_standard.jpg"
+}
+
+[2025-10-08T17:03:39.178Z] INFO: [DEBUG] Adidas found 3 real PDP images, 0 other images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1414:13) -> at scrapeProduct (<anonymous>:5756:63)
+
+[2025-10-08T17:03:39.179Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5993:7)
+
+[2025-10-08T17:03:39.179Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759943019172_8i4y98hzv, saving 11 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

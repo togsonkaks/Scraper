@@ -1,0 +1,59 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759870703924_exz7975ry
+URL: https://us.shein.com/MUSERA-Low-Rise-Straight-Leg-Pocketed-Denim-Jeans-With-Belt-Loops-Bottom-Only-Spring-Summer-Casual-The-Book-Shop-Holiday-Festival-Concert-Western-Vacation-p-58879720.html?mallCode=1
+Hostname: us.shein.com
+Started: undefined
+Ended: 2025-10-07T20:58:23.950Z
+Total Logs: 17
+=========================
+
+[2025-10-07T20:58:23.934Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759870703924_exz7975ry started for us.shein.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5078:9)
+
+[2025-10-07T20:58:23.935Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5081:7)
+
+[2025-10-07T20:58:23.944Z] INFO: [DEBUG] LTWEBSTATIC (SHEIN/MUSERA) custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2142:13) -> at scrapeProduct (<anonymous>:5214:63)
+
+[2025-10-07T20:58:23.944Z] INFO: [DEBUG] LTWEBSTATIC: Found 10 containers with data-before-crop-src in main product area
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2155:13) -> at scrapeProduct (<anonymous>:5214:63)
+
+[2025-10-07T20:58:23.944Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 1740625687611a525b51a4989f305c0a48dbcfedee
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 174062569150684d31abe677de063c571fea0822a7
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 1740625694002d314c3453e9040463679deaa019d4
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17406256975fa4353af333124432ae1eba6adf2513
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 1740625700f88d940f443e54ec4d0342277624fc65
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 1740625687611a525b51a4989f305c0a48dbcfedee
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 174062569150684d31abe677de063c571fea0822a7
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 1740625694002d314c3453e9040463679deaa019d4
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 17406256975fa4353af333124432ae1eba6adf2513
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Added image: 1740625700f88d940f443e54ec4d0342277624fc65
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2170:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-07T20:58:23.945Z] INFO: [DEBUG] LTWEBSTATIC: Collected 10 main product images (cross-sells eliminated)
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2178:13) -> at scrapeProduct (<anonymous>:5214:63)
+
+[2025-10-07T20:58:23.950Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5435:7)
+
+[2025-10-07T20:58:23.950Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759870703924_exz7975ry, saving 16 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

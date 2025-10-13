@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759730009377_0oncpjavn
+URL: https://www.walgreens.com/store/c/persil-proclean-liquid-laundry-detergent-intense-fresh/ID=prod6370872-product?criteria=Similar%20Products&product=791297&position=14&source=target
+Hostname: walgreens.com
+Started: undefined
+Ended: 2025-10-06T05:53:29.410Z
+Total Logs: 8
+=========================
+
+[2025-10-06T05:53:29.383Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759730009377_0oncpjavn started for walgreens.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4960:9)
+
+[2025-10-06T05:53:29.384Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4963:7)
+
+[2025-10-06T05:53:29.394Z] INFO: 🔍 PROCESSING IMAGES with 1 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:53:29.396Z] INFO: 🖼️ Raw enriched URLs collected: 1
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:53:29.400Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:53:29.402Z] INFO: 🖼️ Raw enriched URLs collected: 56
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:53:29.410Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5267:7)
+
+[2025-10-06T05:53:29.410Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759730009377_0oncpjavn, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

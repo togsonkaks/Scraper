@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760314584574_plqveiomy
+URL: https://www.guess.com/us/en/women/apparel/jackets-and-coats/lightweight/eco-myles-canvas-field-jacket-green/W5BL0BWL372-F8GU.html
+Hostname: guess.com
+Started: undefined
+Ended: 2025-10-13T00:16:25.086Z
+Total Logs: 5
+=========================
+
+[2025-10-13T00:16:24.575Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760314584574_plqveiomy started for guess.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6021:9)
+
+[2025-10-13T00:16:24.575Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6024:7)
+
+[2025-10-13T00:16:24.874Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-13T00:16:25.086Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6460:7)
+
+[2025-10-13T00:16:25.086Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760314584574_plqveiomy, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

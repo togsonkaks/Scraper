@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759686019375_o1xx6kblf
+URL: https://www.theoutnet.com/en-us/shop/product/altuzarra/skirts/mini-skirts/bow-detailed-cotton-poplin-mini-skirt/1647597348274232
+Hostname: theoutnet.com
+Started: undefined
+Ended: 2025-10-05T17:40:19.387Z
+Total Logs: 6
+=========================
+
+[2025-10-05T17:40:19.375Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759686019375_o1xx6kblf started for theoutnet.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4929:9)
+
+[2025-10-05T17:40:19.375Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4932:7)
+
+[2025-10-05T17:40:19.380Z] INFO: 🔍 PROCESSING IMAGES with 8 elements observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T17:40:19.382Z] INFO: 🖼️ Raw enriched URLs collected: 10
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T17:40:19.387Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5236:7)
+
+[2025-10-05T17:40:19.387Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759686019375_o1xx6kblf, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

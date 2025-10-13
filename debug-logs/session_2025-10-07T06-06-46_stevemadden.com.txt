@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759817206404_1b0exye3q
+URL: https://www.stevemadden.com/collections/kids-sporty-chic/products/jjerseyc-silver
+Hostname: stevemadden.com
+Started: undefined
+Ended: 2025-10-07T06:06:46.479Z
+Total Logs: 6
+=========================
+
+[2025-10-07T06:06:46.406Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759817206404_1b0exye3q started for stevemadden.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5021:9)
+
+[2025-10-07T06:06:46.407Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5024:7)
+
+[2025-10-07T06:06:46.454Z] INFO: 🔍 PROCESSING IMAGES with 18 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4384:5)
+
+[2025-10-07T06:06:46.460Z] INFO: 🖼️ Raw enriched URLs collected: 42
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4536:5)
+
+[2025-10-07T06:06:46.478Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5377:7)
+
+[2025-10-07T06:06:46.478Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759817206404_1b0exye3q, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760085131869_gez5r2trq
+URL: https://www.asos.com/us/nike/nike-shox-r4-sneakers-in-black-and-silver/prd/207494721#colourWayId-207494724
+Hostname: asos.com
+Started: undefined
+Ended: 2025-10-10T08:32:12.396Z
+Total Logs: 5
+=========================
+
+[2025-10-10T08:32:11.877Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760085131869_gez5r2trq started for asos.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:32:11.878Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:32:12.174Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:32:12.396Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:32:12.396Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760085131869_gez5r2trq, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

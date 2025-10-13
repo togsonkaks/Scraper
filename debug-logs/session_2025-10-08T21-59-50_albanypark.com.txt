@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759960790370_hlfsxtiac
+URL: https://www.albanypark.com/collections/all/products/lido-armchair?variant=41850492092467
+Hostname: albanypark.com
+Started: undefined
+Ended: 2025-10-08T21:59:50.982Z
+Total Logs: 5
+=========================
+
+[2025-10-08T21:59:50.371Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759960790370_hlfsxtiac started for albanypark.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5709:9)
+
+[2025-10-08T21:59:50.372Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5712:7)
+
+[2025-10-08T21:59:50.671Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-08T21:59:50.981Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6121:7)
+
+[2025-10-08T21:59:50.982Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759960790370_hlfsxtiac, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

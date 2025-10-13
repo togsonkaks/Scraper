@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760085797338_i0z0119rm
+URL: https://www.asos.com/us/jj-rebel/jj-rebel-oversized-textured-sweater-in-black/prd/208994371#ctaref-we%20recommend%20carousel_11&featureref1-we%20recommend%20pers
+Hostname: asos.com
+Started: undefined
+Ended: 2025-10-10T08:43:17.891Z
+Total Logs: 5
+=========================
+
+[2025-10-10T08:43:17.339Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760085797338_i0z0119rm started for asos.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:43:17.340Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:43:17.646Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:43:17.890Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:43:17.890Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760085797338_i0z0119rm, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

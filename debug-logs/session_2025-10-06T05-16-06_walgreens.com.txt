@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759727766260_gqtm4vmc1
+URL: https://www.walgreens.com/store/c/sally-hansen-hard-as-nails-nail-hardener/ID=prod6373453-product?criteria=More%20To%20Explore&product=836846&position=3&source=elastic
+Hostname: walgreens.com
+Started: undefined
+Ended: 2025-10-06T05:16:06.289Z
+Total Logs: 6
+=========================
+
+[2025-10-06T05:16:06.268Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759727766260_gqtm4vmc1 started for walgreens.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4959:9)
+
+[2025-10-06T05:16:06.271Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4962:7)
+
+[2025-10-06T05:16:06.280Z] INFO: 🔍 PROCESSING IMAGES with 47 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:16:06.282Z] INFO: 🖼️ Raw enriched URLs collected: 36
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:16:06.289Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5266:7)
+
+[2025-10-06T05:16:06.289Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759727766260_gqtm4vmc1, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

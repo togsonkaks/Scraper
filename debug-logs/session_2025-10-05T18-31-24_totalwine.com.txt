@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759689084839_wx686ettb
+URL: https://www.totalwine.com/spirits/tequila/blancosilver/fortaleza-blanco-tequila/p/109701750
+Hostname: totalwine.com
+Started: undefined
+Ended: 2025-10-05T18:31:24.875Z
+Total Logs: 8
+=========================
+
+[2025-10-05T18:31:24.846Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759689084839_wx686ettb started for totalwine.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4953:9)
+
+[2025-10-05T18:31:24.846Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4956:7)
+
+[2025-10-05T18:31:24.860Z] INFO: 🔍 PROCESSING IMAGES with 1 elements observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:31:24.861Z] INFO: 🖼️ Raw enriched URLs collected: 2
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:31:24.865Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:31:24.867Z] INFO: 🖼️ Raw enriched URLs collected: 29
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:31:24.875Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5260:7)
+
+[2025-10-05T18:31:24.875Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759689084839_wx686ettb, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

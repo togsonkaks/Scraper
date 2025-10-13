@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759813947361_texom32z9
+URL: https://www.swarovski.com/en-US/p-M5732381/Idyllia-drop-earrings-Mixed-cuts-Flower-Multicolored-Gold-tone-plated/?variantID=5732381
+Hostname: swarovski.com
+Started: undefined
+Ended: 2025-10-07T05:12:27.390Z
+Total Logs: 6
+=========================
+
+[2025-10-07T05:12:27.361Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759813947361_texom32z9 started for swarovski.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5017:9)
+
+[2025-10-07T05:12:27.362Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5020:7)
+
+[2025-10-07T05:12:27.367Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4380:5)
+
+[2025-10-07T05:12:27.375Z] INFO: 🖼️ Raw enriched URLs collected: 281
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4532:5)
+
+[2025-10-07T05:12:27.390Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5373:7)
+
+[2025-10-07T05:12:27.390Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759813947361_texom32z9, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

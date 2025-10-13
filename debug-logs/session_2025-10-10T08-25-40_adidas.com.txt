@@ -1,0 +1,65 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760084740265_0xsw084dt
+URL: https://www.adidas.com/us/adidas-originals-campus-2000-back-cut-out-rib-tee/KE3737.html?pr=product_rr&slot=12&rec=ds
+Hostname: adidas.com
+Started: undefined
+Ended: 2025-10-10T08:25:40.788Z
+Total Logs: 13
+=========================
+
+[2025-10-10T08:25:40.266Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760084740265_0xsw084dt started for adidas.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:25:40.266Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:25:40.575Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:25:40.782Z] INFO: [DEBUG] Adidas custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1379:13) -> at scrapeProduct (<anonymous>:6118:63)
+
+[2025-10-10T08:25:40.783Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6a227d94908c40ca804b1f4b06ffe02c_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_21_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6a227d94908c40ca804b1f4b06ffe02c_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_21_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6a227d94908c40ca804b1f4b06ffe02c_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_21_model.jpg"
+}
+
+[2025-10-10T08:25:40.783Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8c913cf2859c486b869f5d7b9af0fef9_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_23_hover_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8c913cf2859c486b869f5d7b9af0fef9_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_23_hover_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8c913cf2859c486b869f5d7b9af0fef9_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_23_hover_model.jpg"
+}
+
+[2025-10-10T08:25:40.783Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/013786d787a74191b112af14b7ec6ab1_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_25_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/013786d787a74191b112af14b7ec6ab1_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_25_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/013786d787a74191b112af14b7ec6ab1_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_25_model.jpg"
+}
+
+[2025-10-10T08:25:40.784Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6a227d94908c40ca804b1f4b06ffe02c_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_21_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6a227d94908c40ca804b1f4b06ffe02c_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_21_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/6a227d94908c40ca804b1f4b06ffe02c_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_21_model.jpg"
+}
+
+[2025-10-10T08:25:40.784Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8c913cf2859c486b869f5d7b9af0fef9_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_23_hover_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8c913cf2859c486b869f5d7b9af0fef9_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_23_hover_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8c913cf2859c486b869f5d7b9af0fef9_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_23_hover_model.jpg"
+}
+
+[2025-10-10T08:25:40.784Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/013786d787a74191b112af14b7ec6ab1_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_25_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/013786d787a74191b112af14b7ec6ab1_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_25_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/013786d787a74191b112af14b7ec6ab1_9366/adidas_Originals_Campus_2000_Back_Cut_Out_Rib_Tee_Pink_KE3737_25_model.jpg"
+}
+
+[2025-10-10T08:25:40.785Z] INFO: [DEBUG] Adidas found 3 real PDP images, 0 other images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1414:13) -> at scrapeProduct (<anonymous>:6118:63)
+
+[2025-10-10T08:25:40.788Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:25:40.788Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760084740265_0xsw084dt, saving 12 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

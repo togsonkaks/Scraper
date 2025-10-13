@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759820019208_1xhyvlqbv
+URL: https://www.ssense.com/en-us/men/product/craig-green/blue-patchwork-shirt/17275711
+Hostname: ssense.com
+Started: undefined
+Ended: 2025-10-07T06:53:39.236Z
+Total Logs: 8
+=========================
+
+[2025-10-07T06:53:39.209Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759820019208_1xhyvlqbv started for ssense.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5024:9)
+
+[2025-10-07T06:53:39.209Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5027:7)
+
+[2025-10-07T06:53:39.219Z] INFO: 🔍 PROCESSING IMAGES with 16 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4385:5)
+
+[2025-10-07T06:53:39.222Z] INFO: 🖼️ Raw enriched URLs collected: 48
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4538:5)
+
+[2025-10-07T06:53:39.230Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4385:5)
+
+[2025-10-07T06:53:39.231Z] INFO: 🖼️ Raw enriched URLs collected: 18
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4538:5)
+
+[2025-10-07T06:53:39.235Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5380:7)
+
+[2025-10-07T06:53:39.235Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759820019208_1xhyvlqbv, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

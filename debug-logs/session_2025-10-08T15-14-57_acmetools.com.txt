@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759936497918_t7dwfoi7r
+URL: https://www.acmetools.com/bosch-18v-brushless-9-inch-cutoff-saw-kit-gcs18v-230n212/S0000000088753.html
+Hostname: acmetools.com
+Started: undefined
+Ended: 2025-10-08T15:14:57.935Z
+Total Logs: 4
+=========================
+
+[2025-10-08T15:14:57.928Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759936497918_t7dwfoi7r started for acmetools.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5247:9)
+
+[2025-10-08T15:14:57.928Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5250:7)
+
+[2025-10-08T15:14:57.935Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5627:7)
+
+[2025-10-08T15:14:57.935Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759936497918_t7dwfoi7r, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

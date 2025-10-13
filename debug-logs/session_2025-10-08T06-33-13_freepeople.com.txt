@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759905193957_x9hqy9ni5
+URL: https://www.freepeople.com/fpmovement/shop/in-the-wild-long-shorts/?color=101&source=PRODUCTIDPRODUCTTRAY&type=REGULAR&quantity=1
+Hostname: freepeople.com
+Started: undefined
+Ended: 2025-10-08T06:33:13.998Z
+Total Logs: 6
+=========================
+
+[2025-10-08T06:33:13.966Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759905193957_x9hqy9ni5 started for freepeople.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5185:9)
+
+[2025-10-08T06:33:13.967Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5188:7)
+
+[2025-10-08T06:33:13.982Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4542:5)
+
+[2025-10-08T06:33:13.986Z] INFO: 🖼️ Raw enriched URLs collected: 31
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4698:5)
+
+[2025-10-08T06:33:13.997Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5555:7)
+
+[2025-10-08T06:33:13.997Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759905193957_x9hqy9ni5, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

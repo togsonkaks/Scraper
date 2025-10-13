@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759876083590_dlfxi3l1f
+URL: https://www.nike.com/t/stride-mens-dri-fit-running-waffle-crew-3pllNN/HV2705-010
+Hostname: nike.com
+Started: undefined
+Ended: 2025-10-07T22:28:03.613Z
+Total Logs: 6
+=========================
+
+[2025-10-07T22:28:03.597Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759876083590_dlfxi3l1f started for nike.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5131:9)
+
+[2025-10-07T22:28:03.598Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5134:7)
+
+[2025-10-07T22:28:03.609Z] INFO: [DEBUG] Nike custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1304:13) -> at scrapeProduct (<anonymous>:5267:63)
+
+[2025-10-07T22:28:03.610Z] INFO: [DEBUG] Nike found 11 high-res images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1370:13) -> at scrapeProduct (<anonymous>:5267:63)
+
+[2025-10-07T22:28:03.613Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5488:7)
+
+[2025-10-07T22:28:03.613Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759876083590_dlfxi3l1f, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759897654621_wc1n6mv52
+URL: https://thefrankieshop.com/products/mirca-striped-silk-elastic-pants-black-white-stripe
+Hostname: thefrankieshop.com
+Started: undefined
+Ended: 2025-10-08T04:27:34.676Z
+Total Logs: 7
+=========================
+
+[2025-10-08T04:27:34.627Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759897654621_wc1n6mv52 started for thefrankieshop.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5212:9)
+
+[2025-10-08T04:27:34.628Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5215:7)
+
+[2025-10-08T04:27:34.644Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4503:5)
+
+[2025-10-08T04:27:34.648Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: MIRCA-STRIPED-SILK-ELASTIC-PANTS-BLACK-WHITE-STRIPE-ATIKAH-00242.jpg?v=1753366011799&options=w_2085
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4633:15)
+
+[2025-10-08T04:27:34.651Z] INFO: 🖼️ Raw enriched URLs collected: 276
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4659:5)
+
+[2025-10-08T04:27:34.676Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5569:7)
+
+[2025-10-08T04:27:34.676Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759897654621_wc1n6mv52, saving 6 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

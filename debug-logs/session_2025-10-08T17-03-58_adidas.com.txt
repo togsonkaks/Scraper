@@ -1,0 +1,74 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759943038641_uw5crefcc
+URL: https://www.adidas.com/us/relaxed-strap-back-hat/JK5488.html?pr=pdpctl_rr&slot=2&rec=ds
+Hostname: adidas.com
+Started: undefined
+Ended: 2025-10-08T17:03:58.649Z
+Total Logs: 14
+=========================
+
+[2025-10-08T17:03:58.642Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759943038641_uw5crefcc started for adidas.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5586:9)
+
+[2025-10-08T17:03:58.642Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5589:7)
+
+[2025-10-08T17:03:58.646Z] INFO: [DEBUG] Adidas custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1379:13) -> at scrapeProduct (<anonymous>:5756:63)
+
+[2025-10-08T17:03:58.646Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ad142f2a2e4245f8a55de1348218c009_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_01_00_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ad142f2a2e4245f8a55de1348218c009_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_01_00_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ad142f2a2e4245f8a55de1348218c009_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_01_00_standard.jpg"
+}
+
+[2025-10-08T17:03:58.646Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3032ddcd6b2441d9aac99d6a2251aa7a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_02_standard_hover.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3032ddcd6b2441d9aac99d6a2251aa7a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_02_standard_hover.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3032ddcd6b2441d9aac99d6a2251aa7a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_02_standard_hover.jpg"
+}
+
+[2025-10-08T17:03:58.646Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8a5e75f681f2401dae8ff36b4f7c6c0f_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_25_outfit.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8a5e75f681f2401dae8ff36b4f7c6c0f_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_25_outfit.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8a5e75f681f2401dae8ff36b4f7c6c0f_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_25_outfit.jpg"
+}
+
+[2025-10-08T17:03:58.646Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ec7f79254c8c4ec4bee168892937811a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_41_detail.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ec7f79254c8c4ec4bee168892937811a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_41_detail.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ec7f79254c8c4ec4bee168892937811a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_41_detail.jpg"
+}
+
+[2025-10-08T17:03:58.646Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ad142f2a2e4245f8a55de1348218c009_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_01_00_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ad142f2a2e4245f8a55de1348218c009_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_01_00_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ad142f2a2e4245f8a55de1348218c009_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_01_00_standard.jpg"
+}
+
+[2025-10-08T17:03:58.647Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3032ddcd6b2441d9aac99d6a2251aa7a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_02_standard_hover.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3032ddcd6b2441d9aac99d6a2251aa7a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_02_standard_hover.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/3032ddcd6b2441d9aac99d6a2251aa7a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_02_standard_hover.jpg"
+}
+
+[2025-10-08T17:03:58.647Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8a5e75f681f2401dae8ff36b4f7c6c0f_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_25_outfit.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8a5e75f681f2401dae8ff36b4f7c6c0f_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_25_outfit.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8a5e75f681f2401dae8ff36b4f7c6c0f_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_25_outfit.jpg"
+}
+
+[2025-10-08T17:03:58.647Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ec7f79254c8c4ec4bee168892937811a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_41_detail.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ec7f79254c8c4ec4bee168892937811a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_41_detail.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/ec7f79254c8c4ec4bee168892937811a_9366/Relaxed_Strap_Back_Hat_Brown_JK5488_41_detail.jpg"
+}
+
+[2025-10-08T17:03:58.647Z] INFO: [DEBUG] Adidas found 4 real PDP images, 0 other images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1414:13) -> at scrapeProduct (<anonymous>:5756:63)
+
+[2025-10-08T17:03:58.648Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5993:7)
+
+[2025-10-08T17:03:58.649Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759943038641_uw5crefcc, saving 13 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

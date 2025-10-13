@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760168663883_ut8bwb50j
+URL: https://www.costco.com/saferacks-storage-bin-rack-5-tote-capacity-nsf-certified.product.100677580.html
+Hostname: costco.com
+Started: undefined
+Ended: 2025-10-11T07:44:24.467Z
+Total Logs: 5
+=========================
+
+[2025-10-11T07:44:23.892Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760168663883_ut8bwb50j started for costco.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:5941:9)
+
+[2025-10-11T07:44:23.892Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:5944:7)
+
+[2025-10-11T07:44:24.186Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-11T07:44:24.466Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6375:7)
+
+[2025-10-11T07:44:24.467Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760168663883_ut8bwb50j, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759728504717_73gf8ftkr
+URL: https://www.walgreens.com/store/c/sally-hansen-hard-as-nails-hardener/ID=prod6375286-product?criteria=More%20To%20Explore&product=835104&position=1&source=elastic
+Hostname: walgreens.com
+Started: undefined
+Ended: 2025-10-06T05:28:24.749Z
+Total Logs: 8
+=========================
+
+[2025-10-06T05:28:24.724Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759728504717_73gf8ftkr started for walgreens.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4960:9)
+
+[2025-10-06T05:28:24.727Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4963:7)
+
+[2025-10-06T05:28:24.736Z] INFO: 🔍 PROCESSING IMAGES with 1 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:28:24.737Z] INFO: 🖼️ Raw enriched URLs collected: 1
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:28:24.740Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:28:24.742Z] INFO: 🖼️ Raw enriched URLs collected: 56
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:28:24.749Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5267:7)
+
+[2025-10-06T05:28:24.749Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759728504717_73gf8ftkr, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

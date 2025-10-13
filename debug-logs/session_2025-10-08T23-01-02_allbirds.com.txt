@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759964462413_rt22x0ezo
+URL: https://www.allbirds.com/products/mens-tree-gliders-natural-black-rugged-khaki
+Hostname: allbirds.com
+Started: undefined
+Ended: 2025-10-08T23:01:02.939Z
+Total Logs: 5
+=========================
+
+[2025-10-08T23:01:02.415Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759964462413_rt22x0ezo started for allbirds.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5773:9)
+
+[2025-10-08T23:01:02.416Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5776:7)
+
+[2025-10-08T23:01:02.695Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-08T23:01:02.939Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6185:7)
+
+[2025-10-08T23:01:02.939Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759964462413_rt22x0ezo, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

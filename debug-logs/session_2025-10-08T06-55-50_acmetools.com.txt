@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759906550424_yn6wjsgpa
+URL: https://www.acmetools.com/bosch-18v-brushless-9-inch-cutoff-saw-kit-gcs18v-230n212/S0000000088753.html
+Hostname: acmetools.com
+Started: undefined
+Ended: 2025-10-08T06:55:50.476Z
+Total Logs: 6
+=========================
+
+[2025-10-08T06:55:50.433Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759906550424_yn6wjsgpa started for acmetools.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5191:9)
+
+[2025-10-08T06:55:50.434Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5194:7)
+
+[2025-10-08T06:55:50.448Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4548:5)
+
+[2025-10-08T06:55:50.454Z] INFO: 🖼️ Raw enriched URLs collected: 479
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4704:5)
+
+[2025-10-08T06:55:50.476Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5571:7)
+
+[2025-10-08T06:55:50.476Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759906550424_yn6wjsgpa, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

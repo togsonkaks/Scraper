@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760164417365_9d1i13hup
+URL: https://www.costco.com/saferacks-storage-bin-rack-5-tote-capacity-nsf-certified.product.100677580.html
+Hostname: costco.com
+Started: undefined
+Ended: 2025-10-11T06:33:38.012Z
+Total Logs: 7
+=========================
+
+[2025-10-11T06:33:37.366Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760164417365_9d1i13hup started for costco.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-11T06:33:37.366Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-11T06:33:37.664Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-11T06:33:37.959Z] INFO: 🔍 PROCESSING IMAGES with 52 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5236:5)
+
+[2025-10-11T06:33:37.964Z] INFO: 🖼️ Raw enriched URLs collected: 52
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5392:5)
+
+[2025-10-11T06:33:38.011Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6366:7)
+
+[2025-10-11T06:33:38.012Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760164417365_9d1i13hup, saving 6 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760242052786_8ywadjkoy
+URL: https://www.acmetools.com/klein-tools-modbox-tool-tote-62202mb/092644620379.html
+Hostname: acmetools.com
+Started: undefined
+Ended: 2025-10-12T04:07:33.325Z
+Total Logs: 5
+=========================
+
+[2025-10-12T04:07:32.795Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760242052786_8ywadjkoy started for acmetools.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6021:9)
+
+[2025-10-12T04:07:32.795Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6024:7)
+
+[2025-10-12T04:07:33.086Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-12T04:07:33.324Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6460:7)
+
+[2025-10-12T04:07:33.325Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760242052786_8ywadjkoy, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

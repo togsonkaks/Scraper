@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759732649813_16gj4rxzv
+URL: https://www.the-citizenry.com/products/imabari-waffle-towels?v=46270214471867
+Hostname: the-citizenry.com
+Started: undefined
+Ended: 2025-10-06T06:37:29.848Z
+Total Logs: 6
+=========================
+
+[2025-10-06T06:37:29.821Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759732649813_16gj4rxzv started for the-citizenry.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4973:9)
+
+[2025-10-06T06:37:29.822Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4976:7)
+
+[2025-10-06T06:37:29.831Z] INFO: 🔍 PROCESSING IMAGES with 86 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4336:5)
+
+[2025-10-06T06:37:29.834Z] INFO: 🖼️ Raw enriched URLs collected: 86
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4488:5)
+
+[2025-10-06T06:37:29.847Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5280:7)
+
+[2025-10-06T06:37:29.847Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759732649813_16gj4rxzv, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

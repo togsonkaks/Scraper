@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759809896718_p4vf8poke
+URL: https://www.kohls.com/product/prd-7663979/juniors-so-ruffle-tier-mini-dress.jsp?color=Red+Aurora+Floral&prdPV=1&isClearance=false
+Hostname: kohls.com
+Started: undefined
+Ended: 2025-10-07T04:04:56.906Z
+Total Logs: 6
+=========================
+
+[2025-10-07T04:04:56.719Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759809896718_p4vf8poke started for kohls.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4973:9)
+
+[2025-10-07T04:04:56.720Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4976:7)
+
+[2025-10-07T04:04:56.743Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4336:5)
+
+[2025-10-07T04:04:56.760Z] INFO: 🖼️ Raw enriched URLs collected: 83
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4488:5)
+
+[2025-10-07T04:04:56.905Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5280:7)
+
+[2025-10-07T04:04:56.906Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759809896718_p4vf8poke, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

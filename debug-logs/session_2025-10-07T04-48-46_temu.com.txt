@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759812526441_fsk29uw8x
+URL: https://www.temu.com/under-desk-elliptical-machine-ellipse-leg-exerciser-for-seniors-fully-assembled-quiet-portable-electric-seated-pedal-exerciser-with-remote-control-12-adjustable--g-601099564393478.html?_oak_name_id=1669034074491850520&_oak_mp_inf=EIbIirCm1ogBGiA4YWMyZDM1OWQ0M2I0MjA1ODJkYmI2NTkwNTNmNmY0MCCqn4Hy%2BzI%3D&top_gallery_url=https%3A%2F%2Fimg.kwcdn.com%2Fproduct%2Ffancy%2F547eb87f-02c3-41ed-a0d7-48aa24d6b4c3.jpg&spec_gallery_id=2113202734&refer_page_sn=10005&refer_source=0&freesia_scene=1&_oak_freesia_scene=1&_oak_rec_ext_1=NTk3Mg&_oak_gallery_order=1859488978%2C453870469%2C904989385%2C499530131%2C2037507360&refer_page_el_sn=200024&_x_channel_src=1&_x_channel_scene=spike&_x_sessn_id=0qc8xwbpni&refer_page_name=home&refer_page_id=10005_1751243574485_kt4c8e9p3p
+Hostname: temu.com
+Started: undefined
+Ended: 2025-10-07T04:48:46.495Z
+Total Logs: 6
+=========================
+
+[2025-10-07T04:48:46.447Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759812526441_fsk29uw8x started for temu.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4998:9)
+
+[2025-10-07T04:48:46.447Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5001:7)
+
+[2025-10-07T04:48:46.460Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4361:5)
+
+[2025-10-07T04:48:46.478Z] INFO: 🖼️ Raw enriched URLs collected: 214
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4513:5)
+
+[2025-10-07T04:48:46.494Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5354:7)
+
+[2025-10-07T04:48:46.494Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759812526441_fsk29uw8x, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

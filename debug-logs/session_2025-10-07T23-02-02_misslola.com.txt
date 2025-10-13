@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759878122431_qerbpxtn0
+URL: https://www.misslola.com/collections/cowgirl-collection/products/abby-brown-cowgirl-boots
+Hostname: misslola.com
+Started: undefined
+Ended: 2025-10-07T23:02:02.449Z
+Total Logs: 7
+=========================
+
+[2025-10-07T23:02:02.431Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759878122431_qerbpxtn0 started for misslola.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5118:9)
+
+[2025-10-07T23:02:02.431Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5121:7)
+
+[2025-10-07T23:02:02.442Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4478:5)
+
+[2025-10-07T23:02:02.443Z] INFO: ❌ BLOCKED [Shopify theme asset]: LOGO_1020x.png?v=1625239176
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4605:15)
+
+[2025-10-07T23:02:02.445Z] INFO: 🖼️ Raw enriched URLs collected: 45
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4631:5)
+
+[2025-10-07T23:02:02.449Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5475:7)
+
+[2025-10-07T23:02:02.449Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759878122431_qerbpxtn0, saving 6 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

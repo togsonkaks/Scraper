@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759876039324_60sy04r6n
+URL: https://www.northerntool.com/products/libman-36in-curved-floor-squeegee-55in-l-handle-model-954-132396
+Hostname: northerntool.com
+Started: undefined
+Ended: 2025-10-07T22:27:19.358Z
+Total Logs: 6
+=========================
+
+[2025-10-07T22:27:19.334Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759876039324_60sy04r6n started for northerntool.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5131:9)
+
+[2025-10-07T22:27:19.335Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5134:7)
+
+[2025-10-07T22:27:19.345Z] INFO: 🔍 PROCESSING IMAGES with 5 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4476:5)
+
+[2025-10-07T22:27:19.347Z] INFO: 🖼️ Raw enriched URLs collected: 5
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4629:5)
+
+[2025-10-07T22:27:19.358Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5488:7)
+
+[2025-10-07T22:27:19.358Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759876039324_60sy04r6n, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,41 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760168254179_tra0whv4t
+URL: https://www.costco.com/saferacks-storage-bin-rack-5-tote-capacity-nsf-certified.product.100677580.html
+Hostname: costco.com
+Started: undefined
+Ended: 2025-10-11T07:37:34.825Z
+Total Logs: 11
+=========================
+
+[2025-10-11T07:37:34.187Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760168254179_tra0whv4t started for costco.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:5943:9)
+
+[2025-10-11T07:37:34.187Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:5946:7)
+
+[2025-10-11T07:37:34.500Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at <anonymous>:17:13
+
+[2025-10-11T07:37:34.761Z] INFO: 🔍 PROCESSING IMAGES with 52 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at dbg (<anonymous>:2359:15)
+
+[2025-10-11T07:37:34.764Z] INFO: 🔍 SELECTOR CAPTURE #0: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at processImages (<anonymous>:5356:23)
+
+[2025-10-11T07:37:34.765Z] INFO: 🔍 SELECTOR CAPTURE #1: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at processImages (<anonymous>:5356:23)
+
+[2025-10-11T07:37:34.766Z] INFO: 🔍 SELECTOR CAPTURE #2: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at processImages (<anonymous>:5356:23)
+
+[2025-10-11T07:37:34.768Z] INFO: 🖼️ Raw enriched URLs collected: 52
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at dbg (<anonymous>:2359:15)
+
+[2025-10-11T07:37:34.823Z] INFO: ✅ ENRICHED IMAGES BUILT: 10 total, 7 with selectors
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at scrapeProduct (<anonymous>:6359:15)
+
+[2025-10-11T07:37:34.824Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at log (<anonymous>:2326:17)
+
+[2025-10-11T07:37:34.825Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760168254179_tra0whv4t, saving 10 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at DebugLogger.endSession (<anonymous>:66:13)

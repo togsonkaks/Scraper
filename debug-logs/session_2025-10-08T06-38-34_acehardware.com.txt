@@ -1,0 +1,38 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759905514568_j6eg7s5i6
+URL: https://www.acehardware.com/departments/tools/power-tools/circular-saws/2000359
+Hostname: acehardware.com
+Started: undefined
+Ended: 2025-10-08T06:38:34.594Z
+Total Logs: 10
+=========================
+
+[2025-10-08T06:38:34.569Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759905514568_j6eg7s5i6 started for acehardware.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5185:9)
+
+[2025-10-08T06:38:34.569Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5188:7)
+
+[2025-10-08T06:38:34.576Z] INFO: [DEBUG] ACE_HARDWARE custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:897:13) -> at scrapeProduct (<anonymous>:5332:63)
+
+[2025-10-08T06:38:34.577Z] INFO: [DEBUG] Found container: .product-detail-images, .product-images, .product-gallery
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:913:17) -> at scrapeProduct (<anonymous>:5332:63)
+
+[2025-10-08T06:38:34.577Z] INFO: [DEBUG] Using scope: product-gallery mz-productimages mz-mobile-center mz-paint-productimages parent-item no-pad-l 
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:919:13) -> at scrapeProduct (<anonymous>:5332:63)
+
+[2025-10-08T06:38:34.578Z] INFO: [DEBUG] ACE_HARDWARE found 0 images: 
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:971:13) -> at scrapeProduct (<anonymous>:5332:63)
+
+[2025-10-08T06:38:34.579Z] INFO: 🔍 PROCESSING IMAGES with selector: .product-gallery img observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4542:5)
+
+[2025-10-08T06:38:34.585Z] INFO: 🖼️ Raw enriched URLs collected: 39
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4698:5)
+
+[2025-10-08T06:38:34.594Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5555:7)
+
+[2025-10-08T06:38:34.594Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759905514568_j6eg7s5i6, saving 9 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759688562766_4bua140u4
+URL: https://www.zulily.com/products/canada_weather_gear_girls_packable_puffer_jacket?pr_prod_strat=e5_desc&pr_rec_id=32df02630&pr_rec_pid=7783799980101&pr_ref_pid=7783800111173&pr_seq=uniform
+Hostname: zulily.com
+Started: undefined
+Ended: 2025-10-05T18:22:42.797Z
+Total Logs: 8
+=========================
+
+[2025-10-05T18:22:42.774Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759688562766_4bua140u4 started for zulily.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4953:9)
+
+[2025-10-05T18:22:42.774Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4956:7)
+
+[2025-10-05T18:22:42.786Z] INFO: 🔍 PROCESSING IMAGES with 1 elements observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:22:42.788Z] INFO: 🖼️ Raw enriched URLs collected: 2
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:22:42.792Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:22:42.793Z] INFO: 🖼️ Raw enriched URLs collected: 32
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:22:42.797Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5260:7)
+
+[2025-10-05T18:22:42.797Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759688562766_4bua140u4, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,1178 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759963025260_9ttvjsxi5
+URL: https://www.albanypark.com/collections/barton/products/barton-sofa?variant=41412605607987
+Hostname: albanypark.com
+Started: undefined
+Ended: 2025-10-08T22:37:05.979Z
+Total Logs: 390
+=========================
+
+[2025-10-08T22:37:05.260Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759963025260_9ttvjsxi5 started for albanypark.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5773:9)
+
+[2025-10-08T22:37:05.260Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5776:7)
+
+[2025-10-08T22:37:05.560Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-08T22:37:05.789Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5077:5)
+
+[2025-10-08T22:37:05.791Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_Kova_Box_shop_nav_desktop_1020x1020_1a8d2b3a-3cea-4056-a923-d6d3fcf2a1c7_1020x.progressive.jpg?v=1733761235
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.792Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_nav_collection_comparison_desktop_1020x1020_barton_1020x.progressive.jpg?v=1716411135
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.793Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_nav_collection_comparison_desktop_1020x1020_lido_1020x.progressive.jpg?v=1716411134
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.793Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_web_nav_Memorial_Day_Park_desktop_1020x.progressive.jpg?v=1747240961
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.794Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_web_nav_Memorial_Day_Albany_desktop_1020x.progressive.jpg?v=1747240991
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.796Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_Kova_Box_shop_nav_mobile_1020x1020_8fc79a44-94e0-4bcd-813c-ba7fc569e227_1020x1020.jpg?v=1733761255
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.796Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_nav_collection_comparison_mobile_1020x1020_barton_1020x1020.jpg?v=1716411135
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.796Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_nav_collection_comparison_mobile_1020x1020_lido_1020x1020.jpg?v=1716411135
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.797Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_web_nav_Memorial_Day_Park_mobile_1020x1020.jpg?v=1747240971
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.797Z] INFO: ❌ BLOCKED [Navigation/collection junk]: AP_web_nav_Memorial_Day_Albany_mobile_1020x1020.jpg?v=1747241001
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.797Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_Washable-20x20.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.797Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_Performance-20x20.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.798Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_Resistant-20x20.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.798Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_Pet-friendly-20x20.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.798Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_Kid-friendly-20x20.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.798Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_Sustainable-20x20.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.798Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_Oeko-tex-20x20.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.798Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_white.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.799Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_cream.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.799Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_beige.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.799Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_brown.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.799Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_grey.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.800Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_black.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.800Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_blue.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.800Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_green.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.801Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_yellow.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.801Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_orange.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.801Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_icon_-_red.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.801Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_chalk-velvet-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.801Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_almond-velvet-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.802Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_camel-velvet-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.802Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_rust-velvet-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.802Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_olive-velvet-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.802Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_dark-teal-velvet-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.802Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_navy-velvet-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.803Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_onyx-velvet-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.803Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_sand-basketweave-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.803Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_oyster-white-chenille-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.803Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_oatmeal-chenille-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.803Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_bone-chenille-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.803Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_spruce-chenille-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.804Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_midnight-navy-chenille-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.804Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_licorice-chenille-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.804Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_snow-boucle-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.804Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_alabaster-boucle-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.804Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_fawn-boucle-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.804Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_hazelnut-boucle-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.805Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_mocha-boucle-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.805Z] INFO: ❌ BLOCKED [Fabric pattern]: cust_smoke-boucle-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.805Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_frost-linen-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.805Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_champagne-linen-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.805Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_dune-linen-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.805Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_clay-linen-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.806Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_pearl-grey-linen-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.806Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_slate-linen-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.806Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_birch-brushed-canvas-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.806Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_denim-brushed-canvas-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.806Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_fog-brushed-canvas-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.807Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_white-sunbrella-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.807Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_black-sunbrella-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.807Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_tan-vegan-leather-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.808Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_cognac-vegan-leather-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.808Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_navy-vegan-leather-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.808Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_AP_Charcoal.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.808Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_canyon-leather-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.808Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_shadow-leather-new.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.809Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_BS_Wood_NaturalOak.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.809Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_BS_Wood_Walnut.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.809Z] INFO: ❌ BLOCKED [Navigation/collection junk]: cust_BS_Wood_Black.png
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.809Z] INFO: ❌ BLOCKED [Fabric pattern]: sand-basketweave-new-modal-02.jpg?v=1727099150586&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.810Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.810Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.810Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.810Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.810Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.811Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.811Z] INFO: ❌ BLOCKED [Technical sample]: AP-Tan-Vegan-Leather-003.png?v=1727099152709&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.811Z] INFO: ❌ BLOCKED [Technical sample]: AP-Tan-Vegan-Leather-004.png?v=1727099154343&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.811Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.811Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.812Z] INFO: ❌ BLOCKED [Technical sample]: AP-Storm-Grey-002.png?v=1727099155902&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.812Z] INFO: ❌ BLOCKED [Technical sample]: AP-Storm-Grey-003.png?v=1727099157297&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.812Z] INFO: ❌ BLOCKED [Technical sample]: AP-Storm-Grey-004.png?v=1727099158602&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.812Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.812Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.813Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.813Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.813Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.814Z] INFO: ❌ BLOCKED [Material swatch]: hazelnut-boucle_modal_728x500.jpg?v=1744146348254&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.814Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.814Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.814Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.814Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.815Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.815Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.816Z] INFO: ❌ BLOCKED [Fabric pattern]: alabaster-boucle-new-modal-01.jpg?v=1727099165354&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.816Z] INFO: ❌ BLOCKED [Fabric pattern]: alabaster-boucle-new-modal-02.jpg?v=1727099166342&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.816Z] INFO: ❌ BLOCKED [Fabric pattern]: alabaster-boucle-new-modal-03.jpg?v=1727099167696&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.816Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.817Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.817Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.817Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.817Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.817Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.817Z] INFO: ❌ BLOCKED [Fabric pattern]: indigo-basketweave-new-modal-02.jpg?v=1727099180120&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.817Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.818Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.818Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.818Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.818Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.819Z] INFO: ❌ BLOCKED [Fabric pattern]: camel-velvet-new-modal-02.jpg?v=1727099183762&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.819Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.819Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.819Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.820Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.820Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.820Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.820Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.820Z] INFO: ❌ BLOCKED [Fabric pattern]: dark-teal-velvet-new-modal-02.jpg?v=1727099184736&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.821Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.821Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.821Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.821Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.822Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.822Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.822Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.822Z] INFO: ❌ BLOCKED [Fabric pattern]: fawn-boucle-new-modal-02.jpg?v=1727099201930&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.822Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.823Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.823Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.823Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.824Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.824Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.824Z] INFO: ❌ BLOCKED [Material swatch]: mocha-boucle_modal_728x500.jpg?v=1744146369642&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.824Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.824Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.824Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.825Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.825Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.825Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.825Z] INFO: ❌ BLOCKED [Technical sample]: AP-Distressed-Vegan-Leather-old-002.png?v=1727099204993&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.825Z] INFO: ❌ BLOCKED [Technical sample]: AP-Distressed-Vegan-Leather-old-003.png?v=1727099207173&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.825Z] INFO: ❌ BLOCKED [Technical sample]: AP-Distressed-Vegan-Leather-old-004.png?v=1727099208205&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.826Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: black-sunbrella-new-modal-01.jpg?v=1727099217645&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.826Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: black-sunbrella-new-modal-02.jpg?v=1727099218998&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.826Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: black-sunbrella-new-modal-03.jpg?v=1727099220850&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.826Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.826Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.827Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.827Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.827Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: white-sunbrella-new-modal-01.jpg?v=1727099221860&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.827Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: white-sunbrella-new-modal-02.jpg?v=1727099222894&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.827Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: white-sunbrella-new-modal-03.jpg?v=1727099224813&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.827Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.828Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.828Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.828Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.828Z] INFO: ❌ BLOCKED [Material swatch]: frost_modal_728x500.jpg?v=1744145523102&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.828Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.829Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.829Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.829Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.829Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: slate-linen-new-modal-02.jpg?v=1727099227647&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.829Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.829Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.830Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.830Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.830Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.830Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.831Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: pearl-grey-linen-new-modal-01.jpg?v=1727099229492&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.831Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: pearl-grey-linen-new-modal-02.jpg?v=1727099231305&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.831Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: pearl-grey-linen-new-modal-03.jpg?v=1727099233114&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.831Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.831Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.831Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.832Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.832Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.832Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.832Z] INFO: ❌ BLOCKED [Material swatch]: champagne-linen_modal_728x500.jpg?v=1744146398361&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.832Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.832Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.832Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.833Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.833Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.833Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.834Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: clay-linen-new-modal-02.jpg?v=1727099238057&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.834Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.834Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.835Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.835Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.835Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.836Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.836Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: oyster-white-chenille-new-modal-02.jpg?v=1727099239580&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.836Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.837Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.837Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.837Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.837Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.838Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.838Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.838Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: oatmeal-chenille-new-modal-02.jpg?v=1727099240871&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.838Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.839Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.839Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.839Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.839Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.840Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.840Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.840Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: bone-chenille-new-modal-01.jpg?v=1727099242236&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.840Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: bone-chenille-new-modal-02.jpg?v=1727099243255&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.840Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: bone-chenille-new-modal-03.jpg?v=1727099244922&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.841Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.841Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.841Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.841Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.842Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.842Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.842Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.842Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: spruce-chenille-new-modal-02.jpg?v=1727099246606&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.843Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.843Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.843Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.843Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.844Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.844Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.844Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.845Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: midnight-navy-chenille-new-modal-02.jpg?v=1727099248141&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.845Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.845Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.845Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.846Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.846Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.846Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.846Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.847Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: licorice-chenille-new-modal-01.jpg?v=1728675253577&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.847Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.847Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.847Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.847Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.848Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.848Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.848Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.849Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: cotton-brushed-canvas-new-modal-01.jpg?v=1727099253317&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.849Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: cotton-brushed-canvas-new-modal-02.jpg?v=1727099259795&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.850Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: cotton-brushed-canvas-new-modal-03.jpg?v=1727099261719&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.850Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.850Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.851Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.851Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.851Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.851Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: birch-brushed-canvas-new-modal-02.jpg?v=1727099263186&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.851Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.852Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.852Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.852Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.852Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: denim-brushed-canvas-new-modal-02.jpg?v=1727099265201&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.852Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.853Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.853Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.853Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.854Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.854Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: fog-brushed-canvas-new-modal-02.jpg?v=1727099267112&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.855Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.855Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.855Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.856Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.856Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.857Z] INFO: ❌ BLOCKED [Fabric pattern]: snow-boucle-new-modal-02.jpg?v=1727099268671&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.857Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.857Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.858Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.858Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.858Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.858Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.859Z] INFO: ❌ BLOCKED [Fabric pattern]: smoke-boucle-new-modal-02.jpg?v=1727099270281&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.859Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.859Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.859Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.859Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.860Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.860Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.860Z] INFO: ❌ BLOCKED [Fabric pattern]: chalk-velvet-new-modal-02.jpg?v=1727099271640&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.860Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.861Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.861Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.861Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.861Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.862Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.862Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.862Z] INFO: ❌ BLOCKED [Fabric pattern]: almond-velvet-new-modal-02.jpg?v=1727099273031&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.862Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.863Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.863Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.863Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.863Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.864Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.864Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.864Z] INFO: ❌ BLOCKED [Fabric pattern]: navy-velvet-new-modal-02.jpg?v=1727099273994&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.864Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.865Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.865Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.865Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.865Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.865Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.866Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.866Z] INFO: ❌ BLOCKED [Material swatch]: onyx-velvet_modal_728x500.jpg?v=1744146425448&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.866Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.866Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.867Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.867Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.867Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.867Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.867Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.868Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: cognac-vegan-leather-new-modal-01.jpg?v=1727099276921&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.869Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: cognac-vegan-leather-new-modal-02.jpg?v=1727099278937&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.869Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: cognac-vegan-leather-new-modal-03.jpg?v=1727099280958&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.869Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.869Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.869Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: navy-vegan-leather-new-modal-01.jpg?v=1727099281951&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.869Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: navy-vegan-leather-new-modal-02.jpg?v=1727099283134&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.870Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: navy-vegan-leather-new-modal-03.jpg?v=1727099284675&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.870Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.870Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.870Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: charcoal-vegan-leather-new-modal-01.jpg?v=1727099286476&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.870Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: charcoal-vegan-leather-new-modal-02.jpg?v=1727099288238&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.871Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: charcoal-vegan-leather-new-modal-03.jpg?v=1727099289660&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.871Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.871Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.871Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: canyon-leather-new-modal-01.jpg?v=1727099291342&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.871Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: canyon-leather-new-modal-02.jpg?v=1727099292471&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.871Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: canyon-leather-new-modal-03.jpg?v=1727099293759&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.871Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.872Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.872Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.872Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: shadow-leather-new-modal-01.jpg?v=1727099295278&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.872Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: shadow-leather-new-modal-02.jpg?v=1727099297090&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.872Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: shadow-leather-new-modal-03.jpg?v=1727099298973&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.872Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.873Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.873Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.873Z] INFO: ❌ BLOCKED [Fabric pattern]: olive-velvet-new-modal-02.jpg?v=1727099309692&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.874Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.874Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.875Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.875Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.876Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.876Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.877Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.877Z] INFO: ❌ BLOCKED [Fabric pattern]: rust-velvet-new-modal-02.jpg?v=1727099308497&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.877Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.878Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.878Z] INFO: ❌ BLOCKED [Feature icon]: AP_Sustainable_web.png?v=1755271677409
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.878Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.879Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.879Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.879Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.879Z] INFO: ❌ BLOCKED [Material swatch]: dune-linen_modal_728x500.jpg?v=1744146443274&options=
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.880Z] INFO: ❌ BLOCKED [Feature icon]: AP_Machine-Washable_web.png?v=1755271544222
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.880Z] INFO: ❌ BLOCKED [Feature icon]: AP_Performance_web.png?v=1755271691108
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.880Z] INFO: ❌ BLOCKED [Feature icon]: AP_Kid-Friendly_web.png?v=1755271576423
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.880Z] INFO: ❌ BLOCKED [Feature icon]: AP_Pet-Friendly_web.png?v=1755271562781
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.880Z] INFO: ❌ BLOCKED [Feature icon]: AP_Stain--and-Liquid--Resistant-Fabrics_web.png?v=1755271717461
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.881Z] INFO: ❌ BLOCKED [Feature icon]: AP_Oeko-Tex-Certified_web.png?v=1755271703938
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.886Z] INFO: ❌ BLOCKED [Accentuate CDN junk]: AP-Web_Spec-Measurements_Barton-Sofa_2610x800.png?v=1732292469218&options=w_320
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.887Z] INFO: ❌ BLOCKED [Review image]: thumb.png?1753301414
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.887Z] INFO: ❌ BLOCKED [Review image]: thumb.jpg?1751930207
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.887Z] INFO: ❌ BLOCKED [Review image]: thumb.png?1751641037
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.887Z] INFO: ❌ BLOCKED [Review image]: thumb.png?1749431602
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.888Z] INFO: ❌ BLOCKED [Review image]: thumb.png?1755648804
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.888Z] INFO: ❌ BLOCKED [Review image]: thumb.png?1751733672
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.888Z] INFO: ❌ BLOCKED [Review image]: thumb.png?1754566972
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.888Z] INFO: ❌ BLOCKED [Review image]: thumb.png?1759489260
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.888Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1744146134
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.889Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1744146134
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.889Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1742258219
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.890Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1742258219
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.890Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1738197481
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.890Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1738197481
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.890Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1735044241
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.890Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1735044241
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.891Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1733947401
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.891Z] INFO: ❌ BLOCKED [Review image]: square.jpg?1733947401
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.891Z] INFO: ❌ BLOCKED [Navigation/collection junk]: 0?ti=148014735&tm=gtm002&Ver=2&mid=fe0b6183-863d-4b29-88c4-52a7e1599c72&bo=1&sid=ee273ae0a49011f08454495e44cb770c&vid=1013f6c0853e11f0b7a11b1231775d16&vids=0&msclkid=N&uach=pv%3D10.0.0&pi=918639831&lg=en-US&sw=3440&sh=1440&sc=24&tl=Barton%20Sofa%20-%20Albany%20Park%20%7C%20Slim%20%26%20Modern%20Design&p=https%3A%2F%2Fwww.albanypark.com%2Fcollections%2Fbarton%2Fproducts%2Fbarton-sofa%3Fvariant%3D41412605607987&r=&lt=3652&evt=pageLoad&sv=2&cdb=AQER&rn=735739
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5193:13)
+
+[2025-10-08T22:37:05.891Z] INFO: 🖼️ Raw enriched URLs collected: 185
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5233:5)
+
+[2025-10-08T22:37:05.978Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6185:7)
+
+[2025-10-08T22:37:05.979Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759963025260_9ttvjsxi5, saving 389 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

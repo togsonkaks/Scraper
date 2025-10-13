@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759909938171_kd5lwqx9r
+URL: https://www.acmetools.com/honda-13hp-32in-two-stage-track-drive-snow-blower-electric-start-hss1332atd/786102005609.html
+Hostname: acmetools.com
+Started: undefined
+Ended: 2025-10-08T07:52:18.176Z
+Total Logs: 4
+=========================
+
+[2025-10-08T07:52:18.171Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759909938171_kd5lwqx9r started for acmetools.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5247:9)
+
+[2025-10-08T07:52:18.171Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5250:7)
+
+[2025-10-08T07:52:18.176Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5627:7)
+
+[2025-10-08T07:52:18.176Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759909938171_kd5lwqx9r, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

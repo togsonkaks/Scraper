@@ -1,0 +1,38 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759688761382_eussoj6g9
+URL: https://www.walmart.com/ip/Magnetic-Tiles-for-Kids-Educational-Magnetic-Building-Blocks-for-Boys-Girls-STEM-Preschool-Kidergarten-Learning-Toys/5306649113?classType=VARIANT&athbdg=L1103
+Hostname: walmart.com
+Started: undefined
+Ended: 2025-10-05T18:26:04.571Z
+Total Logs: 10
+=========================
+
+[2025-10-05T18:26:01.382Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759688761382_eussoj6g9 started for walmart.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4953:9)
+
+[2025-10-05T18:26:01.383Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4956:7)
+
+[2025-10-05T18:26:01.389Z] INFO: 🔍 PROCESSING IMAGES with 9 elements observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:26:01.390Z] INFO: 🖼️ Raw enriched URLs collected: 16
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:26:01.391Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4317:5)
+
+[2025-10-05T18:26:01.393Z] INFO: 🖼️ Raw enriched URLs collected: 209
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4469:5)
+
+[2025-10-05T18:26:01.685Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-05T18:26:02.408Z] INFO: ✅ Scroll complete - lazy loading triggered! (1000ms total)
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:27:13
+
+[2025-10-05T18:26:04.561Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5260:7)
+
+[2025-10-05T18:26:04.562Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759688761382_eussoj6g9, saving 9 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

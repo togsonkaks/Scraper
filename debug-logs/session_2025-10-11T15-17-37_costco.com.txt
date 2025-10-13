@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760195856897_cb19my4ps
+URL: https://www.costco.com/.product.11738132.html
+Hostname: costco.com
+Started: undefined
+Ended: 2025-10-11T15:17:37.499Z
+Total Logs: 5
+=========================
+
+[2025-10-11T15:17:36.908Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760195856897_cb19my4ps started for costco.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6021:9)
+
+[2025-10-11T15:17:36.909Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6024:7)
+
+[2025-10-11T15:17:37.207Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-11T15:17:37.497Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6455:7)
+
+[2025-10-11T15:17:37.498Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760195856897_cb19my4ps, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

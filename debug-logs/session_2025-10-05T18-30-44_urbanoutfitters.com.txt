@@ -1,0 +1,74 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759689044305_6pzcrqw81
+URL: https://www.urbanoutfitters.com/shop/standard-cloth-jump-shot-hoodie-sweatshirt2?category=hoodies-sweatshirts-for-men&color=038&type=REGULAR
+Hostname: urbanoutfitters.com
+Started: undefined
+Ended: 2025-10-05T18:30:44.314Z
+Total Logs: 22
+=========================
+
+[2025-10-05T18:30:44.306Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759689044305_6pzcrqw81 started for urbanoutfitters.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4953:9)
+
+[2025-10-05T18:30:44.306Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4956:7)
+
+[2025-10-05T18:30:44.310Z] INFO: [DEBUG] Urban Outfitters custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1901:13) -> at scrapeProduct (<anonymous>:5089:63)
+
+[2025-10-05T18:30:44.310Z] INFO: [DEBUG] UO upgraded: 91856542_038_b?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.310Z] INFO: [DEBUG] UO upgraded: 91856542_038_b2?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.311Z] INFO: [DEBUG] UO upgraded: 91856542_038_b3?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.311Z] INFO: [DEBUG] UO upgraded: 91856542_038_b4?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.311Z] INFO: [DEBUG] UO upgraded: 91856542_038_b?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.311Z] INFO: [DEBUG] UO upgraded: 91856542_038_b2?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.311Z] INFO: [DEBUG] UO upgraded: 91856542_038_b3?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.311Z] INFO: [DEBUG] UO upgraded: 91856542_038_b4?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.311Z] INFO: [DEBUG] UO upgraded: 91856542_038_b?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.311Z] INFO: [DEBUG] UO upgraded: 91856542_038_b2?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.312Z] INFO: [DEBUG] UO upgraded: 91856542_038_b3?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.312Z] INFO: [DEBUG] UO upgraded: 91856542_038_b4?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.312Z] INFO: [DEBUG] UO upgraded: 91856542_038_b?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.312Z] INFO: [DEBUG] UO upgraded: 91856542_038_b2?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.312Z] INFO: [DEBUG] UO upgraded: 91856542_038_b3?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.312Z] INFO: [DEBUG] UO upgraded: 91856542_038_b4?$redesign-zoom-5x$&fmt=webp
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1930:19 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-05T18:30:44.312Z] INFO: [DEBUG] Urban Outfitters found 4 high-quality PWA images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1936:13) -> at scrapeProduct (<anonymous>:5089:63)
+
+[2025-10-05T18:30:44.313Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5260:7)
+
+[2025-10-05T18:30:44.313Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759689044305_6pzcrqw81, saving 21 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

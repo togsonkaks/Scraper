@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760164363740_qxtgwuetg
+URL: https://www.costco.com/saferacks-storage-bin-rack-5-tote-capacity-nsf-certified.product.100677580.html
+Hostname: costco.com
+Started: undefined
+Ended: 2025-10-11T06:32:44.500Z
+Total Logs: 7
+=========================
+
+[2025-10-11T06:32:43.748Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760164363740_qxtgwuetg started for costco.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-11T06:32:43.748Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-11T06:32:44.050Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-11T06:32:44.305Z] INFO: 🔍 PROCESSING IMAGES with 52 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at dbg (<anonymous>:2356:15)
+
+[2025-10-11T06:32:44.312Z] INFO: 🖼️ Raw enriched URLs collected: 52
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at dbg (<anonymous>:2356:15)
+
+[2025-10-11T06:32:44.499Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at log (<anonymous>:2323:17)
+
+[2025-10-11T06:32:44.500Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760164363740_qxtgwuetg, saving 6 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at console.i [as log] (https://cdn.lr-in-prod.com/LogRocket.min.js:2:36808) -> at DebugLogger.endSession (<anonymous>:66:13)

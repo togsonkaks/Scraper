@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759878204710_88gdgl3fg
+URL: https://www.meshki.us/products/pascale-off-shoulder-denim-mini-dress-washed-dark-blue
+Hostname: meshki.us
+Started: undefined
+Ended: 2025-10-07T23:03:24.730Z
+Total Logs: 5
+=========================
+
+[2025-10-07T23:03:24.718Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759878204710_88gdgl3fg started for meshki.us
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5118:9)
+
+[2025-10-07T23:03:24.718Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5121:7)
+
+[2025-10-07T23:03:24.727Z] INFO: [MESHKI DEBUG] Found 22 images in product containers
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1285:15) -> at scrapeProduct (<anonymous>:5254:63)
+
+[2025-10-07T23:03:24.730Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5475:7)
+
+[2025-10-07T23:03:24.730Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759878204710_88gdgl3fg, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

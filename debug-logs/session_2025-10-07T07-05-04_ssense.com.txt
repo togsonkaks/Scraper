@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759820704047_b6v78022w
+URL: https://www.ssense.com/en-us/men/product/our-legacy/black-uniform-parade-derbys/18101491
+Hostname: ssense.com
+Started: undefined
+Ended: 2025-10-07T07:05:04.068Z
+Total Logs: 6
+=========================
+
+[2025-10-07T07:05:04.047Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759820704047_b6v78022w started for ssense.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5030:9)
+
+[2025-10-07T07:05:04.048Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5033:7)
+
+[2025-10-07T07:05:04.055Z] INFO: 🔍 PROCESSING IMAGES with 20 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4391:5)
+
+[2025-10-07T07:05:04.057Z] INFO: 🖼️ Raw enriched URLs collected: 60
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4544:5)
+
+[2025-10-07T07:05:04.068Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5386:7)
+
+[2025-10-07T07:05:04.068Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759820704047_b6v78022w, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

@@ -1,0 +1,62 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759730079049_e091z252n
+URL: https://velourbeauty.com/products/velour-lash-adhesive-white-latex-free
+Hostname: velourbeauty.com
+Started: undefined
+Ended: 2025-10-06T05:54:39.119Z
+Total Logs: 18
+=========================
+
+[2025-10-06T05:54:39.056Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759730079049_e091z252n started for velourbeauty.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4960:9)
+
+[2025-10-06T05:54:39.056Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:4963:7)
+
+[2025-10-06T05:54:39.066Z] INFO: 🔍 PROCESSING IMAGES with 6 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:54:39.069Z] INFO: 🖼️ Raw enriched URLs collected: 12
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:54:39.073Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4323:5)
+
+[2025-10-06T05:54:39.074Z] INFO: ❌ BLOCKED [Shopify theme asset]: NAV-ABOUT.webp?v=1728401178&width=400
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4435:13)
+
+[2025-10-06T05:54:39.074Z] INFO: ❌ BLOCKED [Shopify theme asset]: NAV-ABOUT.webp?v=1728401178&width=352
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4449:15)
+
+[2025-10-06T05:54:39.075Z] INFO: ❌ BLOCKED [Shopify theme asset]: logo-light.png?v=1614733451&width=600
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4435:13)
+
+[2025-10-06T05:54:39.075Z] INFO: ❌ BLOCKED [Shopify theme asset]: logo-light.png?v=1614733451&width=240
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4449:15)
+
+[2025-10-06T05:54:39.075Z] INFO: ❌ BLOCKED [Shopify theme asset]: NAV-ABOUT.webp?v=1728401178&width=400
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4435:13)
+
+[2025-10-06T05:54:39.075Z] INFO: ❌ BLOCKED [Shopify theme asset]: NAV-ABOUT.webp?v=1728401178&width=352
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4449:15)
+
+[2025-10-06T05:54:39.075Z] INFO: ❌ BLOCKED [Shopify theme asset]: ICON_TYPE_OverProductIcon_Allure2019.png?v=1664565229&width=60
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4435:13)
+
+[2025-10-06T05:54:39.075Z] INFO: ❌ BLOCKED [Shopify theme asset]: ICON_TYPE_OverProductIcon_Allure2019.png?v=1664565229&width=60
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4435:13)
+
+[2025-10-06T05:54:39.076Z] INFO: ❌ BLOCKED [Shopify theme asset]: logo-light.png?v=1614733451&width=600
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4435:13)
+
+[2025-10-06T05:54:39.076Z] INFO: ❌ BLOCKED [Shopify theme asset]: logo-light.png?v=1614733451&width=240
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4449:15)
+
+[2025-10-06T05:54:39.076Z] INFO: 🖼️ Raw enriched URLs collected: 42
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4475:5)
+
+[2025-10-06T05:54:39.119Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5267:7)
+
+[2025-10-06T05:54:39.119Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759730079049_e091z252n, saving 17 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

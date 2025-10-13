@@ -1,0 +1,32 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760085607913_188l5xuc6
+URL: https://www.asos.com/us/nike/nike-shox-r4-sneakers-in-black-and-silver/prd/207494721#colourWayId-207494724
+Hostname: asos.com
+Started: undefined
+Ended: 2025-10-10T08:40:09.105Z
+Total Logs: 8
+=========================
+
+[2025-10-10T08:40:07.914Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760085607913_188l5xuc6 started for asos.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:40:07.914Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:40:08.219Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:40:08.460Z] INFO: 🔍 PROCESSING IMAGES with 64 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5236:5)
+
+[2025-10-10T08:40:08.468Z] INFO: 🖼️ Raw enriched URLs collected: 78
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5392:5)
+
+[2025-10-10T08:40:08.938Z] INFO: ✅ Scroll complete - lazy loading triggered! (1000ms total)
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:27:13
+
+[2025-10-10T08:40:09.102Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:40:09.103Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760085607913_188l5xuc6, saving 7 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

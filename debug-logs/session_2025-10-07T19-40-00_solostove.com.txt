@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759866000640_jfj4zk07x
+URL: https://www.solostove.com/us/en-us/p/classic-fire-pit-and-stand-bundle?sku=SSBON-SD-2.0
+Hostname: solostove.com
+Started: undefined
+Ended: 2025-10-07T19:40:00.824Z
+Total Logs: 6
+=========================
+
+[2025-10-07T19:40:00.699Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759866000640_jfj4zk07x started for solostove.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5030:9)
+
+[2025-10-07T19:40:00.703Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5033:7)
+
+[2025-10-07T19:40:00.790Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4391:5)
+
+[2025-10-07T19:40:00.793Z] INFO: 🖼️ Raw enriched URLs collected: 28
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4544:5)
+
+[2025-10-07T19:40:00.822Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5386:7)
+
+[2025-10-07T19:40:00.823Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759866000640_jfj4zk07x, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

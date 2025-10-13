@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760084949343_n6ms1o0fz
+URL: https://www.adoredvintage.com/products/classic-vintage-inspired-high-waist-dark-olive-raw-hem-shorts
+Hostname: adoredvintage.com
+Started: undefined
+Ended: 2025-10-10T08:29:09.868Z
+Total Logs: 5
+=========================
+
+[2025-10-10T08:29:09.343Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760084949343_n6ms1o0fz started for adoredvintage.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:29:09.343Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:29:09.654Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:29:09.868Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:29:09.868Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760084949343_n6ms1o0fz, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

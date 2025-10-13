@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759815542535_jhkvodhs6
+URL: https://www.swarovski.com/en-US/p-5701518/Holiday-Cheers-Gift-Ornament/
+Hostname: swarovski.com
+Started: undefined
+Ended: 2025-10-07T05:39:02.570Z
+Total Logs: 6
+=========================
+
+[2025-10-07T05:39:02.535Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759815542535_jhkvodhs6 started for swarovski.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5017:9)
+
+[2025-10-07T05:39:02.535Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5020:7)
+
+[2025-10-07T05:39:02.543Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4380:5)
+
+[2025-10-07T05:39:02.552Z] INFO: 🖼️ Raw enriched URLs collected: 290
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4532:5)
+
+[2025-10-07T05:39:02.570Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5373:7)
+
+[2025-10-07T05:39:02.570Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759815542535_jhkvodhs6, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

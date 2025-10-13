@@ -1,0 +1,77 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760084842063_8ziqixb40
+URL: https://www.adidas.com/us/handball-spezial-shoes/JR7351.html?pr=product_rr&slot=42&rec=ds
+Hostname: adidas.com
+Started: undefined
+Ended: 2025-10-10T08:27:22.582Z
+Total Logs: 15
+=========================
+
+[2025-10-10T08:27:22.063Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760084842063_8ziqixb40 started for adidas.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:27:22.063Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:27:22.365Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:27:22.573Z] INFO: [DEBUG] Adidas custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1379:13) -> at scrapeProduct (<anonymous>:6118:63)
+
+[2025-10-10T08:27:22.574Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/07984fb4fbad435dab3da4ad34c25218_9366/Handball_Spezial_Shoes_Blue_JR7351_01_00_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/07984fb4fbad435dab3da4ad34c25218_9366/Handball_Spezial_Shoes_Blue_JR7351_01_00_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/07984fb4fbad435dab3da4ad34c25218_9366/Handball_Spezial_Shoes_Blue_JR7351_01_00_standard.jpg"
+}
+
+[2025-10-10T08:27:22.574Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1c4d7d256715439383b4d321c197e3e1_9366/Handball_Spezial_Shoes_Blue_JR7351_02_standard_hover.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1c4d7d256715439383b4d321c197e3e1_9366/Handball_Spezial_Shoes_Blue_JR7351_02_standard_hover.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1c4d7d256715439383b4d321c197e3e1_9366/Handball_Spezial_Shoes_Blue_JR7351_02_standard_hover.jpg"
+}
+
+[2025-10-10T08:27:22.575Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/783aebf6eaa04410a6bf0a9d2f475d47_9366/Handball_Spezial_Shoes_Blue_JR7351_03_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/783aebf6eaa04410a6bf0a9d2f475d47_9366/Handball_Spezial_Shoes_Blue_JR7351_03_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/783aebf6eaa04410a6bf0a9d2f475d47_9366/Handball_Spezial_Shoes_Blue_JR7351_03_standard.jpg"
+}
+
+[2025-10-10T08:27:22.575Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/21bc624f0ab24c02b601ef07629941a9_9366/Handball_Spezial_Shoes_Blue_JR7351_04_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/21bc624f0ab24c02b601ef07629941a9_9366/Handball_Spezial_Shoes_Blue_JR7351_04_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/21bc624f0ab24c02b601ef07629941a9_9366/Handball_Spezial_Shoes_Blue_JR7351_04_standard.jpg"
+}
+
+[2025-10-10T08:27:22.577Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/07984fb4fbad435dab3da4ad34c25218_9366/Handball_Spezial_Shoes_Blue_JR7351_01_00_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/07984fb4fbad435dab3da4ad34c25218_9366/Handball_Spezial_Shoes_Blue_JR7351_01_00_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/07984fb4fbad435dab3da4ad34c25218_9366/Handball_Spezial_Shoes_Blue_JR7351_01_00_standard.jpg"
+}
+
+[2025-10-10T08:27:22.577Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1c4d7d256715439383b4d321c197e3e1_9366/Handball_Spezial_Shoes_Blue_JR7351_02_standard_hover.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1c4d7d256715439383b4d321c197e3e1_9366/Handball_Spezial_Shoes_Blue_JR7351_02_standard_hover.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/1c4d7d256715439383b4d321c197e3e1_9366/Handball_Spezial_Shoes_Blue_JR7351_02_standard_hover.jpg"
+}
+
+[2025-10-10T08:27:22.578Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/783aebf6eaa04410a6bf0a9d2f475d47_9366/Handball_Spezial_Shoes_Blue_JR7351_03_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/783aebf6eaa04410a6bf0a9d2f475d47_9366/Handball_Spezial_Shoes_Blue_JR7351_03_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/783aebf6eaa04410a6bf0a9d2f475d47_9366/Handball_Spezial_Shoes_Blue_JR7351_03_standard.jpg"
+}
+
+[2025-10-10T08:27:22.578Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/21bc624f0ab24c02b601ef07629941a9_9366/Handball_Spezial_Shoes_Blue_JR7351_04_standard.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/21bc624f0ab24c02b601ef07629941a9_9366/Handball_Spezial_Shoes_Blue_JR7351_04_standard.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/21bc624f0ab24c02b601ef07629941a9_9366/Handball_Spezial_Shoes_Blue_JR7351_04_standard.jpg"
+}
+
+[2025-10-10T08:27:22.579Z] INFO: [DEBUG] Adidas found 4 real PDP images, 0 other images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1414:13) -> at scrapeProduct (<anonymous>:6118:63)
+
+[2025-10-10T08:27:22.580Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:27:22.581Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760084842063_8ziqixb40, saving 14 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

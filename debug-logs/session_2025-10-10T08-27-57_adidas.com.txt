@@ -1,0 +1,77 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760084876995_k2g4jb5ao
+URL: https://www.adidas.com/us/adicolor-long-synthetic-fill-puffer-coat/JX2952.html?pr=pdpctl_rr&slot=3&rec=ds
+Hostname: adidas.com
+Started: undefined
+Ended: 2025-10-10T08:27:57.505Z
+Total Logs: 15
+=========================
+
+[2025-10-10T08:27:56.995Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760084876995_k2g4jb5ao started for adidas.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:27:56.995Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:27:57.295Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:27:57.502Z] INFO: [DEBUG] Adidas custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1379:13) -> at scrapeProduct (<anonymous>:6118:63)
+
+[2025-10-10T08:27:57.502Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5769d1bc31384d598d11f424511bbca9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_21_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5769d1bc31384d598d11f424511bbca9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_21_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5769d1bc31384d598d11f424511bbca9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_21_model.jpg"
+}
+
+[2025-10-10T08:27:57.503Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9a29541e2df4794b85b71386ad0e148_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_23_hover_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9a29541e2df4794b85b71386ad0e148_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_23_hover_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9a29541e2df4794b85b71386ad0e148_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_23_hover_model.jpg"
+}
+
+[2025-10-10T08:27:57.503Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eacdc9c0cb2540308d774a9e3f4106a9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_25_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eacdc9c0cb2540308d774a9e3f4106a9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_25_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eacdc9c0cb2540308d774a9e3f4106a9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_25_model.jpg"
+}
+
+[2025-10-10T08:27:57.503Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9de0662afc449e89e6a3893a78514ce_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_01_laydown.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9de0662afc449e89e6a3893a78514ce_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_01_laydown.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9de0662afc449e89e6a3893a78514ce_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_01_laydown.jpg"
+}
+
+[2025-10-10T08:27:57.503Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5769d1bc31384d598d11f424511bbca9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_21_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5769d1bc31384d598d11f424511bbca9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_21_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/5769d1bc31384d598d11f424511bbca9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_21_model.jpg"
+}
+
+[2025-10-10T08:27:57.503Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9a29541e2df4794b85b71386ad0e148_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_23_hover_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9a29541e2df4794b85b71386ad0e148_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_23_hover_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9a29541e2df4794b85b71386ad0e148_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_23_hover_model.jpg"
+}
+
+[2025-10-10T08:27:57.504Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eacdc9c0cb2540308d774a9e3f4106a9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_25_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eacdc9c0cb2540308d774a9e3f4106a9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_25_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/eacdc9c0cb2540308d774a9e3f4106a9_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_25_model.jpg"
+}
+
+[2025-10-10T08:27:57.504Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9de0662afc449e89e6a3893a78514ce_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_01_laydown.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9de0662afc449e89e6a3893a78514ce_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_01_laydown.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c9de0662afc449e89e6a3893a78514ce_9366/Adicolor_Long_Synthetic_Fill_Puffer_Coat_Grey_JX2952_01_laydown.jpg"
+}
+
+[2025-10-10T08:27:57.504Z] INFO: [DEBUG] Adidas found 4 real PDP images, 0 other images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1414:13) -> at scrapeProduct (<anonymous>:6118:63)
+
+[2025-10-10T08:27:57.505Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:27:57.505Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760084876995_k2g4jb5ao, saving 14 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

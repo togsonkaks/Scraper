@@ -1,0 +1,77 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760084765791_b569wx1o4
+URL: https://www.adidas.com/us/essentials-boyfriend-tee/JW5080.html?pr=product_rr&slot=23&rec=ds
+Hostname: adidas.com
+Started: undefined
+Ended: 2025-10-10T08:26:06.325Z
+Total Logs: 15
+=========================
+
+[2025-10-10T08:26:05.791Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760084765791_b569wx1o4 started for adidas.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:26:05.791Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:26:06.102Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:26:06.313Z] INFO: [DEBUG] Adidas custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1379:13) -> at scrapeProduct (<anonymous>:6118:63)
+
+[2025-10-10T08:26:06.315Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/555f896f567a4a8da151570b4335e18a_9366/Essentials_Boyfriend_Tee_Green_JW5080_21_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/555f896f567a4a8da151570b4335e18a_9366/Essentials_Boyfriend_Tee_Green_JW5080_21_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/555f896f567a4a8da151570b4335e18a_9366/Essentials_Boyfriend_Tee_Green_JW5080_21_model.jpg"
+}
+
+[2025-10-10T08:26:06.315Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/86ab64bda4a84101a0cf5afbde9dfcfa_9366/Essentials_Boyfriend_Tee_Green_JW5080_23_hover_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/86ab64bda4a84101a0cf5afbde9dfcfa_9366/Essentials_Boyfriend_Tee_Green_JW5080_23_hover_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/86ab64bda4a84101a0cf5afbde9dfcfa_9366/Essentials_Boyfriend_Tee_Green_JW5080_23_hover_model.jpg"
+}
+
+[2025-10-10T08:26:06.316Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8d6421ed49fc43448061319478e33622_9366/Essentials_Boyfriend_Tee_Green_JW5080_25_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8d6421ed49fc43448061319478e33622_9366/Essentials_Boyfriend_Tee_Green_JW5080_25_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8d6421ed49fc43448061319478e33622_9366/Essentials_Boyfriend_Tee_Green_JW5080_25_model.jpg"
+}
+
+[2025-10-10T08:26:06.316Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/09171df82e4e49409b569651ba8228fc_9366/Essentials_Boyfriend_Tee_Green_JW5080_01_laydown.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/09171df82e4e49409b569651ba8228fc_9366/Essentials_Boyfriend_Tee_Green_JW5080_01_laydown.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/09171df82e4e49409b569651ba8228fc_9366/Essentials_Boyfriend_Tee_Green_JW5080_01_laydown.jpg"
+}
+
+[2025-10-10T08:26:06.318Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/555f896f567a4a8da151570b4335e18a_9366/Essentials_Boyfriend_Tee_Green_JW5080_21_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/555f896f567a4a8da151570b4335e18a_9366/Essentials_Boyfriend_Tee_Green_JW5080_21_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/555f896f567a4a8da151570b4335e18a_9366/Essentials_Boyfriend_Tee_Green_JW5080_21_model.jpg"
+}
+
+[2025-10-10T08:26:06.319Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/86ab64bda4a84101a0cf5afbde9dfcfa_9366/Essentials_Boyfriend_Tee_Green_JW5080_23_hover_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/86ab64bda4a84101a0cf5afbde9dfcfa_9366/Essentials_Boyfriend_Tee_Green_JW5080_23_hover_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/86ab64bda4a84101a0cf5afbde9dfcfa_9366/Essentials_Boyfriend_Tee_Green_JW5080_23_hover_model.jpg"
+}
+
+[2025-10-10T08:26:06.319Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8d6421ed49fc43448061319478e33622_9366/Essentials_Boyfriend_Tee_Green_JW5080_25_model.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8d6421ed49fc43448061319478e33622_9366/Essentials_Boyfriend_Tee_Green_JW5080_25_model.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8d6421ed49fc43448061319478e33622_9366/Essentials_Boyfriend_Tee_Green_JW5080_25_model.jpg"
+}
+
+[2025-10-10T08:26:06.320Z] INFO: [DEBUG] Adidas real PDP image: https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/09171df82e4e49409b569651ba8228fc_9366/Essentials_Boyfriend_Tee_Green_JW5080_01_laydown.jpg -> https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/09171df82e4e49409b569651ba8228fc_9366/Essentials_Boyfriend_Tee_Green_JW5080_01_laydown.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:1400:19 -> at NodeList.forEach (<anonymous>)
+  Metadata: {
+  "extractedUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/09171df82e4e49409b569651ba8228fc_9366/Essentials_Boyfriend_Tee_Green_JW5080_01_laydown.jpg"
+}
+
+[2025-10-10T08:26:06.320Z] INFO: [DEBUG] Adidas found 4 real PDP images, 0 other images
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:1414:13) -> at scrapeProduct (<anonymous>:6118:63)
+
+[2025-10-10T08:26:06.325Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:26:06.325Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760084765791_b569wx1o4, saving 14 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

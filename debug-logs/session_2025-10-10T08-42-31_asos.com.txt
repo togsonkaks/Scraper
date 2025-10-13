@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760085750804_95mowryav
+URL: https://www.asos.com/us/asos-design/asos-design-super-oversized-boxy-fit-knit-fisherman-rib-sweater-in-gray-heather/prd/208009433#ctaref-complementary%20items_2&featureref1-complementary%20items
+Hostname: asos.com
+Started: undefined
+Ended: 2025-10-10T08:42:31.350Z
+Total Logs: 5
+=========================
+
+[2025-10-10T08:42:30.805Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760085750804_95mowryav started for asos.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5932:9)
+
+[2025-10-10T08:42:30.805Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5935:7)
+
+[2025-10-10T08:42:31.117Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-10T08:42:31.349Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6356:7)
+
+[2025-10-10T08:42:31.350Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760085750804_95mowryav, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

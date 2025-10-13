@@ -1,0 +1,41 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760167635796_o2dx2ku0l
+URL: https://www.costco.com/saferacks-storage-bin-rack-5-tote-capacity-nsf-certified.product.100677580.html
+Hostname: costco.com
+Started: undefined
+Ended: 2025-10-11T07:27:16.427Z
+Total Logs: 11
+=========================
+
+[2025-10-11T07:27:15.809Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760167635796_o2dx2ku0l started for costco.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:5943:9)
+
+[2025-10-11T07:27:15.811Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:5946:7)
+
+[2025-10-11T07:27:16.148Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-11T07:27:16.370Z] INFO: 🔍 PROCESSING IMAGES with 52 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5239:5)
+
+[2025-10-11T07:27:16.374Z] INFO: 🔍 SELECTOR CAPTURE #0: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at processImages (<anonymous>:5356:23) -> at getImagesGeneric (<anonymous>:5782:26)
+
+[2025-10-11T07:27:16.375Z] INFO: 🔍 SELECTOR CAPTURE #1: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at processImages (<anonymous>:5356:23) -> at getImagesGeneric (<anonymous>:5782:26)
+
+[2025-10-11T07:27:16.376Z] INFO: 🔍 SELECTOR CAPTURE #2: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at processImages (<anonymous>:5356:23) -> at getImagesGeneric (<anonymous>:5782:26)
+
+[2025-10-11T07:27:16.378Z] INFO: 🖼️ Raw enriched URLs collected: 52
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2359:15) -> at processImages (<anonymous>:5403:5)
+
+[2025-10-11T07:27:16.426Z] INFO: ✅ ENRICHED IMAGES BUILT: 10 total, 7 with selectors
+  Call Trace: at console.log (<anonymous>:98:14) -> at scrapeProduct (<anonymous>:6359:15) -> at async <anonymous>:6472:21
+
+[2025-10-11T07:27:16.426Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6388:7)
+
+[2025-10-11T07:27:16.427Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760167635796_o2dx2ku0l, saving 10 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

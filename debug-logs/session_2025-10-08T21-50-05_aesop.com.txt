@@ -1,0 +1,23 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759960204564_xzxay76gh
+URL: https://www.aesop.com/hand-body/body-cleansers-scrubs/eleos-nourishing-body-cleanser/BT25.html
+Hostname: aesop.com
+Started: undefined
+Ended: 2025-10-08T21:50:05.099Z
+Total Logs: 5
+=========================
+
+[2025-10-08T21:50:04.571Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759960204564_xzxay76gh started for aesop.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5709:9)
+
+[2025-10-08T21:50:04.571Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5712:7)
+
+[2025-10-08T21:50:04.874Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-08T21:50:05.098Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6121:7)
+
+[2025-10-08T21:50:05.099Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759960204564_xzxay76gh, saving 4 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

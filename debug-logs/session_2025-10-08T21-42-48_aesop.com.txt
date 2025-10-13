@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759959767682_nzsu6474b
+URL: https://www.aesop.com/hand-body/body-cleansers-scrubs/eleos-nourishing-body-cleanser/BT25.html
+Hostname: aesop.com
+Started: undefined
+Ended: 2025-10-08T21:42:48.240Z
+Total Logs: 7
+=========================
+
+[2025-10-08T21:42:47.689Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759959767682_nzsu6474b started for aesop.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5709:9)
+
+[2025-10-08T21:42:47.689Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5712:7)
+
+[2025-10-08T21:42:47.988Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-08T21:42:48.219Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5061:5)
+
+[2025-10-08T21:42:48.227Z] INFO: 🖼️ Raw enriched URLs collected: 120
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:5217:5)
+
+[2025-10-08T21:42:48.239Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:6121:7)
+
+[2025-10-08T21:42:48.239Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759959767682_nzsu6474b, saving 6 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

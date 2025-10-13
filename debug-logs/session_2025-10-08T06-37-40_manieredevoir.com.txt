@@ -1,0 +1,20 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759905460857_b6iypod9l
+URL: https://www.manieredevoir.com/collections/mens-best-sellers/products/foldover-trousers-sage
+Hostname: manieredevoir.com
+Started: undefined
+Ended: 2025-10-08T06:37:40.877Z
+Total Logs: 4
+=========================
+
+[2025-10-08T06:37:40.865Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759905460857_b6iypod9l started for manieredevoir.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5185:9)
+
+[2025-10-08T06:37:40.866Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5188:7)
+
+[2025-10-08T06:37:40.876Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5555:7)
+
+[2025-10-08T06:37:40.876Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759905460857_b6iypod9l, saving 3 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

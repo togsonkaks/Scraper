@@ -1,0 +1,29 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759872273081_j74gi2dz3
+URL: https://www.revolve.com/bronx-and-banco-geisha-maxi-dress-in-powder-blue/dp/BROR-WD749/?d=Womens&page=1&lc=2&itrownum=1&itcurrpage=1&itview=05&hsclk23191=2
+Hostname: revolve.com
+Started: undefined
+Ended: 2025-10-07T21:24:33.109Z
+Total Logs: 7
+=========================
+
+[2025-10-07T21:24:33.082Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759872273081_j74gi2dz3 started for revolve.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2355:17) -> at scrapeProduct (<anonymous>:5110:9)
+
+[2025-10-07T21:24:33.083Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2355:17) -> at scrapeProduct (<anonymous>:5113:7)
+
+[2025-10-07T21:24:33.090Z] INFO: [DEBUG] REVOLVE: Collected 0 product images from slideshow
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2210:13) -> at scrapeProduct (<anonymous>:5246:63)
+
+[2025-10-07T21:24:33.094Z] INFO: 🔍 PROCESSING IMAGES with selector: img observeMs: 0 ⚠️ IMG FALLBACK MODE
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2388:15) -> at processImages (<anonymous>:4470:5)
+
+[2025-10-07T21:24:33.097Z] INFO: 🖼️ Raw enriched URLs collected: 113
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2388:15) -> at processImages (<anonymous>:4623:5)
+
+[2025-10-07T21:24:33.108Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2355:17) -> at scrapeProduct (<anonymous>:5467:7)
+
+[2025-10-07T21:24:33.109Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759872273081_j74gi2dz3, saving 6 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

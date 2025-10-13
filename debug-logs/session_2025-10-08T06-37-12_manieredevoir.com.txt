@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759905432963_lu7phlkui
+URL: https://www.manieredevoir.com/collections/mens-best-sellers/products/foldover-trousers-sage
+Hostname: manieredevoir.com
+Started: undefined
+Ended: 2025-10-08T06:37:12.999Z
+Total Logs: 6
+=========================
+
+[2025-10-08T06:37:12.969Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759905432963_lu7phlkui started for manieredevoir.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5185:9)
+
+[2025-10-08T06:37:12.970Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5188:7)
+
+[2025-10-08T06:37:12.987Z] INFO: 🔍 PROCESSING IMAGES with 15 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4542:5)
+
+[2025-10-08T06:37:12.989Z] INFO: 🖼️ Raw enriched URLs collected: 15
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2356:15) -> at processImages (<anonymous>:4698:5)
+
+[2025-10-08T06:37:12.999Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2323:17) -> at scrapeProduct (<anonymous>:5555:7)
+
+[2025-10-08T06:37:12.999Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759905432963_lu7phlkui, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

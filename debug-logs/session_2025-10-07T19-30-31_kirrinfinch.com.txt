@@ -1,0 +1,26 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1759865430860_iy37asgqq
+URL: https://kirrinfinch.com/products/the-georgie-sky-gray-suit-blazer
+Hostname: kirrinfinch.com
+Started: undefined
+Ended: 2025-10-07T19:30:31.394Z
+Total Logs: 6
+=========================
+
+[2025-10-07T19:30:30.875Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1759865430860_iy37asgqq started for kirrinfinch.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5030:9)
+
+[2025-10-07T19:30:30.877Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5033:7)
+
+[2025-10-07T19:30:31.065Z] INFO: 🔍 PROCESSING IMAGES with 335 elements observeMs: 0 
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4391:5)
+
+[2025-10-07T19:30:31.309Z] INFO: 🖼️ Raw enriched URLs collected: 341
+  Call Trace: at console.log (<anonymous>:98:14) -> at dbg (<anonymous>:2310:15) -> at processImages (<anonymous>:4544:5)
+
+[2025-10-07T19:30:31.391Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2277:17) -> at scrapeProduct (<anonymous>:5386:7)
+
+[2025-10-07T19:30:31.392Z] INFO: 💾 DEBUG LOGGER: Ending session session_1759865430860_iy37asgqq, saving 5 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)

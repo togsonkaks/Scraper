@@ -1,0 +1,80 @@
+=== DEBUG LOG SESSION ===
+Session ID: session_1760238662281_xmef5508n
+URL: https://www.etsy.com/listing/1889775139/88100-charcoal-fur-felt-cowboy-hat?ls=r&ref=hp_rv-8&frs=1&sts=1&content_source=0900601ce5fe108bc42bcfe0a9c1be92%253A12a69e81647de0f2ec2dfcf6277ebed1b1dd49d6&logging_key=0900601ce5fe108bc42bcfe0a9c1be92%3A12a69e81647de0f2ec2dfcf6277ebed1b1dd49d6
+Hostname: etsy.com
+Started: undefined
+Ended: 2025-10-12T03:11:02.826Z
+Total Logs: 24
+=========================
+
+[2025-10-12T03:11:02.289Z] INFO: [TG] 💾 DEBUG LOGGER: Session session_1760238662281_xmef5508n started for etsy.com
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6021:9)
+
+[2025-10-12T03:11:02.290Z] INFO: [TG] 🚀 SCRAPE START [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6024:7)
+
+[2025-10-12T03:11:02.587Z] INFO: 🔄 Quick scroll to trigger lazy loading...
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:17:13
+
+[2025-10-12T03:11:02.816Z] INFO: [DEBUG] Etsy custom image logic running...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2052:13) -> at scrapeProduct (<anonymous>:6207:63)
+
+[2025-10-12T03:11:02.816Z] INFO: [DEBUG] Etsy: Targeting main product gallery containers to avoid cross-sell...
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2065:13) -> at scrapeProduct (<anonymous>:6207:63)
+
+[2025-10-12T03:11:02.816Z] INFO: [DEBUG] Etsy: Found 0 images with selector: div[class*="image-overlay-list"] img
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2070:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Found 9 images with selector: [data-listing-image] img
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2070:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Found 19 images with selector: [data-image-overlay] img
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2070:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6771874533_r97p.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Added main gallery image: 88100_charcoal_cowboy_ccaf4a.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6723847070_p7sj.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6723847062_bnef.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6723847064_qz13.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6723847080_4hjx.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6771873651_bdms.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.817Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6811367493_fgnw.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.818Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6763353000_6xta.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.818Z] INFO: [DEBUG] Etsy: Added main gallery image: il_300x300.6763352974_hiz5.jpg
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2077:21 -> at NodeList.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.818Z] INFO: [DEBUG] Etsy: Found 0 images with selector: .shop2-listing-image img
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2070:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.818Z] INFO: [DEBUG] Etsy: Found 0 images with selector: .listing-page-image img
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2070:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.818Z] INFO: [DEBUG] Etsy: Found 0 images with selector: [data-test-id*="listing-image"] img
+  Call Trace: at console.log (<anonymous>:98:14) -> at <anonymous>:2070:17 -> at Array.forEach (<anonymous>)
+
+[2025-10-12T03:11:02.818Z] INFO: [DEBUG] Etsy: Collected 10 main product images (cross-sells eliminated)
+  Call Trace: at console.log (<anonymous>:98:14) -> at Object.images (<anonymous>:2086:13) -> at scrapeProduct (<anonymous>:6207:63)
+
+[2025-10-12T03:11:02.824Z] INFO: [TG] ✅ SCRAPE SUCCESS: [object Object]
+  Call Trace: at console.log (<anonymous>:98:14) -> at log (<anonymous>:2326:17) -> at scrapeProduct (<anonymous>:6460:7)
+
+[2025-10-12T03:11:02.825Z] INFO: 💾 DEBUG LOGGER: Ending session session_1760238662281_xmef5508n, saving 23 logs
+  Call Trace: at console.log (<anonymous>:98:14) -> at DebugLogger.endSession (<anonymous>:66:13) -> at window.stopDebugLogging (<anonymous>:328:52)
