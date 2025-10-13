@@ -244,6 +244,7 @@ async function updateProductTags(productId, tagResults) {
             const newCategory = await sql`
               INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
               VALUES (${categoryName}, ${categorySlug}, ${parentId}, ${i}, 1)
+              ON CONFLICT (slug) DO UPDATE SET name = ${categoryName}
               RETURNING category_id
             `;
             categoryId = newCategory[0].category_id;
@@ -253,6 +254,7 @@ async function updateProductTags(productId, tagResults) {
               const newCategory = await sql`
                 INSERT INTO categories (name, slug, parent_id, level)
                 VALUES (${categoryName}, ${categorySlug}, ${parentId}, ${i})
+                ON CONFLICT (slug) DO UPDATE SET name = ${categoryName}
                 RETURNING category_id
               `;
               categoryId = newCategory[0].category_id;
