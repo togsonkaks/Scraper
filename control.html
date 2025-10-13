@@ -1198,7 +1198,13 @@
         llmTagBtn.disabled = true;
         llmTagBtn.textContent = '🔄 AI Analyzing...';
         
-        const result = await window.api.llmTagProduct(lastPayload);
+        // Pass current auto-tag result so LLM can merge with existing AUTO tags
+        const productDataWithAutoTags = {
+          ...lastPayload,
+          __existingAutoTags: window.currentAutoTagResult?.tags || []
+        };
+        
+        const result = await window.api.llmTagProduct(productDataWithAutoTags);
         
         currentLLMTags = result;
         showLLMReviewModal(result);
@@ -1774,12 +1780,12 @@
       const confidenceEl = document.getElementById('tagConfidence');
       const tagListEl = document.getElementById('tagList');
       
-      // Display category path or primary category
-      if (tagResult.categoryPath && tagResult.categoryPath.length > 0) {
-        categoryEl.textContent = tagResult.categoryPath.map(c => c.name).join(' > ');
-      } else if (tagResult.primaryCategory) {
-        // primaryCategory is now a string (full path)
+      // Display category - ALWAYS use primaryCategory (string) for consistency
+      if (tagResult.primaryCategory) {
         categoryEl.textContent = tagResult.primaryCategory;
+      } else if (tagResult.categoryPath && tagResult.categoryPath.length > 0) {
+        // Fallback to categoryPath if primaryCategory missing
+        categoryEl.textContent = tagResult.categoryPath.map(c => c.name).join(' > ');
       } else {
         categoryEl.textContent = '-';
       }

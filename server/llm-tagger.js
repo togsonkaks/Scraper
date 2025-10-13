@@ -182,18 +182,24 @@ async function loadExistingTags() {
  * @returns {Promise<Object>} { categories: string[], keywords: string[], confidence: number }
  */
 async function extractTagsWithLLM(productData) {
-  const { title, description, specs, breadcrumbs, brand, jsonLd, url } = productData;
+  const { title, description, specs, breadcrumbs, brand, jsonLd, url, __existingAutoTags } = productData;
   
-  // Check if product already exists in database (by URL)
+  // Use provided AUTO tags from UI, or check database for existing tags
   let existingProductTags = [];
-  if (url) {
+  
+  if (__existingAutoTags && Array.isArray(__existingAutoTags) && __existingAutoTags.length > 0) {
+    // Use tags from UI (current auto-tag result)
+    existingProductTags = __existingAutoTags.map(tag => typeof tag === 'string' ? tag : tag.name);
+    console.log(`📦 Using current AUTO tags from UI: ${existingProductTags.length} tags:`, existingProductTags.join(', '));
+  } else if (url) {
+    // Fallback: Check database for existing tags
     try {
       const existingProduct = await sql`
         SELECT tags FROM products WHERE url = ${url} LIMIT 1
       `;
       if (existingProduct.length > 0 && existingProduct[0].tags) {
         existingProductTags = existingProduct[0].tags;
-        console.log(`📦 Found existing product with ${existingProductTags.length} tags:`, existingProductTags.join(', '));
+        console.log(`📦 Found existing product in DB with ${existingProductTags.length} tags:`, existingProductTags.join(', '));
       }
     } catch (error) {
       console.log('No existing product found or error:', error.message);
