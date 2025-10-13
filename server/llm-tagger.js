@@ -182,7 +182,23 @@ async function loadExistingTags() {
  * @returns {Promise<Object>} { categories: string[], keywords: string[], confidence: number }
  */
 async function extractTagsWithLLM(productData) {
-  const { title, description, specs, breadcrumbs, brand, jsonLd } = productData;
+  const { title, description, specs, breadcrumbs, brand, jsonLd, url } = productData;
+  
+  // Check if product already exists in database (by URL)
+  let existingProductTags = [];
+  if (url) {
+    try {
+      const existingProduct = await sql`
+        SELECT tags FROM products WHERE url = ${url} LIMIT 1
+      `;
+      if (existingProduct.length > 0 && existingProduct[0].tags) {
+        existingProductTags = existingProduct[0].tags;
+        console.log(`📦 Found existing product with ${existingProductTags.length} tags:`, existingProductTags.join(', '));
+      }
+    } catch (error) {
+      console.log('No existing product found or error:', error.message);
+    }
+  }
   
   // Load existing category structure and tags from database
   const existingPaths = await loadExistingCategoryPaths();
@@ -402,16 +418,56 @@ Respond in JSON format:
       console.log(`💡 LLM suggested ${newTagsToLearn.length} new tags (not saved yet): ${newTagsToLearn.map(t => t.name).join(', ')}`);
     }
     
+    // Convert existing product tags to tag objects (mark as AUTO source)
+    const existingTagObjects = existingProductTags.map(tagName => ({
+      name: tagName,
+      slug: tagName.toLowerCase().replace(/\s+/g, '-'),
+      type: 'features', // We don't have type info for existing tags, default to features
+      source: 'AUTO' // Mark as auto-tagged
+    }));
+    
+    // Mark AI suggestions with AI source
+    const aiTagObjects = processedTags.map(tag => ({
+      ...tag,
+      source: 'AI'
+    }));
+    
+    // Merge existing tags with AI suggestions (deduplicate by name)
+    const seenTagNames = new Set();
+    const mergedTags = [];
+    
+    // Add existing tags first
+    for (const tag of existingTagObjects) {
+      const normalizedName = tag.name.toLowerCase();
+      if (!seenTagNames.has(normalizedName)) {
+        seenTagNames.add(normalizedName);
+        mergedTags.push(tag);
+      }
+    }
+    
+    // Add AI suggestions (skip if already exists)
+    for (const tag of aiTagObjects) {
+      const normalizedName = tag.name.toLowerCase();
+      if (!seenTagNames.has(normalizedName)) {
+        seenTagNames.add(normalizedName);
+        mergedTags.push(tag);
+      }
+    }
+    
+    console.log(`🔀 Merged tags: ${existingProductTags.length} existing + ${processedTags.length} AI = ${mergedTags.length} total`);
+    
     return {
       categories: result.categories || [],
-      tags: processedTags,
-      keywords: processedTags.map(t => t.name), // For backward compatibility
+      tags: mergedTags, // Return merged tags with source labels
+      keywords: mergedTags.map(t => t.name), // For backward compatibility
       brand: result.brand || productData.brand || null,
       confidence: result.confidence || 0.7,
       reasoning: result.reasoning || '',
       isNewPath: !actuallyExists,  // Override LLM - use actual database check
       newTagsToLearn: newTagsToLearn, // Return new tags for save function to insert
-      learnedTags: newTagsToLearn.length
+      learnedTags: newTagsToLearn.length,
+      existingTagsCount: existingProductTags.length,
+      aiSuggestionsCount: processedTags.length
     };
   } catch (error) {
     console.error('LLM tagging error:', error);
