@@ -396,27 +396,10 @@ Respond in JSON format:
       }
     }
     
-    // Auto-learn new tags by adding them to tag_taxonomy
+    // DON'T auto-insert new tags - just return them as suggestions
+    // Tags will be inserted only when user clicks "Save to Database"
     if (newTagsToLearn.length > 0) {
-      try {
-        for (const newTag of newTagsToLearn) {
-          await sql`
-            INSERT INTO tags (name, slug, tag_type, llm_discovered)
-            VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
-            ON CONFLICT (slug) DO NOTHING
-          `;
-        }
-        console.log(`✨ Learned ${newTagsToLearn.length} new tags: ${newTagsToLearn.map(t => t.name).join(', ')}`);
-        
-        // Append new tags to seed file for future reseeding
-        await appendToSeedFile(newTagsToLearn);
-        
-        // Refresh auto-tagger taxonomy so new tags are immediately available
-        await initializeTaxonomy(true);  // Force refresh
-        console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
-      } catch (error) {
-        console.error('Error learning new tags:', error);
-      }
+      console.log(`💡 LLM suggested ${newTagsToLearn.length} new tags (not saved yet): ${newTagsToLearn.map(t => t.name).join(', ')}`);
     }
     
     return {
@@ -427,6 +410,7 @@ Respond in JSON format:
       confidence: result.confidence || 0.7,
       reasoning: result.reasoning || '',
       isNewPath: !actuallyExists,  // Override LLM - use actual database check
+      newTagsToLearn: newTagsToLearn, // Return new tags for save function to insert
       learnedTags: newTagsToLearn.length
     };
   } catch (error) {
@@ -608,27 +592,10 @@ Respond in JSON format:
       }
     }
     
-    // Auto-learn new tags
+    // DON'T auto-insert new tags from retry - just return them as suggestions
+    // Tags will be inserted only when user clicks "Save to Database"
     if (newTagsToLearn.length > 0) {
-      try {
-        for (const newTag of newTagsToLearn) {
-          await sql`
-            INSERT INTO tags (name, slug, tag_type, llm_discovered)
-            VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
-            ON CONFLICT (slug) DO NOTHING
-          `;
-        }
-        console.log(`✨ Learned ${newTagsToLearn.length} new tags from retry: ${newTagsToLearn.map(t => t.name).join(', ')}`);
-        
-        // Append new tags to seed file for future reseeding
-        await appendToSeedFile(newTagsToLearn);
-        
-        // Refresh auto-tagger taxonomy so new tags are immediately available
-        await initializeTaxonomy(true);  // Force refresh
-        console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
-      } catch (error) {
-        console.error('Error learning new tags:', error);
-      }
+      console.log(`💡 LLM retry suggested ${newTagsToLearn.length} new tags (not saved yet): ${newTagsToLearn.map(t => t.name).join(', ')}`);
     }
     
     return {
@@ -639,6 +606,7 @@ Respond in JSON format:
       confidence: result.confidence || 0.7,
       reasoning: result.reasoning || '',
       isNewPath: !actuallyExists,
+      newTagsToLearn: newTagsToLearn, // Return new tags for save function to insert
       learnedTags: newTagsToLearn.length
     };
   } catch (error) {
