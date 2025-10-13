@@ -245,6 +245,20 @@ async function autoTag(productData) {
     }
   }
   
+  // Priority 3: Infer from product keywords if no explicit gender found
+  if (!gender) {
+    const womenKeywords = /\b(cowgirl|miss|mrs|her|bridal|bride|femme|feminine|goddess|lady|gown|dress|blouse|skirt|heels|bra|pink|rose-gold|mauve|lavender)\b/gi;
+    const menKeywords = /\b(cowboy|mr|his|groom|masculine|tie|necktie|tuxedo|beard|shave|razor)\b/gi;
+    
+    if (womenKeywords.test(searchText)) {
+      gender = 'women';
+      console.log('  👤 Gender inferred from keywords:', gender);
+    } else if (menKeywords.test(searchText)) {
+      gender = 'men';
+      console.log('  👤 Gender inferred from keywords:', gender);
+    }
+  }
+  
   // Match categories from ALL product data (same as tags)
   let matchedCategories = matchCategories(searchText);
   console.log('  📂 Matched categories:', matchedCategories.length, '→', 
