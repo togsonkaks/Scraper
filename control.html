@@ -1398,11 +1398,14 @@
       }
     });
 
-    // Update category path on edit
-    document.getElementById('llmCategoryInput').addEventListener('input', (e) => {
-      const path = e.target.value.split('>').map(s => s.trim()).filter(Boolean);
-      currentLLMTags.categories = path;
-    });
+    // Update category path on edit (if element exists)
+    const llmCategoryInput = document.getElementById('llmCategoryInput');
+    if (llmCategoryInput) {
+      llmCategoryInput.addEventListener('input', (e) => {
+        const path = e.target.value.split('>').map(s => s.trim()).filter(Boolean);
+        currentLLMTags.categories = path;
+      });
+    }
 
     // Cancel LLM review
     document.getElementById('llmCancelBtn').onclick = () => {
