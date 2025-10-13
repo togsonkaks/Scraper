@@ -326,11 +326,11 @@ async function seedTags() {
   try {
     console.log('🚀 Starting comprehensive tag taxonomy seed...\n');
 
-    // Clear existing tags
-    console.log('🗑️  Clearing existing tags...');
+    // Clear existing tags (preserve LLM-discovered tags)
+    console.log('🗑️  Clearing existing tags (preserving LLM discoveries)...');
     await sql`DELETE FROM product_tags`;
-    await sql`DELETE FROM tag_taxonomy`;
-    console.log('✅ Cleared existing tags\n');
+    await sql`DELETE FROM tags WHERE llm_discovered = 0 OR llm_discovered IS NULL`;
+    console.log('✅ Cleared existing tags (kept LLM-discovered tags)\n');
 
     console.log('📊 Inserting tags by type...');
     let totalCount = 0;
@@ -338,16 +338,17 @@ async function seedTags() {
     for (const [tagType, tags] of Object.entries(COMPREHENSIVE_TAGS)) {
       console.log(`\n   Inserting ${tagType} (${tags.length} tags)...`);
       
-      // Prepare batch data
+      // Prepare batch data (mark as seed tags, not LLM-discovered)
       const batchData = tags.map(tagName => ({
         name: tagName,
         slug: tagName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
-        tag_type: tagType
+        tag_type: tagType,
+        llm_discovered: 0
       }));
       
       // Batch insert
       await sql`
-        INSERT INTO tag_taxonomy ${sql(batchData, 'name', 'slug', 'tag_type')}
+        INSERT INTO tags ${sql(batchData, 'name', 'slug', 'tag_type', 'llm_discovered')}
         ON CONFLICT (slug) DO NOTHING
       `;
       
