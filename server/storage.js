@@ -139,7 +139,7 @@ async function updateProductTags(productId, tagResults) {
     
     // Step 3.5: Insert new LLM-discovered tags to the database (only when user clicks Save)
     if (tagResults.newTagsToLearn && tagResults.newTagsToLearn.length > 0) {
-      const { initializeTaxonomy } = require('./auto-tagger');
+      const { initializeTaxonomy } = require('../scrapers/auto-tagger');
       
       for (const newTag of tagResults.newTagsToLearn) {
         await sql`
@@ -280,7 +280,7 @@ async function saveProduct(productData, tagResults) {
     
     // Insert new LLM-discovered tags to the database (only when user clicks Save)
     if (tagResults.newTagsToLearn && tagResults.newTagsToLearn.length > 0) {
-      const { initializeTaxonomy } = require('./auto-tagger');
+      const { initializeTaxonomy } = require('../scrapers/auto-tagger');
       
       for (const newTag of tagResults.newTagsToLearn) {
         await sql`
