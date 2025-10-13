@@ -42,6 +42,34 @@ function normalizeBreadcrumbs(breadcrumbs, productTitle = null) {
 }
 
 /**
+ * Deduplicate category path by removing consecutive duplicate segments
+ * Example: "Toys & Games > Toys & Games > Outdoor Play > Toys & Games > Outdoor Play > Bubbles"
+ *       -> ["Toys & Games", "Outdoor Play", "Bubbles"]
+ */
+function deduplicateCategoryPath(categoryPath) {
+  if (!categoryPath) return [];
+  
+  // If it's a string, split by " > "
+  let segments = Array.isArray(categoryPath) 
+    ? categoryPath 
+    : categoryPath.split('>').map(s => s.trim()).filter(s => s.length > 0);
+  
+  // Remove consecutive duplicates while preserving order
+  const cleaned = [];
+  let lastSeen = null;
+  
+  for (const segment of segments) {
+    if (segment !== lastSeen) {
+      cleaned.push(segment);
+      lastSeen = segment;
+    }
+  }
+  
+  console.log(`🧹 Path cleanup: "${segments.join(' > ')}" → "${cleaned.join(' > ')}"`);
+  return cleaned;
+}
+
+/**
  * Save raw product data without tags (Phase 1: Initial Save)
  * LLM will add tags later via updateProductTags()
  */
