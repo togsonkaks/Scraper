@@ -1321,15 +1321,15 @@
         document.getElementById('llmSaveBtn').disabled = true;
         document.getElementById('llmSaveBtn').textContent = '💾 Updating...';
         
-        // Format tags for database with slugs
+        // Format tags for database with proper types from LLM
         const tagResults = {
           primaryCategory: currentLLMTags.categories.join(' > ') || 'Uncategorized',  // Full hierarchy path
           categories: currentLLMTags.categories,
           allCategories: currentLLMTags.categories.map(cat => generateSlug(cat)),
-          tags: currentLLMTags.keywords.map(kw => ({ 
+          tags: currentLLMTags.tags || currentLLMTags.keywords.map(kw => ({ 
             name: kw, 
             slug: generateSlug(kw),
-            type: 'llm' 
+            type: 'features'  // Fallback to features if tags array not available
           })),
           confidenceScore: currentLLMTags.confidence || 1.0,
           needsLLMEnrichment: false,
