@@ -1278,27 +1278,67 @@
       showLLMReviewModal(currentLLMTags);
     };
 
-    // Add new keyword on Enter
-    document.getElementById('llmKeywordInput').addEventListener('keypress', (e) => {
+    // Add new keyword on Enter with smart classification
+    document.getElementById('llmKeywordInput').addEventListener('keypress', async (e) => {
       if (e.key === 'Enter' && e.target.value.trim()) {
         const newKeyword = e.target.value.trim();
-        currentLLMTags.keywords.push(newKeyword);
+        const inputField = e.target;
         
-        // ALSO add to tags array so it gets saved to database
-        if (!currentLLMTags.tags) currentLLMTags.tags = [];
-        const newTag = {
-          name: newKeyword,
-          slug: generateSlug(newKeyword),
-          type: 'features' // Default to features for custom tags
-        };
-        currentLLMTags.tags.push(newTag);
+        // Disable input and show loading
+        inputField.disabled = true;
+        inputField.placeholder = '🔍 Classifying...';
         
-        console.log('Added custom tag:', newTag);
-        console.log('Total keywords:', currentLLMTags.keywords);
-        console.log('Total tags:', currentLLMTags.tags);
-        
-        showLLMReviewModal(currentLLMTags);
-        e.target.value = '';
+        try {
+          // Smart classification: Check DB → taxonomy → LLM
+          const classified = await window.api.classifyTag(newKeyword);
+          
+          console.log('📊 Tag classification result:', classified);
+          
+          // If tag exists in DB and is NOT llm_discovered, don't duplicate
+          if (classified.existsInDb && !classified.llm_discovered) {
+            console.log(`✅ Using existing tag "${classified.name}" with type: ${classified.type}`);
+          }
+          
+          // Add to keywords array
+          currentLLMTags.keywords.push(classified.name);
+          
+          // Add to tags array with proper type
+          if (!currentLLMTags.tags) currentLLMTags.tags = [];
+          const newTag = {
+            name: classified.name,
+            slug: classified.slug,
+            type: classified.type,
+            source: 'MANUAL' // Mark as manually added
+          };
+          
+          // Track new tags for database insertion (only if truly new)
+          if (classified.isNew) {
+            if (!currentLLMTags.newTagsToLearn) currentLLMTags.newTagsToLearn = [];
+            currentLLMTags.newTagsToLearn.push({
+              name: classified.name,
+              slug: classified.slug,
+              type: classified.type,
+              llm_discovered: 1 // Mark as custom/manual tag
+            });
+          }
+          
+          currentLLMTags.tags.push(newTag);
+          
+          console.log(`✨ Added "${classified.name}" as type: ${classified.type} ${classified.isNew ? '(NEW)' : '(EXISTING)'}`);
+          console.log('Total keywords:', currentLLMTags.keywords);
+          console.log('Total tags:', currentLLMTags.tags);
+          
+          showLLMReviewModal(currentLLMTags);
+          
+        } catch (error) {
+          console.error('Error classifying tag:', error);
+          alert(`❌ Error classifying tag: ${error.message}`);
+        } finally {
+          // Re-enable input
+          inputField.disabled = false;
+          inputField.placeholder = 'Add new keyword and press Enter';
+          inputField.value = '';
+        }
       }
     });
 

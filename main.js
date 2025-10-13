@@ -905,6 +905,17 @@ ipcMain.handle('llm-retry-with-feedback', async (_e, productData, feedback) => {
   }
 });
 
+// Smart tag classification handler
+ipcMain.handle('classify-tag', async (_e, tagName) => {
+  try {
+    const { classifyTag } = require(path.join(__dirname, 'server', 'llm-tagger'));
+    return await classifyTag(tagName);
+  } catch (e) {
+    console.error('Tag classification error:', e);
+    throw e;
+  }
+});
+
 // Database save handler (legacy - with tags)
 ipcMain.handle('save-to-database', async (_e, productData, tagResults) => {
   try {

@@ -746,7 +746,119 @@ async function appendToSeedFile(newTags) {
   }
 }
 
+/**
+ * Smart tag classification: Check DB → Match taxonomy → LLM classification
+ * @param {string} tagName - The tag name to classify
+ * @returns {Promise<Object>} { name, slug, type, existsInDb, isNew }
+ */
+async function classifyTag(tagName) {
+  const tagSlug = tagName.toLowerCase().replace(/\s+/g, '-');
+  
+  // Step 1: Check if tag exists in database
+  try {
+    const existingTag = await sql`
+      SELECT name, slug, tag_type, llm_discovered 
+      FROM tags 
+      WHERE slug = ${tagSlug} 
+      LIMIT 1
+    `;
+    
+    if (existingTag.length > 0) {
+      console.log(`✅ Tag "${tagName}" exists in DB as type: ${existingTag[0].tag_type}`);
+      return {
+        name: existingTag[0].name,
+        slug: existingTag[0].slug,
+        type: existingTag[0].tag_type,
+        existsInDb: true,
+        isNew: false,
+        llm_discovered: existingTag[0].llm_discovered
+      };
+    }
+  } catch (error) {
+    console.error('Error checking tag in DB:', error);
+  }
+  
+  // Step 2: If not in DB, check taxonomy (in-memory smart matching)
+  const tagLower = tagName.toLowerCase();
+  
+  // Material patterns
+  if (/leather|suede|cotton|wool|silk|denim|nylon|polyester|canvas|mesh|fleece|cashmere|linen|bamboo|velvet/i.test(tagLower)) {
+    console.log(`🧠 Smart-classified "${tagName}" as: materials (pattern match)`);
+    return { name: tagName, slug: tagSlug, type: 'materials', existsInDb: false, isNew: true };
+  }
+  
+  // Color patterns
+  if (/black|white|blue|red|green|brown|navy|indigo|gray|grey|beige|tan|yellow|orange|pink|purple|gold|silver|cream|ivory/i.test(tagLower)) {
+    console.log(`🧠 Smart-classified "${tagName}" as: colors (pattern match)`);
+    return { name: tagName, slug: tagSlug, type: 'colors', existsInDb: false, isNew: true };
+  }
+  
+  // Fit patterns
+  if (/fit|tapered|relaxed|slim|loose|tight|oversized|petite|plus-size/i.test(tagLower)) {
+    console.log(`🧠 Smart-classified "${tagName}" as: fit (pattern match)`);
+    return { name: tagName, slug: tagSlug, type: 'fit', existsInDb: false, isNew: true };
+  }
+  
+  // Style patterns
+  if (/casual|formal|athletic|vintage|modern|minimalist|boho|preppy|streetwear|elegant/i.test(tagLower)) {
+    console.log(`🧠 Smart-classified "${tagName}" as: styles (pattern match)`);
+    return { name: tagName, slug: tagSlug, type: 'styles', existsInDb: false, isNew: true };
+  }
+  
+  // Activity patterns
+  if (/workout|gym|running|hiking|yoga|cycling|swimming|golf|tennis|basketball/i.test(tagLower)) {
+    console.log(`🧠 Smart-classified "${tagName}" as: activities (pattern match)`);
+    return { name: tagName, slug: tagSlug, type: 'activities', existsInDb: false, isNew: true };
+  }
+  
+  // Step 3: If still not classified, use LLM for final decision
+  try {
+    console.log(`🤖 Using LLM to classify "${tagName}"...`);
+    
+    const prompt = `Classify this product tag into ONE of these types:
+materials, colors, fit, styles, features, activities, occasions, tool-types, automotive, kitchen, beauty
+
+Tag: "${tagName}"
+
+Respond in JSON format:
+{
+  "type": "colors",
+  "reasoning": "This is a color descriptor"
+}`;
+
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [{ role: 'user', content: prompt }],
+      response_format: { type: 'json_object' },
+      temperature: 0.2,
+      max_tokens: 100
+    });
+    
+    const result = JSON.parse(response.choices[0].message.content);
+    console.log(`🤖 LLM classified "${tagName}" as: ${result.type} (${result.reasoning})`);
+    
+    return {
+      name: tagName,
+      slug: tagSlug,
+      type: result.type || 'features',
+      existsInDb: false,
+      isNew: true
+    };
+    
+  } catch (error) {
+    console.error('LLM classification failed, defaulting to features:', error);
+    return {
+      name: tagName,
+      slug: tagSlug,
+      type: 'features',
+      existsInDb: false,
+      isNew: true
+    };
+  }
+}
+
 module.exports = {
   extractTagsWithLLM,
-  retryWithFeedback
+  retryWithFeedback,
+  classifyTag
 };
