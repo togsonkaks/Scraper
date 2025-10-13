@@ -151,7 +151,7 @@ async function loadExistingTags() {
   try {
     const tags = await sql`
       SELECT name, tag_type
-      FROM tag_taxonomy
+      FROM tags
       ORDER BY tag_type, name
     `;
     
@@ -401,7 +401,7 @@ Respond in JSON format:
       try {
         for (const newTag of newTagsToLearn) {
           await sql`
-            INSERT INTO tag_taxonomy (name, slug, tag_type, llm_discovered)
+            INSERT INTO tags (name, slug, tag_type, llm_discovered)
             VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
             ON CONFLICT (slug) DO NOTHING
           `;
@@ -613,7 +613,7 @@ Respond in JSON format:
       try {
         for (const newTag of newTagsToLearn) {
           await sql`
-            INSERT INTO tag_taxonomy (name, slug, tag_type, llm_discovered)
+            INSERT INTO tags (name, slug, tag_type, llm_discovered)
             VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
             ON CONFLICT (slug) DO NOTHING
           `;
