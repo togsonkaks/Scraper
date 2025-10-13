@@ -167,7 +167,7 @@ async function updateProductTags(productId, tagResults) {
     
     // Step 3.5: Insert new LLM-discovered tags to the database (only when user clicks Save)
     if (tagResults.newTagsToLearn && tagResults.newTagsToLearn.length > 0) {
-      const { initializeTaxonomy } = require('../scrapers/auto-tagger');
+      const { refreshTaxonomy } = require('../scrapers/auto-tagger');
       
       for (const newTag of tagResults.newTagsToLearn) {
         await sql`
@@ -179,8 +179,8 @@ async function updateProductTags(productId, tagResults) {
       console.log(`✨ Saved ${tagResults.newTagsToLearn.length} new LLM tags: ${tagResults.newTagsToLearn.map(t => t.name).join(', ')}`);
       
       // Refresh auto-tagger taxonomy so new tags are immediately available
-      await initializeTaxonomy(true);
-      console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
+      await refreshTaxonomy();
+      console.log('✅ Auto-tagger taxonomy refreshed - new tags available for next scrape');
     }
     
     // Step 4: Insert new tags and create associations
@@ -212,12 +212,13 @@ async function updateProductTags(productId, tagResults) {
     // OR a path string like "Toys & Games > Outdoor Play > Bubbles"
     // We need to walk the path and verify parent-child relationships
     if (tagResults.categories && tagResults.categories.length > 0) {
-      const { initializeTaxonomy } = require('../scrapers/auto-tagger');
+      const { refreshTaxonomy } = require('../scrapers/auto-tagger');
       
       // CLEANUP: Deduplicate path to handle database corruption
       const cleanedCategories = deduplicateCategoryPath(tagResults.categories);
       
       let parentId = null;
+      let createdNewCategories = false;
       
       for (let i = 0; i < cleanedCategories.length; i++) {
         const categoryName = cleanedCategories[i];
@@ -237,6 +238,7 @@ async function updateProductTags(productId, tagResults) {
         } else {
           // Category doesn't exist - CREATE IT with llm_discovered flag (if column exists)
           console.log(`📦 Creating missing category: "${categoryName}" (parent: ${parentId})`);
+          createdNewCategories = true;
           
           try {
             const newCategory = await sql`
@@ -260,9 +262,6 @@ async function updateProductTags(productId, tagResults) {
           }
           
           console.log(`✅ Created category ID ${categoryId}: ${categoryName}`);
-          
-          // Refresh auto-tagger taxonomy so new category is immediately available
-          await initializeTaxonomy(true);
         }
         
         // Insert product-category association
@@ -274,6 +273,13 @@ async function updateProductTags(productId, tagResults) {
         
         // This category becomes the parent for the next level
         parentId = categoryId;
+      }
+      
+      // Refresh taxonomy ONCE after all categories created
+      if (createdNewCategories) {
+        console.log('🔄 Refreshing auto-tagger taxonomy with new categories...');
+        await refreshTaxonomy();
+        console.log('✅ Auto-tagger taxonomy refreshed - new categories available for next scrape');
       }
     }
     
@@ -401,7 +407,7 @@ async function saveProduct(productData, tagResults) {
     
     // Insert new LLM-discovered tags to the database (only when user clicks Save)
     if (tagResults.newTagsToLearn && tagResults.newTagsToLearn.length > 0) {
-      const { initializeTaxonomy } = require('../scrapers/auto-tagger');
+      const { refreshTaxonomy } = require('../scrapers/auto-tagger');
       
       for (const newTag of tagResults.newTagsToLearn) {
         await sql`
@@ -413,8 +419,8 @@ async function saveProduct(productData, tagResults) {
       console.log(`✨ Saved ${tagResults.newTagsToLearn.length} new LLM tags: ${tagResults.newTagsToLearn.map(t => t.name).join(', ')}`);
       
       // Refresh auto-tagger taxonomy so new tags are immediately available
-      await initializeTaxonomy(true);
-      console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
+      await refreshTaxonomy();
+      console.log('✅ Auto-tagger taxonomy refreshed - new tags available for next scrape');
     }
     
     for (const tag of tagResults.tags) {

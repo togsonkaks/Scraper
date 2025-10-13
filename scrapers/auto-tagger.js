@@ -494,4 +494,9 @@ async function autoTag(productData) {
   };
 }
 
-module.exports = { autoTag, initializeTaxonomy };
+// Force refresh taxonomy (for self-learning)
+async function refreshTaxonomy() {
+  return initializeTaxonomy(true);
+}
+
+module.exports = { autoTag, initializeTaxonomy, refreshTaxonomy };
