@@ -542,9 +542,24 @@ async function seedFullTaxonomy() {
     
     const tagsObj = eval(`({${tagObjectMatch[1]}})`);
     
-    // Clear existing data using TRUNCATE CASCADE (faster and resets sequences)
-    console.log('🗑️  Clearing existing taxonomy...');
-    await sql`TRUNCATE TABLE product_tags, product_categories, tags, categories RESTART IDENTITY CASCADE`;
+    // Clear existing data (preserve LLM-discovered tags)
+    console.log('🗑️  Clearing existing taxonomy (preserving LLM discoveries)...');
+    
+    // Delete only product associations for tags being deleted (built-in tags)
+    await sql`
+      DELETE FROM product_tags 
+      WHERE tag_id IN (
+        SELECT tag_id FROM tags WHERE llm_discovered = 0 OR llm_discovered IS NULL
+      )
+    `;
+    
+    // Delete only built-in tags (preserve llm_discovered = 1)
+    await sql`DELETE FROM tags WHERE llm_discovered = 0 OR llm_discovered IS NULL`;
+    
+    // Clear categories (no user data here)
+    await sql`TRUNCATE TABLE product_categories, categories RESTART IDENTITY CASCADE`;
+    
+    console.log('✅ Cleared built-in taxonomy (kept LLM-discovered tags)');
     
     // Insert categories in order (parents first)
     console.log(`📂 Inserting ${categories.length} categories...`);
@@ -576,9 +591,9 @@ async function seedFullTaxonomy() {
     for (const [tagType, tagArray] of Object.entries(tagsObj)) {
       for (const tagName of tagArray) {
         await sql`
-          INSERT INTO tags (name, tag_type, slug)
-          VALUES (${tagName}, ${tagType}, ${tagName.toLowerCase().replace(/\s+/g, '-')})
-          ON CONFLICT (name) DO NOTHING
+          INSERT INTO tags (name, tag_type, slug, llm_discovered)
+          VALUES (${tagName}, ${tagType}, ${tagName.toLowerCase().replace(/\s+/g, '-')}, 0)
+          ON CONFLICT (slug) DO NOTHING
         `;
         totalTags++;
       }
