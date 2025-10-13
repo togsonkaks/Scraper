@@ -1224,14 +1224,26 @@
       document.getElementById('llmCategoryPath').innerHTML = categoryPath + pathStatus;
       document.getElementById('llmCategoryInput').value = categoryPath;
       
-      // Show keywords as editable tags
+      // Show keywords as editable tags with source badges
       const keywordTagsEl = document.getElementById('llmKeywordTags');
-      keywordTagsEl.innerHTML = result.keywords.map((kw, idx) => `
-        <div style="display:inline-flex; align-items:center; background:#9C27B0; color:white; padding:6px 12px; border-radius:20px; font-size:13px;">
-          <span>${kw}</span>
-          <button onclick="removeLLMKeywordByName('${kw.replace(/'/g, "\\'")}')" style="background:none; border:none; color:white; margin-left:8px; cursor:pointer; font-size:16px; padding:0;">×</button>
+      
+      // Use tags array if available (has source info), otherwise fallback to keywords
+      const tagsToDisplay = result.tags || result.keywords.map(kw => ({name: kw, source: 'AI'}));
+      
+      keywordTagsEl.innerHTML = tagsToDisplay.map((tag, idx) => {
+        const tagName = typeof tag === 'string' ? tag : tag.name;
+        const source = tag.source || 'AI';
+        const badgeColor = source === 'AUTO' ? '#4CAF50' : '#9C27B0';
+        const badgeText = source === 'AUTO' ? 'AUTO' : 'AI';
+        
+        return `
+        <div style="display:inline-flex; align-items:center; background:${badgeColor}; color:white; padding:6px 12px; border-radius:20px; font-size:13px; position:relative;">
+          <span style="background:rgba(0,0,0,0.2); padding:2px 6px; border-radius:10px; font-size:10px; font-weight:bold; margin-right:6px;">${badgeText}</span>
+          <span>${tagName}</span>
+          <button onclick="removeLLMKeywordByName('${tagName.replace(/'/g, "\\'")}')" style="background:none; border:none; color:white; margin-left:8px; cursor:pointer; font-size:16px; padding:0;">×</button>
         </div>
-      `).join('');
+      `;
+      }).join('');
       
       // Show modal
       document.getElementById('llmTagModal').style.display = 'block';
