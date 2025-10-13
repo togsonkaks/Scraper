@@ -1,6 +1,7 @@
 const OpenAI = require('openai');
 require('dotenv').config();
 const postgres = require('postgres');
+const { initializeTaxonomy } = require('../scrapers/auto-tagger');
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -404,6 +405,10 @@ Respond in JSON format:
           `;
         }
         console.log(`✨ Learned ${newTagsToLearn.length} new tags: ${newTagsToLearn.map(t => t.name).join(', ')}`);
+        
+        // Refresh auto-tagger taxonomy so new tags are immediately available
+        await initializeTaxonomy();
+        console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
       } catch (error) {
         console.error('Error learning new tags:', error);
       }
@@ -525,15 +530,60 @@ Respond in JSON format:
     const suggestedPath = (result.categories || []).join(' > ');
     const actuallyExists = existingPaths.some(path => path === suggestedPath);
     
-    // Process tags and learn new ones (same logic as extractTagsWithLLM)
+    // Valid tag types (same as extractTagsWithLLM)
+    const VALID_TAG_TYPES = ['materials', 'colors', 'fit', 'styles', 'features', 'activities', 'occasions', 'tool-types', 'automotive', 'kitchen', 'beauty'];
+    
+    // Smart tag type classifier (same as extractTagsWithLLM)
+    const classifyTagType = (tagName) => {
+      const name = tagName.toLowerCase();
+      if (name.includes('leather') || name.includes('suede') || name.includes('cotton') || 
+          name.includes('wool') || name.includes('silk') || name.includes('denim') ||
+          name.includes('nylon') || name.includes('polyester') || name.includes('canvas') ||
+          name.includes('mesh') || name.includes('fleece') || name.includes('cashmere')) {
+        return 'materials';
+      }
+      if (name.includes('black') || name.includes('white') || name.includes('blue') || 
+          name.includes('red') || name.includes('green') || name.includes('brown') ||
+          name.includes('navy') || name.includes('indigo') || name.includes('gray') ||
+          name.includes('beige') || name.includes('tan')) {
+        return 'colors';
+      }
+      if (name.includes('fit') || name.includes('tapered') || name.includes('relaxed') ||
+          name.includes('slim') || name.includes('loose') || name.includes('tight')) {
+        return 'fit';
+      }
+      if (name.includes('casual') || name.includes('formal') || name.includes('athletic') ||
+          name.includes('vintage') || name.includes('modern') || name.includes('minimalist')) {
+        return 'styles';
+      }
+      return 'features';
+    };
+    
+    // Process tags and learn new ones (same logic as extractTagsWithLLM with validation)
     const processedTags = [];
     const newTagsToLearn = [];
     
     if (result.tags && Array.isArray(result.tags)) {
       for (const tag of result.tags) {
         if (typeof tag === 'object' && tag.name) {
-          const tagType = tag.type || 'features';
-          const existsInDb = existingTags[tagType]?.some(t => t.toLowerCase() === tag.name.toLowerCase());
+          // Validate and fix tag type
+          let tagType = tag.type || 'features';
+          
+          // If LLM returned invalid type, intelligently classify it
+          if (!VALID_TAG_TYPES.includes(tagType)) {
+            console.log(`⚠️ Invalid tag type "${tagType}" for "${tag.name}", auto-classifying...`);
+            tagType = classifyTagType(tag.name);
+          }
+          
+          // Check if tag exists in database (search across all types)
+          let existsInDb = false;
+          for (const type of VALID_TAG_TYPES) {
+            if (existingTags[type]?.some(t => t.toLowerCase() === tag.name.toLowerCase())) {
+              existsInDb = true;
+              tagType = type; // Use the existing type from database
+              break;
+            }
+          }
           
           processedTags.push({
             name: tag.name,
@@ -564,6 +614,10 @@ Respond in JSON format:
           `;
         }
         console.log(`✨ Learned ${newTagsToLearn.length} new tags from retry: ${newTagsToLearn.map(t => t.name).join(', ')}`);
+        
+        // Refresh auto-tagger taxonomy so new tags are immediately available
+        await initializeTaxonomy();
+        console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
       } catch (error) {
         console.error('Error learning new tags:', error);
       }
