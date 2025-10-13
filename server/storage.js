@@ -540,7 +540,7 @@ async function seedFullTaxonomy() {
     for (const [tagType, tagArray] of Object.entries(tagsObj)) {
       for (const tagName of tagArray) {
         await sql`
-          INSERT INTO tag_taxonomy (name, tag_type, slug)
+          INSERT INTO tags (name, tag_type, slug)
           VALUES (${tagName}, ${tagType}, ${tagName.toLowerCase().replace(/\s+/g, '-')})
           ON CONFLICT (name) DO NOTHING
         `;
