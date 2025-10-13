@@ -59,6 +59,7 @@ export const tags = pgTable('tags', {
   name: text('name').notNull().unique(),
   slug: text('slug').notNull().unique(),
   tagType: text('tag_type'),
+  llmDiscovered: integer('llm_discovered').default(0),
   createdAt: timestamp('created_at').defaultNow()
 });
 
@@ -72,13 +73,4 @@ export const productCategories = pgTable('product_categories', {
   id: serial('id').primaryKey(),
   productId: integer('product_id').references(() => products.productId, { onDelete: 'cascade' }),
   categoryId: integer('category_id').references(() => categories.categoryId, { onDelete: 'cascade' })
-});
-
-export const tagTaxonomy = pgTable('tag_taxonomy', {
-  id: serial('id').primaryKey(),
-  name: text('name').notNull().unique(),
-  slug: text('slug').notNull().unique(),
-  tagType: text('tag_type').notNull(),
-  llmDiscovered: integer('llm_discovered').default(0),
-  createdAt: timestamp('created_at').defaultNow()
 });
