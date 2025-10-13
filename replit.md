@@ -54,11 +54,11 @@ The application is built on the Electron framework, using a main process (`main.
         - Loads complete taxonomy from database (358 categories + 955 tags) and sends as context
         - Enforces strict rules: Categories END at product type (Jeans, Shoes), fit/style terms (tapered, slim-fit) are TAGS
         - Returns COMPLETE category paths with ALL parent levels (Fashion > Men > Clothing > Bottoms > Jeans)
-        - Self-learning: Auto-adds new tags to database with correct type classification (e.g., "indigo" → type: colors)
+        - Self-learning workflow: LLM suggests new tags → Shows in Review modal → User approves → Saves to database with llm_discovered=1
         - Validates suggested paths against existing taxonomy before marking as "EXISTING"
     - LLM caching system prevents duplicate API calls for same product URL (saves to AppData/Roaming/Tagglo/llm_cache)
     - Database operations (`server/storage.js`) include a 3-stage save pipeline with full hierarchy path storage
-    - **Database Seeding**: One-click "🌱 Seed Taxonomy" button in Control Window populates database with complete 358 categories + 955 tags using app's stable database connection (bypasses standalone script connection issues)
+    - **Database Seeding**: One-click "🌱 Seed Taxonomy" button in Control Window populates database with complete 358 categories + 955 tags using app's stable database connection (bypasses standalone script connection issues); preserves LLM-discovered tags on re-seed (DELETE WHERE llm_discovered = 0)
 
 ## External Dependencies
 - **Electron Framework**: Core application framework.
