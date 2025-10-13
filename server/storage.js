@@ -209,38 +209,57 @@ async function updateProductTags(productId, tagResults) {
     
     // Step 5: Insert category associations (hierarchical path matching)
     // tagResults.categories should be an array like ["Men", "Fashion", "Footwear", "Shoes"]
+    // OR a path string like "Toys & Games > Outdoor Play > Bubbles"
     // We need to walk the path and verify parent-child relationships
     if (tagResults.categories && tagResults.categories.length > 0) {
+      const { initializeTaxonomy } = require('../scrapers/auto-tagger');
+      
+      // CLEANUP: Deduplicate path to handle database corruption
+      const cleanedCategories = deduplicateCategoryPath(tagResults.categories);
+      
       let parentId = null;
       
-      for (let i = 0; i < tagResults.categories.length; i++) {
-        const categoryName = tagResults.categories[i];
-        const categorySlug = categoryName.toLowerCase().replace(/\s+/g, '-');
+      for (let i = 0; i < cleanedCategories.length; i++) {
+        const categoryName = cleanedCategories[i];
+        const categorySlug = categoryName.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '');
         
         // Find category by slug AND parent_id to ensure correct hierarchy
-        const categoryResult = await sql`
+        let categoryResult = await sql`
           SELECT category_id FROM categories 
           WHERE slug = ${categorySlug}
           ${parentId !== null ? sql`AND parent_id = ${parentId}` : sql`AND parent_id IS NULL`}
         `;
         
+        let categoryId;
+        
         if (categoryResult.length > 0) {
-          const categoryId = categoryResult[0].category_id;
-          
-          // Insert product-category association
-          await sql`
-            INSERT INTO product_categories (product_id, category_id)
-            VALUES (${productId}, ${categoryId})
-            ON CONFLICT DO NOTHING
-          `;
-          
-          // This category becomes the parent for the next level
-          parentId = categoryId;
+          categoryId = categoryResult[0].category_id;
         } else {
-          // Path broken - category doesn't exist at this level with this parent
-          console.warn(`Category path broken at "${categoryName}" (expected parent: ${parentId})`);
-          break;
+          // Category doesn't exist - CREATE IT with llm_discovered flag
+          console.log(`📦 Creating missing category: "${categoryName}" (parent: ${parentId})`);
+          
+          const newCategory = await sql`
+            INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
+            VALUES (${categoryName}, ${categorySlug}, ${parentId}, ${i}, 1)
+            RETURNING category_id
+          `;
+          categoryId = newCategory[0].category_id;
+          
+          console.log(`✅ Created category ID ${categoryId}: ${categoryName}`);
+          
+          // Refresh auto-tagger taxonomy so new category is immediately available
+          await initializeTaxonomy(true);
         }
+        
+        // Insert product-category association
+        await sql`
+          INSERT INTO product_categories (product_id, category_id)
+          VALUES (${productId}, ${categoryId})
+          ON CONFLICT DO NOTHING
+        `;
+        
+        // This category becomes the parent for the next level
+        parentId = categoryId;
       }
     }
     

@@ -51,6 +51,7 @@ export const categories = pgTable('categories', {
   slug: text('slug').notNull().unique(),
   parentId: integer('parent_id'),
   level: integer('level').default(0),
+  llmDiscovered: integer('llm_discovered').default(0),
   createdAt: timestamp('created_at').defaultNow()
 });
 
