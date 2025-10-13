@@ -508,7 +508,7 @@ async function seedFullTaxonomy() {
     
     // Clear existing data using TRUNCATE CASCADE (faster and resets sequences)
     console.log('🗑️  Clearing existing taxonomy...');
-    await sql`TRUNCATE TABLE product_tags, product_categories, tag_taxonomy, categories RESTART IDENTITY CASCADE`;
+    await sql`TRUNCATE TABLE product_tags, product_categories, tags, categories RESTART IDENTITY CASCADE`;
     
     // Insert categories in order (parents first)
     console.log(`📂 Inserting ${categories.length} categories...`);
@@ -580,7 +580,7 @@ async function viewTaxonomy() {
     // Get all tags grouped by type
     const tags = await sql`
       SELECT name, tag_type
-      FROM tag_taxonomy
+      FROM tags
       ORDER BY tag_type, name
     `;
     
