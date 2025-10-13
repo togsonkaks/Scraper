@@ -203,7 +203,7 @@ async function autoTag(productData) {
   console.log('🔍 AUTO-TAGGER DEBUG:');
   console.log('  📝 Title:', productData.title?.substring(0, 80));
   console.log('  🔗 URL keywords:', urlKeywords?.substring(0, 80));
-  console.log('  🏷️ Breadcrumbs:', filteredBreadcrumbs.join(' > '));
+  console.log('  🏷️ Breadcrumbs:', Array.isArray(filteredBreadcrumbs) ? filteredBreadcrumbs.join(' > ') : filteredBreadcrumbs);
   console.log('  📄 Description:', productData.description?.substring(0, 100));
   console.log('  🔤 Search text length:', searchText.length, 'chars');
   
@@ -226,7 +226,11 @@ async function autoTag(productData) {
   let gender = null;
   
   // Priority 1: Check breadcrumbs (most reliable)
-  const breadcrumbText = normalizeText(productData.breadcrumbs?.join(' ') || '');
+  const breadcrumbText = normalizeText(
+    Array.isArray(productData.breadcrumbs) 
+      ? productData.breadcrumbs.join(' ') 
+      : (productData.breadcrumbs || '')
+  );
   const breadcrumbGenderMatch = breadcrumbText.match(/\b(men|women|unisex|boys|girls|kids)\b/gi);
   
   if (breadcrumbGenderMatch && breadcrumbGenderMatch.length > 0) {
