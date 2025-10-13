@@ -442,9 +442,9 @@ async function seedCategories() {
     await sql`DELETE FROM categories`;
     console.log('✅ Cleared existing categories\n');
 
-    // Build parent map
-    const parentMap = {};
+    // Build parent map tracking full ancestral path for context
     const categoryIdMap = {};
+    const levelStack = []; // Track ancestors at each level
     
     // First pass: insert all categories and build ID map
     console.log('📊 Inserting categories...');
@@ -462,7 +462,20 @@ async function seedCategories() {
         slugCounter[slug] = 0;
       }
       
-      const parentId = cat.parent ? categoryIdMap[cat.parent] : null;
+      // Update level stack to track current ancestry
+      levelStack[cat.level] = cat.name;
+      // Clear deeper levels when we go back up
+      levelStack.length = cat.level + 1;
+      
+      // Build unique key from full path (e.g., "Fashion:Men:Clothing" vs "Fashion:Women:Clothing")
+      const fullPath = levelStack.join(':');
+      
+      // Get parent ID from the previous level in the stack
+      let parentId = null;
+      if (cat.level > 0) {
+        const parentPath = levelStack.slice(0, cat.level).join(':');
+        parentId = categoryIdMap[parentPath] || null;
+      }
       
       const result = await sql`
         INSERT INTO categories (name, slug, parent_id, level)
@@ -470,7 +483,8 @@ async function seedCategories() {
         RETURNING category_id
       `;
       
-      categoryIdMap[cat.name] = result[0].category_id;
+      // Store with full path as key so "Fashion:Men:Clothing" and "Fashion:Women:Clothing" are separate
+      categoryIdMap[fullPath] = result[0].category_id;
     }
 
     // Count by department
