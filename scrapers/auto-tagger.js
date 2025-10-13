@@ -186,6 +186,11 @@ function matchCategories(text, productData = {}) {
       frequencyScore = (breadcrumbMatches * 5) + (titleMatches * 3) + (urlMatches * 2) + 
                        (specsMatches * 1.5) + (descriptionMatches * 1);
       
+      // DEPTH BONUS: Add +10 points per level to heavily favor specific categories over generic parents
+      // This ensures "Fashion > Men > Clothing > Tops > Shirts" beats "Fashion > Men"
+      const depthBonus = fullPath.length * 10;
+      const finalScore = frequencyScore + depthBonus;
+      
       matches.push({
         id: category.category_id,
         name: category.name,
@@ -194,18 +199,17 @@ function matchCategories(text, productData = {}) {
         level: category.level,
         matchedPath: fullPath.map(p => p.name).join(' > ').toLowerCase(),
         pathDepth: fullPath.length,
-        frequencyScore: frequencyScore,
+        frequencyScore: finalScore,
+        rawFrequency: frequencyScore,
+        depthBonus: depthBonus,
         matchDetails: { breadcrumbMatches, titleMatches, urlMatches, descriptionMatches, specsMatches }
       });
     }
   }
   
-  // Sort by frequency score first, then by path depth as tiebreaker
+  // Sort by FINAL score (frequency + depth bonus), prioritizing deeper/more specific categories
   matches.sort((a, b) => {
-    if (b.frequencyScore !== a.frequencyScore) {
-      return b.frequencyScore - a.frequencyScore;
-    }
-    return b.pathDepth - a.pathDepth;
+    return b.frequencyScore - a.frequencyScore;
   });
   
   return matches;
