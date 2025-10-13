@@ -846,6 +846,7 @@
       // Show debug panel and clear previous output
       showDebugPanel();
       clearDebugOutput();
+      clearAutoTagDisplay(); // Clear old auto-tag results when starting new scrape
       addDebugOutput('🚀 Starting scrape operation for: ' + (urlInput.value || 'current page'), 'info');
       
       statusEl.innerHTML = `<span class="pill">Scraping</span>`;
