@@ -48,6 +48,13 @@ The application is built on the Electron framework, using a main process (`main.
         - When category name found (e.g., "Jeans") → Automatically builds FULL hierarchical path from database ("Fashion > Men > Clothing > Bottoms > Jeans")
         - Works with OR without breadcrumbs - finds categories anywhere in product data
         - Achieves 80%+ auto-tag success rate with confidence scoring
+    - **Smart Tag Classification** (`server/llm-tagger.js: classifyTag()`):
+        - 3-tier classification system for manually-typed tags: DB lookup → taxonomy pattern matching → LLM classification
+        - DB Lookup: Checks if tag exists in database, returns existing type (prevents duplicates)
+        - Pattern Matching: Recognizes materials, colors, fit, styles, activities using regex patterns
+        - LLM Fallback: Uses GPT-4o-mini to classify unknown tags into proper type (materials, colors, fit, styles, features, activities, occasions, tool-types, automotive, kitchen, beauty)
+        - Preserves llm_discovered flag when tag exists in DB
+        - Only marks truly new tags with llm_discovered=1 for custom taxonomy growth
     - Integrated workflow: Scrape → Auto-Tag → Preview → Save
     - Optional LLM enhancement for low-confidence products (manual trigger only)
     - **LLM-powered tagging system** using GPT-4o-mini:
