@@ -26,6 +26,7 @@ export const products = pgTable('products', {
   price: numeric('price', { precision: 12, scale: 2 }),
   category: text('category'),
   gender: text('gender'),
+  description: text('description'),
   tags: text('tags').array(),
   specs: jsonb('specs'),
   imageUrls: text('image_urls').array(),
