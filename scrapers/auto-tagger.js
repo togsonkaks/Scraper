@@ -196,10 +196,42 @@ async function autoTag(productData) {
     occasions: allMatchedTags.filter(t => t.type === 'occasions')
   };
   
+  // Detect gender FIRST (from breadcrumbs and product text)
+  let gender = null;
+  
+  // Priority 1: Check breadcrumbs (most reliable)
+  const breadcrumbText = normalizeText(productData.breadcrumbs?.join(' ') || '');
+  const breadcrumbGenderMatch = breadcrumbText.match(/\b(men|women|unisex|boys|girls|kids)\b/gi);
+  
+  if (breadcrumbGenderMatch && breadcrumbGenderMatch.length > 0) {
+    gender = breadcrumbGenderMatch[0].toLowerCase();
+    console.log('  👤 Gender from breadcrumbs:', gender);
+  } else {
+    // Priority 2: Check all product text
+    const textGenderMatch = searchText.match(/\b(men|women|unisex|boys|girls|kids)\b/gi);
+    if (textGenderMatch && textGenderMatch.length > 0) {
+      gender = textGenderMatch[0].toLowerCase();
+      console.log('  👤 Gender from text:', gender);
+    }
+  }
+  
   // Match categories from ALL product data (same as tags)
-  const matchedCategories = matchCategories(searchText);
+  let matchedCategories = matchCategories(searchText);
   console.log('  📂 Matched categories:', matchedCategories.length, '→', 
     matchedCategories.map(c => `${c.name} (lvl ${c.level})`).join(', '));
+  
+  // FILTER categories by detected gender (if we have one)
+  if (gender && matchedCategories.length > 1) {
+    const genderKeyword = gender === 'boys' || gender === 'girls' ? 'kids' : gender;
+    const genderedCategories = matchedCategories.filter(cat => 
+      cat.matchedPath.includes(genderKeyword)
+    );
+    
+    if (genderedCategories.length > 0) {
+      console.log(`  🎯 Filtered ${matchedCategories.length} → ${genderedCategories.length} categories using gender: ${gender}`);
+      matchedCategories = genderedCategories;
+    }
+  }
   
   // Find primary category (deepest level category)
   let primaryCategory = null;
@@ -220,13 +252,6 @@ async function autoTag(productData) {
     console.log('  ✨ FINAL PATH:', primaryCategory);
   } else {
     console.log('  ⚠️ NO CATEGORIES MATCHED!');
-  }
-  
-  // Detect gender from tags or text
-  let gender = null;
-  const genderMatches = searchText.match(/\b(men|women|unisex|boys|girls|kids)\b/gi);
-  if (genderMatches && genderMatches.length > 0) {
-    gender = genderMatches[0].toLowerCase();
   }
   
   const confidence = calculateConfidence(tagsByType);
