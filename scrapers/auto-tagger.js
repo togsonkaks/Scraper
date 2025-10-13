@@ -49,9 +49,13 @@ function createSlug(text) {
 }
 
 // Phrase Override System: Handles edge cases BEFORE keyword matching
+// Supports excludeIf for context-aware matching
 const PHRASE_OVERRIDES = [
-  // Beds (multiple contexts)
-  { phrase: 'tanning bed', categoryPath: 'Beauty & Personal Care > Tanning > Tanning Beds' },
+  // Pool & Water Products (higher priority)
+  { phrase: 'pool float', categoryPath: 'Home & Garden > Garden & Outdoor > Pool & Spa > Pool Float' },
+  
+  // Beds (multiple contexts with exclusions)
+  { phrase: 'tanning bed', excludeIf: ['pool', 'float', 'inflatable', 'lounger'], categoryPath: 'Beauty & Personal Care > Tanning > Tanning Beds' },
   { phrase: 'dog bed', categoryPath: 'Pet Supplies > Dog > Beds & Furniture' },
   { phrase: 'cat bed', categoryPath: 'Pet Supplies > Cat > Beds & Furniture' },
   { phrase: 'pet bed', categoryPath: 'Pet Supplies > Beds & Furniture' },
@@ -75,10 +79,23 @@ function checkPhraseOverrides(productData) {
     productData.url || ''
   ].join(' ').toLowerCase();
   
-  // Check each phrase override
+  // Check each phrase override (in order - first match wins)
   for (const override of PHRASE_OVERRIDES) {
     const pattern = new RegExp(`\\b${override.phrase}\\b`, 'i');
     if (pattern.test(allText)) {
+      // Check excludeIf conditions
+      if (override.excludeIf && Array.isArray(override.excludeIf)) {
+        const hasExclusion = override.excludeIf.some(keyword => {
+          const excludePattern = new RegExp(`\\b${keyword}\\b`, 'i');
+          return excludePattern.test(allText);
+        });
+        
+        if (hasExclusion) {
+          console.log(`  ⏭️  PHRASE SKIP: Found "${override.phrase}" but excluded due to context (${override.excludeIf.join(', ')})`);
+          continue; // Skip this override and check next one
+        }
+      }
+      
       console.log(`  🎯 PHRASE OVERRIDE: Found "${override.phrase}" → ${override.categoryPath}`);
       return override.categoryPath;
     }
