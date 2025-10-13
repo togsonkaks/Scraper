@@ -1350,7 +1350,8 @@
           })),
           confidenceScore: currentLLMTags.confidence || 1.0,
           needsLLMEnrichment: false,
-          gender: currentLLMTags.categories.find(c => ['men', 'women', 'unisex', 'kids'].includes(c.toLowerCase())) || null
+          gender: currentLLMTags.categories.find(c => ['men', 'women', 'unisex', 'kids'].includes(c.toLowerCase())) || null,
+          newTagsToLearn: currentLLMTags.newTagsToLearn || [] // Pass LLM-discovered tags for insertion
         };
         
         // UPDATE existing product with LLM tags
