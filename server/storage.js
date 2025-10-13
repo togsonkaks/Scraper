@@ -75,7 +75,7 @@ async function saveRawProduct(productData) {
     // Step 2: Save product with NULL tags (LLM will add them later)
     const productResult = await sql`
       INSERT INTO products (
-        raw_id, title, brand, price, sku, category, gender, 
+        raw_id, title, brand, price, sku, category, gender, description,
         tags, specs, image_urls, confidence_score
       ) VALUES (
         ${rawId},
@@ -85,6 +85,7 @@ async function saveRawProduct(productData) {
         ${productData.sku || null},
         ${null},  -- category NULL (LLM will add)
         ${null},  -- gender NULL (LLM will add)
+        ${productData.description || null},
         ${[]},    -- tags empty (LLM will add)
         ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
         ${productData.images || []},
@@ -238,7 +239,7 @@ async function saveProduct(productData, tagResults) {
     
     const productResult = await sql`
       INSERT INTO products (
-        raw_id, title, brand, price, sku, category, gender, 
+        raw_id, title, brand, price, sku, category, gender, description,
         tags, specs, image_urls, confidence_score
       ) VALUES (
         ${rawId},
@@ -248,6 +249,7 @@ async function saveProduct(productData, tagResults) {
         ${productData.sku || null},
         ${tagResults.primaryCategory || null},
         ${tagResults.gender || null},
+        ${productData.description || null},
         ${tagNames},
         ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
         ${productData.images || []},
