@@ -2,6 +2,8 @@ const OpenAI = require('openai');
 require('dotenv').config();
 const postgres = require('postgres');
 const { initializeTaxonomy } = require('../scrapers/auto-tagger');
+const fs = require('fs');
+const path = require('path');
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -406,6 +408,9 @@ Respond in JSON format:
         }
         console.log(`✨ Learned ${newTagsToLearn.length} new tags: ${newTagsToLearn.map(t => t.name).join(', ')}`);
         
+        // Append new tags to seed file for future reseeding
+        await appendToSeedFile(newTagsToLearn);
+        
         // Refresh auto-tagger taxonomy so new tags are immediately available
         await initializeTaxonomy();
         console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
@@ -615,6 +620,9 @@ Respond in JSON format:
         }
         console.log(`✨ Learned ${newTagsToLearn.length} new tags from retry: ${newTagsToLearn.map(t => t.name).join(', ')}`);
         
+        // Append new tags to seed file for future reseeding
+        await appendToSeedFile(newTagsToLearn);
+        
         // Refresh auto-tagger taxonomy so new tags are immediately available
         await initializeTaxonomy();
         console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
@@ -636,6 +644,75 @@ Respond in JSON format:
   } catch (error) {
     console.error('LLM retry error:', error);
     throw new Error(`LLM retry failed: ${error.message}`);
+  }
+}
+
+/**
+ * Append new tags to seed-tags-comprehensive.js
+ * @param {Array} newTags - Array of {name, slug, type} objects
+ */
+async function appendToSeedFile(newTags) {
+  if (!newTags || newTags.length === 0) return;
+  
+  const seedFilePath = path.join(__dirname, '../scripts/seed-tags-comprehensive.js');
+  
+  try {
+    let fileContent = fs.readFileSync(seedFilePath, 'utf8');
+    
+    // Group tags by type
+    const tagsByType = {};
+    for (const tag of newTags) {
+      if (!tagsByType[tag.type]) {
+        tagsByType[tag.type] = [];
+      }
+      tagsByType[tag.type].push(tag.slug);
+    }
+    
+    // For each tag type, append to the appropriate array
+    for (const [tagType, tags] of Object.entries(tagsByType)) {
+      // Find the array for this tag type using regex
+      // Pattern: tagType: [ ... existing tags ... ]
+      const arrayPattern = new RegExp(`(${tagType}:\\s*\\[)([\\s\\S]*?)(\\s*\\])`, 'i');
+      const match = fileContent.match(arrayPattern);
+      
+      if (match) {
+        const existingTagsSection = match[2];
+        
+        // Check which tags are not already in the file
+        const tagsToAdd = tags.filter(tag => !existingTagsSection.includes(`'${tag}'`));
+        
+        if (tagsToAdd.length > 0) {
+          // Find the last tag in the array (to append after it)
+          const lastCommaIndex = match[2].lastIndexOf(',');
+          
+          // Build the new tags string
+          const newTagsStr = tagsToAdd.map(tag => `'${tag}'`).join(', ');
+          
+          // Insert new tags before the closing bracket
+          let updatedArray;
+          if (lastCommaIndex > -1) {
+            // There are existing tags - append after the last comma
+            updatedArray = match[1] + match[2] + `, ${newTagsStr}` + match[3];
+          } else {
+            // Empty array - add as first items
+            updatedArray = match[1] + `\n    ${newTagsStr}\n  ` + match[3];
+          }
+          
+          // Replace in file content
+          fileContent = fileContent.replace(arrayPattern, updatedArray);
+          
+          console.log(`📝 Appended ${tagsToAdd.length} new ${tagType} tags to seed file:`, tagsToAdd.join(', '));
+        }
+      }
+    }
+    
+    // Write back to file
+    fs.writeFileSync(seedFilePath, fileContent, 'utf8');
+    console.log('✅ Seed file updated successfully');
+    
+  } catch (error) {
+    console.error('⚠️ Error updating seed file:', error.message);
+    // Don't throw - this is not critical, tags are already in database
   }
 }
 
