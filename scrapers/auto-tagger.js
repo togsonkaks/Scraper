@@ -15,7 +15,7 @@ async function initializeTaxonomy(force = false) {
     // Load all tags with their semantic types
     tagTaxonomy = await sql`
       SELECT name, slug, tag_type 
-      FROM tag_taxonomy 
+      FROM tags 
       ORDER BY tag_type, name
     `;
     
