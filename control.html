@@ -1694,6 +1694,27 @@
       document.getElementById('debugOutput').innerHTML = '';
     }
     
+    // Clear auto-tag display when starting a new scrape
+    function clearAutoTagDisplay() {
+      const preview = document.getElementById('tagPreview');
+      const categoryEl = document.getElementById('tagCategory');
+      const genderEl = document.getElementById('tagGender');
+      const confidenceEl = document.getElementById('tagConfidence');
+      const tagListEl = document.getElementById('tagList');
+      
+      // Reset all values
+      categoryEl.textContent = '-';
+      genderEl.textContent = '-';
+      confidenceEl.textContent = '-';
+      tagListEl.innerHTML = '';
+      
+      // Hide the preview panel
+      preview.style.display = 'none';
+      
+      // Clear stored result
+      window.currentAutoTagResult = null;
+    }
+    
     // Display auto-tag preview
     function displayTagPreview(tagResult) {
       if (!tagResult) return;
