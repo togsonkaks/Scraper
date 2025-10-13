@@ -412,7 +412,7 @@ Respond in JSON format:
         await appendToSeedFile(newTagsToLearn);
         
         // Refresh auto-tagger taxonomy so new tags are immediately available
-        await initializeTaxonomy();
+        await initializeTaxonomy(true);  // Force refresh
         console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
       } catch (error) {
         console.error('Error learning new tags:', error);
@@ -624,7 +624,7 @@ Respond in JSON format:
         await appendToSeedFile(newTagsToLearn);
         
         // Refresh auto-tagger taxonomy so new tags are immediately available
-        await initializeTaxonomy();
+        await initializeTaxonomy(true);  // Force refresh
         console.log('🔄 Auto-tagger taxonomy refreshed with new tags');
       } catch (error) {
         console.error('Error learning new tags:', error);

@@ -8,8 +8,8 @@ let tagTaxonomy = [];
 let categoryTree = [];
 let isInitialized = false;
 
-async function initializeTaxonomy() {
-  if (isInitialized) return;
+async function initializeTaxonomy(force = false) {
+  if (isInitialized && !force) return;
   
   try {
     // Load all tags with their semantic types
