@@ -393,10 +393,17 @@ async function autoTag(productData) {
   if (gender && matchedCategories.length > 1) {
     const genderKeyword = gender === 'boys' || gender === 'girls' ? 'kids' : gender;
     
+    console.log(`  🔍 DEBUG: Gender filter checking for "${genderKeyword}"`);
+    matchedCategories.forEach(cat => {
+      console.log(`    Category: ${cat.name}, Path: "${cat.matchedPath}"`);
+    });
+    
     // Split path into segments and check for EXACT match (avoid "men" matching "women")
     const genderedCategories = matchedCategories.filter(cat => {
       const pathSegments = cat.matchedPath.split(' > ').map(s => s.trim().toLowerCase());
-      return pathSegments.includes(genderKeyword);
+      const hasGender = pathSegments.includes(genderKeyword);
+      console.log(`    → ${cat.name}: segments=[${pathSegments.join(', ')}], hasGender=${hasGender}`);
+      return hasGender;
     });
     
     if (genderedCategories.length > 0) {
