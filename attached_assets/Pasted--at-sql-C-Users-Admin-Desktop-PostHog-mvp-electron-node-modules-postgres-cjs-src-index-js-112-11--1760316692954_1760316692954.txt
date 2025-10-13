@@ -1,0 +1,50 @@
+ at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:76:36) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '91',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+Error saving raw product: PostgresError: column "description" of relation "products" does not exist
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:76:36) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '91',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+Error occurred in handler for 'save-raw-product': PostgresError: column "description" of relation "products" does not exist
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)        
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)   
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)       
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:76:36) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '91',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}

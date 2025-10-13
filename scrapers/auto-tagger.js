@@ -215,7 +215,7 @@ async function autoTag(productData) {
   }
   
   // Match all tags from search text
-  const allMatchedTags = matchTags(searchText);
+  let allMatchedTags = matchTags(searchText);
   console.log('  ✅ Matched tags:', allMatchedTags.length, '→', allMatchedTags.map(t => t.name).join(', '));
   
   // Group tags by semantic type
