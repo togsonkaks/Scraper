@@ -1229,7 +1229,7 @@
       keywordTagsEl.innerHTML = result.keywords.map((kw, idx) => `
         <div style="display:inline-flex; align-items:center; background:#9C27B0; color:white; padding:6px 12px; border-radius:20px; font-size:13px;">
           <span>${kw}</span>
-          <button onclick="removeLLMKeyword(${idx})" style="background:none; border:none; color:white; margin-left:8px; cursor:pointer; font-size:16px; padding:0;">×</button>
+          <button onclick="removeLLMKeywordByName('${kw.replace(/'/g, "\\'")}')" style="background:none; border:none; color:white; margin-left:8px; cursor:pointer; font-size:16px; padding:0;">×</button>
         </div>
       `).join('');
       
@@ -1237,14 +1237,25 @@
       document.getElementById('llmTagModal').style.display = 'block';
     }
 
-    // Remove keyword from LLM tags
-    window.removeLLMKeyword = (index) => {
-      currentLLMTags.keywords.splice(index, 1);
-      
-      // ALSO remove from tags array to ensure it's not saved
-      if (currentLLMTags.tags && currentLLMTags.tags[index]) {
-        currentLLMTags.tags.splice(index, 1);
+    // Remove keyword from LLM tags by NAME (safer than by index)
+    window.removeLLMKeywordByName = (tagName) => {
+      // Remove from keywords array
+      const keywordIndex = currentLLMTags.keywords.findIndex(kw => kw === tagName);
+      if (keywordIndex !== -1) {
+        currentLLMTags.keywords.splice(keywordIndex, 1);
       }
+      
+      // Remove from tags array by matching name
+      if (currentLLMTags.tags) {
+        const tagIndex = currentLLMTags.tags.findIndex(t => t.name === tagName);
+        if (tagIndex !== -1) {
+          currentLLMTags.tags.splice(tagIndex, 1);
+        }
+      }
+      
+      console.log('Removed tag:', tagName);
+      console.log('Remaining keywords:', currentLLMTags.keywords);
+      console.log('Remaining tags:', currentLLMTags.tags);
       
       showLLMReviewModal(currentLLMTags);
     };
@@ -1257,11 +1268,16 @@
         
         // ALSO add to tags array so it gets saved to database
         if (!currentLLMTags.tags) currentLLMTags.tags = [];
-        currentLLMTags.tags.push({
+        const newTag = {
           name: newKeyword,
           slug: generateSlug(newKeyword),
           type: 'features' // Default to features for custom tags
-        });
+        };
+        currentLLMTags.tags.push(newTag);
+        
+        console.log('Added custom tag:', newTag);
+        console.log('Total keywords:', currentLLMTags.keywords);
+        console.log('Total tags:', currentLLMTags.tags);
         
         showLLMReviewModal(currentLLMTags);
         e.target.value = '';
@@ -1353,6 +1369,9 @@
           gender: currentLLMTags.categories.find(c => ['men', 'women', 'unisex', 'kids'].includes(c.toLowerCase())) || null,
           newTagsToLearn: currentLLMTags.newTagsToLearn || [] // Pass LLM-discovered tags for insertion
         };
+        
+        console.log('💾 Saving to database with tags:', tagResults.tags);
+        console.log('💾 Full tagResults:', JSON.stringify(tagResults, null, 2));
         
         // UPDATE existing product with LLM tags
         const updateResult = await window.api.updateProductTags(lastSavedProductId, tagResults);
