@@ -31,7 +31,7 @@ The application is built on the Electron framework, using a main process (`main.
     - **SKU Extraction**: Multi-strategy approach using JSON-LD, meta tags, DOM attributes, and URL parsing, with brand-aware validation.
 - **CDN Upgrade Patterns**: Specific rules for optimizing image quality and dimensions across various CDNs (e.g., Shopify, Urban Outfitters, Temu, IKEA).
 - **Auto-Tagging System**:
-    - Database-centric taxonomy with 8-table PostgreSQL architecture (Drizzle ORM) including `products_raw`, `products`, `products_enriched`, `categories`, `tags`, `tag_taxonomy`, `product_tags`, and `product_categories`.
+    - Database-centric taxonomy with 7-table PostgreSQL architecture (Drizzle ORM) including `products_raw`, `products`, `products_enriched`, `categories`, `tags` (with llm_discovered flag), `product_tags`, and `product_categories`.
     - Products table stores: title, brand, SKU, price, category, gender, description, tags, specs, images, and confidence scores
     - **Comprehensive Universal Taxonomy** (346+ categories, 955+ tags) covering 19 major e-commerce verticals:
         - **Categories**: Tools & Hardware, Automotive, Sports & Outdoors, Kitchen & Dining, Home & Garden, Beauty & Personal Care, Electronics, Pet Supplies, Toys & Games, Office & School, Health & Wellness, Fashion, Baby & Kids, Books & Media, Grocery & Food, Jewelry & Watches, Luggage & Travel, Musical Instruments, Arts & Crafts
