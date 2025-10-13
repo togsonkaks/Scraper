@@ -169,6 +169,10 @@ const COMPREHENSIVE_CATEGORIES = [
   { name: 'Outdoor Furniture', parent: 'Garden & Outdoor', level: 2 },
   { name: 'Patio Set', parent: 'Outdoor Furniture', level: 3 },
   { name: 'Grill', parent: 'Garden & Outdoor', level: 2 },
+  { name: 'Pool & Spa', parent: 'Garden & Outdoor', level: 2 },
+  { name: 'Pool Float', parent: 'Pool & Spa', level: 3 },
+  { name: 'Pool Accessory', parent: 'Pool & Spa', level: 3 },
+  { name: 'Spa Accessory', parent: 'Pool & Spa', level: 3 },
 
   // BEAUTY & PERSONAL CARE
   { name: 'Beauty & Personal Care', parent: null, level: 0 },
