@@ -309,6 +309,45 @@ Respond in JSON format:
     const suggestedPath = (result.categories || []).join(' > ');
     const actuallyExists = existingPaths.some(path => path === suggestedPath);
     
+    // Valid tag types (semantic categories)
+    const VALID_TAG_TYPES = ['materials', 'colors', 'fit', 'styles', 'features', 'activities', 'occasions', 'tool-types', 'automotive', 'kitchen', 'beauty'];
+    
+    // Smart tag type classifier based on tag name
+    const classifyTagType = (tagName) => {
+      const name = tagName.toLowerCase();
+      
+      // Material patterns
+      if (name.includes('leather') || name.includes('suede') || name.includes('cotton') || 
+          name.includes('wool') || name.includes('silk') || name.includes('denim') ||
+          name.includes('nylon') || name.includes('polyester') || name.includes('canvas') ||
+          name.includes('mesh') || name.includes('fleece') || name.includes('cashmere')) {
+        return 'materials';
+      }
+      
+      // Color patterns
+      if (name.includes('black') || name.includes('white') || name.includes('blue') || 
+          name.includes('red') || name.includes('green') || name.includes('brown') ||
+          name.includes('navy') || name.includes('indigo') || name.includes('gray') ||
+          name.includes('beige') || name.includes('tan')) {
+        return 'colors';
+      }
+      
+      // Fit patterns
+      if (name.includes('fit') || name.includes('tapered') || name.includes('relaxed') ||
+          name.includes('slim') || name.includes('loose') || name.includes('tight')) {
+        return 'fit';
+      }
+      
+      // Style patterns
+      if (name.includes('casual') || name.includes('formal') || name.includes('athletic') ||
+          name.includes('vintage') || name.includes('modern') || name.includes('minimalist')) {
+        return 'styles';
+      }
+      
+      // Default to features
+      return 'features';
+    };
+    
     // Process tags and learn new ones
     const processedTags = [];
     const newTagsToLearn = [];
@@ -316,9 +355,24 @@ Respond in JSON format:
     if (result.tags && Array.isArray(result.tags)) {
       for (const tag of result.tags) {
         if (typeof tag === 'object' && tag.name) {
-          // Check if tag actually exists in our database
-          const tagType = tag.type || 'features'; // Default to features if no type
-          const existsInDb = existingTags[tagType]?.some(t => t.toLowerCase() === tag.name.toLowerCase());
+          // Validate and fix tag type
+          let tagType = tag.type || 'features';
+          
+          // If LLM returned invalid type, intelligently classify it
+          if (!VALID_TAG_TYPES.includes(tagType)) {
+            console.log(`⚠️ Invalid tag type "${tagType}" for "${tag.name}", auto-classifying...`);
+            tagType = classifyTagType(tag.name);
+          }
+          
+          // Check if tag exists in database (search across all types)
+          let existsInDb = false;
+          for (const type of VALID_TAG_TYPES) {
+            if (existingTags[type]?.some(t => t.toLowerCase() === tag.name.toLowerCase())) {
+              existsInDb = true;
+              tagType = type; // Use the existing type from database
+              break;
+            }
+          }
           
           processedTags.push({
             name: tag.name,
