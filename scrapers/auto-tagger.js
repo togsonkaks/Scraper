@@ -207,13 +207,6 @@ async function autoTag(productData) {
   console.log('  📄 Description:', productData.description?.substring(0, 100));
   console.log('  🔤 Search text length:', searchText.length, 'chars');
   
-  // DEBUG: Check for specific color
-  if (searchText.toLowerCase().includes('indigo')) {
-    console.log('  🎨 "indigo" FOUND in search text!');
-  } else {
-    console.log('  ❌ "indigo" NOT in search text');
-  }
-  
   // Match all tags from search text
   let allMatchedTags = matchTags(searchText);
   console.log('  ✅ Matched tags:', allMatchedTags.length, '→', allMatchedTags.map(t => t.name).join(', '));
