@@ -82,6 +82,16 @@ The application is built on the Electron framework, using a main process (`main.
         - Saved paths automatically create full parent_id chain in database with llm_discovered=1
         - Triggers refreshTaxonomy() after save so auto-tagger learns immediately
         - Creates self-learning taxonomy loop: User corrections → Database → Auto-tagger knowledge
+    - **Editable AI-Suggested Paths** (Oct 2025):
+        - AI category suggestions display with individual ❌ delete buttons on each path segment
+        - Users can remove ANY segment (not just last one) for granular path editing
+        - Provides full control over AI suggestions before accepting
+    - **Inline Category Creation** (Oct 2025):
+        - "+ Add New" buttons in each dropdown level for missing categories
+        - Creates categories with proper parent_id linking, level assignment, and llm_discovered=1 flag
+        - Immediately refreshes taxonomy so auto-tagger learns new categories
+        - Critical database operations: validates parent existence, prevents duplicates, auto-generates slugs
+        - Self-learning loop: User adds missing category → Database → Auto-tagger knowledge → Future products auto-tagged
     - LLM caching system prevents duplicate API calls for same product URL (saves to AppData/Roaming/Tagglo/llm_cache)
     - Database operations (`server/storage.js`) include a 3-stage save pipeline with full hierarchy path storage
     - **Database Seeding**: One-click "🌱 Seed Taxonomy" button in Control Window populates database with complete 358 categories + 955 tags using app's stable database connection (bypasses standalone script connection issues); preserves LLM-discovered tags on re-seed (DELETE WHERE llm_discovered = 0)
