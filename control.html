@@ -1332,7 +1332,7 @@
       showLLMReviewModal(currentLLMTags);
     };
     
-    // Render category chips with X buttons
+    // Render category chips with editable segments (each with X button)
     function renderCategoryChips() {
       const chipsContainer = document.getElementById('llmCategoryChips');
       
@@ -1341,23 +1341,63 @@
         return;
       }
       
-      chipsContainer.innerHTML = currentLLMTags.availableCategories.map((cat, idx) => {
+      chipsContainer.innerHTML = currentLLMTags.availableCategories.map((cat, catIdx) => {
         const badgeColor = cat.source === 'AUTO' ? '#4CAF50' : '#9C27B0';
         const badgeText = cat.source === 'AUTO' ? 'AUTO' : 'AI';
         const statusBadge = cat.isNewPath 
           ? '<span style="background:#fff3cd; color:#856404; padding:2px 6px; border-radius:8px; font-size:10px; margin-left:6px;">🆕 NEW</span>'
           : '';
         
+        // Split path into segments
+        const segments = cat.path.split(' > ');
+        
+        // Create editable segments with individual delete buttons
+        const segmentsHTML = segments.map((segment, segIdx) => `
+          <span style="display:inline-flex; align-items:center; margin-right:4px;">
+            <span style="font-family:monospace;">${segment}</span>
+            <button onclick="removePathSegment(${catIdx}, ${segIdx})" 
+              style="background:rgba(255,255,255,0.3); border:none; color:white; margin-left:4px; cursor:pointer; font-size:14px; padding:0px 4px; border-radius:50%; font-weight:bold;"
+              title="Remove '${segment}' from path">❌</button>
+            ${segIdx < segments.length - 1 ? '<span style="margin:0 4px; opacity:0.7;">›</span>' : ''}
+          </span>
+        `).join('');
+        
         return `
-        <div style="display:inline-flex; align-items:center; background:${badgeColor}; color:white; padding:8px 14px; border-radius:20px; font-size:13px;">
+        <div style="display:inline-flex; align-items:center; background:${badgeColor}; color:white; padding:8px 14px; border-radius:20px; font-size:13px; margin-bottom:8px;">
           <span style="background:rgba(0,0,0,0.2); padding:2px 6px; border-radius:10px; font-size:10px; font-weight:bold; margin-right:8px;">${badgeText}</span>
-          <span style="font-family:monospace;">${cat.path}</span>
+          ${segmentsHTML}
           ${statusBadge}
-          <button onclick="removeCategoryByIndex(${idx})" style="background:rgba(255,255,255,0.3); border:none; color:white; margin-left:10px; cursor:pointer; font-size:16px; padding:2px 6px; border-radius:50%; font-weight:bold;">×</button>
         </div>
       `;
       }).join('');
     }
+    
+    // Remove a specific segment from a category path
+    window.removePathSegment = (catIdx, segIdx) => {
+      const cat = currentLLMTags.availableCategories[catIdx];
+      const segments = cat.path.split(' > ');
+      
+      if (segments.length <= 1) {
+        alert('⚠️ Cannot remove the last segment - path must have at least one level!');
+        return;
+      }
+      
+      // Remove the segment
+      segments.splice(segIdx, 1);
+      
+      // Update the path
+      cat.path = segments.join(' > ');
+      
+      // Mark as new path if modified
+      if (cat.source === 'AI') {
+        cat.isNewPath = true;
+      }
+      
+      console.log(`Removed segment at index ${segIdx} from category ${catIdx}`);
+      console.log('New path:', cat.path);
+      
+      renderCategoryChips();
+    };
     
     // Remove category by index
     window.removeCategoryByIndex = (index) => {
