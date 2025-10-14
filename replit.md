@@ -18,6 +18,7 @@ The application is built on the Electron framework, using a main process (`main.
 - Review & Edit UI modal for LLM-suggested tags and categories.
 
 **Technical Implementations & Feature Specifications:**
+- **State Management**: Product ID clearing on new scrape prevents cross-contamination between products (Oct 2025)
 - **Selector Memory**: Persistent, file-based storage of CSS selectors per domain with history and auto-migration.
 - **Core Scraping Systems**:
     - **Price Detection**: Multi-strategy extraction with custom handlers.

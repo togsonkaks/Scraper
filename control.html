@@ -885,6 +885,7 @@
       try {
         const { result, selectorsUsed } = await window.api.scrapeCurrent({ mode: 'normal' });
         lastPayload = result || {}; lastSelectorsUsed = selectorsUsed || null;
+        lastSavedProductId = null; // Clear previous product ID when scraping new product
         
         // Auto-tag product with keyword matching
         let autoTagResult = null;
