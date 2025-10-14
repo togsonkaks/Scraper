@@ -1303,6 +1303,9 @@
       
       // Show modal
       document.getElementById('llmTagModal').style.display = 'block';
+      
+      // Initialize category builder
+      initializeCategoryBuilder();
     }
 
     // Remove keyword from LLM tags by NAME (safer than by index)
@@ -1366,6 +1369,164 @@
         alert('⚠️ You must keep at least one category!');
       }
     };
+    
+    // Category builder state
+    let categoryHierarchyData = [];
+    let selectedCategoryPath = [];
+    
+    // Initialize hierarchical category builder
+    async function initializeCategoryBuilder() {
+      try {
+        // Load category hierarchy from database
+        const response = await window.api.getCategoryHierarchy();
+        
+        if (!response.success) {
+          console.error('Failed to load category hierarchy:', response.error);
+          return;
+        }
+        
+        categoryHierarchyData = response.categories;
+        console.log('📂 Loaded', categoryHierarchyData.length, 'categories for builder');
+        
+        // Reset builder state
+        selectedCategoryPath = [];
+        
+        // Populate level 0 (departments)
+        populateLevelDropdown(0, null);
+        
+        // Reset all child dropdowns
+        for (let i = 1; i <= 4; i++) {
+          const dropdown = document.getElementById(`catLevel${i}`);
+          dropdown.innerHTML = '<option value="">-- Select --</option>';
+          dropdown.disabled = true;
+          dropdown.style.border = '2px solid #ccc';
+        }
+        
+        // Reset preview and button
+        document.getElementById('catBuilderPreview').textContent = 'Select levels to build path...';
+        document.getElementById('addCategoryPathBtn').disabled = true;
+        
+      } catch (error) {
+        console.error('Error initializing category builder:', error);
+      }
+    }
+    
+    // Populate dropdown for a specific level
+    function populateLevelDropdown(level, parentId) {
+      const dropdown = document.getElementById(`catLevel${level}`);
+      
+      // Get categories for this level with the specified parent
+      const categories = categoryHierarchyData.filter(cat => 
+        cat.level === level && 
+        (parentId === null ? cat.parent_id === null : cat.parent_id === parentId)
+      );
+      
+      // Sort alphabetically
+      categories.sort((a, b) => a.name.localeCompare(b.name));
+      
+      // Populate dropdown
+      dropdown.innerHTML = '<option value="">-- Select --</option>' + 
+        categories.map(cat => `<option value="${cat.category_id}" data-name="${cat.name}">${cat.name}</option>`).join('');
+      
+      dropdown.disabled = false;
+      dropdown.style.border = '2px solid #4CAF50';
+    }
+    
+    // Handle level selection changes
+    for (let i = 0; i <= 4; i++) {
+      document.getElementById(`catLevel${i}`).addEventListener('change', function(e) {
+        const selectedId = parseInt(e.target.value);
+        const selectedName = e.target.options[e.target.selectedIndex]?.dataset?.name || '';
+        
+        if (!selectedId) {
+          // Deselected - clear this level and all children
+          selectedCategoryPath = selectedCategoryPath.slice(0, i);
+          
+          // Reset all child dropdowns
+          for (let j = i + 1; j <= 4; j++) {
+            const childDropdown = document.getElementById(`catLevel${j}`);
+            childDropdown.innerHTML = '<option value="">-- Select --</option>';
+            childDropdown.disabled = true;
+            childDropdown.style.border = '2px solid #ccc';
+          }
+        } else {
+          // Selected - update path and populate next level
+          selectedCategoryPath[i] = { id: selectedId, name: selectedName };
+          selectedCategoryPath = selectedCategoryPath.slice(0, i + 1); // Trim any deeper selections
+          
+          // Populate next level if it exists
+          if (i < 4) {
+            populateLevelDropdown(i + 1, selectedId);
+            
+            // Reset levels beyond next
+            for (let j = i + 2; j <= 4; j++) {
+              const childDropdown = document.getElementById(`catLevel${j}`);
+              childDropdown.innerHTML = '<option value="">-- Select --</option>';
+              childDropdown.disabled = true;
+              childDropdown.style.border = '2px solid #ccc';
+            }
+          }
+        }
+        
+        // Update preview and button
+        updateCategoryBuilderPreview();
+      });
+    }
+    
+    // Update preview and enable/disable Add button
+    function updateCategoryBuilderPreview() {
+      const preview = document.getElementById('catBuilderPreview');
+      const addBtn = document.getElementById('addCategoryPathBtn');
+      
+      if (selectedCategoryPath.length === 0) {
+        preview.textContent = 'Select levels to build path...';
+        preview.style.color = '#666';
+        addBtn.disabled = true;
+      } else {
+        const pathString = selectedCategoryPath.map(p => p.name).join(' > ');
+        preview.textContent = `Path: ${pathString}`;
+        preview.style.color = '#2E7D32';
+        preview.style.fontWeight = 'bold';
+        addBtn.disabled = false;
+      }
+    }
+    
+    // Add selected category path
+    document.getElementById('addCategoryPathBtn').addEventListener('click', function() {
+      if (selectedCategoryPath.length === 0) return;
+      
+      const pathString = selectedCategoryPath.map(p => p.name).join(' > ');
+      
+      // Check if path already exists
+      const exists = currentLLMTags.availableCategories?.some(cat => cat.path === pathString);
+      if (exists) {
+        alert('⚠️ This category path is already added!');
+        return;
+      }
+      
+      // Add to available categories
+      if (!currentLLMTags.availableCategories) {
+        currentLLMTags.availableCategories = [];
+      }
+      
+      currentLLMTags.availableCategories.push({
+        path: pathString,
+        source: 'MANUAL',
+        isNewPath: true // Will be verified during save
+      });
+      
+      console.log('✅ Added manual category path:', pathString);
+      
+      // Re-render category chips
+      renderCategoryChips();
+      
+      // Reset builder for next selection
+      selectedCategoryPath = [];
+      for (let i = 0; i <= 4; i++) {
+        document.getElementById(`catLevel${i}`).value = '';
+      }
+      updateCategoryBuilderPreview();
+    });
 
     // Add new keyword on Enter with smart classification
     document.getElementById('llmKeywordInput').addEventListener('keypress', async (e) => {
