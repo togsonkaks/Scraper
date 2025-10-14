@@ -70,6 +70,38 @@ const PHRASE_OVERRIDES = [
   { phrase: 'book cover', categoryPath: 'Books & Media > Book Accessories > Book Covers' }
 ];
 
+// Category Synonym Mapping: Maps common variations to canonical category names
+// This allows matching "trousers" to "Pants", "trainers" to "Sneakers", etc.
+const CATEGORY_SYNONYMS = {
+  // Bottoms synonyms
+  'trousers': 'Pants',
+  'slacks': 'Pants',
+  'chinos': 'Pants',
+  
+  // Tops synonyms
+  'jumper': 'Sweater',
+  'pullover': 'Sweater',
+  'tee': 'T-Shirt',
+  'tee-shirt': 'T-Shirt',
+  
+  // Footwear synonyms
+  'trainers': 'Sneakers',
+  'kicks': 'Sneakers',
+  'tennis-shoes': 'Sneakers',
+  'running-shoes': 'Sneakers',
+  
+  // Outerwear synonyms
+  'parka': 'Coat',
+  'windbreaker': 'Jacket',
+  'blazer': 'Jacket',
+  
+  // Accessories synonyms
+  'purse': 'Handbags',
+  'tote': 'Bags',
+  'backpack': 'Bags',
+  'rucksack': 'Bags'
+};
+
 function checkPhraseOverrides(productData) {
   // Combine all text for phrase checking
   const allText = [
@@ -166,7 +198,18 @@ function matchCategories(text, productData = {}, detectedGender = null) {
       new RegExp(`\\b${escapedName}es\\b`, 'gi')  // Plural with 'es'
     ];
     
+    // Also check for synonyms (e.g., "trousers" should match "Pants")
+    const synonymPatterns = [];
+    for (const [synonym, canonical] of Object.entries(CATEGORY_SYNONYMS)) {
+      if (canonical.toLowerCase() === category.name.toLowerCase()) {
+        const escapedSynonym = synonym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        synonymPatterns.push(new RegExp(`\\b${escapedSynonym}\\b`, 'gi'));
+      }
+    }
+    
     let hasMatch = false;
+    
+    // Check direct name patterns
     for (const pattern of patterns) {
       if (pattern.test(normalizedText)) {
         hasMatch = true;
@@ -174,10 +217,20 @@ function matchCategories(text, productData = {}, detectedGender = null) {
       }
     }
     
+    // Check synonym patterns if no direct match
+    if (!hasMatch) {
+      for (const pattern of synonymPatterns) {
+        if (pattern.test(normalizedText)) {
+          hasMatch = true;
+          break;
+        }
+      }
+    }
+    
     if (hasMatch) {
       const fullPath = buildCategoryPath(category.category_id);
       
-      // Count frequency across weighted sources (using all plural patterns)
+      // Count frequency across weighted sources (using all plural patterns + synonyms)
       let frequencyScore = 0;
       let breadcrumbMatches = 0;
       let titleMatches = 0;
@@ -187,6 +240,15 @@ function matchCategories(text, productData = {}, detectedGender = null) {
       
       // Count matches for all patterns (singular + plurals)
       for (const pattern of patterns) {
+        breadcrumbMatches += (textSources.breadcrumbs.match(pattern) || []).length;
+        titleMatches += (textSources.title.match(pattern) || []).length;
+        urlMatches += (textSources.url.match(pattern) || []).length;
+        descriptionMatches += (textSources.description.match(pattern) || []).length;
+        specsMatches += (textSources.specs.match(pattern) || []).length;
+      }
+      
+      // Also count synonym matches
+      for (const pattern of synonymPatterns) {
         breadcrumbMatches += (textSources.breadcrumbs.match(pattern) || []).length;
         titleMatches += (textSources.title.match(pattern) || []).length;
         urlMatches += (textSources.url.match(pattern) || []).length;
