@@ -44,14 +44,16 @@ The application is built on the Electron framework, using a main process (`main.
         - **Weighted Search Priority**: 3-tier system - Tier 1 (title, URL, breadcrumbs) > Tier 2 (specs, brand) > Tier 3 (description)
         - **Comprehensive Gender Detection** (`detectGender()` unified function):
             - 50+ exhaustive keywords per gender (women: woman/lady/mom/daughter/bride/femme; men: man/gentleman/dad/son/groom/homme; plus kids/unisex)
-            - **4-tier search priority** with confidence scoring:
-                - **Tier 1 (high)**: Title + URL keywords - cleanest, most reliable signals
-                - **Tier 2 (medium)**: Breadcrumbs + Specs - structured metadata
+            - **5-tier search priority** with confidence scoring (Oct 2025 - Breadcrumb-First Strategy):
+                - **Tier 0 (highest)**: Breadcrumbs - retailer's own structured categorization, prevents "baby tee" (women's style) being tagged as kids
+                - **Tier 1 (high)**: Title + URL + JSON-LD (stringified for full search) - catches gender in any JSON field
+                - **Tier 2 (medium)**: Specs - structured product metadata
                 - **Tier 3 (low)**: Description - may contain noise
                 - **Tier 4 (fallback)**: Category path extraction (e.g., "Fashion > Women" → women)
             - Returns `{ gender, source, confidence }` for full transparency
             - Used by both auto-tagger (early for category filtering) and save operation (final with category fallback)
             - Prevents "men" matching "women" via word-boundary regex
+            - **Context-Aware Detection**: Prioritizes structured retailer data over ambiguous title keywords to solve collision issues
         - **Category-Aware Tag Filtering**: Blocks nonsense tags based on department (e.g., removes "construction" activity tags from Fashion products)
         - **Category Matching**: Searches for category NAMES (not paths) in ALL product data (title, description, breadcrumbs, specs, URL) - identical logic to tag matching
         - **Tag Matching**: Word-boundary regex matching across all product text for 955+ tags

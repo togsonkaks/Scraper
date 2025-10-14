@@ -387,7 +387,19 @@ function detectGender(productData, categoryPath = null) {
     return null;
   };
   
-  // TIER 1: Title + URL + JSON-LD (highest confidence)
+  // TIER 0: Breadcrumbs (highest confidence - retailer's structured categorization)
+  // Breadcrumbs are the most reliable because they're how the retailer categorizes the product
+  // This prevents collision issues like "baby tee" (women's style) being tagged as kids
+  const breadcrumbText = Array.isArray(productData.breadcrumbs) 
+    ? productData.breadcrumbs.join(' ') 
+    : (productData.breadcrumbs || '');
+  
+  const tier0Gender = checkGender(breadcrumbText);
+  if (tier0Gender) {
+    return { gender: tier0Gender, source: 'breadcrumbs', confidence: 'highest' };
+  }
+  
+  // TIER 1: Title + URL + JSON-LD (high confidence)
   // Stringify entire JSON-LD to capture gender info in ANY field (captions, descriptions, etc.)
   let jsonLdText = '';
   if (productData.jsonLd && typeof productData.jsonLd === 'object') {
@@ -410,17 +422,10 @@ function detectGender(productData, categoryPath = null) {
     return { gender: tier1Gender, source, confidence: 'high' };
   }
   
-  // TIER 2: Breadcrumbs + Specs (medium confidence)
-  const tier2Text = [
-    Array.isArray(productData.breadcrumbs) 
-      ? productData.breadcrumbs.join(' ') 
-      : (productData.breadcrumbs || ''),
-    productData.specs || ''
-  ].join(' ');
-  
-  const tier2Gender = checkGender(tier2Text);
+  // TIER 2: Specs (medium confidence)
+  const tier2Gender = checkGender(productData.specs || '');
   if (tier2Gender) {
-    return { gender: tier2Gender, source: 'breadcrumbs/specs', confidence: 'medium' };
+    return { gender: tier2Gender, source: 'specs', confidence: 'medium' };
   }
   
   // TIER 3: Description (lower confidence)
