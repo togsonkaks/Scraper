@@ -1,0 +1,35 @@
+175.compute-1.amazonaws.com., errorcode: -105
+[20636:1014/151257.378:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for ec2-52-23-111-175.compute-1.amazonaws.com., errorcode: -105
+[20636:1014/151257.405:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for ec2-52-23-111-175.compute-1.amazonaws.com., errorcode: -105
+[22200:1014/151258.158:ERROR:CONSOLE:1] "Request Autofill.enable failed. {"code":-32601,"message":"'Autofill.enable' 
+wasn't found"}", source: devtools://devtools/bundled/core/protocol_client/protocol_client.js (1)
+[22200:1014/151258.159:ERROR:CONSOLE:1] "Request Autofill.setAddresses failed. {"code":-32601,"message":"'Autofill.setAddresses' wasn't found"}", source: devtools://devtools/bundled/core/protocol_client/protocol_client.js (1)
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-14T20-13-04_nastygal.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Lip Service Graphic Baby T-Shirt
+  ≡ƒöù URL keywords: product nasty gal lip service graphic baby t shirt bgg27192
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Womens > Womens Clothing > Tops > Tops By Colour
+  ≡ƒôä Description: <div>     <ul>         <li>Bold 'Lip Service' graphic featuring striking lip design         <li>Crop
+  ≡ƒöñ Search text length: 1278 chars
+  Γ£à Matched tags: 16 ΓåÆ dinner, festival, cropped, mini, denim, leather, evening, night, bold, casual, classic, contemporary, fitted, graphic, urban, western
+  ≡ƒæñ Gender (early): kids [title/url, high]
+  ≡ƒöì Pre-filtered categories: 398 ΓåÆ 0 (gender: kids)
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒæñ Gender (final): kids [title/url, high]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-14T20-31-51_nastygal.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Lip Service Graphic Baby T-Shirt
+  ≡ƒöù URL keywords: product nasty gal lip service graphic baby t shirt bgg27192
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Womens > Womens Clothing > Tops > Tops By Colour
+  ≡ƒôä Description: <div>     <ul>         <li>Bold 'Lip Service' graphic featuring striking lip design         <li>Crop
+  ≡ƒöñ Search text length: 1278 chars
+  Γ£à Matched tags: 16 ΓåÆ dinner, festival, cropped, mini, denim, leather, evening, night, bold, casual, classic, contemporary, fitted, graphic, urban, western
+  ≡ƒæñ Gender (early): kids [title/url, high]
+  ≡ƒöì Pre-filtered categories: 398 ΓåÆ 0 (gender: kids)
+  ≡ƒôé Matched categories: 0 ΓåÆ 
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒæñ Gender (final): kids [title/url, high]
+[22200:1014/153221.999:ERROR:CONSOLE:1] "Request Autofill.enable failed. {"code":-32601,"message":"'Autofill.enable' 
+wasn't found"}", source: devtools://devtools/bundled/core/protocol_client/protocol_client.js (1)
+[22200:1014/153222.001:ERROR:CONSOLE:1] "Request Autofill.setAddresses failed. {"code":-32601,"message":"'Autofill.setAddresses' wasn't fou

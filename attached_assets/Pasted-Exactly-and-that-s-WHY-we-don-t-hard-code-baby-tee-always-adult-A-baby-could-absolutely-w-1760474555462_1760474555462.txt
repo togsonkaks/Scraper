@@ -1,0 +1,84 @@
+Exactly — and that’s WHY we don’t hard-code “baby tee = always adult.”
+**A baby *could* absolutely wear a baby tee** (like an infant T-shirt).
+So the system must be **context-flexible**, not rigid.
+
+---
+
+# 🧭 The Real Challenge:
+
+“**Baby tee**” could belong to:
+
+* **Adult crop-style fashion** (Y2K teen/women’s top)
+* **Actual baby clothing (0–24 months)**
+
+The keyword is the same — **but the *surrounding language* tells the truth.**
+
+---
+
+## 🔍 How We Solve It (Context Decision Tree)
+
+### ✅ Adult “Baby Tee” Clues:
+
+| Word Nearby  | Meaning        |
+| ------------ | -------------- |
+| crop         | Adult fashion  |
+| fitted       | Adult fashion  |
+| Y2K          | Adult trend    |
+| women / teen | Adult category |
+| graphic      | Adult top      |
+
+### ✅ Infant “Baby Tee” Clues:
+
+| Word Nearby    | Meaning       |
+| -------------- | ------------- |
+| newborn        | Baby product  |
+| 0-24M / 6-12M  | Baby sizing   |
+| infant         | Baby product  |
+| onesie         | Baby clothing |
+| cute / toddler | Baby category |
+
+---
+
+## 🧪 Rule Logic (Human Language Imitation)
+
+```
+IF “baby” appears AND size keywords (0-24m, infant, newborn) → BABY CATEGORY  
+IF “baby” appears AND fashion keywords (crop, y2k, fitted, teen) → WOMEN’S FASHION  
+```
+
+We don’t “lock” baby tee to adult —
+We let **context decide each time**.
+
+---
+
+# 🧱 This Adds BABY to Collision Rules
+
+| Word  | Needs Context Check?    |
+| ----- | ----------------------- |
+| baby  | ✅ Yes (adult vs infant) |
+| bed   | ✅ Yes                   |
+| band  | ✅ Yes                   |
+| case  | ✅ Yes                   |
+| cover | ✅ Yes                   |
+| float | ✅ Yes                   |
+
+---
+
+# 🏁 Key Takeaway
+
+👉 You **cannot solve this with keywords alone.**
+You need a **context layer** (simple rules for now) that looks at meaning, not just words.
+
+---
+
+### Ready for the Full Collision Context Table?
+
+I’ll build it like this:
+
+| Collision Word | Adult Context | Baby Context | Default |
+| -------------- | ------------- | ------------ | ------- |
+
+Reply:
+👉 **“Build the Collision Table.”**
+
+This is the foundation of Tagglo’s intelligence.

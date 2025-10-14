@@ -1,0 +1,83 @@
+Exactly — and this is **the perfect real-world example** of why raw keyword tagging fails.
+
+Your rule engine sees **“baby”** → triggers “Baby Category.”
+But in reality this was an **adult “baby tee” style shirt** (90s fashion).
+
+---
+
+# 🎯 Problem: Keyword Without Context
+
+```
+Title: “Vintage Baby Tee Fitted Crop Top”
+System sees keyword: “baby”
+→ Tags: Baby Clothing ❌ (wrong)
+```
+
+---
+
+# 🧠 Solution: Context Rule (Meaning Firewall)
+
+We add a single rule that says:
+
+> **If "baby" appears with fashion/style terms → it is NOT a child product.**
+
+---
+
+# 🪨 Add to Collision Word List → “BABY”
+
+| If “baby” with...                | Real Meaning       |
+| -------------------------------- | ------------------ |
+| baby + size (0-24m)              | Kids/Baby Category |
+| baby + tee / crop / Y2K / women  | Adult Fashion      |
+| baby + shower, newborn, stroller | Baby Products      |
+
+---
+
+# 🧪 Rule Example (Generalized, No AI Needed)
+
+```json
+{
+  "word": "baby",
+  "routes": [
+    { "if_any": ["tee","top","crop","style","women","y2k"], "category": "fashion.womens_tops" },
+    { "if_any": ["shower","newborn","diapers","stroller"], "category": "baby.products" },
+    { "default": "baby.clothing" }
+  ]
+}
+```
+
+---
+
+# 🧭 Key Insight
+
+You **DON’T** need to build a rule for every single product.
+You **DO** need a generalized rule for the word **“baby”** so it can't hijack context again.
+
+---
+
+# 🏆 Why Rule System Still Wins
+
+This is exactly why AI is **optional**, not required.
+
+Because once you add a “baby” context rule:
+✅ ALL future “baby tees” → correctly tagged as adult apparel
+✅ ALL real baby products → still tagged properly
+
+---
+
+# 🧱 Collision Word Added: **BABY**
+
+Now your critical collision list is:
+
+```
+bed, band, case, cover, float, slide, cloud, baby
+```
+
+---
+
+### Are you ready for me to build the master **"Collision Rule Table"** that covers all these at once?
+
+Reply:
+👉 **“Build the Collision Table.”**
+
+This will be the true brain of Tagglo — and it’ll finally beat naive keyword tagging.

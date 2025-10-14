@@ -1,0 +1,139 @@
+🎯 DEBUG LOGGER: Starting session session_1760473911370_45kwuav7g for nastygal.com
+VM307:100 🤖 AUTO: Debug logging started for scrape operation
+VM2061:6525 🚨 CRITICAL SYSTEM VALIDATION FAILED:
+validateCriticalSystems @ VM2061:6525
+(anonymous) @ VM2061:6536
+(anonymous) @ VM2061:6542
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+VM2061:6526   - CRITICAL: Mozu CDN upgrade pattern missing
+(anonymous) @ VM2061:6526
+validateCriticalSystems @ VM2061:6526
+(anonymous) @ VM2061:6536
+(anonymous) @ VM2061:6542
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+VM2061:6526   - CRITICAL: Shocho CDN upgrade pattern missing
+(anonymous) @ VM2061:6526
+validateCriticalSystems @ VM2061:6526
+(anonymous) @ VM2061:6536
+(anonymous) @ VM2061:6542
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+VM2061:6526   - CRITICAL: Shopify CDN upgrade pattern missing
+(anonymous) @ VM2061:6526
+validateCriticalSystems @ VM2061:6526
+(anonymous) @ VM2061:6536
+(anonymous) @ VM2061:6542
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+VM2061:6526   - CRITICAL: Deduplication function missing
+(anonymous) @ VM2061:6526
+validateCriticalSystems @ VM2061:6526
+(anonymous) @ VM2061:6536
+(anonymous) @ VM2061:6542
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+VM307:100 🎯 DEBUG LOGGER: Starting session session_1760473911402_5sbzaymes for nastygal.com
+VM307:100 [TG] 💾 DEBUG LOGGER: Session session_1760473911402_5sbzaymes started for nastygal.com
+VM307:100 [TG] 🚀 SCRAPE START {host: 'nastygal.com', href: 'https://www.nastygal.com/product/nasty-gal-lip-service-graphic-baby-t-shirt_bgg27192?colour=white', mode: 'normal'}
+VM307:100 🔄 Quick scroll to trigger lazy loading...
+VM307:100 🔍 PROCESSING IMAGES with 25 elements observeMs: 0 
+VM307:100 📊 Found 25 total elements, 25 after filtering
+VM307:100 🖼️ Raw enriched URLs collected: 125
+/product/nasty-gal-lip-service-graphic-baby-t-shirt_bgg27192?colour=white:1 Access to image at 'https://mediahub.debenhams.com/bgg27192_white_xl?qlt=80&w=768&ssz=true&dpr=1' from origin 'https://www.nastygal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+mediahub.debenhams.com/bgg27192_white_xl?qlt=80&w=768&ssz=true&dpr=1:1  GET https://mediahub.debenhams.com/bgg27192_white_xl?qlt=80&w=768&ssz=true&dpr=1 net::ERR_FAILED
+Image
+width @ VM2061:5679
+(anonymous) @ VM2061:5675
+processImages @ VM2061:5670
+getImagesGeneric @ VM2061:5860
+scrapeProduct @ VM2061:6223
+await in scrapeProduct
+(anonymous) @ VM2061:6544
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+/product/nasty-gal-lip-service-graphic-baby-t-shirt_bgg27192?colour=white:1 Access to image at 'https://mediahub.debenhams.com/bgg27192_white_xl_1?qlt=80&w=768&ssz=true&dpr=1' from origin 'https://www.nastygal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+mediahub.debenhams.com/bgg27192_white_xl_1?qlt=80&w=768&ssz=true&dpr=1:1  GET https://mediahub.debenhams.com/bgg27192_white_xl_1?qlt=80&w=768&ssz=true&dpr=1 net::ERR_FAILED
+Image
+width @ VM2061:5679
+(anonymous) @ VM2061:5675
+processImages @ VM2061:5670
+getImagesGeneric @ VM2061:5860
+scrapeProduct @ VM2061:6223
+await in scrapeProduct
+(anonymous) @ VM2061:6544
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+/product/nasty-gal-lip-service-graphic-baby-t-shirt_bgg27192?colour=white:1 Access to image at 'https://mediahub.debenhams.com/bgg27192_white_xl_2?qlt=80&w=768&ssz=true&dpr=1' from origin 'https://www.nastygal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+mediahub.debenhams.com/bgg27192_white_xl_2?qlt=80&w=768&ssz=true&dpr=1:1  GET https://mediahub.debenhams.com/bgg27192_white_xl_2?qlt=80&w=768&ssz=true&dpr=1 net::ERR_FAILED
+Image
+width @ VM2061:5679
+(anonymous) @ VM2061:5675
+processImages @ VM2061:5670
+getImagesGeneric @ VM2061:5860
+scrapeProduct @ VM2061:6223
+await in scrapeProduct
+(anonymous) @ VM2061:6544
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+/product/nasty-gal-lip-service-graphic-baby-t-shirt_bgg27192?colour=white:1 Access to image at 'https://mediahub.debenhams.com/bgg27192_white_xl_3?qlt=80&w=768&ssz=true&dpr=1' from origin 'https://www.nastygal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+mediahub.debenhams.com/bgg27192_white_xl_3?qlt=80&w=768&ssz=true&dpr=1:1  GET https://mediahub.debenhams.com/bgg27192_white_xl_3?qlt=80&w=768&ssz=true&dpr=1 net::ERR_FAILED
+Image
+width @ VM2061:5679
+(anonymous) @ VM2061:5675
+processImages @ VM2061:5670
+getImagesGeneric @ VM2061:5860
+scrapeProduct @ VM2061:6223
+await in scrapeProduct
+(anonymous) @ VM2061:6544
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+/product/nasty-gal-lip-service-graphic-baby-t-shirt_bgg27192?colour=white:1 Access to image at 'https://mediahub.debenhams.com/bgg27192_white_xl_4?qlt=80&w=768&ssz=true&dpr=1' from origin 'https://www.nastygal.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+mediahub.debenhams.com/bgg27192_white_xl_4?qlt=80&w=768&ssz=true&dpr=1:1  GET https://mediahub.debenhams.com/bgg27192_white_xl_4?qlt=80&w=768&ssz=true&dpr=1 net::ERR_FAILED
+Image
+width @ VM2061:5679
+(anonymous) @ VM2061:5675
+processImages @ VM2061:5670
+getImagesGeneric @ VM2061:5860
+scrapeProduct @ VM2061:6223
+await in scrapeProduct
+(anonymous) @ VM2061:6544
+(anonymous) @ VM2061:6547
+(anonymous) @ VM4 sandbox_bundle:2
+(anonymous) @ VM4 sandbox_bundle:2
+emit @ VM4 sandbox_bundle:2
+onMessage @ VM4 sandbox_bundle:2
+VM307:100 [TG] ✅ SCRAPE SUCCESS: {title: true, brand: true, description: true, specs: false, breadcrumbs: true, …}
+VM307:100 💾 DEBUG LOGGER: Ending session session_1760473911402_5sbzaymes, saving 6 logs
+VM307:100 ✅ DEBUG LOGGER: Saved 7 logs to debug-logs/session_2025-10-14T20-31-51_nastygal.com.txt
+VM307:100 [TG] 💾 DEBUG LOGGER: Session saved to database
+VM307:100 🤖 AUTO: Debug logging stopped after scrape operation
+VM307:100 ✅ Scroll complete - lazy loading triggered! (1000ms total)
