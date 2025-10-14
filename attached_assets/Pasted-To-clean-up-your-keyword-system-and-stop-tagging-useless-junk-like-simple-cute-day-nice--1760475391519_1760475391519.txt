@@ -1,0 +1,84 @@
+To clean up your keyword system and stop tagging useless junk like **“simple,” “cute,” “day,” “nice,” “new,”** etc.—you need a **Stopword Filter Layer** before your keywords even fire.
+
+These words add *zero category value* and should **never** trigger tags or categories.
+
+---
+
+# 🧹 Step 1: Build a “Do-Not-Tag” Word List (Stopwords)
+
+| Word Type              | Examples                                       |
+| ---------------------- | ---------------------------------------------- |
+| **Generic Adjectives** | simple, cute, nice, beautiful, lovely, elegant |
+| **Filler Words**       | day, everyday, perfect, great, new             |
+| **Marketing Fluff**    | premium, best, amazing, must-have              |
+| **Time Words**         | summer, winter, daily, classic                 |
+
+These words should be **ignored by the tagging engine entirely.**
+
+---
+
+# ⚙️ How to Filter Them
+
+### 💡 Before keyword matching:
+
+```
+Raw Title → Remove Stopwords → Apply Category Keywords
+```
+
+**Example Title:**
+
+> “Cute simple summer baby tee crop top”
+
+**After Stopwords Filter:**
+
+> “baby tee crop top” ← Now tagging logic sees only the meaningful words
+
+---
+
+# 🧪 Result: Better Accuracy Immediately
+
+| Without Stopword Filter | With Stopword Filter |
+|---|---|---|
+| Tags “cute” (useless) | Ignores “cute” |
+| False match on “summer” | Real focus on “baby tee” |
+| Risk confusion | Cleaner context |
+
+---
+
+# 🗂️ Stopword Table Format (Simple & Powerful)
+
+```json
+{
+  "stopwords": [
+    "cute", "simple", "elegant", "nice", "perfect",
+    "premium", "amazing", "new", "day", "daily",
+    "classic", "modern", "beautiful", "lovely"
+  ]
+}
+```
+
+---
+
+# 🛑 Important: Don’t Delete Words Like “baby,” “cloud,” “float”
+
+Those are **collision words** → send to context logic
+Stopwords = boring adjectives / fluff
+
+---
+
+# 🔧 Dev Implementation (Simple)
+
+* Strip stopwords before keyword check
+* Use regex: `\b(simple|cute|nice|new|day)\b` → remove
+* Then reduce double spaces and continue processing
+
+---
+
+# 🚀 Ready to Deliver Stopword Pack?
+
+I can generate a **complete Stopword List (50+ words)** optimized for shopping/category domains (fashion, home, tech, etc.)
+
+Just say:
+👉 **“Build the stopword list.”**
+
+And I’ll hand you a plug-and-play JSON your dev can use immediately.

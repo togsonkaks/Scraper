@@ -1,0 +1,35 @@
+  ≡ƒôé Matched categories: 7 ΓåÆ T-Shirt (score: 263, lvl 4), Jacket (score: 252, lvl 4), Tops (score: 205, lvl 3), Boots (score: 202, lvl 3), Sneakers (score: 202, lvl 3), Clothing (score: 153, lvl 2), Women (score: 106, lvl 1)      
+  ≡ƒÄ» Best category match: T-Shirt (score: 263, lvl 4, id: 299)
+    Match details: {"breadcrumbMatches":1,"titleMatches":1,"urlMatches":0,"descriptionMatches":3,"specsMatches":0}   
+  Γ£¿ FINAL PATH: Fashion > Women > Clothing > Tops > T-Shirt
+  ≡ƒÜ½ Filtered 14 ΓåÆ 12 tags for department: fashion
+  ≡ƒæñ Gender (final): women [description, low]
+[5180:1014/155321.187:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for ec2-52-23-111-175.compute-1.amazonaws.com., errorcode: -105
+[5180:1014/155321.187:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for ec2-52-23-111-175.compute-1.amazonaws.com., errorcode: -105
+[5180:1014/155321.187:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for ec2-52-23-111-175.compute-1.amazonaws.com., errorcode: -105
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-14T20-56-45_nastygal.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Lip Service Graphic Baby T-Shirt
+  ≡ƒöù URL keywords: product nasty gal lip service graphic baby t shirt bgg27192
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Womens > Womens Clothing > Tops > Tops By Colour
+  ≡ƒôä Description: <div>     <ul>         <li>Bold 'Lip Service' graphic featuring striking lip design         <li>Crop
+  ≡ƒöñ Search text length: 1278 chars
+  Γ£à Matched tags: 16 ΓåÆ dinner, festival, cropped, mini, denim, leather, evening, night, bold, casual, classic, contemporary, fitted, graphic, urban, western
+  ≡ƒæñ Gender (early): kids [description, low]
+  ≡ƒöì Pre-filtered categories: 398 ΓåÆ 0 (gender: kids)
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒæñ Gender (final): kids [description, low]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-14T20-56-49_nastygal.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Lip Service Graphic Baby T-Shirt
+  ≡ƒöù URL keywords: product nasty gal lip service graphic baby t shirt bgg27192
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Womens > Womens Clothing > Tops > Tops By Colour
+  ≡ƒôä Description: <div>     <ul>         <li>Bold 'Lip Service' graphic featuring striking lip design         <li>Crop
+  ≡ƒöñ Search text length: 1278 chars
+  Γ£à Matched tags: 16 ΓåÆ dinner, festival, cropped, mini, denim, leather, evening, night, bold, casual, classic, contemporary, fitted, graphic, urban, western
+  ≡ƒæñ Gender (early): kids [description, low]
+  ≡ƒöì Pre-filtered categories: 398 ΓåÆ 0 (gender: kids)
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒæñ Gender (final): kids [description, low]

@@ -1,0 +1,93 @@
+Ah — now we hit the real pain point.
+
+Your **in-house keyword system is too literal.** It’s catching *every* matching keyword — even when the context is wrong.
+
+**Example Problem:**
+“Tanning **bed** float” → house system sees “bed” → tags **Furniture**.
+“Apple **watch band**” → sees “watch” → tags **Watches** (wrong).
+
+---
+
+# 🎯 Root Issue
+
+**Your current system can’t distinguish *contextual meaning* vs *raw keyword hits*.**
+It treats every keyword equally → **"bed" = bed"** everywhere.
+
+---
+
+# 🧱 Fix Without AI: Add a “Context Check Layer”
+
+Before tagging a keyword, your system must ask:
+❗ **“Is this keyword actually valid in this phrase?”**
+
+---
+
+# 🛠 Solution: Keyword → Context Validator (aka Disambiguator)
+
+## 🔍 How It Works
+
+| Step                            | Action                             |
+| ------------------------------- | ---------------------------------- |
+| 1️⃣ Keyword hits (house system) | Finds “bed”, “band”, “cover”       |
+| 2️⃣ Phrase check                | Sees “tanning bed” or “watch band” |
+| 3️⃣ Context override            | Blocks wrong tag, assigns correct  |
+
+---
+
+# 🧪 Real Example Logic
+
+```json
+IF product contains "tanning bed":
+    IGNORE "bed" keyword (furniture)
+    APPLY "beauty.tanning"
+
+IF product contains "watch band":
+    IGNORE "watch" keyword (timepiece)
+    APPLY "tech.wearables"
+```
+
+---
+
+# 🧬 This Requires 1 New Table: **Blocked Keywords (Exception Manager)**
+
+| keyword | block_if_phrase_contains | route_category   |
+| ------- | ------------------------ | ---------------- |
+| "bed"   | ["tanning", "float"]     | "beauty.tanning" |
+| "watch" | ["band", "strap"]        | "tech.wearables" |
+
+---
+
+# 🔁 Flow for In-House System Upgrade (No AI Needed!)
+
+```
+House Keyword Match → Check Block Rules → If Blocked → Use Exception Category → Else Tag Normally
+```
+
+---
+
+# 🪨 Stability First — THEN Consider AI Later
+
+Once you add this **Context Exception Layer**, your rule engine becomes:
+
+✅ Accurate
+✅ Cheap
+✅ Fast
+❗ Hard to break
+
+---
+
+# 🧭 Your Real Question Should Now Be:
+
+> “Do we **hard-code** these exceptions or let LLM help detect new ones?”
+
+That’s the only place AI helps — **finding new edge cases**, not tagging everything.
+
+---
+
+If you want, I’ll now create:
+✅ **The “Keyword Kill List” format** → Used to stop false categories
+✅ First batch of real entries (bed, band, case, cover, float…)
+
+Reply:
+👉 **“Build the kill list.”**
+And I’ll format it for your dev.

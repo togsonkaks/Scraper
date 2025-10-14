@@ -364,14 +364,14 @@ function extractUrlKeywords(url) {
  * @returns {Object} { gender: string|null, source: string, confidence: string }
  */
 function detectGender(productData, categoryPath = null) {
-  // Exhaustive gender keyword patterns
-  const WOMEN_KEYWORDS = /\b(woman|women|lady|ladies|female|girl|girls|mom|mother|mommy|mum|mama|daughter|sister|aunt|aunty|auntie|niece|grandmother|grandma|granny|nana|miss|mrs|ms|ma'am|madam|madame|queen|empress|princess|duchess|goddess|wife|girlfriend|bride|bridesmaid|fiancée|maternity|nursing|bridal|bra|lingerie|dress|skirt|blouse|heels|purse|handbag|señora|señorita|femme|feminine|her|hers|she)\b/gi;
+  // Exhaustive gender keyword patterns (no global flag to avoid stateful .test() issues)
+  const WOMEN_KEYWORDS = /\b(woman|women|lady|ladies|female|girl|girls|mom|mother|mommy|mum|mama|daughter|sister|aunt|aunty|auntie|niece|grandmother|grandma|granny|nana|miss|mrs|ms|ma'am|madam|madame|queen|empress|princess|duchess|goddess|wife|girlfriend|bride|bridesmaid|fiancée|maternity|nursing|bridal|bra|lingerie|dress|skirt|blouse|heels|purse|handbag|señora|señorita|femme|feminine|her|hers|she)\b/i;
   
-  const MEN_KEYWORDS = /\b(man|men|gentleman|gentlemen|male|boy|boys|guy|guys|dad|father|daddy|papa|son|brother|uncle|nephew|grandfather|grandpa|gramps|pop|mr|sir|mister|señor|king|emperor|prince|duke|lord|husband|boyfriend|groom|groomsman|fiancé|beard|shave|razor|tie|necktie|tuxedo|suit|cologne|masculine|homme|his|him|he)\b/gi;
+  const MEN_KEYWORDS = /\b(man|men|gentleman|gentlemen|male|boy|boys|guy|guys|dad|father|daddy|papa|son|brother|uncle|nephew|grandfather|grandpa|gramps|pop|mr|sir|mister|señor|king|emperor|prince|duke|lord|husband|boyfriend|groom|groomsman|fiancé|beard|shave|razor|tie|necktie|tuxedo|suit|cologne|masculine|homme|his|him|he)\b/i;
   
-  const KIDS_KEYWORDS = /\b(baby|infant|toddler|child|children|kids|youth|junior|teen|teenager|adolescent)\b/gi;
+  const KIDS_KEYWORDS = /\b(baby|infant|toddler|child|children|kids|youth|junior|teen|teenager|adolescent)\b/i;
   
-  const UNISEX_KEYWORDS = /\b(unisex|gender-neutral|everyone|all-gender|non-binary)\b/gi;
+  const UNISEX_KEYWORDS = /\b(unisex|gender-neutral|everyone|all-gender|non-binary)\b/i;
   
   // Helper to find ALL genders in text (detects conflicts)
   const findAllGenders = (text) => {
