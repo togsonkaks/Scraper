@@ -982,6 +982,17 @@ ipcMain.handle('get-category-hierarchy', async (_e) => {
   }
 });
 
+// Create new category with proper parent linkage
+ipcMain.handle('create-category', async (_e, categoryData) => {
+  try {
+    const { createCategory } = require(path.join(__dirname, 'server', 'storage'));
+    return await createCategory(categoryData);
+  } catch (e) {
+    console.error('Error creating category:', e);
+    throw e;
+  }
+});
+
 // Database query handler
 ipcMain.handle('get-products', async (_e, filters) => {
   try {

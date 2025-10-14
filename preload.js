@@ -83,6 +83,7 @@ contextBridge.exposeInMainWorld('api', {
   seedFullTaxonomy: () => call('seed-full-taxonomy'),
   viewTaxonomy: () => call('view-taxonomy'),
   getCategoryHierarchy: () => call('get-category-hierarchy'),
+  createCategory: (categoryData) => call('create-category', categoryData),
   getProducts: (filters) => call('get-products', filters),
   getProductStats: () => call('get-product-stats')
 });

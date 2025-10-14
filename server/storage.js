@@ -837,6 +837,73 @@ async function getCategoryHierarchy() {
   }
 }
 
+/**
+ * Create a new category with proper parent linkage
+ * @param {Object} categoryData - { name, parentId, level }
+ * @returns {Object} { success, categoryId, slug }
+ */
+async function createCategory(categoryData) {
+  try {
+    const { name, parentId, level } = categoryData;
+    
+    if (!name || name.trim() === '') {
+      return {
+        success: false,
+        error: 'Category name is required'
+      };
+    }
+    
+    // Create slug
+    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    
+    // Check if category already exists with same name and parent
+    const existing = await sql`
+      SELECT category_id 
+      FROM categories 
+      WHERE name = ${name} 
+      AND ${parentId ? sql`parent_id = ${parentId}` : sql`parent_id IS NULL`}
+      LIMIT 1
+    `;
+    
+    if (existing.length > 0) {
+      return {
+        success: false,
+        error: 'Category with this name already exists at this level'
+      };
+    }
+    
+    // Insert new category with parent linkage
+    const result = await sql`
+      INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
+      VALUES (${name}, ${slug}, ${parentId || null}, ${level || 0}, 1)
+      RETURNING category_id, slug
+    `;
+    
+    const categoryId = result[0].category_id;
+    const createdSlug = result[0].slug;
+    
+    console.log(`✅ Created category: "${name}" (ID: ${categoryId}, Level: ${level}, Parent: ${parentId || 'ROOT'})`);
+    
+    // Refresh auto-tagger taxonomy
+    const { refreshTaxonomy } = require('../scrapers/auto-tagger');
+    await refreshTaxonomy();
+    console.log('✅ Auto-tagger taxonomy refreshed');
+    
+    return {
+      success: true,
+      categoryId: categoryId,
+      slug: createdSlug
+    };
+    
+  } catch (error) {
+    console.error('❌ Error creating category:', error);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+}
+
 module.exports = {
   saveRawProduct,
   updateProductTags,
@@ -846,5 +913,6 @@ module.exports = {
   buildCategoryPath,
   seedFullTaxonomy,
   viewTaxonomy,
-  getCategoryHierarchy
+  getCategoryHierarchy,
+  createCategory
 };
