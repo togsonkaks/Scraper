@@ -84,8 +84,9 @@ The application is built on the Electron framework, using a main process (`main.
         - Creates self-learning taxonomy loop: User corrections → Database → Auto-tagger knowledge
     - **Editable AI-Suggested Paths** (Oct 2025):
         - AI category suggestions display with individual ❌ delete buttons on each path segment
-        - Users can remove ANY segment (not just last one) for granular path editing
+        - Users can remove ANY segment (including last one) - deleting final segment removes entire category
         - Provides full control over AI suggestions before accepting
+        - Deduplication: When AUTO and AI suggest same category, shows only AUTO version (prevents duplicates)
     - **Inline Category Creation** (Oct 2025):
         - "+ Add New" buttons in each dropdown level for missing categories
         - Creates categories with proper parent_id linking, level assignment, and llm_discovered=1 flag
