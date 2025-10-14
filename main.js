@@ -971,6 +971,17 @@ ipcMain.handle('view-taxonomy', async (_e) => {
   }
 });
 
+// Get category hierarchy for dropdown builder
+ipcMain.handle('get-category-hierarchy', async (_e) => {
+  try {
+    const { getCategoryHierarchy } = require(path.join(__dirname, 'server', 'storage'));
+    return await getCategoryHierarchy();
+  } catch (e) {
+    console.error('Error getting category hierarchy:', e);
+    throw e;
+  }
+});
+
 // Database query handler
 ipcMain.handle('get-products', async (_e, filters) => {
   try {

@@ -82,6 +82,7 @@ contextBridge.exposeInMainWorld('api', {
   updateProductTags: (productId, tagResults) => call('update-product-tags', productId, tagResults),
   seedFullTaxonomy: () => call('seed-full-taxonomy'),
   viewTaxonomy: () => call('view-taxonomy'),
+  getCategoryHierarchy: () => call('get-category-hierarchy'),
   getProducts: (filters) => call('get-products', filters),
   getProductStats: () => call('get-product-stats')
 });

@@ -815,6 +815,28 @@ async function viewTaxonomy() {
   }
 }
 
+async function getCategoryHierarchy() {
+  try {
+    // Get all categories with their relationships
+    const categories = await sql`
+      SELECT category_id, name, parent_id, level, slug
+      FROM categories
+      ORDER BY level, name
+    `;
+    
+    return {
+      success: true,
+      categories: categories
+    };
+  } catch (error) {
+    console.error('❌ Error getting category hierarchy:', error);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+}
+
 module.exports = {
   saveRawProduct,
   updateProductTags,
@@ -823,5 +845,6 @@ module.exports = {
   getProductStats,
   buildCategoryPath,
   seedFullTaxonomy,
-  viewTaxonomy
+  viewTaxonomy,
+  getCategoryHierarchy
 };
