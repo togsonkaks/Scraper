@@ -487,41 +487,14 @@ async function autoTag(productData) {
     occasions: allMatchedTags.filter(t => t.type === 'occasions')
   };
   
-  // Detect gender FIRST (from breadcrumbs and product text)
-  let gender = null;
+  // EARLY gender detection (without category path) - used for filtering categories
+  const earlyGenderResult = detectGender(productData, null);
+  let gender = earlyGenderResult.gender;
   
-  // Priority 1: Check breadcrumbs (most reliable)
-  const breadcrumbText = normalizeText(
-    Array.isArray(productData.breadcrumbs) 
-      ? productData.breadcrumbs.join(' ') 
-      : (productData.breadcrumbs || '')
-  );
-  const breadcrumbGenderMatch = breadcrumbText.match(/\b(men|women|unisex|boys|girls|kids)\b/gi);
-  
-  if (breadcrumbGenderMatch && breadcrumbGenderMatch.length > 0) {
-    gender = breadcrumbGenderMatch[0].toLowerCase();
-    console.log('  👤 Gender from breadcrumbs:', gender);
+  if (gender) {
+    console.log(`  👤 Gender (early): ${gender} [${earlyGenderResult.source}, ${earlyGenderResult.confidence}]`);
   } else {
-    // Priority 2: Check all product text
-    const textGenderMatch = searchText.match(/\b(men|women|unisex|boys|girls|kids)\b/gi);
-    if (textGenderMatch && textGenderMatch.length > 0) {
-      gender = textGenderMatch[0].toLowerCase();
-      console.log('  👤 Gender from text:', gender);
-    }
-  }
-  
-  // Priority 3: Infer from product keywords if no explicit gender found
-  if (!gender) {
-    const womenKeywords = /\b(woman|women|girl|girls|lady|ladies|female|miss|mrs|ms|her|hers|she|bridal|bride|femme|feminine|goddess|gown|dress|blouse|skirt|heels|bra|pink|rose-gold|mauve|lavender|cowgirl)\b/gi;
-    const menKeywords = /\b(man|men|boy|boys|male|gentleman|gentlemen|mr|his|him|he|groom|masculine|tie|necktie|tuxedo|beard|shave|razor|cowboy)\b/gi;
-    
-    if (womenKeywords.test(searchText)) {
-      gender = 'women';
-      console.log('  👤 Gender inferred from keywords:', gender);
-    } else if (menKeywords.test(searchText)) {
-      gender = 'men';
-      console.log('  👤 Gender inferred from keywords:', gender);
-    }
+    console.log('  👤 Gender (early): not detected yet');
   }
   
   // STEP 1: Check for phrase overrides FIRST (handles edge cases)
@@ -612,6 +585,16 @@ async function autoTag(productData) {
         console.log(`  🚫 Filtered ${originalTagCount} → ${allMatchedTags.length} tags for department: ${department}`);
       }
     }
+  }
+  
+  // FINAL gender detection with category path fallback (Tier 4)
+  const finalGenderResult = detectGender(productData, primaryCategory);
+  gender = finalGenderResult.gender;
+  
+  if (gender) {
+    console.log(`  👤 Gender (final): ${gender} [${finalGenderResult.source}, ${finalGenderResult.confidence}]`);
+  } else {
+    console.log('  👤 Gender (final): not detected');
   }
   
   const confidence = calculateConfidence(tagsByType);
