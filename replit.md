@@ -63,6 +63,15 @@ The application is built on the Electron framework, using a main process (`main.
         - Returns COMPLETE category paths with ALL parent levels (Fashion > Men > Clothing > Bottoms > Jeans)
         - Self-learning workflow: LLM suggests new tags → Shows in Review modal → User approves → Saves to database with llm_discovered=1
         - Validates suggested paths against existing taxonomy before marking as "EXISTING"
+    - **Hierarchical Category Builder** (Oct 2025):
+        - Manual category path editor with cascading dropdowns in LLM Review modal
+        - 5-level dropdown hierarchy: Department > Gender > Section > Category > Type
+        - Loads real-time category relationships from database
+        - Each dropdown shows only valid children of selected parent (prevents invalid paths)
+        - Preview shows full path before adding (e.g., "Fashion > Men > Clothing > Tops > Shirt")
+        - Saved paths automatically create full parent_id chain in database with llm_discovered=1
+        - Triggers refreshTaxonomy() after save so auto-tagger learns immediately
+        - Creates self-learning taxonomy loop: User corrections → Database → Auto-tagger knowledge
     - LLM caching system prevents duplicate API calls for same product URL (saves to AppData/Roaming/Tagglo/llm_cache)
     - Database operations (`server/storage.js`) include a 3-stage save pipeline with full hierarchy path storage
     - **Database Seeding**: One-click "🌱 Seed Taxonomy" button in Control Window populates database with complete 358 categories + 955 tags using app's stable database connection (bypasses standalone script connection issues); preserves LLM-discovered tags on re-seed (DELETE WHERE llm_discovered = 0)
