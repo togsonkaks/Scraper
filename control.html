@@ -1506,7 +1506,11 @@
       const levelNames = ['Department', 'Gender', 'Section', 'Category', 'Type'];
       const levelName = levelNames[level] || `Level ${level}`;
       
-      const categoryName = prompt(`Create New ${levelName}:\n\n${parentName ? `Parent: ${parentName}` : 'Root Level'}\n\nEnter category name:`);
+      // Create custom input dialog (prompt() not supported in Electron)
+      const categoryName = await showInputDialog(
+        `Create New ${levelName}`,
+        `${parentName ? `Parent: ${parentName}` : 'Root Level'}\n\nEnter category name:`
+      );
       
       if (!categoryName || categoryName.trim() === '') {
         return null;
@@ -2350,6 +2354,74 @@
     
     function hideImageModal() {
       document.getElementById('imageModal').style.display = 'none';
+    }
+    
+    // Custom input dialog (replaces prompt() which isn't supported in Electron)
+    function showInputDialog(title, message) {
+      return new Promise((resolve) => {
+        // Create modal overlay
+        const overlay = document.createElement('div');
+        overlay.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10000; display: flex; align-items: center; justify-content: center;';
+        
+        // Create dialog box
+        const dialog = document.createElement('div');
+        dialog.style.cssText = 'background: white; padding: 20px; border-radius: 8px; min-width: 400px; max-width: 500px;';
+        
+        // Title
+        const titleEl = document.createElement('h3');
+        titleEl.textContent = title;
+        titleEl.style.cssText = 'margin: 0 0 15px 0; color: #333;';
+        dialog.appendChild(titleEl);
+        
+        // Message
+        const messageEl = document.createElement('p');
+        messageEl.textContent = message;
+        messageEl.style.cssText = 'margin: 0 0 15px 0; white-space: pre-line; color: #666;';
+        dialog.appendChild(messageEl);
+        
+        // Input field
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.style.cssText = 'width: 100%; padding: 8px; border: 2px solid #4CAF50; border-radius: 4px; font-size: 14px; box-sizing: border-box;';
+        dialog.appendChild(input);
+        
+        // Buttons container
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.style.cssText = 'margin-top: 15px; display: flex; gap: 10px; justify-content: flex-end;';
+        
+        // Cancel button
+        const cancelBtn = document.createElement('button');
+        cancelBtn.textContent = 'Cancel';
+        cancelBtn.style.cssText = 'padding: 8px 16px; background: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;';
+        cancelBtn.onclick = () => {
+          document.body.removeChild(overlay);
+          resolve(null);
+        };
+        buttonsDiv.appendChild(cancelBtn);
+        
+        // OK button
+        const okBtn = document.createElement('button');
+        okBtn.textContent = 'OK';
+        okBtn.style.cssText = 'padding: 8px 16px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;';
+        okBtn.onclick = () => {
+          const value = input.value;
+          document.body.removeChild(overlay);
+          resolve(value);
+        };
+        buttonsDiv.appendChild(okBtn);
+        
+        dialog.appendChild(buttonsDiv);
+        overlay.appendChild(dialog);
+        document.body.appendChild(overlay);
+        
+        // Focus input and handle Enter key
+        input.focus();
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            okBtn.click();
+          }
+        });
+      });
     }
     
     // Make debug functions globally accessible
