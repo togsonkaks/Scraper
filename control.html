@@ -334,6 +334,38 @@
           <!-- Category chips will appear here -->
         </div>
         <div style="font-size:12px; color:#666; font-style:italic;">⚠️ You must have exactly ONE category before saving</div>
+        
+        <!-- Hierarchical Category Builder -->
+        <div style="margin-top:16px; padding:16px; background:#e8f5e9; border-radius:8px; border:2px solid #4CAF50;">
+          <label style="display:block; font-weight:bold; margin-bottom:8px; color:#2E7D32;">➕ Build New Category Path:</label>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:8px;">
+            <select id="catLevel0" style="padding:8px; border:2px solid #4CAF50; border-radius:6px; font-size:13px; min-width:150px;">
+              <option value="">-- Department --</option>
+            </select>
+            <span style="font-weight:bold; color:#666;">></span>
+            <select id="catLevel1" disabled style="padding:8px; border:2px solid #ccc; border-radius:6px; font-size:13px; min-width:150px;">
+              <option value="">-- Select --</option>
+            </select>
+            <span style="font-weight:bold; color:#666;">></span>
+            <select id="catLevel2" disabled style="padding:8px; border:2px solid #ccc; border-radius:6px; font-size:13px; min-width:150px;">
+              <option value="">-- Select --</option>
+            </select>
+            <span style="font-weight:bold; color:#666;">></span>
+            <select id="catLevel3" disabled style="padding:8px; border:2px solid #ccc; border-radius:6px; font-size:13px; min-width:150px;">
+              <option value="">-- Select --</option>
+            </select>
+            <span style="font-weight:bold; color:#666;">></span>
+            <select id="catLevel4" disabled style="padding:8px; border:2px solid #ccc; border-radius:6px; font-size:13px; min-width:150px;">
+              <option value="">-- Select --</option>
+            </select>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button id="addCategoryPathBtn" disabled style="background:#4CAF50; color:white; padding:8px 16px; border:none; border-radius:6px; cursor:pointer; font-size:13px; font-weight:bold;">
+              ✓ Add This Path
+            </button>
+            <div id="catBuilderPreview" style="font-size:12px; color:#666; font-style:italic;">Select levels to build path...</div>
+          </div>
+        </div>
       </div>
       
       <div style="margin-bottom:20px;">
