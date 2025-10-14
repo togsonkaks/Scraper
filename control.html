@@ -1258,25 +1258,38 @@
       // Prepare category array with sources (AUTO + AI)
       currentLLMTags.availableCategories = [];
       
-      // Add AUTO category if available
-      if (window.currentAutoTagResult && window.currentAutoTagResult.primaryCategory) {
+      const autoCategory = window.currentAutoTagResult?.primaryCategory || null;
+      const aiCategoryPath = result.categories.join(' > ');
+      
+      // Deduplicate: If AUTO and AI are the same, prefer AUTO (it's from database)
+      if (autoCategory && aiCategoryPath.toLowerCase() === autoCategory.toLowerCase()) {
+        // Same category - only show AUTO version
         currentLLMTags.availableCategories.push({
-          path: window.currentAutoTagResult.primaryCategory,
+          path: autoCategory,
           source: 'AUTO',
           isNewPath: false
         });
-        console.log('✅ Added AUTO category:', window.currentAutoTagResult.primaryCategory);
+        console.log('✅ AUTO and AI match - showing AUTO only:', autoCategory);
       } else {
-        console.log('⚠️ No AUTO category available');
+        // Different categories - show both
+        if (autoCategory) {
+          currentLLMTags.availableCategories.push({
+            path: autoCategory,
+            source: 'AUTO',
+            isNewPath: false
+          });
+          console.log('✅ Added AUTO category:', autoCategory);
+        } else {
+          console.log('⚠️ No AUTO category available');
+        }
+        
+        currentLLMTags.availableCategories.push({
+          path: aiCategoryPath,
+          source: 'AI',
+          isNewPath: result.isNewPath || false
+        });
+        console.log('✅ Added AI category:', aiCategoryPath);
       }
-      
-      // Add AI category
-      const aiCategoryPath = result.categories.join(' > ');
-      currentLLMTags.availableCategories.push({
-        path: aiCategoryPath,
-        source: 'AI',
-        isNewPath: result.isNewPath || false
-      });
       
       // Display category chips
       renderCategoryChips();
@@ -1377,8 +1390,13 @@
       const cat = currentLLMTags.availableCategories[catIdx];
       const segments = cat.path.split(' > ');
       
+      // If removing the last segment, remove the entire category
       if (segments.length <= 1) {
-        alert('⚠️ Cannot remove the last segment - path must have at least one level!');
+        if (confirm('This is the last segment. Remove the entire category?')) {
+          currentLLMTags.availableCategories.splice(catIdx, 1);
+          console.log('Removed entire category at index', catIdx);
+          renderCategoryChips();
+        }
         return;
       }
       
