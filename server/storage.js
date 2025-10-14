@@ -166,10 +166,13 @@ async function updateProductTags(productId, tagResults) {
     `;
     
     // Step 3.5: Insert new LLM-discovered tags to the database (only when user clicks Save)
+    console.log(`🔍 DEBUG: Received newTagsToLearn array with ${tagResults.newTagsToLearn?.length || 0} items`);
     if (tagResults.newTagsToLearn && tagResults.newTagsToLearn.length > 0) {
       const { refreshTaxonomy } = require('../scrapers/auto-tagger');
       
+      console.log(`💾 Inserting ${tagResults.newTagsToLearn.length} new tags to database...`);
       for (const newTag of tagResults.newTagsToLearn) {
+        console.log(`  → Inserting: ${newTag.name} (${newTag.type}, llm_discovered=${newTag.llm_discovered})`);
         await sql`
           INSERT INTO tags (name, slug, tag_type, llm_discovered)
           VALUES (${newTag.name}, ${newTag.slug}, ${newTag.type}, ${newTag.llm_discovered})
@@ -181,6 +184,8 @@ async function updateProductTags(productId, tagResults) {
       // Refresh auto-tagger taxonomy so new tags are immediately available
       await refreshTaxonomy();
       console.log('✅ Auto-tagger taxonomy refreshed - new tags available for next scrape');
+    } else {
+      console.log('ℹ️ No new tags to learn in this save operation');
     }
     
     // Step 4: Insert new tags and create associations

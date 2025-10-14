@@ -910,6 +910,8 @@ async function appendToSeedFile(newTags) {
 async function classifyTag(tagName) {
   const tagSlug = tagName.toLowerCase().replace(/\s+/g, '-');
   
+  console.log(`🔍 CLASSIFY TAG: "${tagName}" (slug: ${tagSlug})`);
+  
   // Step 1: Check if tag exists in database
   try {
     const existingTag = await sql`
@@ -929,6 +931,8 @@ async function classifyTag(tagName) {
         isNew: false,
         llm_discovered: existingTag[0].llm_discovered
       };
+    } else {
+      console.log(`🆕 Tag "${tagName}" NOT in database - will be marked as NEW`);
     }
   } catch (error) {
     console.error('Error checking tag in DB:', error);

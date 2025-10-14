@@ -1842,6 +1842,7 @@
         };
         
         console.log('💾 Saving to database with tags:', tagResults.tags);
+        console.log('🆕 NEW TAGS TO LEARN:', tagResults.newTagsToLearn.length, '→', tagResults.newTagsToLearn.map(t => t.name).join(', '));
         console.log('💾 Full tagResults:', JSON.stringify(tagResults, null, 2));
         
         // UPDATE existing product with LLM tags
