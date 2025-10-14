@@ -50,6 +50,7 @@ The application is built on the Electron framework, using a main process (`main.
                 - **Tier 2 (medium)**: Specs - structured product metadata
                 - **Tier 3 (low)**: Description - may contain noise
                 - **Tier 4 (fallback)**: Category path extraction (e.g., "Fashion > Women" → women)
+            - **Universal Conflict Detection** (Oct 2025): Each tier checks for multiple genders - if any tier finds 2+ genders (e.g., "Men & Women"), it skips to next tier automatically
             - Returns `{ gender, source, confidence }` for full transparency
             - Used by both auto-tagger (early for category filtering) and save operation (final with category fallback)
             - Prevents "men" matching "women" via word-boundary regex

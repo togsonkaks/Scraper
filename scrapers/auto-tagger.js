@@ -373,17 +373,30 @@ function detectGender(productData, categoryPath = null) {
   
   const UNISEX_KEYWORDS = /\b(unisex|gender-neutral|everyone|all-gender|non-binary)\b/gi;
   
-  // Helper to check keywords in text
-  const checkGender = (text) => {
-    if (!text) return null;
+  // Helper to find ALL genders in text (detects conflicts)
+  const findAllGenders = (text) => {
+    if (!text) return [];
     const normalized = normalizeText(text);
+    const foundGenders = [];
     
-    // Check in priority order
-    if (UNISEX_KEYWORDS.test(normalized)) return 'unisex';
-    if (WOMEN_KEYWORDS.test(normalized)) return 'women';
-    if (MEN_KEYWORDS.test(normalized)) return 'men';
-    if (KIDS_KEYWORDS.test(normalized)) return 'kids';
+    // Check each gender type independently
+    if (UNISEX_KEYWORDS.test(normalized)) foundGenders.push('unisex');
+    if (WOMEN_KEYWORDS.test(normalized)) foundGenders.push('women');
+    if (MEN_KEYWORDS.test(normalized)) foundGenders.push('men');
+    if (KIDS_KEYWORDS.test(normalized)) foundGenders.push('kids');
     
+    return foundGenders;
+  };
+  
+  // Helper to check tier for single gender (skip if 0 or 2+ genders found)
+  const checkTierForGender = (text) => {
+    const genders = findAllGenders(text);
+    
+    // If exactly 1 gender found, return it (including "unisex")
+    if (genders.length === 1) return genders[0];
+    
+    // If 0 genders → skip (return null)
+    // If 2+ genders → conflict! skip (return null)
     return null;
   };
   
@@ -394,7 +407,7 @@ function detectGender(productData, categoryPath = null) {
     ? productData.breadcrumbs.join(' ') 
     : (productData.breadcrumbs || '');
   
-  const tier0Gender = checkGender(breadcrumbText);
+  const tier0Gender = checkTierForGender(breadcrumbText);
   if (tier0Gender) {
     return { gender: tier0Gender, source: 'breadcrumbs', confidence: 'highest' };
   }
@@ -416,20 +429,20 @@ function detectGender(productData, categoryPath = null) {
     jsonLdText
   ].join(' ');
   
-  const tier1Gender = checkGender(tier1Text);
+  const tier1Gender = checkTierForGender(tier1Text);
   if (tier1Gender) {
-    const source = jsonLdText && checkGender(jsonLdText) ? 'title/url/json-ld' : 'title/url';
+    const source = jsonLdText && checkTierForGender(jsonLdText) ? 'title/url/json-ld' : 'title/url';
     return { gender: tier1Gender, source, confidence: 'high' };
   }
   
   // TIER 2: Specs (medium confidence)
-  const tier2Gender = checkGender(productData.specs || '');
+  const tier2Gender = checkTierForGender(productData.specs || '');
   if (tier2Gender) {
     return { gender: tier2Gender, source: 'specs', confidence: 'medium' };
   }
   
   // TIER 3: Description (lower confidence)
-  const tier3Gender = checkGender(productData.description || '');
+  const tier3Gender = checkTierForGender(productData.description || '');
   if (tier3Gender) {
     return { gender: tier3Gender, source: 'description', confidence: 'low' };
   }
