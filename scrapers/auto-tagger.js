@@ -348,6 +348,80 @@ function extractUrlKeywords(url) {
   }
 }
 
+/**
+ * Comprehensive unified gender detection with tiered search and exhaustive keywords
+ * @param {Object} productData - All product data
+ * @param {string} categoryPath - Final category path (e.g., "Fashion > Women > Clothing")
+ * @returns {Object} { gender: string|null, source: string, confidence: string }
+ */
+function detectGender(productData, categoryPath = null) {
+  // Exhaustive gender keyword patterns
+  const WOMEN_KEYWORDS = /\b(woman|women|lady|ladies|female|girl|girls|mom|mother|mommy|mum|mama|daughter|sister|aunt|aunty|auntie|niece|grandmother|grandma|granny|nana|miss|mrs|ms|ma'am|madam|madame|queen|empress|princess|duchess|goddess|wife|girlfriend|bride|bridesmaid|fiancée|maternity|nursing|bridal|bra|lingerie|dress|skirt|blouse|heels|purse|handbag|señora|señorita|femme|feminine|her|hers|she)\b/gi;
+  
+  const MEN_KEYWORDS = /\b(man|men|gentleman|gentlemen|male|boy|boys|guy|guys|dad|father|daddy|papa|son|brother|uncle|nephew|grandfather|grandpa|gramps|pop|mr|sir|mister|señor|king|emperor|prince|duke|lord|husband|boyfriend|groom|groomsman|fiancé|beard|shave|razor|tie|necktie|tuxedo|suit|cologne|masculine|homme|his|him|he)\b/gi;
+  
+  const KIDS_KEYWORDS = /\b(baby|infant|toddler|child|children|kids|youth|junior|teen|teenager|adolescent)\b/gi;
+  
+  const UNISEX_KEYWORDS = /\b(unisex|gender-neutral|everyone|all-gender|non-binary)\b/gi;
+  
+  // Helper to check keywords in text
+  const checkGender = (text) => {
+    if (!text) return null;
+    const normalized = normalizeText(text);
+    
+    // Check in priority order
+    if (UNISEX_KEYWORDS.test(normalized)) return 'unisex';
+    if (WOMEN_KEYWORDS.test(normalized)) return 'women';
+    if (MEN_KEYWORDS.test(normalized)) return 'men';
+    if (KIDS_KEYWORDS.test(normalized)) return 'kids';
+    
+    return null;
+  };
+  
+  // TIER 1: Title + URL (highest confidence)
+  const tier1Text = [
+    productData.title || '',
+    extractUrlKeywords(productData.url || '')
+  ].join(' ');
+  
+  const tier1Gender = checkGender(tier1Text);
+  if (tier1Gender) {
+    return { gender: tier1Gender, source: 'title/url', confidence: 'high' };
+  }
+  
+  // TIER 2: Breadcrumbs + Specs (medium confidence)
+  const tier2Text = [
+    Array.isArray(productData.breadcrumbs) 
+      ? productData.breadcrumbs.join(' ') 
+      : (productData.breadcrumbs || ''),
+    productData.specs || ''
+  ].join(' ');
+  
+  const tier2Gender = checkGender(tier2Text);
+  if (tier2Gender) {
+    return { gender: tier2Gender, source: 'breadcrumbs/specs', confidence: 'medium' };
+  }
+  
+  // TIER 3: Description (lower confidence)
+  const tier3Gender = checkGender(productData.description || '');
+  if (tier3Gender) {
+    return { gender: tier3Gender, source: 'description', confidence: 'low' };
+  }
+  
+  // TIER 4: Extract from category path (fallback)
+  if (categoryPath) {
+    const pathLower = categoryPath.toLowerCase();
+    if (pathLower.includes('unisex')) return { gender: 'unisex', source: 'category-path', confidence: 'fallback' };
+    if (pathLower.includes('women')) return { gender: 'women', source: 'category-path', confidence: 'fallback' };
+    if (pathLower.includes('men') && !pathLower.includes('women')) return { gender: 'men', source: 'category-path', confidence: 'fallback' };
+    if (pathLower.includes('kids') || pathLower.includes('boys') || pathLower.includes('girls')) {
+      return { gender: 'kids', source: 'category-path', confidence: 'fallback' };
+    }
+  }
+  
+  return { gender: null, source: 'none', confidence: 'none' };
+}
+
 async function autoTag(productData) {
   // Initialize taxonomy if needed
   await initializeTaxonomy();
