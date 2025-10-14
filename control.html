@@ -1338,6 +1338,15 @@
         }
       }
       
+      // CRITICAL FIX: Also remove from newTagsToLearn array (prevents saving deleted tags to database)
+      if (currentLLMTags.newTagsToLearn) {
+        const newTagIndex = currentLLMTags.newTagsToLearn.findIndex(t => t.name === tagName);
+        if (newTagIndex !== -1) {
+          currentLLMTags.newTagsToLearn.splice(newTagIndex, 1);
+          console.log(`🗑️ Removed "${tagName}" from newTagsToLearn - won't be saved to database`);
+        }
+      }
+      
       console.log('Removed tag:', tagName);
       console.log('Remaining keywords:', currentLLMTags.keywords);
       console.log('Remaining tags:', currentLLMTags.tags);
