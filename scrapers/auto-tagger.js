@@ -387,15 +387,27 @@ function detectGender(productData, categoryPath = null) {
     return null;
   };
   
-  // TIER 1: Title + URL (highest confidence)
+  // TIER 1: Title + URL + JSON-LD (highest confidence)
+  // Stringify entire JSON-LD to capture gender info in ANY field (captions, descriptions, etc.)
+  let jsonLdText = '';
+  if (productData.jsonLd && typeof productData.jsonLd === 'object') {
+    try {
+      jsonLdText = JSON.stringify(productData.jsonLd);
+    } catch (e) {
+      jsonLdText = '';
+    }
+  }
+  
   const tier1Text = [
     productData.title || '',
-    extractUrlKeywords(productData.url || '')
+    extractUrlKeywords(productData.url || ''),
+    jsonLdText
   ].join(' ');
   
   const tier1Gender = checkGender(tier1Text);
   if (tier1Gender) {
-    return { gender: tier1Gender, source: 'title/url', confidence: 'high' };
+    const source = jsonLdText && checkGender(jsonLdText) ? 'title/url/json-ld' : 'title/url';
+    return { gender: tier1Gender, source, confidence: 'high' };
   }
   
   // TIER 2: Breadcrumbs + Specs (medium confidence)

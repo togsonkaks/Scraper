@@ -1,0 +1,36 @@
+https://mahabis.com/products/solar-slippers?upper=
+mahabis solar
+🗑️ Clear
+
+Price:
+169
+🗑️ Clear
+
+Brand:
+for your everyday adventures impossibly comfortable scandinavian inspired design downtime. redesigned. for indoors or outdoors detachable soles and sleek design just slip on and go which sole colour are you? see if delivery is free in your country free standard delivery on orders over $65 see if delivery is free in your country free standard delivery on orders over £49
+
+Indulge in enduring comfort. The mahabis solar: meticulously crafted and engineered for the heat of summer. Featuring a dual-layered nylon mesh upper, the solar merges the ease of a slipper with the practicality of a shoe. Its inherent flex
+
+why is it suggesting Fashion > Women > Footwear > Heels
+  ≡ƒæñ Gender (final): women [breadcrumbs/specs, medium]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-14T19-39-30_mahabis.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: mahabis solar
+  ≡ƒöù URL keywords: solar slippers
+  ≡ƒÅ╖∩╕Å Breadcrumbs: FB > Twitter > Instagram > Google+ > Pinterest
+  ≡ƒôä Description: Indulge in enduring comfort. The mahabis solar: meticulously crafted and engineered for the heat 
+of
+  ≡ƒöñ Search text length: 1269 chars
+  Γ£à Matched tags: 15 ΓåÆ everyday, breathable, comfortable, moisture-wicking, performance, recycled, solar, cork, mesh, neoprene, nylon, polyester, summer, scandinavian, standard
+  ≡ƒæñ Gender (early): not detected yet
+  ≡ƒôé Matched categories: 1 ΓåÆ Heels (score: 202, lvl 3)
+  ≡ƒÄ» Best category match: Heels (score: 202, lvl 3, id: 309)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":0,"descriptionMatches":1,"specsMatches":0}   
+  Γ£¿ FINAL PATH: Fashion > Women > Footwear > Heels
+  ≡ƒÜ½ Filtered 15 ΓåÆ 8 tags for department: fashion
+  ≡ƒæñ Gender (final): women [category-path, fallback]
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+≡ƒôª Using current AUTO tags from UI: 8 tags: cork, mesh, neoprene, nylon, polyester, summer, scandinavian, standard
+≡ƒÆí LLM suggested 1 new tags (not saved yet): detachable soles
+≡ƒöÇ Merged tags: 8 existing + 7 AI = 14 total
