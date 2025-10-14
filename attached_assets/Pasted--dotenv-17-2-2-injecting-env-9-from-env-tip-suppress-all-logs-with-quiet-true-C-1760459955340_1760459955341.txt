@@ -1,0 +1,28 @@
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ΓÜÖ∩╕Å  suppress all logs with { quiet: true }
+Clearing old localStorage memory data...
+No old localStorage data found
+[20680:1014/113827.424:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[20680:1014/113827.424:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[20680:1014/113827.424:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[20680:1014/113827.425:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[20680:1014/113827.425:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+[20680:1014/113827.425:ERROR:services\network\p2p\socket_manager.cc:137] Failed to resolve address for aa.online-metrix.net., errorcode: -105
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-14T16-38-30_manieredevoir.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ prevent building .env in docker: https://dotenvx.com/prebuild
+Γ£à Auto-tagger initialized: 1011 tags, 391 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (2 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Henri
+                 in Sage
+
+              Foldover Trousers
+  ≡ƒöù URL keywords: mens best sellers foldover trousers sage
+  ≡ƒÅ╖∩╕Å Breadcrumbs: 1 > 2 > 3 > 4 > 5
+  ≡ƒôä Description: The Foldover Trousers present a bold, contemporary design with a refined edge. Crafted with a functi
+  ≡ƒöñ Search text length: 415 chars
+  Γ£à Matched tags: 4 ΓåÆ sage, bold, contemporary, tailored
+  ≡ƒôé Matched categories: 1 ΓåÆ Men (score: 106, lvl 1)
+  ≡ƒÄ» Best category match: Men (score: 106, lvl 1, id: 270)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}   
+  Γ£¿ FINAL PATH: Fashion > Men
