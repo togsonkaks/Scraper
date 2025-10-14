@@ -1,0 +1,52 @@
+dotenv@17.2.2] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  enable debug logging with { debug: true }
+≡ƒî▒ Starting full taxonomy seed...
+≡ƒùæ∩╕Å  Clearing existing taxonomy (preserving LLM discoveries)...
+Γ£à Cleared built-in taxonomy (kept LLM-discovered tags)
+≡ƒôé Inserting 388 categories...
+Γ£à 388 categories inserted
+≡ƒÅ╖∩╕Å  Inserting tags...
+Γ£à 1026 tags inserted
+≡ƒÄë Full taxonomy seeded successfully!
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-14T02-32-53_ssense.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Craig Green
+  ≡ƒöù URL keywords: en us men product craig green blue patchwork shirt
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Menswear > Womenswear > Everything else > sale
+  ≡ƒôä Description: Cotton seersucker and flannel shirt. Stripes, check patterns, and quilted patches throughout.┬╖ Patch
+  ≡ƒöñ Search text length: 311 chars
+  Γ£à Matched tags: 9 ΓåÆ construction, blue, green, quilted, button closure, cotton, flannel, seersucker, patchwork
+  ≡ƒæñ Gender from text: men
+  ≡ƒôé Matched categories: 1 ΓåÆ Men (score: 106, lvl 1)
+  ≡ƒÄ» Best category match: Men (score: 106, lvl 1, id: 270)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}   
+  Γ£¿ FINAL PATH: Fashion > Men
+  ≡ƒÜ½ Filtered 9 ΓåÆ 7 tags for department: fashion
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> C:\Users\Admin\Desktop\PostHog\MVP_Electron\node_modules\electron\dist\electron.exe exited with signal SIGINT
+                                                npm run electron
+
+> tagglo-electron@1.0.0 electron
+> electron .
+
+
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-14T02-33-34_ssense.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒôí version env with Radar: https://dotenvx.com/radar
+Γ£à Auto-tagger initialized: 1008 tags, 378 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (1 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Craig Green
+  ≡ƒöù URL keywords: en us men product craig green blue patchwork shirt
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Menswear > Womenswear > Everything else > sale
+  ≡ƒôä Description: Cotton seersucker and flannel shirt. Stripes, check patterns, and quilted patches throughout.┬╖ Patch
+  ≡ƒöñ Search text length: 311 chars
+  Γ£à Matched tags: 9 ΓåÆ construction, blue, green, quilted, button closure, cotton, flannel, seersucker, patchwork
+  ≡ƒæñ Gender from text: men
+  ≡ƒöì Pre-filtered categories: 378 ΓåÆ 1 (gender: men)
+  ≡ƒôé Matched categories: 1 ΓåÆ Men (score: 106, lvl 1)
+  ≡ƒÄ» Best category match: Men (score: 106, lvl 1, id: 270)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}   
+  Γ£¿ FINAL PATH: Fashion > Men
+  ≡ƒÜ½ Filtered 9 ΓåÆ 7 tags for department: fashion

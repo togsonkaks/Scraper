@@ -693,10 +693,33 @@ async function seedFullTaxonomy() {
     // Insert categories in order (parents first)
     console.log(`📂 Inserting ${categories.length} categories...`);
     const categoryMap = new Map();
+    const levelStack = []; // Track ancestors at each level
+    const slugCounter = {};
     
     for (const cat of categories) {
-      const parentId = cat.parent ? categoryMap.get(cat.parent) : null;
-      const slug = cat.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+      // Update level stack to track current ancestry
+      levelStack[cat.level] = cat.name;
+      // Clear deeper levels when we go back up
+      levelStack.length = cat.level + 1;
+      
+      // Build unique key from full path (e.g., "Fashion:Men:Clothing" vs "Fashion:Women:Clothing")
+      const fullPath = levelStack.join(':');
+      
+      // Get parent ID from the previous level in the stack
+      let parentId = null;
+      if (cat.level > 0) {
+        const parentPath = levelStack.slice(0, cat.level).join(':');
+        parentId = categoryMap.get(parentPath) || null;
+      }
+      
+      // Create base slug with counter for duplicates
+      let slug = cat.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+      if (slugCounter[slug] !== undefined) {
+        slugCounter[slug]++;
+        slug = `${slug}-${slugCounter[slug]}`;
+      } else {
+        slugCounter[slug] = 0;
+      }
       
       const result = await sql`
         INSERT INTO categories (name, parent_id, level, slug)
@@ -708,7 +731,8 @@ async function seedFullTaxonomy() {
         RETURNING category_id
       `;
       
-      categoryMap.set(cat.name, result[0].category_id);
+      // Store with full path as key so "Fashion:Men:Clothing" and "Fashion:Women:Clothing" are separate
+      categoryMap.set(fullPath, result[0].category_id);
     }
     
     console.log(`✅ ${categories.length} categories inserted`);
