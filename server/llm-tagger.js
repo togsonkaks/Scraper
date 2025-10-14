@@ -97,6 +97,86 @@ const MASTER_TAG_TAXONOMY = {
 };
 
 /**
+ * Fuzzy match category paths to handle plurals, synonyms, and case variations
+ * @param {string} suggestedPath - LLM suggested path
+ * @param {string} existingPath - Path from database
+ * @returns {number} Similarity score (0-1, where 1 is exact match)
+ */
+function fuzzyMatchPath(suggestedPath, existingPath) {
+  const suggested = suggestedPath.toLowerCase().split(' > ');
+  const existing = existingPath.toLowerCase().split(' > ');
+  
+  // Different depths = not a match
+  if (suggested.length !== existing.length) return 0;
+  
+  // Category synonyms for fuzzy matching
+  const synonymMap = {
+    'trousers': 'pants',
+    'slacks': 'pants',
+    'trainers': 'sneakers',
+    'jumper': 'sweater',
+    'pullover': 'sweater'
+  };
+  
+  let matchScore = 0;
+  for (let i = 0; i < suggested.length; i++) {
+    const suggSeg = suggested[i].trim();
+    const existSeg = existing[i].trim();
+    
+    // Exact match
+    if (suggSeg === existSeg) {
+      matchScore += 1;
+      continue;
+    }
+    
+    // Plural variation (bottoms/bottom, tops/top)
+    if (suggSeg === existSeg + 's' || existSeg === suggSeg + 's') {
+      matchScore += 0.95;
+      continue;
+    }
+    
+    // Synonym match
+    const suggCanonical = synonymMap[suggSeg] || suggSeg;
+    const existCanonical = synonymMap[existSeg] || existSeg;
+    if (suggCanonical === existCanonical) {
+      matchScore += 0.9;
+      continue;
+    }
+    
+    // No match at this level
+    return 0;
+  }
+  
+  return matchScore / suggested.length;
+}
+
+/**
+ * Find best matching existing path using fuzzy matching
+ * @param {string} suggestedPath - LLM suggested path
+ * @param {string[]} existingPaths - All existing paths from database
+ * @returns {Object|null} {path: string, score: number} or null if no good match
+ */
+function findBestMatchingPath(suggestedPath, existingPaths) {
+  let bestMatch = null;
+  let bestScore = 0;
+  
+  for (const existingPath of existingPaths) {
+    const score = fuzzyMatchPath(suggestedPath, existingPath);
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = existingPath;
+    }
+  }
+  
+  // Only return if score is high enough (>0.8 = very similar)
+  if (bestScore >= 0.8) {
+    return { path: bestMatch, score: bestScore };
+  }
+  
+  return null;
+}
+
+/**
  * Load existing categories from database and build hierarchical paths
  * @returns {Promise<string[]>} Array of category paths like ["Men > Fashion > Footwear", ...]
  */
@@ -359,9 +439,18 @@ Respond in JSON format:
       }
     }
     
-    // VERIFY if path actually exists (don't trust LLM)
+    // VERIFY if path actually exists using fuzzy matching
     const suggestedPath = (result.categories || []).join(' > ');
-    const actuallyExists = existingPaths.some(path => path === suggestedPath);
+    const exactMatch = existingPaths.some(path => path === suggestedPath);
+    const fuzzyMatch = exactMatch ? null : findBestMatchingPath(suggestedPath, existingPaths);
+    
+    // Use fuzzy match if found (handles plurals/synonyms)
+    if (fuzzyMatch && fuzzyMatch.score >= 0.8) {
+      console.log(`✅ Fuzzy matched "${suggestedPath}" to "${fuzzyMatch.path}" (score: ${fuzzyMatch.score.toFixed(2)})`);
+      result.categories = fuzzyMatch.path.split(' > ');
+    }
+    
+    const actuallyExists = exactMatch || (fuzzyMatch && fuzzyMatch.score >= 0.8);
     
     // Valid tag types (semantic categories)
     const VALID_TAG_TYPES = ['materials', 'colors', 'fit', 'styles', 'features', 'activities', 'occasions', 'tool-types', 'automotive', 'kitchen', 'beauty'];
@@ -635,9 +724,18 @@ Respond in JSON format:
       }
     }
     
-    // VERIFY if path actually exists (don't trust LLM)
+    // VERIFY if path actually exists using fuzzy matching
     const suggestedPath = (result.categories || []).join(' > ');
-    const actuallyExists = existingPaths.some(path => path === suggestedPath);
+    const exactMatch = existingPaths.some(path => path === suggestedPath);
+    const fuzzyMatch = exactMatch ? null : findBestMatchingPath(suggestedPath, existingPaths);
+    
+    // Use fuzzy match if found (handles plurals/synonyms)
+    if (fuzzyMatch && fuzzyMatch.score >= 0.8) {
+      console.log(`✅ Fuzzy matched "${suggestedPath}" to "${fuzzyMatch.path}" (score: ${fuzzyMatch.score.toFixed(2)})`);
+      result.categories = fuzzyMatch.path.split(' > ');
+    }
+    
+    const actuallyExists = exactMatch || (fuzzyMatch && fuzzyMatch.score >= 0.8);
     
     // Valid tag types (same as extractTagsWithLLM)
     const VALID_TAG_TYPES = ['materials', 'colors', 'fit', 'styles', 'features', 'activities', 'occasions', 'tool-types', 'automotive', 'kitchen', 'beauty'];
