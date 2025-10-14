@@ -239,15 +239,18 @@ async function extractTagsWithLLM(productData) {
     ? `🏷️ EXISTING TAG TAXONOMY (${Object.values(existingTags).flat().length} tags organized by type):\n\n${tagTaxonomyLines}`
     : '🏷️ EXISTING TAG TAXONOMY: None (you can suggest new tags)';
 
-  // Add detected gender context if available
+  // Add detected gender context if available - MAKE IT MANDATORY
   const genderContext = __detectedGender 
-    ? `\n⚠️ **DETECTED GENDER: ${__detectedGender.toUpperCase()}** ⚠️\nThis product is for ${__detectedGender}. You MUST suggest categories under "Fashion > ${__detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1)}" path.`
+    ? `\n🚨 **CRITICAL: DETECTED GENDER = ${__detectedGender.toUpperCase()}** 🚨
+This product is EXCLUSIVELY for ${__detectedGender}. 
+You are FORBIDDEN from suggesting categories for any other gender.
+Your category path MUST start with: "Fashion > ${__detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1)}"
+ANY suggestion with a different gender (Men/Women/Unisex/Kids) will be rejected.`
     : '';
 
-  const prompt = `Analyze this e-commerce product and extract:
+  const prompt = `${genderContext ? genderContext + '\n\n' : ''}Analyze this e-commerce product and extract:
 1. HIERARCHICAL CATEGORIES - Full category path from general to specific
 2. 6-8 HIGH-QUALITY KEYWORDS/TAGS - Brand, product line, and descriptive attributes
-${genderContext}
 
 Product Data:
 - Title: ${title || 'N/A'}
@@ -338,6 +341,23 @@ Respond in JSON format:
     });
 
     const result = JSON.parse(response.choices[0].message.content);
+    
+    // VALIDATE gender constraint if detected gender was provided
+    if (__detectedGender && result.categories && result.categories.length > 0) {
+      const suggestedGender = result.categories[1]?.toLowerCase(); // Second level is gender (Fashion > Men/Women)
+      const expectedGender = __detectedGender.toLowerCase();
+      
+      if (suggestedGender !== expectedGender) {
+        console.error(`❌ LLM GENDER VIOLATION: Expected "${expectedGender}" but got "${suggestedGender}"`);
+        console.error(`   Suggested path: ${result.categories.join(' > ')}`);
+        
+        // Force-correct the gender in the path
+        if (result.categories[0]?.toLowerCase() === 'fashion' && result.categories.length > 1) {
+          result.categories[1] = __detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1);
+          console.log(`   ✅ Auto-corrected to: ${result.categories.join(' > ')}`);
+        }
+      }
+    }
     
     // VERIFY if path actually exists (don't trust LLM)
     const suggestedPath = (result.categories || []).join(' > ');
@@ -497,7 +517,7 @@ Respond in JSON format:
  * @returns {Promise<Object>} New suggestions
  */
 async function retryWithFeedback(productData, feedback) {
-  const { title, description, specs, breadcrumbs, brand, jsonLd } = productData;
+  const { title, description, specs, breadcrumbs, brand, jsonLd, __detectedGender } = productData;
   
   // Load existing category structure and tags from database
   const existingPaths = await loadExistingCategoryPaths();
@@ -532,7 +552,16 @@ async function retryWithFeedback(productData, feedback) {
     ? `🏷️ EXISTING TAG TAXONOMY (${Object.values(existingTags).flat().length} tags organized by type):\n\n${tagTaxonomyLines}`
     : '🏷️ EXISTING TAG TAXONOMY: None (you can suggest new tags)';
 
-  const prompt = `The previous tagging attempt was rejected with this feedback: "${feedback}"
+  // Add detected gender context - MAKE IT MANDATORY (same as extractTagsWithLLM)
+  const genderContext = __detectedGender 
+    ? `\n🚨 **CRITICAL: DETECTED GENDER = ${__detectedGender.toUpperCase()}** 🚨
+This product is EXCLUSIVELY for ${__detectedGender}. 
+You are FORBIDDEN from suggesting categories for any other gender.
+Your category path MUST start with: "Fashion > ${__detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1)}"
+ANY suggestion with a different gender (Men/Women/Unisex/Kids) will be rejected.`
+    : '';
+
+  const prompt = `${genderContext ? genderContext + '\n\n' : ''}The previous tagging attempt was rejected with this feedback: "${feedback}"
 
 Please re-analyze this product and provide better suggestions.
 
@@ -588,6 +617,23 @@ Respond in JSON format:
     });
 
     const result = JSON.parse(response.choices[0].message.content);
+    
+    // VALIDATE gender constraint if detected gender was provided (same as extractTagsWithLLM)
+    if (__detectedGender && result.categories && result.categories.length > 0) {
+      const suggestedGender = result.categories[1]?.toLowerCase(); // Second level is gender (Fashion > Men/Women)
+      const expectedGender = __detectedGender.toLowerCase();
+      
+      if (suggestedGender !== expectedGender) {
+        console.error(`❌ LLM GENDER VIOLATION: Expected "${expectedGender}" but got "${suggestedGender}"`);
+        console.error(`   Suggested path: ${result.categories.join(' > ')}`);
+        
+        // Force-correct the gender in the path
+        if (result.categories[0]?.toLowerCase() === 'fashion' && result.categories.length > 1) {
+          result.categories[1] = __detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1);
+          console.log(`   ✅ Auto-corrected to: ${result.categories.join(' > ')}`);
+        }
+      }
+    }
     
     // VERIFY if path actually exists (don't trust LLM)
     const suggestedPath = (result.categories || []).join(' > ');
