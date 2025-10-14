@@ -1452,7 +1452,7 @@
       }
     }
     
-    // Populate dropdown for a specific level
+    // Populate dropdown for a specific level with "+ Add New" option
     function populateLevelDropdown(level, parentId) {
       const dropdown = document.getElementById(`catLevel${level}`);
       
@@ -1465,19 +1465,94 @@
       // Sort alphabetically
       categories.sort((a, b) => a.name.localeCompare(b.name));
       
-      // Populate dropdown
+      // Populate dropdown with categories + "Add New" option
       dropdown.innerHTML = '<option value="">-- Select --</option>' + 
-        categories.map(cat => `<option value="${cat.category_id}" data-name="${cat.name}">${cat.name}</option>`).join('');
+        categories.map(cat => `<option value="${cat.category_id}" data-name="${cat.name}">${cat.name}</option>`).join('') +
+        '<option value="__ADD_NEW__" style="color:#9C27B0; font-weight:bold;">+ Add New Category</option>';
       
       dropdown.disabled = false;
       dropdown.style.border = '2px solid #4CAF50';
     }
     
+    // Handle inline category creation
+    async function createInlineCategory(level, parentId, parentName) {
+      const levelNames = ['Department', 'Gender', 'Section', 'Category', 'Type'];
+      const levelName = levelNames[level] || `Level ${level}`;
+      
+      const categoryName = prompt(`Create New ${levelName}:\n\n${parentName ? `Parent: ${parentName}` : 'Root Level'}\n\nEnter category name:`);
+      
+      if (!categoryName || categoryName.trim() === '') {
+        return null;
+      }
+      
+      const trimmedName = categoryName.trim();
+      
+      try {
+        // Call IPC to create category with proper parent linkage
+        const result = await window.api.createCategory({
+          name: trimmedName,
+          parentId: parentId,
+          level: level
+        });
+        
+        if (result.success) {
+          console.log(`✅ Created category: ${trimmedName} (ID: ${result.categoryId}) at level ${level}`);
+          
+          // Add to local hierarchy data
+          categoryHierarchyData.push({
+            category_id: result.categoryId,
+            name: trimmedName,
+            slug: result.slug,
+            parent_id: parentId,
+            level: level,
+            llm_discovered: 1
+          });
+          
+          // Refresh the dropdown
+          populateLevelDropdown(level, parentId);
+          
+          // Select the newly created category
+          document.getElementById(`catLevel${level}`).value = result.categoryId;
+          
+          return result.categoryId;
+        } else {
+          alert(`❌ Failed to create category: ${result.error}`);
+          return null;
+        }
+      } catch (error) {
+        console.error('Error creating category:', error);
+        alert(`❌ Error: ${error.message}`);
+        return null;
+      }
+    }
+    
     // Handle level selection changes
     for (let i = 0; i <= 4; i++) {
-      document.getElementById(`catLevel${i}`).addEventListener('change', function(e) {
-        const selectedId = parseInt(e.target.value);
+      document.getElementById(`catLevel${i}`).addEventListener('change', async function(e) {
+        const selectedValue = e.target.value;
         const selectedName = e.target.options[e.target.selectedIndex]?.dataset?.name || '';
+        
+        // Check if user selected "Add New"
+        if (selectedValue === '__ADD_NEW__') {
+          // Get parent info
+          const parentId = i > 0 ? selectedCategoryPath[i - 1]?.id : null;
+          const parentName = i > 0 ? selectedCategoryPath.map(p => p.name).join(' > ') : null;
+          
+          // Create new category
+          const newCategoryId = await createInlineCategory(i, parentId, parentName);
+          
+          if (newCategoryId) {
+            // Trigger the change event again with the new category selected
+            const event = new Event('change');
+            e.target.dispatchEvent(event);
+          } else {
+            // User cancelled or error - reset to empty
+            e.target.value = '';
+          }
+          return;
+        }
+        
+        const selectedId = parseInt(selectedValue);
         
         if (!selectedId) {
           // Deselected - clear this level and all children
