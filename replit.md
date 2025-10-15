@@ -57,8 +57,16 @@ The application is built on the Electron framework, using a main process (`main.
             - Prevents "men" matching "women" via word-boundary regex
             - **Context-Aware Detection**: Prioritizes structured retailer data over ambiguous title keywords to solve collision issues
         - **Category-Aware Tag Filtering**: Blocks nonsense tags based on department (e.g., removes "construction" activity tags from Fashion products)
-        - **Category Matching**: Searches for category NAMES (not paths) in ALL product data (title, description, breadcrumbs, specs, URL) - identical logic to tag matching
+        - **Category Matching**: Searches for category NAMES (not paths) in ALL product data (title, description, breadcrumbs, specs, URL, JSON-LD) - identical logic to tag matching
         - **Tag Matching**: Word-boundary regex matching across all product text for 955+ tags
+        - **Comprehensive Plural/Singular Matching** (Oct 2025): All tags and categories automatically match BOTH singular and plural forms using robust variation generator:
+            - Regular plurals: dress/dresses, jacket/jackets
+            - -sses/-xes/-zes: glass/glasses, box/boxes, buzz/buzzes
+            - -ies endings: berry/berries, fly/flies
+            - -ves endings: knife/knives, wolf/wolves
+            - -oes endings: tomato/tomatoes, hero/heroes
+            - Irregular forms: man/men, woman/women, child/children, foot/feet
+            - Applies to ALL 955 tags and 358 categories - no exceptions
         - When category name found (e.g., "Jeans") → Automatically builds FULL hierarchical path from database ("Fashion > Men > Clothing > Bottoms > Jeans")
         - Works with OR without breadcrumbs - finds categories anywhere in product data
         - Achieves 80%+ auto-tag success rate with confidence scoring
