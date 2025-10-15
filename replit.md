@@ -41,7 +41,8 @@ The application is built on the Electron framework, using a main process (`main.
         - Specialized tags for power tools (cordless, brushless-motor, lithium-ion, masonry), automotive (OEM, aftermarket, performance), kitchen (non-stick, dishwasher-safe), beauty (SPF, cruelty-free), and all major product types
     - **Auto-tagger engine** (`scrapers/auto-tagger.js`):
         - **URL Parsing**: Extracts keywords from product URL slug (e.g., "green" from "/jacket-green/") to catch colors/attributes missing from text
-        - **Weighted Search Priority**: 3-tier system - Tier 1 (title, URL, breadcrumbs) > Tier 2 (specs, brand) > Tier 3 (description)
+        - **JSON-LD Integration** (Oct 2025): Stringified JSON-LD included in search text to capture category/brand data from structured metadata
+        - **Weighted Search Priority**: 3-tier system - Tier 1 (title, URL, breadcrumbs, JSON-LD) > Tier 2 (specs, brand) > Tier 3 (description)
         - **Comprehensive Gender Detection** (`detectGender()` unified function):
             - 50+ exhaustive keywords per gender (women: woman/lady/mom/daughter/bride/femme; men: man/gentleman/dad/son/groom/homme; plus kids/unisex)
             - **5-tier search priority** with confidence scoring (Oct 2025 - Breadcrumb-First Strategy):
