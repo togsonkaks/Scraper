@@ -487,11 +487,22 @@ async function autoTag(productData) {
   // Extract keywords from URL
   const urlKeywords = extractUrlKeywords(productData.url);
   
+  // Stringify JSON-LD to capture ALL fields (category, brand, etc.)
+  let jsonLdText = '';
+  if (productData.jsonLd && typeof productData.jsonLd === 'object') {
+    try {
+      jsonLdText = JSON.stringify(productData.jsonLd);
+    } catch (e) {
+      jsonLdText = '';
+    }
+  }
+  
   // Build search text with weighted priority (title and URL first, then breadcrumbs, then rest)
   const tier1Text = [
     productData.title || '',
     urlKeywords,
-    filteredBreadcrumbs.join(' ')
+    filteredBreadcrumbs.join(' '),
+    jsonLdText  // Include JSON-LD in tier 1 (highest priority)
   ].join(' ');
   
   const tier2Text = [
@@ -508,6 +519,7 @@ async function autoTag(productData) {
   console.log('  📝 Title:', productData.title?.substring(0, 80));
   console.log('  🔗 URL keywords:', urlKeywords?.substring(0, 80));
   console.log('  🏷️ Breadcrumbs:', Array.isArray(filteredBreadcrumbs) ? filteredBreadcrumbs.join(' > ') : filteredBreadcrumbs);
+  console.log('  📊 JSON-LD:', jsonLdText ? jsonLdText.substring(0, 150) + '...' : 'none');
   console.log('  📄 Description:', productData.description?.substring(0, 100));
   console.log('  🔤 Search text length:', searchText.length, 'chars');
   
