@@ -48,6 +48,106 @@ function createSlug(text) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
+/**
+ * Generate ALL possible singular/plural variations of a word
+ * Handles: dress/dresses, glass/glasses, berry/berries, knife/knives, etc.
+ * @param {string} word - The word to generate variations for
+ * @returns {string[]} - Array of all possible forms (always includes original)
+ */
+function generatePluralVariations(word) {
+  if (!word) return [];
+  
+  const lower = word.toLowerCase();
+  const variations = new Set([word]); // Always include original
+  
+  // IRREGULAR PLURALS (common in products)
+  const irregulars = {
+    'man': 'men', 'woman': 'women', 'child': 'children', 'person': 'people',
+    'foot': 'feet', 'tooth': 'teeth', 'goose': 'geese', 'mouse': 'mice',
+    'ox': 'oxen', 'sheep': 'sheep', 'deer': 'deer', 'fish': 'fish'
+  };
+  
+  // Check if word is irregular
+  for (const [sing, plur] of Object.entries(irregulars)) {
+    if (lower === sing) variations.add(plur);
+    if (lower === plur) variations.add(sing);
+  }
+  
+  // PATTERN 1: Ends with -ies (berry → berries, fly → flies)
+  if (lower.endsWith('ies') && lower.length > 3) {
+    const singular = lower.slice(0, -3) + 'y'; // berries → berry
+    variations.add(singular);
+  } else if (lower.endsWith('y') && lower.length > 1 && !'aeiou'.includes(lower[lower.length - 2])) {
+    const plural = lower.slice(0, -1) + 'ies'; // berry → berries
+    variations.add(plural);
+  }
+  
+  // PATTERN 2: Ends with -ves (knife → knives, wolf → wolves)
+  if (lower.endsWith('ves') && lower.length > 3) {
+    const singular = lower.slice(0, -3) + 'f'; // knives → knife
+    variations.add(singular);
+    const singularFe = lower.slice(0, -3) + 'fe'; // wives → wife
+    variations.add(singularFe);
+  } else if ((lower.endsWith('f') || lower.endsWith('fe')) && lower.length > 2) {
+    const stem = lower.endsWith('fe') ? lower.slice(0, -2) : lower.slice(0, -1);
+    const plural = stem + 'ves'; // knife → knives, wife → wives
+    variations.add(plural);
+  }
+  
+  // PATTERN 3: Ends with -sses, -xes, -zes, -shes, -ches (glass → glasses, box → boxes)
+  if (lower.endsWith('sses')) {
+    const singular = lower.slice(0, -2); // glasses → glass
+    variations.add(singular);
+  } else if (lower.endsWith('ss') || lower.endsWith('x') || lower.endsWith('z') || 
+             lower.endsWith('sh') || lower.endsWith('ch')) {
+    const plural = lower + 'es'; // glass → glasses, box → boxes
+    variations.add(plural);
+  } else if (lower.endsWith('xes') || lower.endsWith('zes') || lower.endsWith('shes') || lower.endsWith('ches')) {
+    const singular = lower.slice(0, -2); // boxes → box
+    variations.add(singular);
+  }
+  
+  // PATTERN 4: Ends with -oes (tomato → tomatoes, hero → heroes)
+  if (lower.endsWith('oes') && lower.length > 3) {
+    const singular = lower.slice(0, -2); // tomatoes → tomato
+    variations.add(singular);
+  } else if (lower.endsWith('o') && !'aeiou'.includes(lower[lower.length - 2])) {
+    const plural = lower + 'es'; // tomato → tomatoes
+    variations.add(plural);
+  }
+  
+  // PATTERN 5: Regular -s ending (dress → dresses needs both!)
+  if (lower.endsWith('s') && !lower.endsWith('ss')) {
+    const singular = lower.slice(0, -1); // dresses → dresse, then we try dress
+    variations.add(singular);
+    // Also try removing just the 's' for regular plurals
+    if (singular.endsWith('se')) {
+      variations.add(singular.slice(0, -1)); // dresse → dress
+    }
+  }
+  
+  // PATTERN 6: Add regular -s plural if not already ending in s
+  if (!lower.endsWith('s')) {
+    variations.add(lower + 's'); // dress → dresss (covers edge cases)
+    variations.add(lower + 'es'); // dress → dresses
+  }
+  
+  // PATTERN 7: Always try both +s and +es regardless
+  variations.add(lower + 's');
+  variations.add(lower + 'es');
+  
+  // Return unique variations with original capitalization pattern
+  const result = Array.from(variations).map(v => {
+    // Preserve original capitalization pattern
+    if (word[0] === word[0].toUpperCase()) {
+      return v.charAt(0).toUpperCase() + v.slice(1);
+    }
+    return v;
+  });
+  
+  return result;
+}
+
 // Phrase Override System: Handles edge cases BEFORE keyword matching
 // Supports excludeIf for context-aware matching
 const PHRASE_OVERRIDES = [
