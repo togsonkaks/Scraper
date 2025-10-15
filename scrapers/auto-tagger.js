@@ -289,23 +289,14 @@ function matchCategories(text, productData = {}, detectedGender = null) {
   
   // Search for category NAMES in product data with frequency counting
   for (const category of categoriesToSearch) {
-    const escapedName = category.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Generate ALL plural/singular variations (dress/dresses, glass/glasses, etc.)
+    const variations = generatePluralVariations(category.name);
     
-    // Match both singular and plural forms bidirectionally
-    const patterns = [
-      new RegExp(`\\b${escapedName}\\b`, 'gi') // Exact match
-    ];
-    
-    // If category is plural (ends with 's'), also try singular
-    if (category.name.toLowerCase().endsWith('s')) {
-      // Remove trailing 's' for singular (Sandals → Sandal)
-      const singularName = category.name.slice(0, -1).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      patterns.push(new RegExp(`\\b${singularName}\\b`, 'gi'));
-    } else {
-      // If category is singular, try plural forms
-      patterns.push(new RegExp(`\\b${escapedName}s\\b`, 'gi'));   // Add 's'
-      patterns.push(new RegExp(`\\b${escapedName}es\\b`, 'gi'));  // Add 'es'
-    }
+    // Create regex patterns for all variations
+    const patterns = variations.map(variant => {
+      const escaped = variant.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return new RegExp(`\\b${escaped}\\b`, 'gi');
+    });
     
     // Also check for synonyms (e.g., "trousers" should match "Pants")
     const synonymPatterns = [];
