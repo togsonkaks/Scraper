@@ -245,8 +245,21 @@ function matchTags(text, tagType = null) {
     : tagTaxonomy;
   
   for (const tag of tagsToCheck) {
-    const pattern = new RegExp(`\\b${tag.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
-    if (pattern.test(normalizedText)) {
+    // Generate ALL plural/singular variations (pocket/pockets, zipper/zippers, etc.)
+    const variations = generatePluralVariations(tag.name);
+    
+    // Check if ANY variation matches in the text
+    let hasMatch = false;
+    for (const variant of variations) {
+      const escaped = variant.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const pattern = new RegExp(`\\b${escaped}\\b`, 'i');
+      if (pattern.test(normalizedText)) {
+        hasMatch = true;
+        break;
+      }
+    }
+    
+    if (hasMatch) {
       matches.push({
         name: tag.name,
         slug: tag.slug,
