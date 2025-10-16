@@ -692,10 +692,18 @@ async function seedFullTaxonomy() {
     // Delete only built-in tags (preserve llm_discovered = 1)
     await sql`DELETE FROM tags WHERE llm_discovered = 0 OR llm_discovered IS NULL`;
     
-    // Clear categories (no user data here)
-    await sql`TRUNCATE TABLE product_categories, categories RESTART IDENTITY CASCADE`;
+    // Delete only product associations for categories being deleted (built-in categories)
+    await sql`
+      DELETE FROM product_categories 
+      WHERE category_id IN (
+        SELECT category_id FROM categories WHERE llm_discovered = 0 OR llm_discovered IS NULL
+      )
+    `;
     
-    console.log('✅ Cleared built-in taxonomy (kept LLM-discovered tags)');
+    // Delete only built-in categories (preserve llm_discovered = 1)
+    await sql`DELETE FROM categories WHERE llm_discovered = 0 OR llm_discovered IS NULL`;
+    
+    console.log('✅ Cleared built-in taxonomy (kept LLM-discovered tags and categories)');
     
     // Insert categories in order (parents first)
     console.log(`📂 Inserting ${categories.length} categories...`);
@@ -731,9 +739,8 @@ async function seedFullTaxonomy() {
       const result = await sql`
         INSERT INTO categories (name, parent_id, level, slug)
         VALUES (${cat.name}, ${parentId}, ${cat.level}, ${slug})
-        ON CONFLICT (slug) DO UPDATE SET
+        ON CONFLICT (parent_id, slug) DO UPDATE SET
           name = EXCLUDED.name,
-          parent_id = EXCLUDED.parent_id,
           level = EXCLUDED.level
         RETURNING category_id
       `;
