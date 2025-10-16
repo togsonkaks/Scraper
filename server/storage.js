@@ -251,7 +251,6 @@ async function updateProductTags(productId, tagResults) {
             const newCategory = await sql`
               INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
               VALUES (${categoryName}, ${categorySlug}, ${parentId}, ${i}, 1)
-              ON CONFLICT (parent_id, slug) DO UPDATE SET name = ${categoryName}
               RETURNING category_id
             `;
             categoryId = newCategory[0].category_id;
@@ -261,10 +260,17 @@ async function updateProductTags(productId, tagResults) {
               const newCategory = await sql`
                 INSERT INTO categories (name, slug, parent_id, level)
                 VALUES (${categoryName}, ${categorySlug}, ${parentId}, ${i})
-                ON CONFLICT (parent_id, slug) DO UPDATE SET name = ${categoryName}
                 RETURNING category_id
               `;
               categoryId = newCategory[0].category_id;
+            } else if (err.message && err.message.includes('duplicate')) {
+              // Category already exists at this level - get its ID
+              const existing = await sql`
+                SELECT category_id FROM categories
+                WHERE slug = ${categorySlug}
+                ${parentId !== null ? sql`AND parent_id = ${parentId}` : sql`AND parent_id IS NULL`}
+              `;
+              categoryId = existing[0].category_id;
             } else {
               throw err;
             }
@@ -736,14 +742,26 @@ async function seedFullTaxonomy() {
         slugCounter[slug] = 0;
       }
       
-      const result = await sql`
-        INSERT INTO categories (name, parent_id, level, slug)
-        VALUES (${cat.name}, ${parentId}, ${cat.level}, ${slug})
-        ON CONFLICT (parent_id, slug) DO UPDATE SET
-          name = EXCLUDED.name,
-          level = EXCLUDED.level
-        RETURNING category_id
-      `;
+      let result;
+      try {
+        result = await sql`
+          INSERT INTO categories (name, parent_id, level, slug)
+          VALUES (${cat.name}, ${parentId}, ${cat.level}, ${slug})
+          RETURNING category_id
+        `;
+      } catch (err) {
+        if (err.message && err.message.includes('duplicate')) {
+          // Category already exists - get its ID (likely LLM-discovered category)
+          const existing = await sql`
+            SELECT category_id FROM categories
+            WHERE slug = ${slug}
+            ${parentId !== null ? sql`AND parent_id = ${parentId}` : sql`AND parent_id IS NULL`}
+          `;
+          result = existing;
+        } else {
+          throw err;
+        }
+      }
       
       // Store with full path as key so "Fashion:Men:Clothing" and "Fashion:Women:Clothing" are separate
       categoryMap.set(fullPath, result[0].category_id);
