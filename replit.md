@@ -59,6 +59,11 @@ The application is built on the Electron framework, using a main process (`main.
         - **Category-Aware Tag Filtering**: Blocks nonsense tags based on department (e.g., removes "construction" activity tags from Fashion products)
         - **Category Matching** (Oct 2025): Searches ALL categories without gender pre-filtering - weighted scoring naturally picks correct gendered/unisex products; searches category NAMES (not paths) in ALL product data (title, description, breadcrumbs, specs, URL, JSON-LD)
         - **Tag Matching**: Word-boundary regex matching across all product text for 955+ tags
+        - **Smart Color Detection** (Oct 2025): 2-tier priority system prevents grabbing colors from "available in 12 colors" lists:
+            - **Tier 1 (highest)**: Title + URL - most reliable source for actual product colors
+            - **Tier 2 (fallback)**: Specs + Description + JSON-LD - only if Tier 1 finds nothing
+            - **Max 2 colors**: Picks first color, checks if followed by "and"/"," + another color (e.g., "red and blue", "black, white")
+            - Position-based matching ensures colors appear in order they're mentioned
         - **Comprehensive Plural/Singular Matching** (Oct 2025): All tags and categories automatically match BOTH singular and plural forms using robust variation generator:
             - Regular plurals: dress/dresses, jacket/jackets
             - -sses/-xes/-zes: glass/glasses, box/boxes, buzz/buzzes
