@@ -162,7 +162,7 @@ function generatePluralVariations(word) {
  */
 function detectColors(productData, tier1Text, tier2Text, tier3Text) {
   // Get all color tags from taxonomy
-  const allColorTags = tagTaxonomy.filter(t => t.type === 'colors');
+  const allColorTags = tagTaxonomy.filter(t => t.tag_type === 'colors');
   
   // Helper function to find colors in text with position tracking
   const findColorsInText = (text) => {
