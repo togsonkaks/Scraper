@@ -761,20 +761,21 @@ async function seedFullTaxonomy() {
         result = await sql`
           INSERT INTO categories (name, parent_id, level, slug, llm_discovered)
           VALUES (${cat.name}, ${parentId}, ${cat.level}, ${slug}, 0)
+          ON CONFLICT (parent_id, slug) DO NOTHING
           RETURNING category_id
         `;
-      } catch (err) {
-        if (err.message && err.message.includes('duplicate')) {
-          // Category already exists - get its ID (likely LLM-discovered category)
+        
+        // If conflict occurred (LLM-discovered category exists), get its ID
+        if (result.length === 0) {
           const existing = await sql`
             SELECT category_id FROM categories
             WHERE slug = ${slug}
             ${parentId !== null ? sql`AND parent_id = ${parentId}` : sql`AND parent_id IS NULL`}
           `;
           result = existing;
-        } else {
-          throw err;
         }
+      } catch (err) {
+        throw err;
       }
       
       // Store with full path as key so "Fashion:Men:Clothing" and "Fashion:Women:Clothing" are separate
