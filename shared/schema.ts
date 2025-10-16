@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp, numeric, jsonb, varchar, integer } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp, numeric, jsonb, varchar, integer, unique } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 export const productsRaw = pgTable('products_raw', {
@@ -48,12 +48,14 @@ export const productsEnriched = pgTable('products_enriched', {
 export const categories = pgTable('categories', {
   categoryId: serial('category_id').primaryKey(),
   name: text('name').notNull(),
-  slug: text('slug').notNull().unique(),
+  slug: text('slug').notNull(),
   parentId: integer('parent_id'),
   level: integer('level').default(0),
   llmDiscovered: integer('llm_discovered').default(0),
   createdAt: timestamp('created_at').defaultNow()
-});
+}, (table) => ({
+  uniqueSlugPerParent: unique().on(table.parentId, table.slug)
+}));
 
 export const tags = pgTable('tags', {
   tagId: serial('tag_id').primaryKey(),
