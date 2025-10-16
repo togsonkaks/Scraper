@@ -648,7 +648,8 @@ function detectGender(productData, categoryPath = null) {
     }
   }
   
-  return { gender: null, source: 'none', confidence: 'none' };
+  // DEFAULT: If no gender detected anywhere, default to unisex
+  return { gender: 'unisex', source: 'default', confidence: 'default' };
 }
 
 async function autoTag(productData) {
