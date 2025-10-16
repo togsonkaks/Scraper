@@ -53,11 +53,11 @@ The application is built on the Electron framework, using a main process (`main.
                 - **Tier 4 (fallback)**: Category path extraction (e.g., "Fashion > Women" → women)
             - **Universal Conflict Detection** (Oct 2025): Each tier checks for multiple genders - if any tier finds 2+ genders (e.g., "Men & Women"), it skips to next tier automatically; fixed regex stateful bug by removing global flag for consistent results
             - Returns `{ gender, source, confidence }` for full transparency
-            - Used by both auto-tagger (early for category filtering) and save operation (final with category fallback)
+            - Used by both auto-tagger (early detection for metadata) and save operation (final with category fallback)
             - Prevents "men" matching "women" via word-boundary regex
             - **Context-Aware Detection**: Prioritizes structured retailer data over ambiguous title keywords to solve collision issues
         - **Category-Aware Tag Filtering**: Blocks nonsense tags based on department (e.g., removes "construction" activity tags from Fashion products)
-        - **Category Matching**: Searches for category NAMES (not paths) in ALL product data (title, description, breadcrumbs, specs, URL, JSON-LD) - identical logic to tag matching
+        - **Category Matching** (Oct 2025): Searches ALL categories without gender pre-filtering - weighted scoring naturally picks correct gendered/unisex products; searches category NAMES (not paths) in ALL product data (title, description, breadcrumbs, specs, URL, JSON-LD)
         - **Tag Matching**: Word-boundary regex matching across all product text for 955+ tags
         - **Comprehensive Plural/Singular Matching** (Oct 2025): All tags and categories automatically match BOTH singular and plural forms using robust variation generator:
             - Regular plurals: dress/dresses, jacket/jackets
