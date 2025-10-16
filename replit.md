@@ -31,17 +31,21 @@ The application is built on the Electron framework, using a main process, a rend
     - Enhanced breadcrumb processing with cleaning, filtering, and scoring.
     - Multi-strategy SKU extraction with brand-aware validation.
 - **CDN Upgrade Patterns**: Specific rules for optimizing image quality and dimensions across various CDNs.
-- **Auto-Tagging System**:
+- **Auto-Tagging System** (Pinterest-style Personalization Architecture):
     - Database-centric taxonomy (7-table PostgreSQL architecture with Drizzle ORM) for products, categories, and tags.
-    - Comprehensive Universal Taxonomy (346+ categories, 955+ tags) covering 19 major e-commerce verticals with hierarchical structures.
+    - **Universal Category System**: Categories are gender-neutral (e.g., "Fashion > Accessories > Bags > Shoulder Bags") for clean browsing.
+    - **Demographic Tags for Personalization**: Gender (women's, men's, unisex, lady, ladies) and age (kids, baby, teen) stored as tags, not category filters.
     - Auto-tagger engine (`scrapers/auto-tagger.js`):
         - Keyword extraction from URL slugs and JSON-LD.
         - Weighted search priority (title, URL, breadcrumbs, JSON-LD > specs, brand > description).
+        - **Universal category search** - searches ALL categories regardless of gender (no filtering).
         - Comprehensive 5-tier gender detection with confidence scoring, conflict detection, and context awareness.
-        - Category-aware and gender-based tag filtering.
+        - **Gender tag assignment**: Always assigns at least one gender tag, defaults to "unisex" if unclear.
+        - **Age tag detection**: Only adds kids/baby/teen tags when explicit terms found (kids, infants, baby, child, toddler, boys, girls).
         - Smart color detection with a 2-tier priority system.
         - Comprehensive plural/singular matching for all tags and categories.
         - Automatic hierarchical path building for categories.
+        - Category-aware tag filtering by department (removes nonsense tag combinations).
     - **Smart Tag Classification** (`server/llm-tagger.js: classifyTag()`):
         - 3-tier system: DB lookup → taxonomy pattern matching → LLM classification for manually-typed tags.
     - **LLM-powered tagging system** using GPT-4o-mini:
