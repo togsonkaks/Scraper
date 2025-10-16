@@ -321,16 +321,7 @@ async function extractTagsWithLLM(productData) {
     ? `🏷️ EXISTING TAG TAXONOMY (${Object.values(existingTags).flat().length} tags organized by type):\n\n${tagTaxonomyLines}`
     : '🏷️ EXISTING TAG TAXONOMY: None (you can suggest new tags)';
 
-  // Add detected gender context if available - MAKE IT MANDATORY
-  const genderContext = __detectedGender 
-    ? `\n🚨 **CRITICAL: DETECTED GENDER = ${__detectedGender.toUpperCase()}** 🚨
-This product is EXCLUSIVELY for ${__detectedGender}. 
-You are FORBIDDEN from suggesting categories for any other gender.
-Your category path MUST start with: "Fashion > ${__detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1)}"
-ANY suggestion with a different gender (Men/Women/Unisex/Kids) will be rejected.`
-    : '';
-
-  const prompt = `${genderContext ? genderContext + '\n\n' : ''}Analyze this e-commerce product and extract:
+  const prompt = `Analyze this e-commerce product and extract:
 1. HIERARCHICAL CATEGORIES - Full category path from general to specific
 2. 6-8 HIGH-QUALITY KEYWORDS/TAGS - Brand, product line, and descriptive attributes
 
@@ -346,25 +337,27 @@ ${tagTaxonomy}
 
 CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
 1. **PRIORITY 1**: Match product to EXISTING category paths above
-   - Find an EXACT path match from the taxonomy (e.g., "Fashion > Men > Clothing > Bottoms > Jeans")
-   - Use the COMPLETE path including ALL parent levels (Department > Gender > Section > Category > Type)
+   - Find an EXACT path match from the taxonomy (e.g., "Fashion > Clothing > Bottoms > Jeans")
+   - Use the COMPLETE path including ALL parent levels (Department > Section > Category > Type)
    - DO NOT reorder or modify the path - use it exactly as shown
-   - If you find "Fashion > Men > Clothing > Bottoms > Jeans", return ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"]
+   - If you find "Fashion > Clothing > Bottoms > Jeans", return ["Fashion", "Clothing", "Bottoms", "Jeans"]
    - ONLY mark isNewPath=false if the EXACT path exists in the order shown
 
 2. **PRIORITY 2**: If NO exact match exists, suggest a NEW path
-   - Follow hierarchy: Department → Gender/Age → Category → Subcategory
+   - Follow hierarchy: Department → Category → Subcategory → Type
    - Include ALL parent levels, don't skip any
-   - Example: ["Fashion", "Women", "Clothing", "Tops", "Blouses"]
+   - Example: ["Fashion", "Clothing", "Tops", "Blouses"]
    - Mark isNewPath=true and confidence lower (0.6-0.7)
+   - IMPORTANT: Categories are gender-neutral. Add gender (women's, men's, unisex, kids) as TAGS only, NOT in category path
 
 3. **CRITICAL RULES**:
    - Categories END at product type (Jeans, Shoes, Drill, Saw, Headphones, Earbuds)
    - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
+   - Gender/age (women's, men's, unisex, kids, baby, teen) are TAGS, NEVER categories
    - Product model names/numbers (Method 360 ANC, iPhone 15 Pro) are NEVER categories
-   - ❌ WRONG: ["Men", "Bottoms", "Jeans", "Tapered"] - "Tapered" is a fit term
+   - ❌ WRONG: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] - "Men" is gender
    - ❌ WRONG: ["Electronics", "Audio", "Headphones", "Wireless Headphones", "Method 360 ANC"] - model name
-   - ✅ RIGHT: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] + tag: {name: "tapered", type: "fit"}
+   - ✅ RIGHT: ["Fashion", "Clothing", "Bottoms", "Jeans"] + tags: {name: "men's", type: "demographic"}, {name: "tapered", type: "fit"}
    - ✅ RIGHT: ["Electronics", "Audio", "Headphones", "Wireless Headphones"] (stop at product type)
 
 4. Extract from JSON-LD first, then breadcrumbs, then title/description
@@ -376,10 +369,11 @@ BRAND EXTRACTION:
 2. DO NOT include brand as a tag - it goes in the brand field only
 
 TAG EXTRACTION RULES (USE EXISTING TAG TAXONOMY):
-1. Extract 5-8 DESCRIPTIVE TAGS with their TYPE classification:
+1. Extract 6-10 DESCRIPTIVE TAGS with their TYPE classification:
+   - **ALWAYS include gender tag**: women's, men's, unisex, kids, baby, or teen (type: "demographic")
    - Match to EXISTING tags from the taxonomy above when possible
    - If tag exists, use it exactly as shown
-   - If NEW tag (not in taxonomy), identify its type from available types: activities, materials, colors, styles, features, fit, occasions, tool-types, automotive, kitchen, beauty
+   - If NEW tag (not in taxonomy), identify its type from available types: demographic, activities, materials, colors, styles, features, fit, occasions, tool-types, automotive, kitchen, beauty
    
 2. **READ THE DESCRIPTION CAREFULLY** - Extract ALL relevant attributes:
    - Colors/patterns: Look for color words like "indigo", "black", "navy", "striped", "solid"
@@ -424,23 +418,6 @@ Respond in JSON format:
 
     const result = JSON.parse(response.choices[0].message.content);
     
-    // VALIDATE gender constraint if detected gender was provided
-    if (__detectedGender && result.categories && result.categories.length > 0) {
-      const suggestedGender = result.categories[1]?.toLowerCase(); // Second level is gender (Fashion > Men/Women)
-      const expectedGender = __detectedGender.toLowerCase();
-      
-      if (suggestedGender !== expectedGender) {
-        console.error(`❌ LLM GENDER VIOLATION: Expected "${expectedGender}" but got "${suggestedGender}"`);
-        console.error(`   Suggested path: ${result.categories.join(' > ')}`);
-        
-        // Force-correct the gender in the path
-        if (result.categories[0]?.toLowerCase() === 'fashion' && result.categories.length > 1) {
-          result.categories[1] = __detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1);
-          console.log(`   ✅ Auto-corrected to: ${result.categories.join(' > ')}`);
-        }
-      }
-    }
-    
     // VERIFY if path actually exists using fuzzy matching
     const suggestedPath = (result.categories || []).join(' > ');
     const exactMatch = existingPaths.some(path => path === suggestedPath);
@@ -455,11 +432,19 @@ Respond in JSON format:
     const actuallyExists = exactMatch || (fuzzyMatch && fuzzyMatch.score >= 0.8);
     
     // Valid tag types (semantic categories)
-    const VALID_TAG_TYPES = ['materials', 'colors', 'fit', 'styles', 'features', 'activities', 'occasions', 'tool-types', 'automotive', 'kitchen', 'beauty'];
+    const VALID_TAG_TYPES = ['demographic', 'materials', 'colors', 'fit', 'styles', 'features', 'activities', 'occasions', 'tool-types', 'automotive', 'kitchen', 'beauty'];
     
     // Smart tag type classifier based on tag name
     const classifyTagType = (tagName) => {
       const name = tagName.toLowerCase();
+      
+      // Demographic patterns (gender/age)
+      if (name.includes("women") || name.includes("men") || name.includes("unisex") || 
+          name.includes("kids") || name.includes("baby") || name.includes("teen") ||
+          name.includes("ladies") || name.includes("lady") || name.includes("girls") || 
+          name.includes("boys") || name.includes("infant") || name.includes("toddler")) {
+        return 'demographic';
+      }
       
       // Material patterns
       if (name.includes('leather') || name.includes('suede') || name.includes('cotton') || 
@@ -643,16 +628,7 @@ async function retryWithFeedback(productData, feedback) {
     ? `🏷️ EXISTING TAG TAXONOMY (${Object.values(existingTags).flat().length} tags organized by type):\n\n${tagTaxonomyLines}`
     : '🏷️ EXISTING TAG TAXONOMY: None (you can suggest new tags)';
 
-  // Add detected gender context - MAKE IT MANDATORY (same as extractTagsWithLLM)
-  const genderContext = __detectedGender 
-    ? `\n🚨 **CRITICAL: DETECTED GENDER = ${__detectedGender.toUpperCase()}** 🚨
-This product is EXCLUSIVELY for ${__detectedGender}. 
-You are FORBIDDEN from suggesting categories for any other gender.
-Your category path MUST start with: "Fashion > ${__detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1)}"
-ANY suggestion with a different gender (Men/Women/Unisex/Kids) will be rejected.`
-    : '';
-
-  const prompt = `${genderContext ? genderContext + '\n\n' : ''}The previous tagging attempt was rejected with this feedback: "${feedback}"
+  const prompt = `The previous tagging attempt was rejected with this feedback: "${feedback}"
 
 Please re-analyze this product and provide better suggestions.
 
@@ -668,22 +644,25 @@ ${tagTaxonomy}
 
 IMPORTANT RULES:
 1. **MATCH EXISTING CATEGORY PATHS** from the taxonomy above in EXACT order
-   - Find COMPLETE path like "Fashion > Men > Clothing > Bottoms > Jeans" and return ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"]
-   - Include ALL parent levels - don't skip any (Department > Gender > Section > Category > Type)
+   - Find COMPLETE path like "Fashion > Clothing > Bottoms > Jeans" and return ["Fashion", "Clothing", "Bottoms", "Jeans"]
+   - Include ALL parent levels - don't skip any (Department > Section > Category > Type)
    - DO NOT reorder or modify - use the exact hierarchy shown
    - ONLY mark isNewPath=false if EXACT path exists
-2. **Categories END at product type** (Jeans, Shoes, Drill, Headphones, Earbuds, etc.)
+2. **Categories are gender-neutral** - Add gender (women's, men's, unisex, kids) as TAGS, NOT in category path
+3. **Categories END at product type** (Jeans, Shoes, Drill, Headphones, Earbuds, etc.)
    - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
+   - Gender/age (women's, men's, kids, baby) are TAGS, NEVER categories
    - Product model names/numbers (Method 360 ANC, iPhone 15 Pro, etc.) are NEVER categories
-   - ❌ WRONG: ["Men", "Bottoms", "Jeans", "Tapered"]
+   - ❌ WRONG: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] - "Men" is gender
    - ❌ WRONG: ["Electronics", "Audio", "Headphones", "Wireless Headphones", "Method 360 ANC"]
-   - ✅ RIGHT: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] + tag: {name: "tapered", type: "fit"}
+   - ✅ RIGHT: ["Fashion", "Clothing", "Bottoms", "Jeans"] + tags: {name: "men's", type: "demographic"}, {name: "tapered", type: "fit"}
    - ✅ RIGHT: ["Electronics", "Audio", "Headphones", "Wireless Headphones"] (stop at product type)
-3. Extract the brand name and put it in the "brand" field - DO NOT include as tag
-4. **READ DESCRIPTION for ALL attributes**: colors (indigo, navy), materials (denim), fit (tapered, slim-fit), styles (casual)
-5. Return tags with their type classification (match to existing taxonomy types)
-6. Consider the user's feedback when making corrections
-7. Prioritize JSON-LD structured data if available
+4. Extract the brand name and put it in the "brand" field - DO NOT include as tag
+5. **ALWAYS include gender tag**: women's, men's, unisex, kids, baby, or teen (type: "demographic")
+6. **READ DESCRIPTION for ALL attributes**: colors (indigo, navy), materials (denim), fit (tapered, slim-fit), styles (casual)
+7. Return tags with their type classification (match to existing taxonomy types)
+8. Consider the user's feedback when making corrections
+9. Prioritize JSON-LD structured data if available
 
 Respond in JSON format:
 {
@@ -709,23 +688,6 @@ Respond in JSON format:
 
     const result = JSON.parse(response.choices[0].message.content);
     
-    // VALIDATE gender constraint if detected gender was provided (same as extractTagsWithLLM)
-    if (__detectedGender && result.categories && result.categories.length > 0) {
-      const suggestedGender = result.categories[1]?.toLowerCase(); // Second level is gender (Fashion > Men/Women)
-      const expectedGender = __detectedGender.toLowerCase();
-      
-      if (suggestedGender !== expectedGender) {
-        console.error(`❌ LLM GENDER VIOLATION: Expected "${expectedGender}" but got "${suggestedGender}"`);
-        console.error(`   Suggested path: ${result.categories.join(' > ')}`);
-        
-        // Force-correct the gender in the path
-        if (result.categories[0]?.toLowerCase() === 'fashion' && result.categories.length > 1) {
-          result.categories[1] = __detectedGender.charAt(0).toUpperCase() + __detectedGender.slice(1);
-          console.log(`   ✅ Auto-corrected to: ${result.categories.join(' > ')}`);
-        }
-      }
-    }
-    
     // VERIFY if path actually exists using fuzzy matching
     const suggestedPath = (result.categories || []).join(' > ');
     const exactMatch = existingPaths.some(path => path === suggestedPath);
@@ -740,11 +702,20 @@ Respond in JSON format:
     const actuallyExists = exactMatch || (fuzzyMatch && fuzzyMatch.score >= 0.8);
     
     // Valid tag types (same as extractTagsWithLLM)
-    const VALID_TAG_TYPES = ['materials', 'colors', 'fit', 'styles', 'features', 'activities', 'occasions', 'tool-types', 'automotive', 'kitchen', 'beauty'];
+    const VALID_TAG_TYPES = ['demographic', 'materials', 'colors', 'fit', 'styles', 'features', 'activities', 'occasions', 'tool-types', 'automotive', 'kitchen', 'beauty'];
     
     // Smart tag type classifier (same as extractTagsWithLLM)
     const classifyTagType = (tagName) => {
       const name = tagName.toLowerCase();
+      
+      // Demographic patterns (gender/age)
+      if (name.includes("women") || name.includes("men") || name.includes("unisex") || 
+          name.includes("kids") || name.includes("baby") || name.includes("teen") ||
+          name.includes("ladies") || name.includes("lady") || name.includes("girls") || 
+          name.includes("boys") || name.includes("infant") || name.includes("toddler")) {
+        return 'demographic';
+      }
+      
       if (name.includes('leather') || name.includes('suede') || name.includes('cotton') || 
           name.includes('wool') || name.includes('silk') || name.includes('denim') ||
           name.includes('nylon') || name.includes('polyester') || name.includes('canvas') ||
