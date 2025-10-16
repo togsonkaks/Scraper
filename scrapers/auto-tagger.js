@@ -712,13 +712,16 @@ async function autoTag(productData) {
   console.log('  📄 Description:', productData.description?.substring(0, 100));
   console.log('  🔤 Search text length:', searchText.length, 'chars');
   
-  // Match all tags from search text
-  let allMatchedTags = matchTags(searchText);
-  console.log('  ✅ Matched tags:', allMatchedTags.length, '→', allMatchedTags.map(t => t.name).join(', '));
+  // SMART COLOR DETECTION (2-tier priority system)
+  const smartColors = detectColors(productData, tier1Text, tier2Text, tier3Text);
+  
+  // Match all NON-COLOR tags from search text
+  let allMatchedTags = matchTags(searchText).filter(t => t.type !== 'colors');
+  console.log('  ✅ Matched tags (non-color):', allMatchedTags.length, '→', allMatchedTags.map(t => t.name).join(', '));
   
   // Group tags by semantic type
   const tagsByType = {
-    colors: allMatchedTags.filter(t => t.type === 'colors'),
+    colors: smartColors,  // Use smart color detection instead of generic matching
     materials: allMatchedTags.filter(t => t.type === 'materials'),
     activities: allMatchedTags.filter(t => t.type === 'activities'),
     styles: allMatchedTags.filter(t => t.type === 'styles'),
@@ -807,12 +810,13 @@ async function autoTag(productData) {
     
     if (allowedTypes.length > 0) {
       const originalTagCount = allMatchedTags.length;
+      const originalColorCount = smartColors.length;
       
       // Filter tags by allowed types
       allMatchedTags = allMatchedTags.filter(tag => allowedTypes.includes(tag.type));
       
-      // Update tagsByType
-      tagsByType.colors = allMatchedTags.filter(t => t.type === 'colors');
+      // Update tagsByType (filter smart colors too if needed)
+      tagsByType.colors = allowedTypes.includes('colors') ? smartColors : [];
       tagsByType.materials = allMatchedTags.filter(t => t.type === 'materials');
       tagsByType.activities = allMatchedTags.filter(t => t.type === 'activities');
       tagsByType.styles = allMatchedTags.filter(t => t.type === 'styles');
@@ -820,8 +824,11 @@ async function autoTag(productData) {
       tagsByType.fit = allMatchedTags.filter(t => t.type === 'fit');
       tagsByType.occasions = allMatchedTags.filter(t => t.type === 'occasions');
       
-      if (originalTagCount > allMatchedTags.length) {
-        console.log(`  🚫 Filtered ${originalTagCount} → ${allMatchedTags.length} tags for department: ${department}`);
+      const totalFiltered = (originalTagCount - allMatchedTags.length) + 
+                           (originalColorCount - tagsByType.colors.length);
+      
+      if (totalFiltered > 0) {
+        console.log(`  🚫 Filtered ${totalFiltered} tags for department: ${department}`);
       }
     }
   }
