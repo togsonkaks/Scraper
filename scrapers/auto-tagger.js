@@ -374,22 +374,10 @@ function matchCategories(text, productData = {}, detectedGender = null) {
     specs: normalizeText(productData.specs || '')
   };
   
-  // Filter categories by detected gender (simple and direct)
-  let categoriesToSearch = categoryTree;
-  if (detectedGender && detectedGender !== 'unisex') {
-    categoriesToSearch = categoryTree.filter(cat => {
-      const fullPath = buildCategoryPath(cat.category_id);
-      const pathParts = fullPath.map(p => p.name.toLowerCase());
-      
-      // Use exact word matching to prevent "women" matching when looking for "men"
-      // Check if ANY part of the path matches the gender exactly
-      if (detectedGender === 'kids') {
-        return pathParts.some(part => part === 'kids' || part === 'baby' || part.includes('baby'));
-      }
-      return pathParts.some(part => part === detectedGender.toLowerCase());
-    });
-    console.log(`  🔍 Gender filter: ${detectedGender} → Searching ${categoriesToSearch.length}/${categoryTree.length} categories`);
-  }
+  // Search ALL categories universally (no gender filtering)
+  // Gender will be used as tags for personalization, not category filtering
+  const categoriesToSearch = categoryTree;
+  console.log(`  🔍 Universal search: Searching all ${categoryTree.length} categories`);
   
   // Search for category NAMES in product data with frequency counting
   for (const category of categoriesToSearch) {
@@ -468,19 +456,10 @@ function matchCategories(text, productData = {}, detectedGender = null) {
       // ONLY add to results if there are actual keyword matches (skip depth-only matches)
       if (frequencyScore > 0) {
         // DEPTH BONUS: Add +50 points per level to heavily favor specific categories over generic parents
-        // This ensures "Fashion > Men > Clothing > Jacket" beats "Fashion > Men"
+        // This ensures "Fashion > Accessories > Bags > Shoulder Bags" beats "Fashion > Accessories"
         const depthBonus = fullPath.length * 50;
         
-        // GENDER BONUS: If we detected a gender, boost categories that match it (+500 points)
-        let genderBonus = 0;
-        if (detectedGender && detectedGender !== 'unisex') {
-          const pathString = fullPath.map(p => p.name).join(' > ').toLowerCase();
-          if (pathString.includes(detectedGender.toLowerCase())) {
-            genderBonus = 500;
-          }
-        }
-        
-        const finalScore = frequencyScore + depthBonus + genderBonus;
+        const finalScore = frequencyScore + depthBonus;
         
         matches.push({
           id: category.category_id,
