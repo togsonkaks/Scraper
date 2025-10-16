@@ -148,6 +148,100 @@ function generatePluralVariations(word) {
   return result;
 }
 
+/**
+ * Smart color detection with 2-tier priority system
+ * Tier 1: title + URL (most reliable)
+ * Tier 2: specs + description + JSON-LD (fallback)
+ * Max 2 colors: first color + check for "and"/"," pattern
+ * 
+ * @param {Object} productData - The product data
+ * @param {string} tier1Text - Title + URL + breadcrumbs + JSON-LD
+ * @param {string} tier2Text - Specs + brand
+ * @param {string} tier3Text - Description
+ * @returns {Array} - Array of matched color tag objects (max 2)
+ */
+function detectColors(productData, tier1Text, tier2Text, tier3Text) {
+  // Get all color tags from taxonomy
+  const allColorTags = tagTaxonomy.filter(t => t.type === 'colors');
+  
+  // Helper function to find colors in text with position tracking
+  const findColorsInText = (text) => {
+    const found = [];
+    const lowerText = text.toLowerCase();
+    
+    allColorTags.forEach(colorTag => {
+      // Generate all variations for this color
+      const variations = generatePluralVariations(colorTag.name);
+      
+      variations.forEach(variant => {
+        // Word boundary regex to match the color
+        const regex = new RegExp(`\\b${variant.toLowerCase()}\\b`, 'i');
+        const match = lowerText.match(regex);
+        
+        if (match) {
+          found.push({
+            tag: colorTag,
+            position: match.index,
+            matchedAs: variant
+          });
+        }
+      });
+    });
+    
+    // Sort by position (earliest first)
+    return found.sort((a, b) => a.position - b.position);
+  };
+  
+  // Helper to check if two colors are connected by "and" or ","
+  const areColorsConnected = (text, color1Pos, color2Pos) => {
+    const between = text.substring(color1Pos, color2Pos).toLowerCase();
+    // Check for patterns like "red and blue", "red, blue", "red & blue"
+    return /\band\b|,|&/.test(between);
+  };
+  
+  // TIER 1: Check title + URL first (highest priority)
+  const tier1Colors = findColorsInText(tier1Text);
+  
+  if (tier1Colors.length > 0) {
+    const firstColor = tier1Colors[0];
+    const result = [firstColor.tag];
+    
+    // Check if there's a second color connected by "and" or ","
+    if (tier1Colors.length > 1) {
+      const secondColor = tier1Colors[1];
+      if (areColorsConnected(tier1Text, firstColor.position, secondColor.position)) {
+        result.push(secondColor.tag);
+      }
+    }
+    
+    console.log(`  🎨 Colors detected (Tier 1 - title/URL): ${result.map(c => c.name).join(', ')}`);
+    return result;
+  }
+  
+  // TIER 2: Fallback to specs + description + JSON-LD
+  const tier2FullText = `${tier2Text} ${tier3Text}`;
+  const tier2Colors = findColorsInText(tier2FullText);
+  
+  if (tier2Colors.length > 0) {
+    const firstColor = tier2Colors[0];
+    const result = [firstColor.tag];
+    
+    // Check if there's a second color connected by "and" or ","
+    if (tier2Colors.length > 1) {
+      const secondColor = tier2Colors[1];
+      if (areColorsConnected(tier2FullText, firstColor.position, secondColor.position)) {
+        result.push(secondColor.tag);
+      }
+    }
+    
+    console.log(`  🎨 Colors detected (Tier 2 - specs/description): ${result.map(c => c.name).join(', ')}`);
+    return result;
+  }
+  
+  console.log('  🎨 No colors detected');
+  return [];
+}
+
 // Phrase Override System: Handles edge cases BEFORE keyword matching
 // Supports excludeIf for context-aware matching
 const PHRASE_OVERRIDES = [
