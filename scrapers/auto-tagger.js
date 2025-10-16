@@ -2,7 +2,12 @@ require('dotenv').config();
 const postgres = require('postgres');
 
 const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
-const sql = postgres(connectionString, { ssl: 'require' });
+const sql = postgres(connectionString, {
+  ssl: 'require',
+  max: 10,
+  idle_timeout: 20,
+  connect_timeout: 10
+});
 
 let tagTaxonomy = [];
 let categoryTree = [];
