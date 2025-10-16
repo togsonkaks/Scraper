@@ -271,7 +271,7 @@ function matchTags(text, tagType = null) {
   return matches;
 }
 
-function matchCategories(text, productData = {}, detectedGender = null) {
+function matchCategories(text, productData = {}) {
   if (!text) return [];
   
   const normalizedText = normalizeText(text);
@@ -288,17 +288,8 @@ function matchCategories(text, productData = {}, detectedGender = null) {
     specs: normalizeText(productData.specs || '')
   };
   
-  // Filter categories by gender BEFORE matching (if gender detected)
-  let categoriesToSearch = categoryTree;
-  if (detectedGender) {
-    const genderKeyword = detectedGender === 'boys' || detectedGender === 'girls' ? 'kids' : detectedGender;
-    categoriesToSearch = categoryTree.filter(category => {
-      const fullPath = buildCategoryPath(category.category_id);
-      const pathSegments = fullPath.map(p => p.name.toLowerCase());
-      return pathSegments.includes(genderKeyword);
-    });
-    console.log(`  🔍 Pre-filtered categories: ${categoryTree.length} → ${categoriesToSearch.length} (gender: ${genderKeyword})`);
-  }
+  // Search ALL categories - no gender filtering (weighted scoring handles gendered products naturally)
+  const categoriesToSearch = categoryTree;
   
   // Search for category NAMES in product data with frequency counting
   for (const category of categoriesToSearch) {
@@ -642,7 +633,7 @@ async function autoTag(productData) {
     occasions: allMatchedTags.filter(t => t.type === 'occasions')
   };
   
-  // EARLY gender detection (without category path) - used for filtering categories
+  // EARLY gender detection (without category path) - for product metadata only
   const earlyGenderResult = detectGender(productData, null);
   let gender = earlyGenderResult.gender;
   
@@ -655,11 +646,10 @@ async function autoTag(productData) {
   // STEP 1: Check for phrase overrides FIRST (handles edge cases)
   const phraseOverride = checkPhraseOverrides(productData);
   
-  // Match categories from ALL product data with frequency scoring
-  // Pass detected gender to FILTER categories BEFORE matching (not after)
+  // Match categories from ALL product data with frequency scoring (no gender filtering)
   let matchedCategories = [];
   if (!phraseOverride) {
-    matchedCategories = matchCategories(searchText, productData, gender);
+    matchedCategories = matchCategories(searchText, productData);
     console.log('  📂 Matched categories:', matchedCategories.length, '→', 
       matchedCategories.map(c => `${c.name} (score: ${c.frequencyScore}, lvl ${c.level})`).join(', '));
   } else {
