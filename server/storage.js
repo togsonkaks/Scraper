@@ -1,8 +1,10 @@
 require('dotenv').config();
-const { neon } = require('@neondatabase/serverless');
+const postgres = require('postgres');
 
-const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}?sslmode=require`;
-const sql = neon(connectionString);
+const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
+const sql = postgres(connectionString, {
+  ssl: { rejectUnauthorized: false }
+});
 
 function normalizeBreadcrumbs(breadcrumbs, productTitle = null) {
   if (!breadcrumbs) return [];
