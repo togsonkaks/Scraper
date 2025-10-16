@@ -278,6 +278,14 @@ const CATEGORY_SYNONYMS = {
   'rucksack': 'Bags'
 };
 
+// Department Gender Defaults: Apply ONLY when no gender is detected
+// These are smart defaults based on typical product demographics
+const DEPARTMENT_GENDER_DEFAULTS = {
+  'Tools & Hardware': 'men',
+  'Automotive': 'men',
+  'Beauty & Personal Care': 'women'
+};
+
 function checkPhraseOverrides(productData) {
   // Combine all text for phrase checking
   const allText = [
@@ -364,8 +372,23 @@ function matchCategories(text, productData = {}, detectedGender = null) {
     specs: normalizeText(productData.specs || '')
   };
   
-  // Search ALL categories - no gender filtering (weighted scoring handles gendered products naturally)
-  const categoriesToSearch = categoryTree;
+  // Filter categories by detected gender (simple and direct)
+  let categoriesToSearch = categoryTree;
+  if (detectedGender && detectedGender !== 'unisex') {
+    categoriesToSearch = categoryTree.filter(cat => {
+      const fullPath = buildCategoryPath(cat.category_id);
+      const pathString = fullPath.map(p => p.name).join(' > ').toLowerCase();
+      
+      // Simple rule: if gender='men', ONLY search paths containing 'men'
+      // if gender='women', ONLY search paths containing 'women'
+      // if gender='kids', ONLY search paths containing 'kids' or 'baby'
+      if (detectedGender === 'kids') {
+        return pathString.includes('kids') || pathString.includes('baby');
+      }
+      return pathString.includes(detectedGender.toLowerCase());
+    });
+    console.log(`  🔍 Gender filter: ${detectedGender} → Searching ${categoriesToSearch.length}/${categoryTree.length} categories`);
+  }
   
   // Search for category NAMES in product data with frequency counting
   for (const category of categoriesToSearch) {
@@ -791,6 +814,15 @@ async function autoTag(productData) {
     console.log('  ✨ FINAL PATH:', primaryCategory);
   } else {
     console.log('  ⚠️ NO CATEGORIES MATCHED!');
+  }
+  
+  // Apply department gender defaults if no gender was initially detected
+  if (!gender && primaryCategory) {
+    const department = primaryCategory.split(' > ')[0];
+    if (DEPARTMENT_GENDER_DEFAULTS[department]) {
+      gender = DEPARTMENT_GENDER_DEFAULTS[department];
+      console.log(`  🎯 Department gender default applied: ${department} → ${gender}`);
+    }
   }
   
   // Category-aware tag filtering: Remove nonsense tags based on department
