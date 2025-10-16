@@ -255,6 +255,8 @@ async function updateProductTags(productId, tagResults) {
             `;
             categoryId = newCategory[0].category_id;
           } catch (err) {
+            console.error(`❌ Error creating category "${categoryName}":`, err.message);
+            
             // If llm_discovered column doesn't exist, create without it
             if (err.message && err.message.includes('llm_discovered')) {
               const newCategory = await sql`
@@ -265,12 +267,24 @@ async function updateProductTags(productId, tagResults) {
               categoryId = newCategory[0].category_id;
             } else if (err.message && err.message.includes('duplicate')) {
               // Category already exists at this level - get its ID
+              console.log(`🔍 Duplicate detected for slug "${categorySlug}", parent: ${parentId}`);
               const existing = await sql`
                 SELECT category_id FROM categories
                 WHERE slug = ${categorySlug}
                 ${parentId !== null ? sql`AND parent_id = ${parentId}` : sql`AND parent_id IS NULL`}
               `;
-              categoryId = existing[0].category_id;
+              
+              if (existing.length > 0) {
+                categoryId = existing[0].category_id;
+                console.log(`✅ Found existing category ID: ${categoryId}`);
+              } else {
+                console.error(`❌ STRANGE: Duplicate error but no matching category found!`);
+                console.error(`   Looking for: slug="${categorySlug}", parent_id=${parentId}`);
+                // Try without parent constraint to see what's there
+                const allMatches = await sql`SELECT category_id, slug, parent_id FROM categories WHERE slug = ${categorySlug}`;
+                console.error(`   All categories with this slug:`, allMatches);
+                throw new Error(`Duplicate constraint violated but category not found: ${categorySlug}`);
+              }
             } else {
               throw err;
             }

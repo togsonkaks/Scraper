@@ -1,0 +1,29 @@
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒôí auto-backup env with Radar: https://dotenvx.com/radar
+≡ƒôª Using current AUTO tags from UI: 2 tags: crossbody, canvas
+≡ƒöÇ Merged tags: 2 existing + 6 AI = 7 total
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+≡ƒº╣ Path cleanup: "Fashion > Women > Accessories > Bags > Shoulder Bags" ΓåÆ "Fashion > Women > Accessories > Bags > Shoulder 
+Bags"
+≡ƒôª Creating missing category: "Accessories" (parent: 693)
+Error updating product tags: TypeError: Cannot read properties of undefined (reading 'category_id')
+    at updateProductTags (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:273:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:945:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107)
+Error updating product tags: TypeError: Cannot read properties of undefined (reading 'category_id')
+    at updateProductTags (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:273:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:945:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107)
+Error occurred in handler for 'update-product-tags': TypeError: Cannot read properties of undefined (reading 'category_id')    
+    at updateProductTags (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:273:40)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:945:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107)
