@@ -1,0 +1,244 @@
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+Γ¥î Auto-tagger initialization failed: Error connecting to database: TypeError: fetch failed
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒöì Gender filter: men ΓåÆ Searching 0/0 categories
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  suppress all logs with { quiet: true }
+Error saving raw product: NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error saving raw product: NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error occurred in handler for 'save-raw-product': NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error saving raw product: NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error saving raw product: NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error occurred in handler for 'save-raw-product': NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
