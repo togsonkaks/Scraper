@@ -870,8 +870,13 @@ async function autoTag(productData) {
   
   const confidence = calculateConfidence(tagsByType);
   
-  // Merge colors back into tags array (they were filtered out earlier for separate processing)
-  const allTags = [...tagsByType.colors, ...allMatchedTags];
+  // Merge colors back into tags array (map tag_type → type for consistency)
+  const colorTags = tagsByType.colors.map(c => ({
+    name: c.name,
+    slug: c.slug,
+    type: c.tag_type || c.type || 'colors'
+  }));
+  const allTags = [...colorTags, ...allMatchedTags];
   
   return {
     primaryCategory,
