@@ -233,7 +233,7 @@ async function updateProductTags(productId, tagResults) {
         
         // Find category by slug AND parent_id to ensure correct hierarchy
         let categoryResult = await sql`
-          SELECT category_id FROM categories 
+          SELECT category_id, llm_discovered FROM categories 
           WHERE slug = ${categorySlug}
           ${parentId !== null ? sql`AND parent_id = ${parentId}` : sql`AND parent_id IS NULL`}
         `;
@@ -242,6 +242,17 @@ async function updateProductTags(productId, tagResults) {
         
         if (categoryResult.length > 0) {
           categoryId = categoryResult[0].category_id;
+          
+          // CRITICAL: If this category was created by seed (llm_discovered=0), 
+          // update it to llm_discovered=1 so it survives future seeding
+          if (categoryResult[0].llm_discovered === 0) {
+            await sql`
+              UPDATE categories 
+              SET llm_discovered = 1 
+              WHERE category_id = ${categoryId}
+            `;
+            console.log(`🔄 Updated "${categoryName}" (ID: ${categoryId}) to llm_discovered=1 (preserving from seed deletion)`);
+          }
         } else {
           // Category doesn't exist - CREATE IT with llm_discovered flag (if column exists)
           console.log(`📦 Creating missing category: "${categoryName}" (parent: ${parentId})`);
