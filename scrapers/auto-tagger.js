@@ -885,11 +885,46 @@ async function autoTag(productData) {
   }));
   const allTags = [...colorTags, ...allMatchedTags];
   
+  // ADD GENDER & AGE TAGS (demographic personalization for Pinterest-style recommendations)
+  const demographicTags = [];
+  
+  // 1. GENDER TAG - Always assign (default to "unisex")
+  const genderTag = {
+    name: gender || 'unisex',
+    slug: (gender || 'unisex').toLowerCase().replace(/'/g, ''),
+    type: 'demographic'
+  };
+  demographicTags.push(genderTag);
+  console.log(`  👤 Gender tag added: ${genderTag.name}`);
+  
+  // 2. AGE/KIDS TAG - Only when explicit terms found
+  const searchTextLower = searchText.toLowerCase();
+  const ageKeywords = {
+    kids: /\b(kids|child|children|toddler|boys|girls|youth)\b/i,
+    baby: /\b(baby|infant|newborn|baby boy|baby girl)\b/i,
+    teen: /\b(teen|teenager|adolescent)\b/i
+  };
+  
+  for (const [ageGroup, pattern] of Object.entries(ageKeywords)) {
+    if (pattern.test(searchTextLower)) {
+      demographicTags.push({
+        name: ageGroup,
+        slug: ageGroup,
+        type: 'demographic'
+      });
+      console.log(`  👶 Age tag added: ${ageGroup}`);
+      break; // Only add the first matching age tag
+    }
+  }
+  
+  // Add demographic tags to the final tag list
+  const allTagsWithDemographics = [...allTags, ...demographicTags];
+  
   return {
     primaryCategory,
     categoryPath,
     gender,
-    tags: allTags,
+    tags: allTagsWithDemographics,
     tagsByType,
     matchedCategories,
     confidenceScore: parseFloat(confidence),
