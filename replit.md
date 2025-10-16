@@ -1,125 +1,68 @@
 # Tagglo Electron App
 
 ## Overview
-Tagglo is a desktop Electron application for web scraping e-commerce product data. It features a Control Window for managing operations and a Product Window for viewing target websites. The project focuses on robust, multi-field data extraction (title, price, images, specs, tags, brand, description), persistent selector memory, history tracking, and custom site-specific handlers, specifically optimized for product detail page scraping. It also includes an advanced auto-tagging system with a database-centric taxonomy for product categorization and keyword extraction.
+Tagglo is a desktop Electron application designed for web scraping e-commerce product data. Its primary purpose is multi-field data extraction (title, price, images, specs, tags, brand, description) from product detail pages, featuring persistent selector memory, history tracking, and custom site-specific handlers. A key capability is its advanced auto-tagging system, which utilizes a database-centric taxonomy for intelligent product categorization and keyword extraction. The project aims to provide a robust solution for efficient and accurate e-commerce data acquisition and enrichment.
 
 ## User Preferences
 - Prefers existing project structure and conventions
 - Focus on functionality over documentation
 
 ## System Architecture
-The application is built on the Electron framework, using a main process (`main.js`), a renderer process (`control.html`), and a `preload.js` script for secure IPC. Scraping logic is modularized in a `scrapers` directory with an `orchestrator.js` and specialized modules for data types. The system is configured for deployment on Replit using Node.js, Xvfb, and VNC.
+The application is built on the Electron framework, using a main process, a renderer process, and a preload script for secure IPC. Scraping logic is modularized, with an orchestrator and specialized modules for different data types. The system is configured for deployment on Replit using Node.js, Xvfb, and VNC.
 
 **UI/UX Decisions:**
 - Pinterest-style flow optimized for product detail page scraping.
 - Individual field clear buttons for granular selector management.
 - Mobile preview interface.
-- New blue info panel to display JSON-LD fields below the URL.
+- Blue info panel for displaying JSON-LD fields.
 - Review & Edit UI modal for LLM-suggested tags and categories.
 
 **Technical Implementations & Feature Specifications:**
-- **State Management**: Product ID clearing on new scrape prevents cross-contamination between products (Oct 2025)
+- **State Management**: Prevents cross-contamination of product data during scraping.
 - **Selector Memory**: Persistent, file-based storage of CSS selectors per domain with history and auto-migration.
 - **Core Scraping Systems**:
-    - **Price Detection**: Multi-strategy extraction with custom handlers.
-    - **Title & Brand Extraction**: Utilizes JSON-LD, meta tags, breadcrumbs, and URL patterns.
-    - **Image Discovery & Scoring**: Site-specific selectors, generic fallbacks, scoring algorithm considering size, quality, semantic penalties, lazy-loading support, and dimension-based quality filtering.
-    - **Custom Handlers**: Specialized logic for major retailers (e.g., Amazon, Nike, Adidas) for enhanced extraction and CDN upgrades.
-    - **Filtering Systems**: Multi-stage junk detection, Shopify intelligence, quality thresholds.
-    - **Deduplication**: Canonical URL grouping with score-based selection.
-    - **Description & Specs Extraction**: Intelligent extraction targeting hidden accordion content, fluff filtering, and dedicated specs fields.
-    - **Breadcrumb Processing**: Enhanced cleaning, expanded junk filtering, and position-based scoring; smart word splitting.
-    - **SKU Extraction**: Multi-strategy approach using JSON-LD, meta tags, DOM attributes, and URL parsing, with brand-aware validation.
-- **CDN Upgrade Patterns**: Specific rules for optimizing image quality and dimensions across various CDNs (e.g., Shopify, Urban Outfitters, Temu, IKEA).
+    - Multi-strategy price detection.
+    - Title & brand extraction using JSON-LD, meta tags, breadcrumbs, and URL patterns.
+    - Advanced image discovery, scoring, and lazy-loading support.
+    - Custom handlers for major retailers (e.g., Amazon, Nike, Adidas) for enhanced extraction and CDN upgrades.
+    - Multi-stage junk detection and quality thresholds.
+    - Canonical URL-based deduplication.
+    - Intelligent description and specs extraction, including hidden content and fluff filtering.
+    - Enhanced breadcrumb processing with cleaning, filtering, and scoring.
+    - Multi-strategy SKU extraction with brand-aware validation.
+- **CDN Upgrade Patterns**: Specific rules for optimizing image quality and dimensions across various CDNs.
 - **Auto-Tagging System**:
-    - Database-centric taxonomy with 7-table PostgreSQL architecture (Drizzle ORM) including `products_raw`, `products`, `products_enriched`, `categories`, `tags` (with llm_discovered flag), `product_tags`, and `product_categories`.
-    - Products table stores: title, brand, SKU, price, category, gender, description, tags, specs, images, and confidence scores
-    - **Comprehensive Universal Taxonomy** (346+ categories, 955+ tags) covering 19 major e-commerce verticals:
-        - **Categories**: Tools & Hardware, Automotive, Sports & Outdoors, Kitchen & Dining, Home & Garden, Beauty & Personal Care, Electronics, Pet Supplies, Toys & Games, Office & School, Health & Wellness, Fashion, Baby & Kids, Books & Media, Grocery & Food, Jewelry & Watches, Luggage & Travel, Musical Instruments, Arts & Crafts
-        - **Tags by Type**: features (154), materials (114), colors (116), styles (123), activities (138), fit (57), occasions (65), tool-types (79), automotive (68), kitchen (39), beauty (53)
-        - Hierarchical categories with 4-5 levels (e.g., Tools & Hardware > Power Tools > Saws > Concrete Masonry Saws)
-        - Specialized tags for power tools (cordless, brushless-motor, lithium-ion, masonry), automotive (OEM, aftermarket, performance), kitchen (non-stick, dishwasher-safe), beauty (SPF, cruelty-free), and all major product types
-    - **Auto-tagger engine** (`scrapers/auto-tagger.js`):
-        - **URL Parsing**: Extracts keywords from product URL slug (e.g., "green" from "/jacket-green/") to catch colors/attributes missing from text
-        - **JSON-LD Integration** (Oct 2025): Stringified JSON-LD included in search text to capture category/brand data from structured metadata
-        - **Weighted Search Priority**: 3-tier system - Tier 1 (title, URL, breadcrumbs, JSON-LD) > Tier 2 (specs, brand) > Tier 3 (description)
-        - **Comprehensive Gender Detection** (`detectGender()` unified function):
-            - 50+ exhaustive keywords per gender (women: woman/lady/mom/daughter/bride/femme; men: man/gentleman/dad/son/groom/homme; plus kids/unisex)
-            - **5-tier search priority** with confidence scoring (Oct 2025 - Breadcrumb-First Strategy):
-                - **Tier 0 (highest)**: Breadcrumbs - retailer's own structured categorization, prevents "baby tee" (women's style) being tagged as kids
-                - **Tier 1 (high)**: Title + URL + JSON-LD (stringified for full search) - catches gender in any JSON field
-                - **Tier 2 (medium)**: Specs - structured product metadata
-                - **Tier 3 (low)**: Description - may contain noise
-                - **Tier 4 (fallback)**: Category path extraction (e.g., "Fashion > Women" → women)
-            - **Universal Conflict Detection** (Oct 2025): Each tier checks for multiple genders - if any tier finds 2+ genders (e.g., "Men & Women"), it skips to next tier automatically; fixed regex stateful bug by removing global flag for consistent results
-            - Returns `{ gender, source, confidence }` for full transparency
-            - Used by both auto-tagger (early detection for metadata) and save operation (final with category fallback)
-            - Prevents "men" matching "women" via word-boundary regex
-            - **Context-Aware Detection**: Prioritizes structured retailer data over ambiguous title keywords to solve collision issues
-        - **Category-Aware Tag Filtering**: Blocks nonsense tags based on department (e.g., removes "construction" activity tags from Fashion products)
-        - **Category Matching** (Oct 2025): Searches ALL categories without gender pre-filtering - weighted scoring naturally picks correct gendered/unisex products; searches category NAMES (not paths) in ALL product data (title, description, breadcrumbs, specs, URL, JSON-LD)
-        - **Tag Matching**: Word-boundary regex matching across all product text for 955+ tags
-        - **Smart Color Detection** (Oct 2025): 2-tier priority system prevents grabbing colors from "available in 12 colors" lists:
-            - **Tier 1 (highest)**: Title + URL - most reliable source for actual product colors
-            - **Tier 2 (fallback)**: Specs + Description + JSON-LD - only if Tier 1 finds nothing
-            - **Max 2 colors**: Picks first color, checks if followed by "and"/"," + another color (e.g., "red and blue", "black, white")
-            - Position-based matching ensures colors appear in order they're mentioned
-        - **Comprehensive Plural/Singular Matching** (Oct 2025): All tags and categories automatically match BOTH singular and plural forms using robust variation generator:
-            - Regular plurals: dress/dresses, jacket/jackets
-            - -sses/-xes/-zes: glass/glasses, box/boxes, buzz/buzzes
-            - -ies endings: berry/berries, fly/flies
-            - -ves endings: knife/knives, wolf/wolves
-            - -oes endings: tomato/tomatoes, hero/heroes
-            - Irregular forms: man/men, woman/women, child/children, foot/feet
-            - Applies to ALL 955 tags and 358 categories - no exceptions
-        - When category name found (e.g., "Jeans") → Automatically builds FULL hierarchical path from database ("Fashion > Men > Clothing > Bottoms > Jeans")
-        - Works with OR without breadcrumbs - finds categories anywhere in product data
-        - Achieves 80%+ auto-tag success rate with confidence scoring
+    - Database-centric taxonomy (7-table PostgreSQL architecture with Drizzle ORM) for products, categories, and tags.
+    - Comprehensive Universal Taxonomy (346+ categories, 955+ tags) covering 19 major e-commerce verticals with hierarchical structures.
+    - Auto-tagger engine (`scrapers/auto-tagger.js`):
+        - Keyword extraction from URL slugs and JSON-LD.
+        - Weighted search priority (title, URL, breadcrumbs, JSON-LD > specs, brand > description).
+        - Comprehensive 5-tier gender detection with confidence scoring, conflict detection, and context awareness.
+        - Category-aware and gender-based tag filtering.
+        - Smart color detection with a 2-tier priority system.
+        - Comprehensive plural/singular matching for all tags and categories.
+        - Automatic hierarchical path building for categories.
     - **Smart Tag Classification** (`server/llm-tagger.js: classifyTag()`):
-        - 3-tier classification system for manually-typed tags: DB lookup → taxonomy pattern matching → LLM classification
-        - DB Lookup: Checks if tag exists in database, returns existing type (prevents duplicates)
-        - Pattern Matching: Recognizes materials, colors, fit, styles, activities using regex patterns
-        - LLM Fallback: Uses GPT-4o-mini to classify unknown tags into proper type (materials, colors, fit, styles, features, activities, occasions, tool-types, automotive, kitchen, beauty)
-        - Preserves llm_discovered flag when tag exists in DB
-        - Only marks truly new tags with llm_discovered=1 for custom taxonomy growth
-    - Integrated workflow: Scrape → Auto-Tag → Preview → Save
-    - Optional LLM enhancement for low-confidence products (manual trigger only)
+        - 3-tier system: DB lookup → taxonomy pattern matching → LLM classification for manually-typed tags.
     - **LLM-powered tagging system** using GPT-4o-mini:
-        - Loads complete taxonomy from database (358 categories + 955 tags) and sends as context
-        - Enforces strict rules: Categories END at product type (Jeans, Shoes), fit/style terms (tapered, slim-fit) are TAGS
-        - Returns COMPLETE category paths with ALL parent levels (Fashion > Men > Clothing > Bottoms > Jeans)
-        - Self-learning workflow: LLM suggests new tags → Shows in Review modal → User approves → Saves to database with llm_discovered=1
-        - Validates suggested paths against existing taxonomy before marking as "EXISTING"
-    - **Hierarchical Category Builder** (Oct 2025):
-        - Manual category path editor with cascading dropdowns in LLM Review modal
-        - 5-level dropdown hierarchy: Department > Gender > Section > Category > Type
-        - Loads real-time category relationships from database
-        - Each dropdown shows only valid children of selected parent (prevents invalid paths)
-        - Preview shows full path before adding (e.g., "Fashion > Men > Clothing > Tops > Shirt")
-        - Saved paths automatically create full parent_id chain in database with llm_discovered=1
-        - Triggers refreshTaxonomy() after save so auto-tagger learns immediately
-        - Creates self-learning taxonomy loop: User corrections → Database → Auto-tagger knowledge
-    - **Editable AI-Suggested Paths** (Oct 2025):
-        - AI category suggestions display with individual ❌ delete buttons on each path segment
-        - Users can remove ANY segment (including last one) - deleting final segment removes entire category
-        - Provides full control over AI suggestions before accepting
-        - Deduplication: When AUTO and AI suggest same category, shows only AUTO version (prevents duplicates)
-    - **Inline Category Creation** (Oct 2025):
-        - "+ Add New" buttons in each dropdown level for missing categories
-        - Creates categories with proper parent_id linking, level assignment, and llm_discovered=1 flag
-        - Immediately refreshes taxonomy so auto-tagger learns new categories
-        - Critical database operations: validates parent existence, prevents duplicates, auto-generates slugs
-        - Self-learning loop: User adds missing category → Database → Auto-tagger knowledge → Future products auto-tagged
-    - LLM caching system prevents duplicate API calls for same product URL (saves to AppData/Roaming/Tagglo/llm_cache)
-    - Database operations (`server/storage.js`) include a 3-stage save pipeline with full hierarchy path storage
-    - **Database Seeding**: One-click "🌱 Seed Taxonomy" button in Control Window populates database with complete 358 categories + 955 tags using app's stable database connection (bypasses standalone script connection issues); preserves LLM-discovered tags on re-seed (DELETE WHERE llm_discovered = 0)
-    - **Category Path Uniqueness Fix** (Oct 2025): Fixed seed script to use full ancestral paths (Fashion:Men:Clothing vs Fashion:Women:Clothing) as unique keys to prevent parent_id mismatches; added ON CONFLICT handling in storage.js for graceful duplicate slug management
+        - Utilizes complete taxonomy as context, enforces strict rules for category paths and tags.
+        - Self-learning workflow: LLM suggestions approved by user are saved to database with `llm_discovered=1`.
+    - **Hierarchical Category Builder**:
+        - Manual category path editor with cascading dropdowns in LLM Review modal.
+        - Real-time loading of category relationships to ensure valid paths.
+        - Editable AI-suggested paths with individual delete buttons for segments.
+        - Inline category creation with "+ Add New" buttons for missing categories, updating taxonomy in real-time.
+    - LLM caching system to prevent duplicate API calls.
+    - Database operations (`server/storage.js`) include a 3-stage save pipeline.
+    - **Database Seeding**: One-click "🌱 Seed Taxonomy" button to populate the database with the complete taxonomy, preserving LLM-discovered tags on re-seed.
+    - Category path uniqueness fixed to use full ancestral paths and `ON CONFLICT` handling for duplicate slugs.
+    - Category schema fixed to allow duplicate category names under different parents.
 
 ## External Dependencies
 - **Electron Framework**: Core application framework.
-- **Xvfb**: Virtual display server for headless Electron execution in Replit.
-- **VNC**: For displaying the desktop application output in the Replit environment.
-- **PostgreSQL**: Database for storing product, category, and tag data, utilizing Drizzle ORM.
-- **OpenAI API**: Used for LLM-powered tagging (specifically GPT-4o-mini).
+- **Xvfb**: Virtual display server for headless Electron execution.
+- **VNC**: For displaying desktop application output in the Replit environment.
+- **PostgreSQL**: Database for storing product, category, and tag data (with Drizzle ORM).
+- **OpenAI API**: Used for LLM-powered tagging (GPT-4o-mini).
 - **Third-party CDNs**: Integrated with specific upgrade patterns and handlers for Shopify, Scene7, Mozu, Etsy, IKEA, Alibaba Cloud, LTWEBSTATIC, Swarovski, Cloudinary, Imgix, ImageKit, Fastly.
-- **Gtk3, gsettings-desktop-schemas, glib, dconf**: System dependencies for Electron to run in NixOS.
+- **Gtk3, gsettings-desktop-schemas, glib, dconf**: System dependencies for Electron on NixOS.
