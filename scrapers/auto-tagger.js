@@ -795,7 +795,7 @@ async function autoTag(productData) {
       'kitchen & dining': ['kitchen', 'materials', 'features', 'colors'],
       'home & garden': ['materials', 'features', 'colors', 'styles'],
       'beauty & personal care': ['beauty', 'features', 'occasions'],
-      'electronics': ['features', 'materials'],
+      'electronics': ['features', 'materials', 'colors'],
       'pet supplies': ['materials', 'features'],
       'toys & games': ['features', 'materials', 'occasions'],
       'office & school': ['materials', 'features'],
