@@ -150,7 +150,7 @@ async function updateProductTags(productId, tagResults) {
       UPDATE products
       SET 
         category = ${tagResults.primaryCategory || null},
-        gender = ${tagResults.gender || null},
+        gender = ${null},
         tags = ${tagNames},
         confidence_score = ${tagResults.confidenceScore || 1.0},
         updated_at = NOW()
@@ -381,7 +381,7 @@ async function saveProduct(productData, tagResults) {
           price = ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
           sku = ${productData.sku || null},
           category = ${tagResults.primaryCategory || null},
-          gender = ${tagResults.gender || null},
+          gender = ${null},
           description = ${productData.description || null},
           tags = ${tagNames},
           specs = ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
@@ -432,7 +432,7 @@ async function saveProduct(productData, tagResults) {
           ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
           ${productData.sku || null},
           ${tagResults.primaryCategory || null},
-          ${tagResults.gender || null},
+          ${null},
           ${productData.description || null},
           ${tagNames},
           ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
