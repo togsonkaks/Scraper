@@ -434,7 +434,7 @@
         <!-- Tags Panel -->
         <div>
           <h3 style="color:#9C27B0; margin-bottom:12px;">🏷️ Tags (<span id="tagCount">0</span>)</h3>
-          <div id="tagList" style="background:#f9f9f9; padding:16px; border-radius:8px; max-height:600px; overflow-y:auto; font-size:12px;">
+          <div id="taxonomyTagList" style="background:#f9f9f9; padding:16px; border-radius:8px; max-height:600px; overflow-y:auto; font-size:12px;">
             Loading...
           </div>
         </div>
@@ -1161,7 +1161,7 @@
       try {
         const modal = document.getElementById('taxonomyModal');
         const categoryTree = document.getElementById('categoryTree');
-        const tagListEl = document.getElementById('tagList');
+        const tagListEl = document.getElementById('taxonomyTagList');
         const categoryCount = document.getElementById('categoryCount');
         const tagCount = document.getElementById('tagCount');
         
