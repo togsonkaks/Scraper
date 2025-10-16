@@ -506,7 +506,8 @@ async function seedCategories() {
       const result = await sql`
         INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
         VALUES (${cat.name}, ${slug}, ${parentId}, ${cat.level}, 0)
-        ON CONFLICT (parent_id, slug) DO NOTHING
+        ON CONFLICT (parent_id, slug) DO UPDATE 
+        SET name = EXCLUDED.name
         RETURNING category_id
       `;
       
