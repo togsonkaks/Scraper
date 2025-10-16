@@ -377,15 +377,14 @@ function matchCategories(text, productData = {}, detectedGender = null) {
   if (detectedGender && detectedGender !== 'unisex') {
     categoriesToSearch = categoryTree.filter(cat => {
       const fullPath = buildCategoryPath(cat.category_id);
-      const pathString = fullPath.map(p => p.name).join(' > ').toLowerCase();
+      const pathParts = fullPath.map(p => p.name.toLowerCase());
       
-      // Simple rule: if gender='men', ONLY search paths containing 'men'
-      // if gender='women', ONLY search paths containing 'women'
-      // if gender='kids', ONLY search paths containing 'kids' or 'baby'
+      // Use exact word matching to prevent "women" matching when looking for "men"
+      // Check if ANY part of the path matches the gender exactly
       if (detectedGender === 'kids') {
-        return pathString.includes('kids') || pathString.includes('baby');
+        return pathParts.some(part => part === 'kids' || part === 'baby' || part.includes('baby'));
       }
-      return pathString.includes(detectedGender.toLowerCase());
+      return pathParts.some(part => part === detectedGender.toLowerCase());
     });
     console.log(`  🔍 Gender filter: ${detectedGender} → Searching ${categoriesToSearch.length}/${categoryTree.length} categories`);
   }
