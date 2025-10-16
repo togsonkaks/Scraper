@@ -1,0 +1,24 @@
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ≡ƒöÉ prevent building .env in docker: https://dotenvx.com/prebuild
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T06-06-08_bestbuy.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒ¢á∩╕Å  run anywhere with `dotenvx run -- yourcommand`
+Γ£à Auto-tagger initialized: 1032 tags, 402 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (2 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Beats - Studio Pro - Wireless Noise Cancelling Over-the-Ear Headphones - Deep Br
+  ≡ƒöù URL keywords: product beats studio pro wireless noise cancelling over the ear headphones deep
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Best Buy > All Headphones
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org/","@type":"Product","name":"Beats - Studio Pro - Wireless Noise Cancelling Over-the-Ear Headphones - Deep Brown","image...
+  ≡ƒôä Description: Shop Beats Studio Pro Wireless Noise Cancelling Over the Ear Headphones Deep Brown products at Best        
+  ≡ƒöñ Search text length: 15669 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 33 ΓåÆ construction, dance, everyday, gym, travel, walking, weightlifting, battery, pickup, adjustable, bluetooth, comfortable, connected, cushioned, customizable, durable, foldable, noise-cancelling, performance, premium, rechargeable, soft, usb, waterproof, wireless, down, day, meeting, work, high-end, stylish, track, value
+  ≡ƒæñ Gender (early): unisex [title/url/json-ld, high]
+  ≡ƒôé Matched categories: 16 ΓåÆ Bags (score: 200, lvl 3), Battery (score: 200, lvl 3), Tops (score: 200, lvl 3), Tops (score: 200, lvl 3), Watches (score: 200, lvl 3), Wireless Headphone (score: 200, lvl 3), Headphone (score: 165, lvl 2), Accessories (score: 150, lvl 2), Accessories (score: 150, lvl 2), Backpack (score: 150, lvl 2), Candy (score: 150, lvl 2), Laptop (score: 150, lvl 2), Lighting (score: 150, lvl 2), Audio (score: 100, lvl 1), Music (score: 100, lvl 1), Watch (score: 100, lvl 1)       
+  ≡ƒÄ» Best category match: Bags (score: 200, lvl 3, id: 293)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":0,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Men > Accessories > Bags
+  ≡ƒÜ½ Filtered 25 tags for department: fashion
+  ≡ƒæñ Gender (final): unisex [title/url/json-ld, high]
