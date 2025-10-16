@@ -1239,6 +1239,9 @@
         
         const result = await window.api.llmTagProduct(productDataWithAutoTags);
         
+        console.log('🔍 LLM Response received:', result);
+        console.log('🆕 newTagsToLearn in response:', result.newTagsToLearn?.length || 0, 'tags');
+        
         currentLLMTags = result;
         showLLMReviewModal(result);
         
