@@ -1829,16 +1829,40 @@
         
         console.log('📁 Using category:', selectedCategory.path, '(source:', selectedCategory.source + ')');
         
+        // MERGE AUTO tags + AI tags (preserve all tags)
+        const autoTags = (window.currentAutoTagResult?.tags || []).map(t => ({
+          name: typeof t === 'string' ? t : t.name,
+          slug: generateSlug(typeof t === 'string' ? t : t.name),
+          type: (typeof t === 'object' && t.type) ? t.type : 'features',
+          source: 'AUTO'
+        }));
+        
+        const aiTags = (currentLLMTags.tags || currentLLMTags.keywords.map(kw => ({ 
+          name: typeof kw === 'string' ? kw : kw.name,
+          slug: generateSlug(typeof kw === 'string' ? kw : kw.name),
+          type: (typeof kw === 'object' && kw.type) ? kw.type : 'features'
+        }))).map(t => ({...t, source: 'AI'}));
+        
+        // Deduplicate by slug (keep AUTO version if duplicate)
+        const allTagsMap = new Map();
+        for (const tag of [...autoTags, ...aiTags]) {
+          if (!allTagsMap.has(tag.slug)) {
+            allTagsMap.set(tag.slug, tag);
+          }
+        }
+        const mergedTags = Array.from(allTagsMap.values());
+        
+        console.log(`🔀 MERGED TAGS: ${autoTags.length} AUTO + ${aiTags.length} AI = ${mergedTags.length} total`);
+        console.log('  AUTO:', autoTags.map(t => t.name).join(', '));
+        console.log('  AI:', aiTags.map(t => t.name).join(', '));
+        console.log('  FINAL:', mergedTags.map(t => t.name).join(', '));
+        
         // Format tags for database with proper types from LLM
         const tagResults = {
           primaryCategory: selectedCategory.path,  // Full hierarchy path
           categories: categorySegments,
           allCategories: categorySegments.map(cat => generateSlug(cat)),
-          tags: currentLLMTags.tags || currentLLMTags.keywords.map(kw => ({ 
-            name: kw, 
-            slug: generateSlug(kw),
-            type: 'features'  // Fallback to features if tags array not available
-          })),
+          tags: mergedTags,
           confidenceScore: currentLLMTags.confidence || 1.0,
           needsLLMEnrichment: false,
           gender: categorySegments.find(c => ['men', 'women', 'unisex', 'kids'].includes(c.toLowerCase())) || null,
