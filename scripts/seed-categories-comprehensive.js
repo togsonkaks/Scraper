@@ -445,11 +445,25 @@ async function seedCategories() {
   try {
     console.log('🚀 Starting comprehensive category seed...\n');
 
-    // Clear existing categories
-    console.log('🗑️  Clearing existing categories...');
-    await sql`DELETE FROM product_categories`;
-    await sql`DELETE FROM categories`;
-    console.log('✅ Cleared existing categories\n');
+    // Clear existing seed categories (preserve LLM-discovered ones)
+    console.log('🗑️  Clearing built-in seed categories (preserving LLM-discovered)...');
+    
+    // Get count of LLM-discovered categories before cleanup
+    const llmCount = await sql`SELECT COUNT(*) FROM categories WHERE llm_discovered = 1`;
+    console.log(`   📌 Preserving ${llmCount[0].count} LLM-discovered categories`);
+    
+    // Only delete product_categories for seed categories (llm_discovered = 0 or NULL)
+    await sql`
+      DELETE FROM product_categories 
+      WHERE category_id IN (
+        SELECT category_id FROM categories 
+        WHERE llm_discovered = 0 OR llm_discovered IS NULL
+      )
+    `;
+    
+    // Only delete seed categories (preserve LLM-discovered)
+    await sql`DELETE FROM categories WHERE llm_discovered = 0 OR llm_discovered IS NULL`;
+    console.log('✅ Cleared seed categories (LLM-discovered categories preserved)\n');
 
     // Build parent map tracking full ancestral path for context
     const categoryIdMap = {};
@@ -487,13 +501,16 @@ async function seedCategories() {
       }
       
       const result = await sql`
-        INSERT INTO categories (name, slug, parent_id, level)
-        VALUES (${cat.name}, ${slug}, ${parentId}, ${cat.level})
+        INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
+        VALUES (${cat.name}, ${slug}, ${parentId}, ${cat.level}, 0)
+        ON CONFLICT (slug) DO UPDATE SET slug = categories.slug
         RETURNING category_id
       `;
       
       // Store with full path as key so "Fashion:Men:Clothing" and "Fashion:Women:Clothing" are separate
-      categoryIdMap[fullPath] = result[0].category_id;
+      if (result && result[0]) {
+        categoryIdMap[fullPath] = result[0].category_id;
+      }
     }
 
     // Count by department
