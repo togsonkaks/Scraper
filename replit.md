@@ -3,6 +3,9 @@
 ## Overview
 Tagglo is a desktop Electron application designed for web scraping e-commerce product data. Its primary purpose is multi-field data extraction (title, price, images, specs, tags, brand, description) from product detail pages, featuring persistent selector memory, history tracking, and custom site-specific handlers. A key capability is its advanced auto-tagging system, which utilizes a database-centric taxonomy for intelligent product categorization and keyword extraction. The project aims to provide a robust solution for efficient and accurate e-commerce data acquisition and enrichment.
 
+## Recent Changes (October 16, 2025)
+- **Gender Field Removal**: Completely removed gender as a separate field from UI display and database schema. Gender now exists ONLY as demographic tags (women's, men's, unisex, kids, baby, teen) for Pinterest-style personalization. This aligns with the universal category architecture where categories are gender-neutral.
+
 ## User Preferences
 - Prefers existing project structure and conventions
 - Focus on functionality over documentation
@@ -34,7 +37,8 @@ The application is built on the Electron framework, using a main process, a rend
 - **Auto-Tagging System** (Pinterest-style Personalization Architecture):
     - Database-centric taxonomy (7-table PostgreSQL architecture with Drizzle ORM) for products, categories, and tags.
     - **Universal Category System**: Categories are completely gender-neutral (e.g., "Fashion > Accessories > Bags > Shoulder Bags", "Fashion > Clothing > Dresses") for clean browsing.
-    - **Demographic Tags for Personalization**: Gender (women's, men's, unisex, lady, ladies) and age (kids, baby, teen) stored exclusively as tags, not in category structure.
+    - **Demographic Tags for Personalization**: Gender (women's, men's, unisex, lady, ladies) and age (kids, baby, teen) stored exclusively as tags, not in category structure or UI display.
+    - **Gender Architecture**: Gender completely removed from products.gender database column and UI preview display. Gender detection still occurs but outputs directly to tags array only.
     - Auto-tagger engine (`scrapers/auto-tagger.js`):
         - Keyword extraction from URL slugs and JSON-LD.
         - Weighted search priority (title, URL, breadcrumbs, JSON-LD > specs, brand > description).
