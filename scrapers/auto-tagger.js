@@ -472,7 +472,6 @@ function matchCategories(text, productData = {}, detectedGender = null) {
           frequencyScore: finalScore,
           rawFrequency: frequencyScore,
           depthBonus: depthBonus,
-          genderBonus: genderBonus,
           matchDetails: { breadcrumbMatches, titleMatches, urlMatches, descriptionMatches, specsMatches }
         });
       }
