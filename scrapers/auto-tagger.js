@@ -853,22 +853,31 @@ async function autoTag(productData) {
   }
   
   // FINAL gender detection with category path fallback (Tier 4)
-  const finalGenderResult = detectGender(productData, primaryCategory);
-  gender = finalGenderResult.gender;
-  
-  if (gender) {
-    console.log(`  👤 Gender (final): ${gender} [${finalGenderResult.source}, ${finalGenderResult.confidence}]`);
+  // EXCEPTION: Electronics products are unisex unless explicitly gendered
+  if (primaryCategory && primaryCategory.toLowerCase().startsWith('electronics')) {
+    gender = 'unisex';
+    console.log(`  👤 Gender (final): unisex [electronics-default, forced]`);
   } else {
-    console.log('  👤 Gender (final): not detected');
+    const finalGenderResult = detectGender(productData, primaryCategory);
+    gender = finalGenderResult.gender;
+    
+    if (gender) {
+      console.log(`  👤 Gender (final): ${gender} [${finalGenderResult.source}, ${finalGenderResult.confidence}]`);
+    } else {
+      console.log('  👤 Gender (final): not detected');
+    }
   }
   
   const confidence = calculateConfidence(tagsByType);
+  
+  // Merge colors back into tags array (they were filtered out earlier for separate processing)
+  const allTags = [...tagsByType.colors, ...allMatchedTags];
   
   return {
     primaryCategory,
     categoryPath,
     gender,
-    tags: allMatchedTags,
+    tags: allTags,
     tagsByType,
     matchedCategories,
     confidenceScore: parseFloat(confidence),
