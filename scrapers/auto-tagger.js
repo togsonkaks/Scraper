@@ -459,24 +459,27 @@ function matchCategories(text, productData = {}) {
       frequencyScore = (urlMatches * 6) + (titleMatches * 4) + (breadcrumbMatches * 3) + 
                        (specsMatches * 2) + (descriptionMatches * 2);
       
-      // DEPTH BONUS: Add +50 points per level to heavily favor specific categories over generic parents
-      // This ensures "Fashion > Men > Clothing > Jacket" beats "Fashion > Men"
-      const depthBonus = fullPath.length * 50;
-      const finalScore = frequencyScore + depthBonus;
-      
-      matches.push({
-        id: category.category_id,
-        name: category.name,
-        slug: category.slug,
-        parent_id: category.parent_id,
-        level: category.level,
-        matchedPath: fullPath.map(p => p.name).join(' > ').toLowerCase(),
-        pathDepth: fullPath.length,
-        frequencyScore: finalScore,
-        rawFrequency: frequencyScore,
-        depthBonus: depthBonus,
-        matchDetails: { breadcrumbMatches, titleMatches, urlMatches, descriptionMatches, specsMatches }
-      });
+      // ONLY add to results if there are actual keyword matches (skip depth-only matches)
+      if (frequencyScore > 0) {
+        // DEPTH BONUS: Add +50 points per level to heavily favor specific categories over generic parents
+        // This ensures "Fashion > Men > Clothing > Jacket" beats "Fashion > Men"
+        const depthBonus = fullPath.length * 50;
+        const finalScore = frequencyScore + depthBonus;
+        
+        matches.push({
+          id: category.category_id,
+          name: category.name,
+          slug: category.slug,
+          parent_id: category.parent_id,
+          level: category.level,
+          matchedPath: fullPath.map(p => p.name).join(' > ').toLowerCase(),
+          pathDepth: fullPath.length,
+          frequencyScore: finalScore,
+          rawFrequency: frequencyScore,
+          depthBonus: depthBonus,
+          matchDetails: { breadcrumbMatches, titleMatches, urlMatches, descriptionMatches, specsMatches }
+        });
+      }
     }
   }
   
