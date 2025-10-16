@@ -2,7 +2,9 @@ require('dotenv').config();
 const postgres = require('postgres');
 
 const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
-const sql = postgres(connectionString, { ssl: 'require' });
+const sql = postgres(connectionString, {
+  ssl: process.env.PGHOST === 'localhost' ? false : 'require'
+});
 
 function normalizeBreadcrumbs(breadcrumbs, productTitle = null) {
   if (!breadcrumbs) return [];
