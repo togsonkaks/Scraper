@@ -1,0 +1,981 @@
+  ≡ƒæû Has "Jeans" category: true (2 instances)
+Γ£à Auto-tagger taxonomy refreshed - new categories available for next scrape
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-28-12_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 2 ΓåÆ polyester, wool
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒöì Gender filter: men ΓåÆ Searching 25/398 categories
+  ≡ƒôé Matched categories: 4 ΓåÆ Jacket (score: 763, lvl 4), Shirt (score: 763, lvl 4), Clothing (score: 653, lvl 2), Men (score: 603, lvl 1)
+  ≡ƒÄ» Best category match: Jacket (score: 763, lvl 4, id: 282)
+    Match details: {"breadcrumbMatches":1,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Men > Clothing > Outerwear > Jacket
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-28-26_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag
+  ≡ƒöù URL keywords: teri shoulder bag CV938
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV938
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSpazzolato leatherFabric
+  ≡ƒöñ Search text length: 336 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 1 ΓåÆ crossbody
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/398 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 315)
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-28-33_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag
+  ≡ƒöù URL keywords: teri shoulder bag CV938
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV938
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSpazzolato leatherFabric
+  ≡ƒöñ Search text length: 336 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 1 ΓåÆ crossbody
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/398 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 315)
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-28-36_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag
+  ≡ƒöù URL keywords: teri shoulder bag CV938
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV938
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSpazzolato leatherFabric
+  ≡ƒöñ Search text length: 336 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 1 ΓåÆ crossbody
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/398 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 315)
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-28-42_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag
+  ≡ƒöù URL keywords: teri shoulder bag CV938
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV938
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSpazzolato leatherFabric
+  ≡ƒöñ Search text length: 336 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 1 ΓåÆ crossbody
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/398 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 315)
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+≡ƒôª Using current AUTO tags from UI: 1 tags: crossbody
+≡ƒÆí LLM suggested 1 new tags (not saved yet): spazzolato leather
+≡ƒöÇ Merged tags: 1 existing + 6 AI = 6 total
+≡ƒöì DEBUG: Received newTagsToLearn array with 1 items
+≡ƒÆ╛ Inserting 1 new tags to database...
+  ΓåÆ Inserting: spazzolato leather (materials, llm_discovered=1)
+Γ£¿ Saved 1 new LLM tags: spazzolato leather
+Γ£à Auto-tagger initialized: 1042 tags, 398 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (2 instances)
+Γ£à Auto-tagger taxonomy refreshed - new tags available for next scrape
+≡ƒº╣ Path cleanup: "Fashion > Women > Accessories > Bags > Shoulder Bags" ΓåÆ "Fashion > Women > Accessories > Bags > Shoulder 
+Bags"
+≡ƒôª Creating missing category: "Accessories" (parent: 294)
+Γ£à Created category ID 290: Accessories
+≡ƒöä Refreshing auto-tagger taxonomy with new categories...
+Γ£à Auto-tagger initialized: 1042 tags, 398 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (2 instances)
+Γ£à Auto-tagger taxonomy refreshed - new categories available for next scrape
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-29-19_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag
+  ≡ƒöù URL keywords: teri shoulder bag CV938
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV938
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSpazzolato leatherFabric
+  ≡ƒöñ Search text length: 336 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 1 ΓåÆ crossbody
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/398 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 315)
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-29-20_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag
+  ≡ƒöù URL keywords: teri shoulder bag CV938
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV938
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSpazzolato leatherFabric
+  ≡ƒöñ Search text length: 336 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 1 ΓåÆ crossbody
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/398 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 315)
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+≡ƒôª Using current AUTO tags from UI: 1 tags: crossbody
+≡ƒÆí LLM suggested 1 new tags (not saved yet): shoulder bag
+≡ƒöÇ Merged tags: 1 existing + 6 AI = 6 total
+≡ƒôª Using current AUTO tags from UI: 1 tags: crossbody
+≡ƒöÇ Merged tags: 1 existing + 6 AI = 7 total
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+≡ƒº╣ Path cleanup: "Fashion > Women > Accessories > Bags > Shoulder Bags" ΓåÆ "Fashion > Women > Accessories > Bags > Shoulder 
+Bags"
+≡ƒôª Creating missing category: "Accessories" (parent: 294)
+Γ£à Created category ID 290: Accessories
+≡ƒöä Refreshing auto-tagger taxonomy with new categories...
+Γ£à Auto-tagger initialized: 1042 tags, 398 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (2 instances)
+Γ£à Auto-tagger taxonomy refreshed - new categories available for next scrape
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-31-04_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag
+  ≡ƒöù URL keywords: teri shoulder bag CV938
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV938
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSpazzolato leatherFabric
+  ≡ƒöñ Search text length: 336 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 1 ΓåÆ crossbody
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/398 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 315)
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T15-42-56_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag
+  ≡ƒöù URL keywords: teri shoulder bag CV938
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV938
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSpazzolato leatherFabric
+  ≡ƒöñ Search text length: 336 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 1 ΓåÆ crossbody
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/398 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 315)
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> git pull origin main
+remote: Enumerating objects: 25, done.
+remote: Counting objects: 100% (25/25), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 18 (delta 14), reused 18 (delta 14), pack-reused 0 (from 0)
+Unpacking objects: 100% (18/18), 74.39 KiB | 501.00 KiB/s, done.
+From https://github.com/togsonkaks/Scraper   
+ * branch            main       -> FETCH_HEAD
+   e0209c4..b49ab9f  main       -> origin/main
+Updating e0209c4..b49ab9f
+Created autostash: 783231f
+Fast-forward
+ attached_assets/1bb_1760628683950.JPG  | Bin 0 -> 82154 bytes
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm run electron 
+
+> tagglo-electron@1.0.0 electron
+> electron .
+
+
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ΓÜÖ∩╕Å  specify custom .env file path with { path: '/custom/path/.env' }
+Clearing old localStorage memory data...
+No old localStorage data found
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ encrypt with Dotenvx: https://dotenvx.com
+≡ƒî▒ Starting full taxonomy seed...
+≡ƒùæ∩╕Å  Clearing existing taxonomy (preserving LLM discoveries)...
+Γ¥î Error seeding taxonomy: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at seedFullTaxonomy (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:683:14) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-05-07_coachoutlet.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  override existing env vars with { override: true }
+Γ¥î Auto-tagger initialization failed: read ECONNRESET
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒöì Gender filter: men ΓåÆ Searching 0/0 categories
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-05-11_coachoutlet.com.txt
+Γ¥î Auto-tagger initialization failed: read ECONNRESET
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒöì Gender filter: men ΓåÆ Searching 0/0 categories
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-05-39_coachoutlet.com.txt
+Γ¥î Auto-tagger initialization failed: read ECONNRESET
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag In Signature Canvas
+  ≡ƒöù URL keywords: teri shoulder bag in signature canvas CV933
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV933
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSignature coated canvasFa
+  ≡ƒöñ Search text length: 381 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 0/0 categories
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+[5364:1016/110553.295:ERROR:net\socket\ssl_client_socket_impl.cc:915] handshake failed; returned -1, SSL error code 1, net_error -101
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> C:\Users\Admin\Desktop\PostHog\MVP_Electron\node_modules\electron\dist\electron.exe exited with signal SIGINT
+                                                git pull origin main
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 8 (delta 6), reused 8 (delta 6), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 1.34 KiB | 47.00 KiB/s, done.
+From https://github.com/togsonkaks/Scraper
+ * branch            main       -> FETCH_HEAD
+Updating b49ab9f..f27c210
+Created autostash: 2c079b6
+Fast-forward
+ scrapers/auto-tagger.js | 7 ++++++-
+ server/storage.js       | 7 ++++++-
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+Applied autostash.
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm run electron
+
+> tagglo-electron@1.0.0 electron
+> electron .
+
+
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ΓÜÖ∩╕Å  suppress all logs with { quiet: true }
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-09-11_coachoutlet.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  specify custom .env file path with { path: '/custom/path/.env' }
+Γ¥î Auto-tagger initialization failed: read ECONNRESET
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> C:\Users\Admin\Desktop\PostHog\MVP_Electron\node_modules\electron\dist\electron.exe exited with signal SIGINT
+                                                ^C
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> git pull origin main
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 7 (delta 5), reused 7 (delta 5), pack-reused 0 (from 0)
+Unpacking objects: 100% (7/7), 975 bytes | 24.00 KiB/s, done.
+From https://github.com/togsonkaks/Scraper
+ * branch            main       -> FETCH_HEAD
+Updating f27c210..4839cf3
+Created autostash: b701401
+Fast-forward
+ scrapers/auto-tagger.js | 9 ++-------
+ server/storage.js       | 9 ++-------
+ 2 files changed, 4 insertions(+), 14 deletions(-)
+Applied autostash.
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm run electron
+
+> tagglo-electron@1.0.0 electron
+> electron .
+
+
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ≡ƒôí auto-backup env with Radar: https://dotenvx.com/radar
+Clearing old localStorage memory data...
+No old localStorage data found
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  specify custom .env file path with { path: '/custom/path/.env' }
+≡ƒî▒ Starting full taxonomy seed...
+≡ƒùæ∩╕Å  Clearing existing taxonomy (preserving LLM discoveries)...
+Γ¥î Error seeding taxonomy: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at seedFullTaxonomy (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:683:14) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+≡ƒî▒ Starting full taxonomy seed...
+≡ƒùæ∩╕Å  Clearing existing taxonomy (preserving LLM discoveries)...
+Γ¥î Error seeding taxonomy: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at seedFullTaxonomy (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:683:14) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-15-19_coachoutlet.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒôí observe env with Radar: https://dotenvx.com/radar
+Γ¥î Auto-tagger initialization failed: read ECONNRESET
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒöì Gender filter: men ΓåÆ Searching 0/0 categories
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
+Error saving raw product: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:32) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Error saving raw product: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:32) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Error occurred in handler for 'save-raw-product': Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:32) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> C:\Users\Admin\Desktop\PostHog\MVP_Electron\node_modules\electron\dist\electron.exe exited with signal SIGINT
+                                                git pull origin main
+remote: Enumerating objects: 27, done.
+remote: Counting objects: 100% (27/27), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 17 (delta 14), reused 17 (delta 14), pack-reused 0 (from 0)
+Unpacking objects: 100% (17/17), 3.51 KiB | 31.00 KiB/s, done.
+From https://github.com/togsonkaks/Scraper
+ * branch            main       -> FETCH_HEAD
+   4839cf3..392f17c  main       -> origin/main
+Updating 4839cf3..392f17c
+Created autostash: e9eac0d
+Fast-forward
+ .replit                                            |  4 ++
+ ...nternal-stream--1760631342544_1760631342544.txt | 44 ++++++++++++++++++++++
+ package-lock.json                                  | 27 ++++++++++++-
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm run electron
+
+> tagglo-electron@1.0.0 electron
+> electron .
+
+
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-21-39_coachoutlet.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+Error auto-tagging product: Error: Cannot find module '@neondatabase/serverless'
+Require stack:
+- C:\Users\Admin\Desktop\PostHog\mvp_electron\scrapers\auto-tagger.js
+- C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1390:15)
+    at s._resolveFilename (node:electron/js2c/browser_init:2:130206)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1032:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1037:22)
+    at Module._load (node:internal/modules/cjs/loader:1199:37)
+    at c._load (node:electron/js2c/node_init:2:17993)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.require (node:internal/modules/cjs/loader:1470:12)
+    at require (node:internal/modules/helpers:147:16) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Admin\\Desktop\\PostHog\\mvp_electron\\scrapers\\auto-tagger.js',
+    'C:\\Users\\Admin\\Desktop\\PostHog\\mvp_electron\\main.js'
+  ]
+}
+Error occurred in handler for 'auto-tag-product': Error: Cannot find module '@neondatabase/serverless'
+Require stack:
+- C:\Users\Admin\Desktop\PostHog\mvp_electron\scrapers\auto-tagger.js
+- C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1390:15)
+    at s._resolveFilename (node:electron/js2c/browser_init:2:130206)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1032:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1037:22)
+    at Module._load (node:internal/modules/cjs/loader:1199:37)
+    at c._load (node:electron/js2c/node_init:2:17993)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.require (node:internal/modules/cjs/loader:1470:12)
+    at require (node:internal/modules/helpers:147:16) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Admin\\Desktop\\PostHog\\mvp_electron\\scrapers\\auto-tagger.js',
+    'C:\\Users\\Admin\\Desktop\\PostHog\\mvp_electron\\main.js'
+  ]
+}
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  write to custom object with { processEnv: myObject }
+Error saving raw product: Error: Cannot find module '@neondatabase/serverless'
+Require stack:
+- C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js
+- C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1390:15)
+    at s._resolveFilename (node:electron/js2c/browser_init:2:130206)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1032:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1037:22)
+    at Module._load (node:internal/modules/cjs/loader:1199:37)
+    at c._load (node:electron/js2c/node_init:2:17993)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.require (node:internal/modules/cjs/loader:1470:12)
+    at require (node:internal/modules/helpers:147:16) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Admin\\Desktop\\PostHog\\mvp_electron\\server\\storage.js',
+    'C:\\Users\\Admin\\Desktop\\PostHog\\mvp_electron\\main.js'
+  ]
+}
+Error occurred in handler for 'save-raw-product': Error: Cannot find module '@neondatabase/serverless'
+Require stack:
+- C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js
+- C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1390:15)
+    at s._resolveFilename (node:electron/js2c/browser_init:2:130206)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1032:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1037:22)
+    at Module._load (node:internal/modules/cjs/loader:1199:37)
+    at c._load (node:electron/js2c/node_init:2:17993)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+    at Module.require (node:internal/modules/cjs/loader:1470:12)
+    at require (node:internal/modules/helpers:147:16) {
+  requireStack: [
+    'C:\\Users\\Admin\\Desktop\\PostHog\\mvp_electron\\server\\storage.js',
+    'C:\\Users\\Admin\\Desktop\\PostHog\\mvp_electron\\main.js'
+  ]
+}
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> C:\Users\Admin\Desktop\PostHog\MVP_Electron\node_modules\electron\dist\electron.exe exited with signal SIGINT
+                                                npm install @neondatabase/serverless
+
+added 2 packages, and audited 110 packages in 6s
+
+22 packages are looking for funding
+
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm audit fix --force
+npm warn using --force Recommended protections disabled.
+npm warn audit Updating drizzle-kit to 0.18.1, which is a SemVer major change.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+
+added 36 packages, removed 10 packages, changed 1 package, and audited 136 packages in 6s
+
+24 packages are looking for funding
+  run `npm fund` for details
+
+# npm audit report
+
+esbuild  <=0.24.2
+Severity: moderate
+esbuild enables any website to send any requests to the development server and read the response - https://github.com/advisories/GHSA-67mh-4wv8-2f99
+fix available via `npm audit fix --force`
+Will install drizzle-kit@0.31.5, which is a breaking change
+node_modules/drizzle-kit/node_modules/esbuild
+  Depends on vulnerable versions of esbuild
+  node_modules/drizzle-kit
+
+2 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm audit fix --force
+npm warn using --force Recommended protections disabled.
+npm warn audit Updating drizzle-kit to 0.31.5, which is a SemVer major change.
+npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+
+added 10 packages, removed 36 packages, changed 1 package, and audited 110 packages in 4s
+
+22 packages are looking for funding
+  run `npm fund` for details
+
+# npm audit report
+
+esbuild  <=0.24.2
+Severity: moderate
+esbuild enables any website to send any requests to the development server and read the response - https://github.com/advisories/GHSA-67mh-4wv8-2f99
+fix available via `npm audit fix --force`
+Will install drizzle-kit@0.18.1, which is a breaking change
+node_modules/@esbuild-kit/core-utils/node_modules/esbuild
+  @esbuild-kit/core-utils  *
+  Depends on vulnerable versions of esbuild
+  node_modules/@esbuild-kit/core-utils
+    @esbuild-kit/esm-loader  *
+    Depends on vulnerable versions of @esbuild-kit/core-utils
+    node_modules/@esbuild-kit/esm-loader
+      Depends on vulnerable versions of @esbuild-kit/esm-loader
+      node_modules/drizzle-kit
+
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm run electron
+
+> tagglo-electron@1.0.0 electron
+> electron .
+
+
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-25-26_coachoutlet.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+Γ¥î Auto-tagger initialization failed: Error connecting to database: TypeError: fetch failed
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒöì Gender filter: men ΓåÆ Searching 0/0 categories
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  suppress all logs with { quiet: true }
+Error saving raw product: NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error saving raw product: NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error occurred in handler for 'save-raw-product': NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error saving raw product: NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error saving raw product: NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+        at afterConnectMultiple (node:net:1715:7) {
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+Error occurred in handler for 'save-raw-product': NeonDbError: Error connecting to database: TypeError: fetch failed
+    at mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:95)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+    at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+    at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+  severity: undefined,
+  code: undefined,
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined,
+  sourceError: TypeError: fetch failed
+      at node:internal/deps/undici/undici:13510:13
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async mr.execute (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\@neondatabase\serverless\index.js:1294:4)  
+      at async saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:81:23)
+      at async C:\Users\Admin\Desktop\PostHog\mvp_electron\main.js:934:12
+      at async Session.<anonymous> (node:electron/js2c/browser_init:2:107107) {
+    [cause]: AggregateError [ECONNREFUSED]:
+        at internalConnectMultiple (node:net:1134:18)
+      code: 'ECONNREFUSED',
+      [errors]: [Array]
+    }
+  }
+}
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> C:\Users\Admin\Desktop\PostHog\MVP_Electron\node_modules\electron\dist\electron.exe exited with signal SIGINT
+                                                git pull origin main
+remote: Enumerating objects: 21, done.
+remote: Counting objects: 100% (21/21), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 13 (delta 10), reused 12 (delta 9), pack-reused 0 (from 0)
+Unpacking objects: 100% (13/13), 3.00 KiB | 87.00 KiB/s, done.
+From https://github.com/togsonkaks/Scraper
+ * branch            main       -> FETCH_HEAD
+   392f17c..73859e6  main       -> origin/main
+Updating 392f17c..73859e6
+Created autostash: e34bf6b
+Fast-forward
+ .replit                                            |   4 -
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm run electron
+
+> tagglo-electron@1.0.0 electron
+> electron .
+
+
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ΓÜÖ∩╕Å  override existing env vars with { override: true }
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-29-57_coachoutlet.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒ¢á∩╕Å  run anywhere with `dotenvx run -- yourcommand`
+Γ¥î Auto-tagger initialization failed: read ECONNRESET
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒöì Gender filter: men ΓåÆ Searching 0/0 categories
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ encrypt with Dotenvx: https://dotenvx.com
+Error saving raw product: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:83:32) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Error saving raw product: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:83:32) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Error occurred in handler for 'save-raw-product': Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:83:32) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
