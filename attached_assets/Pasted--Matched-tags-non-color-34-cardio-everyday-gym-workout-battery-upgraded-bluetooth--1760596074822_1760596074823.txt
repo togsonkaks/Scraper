@@ -1,0 +1,25 @@
+ Γ£à Matched tags (non-color): 34 ΓåÆ cardio, everyday, gym, workout, battery, upgraded, bluetooth, comfortable, customizable, lightweight, natural, noise-cancelling, portable, premium, programmable, rechargeable, usb, wireless, earbud, extra-small, large, medium, small, silicone, day, meeting, work, Apple AirPods, street, subtle, tailored, track, tuned, value
+  ≡ƒæñ Gender (early): not detected yet
+  ≡ƒôé Matched categories: 2 ΓåÆ Earbud (score: 212, lvl 3), Headphone (score: 153, lvl 2)
+  ≡ƒÄ» Best category match: Earbud (score: 212, lvl 3, id: 201)
+    Match details: {"breadcrumbMatches":0,"titleMatches":1,"urlMatches":1,"descriptionMatches":1,"specsMatches":0}
+  Γ£¿ FINAL PATH: Electronics > Audio > Headphone > Earbud
+  ≡ƒÜ½ Filtered 23 tags for department: electronics
+  ≡ƒæñ Gender (final): not detected
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T06-26-38_bestbuy.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: JBL - Tune Buds True Wireless Noise Cancelling Earbuds - Black
+  ≡ƒöù URL keywords: product jbl tune buds true wireless noise cancelling earbuds black
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Best Buy > All Headphones
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org/","@type":"Product","name":"JBL - Tune Buds True Wireless Noise Cancelling Earbuds - Black","image":[],"url":"https://w...
+  ≡ƒôä Description: Shop JBL Tune Buds True Wireless Noise Cancelling Earbuds Black products at Best Buy. Find low every       
+  ≡ƒöñ Search text length: 8522 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): black
+  Γ£à Matched tags (non-color): 23 ΓåÆ commute, everyday, running, workout, battery, bluetooth, comfortable, customizable, noise-cancelling, premium, rechargeable, soft, usb, waterproof, wireless, earbud, large, medium, small, fall, work, budget, value  
+  ≡ƒæñ Gender (early): women [title/url/json-ld, high]
+  ≡ƒôé Matched categories: 2 ΓåÆ Earbud (score: 212, lvl 3), Headphone (score: 153, lvl 2)
+  ≡ƒÄ» Best category match: Earbud (score: 212, lvl 3, id: 201)
+    Match details: {"breadcrumbMatches":0,"titleMatches":1,"urlMatches":1,"descriptionMatches":1,"specsMatches":0}
+  Γ£¿ FINAL PATH: Electronics > Audio > Headphone > Earbud
+  ≡ƒÜ½ Filtered 14 tags for department: electronics
+  ≡ƒæñ Gender (final): women [title/url/json-ld, high]
