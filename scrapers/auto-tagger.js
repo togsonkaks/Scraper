@@ -1,8 +1,8 @@
 require('dotenv').config();
-const postgres = require('postgres');
+const { neon } = require('@neondatabase/serverless');
 
 const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}?sslmode=require`;
-const sql = postgres(connectionString);
+const sql = neon(connectionString);
 
 let tagTaxonomy = [];
 let categoryTree = [];

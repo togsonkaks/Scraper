@@ -1,6 +1,6 @@
 const OpenAI = require('openai');
 require('dotenv').config();
-const postgres = require('postgres');
+const { neon } = require('@neondatabase/serverless');
 const { initializeTaxonomy } = require('../scrapers/auto-tagger');
 const fs = require('fs');
 const path = require('path');
@@ -10,7 +10,7 @@ const openai = new OpenAI({
 });
 
 const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
-const sql = postgres(connectionString);
+const sql = neon(connectionString);
 
 /**
  * Master Tag Taxonomy - Comprehensive reference for LLM keyword extraction
