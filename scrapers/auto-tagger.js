@@ -347,7 +347,7 @@ function matchTags(text, tagType = null) {
   return matches;
 }
 
-function matchCategories(text, productData = {}) {
+function matchCategories(text, productData = {}, detectedGender = null) {
   if (!text) return [];
   
   const normalizedText = normalizeText(text);
@@ -446,7 +446,17 @@ function matchCategories(text, productData = {}) {
         // DEPTH BONUS: Add +50 points per level to heavily favor specific categories over generic parents
         // This ensures "Fashion > Men > Clothing > Jacket" beats "Fashion > Men"
         const depthBonus = fullPath.length * 50;
-        const finalScore = frequencyScore + depthBonus;
+        
+        // GENDER BONUS: If we detected a gender, boost categories that match it (+500 points)
+        let genderBonus = 0;
+        if (detectedGender && detectedGender !== 'unisex') {
+          const pathString = fullPath.map(p => p.name).join(' > ').toLowerCase();
+          if (pathString.includes(detectedGender.toLowerCase())) {
+            genderBonus = 500;
+          }
+        }
+        
+        const finalScore = frequencyScore + depthBonus + genderBonus;
         
         matches.push({
           id: category.category_id,
@@ -459,6 +469,7 @@ function matchCategories(text, productData = {}) {
           frequencyScore: finalScore,
           rawFrequency: frequencyScore,
           depthBonus: depthBonus,
+          genderBonus: genderBonus,
           matchDetails: { breadcrumbMatches, titleMatches, urlMatches, descriptionMatches, specsMatches }
         });
       }
@@ -746,10 +757,10 @@ async function autoTag(productData) {
   // STEP 1: Check for phrase overrides FIRST (handles edge cases)
   const phraseOverride = checkPhraseOverrides(productData);
   
-  // Match categories from ALL product data with frequency scoring (no gender filtering)
+  // Match categories from ALL product data with frequency scoring + gender boosting
   let matchedCategories = [];
   if (!phraseOverride) {
-    matchedCategories = matchCategories(searchText, productData);
+    matchedCategories = matchCategories(searchText, productData, gender);
     console.log('  📂 Matched categories:', matchedCategories.length, '→', 
       matchedCategories.map(c => `${c.name} (score: ${c.frequencyScore}, lvl ${c.level})`).join(', '));
   } else {
