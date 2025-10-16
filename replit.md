@@ -33,8 +33,8 @@ The application is built on the Electron framework, using a main process, a rend
 - **CDN Upgrade Patterns**: Specific rules for optimizing image quality and dimensions across various CDNs.
 - **Auto-Tagging System** (Pinterest-style Personalization Architecture):
     - Database-centric taxonomy (7-table PostgreSQL architecture with Drizzle ORM) for products, categories, and tags.
-    - **Universal Category System**: Categories are gender-neutral (e.g., "Fashion > Accessories > Bags > Shoulder Bags") for clean browsing.
-    - **Demographic Tags for Personalization**: Gender (women's, men's, unisex, lady, ladies) and age (kids, baby, teen) stored as tags, not category filters.
+    - **Universal Category System**: Categories are completely gender-neutral (e.g., "Fashion > Accessories > Bags > Shoulder Bags", "Fashion > Clothing > Dresses") for clean browsing.
+    - **Demographic Tags for Personalization**: Gender (women's, men's, unisex, lady, ladies) and age (kids, baby, teen) stored exclusively as tags, not in category structure.
     - Auto-tagger engine (`scrapers/auto-tagger.js`):
         - Keyword extraction from URL slugs and JSON-LD.
         - Weighted search priority (title, URL, breadcrumbs, JSON-LD > specs, brand > description).
