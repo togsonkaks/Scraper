@@ -1,0 +1,44 @@
+¥î Error seeding taxonomy: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at seedFullTaxonomy (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:683:14) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+≡ƒî▒ Starting full taxonomy seed...
+≡ƒùæ∩╕Å  Clearing existing taxonomy (preserving LLM discoveries)...
+Γ¥î Error seeding taxonomy: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at seedFullTaxonomy (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:683:14) {
+  errno: -4077,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T16-15-19_coachoutlet.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒôí observe env with Radar: https://dotenvx.com/radar
+Γ¥î Auto-tagger initialization failed: read ECONNRESET
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Shirt Jacket
+  ≡ƒöù URL keywords: shirt jacket CN942 CHR
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Men > Clothing
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCN942
+MeasurementsLength: 33.5"
+Materials83% polyester, 12% wool, 5% other fibers
+Fill:
+  ≡ƒöñ Search text length: 291 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 0 ΓåÆ
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (early): men [breadcrumbs, highest]
+  ≡ƒöì Gender filter: men ΓåÆ Searching 0/0 categories
+  ≡ƒôé Matched categories: 0 ΓåÆ
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - MEN match: "men"
+  ≡ƒæñ Gender (final): men [breadcrumbs, highest]
