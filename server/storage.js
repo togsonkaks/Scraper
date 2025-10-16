@@ -759,8 +759,8 @@ async function seedFullTaxonomy() {
       let result;
       try {
         result = await sql`
-          INSERT INTO categories (name, parent_id, level, slug)
-          VALUES (${cat.name}, ${parentId}, ${cat.level}, ${slug})
+          INSERT INTO categories (name, parent_id, level, slug, llm_discovered)
+          VALUES (${cat.name}, ${parentId}, ${cat.level}, ${slug}, 0)
           RETURNING category_id
         `;
       } catch (err) {
