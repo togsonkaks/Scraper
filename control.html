@@ -2238,13 +2238,11 @@
     function clearAutoTagDisplay() {
       const preview = document.getElementById('tagPreview');
       const categoryEl = document.getElementById('tagCategory');
-      const genderEl = document.getElementById('tagGender');
       const confidenceEl = document.getElementById('tagConfidence');
       const tagListEl = document.getElementById('tagList');
       
       // Reset all values
       categoryEl.textContent = '-';
-      genderEl.textContent = '-';
       confidenceEl.textContent = '-';
       tagListEl.innerHTML = '';
       
@@ -2261,7 +2259,6 @@
       
       const preview = document.getElementById('tagPreview');
       const categoryEl = document.getElementById('tagCategory');
-      const genderEl = document.getElementById('tagGender');
       const confidenceEl = document.getElementById('tagConfidence');
       const tagListEl = document.getElementById('tagList');
       
@@ -2274,8 +2271,6 @@
       } else {
         categoryEl.textContent = '-';
       }
-      
-      genderEl.textContent = tagResult.gender || '-';
       
       const confidencePercent = (tagResult.confidenceScore * 100).toFixed(0);
       confidenceEl.textContent = `${confidencePercent}%`;
