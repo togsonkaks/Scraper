@@ -203,19 +203,10 @@ function detectColors(productData, tier1Text, tier2Text, tier3Text) {
   const tier1Colors = findColorsInText(tier1Text);
   
   if (tier1Colors.length > 0) {
+    // Just return the FIRST color - ignore variant lists
     const firstColor = tier1Colors[0];
-    const result = [firstColor.tag];
-    
-    // Check if there's a second color connected by "and" or ","
-    if (tier1Colors.length > 1) {
-      const secondColor = tier1Colors[1];
-      if (areColorsConnected(tier1Text, firstColor.position, secondColor.position)) {
-        result.push(secondColor.tag);
-      }
-    }
-    
-    console.log(`  🎨 Colors detected (Tier 1 - title/URL): ${result.map(c => c.name).join(', ')}`);
-    return result;
+    console.log(`  🎨 Colors detected (Tier 1 - title/URL): ${firstColor.tag.name}`);
+    return [firstColor.tag];
   }
   
   // TIER 2: Fallback to specs + description + JSON-LD
@@ -223,19 +214,10 @@ function detectColors(productData, tier1Text, tier2Text, tier3Text) {
   const tier2Colors = findColorsInText(tier2FullText);
   
   if (tier2Colors.length > 0) {
+    // Just return the FIRST color - ignore variant lists
     const firstColor = tier2Colors[0];
-    const result = [firstColor.tag];
-    
-    // Check if there's a second color connected by "and" or ","
-    if (tier2Colors.length > 1) {
-      const secondColor = tier2Colors[1];
-      if (areColorsConnected(tier2FullText, firstColor.position, secondColor.position)) {
-        result.push(secondColor.tag);
-      }
-    }
-    
-    console.log(`  🎨 Colors detected (Tier 2 - specs/description): ${result.map(c => c.name).join(', ')}`);
-    return result;
+    console.log(`  🎨 Colors detected (Tier 2 - specs/description): ${firstColor.tag.name}`);
+    return [firstColor.tag];
   }
   
   console.log('  🎨 No colors detected');
