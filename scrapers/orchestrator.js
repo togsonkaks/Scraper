@@ -2764,8 +2764,43 @@
         return null;
       }
       
-      // Get all text content, even from hidden elements (aria-expanded="false")
-      const text = el.textContent.trim();
+      // Extract text with proper spacing between block elements
+      function getTextWithSpacing(node) {
+        const blockElements = new Set([
+          'div', 'p', 'li', 'ul', 'ol', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 
+          'section', 'article', 'header', 'footer', 'nav', 'aside', 'br',
+          'dd', 'dt', 'dl', 'table', 'tr', 'td', 'th'
+        ]);
+        
+        let text = '';
+        
+        for (const child of node.childNodes) {
+          if (child.nodeType === Node.TEXT_NODE) {
+            text += child.textContent;
+          } else if (child.nodeType === Node.ELEMENT_NODE) {
+            const childTag = child.tagName.toLowerCase();
+            
+            // Add space before block elements (if text isn't empty)
+            if (blockElements.has(childTag) && text.trim()) {
+              text += ' ';
+            }
+            
+            // Recursively get text from child
+            text += getTextWithSpacing(child);
+            
+            // Add space after block elements
+            if (blockElements.has(childTag)) {
+              text += ' ';
+            }
+          }
+        }
+        
+        return text;
+      }
+      
+      const text = getTextWithSpacing(el)
+        .replace(/\s+/g, ' ')  // Normalize multiple spaces to single space
+        .trim();
       
       // Reject search-related text
       if (/search|browse search|type and press|autocomplete/i.test(text)) {
