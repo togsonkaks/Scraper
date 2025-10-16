@@ -1,0 +1,89 @@
+≡ƒÄ» Best category match: Shoulder Bags (score: 760, lvl 4, id: 2396)
+    Match details: {"breadcrumbMatches":2,"titleMatches":1,"urlMatches":0,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags > Shoulder Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ encrypt with Dotenvx: https://dotenvx.com
+≡ƒùæ∩╕Å  Clearing existing taxonomy (preserving LLM discoveries)...
+Γ£à Cleared built-in taxonomy (kept LLM-discovered tags and categories)
+≡ƒôé Inserting 397 categories...
+Γ£à 397 categories inserted
+≡ƒÅ╖∩╕Å  Inserting tags...
+Γ£à 1026 tags inserted
+≡ƒÄë Full taxonomy seeded successfully!
+PS C:\Users\Admin\Desktop\PostHog\mvp_electron> npm run electron
+
+> tagglo-electron@1.0.0 electron
+> electron .
+
+
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ΓÜÖ∩╕Å  specify custom .env file path with { path: '/custom/path/.env' }
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T17-47-03_coachoutlet.com.txt
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒ¢á∩╕Å  run anywhere with `dotenvx run -- yourcommand`
+Γ£à Auto-tagger initialized: 1045 tags, 403 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (2 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag In Signature Canvas
+  ≡ƒöù URL keywords: teri shoulder bag in signature canvas CV933
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV933
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSignature coated canvasFa
+  ≡ƒöñ Search text length: 381 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 3 ΓåÆ crossbody, crossbody wear, canvas
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 24/403 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Bags (score: 719, lvl 3, id: 2711)
+    Match details: {"breadcrumbMatches":3,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒôí version env with Radar: https://dotenvx.com/radar
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  override existing env vars with { override: true }
+≡ƒôª Using current AUTO tags from UI: 3 tags: crossbody, crossbody wear, canvas
+≡ƒöÇ Merged tags: 3 existing + 5 AI = 7 total
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+≡ƒº╣ Path cleanup: "Fashion > Women > Accessories > Bags > Shoulder Bags" ΓåÆ "Fashion > Women > Accessories > Bags > Shoulder 
+Bags"
+≡ƒôª Creating missing category: "Accessories" (parent: 2690)
+Γ£à Created category ID 2794: Accessories
+≡ƒôª Creating missing category: "Bags" (parent: 2794)
+Γ£à Created category ID 2795: Bags
+≡ƒôª Creating missing category: "Shoulder Bags" (parent: 2795)
+Γ£à Created category ID 2796: Shoulder Bags
+≡ƒöä Refreshing auto-tagger taxonomy with new categories...
+Γ£à Auto-tagger initialized: 1045 tags, 406 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (2 instances)
+Γ£à Auto-tagger taxonomy refreshed - new categories available for next scrape
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-16T17-49-20_coachoutlet.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Teri Shoulder Bag In Signature Canvas
+  ≡ƒöù URL keywords: teri shoulder bag in signature canvas CV933
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Bags > Shoulder Bags
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Style NumberCV933
+MeasurementsLength: 9.5"Height: 6.0"Width: 3.0"
+MaterialsSignature coated canvasFa
+  ≡ƒöñ Search text length: 381 chars
+  ≡ƒÄ¿ No colors detected
+  Γ£à Matched tags (non-color): 3 ΓåÆ crossbody, crossbody wear, canvas
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Gender filter: women ΓåÆ Searching 27/406 categories
+  ≡ƒôé Matched categories: 4 ΓåÆ Shoulder Bags (score: 760, lvl 4), Bags (score: 719, lvl 3), Bags (score: 719, lvl 3), Tops (score: 702, lvl 3)
+  ≡ƒÄ» Best category match: Shoulder Bags (score: 760, lvl 4, id: 2796)
+    Match details: {"breadcrumbMatches":2,"titleMatches":1,"urlMatches":0,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Women > Accessories > Bags > Shoulder Bags
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "shoulder bag"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
