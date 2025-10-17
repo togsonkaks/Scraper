@@ -2,6 +2,12 @@ require('dotenv').config();
 const postgres = require('postgres');
 
 const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
+
+// DEBUG: Log connection details (hide password)
+const safeString = connectionString.replace(/:[^:@]*@/, ':****@');
+console.log(`🔍 [storage.js] Connecting to database: ${safeString}`);
+console.log(`🔍 [storage.js] PGHOST: ${process.env.PGHOST}, PGDATABASE: ${process.env.PGDATABASE}`);
+
 const sql = postgres(connectionString, {
   ssl: process.env.PGHOST === 'localhost' ? false : 'require'
 });
