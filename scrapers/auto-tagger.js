@@ -23,7 +23,9 @@ const TAG_CANONICALS = {
   'plaid': 'plaid',
   'plaids': 'plaid',
   'floral': 'floral',
-  'florals': 'floral'
+  'florals': 'floral',
+  'checkers': 'checkered',
+  'checked': 'checkered'
 };
 
 /**
