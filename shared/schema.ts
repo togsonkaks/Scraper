@@ -76,3 +76,12 @@ export const productCategories = pgTable('product_categories', {
   productId: integer('product_id').references(() => products.productId, { onDelete: 'cascade' }),
   categoryId: integer('category_id').references(() => categories.categoryId, { onDelete: 'cascade' })
 });
+
+export const categorySynonyms = pgTable('category_synonyms', {
+  synonymId: serial('synonym_id').primaryKey(),
+  synonym: text('synonym').notNull(),
+  categoryName: text('category_name').notNull(),
+  createdAt: timestamp('created_at').defaultNow()
+}, (table) => ({
+  uniqueSynonym: unique().on(table.synonym)
+}));
