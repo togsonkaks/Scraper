@@ -477,8 +477,35 @@ async function seedCategories() {
   try {
     console.log('🚀 Starting comprehensive category seed...\n');
 
+    // SPECIAL: Completely clear ALL Fashion categories (including old gendered ones)
+    console.log('🗑️  Completely clearing ALL Fashion categories (old + new)...');
+    const fashionDept = await sql`SELECT category_id FROM categories WHERE name = 'Fashion' AND parent_id IS NULL`;
+    if (fashionDept.length > 0) {
+      const fashionId = fashionDept[0].category_id;
+      // Delete all Fashion descendants recursively
+      await sql`
+        WITH RECURSIVE fashion_tree AS (
+          SELECT category_id FROM categories WHERE category_id = ${fashionId}
+          UNION ALL
+          SELECT c.category_id FROM categories c
+          INNER JOIN fashion_tree ft ON c.parent_id = ft.category_id
+        )
+        DELETE FROM product_categories WHERE category_id IN (SELECT category_id FROM fashion_tree)
+      `;
+      await sql`
+        WITH RECURSIVE fashion_tree AS (
+          SELECT category_id FROM categories WHERE category_id = ${fashionId}
+          UNION ALL
+          SELECT c.category_id FROM categories c
+          INNER JOIN fashion_tree ft ON c.parent_id = ft.category_id
+        )
+        DELETE FROM categories WHERE category_id IN (SELECT category_id FROM fashion_tree)
+      `;
+      console.log('✅ Cleared ALL Fashion categories completely\n');
+    }
+
     // Clear existing seed categories (preserve LLM-discovered ones)
-    console.log('🗑️  Clearing built-in seed categories (preserving LLM-discovered)...');
+    console.log('🗑️  Clearing other seed categories (preserving LLM-discovered)...');
     
     // Get count of LLM-discovered categories before cleanup
     const llmCount = await sql`SELECT COUNT(*) FROM categories WHERE llm_discovered = 1`;
