@@ -365,6 +365,22 @@
             <div id="catBuilderPreview" style="font-size:12px; color:#666; font-style:italic;">Select levels to build path...</div>
           </div>
         </div>
+        
+        <!-- Synonym Learning Section -->
+        <div id="synonymLearner" style="display:none; margin-top:16px; padding:16px; background:#e3f2fd; border-radius:8px; border:2px solid #2196F3;">
+          <label style="display:block; font-weight:bold; margin-bottom:8px; color:#1565C0;">📚 Teach a Synonym (Optional):</label>
+          <div style="font-size:12px; color:#555; margin-bottom:8px;">
+            Found "<span id="synonymKeyword" style="font-weight:bold; color:#1976D2;"></span>" in product? Map it to "<span id="synonymCategory" style="font-weight:bold; color:#1976D2;"></span>" for future auto-matching.
+          </div>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <input id="synonymInput" type="text" placeholder="e.g., bralette, bandana, trainers" 
+                   style="flex:1; padding:8px; border:2px solid #2196F3; border-radius:6px; font-size:13px;">
+            <button id="saveSynonymBtn" style="background:#2196F3; color:white; padding:8px 16px; border:none; border-radius:6px; cursor:pointer; font-size:13px; font-weight:bold;">
+              ✓ Save Synonym
+            </button>
+          </div>
+          <div id="synonymStatus" style="font-size:12px; color:#1565C0; margin-top:8px; font-style:italic;"></div>
+        </div>
       </div>
       
       <div style="margin-bottom:20px;">
