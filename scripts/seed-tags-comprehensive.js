@@ -83,7 +83,7 @@ const COMPREHENSIVE_TAGS = {
     'mineral', 'plant-based', 'botanical', 'chemical-free', 'synthetic', 'natural-ingredients', 'stretch-denim'
   ],
 
-  // COLORS & PATTERNS (200+ tags)
+  // COLORS (100+ tags)
   colors: [
     // Basic Colors
     'black', 'white', 'gray', 'grey', 'charcoal', 'slate', 'silver', 'beige', 'tan', 'khaki',
@@ -93,20 +93,50 @@ const COMPREHENSIVE_TAGS = {
     'mint', 'emerald', 'purple', 'lavender', 'plum', 'violet', 'cream', 'ivory', 'ecru',
     
     // Extended Colors
-    'neon', 'pastel', 'matte', 'glossy', 'metallic', 'pearl', 'iridescent', 'holographic',
-    'chrome', 'copper', 'bronze', 'gunmetal', 'champagne', 'rose-gold',
-    'lime', 'chartreuse', 'aqua', 'cyan', 'magenta', 'fuchsia', 'indigo', 'mauve',
+    'neon', 'pastel', 'lime', 'chartreuse', 'aqua', 'cyan', 'magenta', 'fuchsia', 'indigo', 'mauve',
     'taupe', 'sand', 'stone', 'ash', 'smoke', 'onyx', 'jet-black', 'snow-white',
+    'champagne', 'gunmetal',
     
-    // Patterns
-    'striped', 'plaid', 'checkered', 'gingham', 'solid', 'floral', 'geometric', 'abstract',
-    'camo', 'camouflage', 'tie-dye', 'ombre', 'gradient', 'colorblock', 'multi-color',
-    'polka-dot', 'paisley', 'herringbone', 'houndstooth', 'chevron', 'argyle', 'animal-print',
-    'leopard-print', 'zebra-print', 'snakeskin', 'tribal', 'bohemian-print', 'aztec',
-    'two-tone', 'three-tone', 'color-splash', 'textured', 'embossed', 'quilted',
+    // Color Variations
+    'two-tone', 'three-tone', 'color-splash', 'multi-color', 'colorblock',
     
     // Tool/Equipment Colors
     'safety-yellow', 'high-visibility', 'reflective', 'anodized', 'powder-coated', 'zinc-plated'
+  ],
+
+  // FINISHES (30+ tags)
+  finishes: [
+    // Surface Finishes
+    'matte', 'glossy', 'satin', 'metallic', 'pearl', 'iridescent', 'holographic',
+    'chrome', 'brushed', 'polished', 'textured', 'embossed', 'quilted',
+    
+    // Metal Finishes
+    'copper', 'bronze', 'rose-gold', 'brushed-nickel', 'oil-rubbed-bronze',
+    'antique', 'distressed', 'weathered', 'patina',
+    
+    // Beauty & Cosmetic Finishes
+    'matte-finish', 'satin-finish', 'dewy', 'shimmer', 'glitter', 'metallic-finish',
+    
+    // Tool/Equipment Finishes
+    'powder-coated', 'zinc-plated', 'anodized', 'galvanized', 'chrome-plated'
+  ],
+
+  // PATTERNS (50+ tags)
+  patterns: [
+    // Fabric & Clothing Patterns
+    'solid', 'striped', 'plaid', 'checkered', 'gingham', 'floral', 'geometric', 'abstract',
+    'polka-dot', 'paisley', 'herringbone', 'houndstooth', 'chevron', 'argyle',
+    
+    // Animal & Nature Patterns
+    'animal-print', 'leopard-print', 'zebra-print', 'snakeskin', 'camo', 'camouflage',
+    
+    // Decorative Patterns
+    'tribal', 'bohemian-print', 'aztec', 'tie-dye', 'ombre', 'gradient',
+    'marbled', 'watercolor', 'damask', 'medallion', 'moroccan',
+    
+    // Texture Patterns
+    'quilted', 'embossed', 'textured', 'woven', 'knit', 'cable-knit',
+    'ribbed', 'waffle', 'honeycomb', 'diamond-pattern'
   ],
 
   // STYLES & AESTHETICS (250+ tags)
