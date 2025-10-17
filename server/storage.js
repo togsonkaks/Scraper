@@ -882,6 +882,14 @@ async function getCategoryHierarchy() {
       ORDER BY level, name
     `;
     
+    // DEBUG: Check for Fashion entries
+    const fashionEntries = categories.filter(c => c.name === 'Fashion');
+    console.log(`🔍 [getCategoryHierarchy] Total categories: ${categories.length}`);
+    console.log(`🔍 [getCategoryHierarchy] Fashion entries found: ${fashionEntries.length}`);
+    fashionEntries.forEach(f => {
+      console.log(`  - Fashion ID: ${f.category_id}, slug: ${f.slug}, parent: ${f.parent_id}, level: ${f.level}`);
+    });
+    
     return {
       success: true,
       categories: categories
