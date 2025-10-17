@@ -1003,6 +1003,72 @@ async function createCategory(categoryData) {
   }
 }
 
+/**
+ * Save a category synonym mapping
+ * @param {string} synonym - The synonym text (e.g., "bralette")
+ * @param {string} categoryName - The category name it maps to (e.g., "Bra")
+ * @returns {Object} { success, synonymId }
+ */
+async function saveCategorySynonym(synonym, categoryName) {
+  try {
+    if (!synonym || !categoryName) {
+      return {
+        success: false,
+        error: 'Both synonym and category name are required'
+      };
+    }
+    
+    // Insert synonym (ON CONFLICT UPDATE to overwrite if exists)
+    const result = await sql`
+      INSERT INTO category_synonyms (synonym, category_name)
+      VALUES (${synonym.toLowerCase().trim()}, ${categoryName})
+      ON CONFLICT (synonym) 
+      DO UPDATE SET category_name = ${categoryName}
+      RETURNING synonym_id
+    `;
+    
+    const synonymId = result[0].synonym_id;
+    console.log(`✅ Saved category synonym: "${synonym}" → "${categoryName}" (ID: ${synonymId})`);
+    
+    // Refresh auto-tagger to load new synonym
+    const { refreshTaxonomy } = require('../scrapers/auto-tagger');
+    await refreshTaxonomy();
+    console.log('✅ Auto-tagger taxonomy refreshed with new synonym');
+    
+    return {
+      success: true,
+      synonymId: synonymId
+    };
+    
+  } catch (error) {
+    console.error('❌ Error saving category synonym:', error);
+    return {
+      success: false,
+      error: error.message
+    };
+  }
+}
+
+/**
+ * Get all category synonyms from database
+ * @returns {Array} Array of { synonym, categoryName }
+ */
+async function getCategorySynonyms() {
+  try {
+    const synonyms = await sql`
+      SELECT synonym, category_name as "categoryName"
+      FROM category_synonyms
+      ORDER BY synonym
+    `;
+    
+    return synonyms;
+    
+  } catch (error) {
+    console.error('❌ Error getting category synonyms:', error);
+    return [];
+  }
+}
+
 module.exports = {
   saveRawProduct,
   updateProductTags,
@@ -1013,5 +1079,7 @@ module.exports = {
   seedFullTaxonomy,
   viewTaxonomy,
   getCategoryHierarchy,
-  createCategory
+  createCategory,
+  saveCategorySynonym,
+  getCategorySynonyms
 };
