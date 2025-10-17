@@ -220,6 +220,16 @@ const COMPREHENSIVE_TAGS = {
     'tailored-fit', 'comfort-fit', 'true-to-size', 'runs-small', 'runs-large',
     'adjustable-fit', 'custom-fit', 'one-size-fits-all', 'stretchable',
     
+    // Necklines (garment features)
+    'v-neck', 'crew-neck', 'turtle-neck', 'scoop-neck', 'cowl-neck', 'halter-neck',
+    'mock-neck', 'boat-neck', 'square-neck', 'sweetheart-neck', 'off-shoulder',
+    'one-shoulder', 'strapless', 'high-neck', 'round-neck',
+    
+    // Sleeve Types (garment features)
+    'short-sleeve', 'long-sleeve', 'sleeveless', '3/4-sleeve', 'cap-sleeve',
+    'bell-sleeve', 'puffed-sleeve', 'bishop-sleeve', 'dolman-sleeve', 'raglan-sleeve',
+    'flutter-sleeve', 'kimono-sleeve', 'batwing-sleeve', 'lantern-sleeve',
+    
     // Sizes
     'xs', 'small', 'medium', 'large', 'xl', 'xxl', '3xl', '4xl', '5xl',
     'extra-small', 'extra-large', 'youth', 'junior', 'infant', 'toddler',
