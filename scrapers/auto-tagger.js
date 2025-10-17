@@ -560,7 +560,7 @@ function detectGender(productData, categoryPath = null) {
   // Flexible patterns match with/without spaces/hyphens (e.g., "shoulder bag", "shoulder-bag")
   const WOMEN_KEYWORDS = /\b(woman|women|womens|lady|ladies|female|girl|girls|mom|mother|mommy|mum|mama|daughter|sister|aunt|aunty|auntie|niece|grandmother|grandma|granny|nana|miss|mrs|ms|ma'am|madam|madame|queen|empress|princess|duchess|goddess|wife|girlfriend|bride|bridesmaid|fiancée|maternity|nursing|bridal|bra|lingerie|dress|skirt|blouse|heels|purse|handbag|hand[\s-]?bag|shoulder[\s-]?bag|tote[\s-]?bag|clutch|señora|señorita|femme|feminine|her|hers|she)\b/i;
   
-  const MEN_KEYWORDS = /\b(man|men|mens|gentleman|gentlemen|male|boy|boys|guy|guys|dad|father|daddy|papa|son|brother|uncle|nephew|grandfather|grandpa|gramps|pop|mr|sir|mister|señor|king|emperor|prince|duke|lord|husband|boyfriend|groom|groomsman|fiancé|beard|shave|razor|tie|necktie|tuxedo|suit|cologne|masculine|homme|his|him|he)\b/i;
+  const MEN_KEYWORDS = /\b(man|men|mens|gentleman|gentlemen|male|boy|boys|guy|guys|dad|father|daddy|papa|son|brother|uncle|nephew|grandfather|grandpa|gramps|pop|mr|sir|mister|señor|king|emperor|prince|duke|lord|husband|boyfriend|groom|groomsman|fiancé|beard|shave|razor|necktie|tuxedo|suit|cologne|masculine|homme|his|him|he)\b/i;
   
   const KIDS_KEYWORDS = /\b(baby|infant|toddler|child|children|kids|youth|junior|teen|teenager|adolescent)\b/i;
   
