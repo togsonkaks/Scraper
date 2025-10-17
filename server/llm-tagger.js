@@ -337,16 +337,16 @@ ${tagTaxonomy}
 
 CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
 1. **PRIORITY 1**: Match product to EXISTING category paths above
-   - Find an EXACT path match from the taxonomy (e.g., "Fashion > Clothing > Bottoms > Jeans")
+   - Find an EXACT path match from the taxonomy (e.g., "Fashion > Clothing > Pants > Jeans")
    - Use the COMPLETE path including ALL parent levels (Department > Section > Category > Type)
    - DO NOT reorder or modify the path - use it exactly as shown
-   - If you find "Fashion > Clothing > Bottoms > Jeans", return ["Fashion", "Clothing", "Bottoms", "Jeans"]
+   - If you find "Fashion > Clothing > Pants > Jeans", return ["Fashion", "Clothing", "Pants", "Jeans"]
    - ONLY mark isNewPath=false if the EXACT path exists in the order shown
 
 2. **PRIORITY 2**: If NO exact match exists, suggest a NEW path
    - Follow hierarchy: Department → Category → Subcategory → Type
    - Include ALL parent levels, don't skip any
-   - Example: ["Fashion", "Clothing", "Tops", "Blouses"]
+   - Example: ["Fashion", "Clothing", "Shirts", "Blouse"]
    - Mark isNewPath=true and confidence lower (0.6-0.7)
    - IMPORTANT: Categories are gender-neutral. Add gender (women's, men's, unisex, kids) as TAGS only, NOT in category path
 
@@ -355,9 +355,9 @@ CATEGORY EXTRACTION RULES (STRICT TAXONOMY MATCHING):
    - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
    - Gender/age (women's, men's, unisex, kids, baby, teen) are TAGS, NEVER categories
    - Product model names/numbers (Method 360 ANC, iPhone 15 Pro) are NEVER categories
-   - ❌ WRONG: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] - "Men" is gender
+   - ❌ WRONG: ["Fashion", "Men", "Clothing", "Pants", "Jeans"] - "Men" is gender
    - ❌ WRONG: ["Electronics", "Audio", "Headphones", "Wireless Headphones", "Method 360 ANC"] - model name
-   - ✅ RIGHT: ["Fashion", "Clothing", "Bottoms", "Jeans"] + tags: {name: "men's", type: "demographic"}, {name: "tapered", type: "fit"}
+   - ✅ RIGHT: ["Fashion", "Clothing", "Pants", "Jeans"] + tags: {name: "men's", type: "demographic"}, {name: "tapered", type: "fit"}
    - ✅ RIGHT: ["Electronics", "Audio", "Headphones", "Wireless Headphones"] (stop at product type)
 
 4. Extract from JSON-LD first, then breadcrumbs, then title/description
@@ -644,7 +644,7 @@ ${tagTaxonomy}
 
 IMPORTANT RULES:
 1. **MATCH EXISTING CATEGORY PATHS** from the taxonomy above in EXACT order
-   - Find COMPLETE path like "Fashion > Clothing > Bottoms > Jeans" and return ["Fashion", "Clothing", "Bottoms", "Jeans"]
+   - Find COMPLETE path like "Fashion > Clothing > Pants > Jeans" and return ["Fashion", "Clothing", "Pants", "Jeans"]
    - Include ALL parent levels - don't skip any (Department > Section > Category > Type)
    - DO NOT reorder or modify - use the exact hierarchy shown
    - ONLY mark isNewPath=false if EXACT path exists
@@ -653,9 +653,9 @@ IMPORTANT RULES:
    - Fit/style terms (tapered, slim-fit, casual, athletic) are TAGS, NEVER categories
    - Gender/age (women's, men's, kids, baby) are TAGS, NEVER categories
    - Product model names/numbers (Method 360 ANC, iPhone 15 Pro, etc.) are NEVER categories
-   - ❌ WRONG: ["Fashion", "Men", "Clothing", "Bottoms", "Jeans"] - "Men" is gender
+   - ❌ WRONG: ["Fashion", "Men", "Clothing", "Pants", "Jeans"] - "Men" is gender
    - ❌ WRONG: ["Electronics", "Audio", "Headphones", "Wireless Headphones", "Method 360 ANC"]
-   - ✅ RIGHT: ["Fashion", "Clothing", "Bottoms", "Jeans"] + tags: {name: "men's", type: "demographic"}, {name: "tapered", type: "fit"}
+   - ✅ RIGHT: ["Fashion", "Clothing", "Pants", "Jeans"] + tags: {name: "men's", type: "demographic"}, {name: "tapered", type: "fit"}
    - ✅ RIGHT: ["Electronics", "Audio", "Headphones", "Wireless Headphones"] (stop at product type)
 4. Extract the brand name and put it in the "brand" field - DO NOT include as tag
 5. **ALWAYS include gender tag**: women's, men's, unisex, kids, baby, or teen (type: "demographic")
