@@ -296,7 +296,7 @@ async function extractTagsWithLLM(productData) {
   let jsonLdInfo = 'N/A';
   if (jsonLd && typeof jsonLd === 'object') {
     const relevantFields = {};
-    const priorityKeys = ['name', 'category', 'gender', 'color', 'material', 'brand', 'sku', 'productID', 'model', 'style', 'audience'];
+    const priorityKeys = ['name', 'category', 'gender', 'color', 'material', 'brand', 'sku', 'productID', 'model', 'style', 'audience', 'caption', 'description', 'text', 'about', 'summary'];
     for (const key of priorityKeys) {
       if (jsonLd[key]) {
         relevantFields[key] = jsonLd[key];
@@ -603,7 +603,7 @@ async function retryWithFeedback(productData, feedback) {
   let jsonLdInfo = 'N/A';
   if (jsonLd && typeof jsonLd === 'object') {
     const relevantFields = {};
-    const priorityKeys = ['name', 'category', 'gender', 'color', 'material', 'brand', 'sku', 'productID', 'model', 'style', 'audience'];
+    const priorityKeys = ['name', 'category', 'gender', 'color', 'material', 'brand', 'sku', 'productID', 'model', 'style', 'audience', 'caption', 'description', 'text', 'about', 'summary'];
     for (const key of priorityKeys) {
       if (jsonLd[key]) {
         relevantFields[key] = jsonLd[key];
