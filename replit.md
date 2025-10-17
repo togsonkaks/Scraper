@@ -15,6 +15,11 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - Removed ALL gendered categories (Men's Watch, Women's Watch) and replaced with universal types (Analog Watch, Digital Watch, Smartwatch)
   - Fixed UI category builder level names from ["Department", "Gender", ...] to ["Department", "Category", "Subcategory", "Type", "Subtype"]
   - Gender completely removed from ALL category paths - exists ONLY as demographic tags for personalization
+- **Database Configuration & Gender Detection Fixes**:
+  - Clarified local database setup: pgAdmin 4 database on localhost:5433/Tagglo, Electron runs locally (not in Replit)
+  - Fixed seed script SSL configuration: disables SSL for localhost, requires SSL for remote databases
+  - Removed "tie" from men's gender keywords to prevent false positives (e.g., "tie-dye", "tie-waist" incorrectly triggering men's tag)
+  - Kept "necktie" as men's keyword for accurate detection of actual men's neckties
 
 ## User Preferences
 - Prefers existing project structure and conventions
