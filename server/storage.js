@@ -718,6 +718,35 @@ async function seedFullTaxonomy() {
     // Clear existing data (preserve LLM-discovered tags)
     console.log('🗑️  Clearing existing taxonomy (preserving LLM discoveries)...');
     
+    // SPECIAL: Clear Fashion seed categories (preserve LLM-discovered)
+    console.log('🗑️  Clearing Fashion seed categories (preserving LLM-discovered)...');
+    const fashionDept = await sql`SELECT category_id FROM categories WHERE name = 'Fashion' AND parent_id IS NULL AND (llm_discovered = 0 OR llm_discovered IS NULL)`;
+    if (fashionDept.length > 0) {
+      const fashionId = fashionDept[0].category_id;
+      // Delete all Fashion seed descendants recursively (preserve LLM-discovered)
+      await sql`
+        WITH RECURSIVE fashion_tree AS (
+          SELECT category_id FROM categories WHERE category_id = ${fashionId}
+          UNION ALL
+          SELECT c.category_id FROM categories c
+          INNER JOIN fashion_tree ft ON c.parent_id = ft.category_id
+          WHERE c.llm_discovered = 0 OR c.llm_discovered IS NULL
+        )
+        DELETE FROM product_categories WHERE category_id IN (SELECT category_id FROM fashion_tree)
+      `;
+      await sql`
+        WITH RECURSIVE fashion_tree AS (
+          SELECT category_id FROM categories WHERE category_id = ${fashionId}
+          UNION ALL
+          SELECT c.category_id FROM categories c
+          INNER JOIN fashion_tree ft ON c.parent_id = ft.category_id
+          WHERE c.llm_discovered = 0 OR c.llm_discovered IS NULL
+        )
+        DELETE FROM categories WHERE category_id IN (SELECT category_id FROM fashion_tree)
+      `;
+      console.log('✅ Cleared Fashion seed categories (LLM-discovered preserved)');
+    }
+    
     // Delete only product associations for tags being deleted (built-in tags)
     await sql`
       DELETE FROM product_tags 
@@ -729,7 +758,7 @@ async function seedFullTaxonomy() {
     // Delete only built-in tags (preserve llm_discovered = 1)
     await sql`DELETE FROM tags WHERE llm_discovered = 0 OR llm_discovered IS NULL`;
     
-    // Delete only product associations for categories being deleted (built-in categories)
+    // Delete only product associations for other categories being deleted (built-in categories)
     await sql`
       DELETE FROM product_categories 
       WHERE category_id IN (
@@ -737,7 +766,7 @@ async function seedFullTaxonomy() {
       )
     `;
     
-    // Delete only built-in categories (preserve llm_discovered = 1)
+    // Delete only other built-in categories (preserve llm_discovered = 1)
     await sql`DELETE FROM categories WHERE llm_discovered = 0 OR llm_discovered IS NULL`;
     
     console.log('✅ Cleared built-in taxonomy (kept LLM-discovered tags and categories)');
