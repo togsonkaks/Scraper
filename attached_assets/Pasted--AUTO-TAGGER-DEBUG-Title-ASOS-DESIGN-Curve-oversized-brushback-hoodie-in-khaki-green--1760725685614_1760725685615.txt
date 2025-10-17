@@ -1,0 +1,37 @@
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: ASOS DESIGN Curve oversized brushback hoodie in khaki green
+  ≡ƒöù URL keywords: us asos curve asos design curve oversized brushback hoodie in khaki green prd
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Women > Curve & Plus Size
+  ≡ƒôè JSON-LD: {"@context":"https://schema.org/","@type":"Product","name":"ASOS DESIGN Curve oversized brushback hoodie in khaki green","sku":"147904639","color":"Kh...
+  ≡ƒôä Description: Model's height: 166cm/5'5.5" Model is wearing: XL - US 16-18 Sizing Help Still unsure what size to g       
+  ≡ƒöñ Search text length: 2486 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): khaki
+  Γ£à Matched tags (non-color): 2 ΓåÆ xl, oversized
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "women"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Universal search: Searching all 442 categories
+  ≡ƒôé Matched categories: 1 ΓåÆ Hoodie (score: 213, lvl 3)
+  ≡ƒÄ» Best category match: Hoodie (score: 213, lvl 3, id: 10466)
+    Match details: {"breadcrumbMatches":1,"titleMatches":1,"urlMatches":1,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Clothing > Sweaters > Hoodie
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "women"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+  ≡ƒæñ Gender tag added: women
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-17T18-27-54_asos.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: ASOS DESIGN tailored clean culottes in navy
+  ≡ƒöù URL keywords: us asos design asos design tailored clean culottes in navy prd
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Women > New in
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Model's height: 172.5cm / 5' 8'' Model is wearing: US 4 Sizing Help Still unsure what size to get? C       
+  ≡ƒöñ Search text length: 252 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): navy
+  Γ£à Matched tags (non-color): 1 ΓåÆ tailored
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "women"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Universal search: Searching all 442 categories
+  ≡ƒôé Matched categories: 0 ΓåÆ 
+  ΓÜá∩╕Å NO CATEGORIES MATCHED!
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "women"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+  ≡ƒæñ Gender tag added: women
