@@ -56,7 +56,7 @@ The application is built on the Electron framework, using a main process, a rend
     - **Gender Architecture**: Gender completely removed from products.gender database column and UI preview display. Gender detection still occurs but outputs directly to tags array only.
     - Auto-tagger engine (`scrapers/auto-tagger.js`):
         - Keyword extraction from URL slugs and JSON-LD.
-        - Weighted search priority (title, URL, breadcrumbs, JSON-LD > specs, brand > description).
+        - **Weighted category scoring**: Title (1000x) >> URL (500x) > Breadcrumbs (300x) > Specs (100x) > Description (50x), with +10 depth bonus per level as tiebreaker. Title matches dominate to prevent description fluff from overriding core product type.
         - **Universal category search** - searches ALL categories regardless of gender (no filtering).
         - Comprehensive 5-tier gender detection with confidence scoring, conflict detection, and context awareness.
         - **Gender tag assignment**: Always assigns at least one gender tag, defaults to "unisex" if unclear.
