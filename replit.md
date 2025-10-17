@@ -25,7 +25,11 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - **Colors**: ~60 pure color tags (black, white, navy, burgundy, etc.) plus color variations (two-tone, multi-color)
   - **Finishes**: ~30 surface finish tags (matte, glossy, metallic, pearl, brushed, polished, shimmer, etc.)
   - **Patterns**: ~50 design pattern tags (striped, plaid, floral, leopard-print, tie-dye, quilted, etc.)
+  - Auto-tagger updated to recognize and match patterns and finishes tags
+  - Department tag rules updated to include patterns/finishes where relevant (Fashion, Home & Garden, Tools, etc.)
+  - Confidence scoring includes patterns (+0.10) and finishes (+0.10)
   - Fixed Fashion deletion in seed script to delete ALL Fashion departments (including LLM-discovered) before re-seeding to prevent duplicates
+  - Fixed manual tag insertion to set `llm_discovered = 1` so user-created tags survive re-seeding
 
 ## User Preferences
 - Prefers existing project structure and conventions
