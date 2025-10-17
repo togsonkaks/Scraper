@@ -30,6 +30,12 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - Confidence scoring includes patterns (+0.10) and finishes (+0.10)
   - Fixed Fashion deletion in seed script to delete ALL Fashion departments (including LLM-discovered) before re-seeding to prevent duplicates
   - Fixed manual tag insertion to set `llm_discovered = 1` so user-created tags survive re-seeding
+- **Canonical Tag System** (Surgical Implementation):
+  - Added TAG_CANONICALS mapping to consolidate tag variations without database changes
+  - Deduplicates similar tags: stripe/stripes/striped → striped, plaid/plaids → plaid, floral/florals → floral
+  - All variations remain in database for matching, but only canonical form returned to user
+  - Implemented via `deduplicateTags()` function applied to tagsByType before final return
+  - Easy to extend with new mappings as patterns emerge
 
 ## User Preferences
 - Prefers existing project structure and conventions
