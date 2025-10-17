@@ -516,6 +516,8 @@ function calculateConfidence(tagsByType) {
   let score = 0;
   
   if (tagsByType.colors?.length > 0) score += 0.10;
+  if (tagsByType.patterns?.length > 0) score += 0.10;
+  if (tagsByType.finishes?.length > 0) score += 0.10;
   if (tagsByType.materials?.length > 0) score += 0.15;
   if (tagsByType.activities?.length > 0) score += 0.10;
   if (tagsByType.styles?.length > 0) score += 0.15;
@@ -743,6 +745,8 @@ async function autoTag(productData) {
   // Group tags by semantic type
   const tagsByType = {
     colors: smartColors,  // Use smart color detection instead of generic matching
+    patterns: allMatchedTags.filter(t => t.type === 'patterns'),
+    finishes: allMatchedTags.filter(t => t.type === 'finishes'),
     materials: allMatchedTags.filter(t => t.type === 'materials'),
     activities: allMatchedTags.filter(t => t.type === 'activities'),
     styles: allMatchedTags.filter(t => t.type === 'styles'),
@@ -815,25 +819,25 @@ async function autoTag(productData) {
     
     // Define valid tag types for each department
     const departmentTagRules = {
-      'fashion': ['colors', 'materials', 'fit', 'styles', 'occasions'],
-      'tools & hardware': ['tool-types', 'materials', 'features', 'activities'],
-      'automotive': ['automotive', 'materials', 'features'],
-      'sports & outdoors': ['activities', 'materials', 'features', 'colors', 'styles'],
-      'kitchen & dining': ['kitchen', 'materials', 'features', 'colors'],
-      'home & garden': ['materials', 'features', 'colors', 'styles'],
-      'beauty & personal care': ['beauty', 'features', 'occasions'],
-      'electronics': ['features', 'materials', 'colors'],
-      'pet supplies': ['materials', 'features'],
-      'toys & games': ['features', 'materials', 'occasions'],
-      'office & school': ['materials', 'features'],
+      'fashion': ['colors', 'patterns', 'finishes', 'materials', 'fit', 'styles', 'occasions'],
+      'tools & hardware': ['tool-types', 'materials', 'features', 'activities', 'finishes'],
+      'automotive': ['automotive', 'materials', 'features', 'finishes'],
+      'sports & outdoors': ['activities', 'materials', 'features', 'colors', 'patterns', 'styles'],
+      'kitchen & dining': ['kitchen', 'materials', 'features', 'colors', 'finishes'],
+      'home & garden': ['materials', 'features', 'colors', 'patterns', 'finishes', 'styles'],
+      'beauty & personal care': ['beauty', 'features', 'occasions', 'finishes'],
+      'electronics': ['features', 'materials', 'colors', 'finishes'],
+      'pet supplies': ['materials', 'features', 'patterns'],
+      'toys & games': ['features', 'materials', 'occasions', 'patterns'],
+      'office & school': ['materials', 'features', 'patterns'],
       'health & wellness': ['features', 'occasions'],
-      'baby & kids': ['materials', 'features', 'occasions', 'fit'],
+      'baby & kids': ['materials', 'features', 'occasions', 'fit', 'patterns'],
       'books & media': ['features', 'occasions'],
       'grocery & food': ['features', 'occasions'],
-      'jewelry & watches': ['materials', 'styles', 'occasions'],
-      'luggage & travel': ['materials', 'features', 'styles'],
-      'musical instruments': ['features', 'materials'],
-      'arts & crafts': ['materials', 'features']
+      'jewelry & watches': ['materials', 'styles', 'occasions', 'finishes'],
+      'luggage & travel': ['materials', 'features', 'styles', 'patterns'],
+      'musical instruments': ['features', 'materials', 'finishes'],
+      'arts & crafts': ['materials', 'features', 'patterns', 'finishes']
     };
     
     const allowedTypes = departmentTagRules[department] || [];
@@ -847,6 +851,8 @@ async function autoTag(productData) {
       
       // Update tagsByType (filter smart colors too if needed)
       tagsByType.colors = allowedTypes.includes('colors') ? smartColors : [];
+      tagsByType.patterns = allMatchedTags.filter(t => t.type === 'patterns');
+      tagsByType.finishes = allMatchedTags.filter(t => t.type === 'finishes');
       tagsByType.materials = allMatchedTags.filter(t => t.type === 'materials');
       tagsByType.activities = allMatchedTags.filter(t => t.type === 'activities');
       tagsByType.styles = allMatchedTags.filter(t => t.type === 'styles');
