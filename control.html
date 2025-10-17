@@ -1695,12 +1695,76 @@
       // Re-render category chips
       renderCategoryChips();
       
+      // Show synonym learner with the selected category
+      showSynonymLearner(pathString);
+      
       // Reset builder for next selection
       selectedCategoryPath = [];
       for (let i = 0; i <= 4; i++) {
         document.getElementById(`catLevel${i}`).value = '';
       }
       updateCategoryBuilderPreview();
+    });
+    
+    // Show synonym learner for a category
+    function showSynonymLearner(categoryPath) {
+      // Get the deepest (most specific) category name from path
+      const pathParts = categoryPath.split(' > ');
+      const categoryName = pathParts[pathParts.length - 1];
+      
+      // Show the learner
+      document.getElementById('synonymLearner').style.display = 'block';
+      document.getElementById('synonymCategory').textContent = categoryName;
+      document.getElementById('synonymKeyword').textContent = '???';
+      document.getElementById('synonymInput').value = '';
+      document.getElementById('synonymStatus').textContent = '';
+    }
+    
+    // Save synonym mapping
+    document.getElementById('saveSynonymBtn').addEventListener('click', async function() {
+      const synonymInput = document.getElementById('synonymInput');
+      const synonym = synonymInput.value.trim().toLowerCase();
+      const categoryName = document.getElementById('synonymCategory').textContent;
+      const statusEl = document.getElementById('synonymStatus');
+      
+      if (!synonym) {
+        statusEl.textContent = '⚠️ Please enter a synonym';
+        statusEl.style.color = '#FF9800';
+        return;
+      }
+      
+      try {
+        // Disable button during save
+        this.disabled = true;
+        this.textContent = '💾 Saving...';
+        statusEl.textContent = 'Saving synonym to database...';
+        statusEl.style.color = '#1565C0';
+        
+        // Call backend API to save synonym
+        const result = await window.api.saveCategorySynonym(synonym, categoryName);
+        
+        if (result.success) {
+          statusEl.textContent = `✅ Saved! "${synonym}" will now auto-match to "${categoryName}"`;
+          statusEl.style.color = '#4CAF50';
+          synonymInput.value = '';
+          
+          // Auto-hide after 3 seconds
+          setTimeout(() => {
+            document.getElementById('synonymLearner').style.display = 'none';
+          }, 3000);
+        } else {
+          throw new Error(result.error || 'Failed to save synonym');
+        }
+        
+      } catch (error) {
+        console.error('Error saving synonym:', error);
+        statusEl.textContent = `❌ Error: ${error.message}`;
+        statusEl.style.color = '#dc3545';
+      } finally {
+        // Re-enable button
+        this.disabled = false;
+        this.textContent = '✓ Save Synonym';
+      }
     });
 
     // Add new keyword on Enter with smart classification

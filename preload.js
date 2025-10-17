@@ -84,6 +84,8 @@ contextBridge.exposeInMainWorld('api', {
   viewTaxonomy: () => call('view-taxonomy'),
   getCategoryHierarchy: () => call('get-category-hierarchy'),
   createCategory: (categoryData) => call('create-category', categoryData),
+  saveCategorySynonym: (synonym, categoryName) => call('save-category-synonym', { synonym, categoryName }),
+  getCategorySynonyms: () => call('get-category-synonyms'),
   getProducts: (filters) => call('get-products', filters),
   getProductStats: () => call('get-product-stats')
 });

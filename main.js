@@ -993,6 +993,28 @@ ipcMain.handle('create-category', async (_e, categoryData) => {
   }
 });
 
+// Save category synonym mapping
+ipcMain.handle('save-category-synonym', async (_e, { synonym, categoryName }) => {
+  try {
+    const { saveCategorySynonym } = require(path.join(__dirname, 'server', 'storage'));
+    return await saveCategorySynonym(synonym, categoryName);
+  } catch (e) {
+    console.error('Error saving category synonym:', e);
+    throw e;
+  }
+});
+
+// Get all category synonyms
+ipcMain.handle('get-category-synonyms', async (_e) => {
+  try {
+    const { getCategorySynonyms } = require(path.join(__dirname, 'server', 'storage'));
+    return await getCategorySynonyms();
+  } catch (e) {
+    console.error('Error getting category synonyms:', e);
+    throw e;
+  }
+});
+
 // Database query handler
 ipcMain.handle('get-products', async (_e, filters) => {
   try {
