@@ -1,7 +1,12 @@
-require('dotenv').config();
+require('dotenv').config({ override: true });
 const postgres = require('postgres');
 
 const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`;
+
+// DEBUG: Log connection details (hide password)
+const safeString = connectionString.replace(/:[^:@]*@/, ':****@');
+console.log(`🔍 [auto-tagger.js] Connecting to database: ${safeString}`);
+
 const sql = postgres(connectionString, {
   ssl: process.env.PGHOST === 'localhost' ? false : 'require'
 });
