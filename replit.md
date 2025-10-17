@@ -32,10 +32,17 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - Fixed manual tag insertion to set `llm_discovered = 1` so user-created tags survive re-seeding
 - **Canonical Tag System** (Surgical Implementation):
   - Added TAG_CANONICALS mapping to consolidate tag variations without database changes
-  - Deduplicates similar tags: stripe/stripes/striped → striped, plaid/plaids → plaid, floral/florals → floral
+  - Deduplicates similar tags: stripe/stripes/striped → striped, plaid/plaids → plaid, floral/florals → floral, checkers/checked → checkered
   - All variations remain in database for matching, but only canonical form returned to user
   - Implemented via `deduplicateTags()` function applied to tagsByType before final return
   - Easy to extend with new mappings as patterns emerge
+- **Neckline & Sleeve Tags** (Garment Feature Detection):
+  - Added 15 neckline tags (v-neck, crew-neck, turtle-neck, scoop-neck, cowl-neck, halter-neck, mock-neck, boat-neck, square-neck, sweetheart-neck, off-shoulder, one-shoulder, strapless, high-neck, round-neck)
+  - Added 14 sleeve tags (short-sleeve, long-sleeve, sleeveless, 3/4-sleeve, cap-sleeve, bell-sleeve, puffed-sleeve, bishop-sleeve, dolman-sleeve, raglan-sleeve, flutter-sleeve, kimono-sleeve, batwing-sleeve, lantern-sleeve)
+  - Category synonym mapping: "top"/"tops" → Shirts, "sneaker" → Sneakers
+  - False positive filters prevent descriptor words from matching categories (e.g., "short sleeve" blocked from matching "Shorts" category)
+  - Feature tag boosting: When neckline/sleeve tags detected, boosts Shirts/Sweaters/Tanks categories by +200 points
+  - Cross-department false positive protection for filter, belt, battery, pants categories
 
 ## User Preferences
 - Prefers existing project structure and conventions

@@ -358,10 +358,36 @@ const CATEGORY_BLACKLIST_CONTEXTS = {
       /\bpendant/i
     ]
   },
-  'shirts': {
-    // Block "shirt" when it's part of "t-shirt" and we have specific T-Shirt category
-    // (This is already handled by synonyms, but keeping for reference)
-    blockPatterns: []
+  'filter': {
+    // Automotive: Block "filter" when it's a descriptor (e.g., "blue filter" for camera)
+    // Only applies if context suggests non-automotive use
+    blockPatterns: [
+      /\bcolor[-\s]filter/i,
+      /\blight[-\s]filter/i,
+      /\bcamera[-\s]filter/i,
+      /\bphoto[-\s]filter/i,
+      /\blens[-\s]filter/i,
+      /\bwater[-\s]filter/i  // Water filter is a separate Home category
+    ]
+  },
+  'belt': {
+    // Fashion: Block "belt" when it's part of automotive "Belt & Hose"
+    blockPatterns: [
+      /\bserpentine[-\s]belt/i,
+      /\btiming[-\s]belt/i,
+      /\bdrive[-\s]belt/i,
+      /\bv-belt/i,
+      /\bfan[-\s]belt/i
+    ]
+  },
+  'battery': {
+    // Electronics: Block when it's a feature description (e.g., "battery powered")
+    blockPatterns: [
+      /\bbattery[-\s]powered/i,
+      /\bbattery[-\s]operated/i,
+      /\bbattery[-\s]life/i,
+      /\bbattery[-\s]backup/i
+    ]
   }
 };
 
