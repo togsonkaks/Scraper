@@ -13,6 +13,7 @@ const sql = postgres(connectionString, {
 
 let tagTaxonomy = [];
 let categoryTree = [];
+let categorySynonyms = {}; // Loaded from database for self-learning
 let isInitialized = false;
 
 // TAG CANONICALS: Map tag variations to their canonical form for deduplication
@@ -82,8 +83,21 @@ async function initializeTaxonomy(force = false) {
       ORDER BY level, name
     `;
     
+    // Load category synonyms from database for self-learning
+    const dbSynonyms = await sql`
+      SELECT synonym, category_name
+      FROM category_synonyms
+      ORDER BY synonym
+    `;
+    
+    // Convert to object map { synonym: categoryName }
+    categorySynonyms = {};
+    for (const row of dbSynonyms) {
+      categorySynonyms[row.synonym.toLowerCase()] = row.category_name;
+    }
+    
     isInitialized = true;
-    console.log(`✅ Auto-tagger initialized: ${tagTaxonomy.length} tags, ${categoryTree.length} categories`);
+    console.log(`✅ Auto-tagger initialized: ${tagTaxonomy.length} tags, ${categoryTree.length} categories, ${Object.keys(categorySynonyms).length} synonyms`);
     
     // DEBUG: Check if "indigo" and "Jeans" exist
     const hasIndigo = tagTaxonomy.some(t => t.name.toLowerCase() === 'indigo');
@@ -518,8 +532,10 @@ function matchCategories(text, productData = {}, detectedGender = null) {
     });
     
     // Also check for synonyms (e.g., "trousers" should match "Pants")
+    // Merge hardcoded synonyms with DB-loaded synonyms (DB takes priority)
+    const mergedSynonyms = { ...CATEGORY_SYNONYMS, ...categorySynonyms };
     const synonymPatterns = [];
-    for (const [synonym, canonical] of Object.entries(CATEGORY_SYNONYMS)) {
+    for (const [synonym, canonical] of Object.entries(mergedSynonyms)) {
       if (canonical.toLowerCase() === category.name.toLowerCase()) {
         const escapedSynonym = synonym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         synonymPatterns.push(new RegExp(`\\b${escapedSynonym}\\b`, 'gi'));
