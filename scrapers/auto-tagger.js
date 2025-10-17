@@ -15,6 +15,53 @@ let tagTaxonomy = [];
 let categoryTree = [];
 let isInitialized = false;
 
+// TAG CANONICALS: Map tag variations to their canonical form for deduplication
+// This consolidates similar tags (e.g., stripe/stripes/striped → striped)
+const TAG_CANONICALS = {
+  'stripe': 'striped',
+  'stripes': 'striped',
+  'plaid': 'plaid',
+  'plaids': 'plaid',
+  'floral': 'floral',
+  'florals': 'floral'
+};
+
+/**
+ * Deduplicate tags by consolidating variations to their canonical form
+ * Example: [stripe, stripes, striped] → [striped]
+ * @param {Array} tags - Array of tag objects with name, slug, type
+ * @returns {Array} - Deduplicated array with canonical tags
+ */
+function deduplicateTags(tags) {
+  if (!tags || tags.length === 0) return [];
+  
+  const canonicalMap = new Map();
+  
+  for (const tag of tags) {
+    // Get canonical name (or use original if not in mapping)
+    const canonicalName = TAG_CANONICALS[tag.name] || tag.name;
+    
+    // If we haven't seen this canonical form yet, add it
+    if (!canonicalMap.has(canonicalName)) {
+      // Find the canonical tag object from taxonomy (prefer the canonical form)
+      const canonicalTag = tagTaxonomy.find(t => t.name === canonicalName && t.tag_type === tag.type);
+      
+      if (canonicalTag) {
+        canonicalMap.set(canonicalName, {
+          name: canonicalTag.name,
+          slug: canonicalTag.slug,
+          type: canonicalTag.tag_type || tag.type
+        });
+      } else {
+        // Fallback to original tag if canonical not found
+        canonicalMap.set(canonicalName, tag);
+      }
+    }
+  }
+  
+  return Array.from(canonicalMap.values());
+}
+
 async function initializeTaxonomy(force = false) {
   if (isInitialized && !force) return;
   
