@@ -718,19 +718,18 @@ async function seedFullTaxonomy() {
     // Clear existing data (preserve LLM-discovered tags)
     console.log('🗑️  Clearing existing taxonomy (preserving LLM discoveries)...');
     
-    // SPECIAL: Clear Fashion seed categories (preserve LLM-discovered)
-    console.log('🗑️  Clearing Fashion seed categories (preserving LLM-discovered)...');
-    const fashionDept = await sql`SELECT category_id FROM categories WHERE name = 'Fashion' AND parent_id IS NULL AND (llm_discovered = 0 OR llm_discovered IS NULL)`;
-    if (fashionDept.length > 0) {
-      const fashionId = fashionDept[0].category_id;
-      // Delete all Fashion seed descendants recursively (preserve LLM-discovered)
+    // SPECIAL: Delete ALL Fashion departments (including LLM-created ones) before seeding
+    console.log('🗑️  Deleting ALL Fashion departments completely...');
+    const allFashionDepts = await sql`SELECT category_id FROM categories WHERE name = 'Fashion' AND parent_id IS NULL`;
+    for (const fashionDept of allFashionDepts) {
+      const fashionId = fashionDept.category_id;
+      // Delete all Fashion descendants recursively
       await sql`
         WITH RECURSIVE fashion_tree AS (
           SELECT category_id FROM categories WHERE category_id = ${fashionId}
           UNION ALL
           SELECT c.category_id FROM categories c
           INNER JOIN fashion_tree ft ON c.parent_id = ft.category_id
-          WHERE c.llm_discovered = 0 OR c.llm_discovered IS NULL
         )
         DELETE FROM product_categories WHERE category_id IN (SELECT category_id FROM fashion_tree)
       `;
@@ -740,12 +739,11 @@ async function seedFullTaxonomy() {
           UNION ALL
           SELECT c.category_id FROM categories c
           INNER JOIN fashion_tree ft ON c.parent_id = ft.category_id
-          WHERE c.llm_discovered = 0 OR c.llm_discovered IS NULL
         )
         DELETE FROM categories WHERE category_id IN (SELECT category_id FROM fashion_tree)
       `;
-      console.log('✅ Cleared Fashion seed categories (LLM-discovered preserved)');
     }
+    console.log(`✅ Deleted ${allFashionDepts.length} Fashion department(s) completely`);
     
     // Delete only product associations for tags being deleted (built-in tags)
     await sql`
