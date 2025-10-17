@@ -1458,6 +1458,10 @@
         categoryHierarchyData = response.categories;
         console.log('📂 Loaded', categoryHierarchyData.length, 'categories for builder');
         
+        // DEBUG: Check for Fashion duplicates
+        const fashionEntries = categoryHierarchyData.filter(c => c.name === 'Fashion');
+        console.log(`🔍 DEBUG: Found ${fashionEntries.length} Fashion entries in categoryHierarchyData:`, fashionEntries);
+        
         // Reset builder state
         selectedCategoryPath = [];
         
@@ -1490,6 +1494,12 @@
         cat.level === level && 
         (parentId === null ? cat.parent_id === null : cat.parent_id === parentId)
       );
+      
+      // DEBUG: Log what's being filtered
+      if (level === 0) {
+        console.log(`🔍 DEBUG populateLevelDropdown: Level ${level}, parentId ${parentId}`);
+        console.log(`  Found ${categories.length} categories:`, categories.map(c => `${c.name} (id:${c.category_id})`));
+      }
       
       // Sort alphabetically
       categories.sort((a, b) => a.name.localeCompare(b.name));
