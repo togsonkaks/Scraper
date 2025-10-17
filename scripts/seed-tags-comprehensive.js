@@ -124,7 +124,7 @@ const COMPREHENSIVE_TAGS = {
   // PATTERNS (50+ tags)
   patterns: [
     // Fabric & Clothing Patterns
-    'solid', 'striped', 'plaid', 'checkered', 'gingham', 'floral', 'geometric', 'abstract',
+    'solid', 'striped', 'stripe', 'stripes', 'plaid', 'checkered', 'gingham', 'floral', 'geometric', 'abstract',
     'polka-dot', 'paisley', 'herringbone', 'houndstooth', 'chevron', 'argyle',
     
     // Animal & Nature Patterns
