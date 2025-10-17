@@ -1,0 +1,38 @@
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒ¢á∩╕Å  run anywhere with `dotenvx run -- yourcommand`
+Γ£à Auto-tagger initialized: 986 tags, 439 categories
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (1 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Thomasin Striped Shorts
+  ≡ƒöù URL keywords: classic effortless blue natural striped linen shorts
+  ≡ƒÅ╖∩╕Å Breadcrumbs:
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org/","@type":"Product","name":"Thomasin Striped Shorts","url":"https://www.adoredvintage.com/products/classic-effortless-b...
+  ≡ƒôä Description: Effortless and easy to wear linen and cotton summer shorts in charcoal pinstripe with elasticated wa       
+  ≡ƒöñ Search text length: 1530 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): striped
+  Γ£à Matched tags (non-color): 9 ΓåÆ imported, natural, small, cotton, linen, summer, classic, modern, relaxed
+  ≡ƒöì TIER 1 (title/url/json-ld) - WOMEN match: "dress"
+  ≡ƒöì JSON-LD only - WOMEN match: "dress"
+  ≡ƒæñ Gender (early): women [title/url/json-ld, high]
+  ≡ƒöì Universal search: Searching all 439 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Shorts (score: 162, lvl 2), Dresses (score: 152, lvl 2)
+  ≡ƒÄ» Best category match: Shorts (score: 162, lvl 2, id: 9618)
+    Match details: {"breadcrumbMatches":0,"titleMatches":1,"urlMatches":1,"descriptionMatches":1,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Clothing > Shorts
+  ≡ƒÜ½ Filtered 2 tags for department: fashion
+  ≡ƒöì TIER 1 (title/url/json-ld) - WOMEN match: "dress"
+  ≡ƒöì JSON-LD only - WOMEN match: "dress"
+  ≡ƒæñ Gender (final): women [title/url/json-ld, high]
+  ≡ƒæñ Gender tag added: women
+≡ƒöì DEBUG: Received newTagsToLearn array with 0 items
+Γä╣∩╕Å No new tags to learn in this save operation
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ≡ƒöÉ prevent building .env in docker: https://dotenvx.com/prebuild
+≡ƒôª Using current AUTO tags from UI: 9 tags: striped, small, cotton, linen, summer, classic, modern, relaxed, women
+[7728:1017/124814.258:ERROR:CONSOLE:1] "Request Autofill.enable failed. {"code":-32601,"message":"'Autofill.enable' wasn't found"}", source: devtools://devtools/bundled/core/protocol_client/protocol_client.js (1)
+[7728:1017/124814.259:ERROR:CONSOLE:1] "Request Autofill.setAddresses failed. {"code":-32601,"message":"'Autofill.setAddresses' wasn't found"}", source: devtools://devtools/bundled/core/protocol_client/protocol_client.js (1)
+≡ƒÆí LLM suggested 2 new tags (not saved yet): elasticated-waistband, side-pockets
+≡ƒöÇ Merged tags: 9 existing + 8 AI = 14 total
+≡ƒöì [getCategoryHierarchy] Total categories: 439
+≡ƒöì [getCategoryHierarchy] Fashion entries found: 2
+  - Fashion ID: 9594, slug: fashion, parent: null, level: 0
+  - Fashion ID: 5861, slug: fashion, parent: null, level: 0
