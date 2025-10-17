@@ -43,6 +43,15 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - False positive filters prevent descriptor words from matching categories (e.g., "short sleeve" blocked from matching "Shorts" category)
   - Feature tag boosting: When neckline/sleeve tags detected, boosts Shirts/Sweaters/Tanks categories by +200 points
   - Cross-department false positive protection for filter, belt, battery, pants categories
+- **Self-Learning Category Synonym System**:
+  - NEW database table `category_synonyms` stores user-taught synonym mappings (synonym → category_name)
+  - Auto-tagger loads synonyms from database on initialization, merges with hardcoded fallbacks (DB takes priority)
+  - LLM Review modal displays "📚 Teach a Synonym" section when category path is added manually
+  - One-click synonym saving: Type keyword (e.g., "bralette"), click "✓ Save Synonym", future products with that term auto-match the category
+  - Automatically refreshes auto-tagger taxonomy after saving new synonym for immediate availability
+  - Backend API: `saveCategorySynonym()` and `getCategorySynonyms()` in server/storage.js
+  - IPC handlers: `save-category-synonym` and `get-category-synonyms` in main.js
+  - Frontend API: `window.api.saveCategorySynonym(synonym, categoryName)` in preload.js
 
 ## User Preferences
 - Prefers existing project structure and conventions
