@@ -453,16 +453,16 @@ function matchCategories(text, productData = {}, detectedGender = null) {
         specsMatches += (textSources.specs.match(pattern) || []).length;
       }
       
-      // Weighted scoring: URL (6x) > Title (4x) > Breadcrumbs (3x) > Specs (2x) = Description (2x)
-      // URL and title are cleanest/most consistent, breadcrumbs can be messy
-      frequencyScore = (urlMatches * 6) + (titleMatches * 4) + (breadcrumbMatches * 3) + 
-                       (specsMatches * 2) + (descriptionMatches * 2);
+      // Weighted scoring: Title (1000x) >> URL (500x) > Breadcrumbs (300x) > Specs (100x) > Description (50x)
+      // Title = what the product IS (dominant signal), Description = fluff (weak signal)
+      frequencyScore = (titleMatches * 1000) + (urlMatches * 500) + (breadcrumbMatches * 300) + 
+                       (specsMatches * 100) + (descriptionMatches * 50);
       
       // ONLY add to results if there are actual keyword matches (skip depth-only matches)
       if (frequencyScore > 0) {
-        // DEPTH BONUS: Add +50 points per level to heavily favor specific categories over generic parents
-        // This ensures "Fashion > Accessories > Bags > Shoulder Bags" beats "Fashion > Accessories"
-        const depthBonus = fullPath.length * 50;
+        // DEPTH BONUS: Add +10 points per level as tiebreaker for specificity
+        // This ensures "Fashion > Accessories > Bags > Shoulder Bags" beats "Fashion > Accessories" when scores are equal
+        const depthBonus = fullPath.length * 10;
         
         const finalScore = frequencyScore + depthBonus;
         
