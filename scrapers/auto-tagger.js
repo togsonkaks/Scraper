@@ -558,6 +558,22 @@ function matchCategories(text, productData = {}, detectedGender = null) {
       frequencyScore = (titleMatches * 1000) + (urlMatches * 500) + (breadcrumbMatches * 300) + 
                        (specsMatches * 100) + (descriptionMatches * 50);
       
+      // FEATURE TAG BOOSTING: Boost category scores when related feature tags are detected
+      // Example: v-neck, crew-neck detected → boost Shirts/Sweaters categories
+      let featureBoost = 0;
+      const pathString = fullPath.map(p => p.name.toLowerCase()).join(' > ');
+      
+      // Clothing feature boosting (necklines, sleeves)
+      const hasNeckline = /\b(v-neck|crew-neck|turtle-neck|scoop-neck|cowl-neck|halter-neck|mock-neck|boat-neck|square-neck|high-neck|round-neck)\b/i.test(normalizedText);
+      const hasSleeve = /\b(short-sleeve|long-sleeve|sleeveless|cap-sleeve|bell-sleeve|puffed-sleeve|3\/4-sleeve)\b/i.test(normalizedText);
+      
+      if ((hasNeckline || hasSleeve) && (pathString.includes('shirts') || pathString.includes('sweaters') || pathString.includes('tanks'))) {
+        featureBoost = 200; // Significant boost to ensure Shirts wins over false positives like "Shorts"
+        console.log(`  ✨ Feature boost (+${featureBoost}): Neckline/sleeve tag detected for ${category.name}`);
+      }
+      
+      frequencyScore += featureBoost;
+      
       // ONLY add to results if there are actual keyword matches (skip depth-only matches)
       if (frequencyScore > 0) {
         // DEPTH BONUS: Add +10 points per level as tiebreaker for specificity
