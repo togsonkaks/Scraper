@@ -334,7 +334,23 @@ const CATEGORY_SYNONYMS = {
   'purse': 'Handbags',
   'tote': 'Bags',
   'backpack': 'Bags',
-  'rucksack': 'Bags'
+  'rucksack': 'Bags',
+  
+  // Intimates synonyms
+  'bralette': 'Bra',
+  'sports-bra': 'Bra',
+  'push-up-bra': 'Bra',
+  'panty': 'Underwear',
+  'panties': 'Underwear',
+  'briefs': 'Underwear',
+  'boxers': 'Underwear',
+  'boxer-briefs': 'Underwear',
+  'thong': 'Underwear',
+  'boyshorts': 'Underwear',
+  'pajamas': 'Sleepwear',
+  'pyjamas': 'Sleepwear',
+  'nightgown': 'Sleepwear',
+  'robe': 'Sleepwear'
 };
 
 // CATEGORY FALSE POSITIVE FILTERS
