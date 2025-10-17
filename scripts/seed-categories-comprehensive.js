@@ -305,6 +305,8 @@ const COMPREHENSIVE_CATEGORIES = [
   { name: 'Hoodie', parent: 'Tops', level: 3 },
   { name: 'Blouse', parent: 'Tops', level: 3 },
   { name: 'Tank Top', parent: 'Tops', level: 3 },
+  { name: 'Cami', parent: 'Tops', level: 3 },
+  { name: 'Camisole', parent: 'Tops', level: 3 },
   { name: 'Polo', parent: 'Tops', level: 3 },
   { name: 'Bottoms', parent: 'Clothing', level: 2 },
   { name: 'Jeans', parent: 'Bottoms', level: 3 },
@@ -399,9 +401,11 @@ const COMPREHENSIVE_CATEGORIES = [
   { name: 'Fashion Jewelry', parent: 'Jewelry & Watches', level: 1 },
   { name: 'Costume Jewelry', parent: 'Fashion Jewelry', level: 2 },
   { name: 'Watch', parent: 'Jewelry & Watches', level: 1 },
-  { name: 'Men\'s Watch', parent: 'Watch', level: 2 },
-  { name: 'Women\'s Watch', parent: 'Watch', level: 2 },
   { name: 'Smartwatch', parent: 'Watch', level: 2 },
+  { name: 'Analog Watch', parent: 'Watch', level: 2 },
+  { name: 'Digital Watch', parent: 'Watch', level: 2 },
+  { name: 'Chronograph', parent: 'Watch', level: 2 },
+  { name: 'Dive Watch', parent: 'Watch', level: 2 },
 
   // LUGGAGE & TRAVEL
   { name: 'Luggage & Travel', parent: null, level: 0 },
@@ -493,7 +497,7 @@ async function seedCategories() {
       // Clear deeper levels when we go back up
       levelStack.length = cat.level + 1;
       
-      // Build unique key from full path (e.g., "Fashion:Men:Clothing" vs "Fashion:Women:Clothing")
+      // Build unique key from full ancestral path
       const fullPath = levelStack.join(':');
       
       // Get parent ID from the previous level in the stack
@@ -511,7 +515,7 @@ async function seedCategories() {
         RETURNING category_id
       `;
       
-      // Store with full path as key so "Fashion:Men:Clothing" and "Fashion:Women:Clothing" are separate
+      // Store with full path as key for hierarchical tracking
       if (result && result[0]) {
         categoryIdMap[fullPath] = result[0].category_id;
       }
