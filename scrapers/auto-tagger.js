@@ -311,6 +311,8 @@ const CATEGORY_SYNONYMS = {
   'chinos': 'Pants',
   
   // Tops synonyms
+  'top': 'Shirts',           // "knit top", "casual top" → Shirts
+  'tops': 'Shirts',
   'jumper': 'Sweater',
   'pullover': 'Sweater',
   'tee': 'T-Shirt',
@@ -321,6 +323,7 @@ const CATEGORY_SYNONYMS = {
   'kicks': 'Sneakers',
   'tennis-shoes': 'Sneakers',
   'running-shoes': 'Sneakers',
+  'sneaker': 'Sneakers',     // singular form
   
   // Outerwear synonyms
   'parka': 'Coat',
@@ -332,6 +335,34 @@ const CATEGORY_SYNONYMS = {
   'tote': 'Bags',
   'backpack': 'Bags',
   'rucksack': 'Bags'
+};
+
+// CATEGORY FALSE POSITIVE FILTERS
+// Prevents descriptor words from incorrectly matching category names
+// Example: "short sleeve" should NOT match "Shorts" category
+const CATEGORY_BLACKLIST_CONTEXTS = {
+  'shorts': {
+    // Block "short" when followed by sleeve descriptors
+    blockPatterns: [
+      /\bshort[-\s]sleeve/i,
+      /\bshort[-\s]puffed/i,
+      /\bshort[-\s]length/i,
+      /\bshort[-\s]hem/i,
+      /\bshort[-\s]cut/i
+    ]
+  },
+  'pants': {
+    // Block "pant" when it's part of "pantry", "pendant", etc.
+    blockPatterns: [
+      /\bpantry/i,
+      /\bpendant/i
+    ]
+  },
+  'shirts': {
+    // Block "shirt" when it's part of "t-shirt" and we have specific T-Shirt category
+    // (This is already handled by synonyms, but keeping for reference)
+    blockPatterns: []
+  }
 };
 
 // Department Gender Defaults: Apply ONLY when no gender is detected
@@ -474,6 +505,26 @@ function matchCategories(text, productData = {}, detectedGender = null) {
     }
     
     if (hasMatch) {
+      // CHECK FALSE POSITIVE FILTERS: Prevent descriptor words from matching categories
+      // Example: "short sleeve" should NOT match "Shorts" category
+      const categoryLower = category.name.toLowerCase();
+      const blacklistConfig = CATEGORY_BLACKLIST_CONTEXTS[categoryLower];
+      
+      if (blacklistConfig && blacklistConfig.blockPatterns) {
+        let isBlocked = false;
+        for (const blockPattern of blacklistConfig.blockPatterns) {
+          if (blockPattern.test(normalizedText)) {
+            console.log(`  🚫 Blocked false positive: "${category.name}" matched but context indicates descriptor (e.g., "short sleeve")`);
+            isBlocked = true;
+            break;
+          }
+        }
+        
+        if (isBlocked) {
+          continue; // Skip this category match
+        }
+      }
+      
       const fullPath = buildCategoryPath(category.category_id);
       
       // Count frequency across weighted sources (using all plural patterns + synonyms)
