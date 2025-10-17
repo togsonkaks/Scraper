@@ -916,6 +916,29 @@ async function autoTag(productData) {
     }
   }
   
+  // DEDUPLICATE TAGS: Consolidate tag variations (stripe/stripes/striped → striped)
+  tagsByType.patterns = deduplicateTags(tagsByType.patterns);
+  tagsByType.finishes = deduplicateTags(tagsByType.finishes);
+  tagsByType.colors = deduplicateTags(tagsByType.colors);
+  tagsByType.materials = deduplicateTags(tagsByType.materials);
+  tagsByType.activities = deduplicateTags(tagsByType.activities);
+  tagsByType.styles = deduplicateTags(tagsByType.styles);
+  tagsByType.features = deduplicateTags(tagsByType.features);
+  tagsByType.fit = deduplicateTags(tagsByType.fit);
+  tagsByType.occasions = deduplicateTags(tagsByType.occasions);
+  
+  // Rebuild allMatchedTags from deduplicated tagsByType
+  allMatchedTags = [
+    ...tagsByType.patterns,
+    ...tagsByType.finishes,
+    ...tagsByType.materials,
+    ...tagsByType.activities,
+    ...tagsByType.styles,
+    ...tagsByType.features,
+    ...tagsByType.fit,
+    ...tagsByType.occasions
+  ];
+  
   // FINAL gender detection with category path fallback (Tier 4)
   // EXCEPTION: Electronics products are unisex unless explicitly gendered
   if (primaryCategory && primaryCategory.toLowerCase().startsWith('electronics')) {
