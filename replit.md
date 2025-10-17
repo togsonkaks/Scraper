@@ -3,8 +3,13 @@
 ## Overview
 Tagglo is a desktop Electron application designed for web scraping e-commerce product data. Its primary purpose is multi-field data extraction (title, price, images, specs, tags, brand, description) from product detail pages, featuring persistent selector memory, history tracking, and custom site-specific handlers. A key capability is its advanced auto-tagging system, which utilizes a database-centric taxonomy for intelligent product categorization and keyword extraction. The project aims to provide a robust solution for efficient and accurate e-commerce data acquisition and enrichment.
 
-## Recent Changes (October 16, 2025)
-- **Gender Field Removal**: Completely removed gender as a separate field from UI display and database schema. Gender now exists ONLY as demographic tags (women's, men's, unisex, kids, baby, teen) for Pinterest-style personalization. This aligns with the universal category architecture where categories are gender-neutral.
+## Recent Changes (October 17, 2025)
+- **Universal Category Architecture Finalized**: 
+  - Fixed seed script to include "Cami" and "Camisole" under Fashion > Clothing > Tops
+  - Removed ALL gendered categories (Men's Watch, Women's Watch) and replaced with universal types (Analog Watch, Digital Watch, Smartwatch, Dive Watch, Chronograph)
+  - Fixed UI category builder level names from ["Department", "Gender", ...] to ["Department", "Category", "Subcategory", "Type", "Subtype"]
+  - Re-seeded database with 404 universal categories across 19 departments
+  - Gender completely removed from ALL category paths - exists ONLY as demographic tags for personalization
 
 ## User Preferences
 - Prefers existing project structure and conventions
