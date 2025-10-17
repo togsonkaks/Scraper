@@ -205,8 +205,8 @@ async function updateProductTags(productId, tagResults) {
       let tagId;
       if (tagIdResult.length === 0) {
         const newTag = await sql`
-          INSERT INTO tags (name, slug, tag_type)
-          VALUES (${tag.name}, ${tag.slug}, ${tag.type})
+          INSERT INTO tags (name, slug, tag_type, llm_discovered)
+          VALUES (${tag.name}, ${tag.slug}, ${tag.type}, 1)
           RETURNING tag_id
         `;
         tagId = newTag[0].tag_id;
@@ -477,8 +477,8 @@ async function saveProduct(productData, tagResults) {
       let tagId;
       if (tagIdResult.length === 0) {
         const newTag = await sql`
-          INSERT INTO tags (name, slug, tag_type)
-          VALUES (${tag.name}, ${tag.slug}, ${tag.type})
+          INSERT INTO tags (name, slug, tag_type, llm_discovered)
+          VALUES (${tag.name}, ${tag.slug}, ${tag.type}, 1)
           RETURNING tag_id
         `;
         tagId = newTag[0].tag_id;
