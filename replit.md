@@ -20,6 +20,12 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - Fixed seed script SSL configuration: disables SSL for localhost, requires SSL for remote databases
   - Removed "tie" from men's gender keywords to prevent false positives (e.g., "tie-dye", "tie-waist" incorrectly triggering men's tag)
   - Kept "necktie" as men's keyword for accurate detection of actual men's neckties
+- **Tag Taxonomy Reorganization**:
+  - Separated colors, finishes, and patterns into distinct tag categories
+  - **Colors**: ~60 pure color tags (black, white, navy, burgundy, etc.) plus color variations (two-tone, multi-color)
+  - **Finishes**: ~30 surface finish tags (matte, glossy, metallic, pearl, brushed, polished, shimmer, etc.)
+  - **Patterns**: ~50 design pattern tags (striped, plaid, floral, leopard-print, tie-dye, quilted, etc.)
+  - Fixed Fashion deletion in seed script to delete ALL Fashion departments (including LLM-discovered) before re-seeding to prevent duplicates
 
 ## User Preferences
 - Prefers existing project structure and conventions
