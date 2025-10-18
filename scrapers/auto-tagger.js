@@ -639,8 +639,13 @@ function matchCategories(text, productData = {}, detectedGender = null) {
     const synonymPatterns = [];
     for (const [synonym, canonical] of Object.entries(mergedSynonyms)) {
       if (canonical.toLowerCase() === category.name.toLowerCase()) {
-        const escapedSynonym = synonym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        synonymPatterns.push(new RegExp(`\\b${escapedSynonym}\\b`, 'gi'));
+        // Generate ALL plural/singular variations of the synonym key
+        // This ensures "trousers" matches both "trouser" AND "trousers"
+        const synonymVariations = generatePluralVariations(synonym);
+        for (const synonymVariant of synonymVariations) {
+          const escapedSynonym = synonymVariant.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          synonymPatterns.push(new RegExp(`\\b${escapedSynonym}\\b`, 'gi'));
+        }
       }
     }
     

@@ -1,0 +1,77 @@
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ΓÜÖ∩╕Å  load multiple .env files with { path: ['.env.local', '.env'] }
+Clearing old localStorage memory data...
+No old localStorage data found
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-18T18-43-03_meshki.us.txt
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ΓÜÖ∩╕Å  enable debug logging with { debug: true }
+≡ƒöì [auto-tagger.js] Connecting to database: postgresql://postgres:****@localhost:5433/Tagglo
+Γ£à Auto-tagger initialized: 1123 tags, 449 categories, 10 synonyms
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (1 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Hazel  Slouchy Suede Bag - Burgundy
+  ≡ƒöù URL keywords: hazel slouchy suede bag burgundy
+  ≡ƒÅ╖∩╕Å Breadcrumbs: All Clothing > Hazel Slouchy Suede Bag - Burgundy
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Soft structure, effortless edge. The HAZEL Slouchy Suede Bag is a versatile carryall with a relaxed        
+  ≡ƒöñ Search text length: 443 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): burgundy
+  Γ£à Matched tags (non-color): 6 ΓåÆ elevated, soft, versatile, suede, relaxed, slouchy
+  ≡ƒæñ Gender (early): unisex [default, default]
+  ≡ƒöì Universal search: Searching all 449 categories
+  ≡ƒöù Multi-word synonym match: "Handbag" via "slouchy bag"
+  ≡ƒÜÇ Multi-word synonym boost (+5000): "Handbag" gets priority via "slouchy bag"
+  ≡ƒôé Matched categories: 3 ΓåÆ Handbag (score: 5040, lvl 3), Bags (score: 1880, lvl 2), Clothing (score: 320, lvl 1)
+  ≡ƒÄ» Best category match: Handbag (score: 5040, lvl 3, id: 19132)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":0,"descriptionMatches":0,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Accessories > Bags > Handbag
+  ≡ƒÜ½ Filtered 3 tags for department: fashion
+  ≡ƒæñ Gender (final): unisex [default, default]
+  ≡ƒæñ Gender tag added: unisex
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-18T18-43-13_meshki.us.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Jessica  Faux Leather Crocodile Clutch - Burgundy
+  ≡ƒöù URL keywords: jessica faux leather crocodile clutch burgundy
+  ≡ƒÅ╖∩╕Å Breadcrumbs: All Clothing > Jessica Faux Leather Crocodile Clutch - Burgundy
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: Statement detail. The JESSICA Faux Leather Crocodile Clutch is a sleek accessory designed to elevate       
+  ≡ƒöñ Search text length: 485 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): burgundy
+  ≡ƒö¼ Compound material detected: "faux leather" ΓåÆ faux-leather
+  ≡ƒÜ½ Blocked base material: "leather" (compound material found instead)
+  Γ£à Matched tags (non-color): 3 ΓåÆ faux-leather, compact, custom
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "clutch"
+  ≡ƒæñ Gender (early): women [breadcrumbs, highest]
+  ≡ƒöì Universal search: Searching all 449 categories
+  ≡ƒôé Matched categories: 3 ΓåÆ Clutch (score: 1890, lvl 3), Clothing (score: 320, lvl 1), Accessories (score: 70, lvl 1)
+  ≡ƒÄ» Best category match: Clutch (score: 1890, lvl 3, id: 19137)
+    Match details: {"breadcrumbMatches":1,"titleMatches":1,"urlMatches":1,"descriptionMatches":1,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Accessories > Bags > Clutch
+  ≡ƒÜ½ Filtered 1 tags for department: fashion
+  ≡ƒöì TIER 0 (breadcrumbs) - WOMEN match: "clutch"
+  ≡ƒæñ Gender (final): women [breadcrumbs, highest]
+  ≡ƒæñ Gender tag added: women
+Navigation failed for https://www.meshki.us/collections/knitwear: -3 - 
+Navigation failed for https://www.meshki.us/products/lauren-knit-trouser-plum: -3 - 
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-18T18-43-35_meshki.us.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Lauren
+
+
+
+
+  ≡ƒöù URL keywords: lauren knit trouser plum
+  ≡ƒÅ╖∩╕Å Breadcrumbs: Knitwear > Knit Bottoms
+  ≡ƒôè JSON-LD: none
+  ≡ƒôä Description: The power of clean lines. The LAUREN Knit Trouser brings structure to casual ease with its wide-leg        
+  ≡ƒöñ Search text length: 1063 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): plum
+  Γ£à Matched tags (non-color): 7 ΓåÆ detailing, fabrication, elastic, power, knit, casual, tailored
+  ≡ƒæñ Gender (early): unisex [default, default]
+  ≡ƒöì Universal search: Searching all 449 categories
+  ≡ƒôé Matched categories: 1 ΓåÆ Belts (score: 80, lvl 2)
+  ≡ƒÄ» Best category match: Belts (score: 80, lvl 2, id: 19145)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":0,"descriptionMatches":1,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Accessories > Belts
+  ≡ƒÜ½ Filtered 2 tags for department: fashion
+  ≡ƒæñ Gender (final): unisex [default, default]
+  ≡ƒæñ Gender tag added: unisex
