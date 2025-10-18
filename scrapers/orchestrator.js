@@ -3040,6 +3040,25 @@
     return null;
   }
   function getPriceGeneric() {
+    // PRIORITY 1: Meta tags (most reliable for social sharing)
+    const metaTags = [
+      ['meta[property="og:price:amount"]', 'content'],
+      ['meta[property="product:price:amount"]', 'content'],
+      ['meta[property="twitter:data1"]', 'content'], // Twitter card price
+      ['meta[name="price"]', 'content']
+    ];
+    for (const [sel, at] of metaTags) {
+      const el = q(sel);
+      const raw = attr(el, at);
+      const val = normalizeMoneyPreferSale(raw);
+      if (val) {
+        debug(`✅ PRICE from meta tag: ${sel} = ${val}`);
+        mark('price', { selectors: [sel], attr: at, method: 'meta-tag' });
+        return val;
+      }
+    }
+    
+    // PRIORITY 2: Structured selectors
     const pairs = [
       ['[automation-id="productPriceOutput"]','text'], // Costco - prioritize this
       ['[itemprop="price"]','content'],
