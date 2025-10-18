@@ -43,6 +43,8 @@ contextBridge.exposeInMainWorld('api', {
   // ---- Core product flow
   openProduct: (url) => call('open-product', url),
   evalInProduct: (js) => call('eval-in-product', js),
+  productGoBack: () => call('product-go-back'),
+  copyProductUrl: () => call('copy-product-url'),
   scrapeCurrent: (opts) => call('scrape-current', opts),
 
   // ---- LLM + compare
