@@ -713,6 +713,24 @@ function matchCategories(text, productData = {}, detectedGender = null) {
         }
       }
       
+      // UNIVERSAL "WITH X" BLOCKER: If category appears after "with", it's a feature/detail, not the product
+      // Example: "High Heel WITH Hardware" → Heels (not Hardware)
+      // Example: "Dress WITH Belt" → Dress (not Belt)
+      const categoryVariations = generatePluralVariations(category.name);
+      let appearsAfterWith = false;
+      for (const variant of categoryVariations) {
+        const withPattern = new RegExp(`\\bwith\\s+\\w*${variant.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i');
+        if (withPattern.test(normalizedText)) {
+          console.log(`  🚫 Blocked "with X" pattern: "${category.name}" appears after "with" (it's a feature, not the product)`);
+          appearsAfterWith = true;
+          break;
+        }
+      }
+      
+      if (appearsAfterWith) {
+        continue; // Skip this category match
+      }
+      
       const fullPath = buildCategoryPath(category.category_id);
       
       // Count frequency across weighted sources (using all plural patterns + synonyms)
