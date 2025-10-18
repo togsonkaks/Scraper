@@ -16,6 +16,7 @@ The application is an Electron-based desktop application utilizing a main proces
 - Mobile preview interface.
 - Blue info panel for JSON-LD display.
 - Review & Edit UI modal for LLM-suggested tags and categories.
+- Browser navigation controls: Back button (navigate history) and Copy Link button (copy current URL to clipboard).
 
 **Technical Implementations & Feature Specifications:**
 - **State Management**: Prevents data cross-contamination during scraping.
