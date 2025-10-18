@@ -1269,6 +1269,29 @@
       }
     };
 
+    // Smart synonym suggestion: extract potential keyword from product title
+    function extractSynonymSuggestion(productTitle, categoryName) {
+      if (!productTitle || !categoryName) return null;
+      
+      const titleLower = productTitle.toLowerCase();
+      const categoryLower = categoryName.toLowerCase();
+      
+      // Common stopwords to ignore
+      const stopwords = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 
+                        'of', 'with', 'by', 'from', 'as', 'is', 'was', 'are', 'were', 'be', 'been',
+                        'vintage', 'new', 'classic', 'modern', 'size', 'small', 'medium', 'large'];
+      
+      // Extract words from title
+      const titleWords = titleLower.split(/\s+/)
+        .map(w => w.replace(/[^a-z0-9]/g, ''))
+        .filter(w => w.length > 2) // At least 3 chars
+        .filter(w => !stopwords.includes(w)) // Not a stopword
+        .filter(w => !categoryLower.includes(w)); // Not in category name
+      
+      // Return first unique word (likely the product type)
+      return titleWords[0] || null;
+    }
+    
     function showLLMReviewModal(result) {
       // Show reasoning
       document.getElementById('llmReasoning').textContent = result.reasoning || '-';
@@ -1311,6 +1334,36 @@
       
       // Display category chips
       renderCategoryChips();
+      
+      // ALWAYS show synonym learner when categories exist
+      if (currentLLMTags.availableCategories && currentLLMTags.availableCategories.length > 0) {
+        // Get the first available category (user will keep one before saving)
+        const firstCategory = currentLLMTags.availableCategories[0].path;
+        const pathParts = firstCategory.split(' > ');
+        const categoryName = pathParts[pathParts.length - 1]; // Most specific level
+        
+        // Show synonym learner
+        document.getElementById('synonymLearner').style.display = 'block';
+        document.getElementById('synonymCategory').textContent = categoryName;
+        
+        // Smart keyword suggestion: find unique words in title that aren't in category name
+        const productTitle = lastPayload?.title || '';
+        const suggestedKeyword = extractSynonymSuggestion(productTitle, categoryName);
+        
+        if (suggestedKeyword) {
+          document.getElementById('synonymKeyword').textContent = suggestedKeyword;
+          document.getElementById('synonymInput').placeholder = `e.g., ${suggestedKeyword}`;
+        } else {
+          document.getElementById('synonymKeyword').textContent = '???';
+          document.getElementById('synonymInput').placeholder = 'e.g., bralette, bandana, trainers';
+        }
+        
+        document.getElementById('synonymInput').value = '';
+        document.getElementById('synonymStatus').textContent = '';
+      } else {
+        // Hide if no categories
+        document.getElementById('synonymLearner').style.display = 'none';
+      }
       
       // Show keywords as editable tags with source badges
       const keywordTagsEl = document.getElementById('llmKeywordTags');
