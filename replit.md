@@ -43,15 +43,18 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - False positive filters prevent descriptor words from matching categories (e.g., "short sleeve" blocked from matching "Shorts" category)
   - Feature tag boosting: When neckline/sleeve tags detected, boosts Shirts/Sweaters/Tanks categories by +200 points
   - Cross-department false positive protection for filter, belt, battery, pants categories
-- **Self-Learning Category Synonym System**:
+- **Self-Learning Category Synonym System** (October 18, 2025):
   - NEW database table `category_synonyms` stores user-taught synonym mappings (synonym → category_name)
   - Auto-tagger loads synonyms from database on initialization, merges with hardcoded fallbacks (DB takes priority)
-  - LLM Review modal displays "📚 Teach a Synonym" section when category path is added manually
+  - **Always-visible synonym prompt**: "📚 Teach a Synonym" section now appears automatically in LLM Review modal whenever categories are present
+  - Smart keyword suggestions: Extracts unique words from product title (e.g., "sundress") and pre-fills as suggestion for mapping
+  - Dynamic updates: Synonym category auto-updates when user removes/changes category chips
   - One-click synonym saving: Type keyword (e.g., "bralette"), click "✓ Save Synonym", future products with that term auto-match the category
   - Automatically refreshes auto-tagger taxonomy after saving new synonym for immediate availability
   - Backend API: `saveCategorySynonym()` and `getCategorySynonyms()` in server/storage.js
   - IPC handlers: `save-category-synonym` and `get-category-synonyms` in main.js
   - Frontend API: `window.api.saveCategorySynonym(synonym, categoryName)` in preload.js
+  - Helper functions: `extractSynonymSuggestion()` for smart keyword detection, `updateSynonymLearner()` for dynamic UI updates
 
 ## User Preferences
 - Prefers existing project structure and conventions
