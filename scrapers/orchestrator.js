@@ -2830,8 +2830,6 @@
       return text || null;
     }
     
-    let metaDescription = null; // Save meta as last resort
-    
     // PRIORITY 1: Data attributes (most reliable for modern sites)
     const dataAttributeSelectors = [
       '[data-testid*="description" i]',
@@ -2850,7 +2848,24 @@
       }
     }
     
-    // PRIORITY 2: Semantic classes and itemprop
+    // PRIORITY 2: Meta tags (structured data for social sharing - often curated and clean)
+    const metaPairs = [
+      ['meta[property="og:description"]','content'],
+      ['meta[name="twitter:description"]','content'],
+      ['meta[property="twitter:description"]','content'],
+      ['meta[name="description"]','content']
+    ];
+    
+    for (const [sel,at] of metaPairs) {
+      const v = attr(q(sel),at);
+      if (v && v.length > 30) {
+        debug(`✅ DESCRIPTION from meta tag: ${sel}`);
+        mark('description', { selectors:[sel], attr:at, method:'meta-tag' });
+        return v;
+      }
+    }
+    
+    // PRIORITY 3: Semantic classes and itemprop
     const semanticSelectors = [
       '.product-description',
       '.product-info-description',  // Costco
@@ -2923,22 +2938,6 @@
         debug('✅ DESCRIPTION from JSON-LD');
         mark('description', { selectors:['script[type="application/ld+json"]'], attr:'text', method:'jsonld' });
         return text;
-      }
-    }
-    
-    // PRIORITY 5: Meta tags (last resort, usually SEO fluff)
-    const metaPairs = [
-      ['meta[name="description"]','content'],
-      ['meta[property="og:description"]','content']
-    ];
-    
-    for (const [sel,at] of metaPairs) {
-      const v = attr(q(sel),at);
-      if (v && v.length > 30) {
-        metaDescription = v;
-        debug(`⚠️ DESCRIPTION from meta tag (fallback): ${sel}`);
-        mark('description', { selectors:[sel], attr:at, method:'meta-fallback' });
-        return v;
       }
     }
     
