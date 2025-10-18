@@ -889,6 +889,46 @@
       }, 700);
     };
 
+    // Back navigation
+    const backBtn = document.getElementById('backBtn');
+    if (backBtn) {
+      backBtn.onclick = async () => {
+        try {
+          await window.api.productGoBack();
+        } catch (err) {
+          console.error('Back navigation failed:', err);
+        }
+      };
+    }
+
+    // Copy current URL
+    const copyLinkBtn = document.getElementById('copyLinkBtn');
+    if (copyLinkBtn) {
+      copyLinkBtn.onclick = async () => {
+        try {
+          const url = await window.api.copyProductUrl();
+          if (url) {
+            // Update the URL input with the current URL
+            urlInput.value = url;
+            currentUrl = url;
+            currentHost = hostFrom(url);
+            
+            // Visual feedback
+            const originalText = copyLinkBtn.innerHTML;
+            copyLinkBtn.innerHTML = '✅ Copied!';
+            copyLinkBtn.style.background = '#4CAF50';
+            setTimeout(() => {
+              copyLinkBtn.innerHTML = originalText;
+              copyLinkBtn.style.background = '';
+            }, 1500);
+          }
+        } catch (err) {
+          console.error('Copy URL failed:', err);
+          alert('Failed to copy URL');
+        }
+      };
+    }
+
     // Save (scrape)
     saveBtn.onclick = async () => {
       // Show debug panel and clear previous output
