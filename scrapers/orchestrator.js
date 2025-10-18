@@ -330,17 +330,45 @@
       
       debug('🔍 GENERIC MODE - hunting for better prices in ancestors...');
       
-      // Only hunt for "better" prices in generic mode
+      // Check if we have a valid base price already
+      if (baseVal != null) {
+        const basePriceNum = parseFloat(baseVal);
+        if (!isNaN(basePriceNum) && basePriceNum >= 5 && basePriceNum <= 100000) {
+          debug('✅ BASE PRICE IS VALID - returning it:', baseVal);
+          return baseVal;
+        }
+      }
+      
+      // Only scan ancestors if we don't have a valid base price
       let node = el;
-      let best = baseVal != null ? parseFloat(baseVal) : Infinity;
       
       for (let i=0; i<3 && node; i++, node = node.parentElement) {
+        // BOUNDARY DETECTION: Stop at product container boundaries to avoid scanning into recommendations
+        const className = (node.className || '').toLowerCase();
+        const id = (node.id || '').toLowerCase();
+        
+        // Check if we hit a product container boundary (common patterns)
+        const isProductBoundary = 
+          /\b(product-info|product-detail|product-main|product-container)\b/.test(className + ' ' + id) ||
+          node.hasAttribute('itemtype') && /Product/.test(node.getAttribute('itemtype'));
+        
+        // Check if we hit a recommendation section (should never scan these)
+        const isRecommendationSection = 
+          /\b(related|recommendation|you-might|also-like|similar|suggested|trending|popular-products|recently-viewed)\b/.test(className + ' ' + id);
+        
+        if (isRecommendationSection) {
+          debug(`🛑 STOPPING: Hit recommendation section at ancestor ${i}`);
+          break;
+        }
+        
         const t = (node.textContent || '').trim();
         debug(`📍 ANCESTOR ${i}:`, { 
           tagName: node.tagName,
           id: node.id,
           className: node.className,
-          textContent: t.slice(0, 100)
+          textContent: t.slice(0, 100),
+          isProductBoundary,
+          isRecommendationSection
         });
         
         // Filter out original price segments, then apply decimal reconstruction
@@ -366,32 +394,42 @@
         });
         
         const monetaryTokens = parseMoneyTokens(cleanedText);
-        // Smart selection: prefer plausible prices across ALL tokens first, then fallback to decimals preference
+        // FIRST VALID PRICE logic (not minimum!) - prefer decimals over integers
         let cand = null;
         if (monetaryTokens.length) {
           const decimalTokens = monetaryTokens.filter(price => price % 1 !== 0);
           const plausibleAll = monetaryTokens.filter(price => price >= 5 && price <= 100000);
           
           if (plausibleAll.length > 0) {
-            // Choose minimum plausible price (prevents $1.00 winning over $100)
-            cand = Math.min(...plausibleAll);
-          } else {
-            // Fallback: prefer decimal tokens over integers when no plausible prices exist
-            const chosenTokens = decimalTokens.length > 0 ? decimalTokens : monetaryTokens;
-            cand = Math.min(...chosenTokens);
+            // Take FIRST plausible price, preferring decimals
+            const plausibleDecimals = plausibleAll.filter(price => price % 1 !== 0);
+            cand = plausibleDecimals.length > 0 ? plausibleDecimals[0] : plausibleAll[0];
+          } else if (decimalTokens.length > 0) {
+            // Fallback: first decimal token
+            cand = decimalTokens[0];
+          } else if (monetaryTokens.length > 0) {
+            // Last resort: first token
+            cand = monetaryTokens[0];
           }
         }
-        debug(`💰 ANCESTOR ${i} SMART PRICE:`, cand, 'from tokens:', monetaryTokens);
+        debug(`💰 ANCESTOR ${i} FIRST VALID PRICE:`, cand, 'from tokens:', monetaryTokens);
         
-        if (cand != null && cand < best) {
-          debug(`🔄 NEW BEST PRICE: ${cand} (was ${best})`);
-          best = cand;
+        // Return the first valid price we find - don't keep scanning
+        if (cand != null && cand >= 5 && cand <= 100000) {
+          debug(`✅ FOUND VALID PRICE in ancestor ${i}:`, cand);
+          return String(cand);
+        }
+        
+        // If we hit a product boundary but didn't find a price yet, stop scanning
+        if (isProductBoundary) {
+          debug(`🛑 STOPPING: Hit product boundary at ancestor ${i}, no valid price found`);
+          break;
         }
       }
       
-      const result = isFinite(best) && best !== Infinity ? String(best) : baseVal;
-      debug('✅ CONTEXT REFINEMENT RESULT:', { result, originalBase: baseVal });
-      return result;
+      // No valid price found in ancestors, return baseVal
+      debug('⚠️  NO VALID PRICE in ancestors, returning baseVal:', baseVal);
+      return baseVal;
     } catch (e) { 
       error('Price refinement error:', e);
       return baseVal; 
