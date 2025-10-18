@@ -3242,12 +3242,12 @@
       for (let i = 0; i < 3 && current; i++) {
         const className = (current.className || '').toLowerCase();
         const id = (current.id || '').toLowerCase();
-        if (className.includes('related-products') || 
-            className.includes('recommendations') || 
-            className.includes('you-might-also-like') ||
-            id.includes('related-products') ||
-            id.includes('recommendations')) {
-          dbg(`🚫 EXCLUDED: Recommendation container in ${current.tagName}.${className}`);
+        // Comprehensive recommendation section filtering (matches price refinement patterns)
+        const isRecommendationSection = 
+          /\b(related|recommendation|you-might|also-like|similar|suggested|trending|popular-products|recently-viewed)\b/.test(className + ' ' + id);
+        
+        if (isRecommendationSection) {
+          dbg(`🚫 EXCLUDED: Recommendation section in ${current.tagName}.${className || current.id}`);
           return false;
         }
         current = current.parentElement;
