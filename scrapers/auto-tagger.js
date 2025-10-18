@@ -532,6 +532,24 @@ function matchTags(text, tagType = null) {
   return matches;
 }
 
+// Check if all words in a multi-word phrase are present in the text (not necessarily adjacent)
+// Example: "slouchy bag" matches "slouchy suede bag" or "bag with slouchy design"
+function checkMultiWordSynonym(text, multiWordPhrase) {
+  const normalizedText = normalizeText(text);
+  const words = multiWordPhrase.toLowerCase().split(/\s+/);
+  
+  // Check if ALL words are present (as whole words) anywhere in the text
+  for (const word of words) {
+    const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const pattern = new RegExp(`\\b${escaped}\\b`, 'i');
+    if (!pattern.test(normalizedText)) {
+      return false; // If any word is missing, no match
+    }
+  }
+  
+  return true; // All words present
+}
+
 function matchCategories(text, productData = {}, detectedGender = null) {
   if (!text) return [];
   
@@ -576,17 +594,35 @@ function matchCategories(text, productData = {}, detectedGender = null) {
       }
     }
     
-    let hasMatch = false;
-    
-    // Check direct name patterns
-    for (const pattern of patterns) {
-      if (pattern.test(normalizedText)) {
-        hasMatch = true;
-        break;
+    // ALSO check for multi-word synonyms (e.g., "slouchy bag" where words can be separated)
+    const multiWordMatches = [];
+    for (const multiWordSyn of MULTI_WORD_SYNONYMS) {
+      if (multiWordSyn.category.toLowerCase() === category.name.toLowerCase()) {
+        if (checkMultiWordSynonym(normalizedText, multiWordSyn.phrase)) {
+          multiWordMatches.push(multiWordSyn.phrase);
+        }
       }
     }
     
-    // Check synonym patterns if no direct match
+    let hasMatch = false;
+    
+    // Check multi-word synonyms FIRST (highest priority)
+    if (multiWordMatches.length > 0) {
+      console.log(`  🔗 Multi-word synonym match: "${category.name}" via "${multiWordMatches.join(', ')}"`);
+      hasMatch = true;
+    }
+    
+    // Check direct name patterns if no multi-word match
+    if (!hasMatch) {
+      for (const pattern of patterns) {
+        if (pattern.test(normalizedText)) {
+          hasMatch = true;
+          break;
+        }
+      }
+    }
+    
+    // Check single-word synonym patterns if no direct match
     if (!hasMatch) {
       for (const pattern of synonymPatterns) {
         if (pattern.test(normalizedText)) {
