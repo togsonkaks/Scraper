@@ -965,27 +965,60 @@ async function createCategory(categoryData) {
     }
     
     // Insert new category with parent linkage
-    const result = await sql`
-      INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
-      VALUES (${name}, ${slug}, ${parentId || null}, ${level || 0}, 1)
-      RETURNING category_id, slug
-    `;
-    
-    const categoryId = result[0].category_id;
-    const createdSlug = result[0].slug;
-    
-    console.log(`✅ Created category: "${name}" (ID: ${categoryId}, Level: ${level}, Parent: ${parentId || 'ROOT'})`);
-    
-    // Refresh auto-tagger taxonomy
-    const { refreshTaxonomy } = require('../scrapers/auto-tagger');
-    await refreshTaxonomy();
-    console.log('✅ Auto-tagger taxonomy refreshed');
-    
-    return {
-      success: true,
-      categoryId: categoryId,
-      slug: createdSlug
-    };
+    try {
+      const result = await sql`
+        INSERT INTO categories (name, slug, parent_id, level, llm_discovered)
+        VALUES (${name}, ${slug}, ${parentId || null}, ${level || 0}, 1)
+        RETURNING category_id, slug
+      `;
+      
+      const categoryId = result[0].category_id;
+      const createdSlug = result[0].slug;
+      
+      console.log(`✅ Created category: "${name}" (ID: ${categoryId}, Level: ${level}, Parent: ${parentId || 'ROOT'})`);
+      
+      // Refresh auto-tagger taxonomy
+      const { refreshTaxonomy } = require('../scrapers/auto-tagger');
+      await refreshTaxonomy();
+      console.log('✅ Auto-tagger taxonomy refreshed');
+      
+      return {
+        success: true,
+        categoryId: categoryId,
+        slug: createdSlug
+      };
+    } catch (insertError) {
+      // Handle UNIQUE constraint violation
+      if (insertError.message && (insertError.message.includes('duplicate') || insertError.message.includes('unique_category_per_parent'))) {
+        console.log(`⚠️  Category "${name}" already exists (UNIQUE constraint) - using existing version`);
+        
+        // Get the existing category
+        const existingBySlug = await sql`
+          SELECT category_id, slug 
+          FROM categories 
+          WHERE slug = ${slug}
+          AND ${parentId ? sql`parent_id = ${parentId}` : sql`parent_id IS NULL`}
+          LIMIT 1
+        `;
+        
+        if (existingBySlug.length > 0) {
+          console.log(`✅ Using existing category "${name}" (ID: ${existingBySlug[0].category_id})`);
+          return {
+            success: true,
+            categoryId: existingBySlug[0].category_id,
+            slug: existingBySlug[0].slug,
+            alreadyExisted: true
+          };
+        } else {
+          return {
+            success: false,
+            error: 'Category already exists but could not be retrieved'
+          };
+        }
+      } else {
+        throw insertError;
+      }
+    }
     
   } catch (error) {
     console.error('❌ Error creating category:', error);
