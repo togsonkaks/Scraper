@@ -1,0 +1,99 @@
+öì [storage.js] Connecting to database: postgresql://postgres:****@localhost:5433/Tagglo
+≡ƒöì [storage.js] PGHOST: localhost, PGDATABASE: Tagglo
+≡ƒî▒ Starting full taxonomy seed...
+≡ƒùæ∩╕Å  Clearing existing taxonomy (preserving LLM discoveries)...
+≡ƒùæ∩╕Å  Deleting ALL Fashion departments completely...
+Γ£à Deleted 1 Fashion department(s) completely
+Γ£à Cleared built-in taxonomy (kept LLM-discovered tags and categories)
+≡ƒôé Inserting 429 categories...
+Γ£à 429 categories inserted
+≡ƒÅ╖∩╕Å  Inserting tags...
+Γ£à 1092 tags inserted
+≡ƒÄë Full taxonomy seeded successfully!
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-18T04-22-31_adoredvintage.com.txt
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ≡ƒôí version env with Radar: https://dotenvx.com/radar
+≡ƒöì [auto-tagger.js] Connecting to database: postgresql://postgres:****@localhost:5433/Tagglo
+Γ£à Auto-tagger initialized: 1071 tags, 437 categories, 0 synonyms
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (1 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Bright Moments Sundress
+  ≡ƒöù URL keywords: vintage 1980s dark pink floral midi sundress
+  ≡ƒÅ╖∩╕Å Breadcrumbs:
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org/","@type":"Product","name":"Bright Moments Sundress","url":"https://www.adoredvintage.com/products/vintage-1980s-dark-p...
+  ≡ƒôä Description: Vintage 1980s deep fuchsia pink midi sundress with delicate functional spaghetti straps, buttons dow       
+  ≡ƒöñ Search text length: 1855 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): pink
+  Γ£à Matched tags (non-color): 10 ΓåÆ midi, small, xs, XS/Small, cotton, down, 1980s, floral, sundress, vintage
+  ≡ƒæñ Gender (early): unisex [default, default]
+  ≡ƒöì Universal search: Searching all 437 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Fabric (score: 80, lvl 2), Shirts (score: 80, lvl 2)
+  ≡ƒÄ» Best category match: Fabric (score: 80, lvl 2, id: 15781)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":0,"descriptionMatches":1,"specsMatches":0}
+  Γ£¿ FINAL PATH: Arts & Crafts > Sewing & Fabric > Fabric
+  ≡ƒÜ½ Filtered 8 tags for department: arts & crafts
+  ≡ƒæñ Gender (final): unisex [default, default]
+  ≡ƒæñ Gender tag added: unisex
+Error saving raw product: PostgresError: column "gender" of relation "products" does not exist
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)
+    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:112:36) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '83',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+Error saving raw product: PostgresError: column "gender" of relation "products" does not exist
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)
+    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:112:36) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '83',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}
+Error occurred in handler for 'save-raw-product': PostgresError: column "gender" of relation "products" does not exist
+    at ErrorResponse (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:794:26)
+    at handle (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:480:6)
+    at Socket.data (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\connection.js:315:9)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23)
+    at cachedError (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:170:23)
+    at new Query (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\query.js:36:24)
+    at sql (C:\Users\Admin\Desktop\PostHog\mvp_electron\node_modules\postgres\cjs\src\index.js:112:11)
+    at saveRawProduct (C:\Users\Admin\Desktop\PostHog\mvp_electron\server\storage.js:112:36) {
+  severity_local: 'ERROR',
+  severity: 'ERROR',
+  code: '42703',
+  position: '83',
+  file: 'parse_target.c',
+  line: '1070',
+  routine: 'checkInsertTargets'
+}

@@ -111,7 +111,7 @@ async function saveRawProduct(productData) {
     // Step 2: Save product with NULL tags (LLM will add them later)
     const productResult = await sql`
       INSERT INTO products (
-        raw_id, title, brand, price, sku, category, gender, description,
+        raw_id, title, brand, price, sku, category, description,
         tags, specs, image_urls, confidence_score
       ) VALUES (
         ${rawId},
@@ -120,7 +120,6 @@ async function saveRawProduct(productData) {
         ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
         ${productData.sku || null},
         ${null},  -- category NULL (LLM will add)
-        ${null},  -- gender NULL (LLM will add)
         ${productData.description || null},
         ${[]},    -- tags empty (LLM will add)
         ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
@@ -156,7 +155,6 @@ async function updateProductTags(productId, tagResults) {
       UPDATE products
       SET 
         category = ${tagResults.primaryCategory || null},
-        gender = ${null},
         tags = ${tagNames},
         confidence_score = ${tagResults.confidenceScore || 1.0},
         updated_at = NOW()
@@ -387,7 +385,6 @@ async function saveProduct(productData, tagResults) {
           price = ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
           sku = ${productData.sku || null},
           category = ${tagResults.primaryCategory || null},
-          gender = ${null},
           description = ${productData.description || null},
           tags = ${tagNames},
           specs = ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
@@ -428,7 +425,7 @@ async function saveProduct(productData, tagResults) {
       
       const productResult = await sql`
         INSERT INTO products (
-          raw_id, url, title, brand, price, sku, category, gender, description,
+          raw_id, url, title, brand, price, sku, category, description,
           tags, specs, image_urls, confidence_score
         ) VALUES (
           ${rawId},
@@ -438,7 +435,6 @@ async function saveProduct(productData, tagResults) {
           ${productData.price ? parseFloat(productData.price.replace(/[^0-9.]/g, '')) : null},
           ${productData.sku || null},
           ${tagResults.primaryCategory || null},
-          ${null},
           ${productData.description || null},
           ${tagNames},
           ${productData.specs ? JSON.stringify({ raw: productData.specs }) : null},
@@ -637,11 +633,6 @@ async function getProducts(filters = {}) {
     if (filters.category) {
       conditions.push(`p.category = $${params.length + 1}`);
       params.push(filters.category);
-    }
-    
-    if (filters.gender) {
-      conditions.push(`p.gender = $${params.length + 1}`);
-      params.push(filters.gender);
     }
     
     if (filters.minConfidence) {

@@ -55,6 +55,7 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - IPC handlers: `save-category-synonym` and `get-category-synonyms` in main.js
   - Frontend API: `window.api.saveCategorySynonym(synonym, categoryName)` in preload.js
   - Helper functions: `extractSynonymSuggestion()` for smart keyword detection, `updateSynonymLearner()` for dynamic UI updates
+  - **Gender Column Cleanup**: Removed ALL remaining gender column references from server/storage.js (4 INSERT/UPDATE statements + 1 filter query) to match database schema changes
 
 ## User Preferences
 - Prefers existing project structure and conventions
