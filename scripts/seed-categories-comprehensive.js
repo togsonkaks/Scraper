@@ -479,54 +479,51 @@ async function seedCategories() {
   try {
     console.log('🚀 Starting comprehensive category seed...\n');
 
-    // SPECIAL: Clear Fashion seed categories (preserve LLM-discovered)
-    console.log('🗑️  Clearing Fashion seed categories (preserving LLM-discovered)...');
-    const fashionDept = await sql`SELECT category_id FROM categories WHERE name = 'Fashion' AND parent_id IS NULL AND (llm_discovered = 0 OR llm_discovered IS NULL)`;
-    if (fashionDept.length > 0) {
-      const fashionId = fashionDept[0].category_id;
-      // Delete all Fashion seed descendants recursively (preserve LLM-discovered)
-      await sql`
-        WITH RECURSIVE fashion_tree AS (
-          SELECT category_id FROM categories WHERE category_id = ${fashionId}
-          UNION ALL
-          SELECT c.category_id FROM categories c
-          INNER JOIN fashion_tree ft ON c.parent_id = ft.category_id
-          WHERE c.llm_discovered = 0 OR c.llm_discovered IS NULL
-        )
-        DELETE FROM product_categories WHERE category_id IN (SELECT category_id FROM fashion_tree)
-      `;
-      await sql`
-        WITH RECURSIVE fashion_tree AS (
-          SELECT category_id FROM categories WHERE category_id = ${fashionId}
-          UNION ALL
-          SELECT c.category_id FROM categories c
-          INNER JOIN fashion_tree ft ON c.parent_id = ft.category_id
-          WHERE c.llm_discovered = 0 OR c.llm_discovered IS NULL
-        )
-        DELETE FROM categories WHERE category_id IN (SELECT category_id FROM fashion_tree)
-      `;
-      console.log('✅ Cleared Fashion seed categories (LLM-discovered preserved)\n');
-    }
-
-    // Clear existing seed categories (preserve LLM-discovered ones)
-    console.log('🗑️  Clearing other seed categories (preserving LLM-discovered)...');
-    
     // Get count of LLM-discovered categories before cleanup
     const llmCount = await sql`SELECT COUNT(*) FROM categories WHERE llm_discovered = 1`;
-    console.log(`   📌 Preserving ${llmCount[0].count} LLM-discovered categories`);
+    console.log(`📌 Preserving ${llmCount[0].count} LLM-discovered categories\n`);
+
+    // Clear ALL seed department hierarchies (preserve LLM-discovered subcategories)
+    console.log('🗑️  Clearing all seed departments and their descendants (preserving LLM-discovered)...');
     
-    // Only delete product_categories for seed categories (llm_discovered = 0 or NULL)
-    await sql`
-      DELETE FROM product_categories 
-      WHERE category_id IN (
-        SELECT category_id FROM categories 
-        WHERE llm_discovered = 0 OR llm_discovered IS NULL
-      )
+    // Get all top-level seed departments (level 0, llm_discovered = 0 or NULL)
+    const seedDepartments = await sql`
+      SELECT category_id, name 
+      FROM categories 
+      WHERE parent_id IS NULL 
+        AND (llm_discovered = 0 OR llm_discovered IS NULL)
     `;
     
-    // Only delete seed categories (preserve LLM-discovered)
-    await sql`DELETE FROM categories WHERE llm_discovered = 0 OR llm_discovered IS NULL`;
-    console.log('✅ Cleared seed categories (LLM-discovered categories preserved)\n');
+    console.log(`   Found ${seedDepartments.length} seed departments to clear`);
+    
+    // Delete each department and its seed descendants recursively
+    for (const dept of seedDepartments) {
+      // Delete product associations first
+      await sql`
+        WITH RECURSIVE dept_tree AS (
+          SELECT category_id FROM categories WHERE category_id = ${dept.category_id}
+          UNION ALL
+          SELECT c.category_id FROM categories c
+          INNER JOIN dept_tree dt ON c.parent_id = dt.category_id
+          WHERE c.llm_discovered = 0 OR c.llm_discovered IS NULL
+        )
+        DELETE FROM product_categories WHERE category_id IN (SELECT category_id FROM dept_tree)
+      `;
+      
+      // Then delete the categories themselves
+      await sql`
+        WITH RECURSIVE dept_tree AS (
+          SELECT category_id FROM categories WHERE category_id = ${dept.category_id}
+          UNION ALL
+          SELECT c.category_id FROM categories c
+          INNER JOIN dept_tree dt ON c.parent_id = dt.category_id
+          WHERE c.llm_discovered = 0 OR c.llm_discovered IS NULL
+        )
+        DELETE FROM categories WHERE category_id IN (SELECT category_id FROM dept_tree)
+      `;
+    }
+    
+    console.log('✅ Cleared all seed departments (LLM-discovered categories preserved)\n');
 
     // Build parent map tracking full ancestral path for context
     const categoryIdMap = {};
