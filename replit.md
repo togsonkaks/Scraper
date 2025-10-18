@@ -56,6 +56,14 @@ Tagglo is a desktop Electron application designed for web scraping e-commerce pr
   - Frontend API: `window.api.saveCategorySynonym(synonym, categoryName)` in preload.js
   - Helper functions: `extractSynonymSuggestion()` for smart keyword detection, `updateSynonymLearner()` for dynamic UI updates
   - **Gender Column Cleanup**: Removed ALL remaining gender column references from server/storage.js (4 INSERT/UPDATE statements + 1 filter query) to match database schema changes
+- **Athletic Shoe Tag Support** (October 18, 2025):
+  - Added 'activities' tag type to Fashion department's allowed tags (e.g., pickleball, tennis, running, basketball)
+  - Enables unified shoe browsing under Fashion > Clothing > Shoes while preserving sport-specific activity tags
+  - Athletic shoes now get both category (Shoes/Sneakers) + activity tags (pickleball, running, etc.) for precise filtering
+- **Universal Department Re-seeding Fix** (October 18, 2025):
+  - Fixed seed script to delete ALL seed departments before re-seeding (not just Fashion)
+  - Prevents duplicate departments when users create LLM-discovered subcategories under any department
+  - User-created categories with `llm_discovered=1` always survive re-seeding across all departments
 
 ## User Preferences
 - Prefers existing project structure and conventions
