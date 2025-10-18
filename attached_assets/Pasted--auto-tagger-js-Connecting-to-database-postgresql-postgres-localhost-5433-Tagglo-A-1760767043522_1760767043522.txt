@@ -1,0 +1,51 @@
+≡ƒöì [auto-tagger.js] Connecting to database: postgresql://postgres:****@localhost:5433/Tagglo
+Γ£à Auto-tagger initialized: 1080 tags, 442 categories, 5 synonyms
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (1 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Pickle Pro Men's Pickleball Shoe
+  ≡ƒöù URL keywords: en us product pickle pro wrs00753
+  ≡ƒÅ╖∩╕Å Breadcrumbs: HomeShoesMens
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org","@type":"Product","name":"Pickle Pro Men's Pickleball Shoe","image":"https://www.wilson.com/en-us/media/catalog/produc...
+  ≡ƒôä Description: View 4 more Hot Right Now Pickle Pro Men's Pickleball Shoe $98.00 $73.50 (18) Colors: Bosphorus / Wh       
+  ≡ƒöñ Search text length: 37261 chars
+  ≡ƒÄ¿ Colors detected (Tier 2 - specs/description): Bosphorus
+  Γ£à Matched tags (non-color): 14 ΓåÆ pickleball, foam, men, men's, women, women's, durable, stable, traction, junior, large, 
+rubber, stock, unisex
+  ≡ƒöì TIER 1 (title/url/json-ld) - MEN match: "men"
+  ≡ƒöì JSON-LD only - MEN match: "men"
+  ≡ƒæñ Gender (early): men [title/url/json-ld, high]
+  ≡ƒöì Universal search: Searching all 442 categories
+  ≡ƒôé Matched categories: 3 ΓåÆ Shoes (score: 2530, lvl 2), Heels (score: 140, lvl 3), Shirts (score: 80, lvl 2)
+  ≡ƒÄ» Best category match: Shoes (score: 2530, lvl 2, id: 17390)
+    Match details: {"breadcrumbMatches":0,"titleMatches":2,"urlMatches":0,"descriptionMatches":10,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Clothing > Shoes
+  ≡ƒÜ½ Filtered 9 tags for department: fashion
+  ≡ƒöì TIER 1 (title/url/json-ld) - MEN match: "men"
+  ≡ƒöì JSON-LD only - MEN match: "men"
+  ≡ƒæñ Gender (final): men [title/url/json-ld, high]
+  ≡ƒæñ Gender tag added: men
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-18T05-56-31_wilson.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Pickle Pro Men's Pickleball Shoe
+  ≡ƒöù URL keywords: en us product pickle pro wrs00753
+  ≡ƒÅ╖∩╕Å Breadcrumbs: HomeShoesMens
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org","@type":"Product","name":"Pickle Pro Men's Pickleball Shoe","image":"https://www.wilson.com/en-us/media/catalog/produc...
+  ≡ƒôä Description: View 4 more Hot Right Now Pickle Pro Men's Pickleball Shoe $98.00 $73.50 (18) Colors: Bosphorus / Wh       
+  ≡ƒöñ Search text length: 37261 chars
+  ≡ƒÄ¿ Colors detected (Tier 2 - specs/description): Bosphorus
+  Γ£à Matched tags (non-color): 14 ΓåÆ pickleball, foam, men, men's, women, women's, durable, stable, traction, junior, large, 
+rubber, stock, unisex
+  ≡ƒöì TIER 1 (title/url/json-ld) - MEN match: "men"
+  ≡ƒöì JSON-LD only - MEN match: "men"
+  ≡ƒæñ Gender (early): men [title/url/json-ld, high]
+  ≡ƒöì Universal search: Searching all 442 categories
+  ≡ƒôé Matched categories: 3 ΓåÆ Shoes (score: 2530, lvl 2), Heels (score: 140, lvl 3), Shirts (score: 80, lvl 2)
+  ≡ƒÄ» Best category match: Shoes (score: 2530, lvl 2, id: 17390)
+    Match details: {"breadcrumbMatches":0,"titleMatches":2,"urlMatches":0,"descriptionMatches":10,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Clothing > Shoes
+  ≡ƒÜ½ Filtered 9 tags for department: fashion
+  ≡ƒöì TIER 1 (title/url/json-ld) - MEN match: "men"
+  ≡ƒöì JSON-LD only - MEN match: "men"
+  ≡ƒæñ Gender (final): men [title/url/json-ld, high]
+  ≡ƒæñ Gender tag added: men
