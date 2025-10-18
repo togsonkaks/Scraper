@@ -3,7 +3,14 @@
 ## Overview
 Tagglo is a desktop Electron application designed for web scraping e-commerce product data. Its primary purpose is multi-field data extraction (title, price, images, specs, tags, brand, description) from product detail pages, featuring persistent selector memory, history tracking, and custom site-specific handlers. A key capability is its advanced auto-tagging system, which utilizes a database-centric taxonomy for intelligent product categorization and keyword extraction. The project aims to provide a robust solution for efficient and accurate e-commerce data acquisition and enrichment.
 
-## Recent Changes (October 17, 2025)
+## Recent Changes (October 18, 2025)
+- **CRITICAL Slug Generation Bug Fix**:
+  - Fixed inconsistent slug generation between seed script and storage.js that caused duplicate departments
+  - **Root cause**: Seed script used `replace(/[^a-z0-9]+/g, '-')` while storage.js used `replace(/\s+/g, '-').replace(/&/g, '')`, creating mismatched slugs
+  - **Example**: "Sports & Outdoors" → seed created "sports-outdoors" but storage created "sports--outdoors" (double dash)
+  - Standardized ALL slug generation in storage.js (lines 240, 790, 948) to match seed script format
+  - Now when LLM suggests "Sports & Outdoors > Tennis > Racket", it correctly finds existing seed "Sports & Outdoors" instead of creating duplicate
+  - Prevents duplicate departments when approving LLM category suggestions
 - **Flattened Fashion Category Structure**: 
   - REMOVED all Tops/Bottoms groupings from Fashion taxonomy
   - Flattened to direct garment types under Clothing: Fashion > Clothing > Shirts, Fashion > Clothing > Pants, Fashion > Clothing > Dresses, etc.
