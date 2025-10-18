@@ -2197,8 +2197,27 @@
 
   /* ---------- GENERIC EXTRACTORS ---------- */
   function getTitle() {
+    // PRIORITY 1: Meta tags (structured data for social sharing)
+    const metaTags = [
+      ['meta[property="og:title"]', 'content'],
+      ['meta[name="twitter:title"]', 'content'],
+      ['meta[property="twitter:title"]', 'content']
+    ];
+    for (const [sel, at] of metaTags) {
+      const el = q(sel);
+      const v = attr(el, at);
+      if (v && v.trim()) {
+        debug(`✅ TITLE from meta tag: ${sel}`);
+        mark('title', { selectors: [sel], attr: at, method: 'meta-tag' });
+        return v.trim();
+      }
+    }
+    
+    // PRIORITY 2: Structured selectors
     const sels = ['h1', '.product-title', '[itemprop="name"]'];
     for (const sel of sels) { const v = txt(q(sel)); if (v) { mark('title', { selectors:[sel], attr:'text', method:'generic' }); return v; } }
+    
+    // PRIORITY 3: Document title (last resort)
     const v = (document.title || '').trim(); if (v) mark('title', { selectors:['document.title'], attr:'text', method:'fallback' });
     return v || null;
   }
