@@ -367,6 +367,40 @@ const CATEGORY_SYNONYMS = {
   'robe': 'Sleepwear'
 };
 
+// Multi-Word Synonym Mapping: Maps phrases where ALL words must be present (not necessarily adjacent)
+// This allows matching "slouchy bag" even if words appear as "slouchy suede bag"
+// Format: { phrase: 'word1 word2', category: 'CategoryName', requireAll: true }
+const MULTI_WORD_SYNONYMS = [
+  // Bag types - all map to specific bag subcategories
+  { phrase: 'slouchy bag', category: 'Handbag' },
+  { phrase: 'crossbody bag', category: 'Crossbody Bag' },
+  { phrase: 'shoulder bag', category: 'Shoulder Bag' },
+  { phrase: 'tote bag', category: 'Tote Bag' },
+  { phrase: 'clutch bag', category: 'Clutch' },
+  { phrase: 'hobo bag', category: 'Handbag' },
+  { phrase: 'satchel bag', category: 'Handbag' },
+  { phrase: 'bucket bag', category: 'Handbag' },
+  { phrase: 'messenger bag', category: 'Bags' },
+  { phrase: 'duffle bag', category: 'Bags' },
+  { phrase: 'weekender bag', category: 'Bags' },
+  
+  // Other multi-word product types
+  { phrase: 'cargo pants', category: 'Pants' },
+  { phrase: 'jogger pants', category: 'Pants' },
+  { phrase: 'track pants', category: 'Pants' },
+  { phrase: 'dress pants', category: 'Pants' },
+  { phrase: 'denim jacket', category: 'Jacket' },
+  { phrase: 'bomber jacket', category: 'Jacket' },
+  { phrase: 'leather jacket', category: 'Jacket' },
+  { phrase: 'puffer jacket', category: 'Jacket' },
+  { phrase: 'running shoes', category: 'Sneakers' },
+  { phrase: 'tennis shoes', category: 'Sneakers' },
+  { phrase: 'ankle boots', category: 'Boots' },
+  { phrase: 'knee boots', category: 'Boots' },
+  { phrase: 'chelsea boots', category: 'Boots' },
+  { phrase: 'combat boots', category: 'Boots' }
+];
+
 // CATEGORY FALSE POSITIVE FILTERS
 // Prevents descriptor words from incorrectly matching category names
 // Example: "short sleeve" should NOT match "Shorts" category
