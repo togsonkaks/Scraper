@@ -4,14 +4,16 @@
 Tagglo is a desktop Electron application designed for web scraping e-commerce product data. Its primary purpose is multi-field data extraction (title, price, images, specs, tags, brand, description) from product detail pages, featuring persistent selector memory, history tracking, and custom site-specific handlers. A key capability is its advanced auto-tagging system, which utilizes a database-centric taxonomy for intelligent product categorization and keyword extraction. The project aims to provide a robust solution for efficient and accurate e-commerce data acquisition and enrichment.
 
 ## Recent Changes (October 18, 2025)
-- **CRITICAL Slug Generation Bug Fix (COMPLETE)**:
-  - Fixed inconsistent slug generation between seed script and storage.js that caused duplicate departments
-  - **Root cause**: Multiple functions in storage.js used different slug formats than seed script
-  - **Example**: "Sports & Outdoors" → seed created "sports-outdoors" but storage created "sports--outdoors" (double dash)
-  - Standardized ALL 4 slug generation points in storage.js (lines 240, 502, 790, 948) to match seed script format: `replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')`
-  - Fixed both `updateProductTags()` and `saveProduct()` functions
-  - Created `cleanup-duplicates.sql` script to identify and delete all duplicate departments/categories
-  - Now when LLM suggests "Sports & Outdoors > Tennis > Racket", it correctly finds existing seed "Sports & Outdoors" instead of creating duplicate
+- **PERMANENT Duplicate Prevention System (COMPLETE)**:
+  - **Three-layer protection** against category duplicates:
+    1. **Standardized slug generation** - Fixed all 4 locations in storage.js (lines 240, 502, 790, 949) to use seed script format
+    2. **Database UNIQUE constraint** - Added `unique_category_per_parent` constraint on (parent_id, slug) - makes duplicates impossible
+    3. **Graceful error handling** - Updated `updateProductTags()` and `createCategory()` to catch constraint violations and use existing categories
+  - **Root cause**: Inconsistent slug formats ("sports-outdoors" vs "sports--outdoors") + no database enforcement
+  - **Example fix**: When LLM suggests "Home & Garden", constraint prevents duplicate and uses existing category with clear log message
+  - Created `migration-prevent-duplicates.sql` to clean existing duplicates and add constraint
+  - System now **fails loudly** instead of silently creating duplicates - errors show "Category already exists, using existing version"
+  - **Result**: Zero duplicates possible, even if future code changes introduce bugs
 - **Flattened Fashion Category Structure**: 
   - REMOVED all Tops/Bottoms groupings from Fashion taxonomy
   - Flattened to direct garment types under Clothing: Fashion > Clothing > Shirts, Fashion > Clothing > Pants, Fashion > Clothing > Dresses, etc.
