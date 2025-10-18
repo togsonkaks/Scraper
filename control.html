@@ -1332,38 +1332,8 @@
         console.log('✅ Added AI category:', aiCategoryPath);
       }
       
-      // Display category chips
+      // Display category chips (this also calls updateSynonymLearner)
       renderCategoryChips();
-      
-      // ALWAYS show synonym learner when categories exist
-      if (currentLLMTags.availableCategories && currentLLMTags.availableCategories.length > 0) {
-        // Get the first available category (user will keep one before saving)
-        const firstCategory = currentLLMTags.availableCategories[0].path;
-        const pathParts = firstCategory.split(' > ');
-        const categoryName = pathParts[pathParts.length - 1]; // Most specific level
-        
-        // Show synonym learner
-        document.getElementById('synonymLearner').style.display = 'block';
-        document.getElementById('synonymCategory').textContent = categoryName;
-        
-        // Smart keyword suggestion: find unique words in title that aren't in category name
-        const productTitle = lastPayload?.title || '';
-        const suggestedKeyword = extractSynonymSuggestion(productTitle, categoryName);
-        
-        if (suggestedKeyword) {
-          document.getElementById('synonymKeyword').textContent = suggestedKeyword;
-          document.getElementById('synonymInput').placeholder = `e.g., ${suggestedKeyword}`;
-        } else {
-          document.getElementById('synonymKeyword').textContent = '???';
-          document.getElementById('synonymInput').placeholder = 'e.g., bralette, bandana, trainers';
-        }
-        
-        document.getElementById('synonymInput').value = '';
-        document.getElementById('synonymStatus').textContent = '';
-      } else {
-        // Hide if no categories
-        document.getElementById('synonymLearner').style.display = 'none';
-      }
       
       // Show keywords as editable tags with source badges
       const keywordTagsEl = document.getElementById('llmKeywordTags');
@@ -1425,6 +1395,39 @@
       showLLMReviewModal(currentLLMTags);
     };
     
+    // Update synonym learner based on current available categories
+    function updateSynonymLearner() {
+      if (currentLLMTags.availableCategories && currentLLMTags.availableCategories.length > 0) {
+        // Get the first available category (user will keep one before saving)
+        const firstCategory = currentLLMTags.availableCategories[0].path;
+        const pathParts = firstCategory.split(' > ');
+        const categoryName = pathParts[pathParts.length - 1]; // Most specific level
+        
+        // Show synonym learner
+        document.getElementById('synonymLearner').style.display = 'block';
+        document.getElementById('synonymCategory').textContent = categoryName;
+        
+        // Keep existing input value if user already typed something
+        const currentInput = document.getElementById('synonymInput').value;
+        if (!currentInput) {
+          // Only update placeholder if input is empty
+          const productTitle = lastPayload?.title || '';
+          const suggestedKeyword = extractSynonymSuggestion(productTitle, categoryName);
+          
+          if (suggestedKeyword) {
+            document.getElementById('synonymKeyword').textContent = suggestedKeyword;
+            document.getElementById('synonymInput').placeholder = `e.g., ${suggestedKeyword}`;
+          } else {
+            document.getElementById('synonymKeyword').textContent = '???';
+            document.getElementById('synonymInput').placeholder = 'e.g., bralette, bandana, trainers';
+          }
+        }
+      } else {
+        // Hide if no categories
+        document.getElementById('synonymLearner').style.display = 'none';
+      }
+    }
+    
     // Render category chips with editable segments (each with X button)
     function renderCategoryChips() {
       const chipsContainer = document.getElementById('llmCategoryChips');
@@ -1463,6 +1466,9 @@
         </div>
       `;
       }).join('');
+      
+      // Update synonym learner to reflect current categories
+      updateSynonymLearner();
     }
     
     // Remove a specific segment from a category path
