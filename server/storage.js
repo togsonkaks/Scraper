@@ -495,7 +495,8 @@ async function saveProduct(productData, tagResults) {
       
       for (let i = 0; i < tagResults.categories.length; i++) {
         const categoryName = tagResults.categories[i];
-        const categorySlug = categoryName.toLowerCase().replace(/\s+/g, '-');
+        // IMPORTANT: Use SAME slug format as seed script to match existing categories
+        const categorySlug = categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         
         // Find category by slug AND parent_id to ensure correct hierarchy
         const categoryResult = await sql`

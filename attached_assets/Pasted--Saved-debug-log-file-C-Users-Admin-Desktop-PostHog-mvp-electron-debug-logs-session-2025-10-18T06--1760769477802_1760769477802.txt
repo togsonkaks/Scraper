@@ -1,0 +1,24 @@
+ Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-18T06-37-43_wilson.com.txt
+[dotenv@17.2.2] injecting env (9) from .env -- tip: ≡ƒôí version env with Radar: https://dotenvx.com/radar
+≡ƒöì [auto-tagger.js] Connecting to database: postgresql://postgres:****@localhost:5433/Tagglo
+Γ£à Auto-tagger initialized: 1084 tags, 447 categories, 6 synonyms
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (1 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Ultra V5 Tour 6 Pack
+  ≡ƒöù URL keywords: en us product ultra v5 tour 6pk wr8044400
+  ≡ƒÅ╖∩╕Å Breadcrumbs: HomeTennisTennis BagsPerformance
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org","@type":"Product","name":"Ultra V5 Tour 6 Pack","image":"https://www.wilson.com/en-us/media/catalog/product/article_im...
+  ≡ƒôä Description: Hot Right Now Ultra V5 Tour 6 Pack $109.00 (0) Colors: Blue Blue Quantity : Low Stock ! Make your se       
+  ≡ƒöñ Search text length: 4279 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): blue
+  Γ£à Matched tags (non-color): 11 ΓåÆ court-ready, tennis, padded, performance, premium, spacious, small, polyester, high-end, standard, stock
+  ≡ƒæñ Gender (early): unisex [default, default]
+  ≡ƒöì Universal search: Searching all 447 categories
+  ≡ƒôé Matched categories: 15 ΓåÆ Racket (score: 780, lvl 2), Racket (score: 770, lvl 2), Racket (score: 770, lvl 2), Racket (score: 770, lvl 2), Bags (score: 330, lvl 2), Shirts (score: 330, lvl 2), Tennis (score: 220, lvl 1), Tennis (score: 210, lvl 1), Tennis (score: 210, lvl 1), Tennis (score: 210, lvl 1), Backpack (score: 140, lvl 3), Shade (score: 140, lvl 3), Backpack (score: 130, lvl 2), Accessories (score: 120, lvl 1), Tennis Bags (score: 80, lvl 2)
+  ≡ƒÄ» Best category match: Racket (score: 780, lvl 2, id: 18797)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":0,"descriptionMatches":15,"specsMatches":0}
+  Γ£¿ FINAL PATH: Sports & Outdoors > Tennis > Racket
+  ≡ƒÜ½ Filtered 1 tags for department: sports & outdoors
+  ≡ƒæñ Gender (final): unisex [default, default]
+  ≡ƒæñ Gender tag added: unisex
