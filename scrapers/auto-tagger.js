@@ -401,6 +401,19 @@ const MULTI_WORD_SYNONYMS = [
   { phrase: 'combat boots', category: 'Boots' }
 ];
 
+// Compound Material Patterns: Multi-word materials that should be matched BEFORE base materials
+// This prevents "faux leather" from being tagged as just "leather"
+const COMPOUND_MATERIALS = [
+  { compound: 'faux leather', baseMaterial: 'leather', preferredTag: 'faux-leather' },
+  { compound: 'vegan leather', baseMaterial: 'leather', preferredTag: 'vegan-leather' },
+  { compound: 'synthetic leather', baseMaterial: 'leather', preferredTag: 'synthetic-leather' },
+  { compound: 'genuine leather', baseMaterial: 'leather', preferredTag: 'genuine-leather' },
+  { compound: 'faux suede', baseMaterial: 'suede', preferredTag: 'faux-suede' },
+  { compound: 'faux fur', baseMaterial: 'fur', preferredTag: 'faux-fur' },
+  { compound: 'organic cotton', baseMaterial: 'cotton', preferredTag: 'organic-cotton' },
+  { compound: 'merino wool', baseMaterial: 'wool', preferredTag: 'merino-wool' }
+];
+
 // CATEGORY FALSE POSITIVE FILTERS
 // Prevents descriptor words from incorrectly matching category names
 // Example: "short sleeve" should NOT match "Shorts" category
@@ -501,11 +514,48 @@ function matchTags(text, tagType = null) {
   const normalizedText = normalizeText(text);
   const matches = [];
   
+  // STEP 1: Check for compound materials (faux leather, vegan leather, etc.)
+  // Track which base materials should be blocked
+  const blockedBaseMaterials = new Set();
+  
+  for (const compoundMat of COMPOUND_MATERIALS) {
+    // Check if all words in compound phrase are present (not necessarily adjacent)
+    const words = compoundMat.compound.toLowerCase().split(/\s+/);
+    let allWordsPresent = true;
+    
+    for (const word of words) {
+      const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const pattern = new RegExp(`\\b${escaped}\\b`, 'i');
+      if (!pattern.test(normalizedText)) {
+        allWordsPresent = false;
+        break;
+      }
+    }
+    
+    if (allWordsPresent) {
+      // Found compound material - add it and block the base material
+      console.log(`  🔬 Compound material detected: "${compoundMat.compound}" → ${compoundMat.preferredTag}`);
+      matches.push({
+        name: compoundMat.preferredTag,
+        slug: compoundMat.preferredTag,
+        type: 'materials'
+      });
+      blockedBaseMaterials.add(compoundMat.baseMaterial);
+    }
+  }
+  
+  // STEP 2: Check regular tags (but skip blocked base materials)
   const tagsToCheck = tagType 
     ? tagTaxonomy.filter(t => t.tag_type === tagType)
     : tagTaxonomy;
   
   for (const tag of tagsToCheck) {
+    // Skip if this is a blocked base material
+    if (blockedBaseMaterials.has(tag.name)) {
+      console.log(`  🚫 Blocked base material: "${tag.name}" (compound material found instead)`);
+      continue;
+    }
+    
     // Generate ALL plural/singular variations (pocket/pockets, zipper/zippers, etc.)
     const variations = generatePluralVariations(tag.name);
     
