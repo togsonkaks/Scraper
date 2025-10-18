@@ -38,7 +38,7 @@ The application is an Electron-based desktop application utilizing a main proces
     - **Demographic Tags**: Gender and age stored exclusively as tags for personalization, not in category structure.
     - Auto-tagger engine: Keyword extraction from URL slugs and JSON-LD, weighted category scoring (Title >> URL > Breadcrumbs > Specs > Description).
     - Comprehensive 5-tier gender detection and age tag detection.
-    - Smart color detection, plural/singular matching, hierarchical path building.
+    - Smart color detection, universal plural/singular matching (applied to all category names, synonym keys, and tag names), hierarchical path building.
     - Category-aware tag filtering by department.
     - **Self-Learning Category Synonym System**: Database table `category_synonyms` stores user-taught synonym mappings. The "Teach a Synonym" section is always visible in the LLM Review modal, with smart keyword suggestions for mapping.
     - **Multi-Word Synonym System**: Checks if ALL words in a phrase are present anywhere in product text (not necessarily adjacent). Example: "slouchy bag" matches "Hazel Slouchy Suede Bag" even though words aren't side-by-side. Multi-word matches receive a +5000 scoring boost to ensure specific categories (e.g., "Handbag") beat generic parent categories (e.g., "Bags"). Configured for bag types (slouchy bag, crossbody bag, shoulder bag), pants styles (cargo pants, jogger pants), jackets (bomber jacket, puffer jacket), and footwear (ankle boots, chelsea boots).
