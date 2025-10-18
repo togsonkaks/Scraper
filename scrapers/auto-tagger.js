@@ -993,7 +993,7 @@ async function autoTag(productData) {
     
     // Define valid tag types for each department
     const departmentTagRules = {
-      'fashion': ['colors', 'patterns', 'finishes', 'materials', 'fit', 'styles', 'occasions'],
+      'fashion': ['colors', 'patterns', 'finishes', 'materials', 'fit', 'styles', 'occasions', 'activities'],
       'tools & hardware': ['tool-types', 'materials', 'features', 'activities', 'finishes'],
       'automotive': ['automotive', 'materials', 'features', 'finishes'],
       'sports & outdoors': ['activities', 'materials', 'features', 'colors', 'patterns', 'styles'],
