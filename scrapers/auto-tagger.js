@@ -448,8 +448,13 @@ const CATEGORY_BLACKLIST_CONTEXTS = {
     ]
   },
   'belt': {
-    // Fashion: Block "belt" when it's part of automotive "Belt & Hose"
+    // Block "belt" when it's a descriptor or automotive part (not the accessory)
     blockPatterns: [
+      // Clothing descriptors (belted style, belt loops)
+      /\bbelted[-\s]/i,          // "belted waist", "belted jacket"
+      /\bbelt[-\s]loop/i,        // "belt loops"
+      /\bbelt[-\s]detail/i,      // "belt detailing"
+      // Automotive parts
       /\bserpentine[-\s]belt/i,
       /\btiming[-\s]belt/i,
       /\bdrive[-\s]belt/i,
