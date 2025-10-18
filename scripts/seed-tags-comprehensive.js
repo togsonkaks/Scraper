@@ -54,12 +54,13 @@ const COMPREHENSIVE_TAGS = {
   materials: [
     // Fabrics & Textiles
     'cotton', 'organic-cotton', 'polyester', 'wool', 'merino-wool', 'cashmere', 'alpaca',
-    'leather', 'genuine-leather', 'vegan-leather', 'suede', 'nubuck', 'mesh', 'canvas',
+    'leather', 'genuine-leather', 'vegan-leather', 'faux-leather', 'synthetic-leather', 'pleather',
+    'suede', 'faux-suede', 'nubuck', 'mesh', 'canvas',
     'denim', 'chambray', 'silk', 'satin', 'linen', 'fleece', 'nylon', 'spandex', 'elastane',
     'lycra', 'rubber', 'eva-foam', 'memory-foam', 'latex', 'bamboo', 'tencel', 'modal',
     'rayon', 'acrylic', 'microfiber', 'neoprene', 'gore-tex', 'ripstop', 'corduroy',
     'flannel', 'jersey', 'terry-cloth', 'velvet', 'tweed', 'twill', 'poplin', 'oxford',
-    'down', 'feather', 'synthetic-fill', 'recycled-polyester', 'recycled-nylon',
+    'down', 'feather', 'fur', 'faux-fur', 'synthetic-fill', 'recycled-polyester', 'recycled-nylon',
     'hemp', 'jute', 'cork',
     
     // Metals & Minerals
