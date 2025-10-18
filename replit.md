@@ -41,6 +41,7 @@ The application is an Electron-based desktop application utilizing a main proces
     - Smart color detection, plural/singular matching, hierarchical path building.
     - Category-aware tag filtering by department.
     - **Self-Learning Category Synonym System**: Database table `category_synonyms` stores user-taught synonym mappings. The "Teach a Synonym" section is always visible in the LLM Review modal, with smart keyword suggestions for mapping.
+    - **Multi-Word Synonym System**: Checks if ALL words in a phrase are present anywhere in product text (not necessarily adjacent). Example: "slouchy bag" matches "Hazel Slouchy Suede Bag" even though words aren't side-by-side. Configured for bag types (slouchy bag, crossbody bag, shoulder bag), pants styles (cargo pants, jogger pants), jackets (bomber jacket, puffer jacket), and footwear (ankle boots, chelsea boots).
     - **Tag Taxonomy Reorganization**: Separated colors, finishes, and patterns into distinct tag categories. Implemented Canonical Tag System to deduplicate tag variations (e.g., "stripe" → "striped"). Added Neckline & Sleeve tags.
     - **Smart Tag Classification**: 3-tier system: DB lookup → taxonomy pattern matching → LLM classification.
     - **LLM-powered tagging system** (GPT-4o-mini): Utilizes complete taxonomy context, enforces strict rules for category paths and tags. LLM suggestions approved by user are saved with `llm_discovered=1`.
