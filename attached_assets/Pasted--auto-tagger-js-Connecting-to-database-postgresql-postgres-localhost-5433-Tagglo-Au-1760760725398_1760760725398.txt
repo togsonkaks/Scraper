@@ -1,0 +1,45 @@
+ƒöì [auto-tagger.js] Connecting to database: postgresql://postgres:****@localhost:5433/Tagglo
+Γ£à Auto-tagger initialized: 1071 tags, 438 categories, 0 synonyms
+  ≡ƒÄ¿ Has "indigo" tag: true
+  ≡ƒæû Has "Jeans" category: true (1 instances)
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Thomasin Striped Shorts
+  ≡ƒöù URL keywords: classic effortless blue natural striped linen shorts
+  ≡ƒÅ╖∩╕Å Breadcrumbs:
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org/","@type":"Product","name":"Thomasin Striped Shorts","url":"https://www.adoredvintage.com/products/classic-effortless-b...
+  ≡ƒôä Description: Effortless and easy to wear linen and cotton summer shorts in charcoal pinstripe with elasticated wa       
+  ≡ƒöñ Search text length: 1530 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): blue
+  Γ£à Matched tags (non-color): 10 ΓåÆ imported, natural, small, cotton, linen, summer, striped, classic, modern, relaxed
+  ≡ƒöì TIER 1 (title/url/json-ld) - WOMEN match: "dress"
+  ≡ƒöì JSON-LD only - WOMEN match: "dress"
+  ≡ƒæñ Gender (early): women [title/url/json-ld, high]
+  ≡ƒöì Universal search: Searching all 438 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Shorts (score: 1580, lvl 2), Dresses (score: 80, lvl 2)
+  ≡ƒÄ» Best category match: Shorts (score: 1580, lvl 2, id: 14788)
+    Match details: {"breadcrumbMatches":0,"titleMatches":1,"urlMatches":1,"descriptionMatches":1,"specsMatches":0}
+  Γ£¿ FINAL PATH: Fashion > Clothing > Shorts
+  ≡ƒÜ½ Filtered 2 tags for department: fashion
+  ≡ƒöì TIER 1 (title/url/json-ld) - WOMEN match: "dress"
+  ≡ƒöì JSON-LD only - WOMEN match: "dress"
+  ≡ƒæñ Gender (final): women [title/url/json-ld, high]
+  ≡ƒæñ Gender tag added: women
+Γ£à Saved debug log file: C:\Users\Admin\Desktop\PostHog\mvp_electron\debug-logs\session_2025-10-18T04-11-49_adoredvintage.com.txt
+≡ƒöì AUTO-TAGGER DEBUG:
+  ≡ƒô¥ Title: Bright Moments Sundress
+  ≡ƒöù URL keywords: vintage 1980s dark pink floral midi sundress
+  ≡ƒÅ╖∩╕Å Breadcrumbs:
+  ≡ƒôè JSON-LD: {"@context":"http://schema.org/","@type":"Product","name":"Bright Moments Sundress","url":"https://www.adoredvintage.com/products/vintage-1980s-dark-p...
+  ≡ƒôä Description: Vintage 1980s deep fuchsia pink midi sundress with delicate functional spaghetti straps, buttons dow       
+  ≡ƒöñ Search text length: 1855 chars
+  ≡ƒÄ¿ Colors detected (Tier 1 - title/URL): pink
+  Γ£à Matched tags (non-color): 10 ΓåÆ midi, small, xs, XS/Small, cotton, down, 1980s, floral, sundress, vintage
+  ≡ƒæñ Gender (early): unisex [default, default]
+  ≡ƒöì Universal search: Searching all 438 categories
+  ≡ƒôé Matched categories: 2 ΓåÆ Fabric (score: 80, lvl 2), Shirts (score: 80, lvl 2)
+  ≡ƒÄ» Best category match: Fabric (score: 80, lvl 2, id: 14921)
+    Match details: {"breadcrumbMatches":0,"titleMatches":0,"urlMatches":0,"descriptionMatches":1,"specsMatches":0}
+  Γ£¿ FINAL PATH: Arts & Crafts > Sewing & Fabric > Fabric
+  ≡ƒÜ½ Filtered 8 tags for department: arts & crafts
+  ≡ƒæñ Gender (final): unisex [default, default]
+  ≡ƒæñ Gender tag added: unisex
