@@ -233,7 +233,8 @@ async function updateProductTags(productId, tagResults) {
       
       for (let i = 0; i < cleanedCategories.length; i++) {
         const categoryName = cleanedCategories[i];
-        const categorySlug = categoryName.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '');
+        // IMPORTANT: Use SAME slug format as seed script to match existing categories
+        const categorySlug = categoryName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         
         // Find category by slug AND parent_id to ensure correct hierarchy
         let categoryResult = await sql`
@@ -782,8 +783,8 @@ async function seedFullTaxonomy() {
         parentId = categoryMap.get(parentPath) || null;
       }
       
-      // Create base slug with counter for duplicates
-      let slug = cat.name.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+      // Create base slug with counter for duplicates (MUST match seed script format!)
+      let slug = cat.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
       if (slugCounter[slug] !== undefined) {
         slugCounter[slug]++;
         slug = `${slug}-${slugCounter[slug]}`;
