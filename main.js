@@ -326,6 +326,23 @@ ipcMain.handle('eval-in-product', async (_e, js) => {
   return win.webContents.executeJavaScript(js, true);
 });
 
+ipcMain.handle('product-go-back', async () => {
+  const win = ensureProduct();
+  if (win.webContents.canGoBack()) {
+    win.webContents.goBack();
+    return true;
+  }
+  return false;
+});
+
+ipcMain.handle('copy-product-url', async () => {
+  const win = ensureProduct();
+  const url = win.webContents.getURL();
+  const { clipboard } = require('electron');
+  clipboard.writeText(url);
+  return url;
+});
+
 ipcMain.handle('scrape-current', async (_e, opts = {}) => {
   const win = ensureProduct();
   
