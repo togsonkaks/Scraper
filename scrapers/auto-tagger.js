@@ -702,8 +702,18 @@ function matchCategories(text, productData = {}, detectedGender = null) {
       
       frequencyScore += featureBoost;
       
+      // MULTI-WORD SYNONYM BOOST: Massive boost for multi-word phrase matches
+      // Example: "slouchy bag" is more specific than just "bag", so it should beat parent categories
+      let multiWordBoost = 0;
+      if (multiWordMatches.length > 0) {
+        multiWordBoost = 5000; // Huge bonus to ensure specific matches beat generic parent categories
+        console.log(`  🚀 Multi-word synonym boost (+${multiWordBoost}): "${category.name}" gets priority via "${multiWordMatches.join(', ')}"`);
+      }
+      
+      frequencyScore += multiWordBoost;
+      
       // ONLY add to results if there are actual keyword matches (skip depth-only matches)
-      if (frequencyScore > 0) {
+      if (frequencyScore > 0 || multiWordBoost > 0) {
         // DEPTH BONUS: Add +10 points per level as tiebreaker for specificity
         // This ensures "Fashion > Accessories > Bags > Shoulder Bags" beats "Fashion > Accessories" when scores are equal
         const depthBonus = fullPath.length * 10;
